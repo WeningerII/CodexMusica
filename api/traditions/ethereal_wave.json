@@ -3,14 +3,14 @@
   "name": "Ethereal Wave",
   "family": "rock",
   "lineage": "British gothic-rock offshoot of 1983-1990 defined by Cocteau Twins, This Mortal Coil and Dead Can Dance on 4AD under producers John Fryer and Ivo Watts-Russell, built from chorused and heavily reverberant guitar, fretless or chorused bass, drum machine, and wordless soprano vocals stacked in cathedral-scale reverb over slow modal 60-100 BPM cycles.",
-  "recipe": "classic Northern European mid-1980s ethereal wave, distorted Rock, gothic rock branch, experimental distorted rock, ambient experimental electric hauntology. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp soft down tuning power chord single coil electric guitar, ampeg svt amp rock bass amp fretless bass, drum machine analog, sustained pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, 2000s elastic pitch edited stack multitrack vocal stack. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 834,
-  "score": 228.428,
+  "recipe": "classic Northern European mid-1980s ethereal wave, distorted Rock, gothic rock branch, experimental distorted rock, ambient experimental electric hauntology italian post-rock. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall plexi amp British rock amp soft down tuning power chord single coil electric guitar, ampeg svt amp rock bass amp fretless bass, drum machine analog, sustained pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron, late 1980s reverb saturated bus stack multitrack vocal stack. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 802,
+  "score": 220.93,
   "config": {
     "traditions": [
       "ethereal_wave",
       "hauntology_aesthetic",
-      "hauntology_uk_2010s"
+      "italian_post_rock"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 16.494999999999994,
-          "voice_quality": 6.305000000000001,
+          "voice_register": 21.244999999999997,
+          "voice_quality": 4.160000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0149999999999997,
-          "voice_articulation": 18.785,
-          "voice_microtone": 20.929999999999996,
-          "voice_tradition": 12.8375,
-          "voice_mechanism_compound": 3.0550000000000006,
+          "voice_vibrato": 2.685,
+          "voice_articulation": 14.494999999999997,
+          "voice_microtone": 19.845,
+          "voice_tradition": 11.895,
+          "voice_mechanism_compound": 4.030000000000001,
           "voice_estill_quality": 2.9899999999999998,
-          "voice_speech_song": 19.435,
-          "voice_ensemble_config": 18.72,
-          "voice_ornament_system": 0.09,
+          "voice_speech_song": 15.144999999999998,
+          "voice_ensemble_config": 14.624999999999998,
+          "voice_ornament_system": 1.5250000000000001,
           "voice_pitch_organization": 2.71,
-          "voice_processing_chain": 10.245,
-          "voice_multitrack_stack": 3.8675
+          "voice_processing_chain": 4.6450000000000005,
+          "voice_multitrack_stack": 3.825
         }
       },
       {
@@ -64,14 +64,14 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_12",
           "bridge": "two_point_trem",
-          "scale_length": "scale_gibson",
+          "scale_length": "scale_baritone",
           "finish": "oil_satin",
           "string_tuning": "eb_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 4.452500000000001,
-          "amp_make": 11.049999999999997,
+          "electric_technique": 4.095000000000001,
+          "amp_make": 12.675,
           "body_wood": 0.5399999999999999,
           "neck_wood": 0.7800000000000001,
           "fretboard": 0.7800000000000001,
@@ -79,9 +79,9 @@
           "string_material": 0.7800000000000001,
           "string_gauge": 1.54,
           "bridge": 0.6,
-          "scale_length": 0.585,
+          "scale_length": 0.95,
           "finish": 0.195,
-          "string_tuning": 9.035,
+          "string_tuning": 10.855000000000002,
           "single_coil_pickup_construction": 0
         }
       },
@@ -97,7 +97,7 @@
         },
         "scores": {
           "electric_technique": -0.05,
-          "amp_make": 9.425,
+          "amp_make": 12.089999999999998,
           "fretless_use": 0.5399999999999999,
           "fretless_bass_construction": 0.045,
           "fretless_fingerboard_wood": 0.995,
@@ -107,13 +107,13 @@
       {
         "id": "drum_machine_analog",
         "slots": {
-          "kick_voice": "fm_pair_kick",
+          "kick_voice": "bridged_t_kick",
           "snare_voice": "two_oscillator_snare",
           "hat_voice": "square_summed_hat",
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0.51,
+          "kick_voice": 0.995,
           "snare_voice": 0.51,
           "hat_voice": 0,
           "shuffle_quantize": 0.51
@@ -128,10 +128,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 7.015,
-          "poly_archetypes": 7.8,
+          "electronic_technique": 5.14,
+          "poly_archetypes": 10.27,
           "poly_voices": 0.38999999999999996,
-          "poly_maker_lineage": 0.78
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -139,28 +139,28 @@
         "slots": {
           "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "mellotron_voice": "mellotron_strings",
-          "mellotron_context": "mellotron_prog",
+          "mellotron_context": "mellotron_indie",
           "mellotron_model": "mellotron_m400_canonical",
           "mellotron_tape_material": "mellotron_polyester_tape_canonical"
         },
         "scores": {
           "keyboard_technique": 0.9099999999999999,
-          "mellotron_voice": 7.8,
-          "mellotron_context": 0.39,
-          "mellotron_model": 6.825,
-          "mellotron_tape_material": 1.69
+          "mellotron_voice": 10.27,
+          "mellotron_context": 1.775,
+          "mellotron_model": 8.450000000000001,
+          "mellotron_tape_material": 0.845
         }
       },
       {
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_5_part_cluster",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_era_aesthetic": "multitrack_era_late_1980s_reverb_bus",
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
           "multitrack_stack_density": 0.48,
-          "multitrack_stack_era_aesthetic": 2.145,
+          "multitrack_stack_era_aesthetic": 1.84,
           "multitrack_stack_processing": 0.325
         }
       }

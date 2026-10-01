@@ -5,7 +5,7 @@
   "lineage": "A cinematic post-rock discovery cluster including Explosions in the Sky, Lights & Motion, We Lost the Sea and Nordic Giants. This default selects Explosions in the Sky’s piano-expanded instrumental branch around End, with guitar, bass, drums and supporting synthesizer textures.",
   "recipe": "classic cinematic post-rock, distorted Rock, experimental branch. soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano, marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. treated studio. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital digital delay hall reverb.",
   "recipe_chars": 442,
-  "score": 54.292,
+  "score": 54.451,
   "config": {
     "traditions": [
       "cinematic_post_rock"
@@ -48,22 +48,22 @@
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
-          "scale_length": "scale_short",
+          "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": -0.11850000000000002,
+          "electric_technique": -0.10500000000000001,
           "amp_make": 4.42,
           "body_wood": 0.063,
-          "neck_wood": 0.414,
-          "fretboard": 0.414,
-          "pickup_magnet": 0.414,
-          "string_material": 0.414,
-          "string_gauge": 0.20799999999999996,
+          "neck_wood": 0.378,
+          "fretboard": 0.378,
+          "pickup_magnet": 0.378,
+          "string_material": 0.378,
+          "string_gauge": 0.5297499999999999,
           "bridge": 0.315,
-          "scale_length": 0.1305,
+          "scale_length": 0.126,
           "finish": 0.1365,
           "string_tuning": 5.85,
           "single_coil_pickup_construction": 0
@@ -103,9 +103,9 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.414,
+          "drumhead": 0.378,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.102,
+          "shell_wood": 0.17624999999999996,
           "cymbal_alloy": -0.2
         }
       },
@@ -119,9 +119,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "oscillator": 0.273,
-          "filter_topology": 1.162,
+          "filter_topology": 1.126,
           "envelope": 0.588,
           "modulation": 0.105
         }

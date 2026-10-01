@@ -5,7 +5,7 @@
   "lineage": "American shoegaze is represented here by Nothing. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic american shoegaze, distorted Rock, alternative branch. basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 313,
-  "score": 28.355,
+  "score": 25.968,
   "config": {
     "traditions": [
       "american_shoegaze"
@@ -19,7 +19,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 2.7300000000000004,
-          "body_wood": 2.4255,
-          "neck_wood": 0.441,
-          "fretboard": 0.21000000000000002,
-          "pickup_magnet": 0.1365,
-          "pickup_winding": 0.714,
+          "body_wood": 1.8795,
+          "neck_wood": 0.3045,
+          "fretboard": 0.1365,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.5775,
           "string_material": 0.105,
-          "bridge": 1.5805,
-          "scale_length": 1.743,
-          "string_gauge": 1.5805,
+          "bridge": 1.69,
+          "scale_length": 1.3335000000000001,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.3
+          "string_tuning": 0.39
         }
       },
       {
@@ -52,17 +52,17 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.1200000000000006,
-          "body_wood": 0.8820000000000001,
+          "body_wood": 0.609,
           "pickup_config": 0.273,
           "string_type": 5.85,
-          "scale_length_b": 0.441,
-          "fretted_or_not": 0.11999999999999998,
+          "scale_length_b": 0.3045,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 4.5,
-          "drumhead": 0.5145,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.15599999999999997,
-          "voice_ornament_system": 0.273,
+          "voice_ensemble_config": 0,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.32399999999999995,
-          "voice_multitrack_stack": 0.15599999999999997
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 0
         }
       }
     ],

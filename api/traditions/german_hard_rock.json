@@ -5,7 +5,7 @@
   "lineage": "German hard rock includes the guitar-led, hook-oriented band tradition represented here by Scorpions and their Rock Believer sessions. This model keeps singing, two arranged electric-guitar roles represented by one category, electric bass and acoustic drums. It is a current recording design, not a universal German sound.",
   "recipe": "classic german hard rock, distorted Rock, classic branch. one note per syllable, unprocessed natural acoustic. marshall plexi amp British rock amp mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp mahogany five string electric bass electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 385,
-  "score": 46.413,
+  "score": 46.091,
   "config": {
     "traditions": [
       "german_hard_rock"
@@ -42,7 +42,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 2.33675,
+          "voice_speech_song": 2.213,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.14775,
@@ -79,7 +79,7 @@
           "bridge": 0.66825,
           "scale_length": 1.3365000000000002,
           "string_gauge": 0.66825,
-          "finish": 0.526875,
+          "finish": 0.48975,
           "string_tuning": 0.08549999999999999
         }
       },
@@ -101,7 +101,7 @@
           "pickup_config": 0.3045,
           "string_type": 0,
           "scale_length_b": 0.66825,
-          "fretted_or_not": 1.2662499999999999,
+          "fretted_or_not": 1.1425,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 5.07
         }
@@ -116,7 +116,7 @@
           "cymbal_alloy": "b20"
         },
         "scores": {
-          "drum_technique": 11.350125,
+          "drum_technique": 11.313,
           "drumhead": 0.859,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.22799999999999998,

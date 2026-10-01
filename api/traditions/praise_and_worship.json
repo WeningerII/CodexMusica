@@ -3,9 +3,9 @@
   "name": "Praise and Worship",
   "family": "blues_gospel",
   "lineage": "Contemporary congregational church music formed in the 1970s Jesus-Movement and Vineyard/Maranatha! circles of Southern California and codified globally from the 1990s by Hillsong (Sydney), Integrity/Hosanna!, and later Bethel and Elevation — mid-tempo 4/4 or 6/8 at 70-90 BPM, diatonic I-V-vi-IV loops in guitar-friendly keys, layered acoustic and delay-drenched electric guitar with pad synth beds, worship-leader voice doubled by a congregation-scale choir, and open-ended repeated 'bridge' vamps designed for extended live singing.",
-  "recipe": "classic mid-1970s praise and worship, ritual Devotional, christian gospel branch, christian gospel pentecostal, pop rock folk rock adoração contemporary worship. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, cedar maple phosphor bronze modern martin strummed dreadnought acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano, singing lead analog poly synth. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 944,
-  "score": 373.994,
+  "recipe": "classic mid-1970s praise and worship, ritual Devotional, christian gospel branch, christian gospel pentecostal, pop rock folk rock adoração contemporary worship. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, cedar maple phosphor bronze modern martin strummed dreadnought acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced birch laminated maple laminated Asian spruce grand piano, singing lead analog poly synth. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 947,
+  "score": 372.888,
   "config": {
     "traditions": [
       "praise_and_worship",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 24.615,
-          "voice_quality": 28.123375,
+          "voice_quality": 28.08625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.0150000000000006,
@@ -47,8 +47,8 @@
           "voice_speech_song": 23.79,
           "voice_ensemble_config": 24.634999999999998,
           "voice_ornament_system": 10.900000000000002,
-          "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 8.600875000000002,
+          "voice_pitch_organization": 1.4899999999999998,
+          "voice_processing_chain": 8.56375,
           "voice_multitrack_stack": 5.240000000000001
         }
       },
@@ -62,7 +62,7 @@
         },
         "scores": {
           "choir_size": 10.530000000000001,
-          "choir_polyphonic_configuration": 1.9015,
+          "choir_polyphonic_configuration": 1.7856249999999998,
           "choir_regional_canonical_configuration": 5.655000000000001,
           "choir_ensemble_repertoire": 0.585
         }
@@ -77,8 +77,8 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 5.649625,
-          "string_tuning": 0.945,
+          "acoustic_technique": 5.4887500000000005,
+          "string_tuning": 0.9899999999999999,
           "top_wood": 2.34,
           "back_sides": 1.81875,
           "string_acoustic": 1.95
@@ -121,7 +121,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -167,14 +167,14 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 15.671,
+          "keyboard_technique": 15.15125,
           "grand_piano_size": 1.95,
           "grand_piano_brand": 2.145,
           "piano_hammer": 3.7700000000000005,
-          "piano_rim": 3.79,
+          "piano_rim": 3.835,
           "piano_soundboard": 3.325,
-          "piano_pinblock": 0.8999999999999999,
-          "piano_plate": 1.0771249999999999,
+          "piano_pinblock": 0.945,
+          "piano_plate": 1.04,
           "piano_pitch_standard": 5.850000000000001
         }
       },
@@ -187,9 +187,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 6.095875,
+          "electronic_technique": 6.058750000000001,
           "poly_archetypes": 3.5100000000000002,
-          "poly_voices": 3.13025,
+          "poly_voices": 2.9693750000000003,
           "poly_maker_lineage": -0.385
         }
       }

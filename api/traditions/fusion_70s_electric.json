@@ -5,7 +5,7 @@
   "lineage": "1970s jazz subgenre developed from Miles Davis's late-1960s Bitches Brew sessions, integrating jazz-improvisational practice with rock-and-funk rhythmic vocabulary and electric-amplified-instrumentation. Weather Report (founded 1970 by Joe Zawinul and Wayne Shorter), Mahavishnu Orchestra (John McLaughlin), Return to Forever (Chick Corea), and Headhunters (Herbie Hancock) constitute the canonical 1970s fusion roster. Distinguished from broader jazz by fusion's explicit rock-and-funk-rhythmic-electric-instrument synthesis.",
   "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, prog rock electric violin. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 674,
-  "score": 295.244,
+  "score": 294.134,
   "config": {
     "traditions": [
       "fusion_70s_electric",
@@ -31,7 +31,7 @@
           "sax_body_alloy": 24.375,
           "sax_mouthpiece": 0.845,
           "sax_technique": 23.5,
-          "sax_maker_school": 29.1715
+          "sax_maker_school": 28.363000000000003
         }
       },
       {
@@ -48,7 +48,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.9315,
+          "keyboard_technique": 3.9765,
           "grand_piano_size": 0.24,
           "grand_piano_brand": 1.6315,
           "piano_hammer": 14.852500000000001,
@@ -75,7 +75,7 @@
           "amp_make": 12.805,
           "body_wood": 0,
           "pickup_config": 0.45499999999999996,
-          "string_type": 29.3925,
+          "string_type": 30.225,
           "scale_length_b": 0.45499999999999996,
           "fretted_or_not": 0.195,
           "bass_technique": 23.5,
@@ -90,8 +90,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 45.92249999999999,
-          "drumhead": 26.718500000000002,
+          "drum_technique": 45.312,
+          "drumhead": 26.0465,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -107,8 +107,8 @@
         "scores": {
           "electronic_technique": -0.05,
           "oscillator": 0.845,
-          "filter_topology": 0.6765,
-          "envelope": 2.9944999999999995,
+          "filter_topology": 0.9165,
+          "envelope": 2.8579999999999997,
           "modulation": 0.15
         }
       },

@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 3938,
+  "count": 4038,
   "items": [
     {
       "id": "honky_tonk",
@@ -149524,6 +149524,3224 @@
       "description": "Deep Christian rock is represented by the 77s’ guitar-band core on Direct. The artist release credits electric/acoustic guitar, bass, drums and multiple voices, with additional keyboard/percussion roles. The selective authored model keeps electric guitar, bass, kit and shared singing. Exact studio chain, tuning and part selections are contemporary authored production choices.",
       "exemplars": [
         "77s"
+      ]
+    },
+    {
+      "id": "african_rock",
+      "name": "African rock",
+      "family": "rock_punk",
+      "lineage": "African rock is represented here by Amanaz. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "maracas",
+        "tambourine_orch",
+        "voice"
+      ],
+      "description": "African rock is represented by the Zamrock branch documented on Amanaz’s Africa. The reissue label credits lead and rhythm guitars, bass, drum kit, maracas, tambourine and lead/backing vocals; its original session took place in Chingola. The authored arrangement retains these roles with contemporary recording defaults. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Amanaz"
+      ]
+    },
+    {
+      "id": "albanian_rock",
+      "name": "Albanian rock",
+      "family": "rock_punk",
+      "lineage": "Albanian rock is represented here by Elita 5. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Albanian rock is represented by Elita 5, a Tetovo-based band situated by a municipal concert program in Albanian rock history. That program documents lead voice, two guitars, bass, drums and keyboards. The authored arrangement combines this core with a sustained keyboard layer. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Elita 5"
+      ]
+    },
+    {
+      "id": "argentine_alternative_rock",
+      "name": "Argentine alternative rock",
+      "family": "rock_punk",
+      "lineage": "Argentine alternative rock is represented here by Eruca Sativa. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Argentine alternative rock is represented by Eruca Sativa’s power-trio branch, founded in Córdoba. Institutional profiles document guitar and lead voice, bass and voice, and drums with backing voice. The authored realization gives the compact electric trio a riff-centered arrangement. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Eruca Sativa"
+      ]
+    },
+    {
+      "id": "argentine_indie_rock",
+      "name": "Argentine indie rock",
+      "family": "rock_punk",
+      "lineage": "Argentine indie rock is represented here by El Mató a un Policía Motorizado. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Argentine indie rock is represented by El Mató a un Policía Motorizado’s La Plata branch. Its official biography identifies indie rock with punk/noise-rock connections and a lineup of two guitars, bass with lead voice, drums and keyboards. The authored arrangement emphasizes distorted guitar figures and a keyboard layer. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "El Mató a un Policía Motorizado"
+      ]
+    },
+    {
+      "id": "australian_alternative_rock",
+      "name": "Australian alternative rock",
+      "family": "rock_punk",
+      "lineage": "Australian alternative rock is represented here by Violent Soho. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Australian alternative rock is represented by Violent Soho’s grunge-facing Waco-era quartet. Its releasing-label profile identifies Mansfield and credits singer/guitarist Luke Boerdam, guitarist James Tidswell, bassist Luke Henery and drummer Michael Richards. The authored model uses an amplified riff-centered ensemble. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Violent Soho"
+      ]
+    },
+    {
+      "id": "australian_indie_rock",
+      "name": "Australian indie rock",
+      "family": "rock_punk",
+      "lineage": "Australian indie rock is represented here by Rolling Blackouts Coastal Fever. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Australian indie rock is represented by Rolling Blackouts Coastal Fever’s Melbourne guitar-pop branch. Its label documents three singer/guitarists, bass and drums and characterizes their chugging, tuneful indie rock. The authored model uses interlocking clean guitar figures and a shared vocal role. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Rolling Blackouts Coastal Fever"
+      ]
+    },
+    {
+      "id": "australian_post_rock",
+      "name": "Australian post-rock",
+      "family": "rock_punk",
+      "lineage": "Australian post-rock is represented here by sleepmakeswaves. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Australian post-rock is represented by sleepmakeswaves’ Sydney practice and documented Live at the Metro lineup: two guitars, bass, drums, keys and electronics. The band describes combining loud guitar and drum impact with electronic detail. The authored model retains the instrumental rock core and a synthesized layer. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "sleepmakeswaves"
+      ]
+    },
+    {
+      "id": "australian_rockabilly",
+      "name": "Australian rockabilly",
+      "family": "rock_punk",
+      "lineage": "Australian rockabilly is represented here by The ReChords. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "acoustic_guitar_dread",
+        "double_bass",
+        "voice"
+      ],
+      "description": "Australian rockabilly is represented by The ReChords’ Melbourne drummer-less trio practice: acoustic and electric guitars, double bass and voices. A firsthand interview documents the choice to return to that live setup; institutional and artist accounts place their rockabilly within broader roots references. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "The ReChords"
+      ]
+    },
+    {
+      "id": "australian_shoegaze",
+      "name": "Australian shoegaze",
+      "family": "rock_punk",
+      "lineage": "Australian shoegaze is represented here by Blush Response. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Australian shoegaze is represented by the Adelaide band Blush Response. The band’s side of its 2019 split credits two guitars, bass, drums and two vocalists, with recording in Adelaide and shoegaze/dream-pop tags. The authored model uses layered fuzz guitar and a shared vocal role. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Blush Response"
+      ]
+    },
+    {
+      "id": "australian_surf_rock",
+      "name": "Australian surf rock",
+      "family": "rock_punk",
+      "lineage": "Australian surf rock is represented here by Skegss. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.surfRock",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Australian surf rock is represented by Skegss’ Byron Bay-associated branch and the Pacific Highway Music period. Its releasing label documents a guitar/vocal and drums duo and discusses adding synthesizer textures. The authored arrangement selects those roles, keeping guitar and drums central. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Skegss"
+      ]
+    },
+    {
+      "id": "austrian_stoner_rock",
+      "name": "Austrian stoner rock",
+      "family": "rock_punk",
+      "lineage": "Austrian stoner rock is represented here by Witchrider. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Austrian stoner rock is represented by Witchrider, whose own press kit identifies the Graz stoner/alternative-rock scene. Its 2016 split credits guitar with lead vocals, a second guitar, bass and drums. The authored recording model selects this documented guitar-band core and fuzz-centered figures. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Witchrider"
+      ]
+    },
+    {
+      "id": "bangladeshi_rock",
+      "name": "Bangladeshi rock",
+      "family": "rock_punk",
+      "lineage": "Bangladeshi rock is represented here by One Cloud. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Bangladeshi rock is represented by One Cloud’s Chittagong alternative-rock branch. The artist’s C.T.G release and profile document vocals, guitar, bass and drums, with alternative-rock, funk and grunge-related tags. The authored model uses a compact electric rhythm section and guitar figures. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "One Cloud"
+      ]
+    },
+    {
+      "id": "belarusian_rock",
+      "name": "Belarusian rock",
+      "family": "rock_punk",
+      "lineage": "Belarusian rock is represented here by Weesp. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano",
+        "analog_poly_synth",
+        "sampler_classic",
+        "voice"
+      ],
+      "description": "Belarusian rock is represented by Weesp’s Minsk electronic/alternative post-metal branch. The Void explicitly credits voice and piano, guitar, bass, drums, sampling, keyboards and electronics. The authored model combines the rock core with piano, a sampler and a synthesized layer. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Weesp"
+      ]
+    },
+    {
+      "id": "belgian_indie_rock",
+      "name": "Belgian indie rock",
+      "family": "rock_punk",
+      "lineage": "Belgian indie rock is represented here by Brutus. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Belgian indie rock is represented by Brutus’ Leuven branch, which crosses punk, post-hardcore and heavier atmospheric rock. A firsthand band interview documents vocals and drums performed by Stefanie Mannaerts, guitar by Stijn Vanhoegaerden and bass by Peter Mulders. The authored model preserves that compact electric ensemble. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Brutus"
+      ]
+    },
+    {
+      "id": "belgian_post_rock",
+      "name": "Belgian post-rock",
+      "family": "rock_punk",
+      "lineage": "Belgian post-rock is represented here by We Stood Like Kings. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        -2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "grand_piano",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Belgian post-rock is represented by We Stood Like Kings’ piano-led instrumental practice. Its official Live Session release documents piano, guitar, bass and drums and recording in Brussels. The authored arrangement pairs repeated piano figures with guitar texture and a dynamic rhythm section. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "We Stood Like Kings"
+      ]
+    },
+    {
+      "id": "belgian_rock",
+      "name": "Belgian rock",
+      "family": "rock_punk",
+      "lineage": "Belgian rock is represented here by Triggerfinger. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Belgian rock is represented by Triggerfinger’s Antwerp trio during the Colossus period. Its label identifies guitar and voice, bass and drums, and describes guitar riffs with melodic and glam-rock elements. The authored model selects this core rock ensemble. Exact room, equipment, tuning and part choices are authored present-day production defaults.",
+      "exemplars": [
+        "Triggerfinger"
+      ]
+    },
+    {
+      "id": "bulgarian_rock",
+      "name": "Bulgarian rock",
+      "family": "rock_punk",
+      "lineage": "Bulgarian rock is represented here by Jasmine Whale. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Bulgarian rock is represented by Jasmine Whale’s Sofia branch. The band explicitly credits two guitarists who sing, bass and drums, and relates its music to classic hard-rock and punk influences. The authored arrangement retains the shared vocal and guitar-led ensemble. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Jasmine Whale"
+      ]
+    },
+    {
+      "id": "canadian_stoner_rock",
+      "name": "Canadian stoner rock",
+      "family": "rock_punk",
+      "lineage": "Canadian stoner rock is represented here by Low Orbit. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Canadian stoner rock is represented by Low Orbit’s Toronto stoner/doom-rock branch. The artist documents guitar with lead voice, another guitar, bass and drums. The authored model favors sustained heavy riffs and a spacious, deliberate rhythm section. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Low Orbit"
+      ]
+    },
+    {
+      "id": "chinese_post_rock",
+      "name": "Chinese post-rock",
+      "family": "rock_punk",
+      "lineage": "Chinese post-rock is represented here by Zhaoze — 1911. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        1,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        -2,
+        -1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "guqin"
+      ],
+      "description": "Chinese post-rock is represented by Zhaoze’s guqin-centered instrumental branch. The artist describes 1911 as a four-part extended work bringing guqin into a rock-band setting; its documented core roles include guqin, guitar, bass and drums. The authored realization preserves those four roles and lets ringing plucked phrases contrast with sustained guitar texture. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Zhaoze — 1911"
+      ]
+    },
+    {
+      "id": "classic_danish_rock",
+      "name": "Classic Danish rock",
+      "family": "rock",
+      "lineage": "Classic Danish rock is represented here by The Savage Rose. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "tonewheel_organ",
+        "rompler_workstation"
+      ],
+      "description": "Classic Danish rock is represented by The Savage Rose’s continuing band practice. DR’s concert presentation connects its 1967 start and 1968 debut to Danish rock history, and documents lead/backing voices, guitar, bass, drums, Hammond organ and other keys. The authored model retains this organ-rich vocal ensemble. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "The Savage Rose"
+      ]
+    },
+    {
+      "id": "classic_greek_rock",
+      "name": "Classic Greek rock",
+      "family": "rock",
+      "lineage": "Classic Greek rock is represented here by Ypogeia Revmata. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "musical_saw"
+      ],
+      "description": "Classic Greek rock is represented by Ypogeia Revmata’s long-running Athens branch. Artist and Ministry of Culture sources document singing electric guitar, bass, drums and musical saw; the ministry describes the group’s setting of poetry. The authored model retains the guitar-band pulse with a distinct sustained saw color. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Ypogeia Revmata"
+      ]
+    },
+    {
+      "id": "classic_hungarian_rock",
+      "name": "Classic Hungarian rock",
+      "family": "rock",
+      "lineage": "Classic Hungarian rock is represented here by Omega. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.progressiveRock",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Classic Hungarian rock is represented by Omega’s keyboard-led space-rock branch around Időrabló. The releasing label documents voice, guitars, bass, keyboards and drums, with backing voices. The authored model realizes these roles through sustained keyboard color, melodic electric-guitar figures and an active rhythm section. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Omega"
+      ]
+    },
+    {
+      "id": "classic_indonesian_rock",
+      "name": "Classic Indonesian rock",
+      "family": "rock",
+      "lineage": "Classic Indonesian rock is represented here by God Bless. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Classic Indonesian rock is represented by God Bless’s guitar-and-keyboard band practice. The official site locates its formation in Jakarta in 1973 and enumerates voice, guitar, bass, keyboards and drums. It also identifies the progressive-rock contribution to the group’s later work. The authored model emphasizes chordal weight and contrasting keyboard layers. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "God Bless"
+      ]
+    },
+    {
+      "id": "classic_russian_rock",
+      "name": "Classic Russian rock",
+      "family": "rock",
+      "lineage": "Classic Russian rock is represented here by Mashina Vremeni. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Classic Russian rock is represented by Mashina Vremeni’s sung electric-band branch. Its official roster documents guitar, bass, drums, keyboards and several voices, while its discography documents Moscow performance and recording practice. The authored model foregrounds the song, interlocking guitar/keyboard accompaniment and steady rhythm. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Mashina Vremeni"
+      ]
+    },
+    {
+      "id": "croatian_rock",
+      "name": "Croatian rock",
+      "family": "rock",
+      "lineage": "Croatian rock is represented here by Majke. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Croatian rock is represented by Majke’s guitar-led branch. Their label documents Vinkovci formation and a mixture of garage rock, blues, punk and psychedelia around Razdor. The authored model selects the documented voice, electric guitar, bass and drum core, pairing rough chordal gestures with melodic response. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Majke"
+      ]
+    },
+    {
+      "id": "deep_indie_rock",
+      "name": "Deep indie rock",
+      "family": "rock_punk",
+      "lineage": "Deep indie rock is represented here by The Hush Now — 2013 publicity lineup. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Deep indie rock is treated as a discovery cluster, represented by The Hush Now. The artist’s Boston profile and its commissioned publicity identify a guitar-led indie-pop band with bass, drums, keyboards and multiple vocalists. This authored realization combines chordal guitar movement, keyboard color and shared voices. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "The Hush Now — 2013 publicity lineup"
+      ]
+    },
+    {
+      "id": "deep_melodic_hard_rock",
+      "name": "Deep melodic hard rock",
+      "family": "rock_punk",
+      "lineage": "Deep melodic hard rock is represented here by The Treatment — Generation Me. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Deep melodic hard rock is represented by The Treatment’s Generation Me branch. The releasing label credits two guitarists, bass, drums and lead voice, and describes forceful riffs and memorable choruses. The authored ensemble keeps a direct riff-and-refrain structure. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "The Treatment — Generation Me"
+      ]
+    },
+    {
+      "id": "deep_space_rock",
+      "name": "Deep space rock",
+      "family": "rock_punk",
+      "lineage": "Deep space rock is represented here by Kombynat Robotron — 2023 split with DUNDDW. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        -2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Deep space rock is represented by Kombynat Robotron’s improvised split-record branch. The participating artist’s release credits two guitars, bass and drums and identifies all of its music as improvised. The authored core retains repetitive motion and room for evolving guitar interaction. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Kombynat Robotron — 2023 split with DUNDDW"
+      ]
+    },
+    {
+      "id": "deep_swedish_rock",
+      "name": "Deep Swedish rock",
+      "family": "rock_punk",
+      "lineage": "Deep Swedish rock is represented here by Grande Royale — 2021 artist interview lineup. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Deep Swedish rock is represented by Grande Royale’s Jönköping rock-and-roll branch. In its 2021 interview the band explicitly identifies guitar and vocals, bass and vocals, and drums following another guitarist’s departure. The authored arrangement preserves that documented three-role core. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Grande Royale — 2021 artist interview lineup"
+      ]
+    },
+    {
+      "id": "ecuadorian_alternative_rock",
+      "name": "Ecuadorian alternative rock",
+      "family": "rock_punk",
+      "lineage": "Ecuadorian alternative rock is represented here by Alkaloides — Alkaloides. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Ecuadorian alternative rock is represented by Alkaloides’ Quito guitar-band branch. The self-titled release credits two guitarists, bass, drums and lead voice; the artist explicitly situates its alternative practice between post-punk and garage. The authored arrangement keeps that compact electric core. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Alkaloides — Alkaloides"
+      ]
+    },
+    {
+      "id": "english_indie_rock",
+      "name": "English indie rock",
+      "family": "rock_punk",
+      "lineage": "English indie rock is represented here by Ultrasound — Play For Today. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "tonewheel_organ"
+      ],
+      "description": "English indie rock is represented by Ultrasound’s song-based, prog-facing branch on Play For Today. The artist explicitly uses this category and credits guitar, bass, drums, organ and multiple voices. The authored model gives the vocal songs organ-supported electric-band weight. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Ultrasound — Play For Today"
+      ]
+    },
+    {
+      "id": "experimental_indie_rock",
+      "name": "Experimental indie rock",
+      "family": "rock_punk",
+      "lineage": "Experimental indie rock is represented here by Deerhoof — Future Teenage Cave Artists. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Experimental indie rock is represented by Deerhoof’s Future Teenage Cave Artists branch. The releasing label identifies guitars, bass, drums, piano and multiple voices, and describes fragmented rock/R&B materials reorganized beyond regular verse-and-chorus form. The authored model preserves that instrumental palette and room for abrupt changes. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Deerhoof — Future Teenage Cave Artists"
+      ]
+    },
+    {
+      "id": "finnish_hard_rock",
+      "name": "Finnish hard rock",
+      "family": "rock_punk",
+      "lineage": "Finnish hard rock is represented here by Temple Balls — 2020 label-announcement lineup. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Finnish hard rock is represented by Temple Balls’ melodic Oulu branch. The releasing label credits lead voice, two guitars, bass and drums and foregrounds hooks and strong refrains. The authored arrangement supports a melodic lead over a forceful guitar-band rhythm section. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Temple Balls — 2020 label-announcement lineup"
+      ]
+    },
+    {
+      "id": "finnish_rockabilly",
+      "name": "Finnish rockabilly",
+      "family": "rock_punk",
+      "lineage": "Finnish rockabilly is represented here by The Barnshakers — Cool Enough core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "upright_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Finnish rockabilly is represented by The Barnshakers’ guitar-led Cool Enough core. Finland’s National Library credits voice, guitars, double bass and drums and classifies the release as rockabilly. The authored arrangement retains the plucked low-string foundation and concise electric-guitar phrasing. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "The Barnshakers — Cool Enough core"
+      ]
+    },
+    {
+      "id": "folk_rock_italiano",
+      "name": "Folk rock italiano",
+      "family": "rock_punk",
+      "lineage": "Folk rock italiano is represented here by Enrico Capuano and Tammurriatarock — Spazio Rossellini performance. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock.folkRock",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        -1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "violin_orchestral"
+      ],
+      "description": "Folk rock italiano is represented by Enrico Capuano and Tammurriatarock’s documented concert branch. The presenting cultural institution credits voice, guitar, bass, drums and violin; the artist describes combining rock conventions with Italian popular-tradition rhythms and musicality. The authored ensemble preserves bowed melody against an electric core. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Enrico Capuano and Tammurriatarock — Spazio Rossellini performance"
+      ]
+    },
+    {
+      "id": "french_experimental_rock",
+      "name": "French experimental rock",
+      "family": "rock_punk",
+      "lineage": "French experimental rock is represented here by Papier Tigre — The Beginning and End of Now. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        1,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "French experimental rock is represented by Papier Tigre’s guitar-and-drum branch. The releasing label credits two guitars, drums and a singing guitarist. The authored arrangement keeps that bass-guitar-free core, with interlocking electric figures and articulated percussion. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Papier Tigre — The Beginning and End of Now"
+      ]
+    },
+    {
+      "id": "french_shoegaze",
+      "name": "French shoegaze",
+      "family": "rock",
+      "lineage": "French shoegaze is represented here by Dead Horse One — When Love Runs Dry. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "French shoegaze is represented by Dead Horse One’s guitar-band branch. The label credits guitars, bass, drums and multiple singers on When Love Runs Dry; its companion session documents performance in Valence. The authored arrangement foregrounds layered guitar chords and shared vocals. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Dead Horse One — When Love Runs Dry"
+      ]
+    },
+    {
+      "id": "german_shoegaze",
+      "name": "German shoegaze",
+      "family": "rock",
+      "lineage": "German shoegaze is represented here by JAGUWAR — Ringthing. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "German shoegaze is represented by JAGUWAR’s Ringthing. The artist release documents voice, bass guitar, guitars, drums and percussion, and describes layered noise/pop production. Dresden is the stated formation center; the authored arrangement favors dense guitar layering around the rhythm section. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "JAGUWAR — Ringthing"
+      ]
+    },
+    {
+      "id": "greek_indie_rock",
+      "name": "Greek indie rock",
+      "family": "rock",
+      "lineage": "Greek indie rock is represented here by Bazooka — Zero Hits. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Greek indie rock is represented by Bazooka’s Zero Hits, a Greek-language electric-band branch. Explicit credits document guitars, voices, bass and drums, with synthesizers on multiple tracks. This authored core selects those roles and a shared-vocal, guitar-forward arrangement. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Bazooka — Zero Hits"
+      ]
+    },
+    {
+      "id": "greek_psychedelic_rock",
+      "name": "Greek psychedelic rock",
+      "family": "rock",
+      "lineage": "Greek psychedelic rock is represented here by Naxatras. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Greek psychedelic rock is represented by Naxatras’s contemporary electric-band branch. The band identifies guitar and voice, bass and voice, drums and percussion, plus keyboards and synthesizers. Their account emphasizes heavy riffs, groove and melodic guitar exploration. This authored model includes a synthesizer layer. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Naxatras"
+      ]
+    },
+    {
+      "id": "grunge_brasileiro",
+      "name": "Grunge brasileiro",
+      "family": "rock",
+      "lineage": "Grunge brasileiro is represented here by Mad Sneaks. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Grunge brasileiro is represented by Mad Sneaks, whose artist account describes a Brazilian trio combining grunge, stoner and alternative rock with 1990s influences. Explicit member roles are guitar and voice, bass and drums. The authored arrangement uses a riff-led electric trio with a vocal lead. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Mad Sneaks"
+      ]
+    },
+    {
+      "id": "grunge_pop",
+      "name": "Grunge pop",
+      "family": "rock",
+      "lineage": "Grunge pop is represented here by Marvelous 3. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Grunge pop is treated as the creator’s discovery cluster, represented by Marvelous 3. The band’s signed first-person biography identifies its Atlanta formation and guitar/voice, bass and drums. The authored model foregrounds a melodic vocal lead with repeated electric-guitar chords and a compact rhythm section. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Marvelous 3"
+      ]
+    },
+    {
+      "id": "french_rock_and_roll",
+      "name": "French rock-and-roll",
+      "family": "rock",
+      "lineage": "French rock-and-roll is represented here by Les Calamités — Encore ! 1983–1987. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "French rock-and-roll is represented by Les Calamités’ early-1980s guitar-band branch. The releasing label’s oral history documents two guitars, bass, drums and three complementary voices, with Beaune and Dijon as formative centers. The authored arrangement selects shared vocal harmonies over concise electric-guitar chords. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Les Calamités — Encore ! 1983–1987"
+      ]
+    },
+    {
+      "id": "future_rock",
+      "name": "Future rock",
+      "family": "rock",
+      "lineage": "Future rock is represented here by The Qemists. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "voice",
+        "sampler_classic"
+      ],
+      "description": "Future rock is treated as a discovery cluster, represented by The Qemists’ rock and drum-and-bass crossover. Firsthand interviews document guitars, live drums, singers and MCs alongside laptops, sampling and sound design. This authored selection pairs the electric band and voice with sampled breaks and sampled low-end parts. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "The Qemists"
+      ]
+    },
+    {
+      "id": "grunge_argentina",
+      "name": "Grunge argentina",
+      "family": "rock",
+      "lineage": "Grunge argentina is represented here by Le Temps Argentina — Incuria. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Grunge argentina is represented by Le Temps’ Incuria. The artist release identifies a Buenos Aires guitar/voice, bass/backing-voice and drums/backing-voice trio and describes a hard 1990s-influenced electric sound. The authored arrangement emphasizes repeated guitar riffs and a compact rhythmic foundation with shared vocals. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Le Temps Argentina — Incuria"
+      ]
+    },
+    {
+      "id": "grunge_revival",
+      "name": "Grunge revival",
+      "family": "rock",
+      "lineage": "Grunge revival is represented here by Fangclub — Bullet Head. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Grunge revival is represented by Fangclub’s Bullet Head-era electric trio. The releasing-label credits explicitly document guitar and lead voice, bass and backing voice, and drums and backing voice. Dublin is the artist’s stated practice center. The authored arrangement favors concise guitar riffs, shared voices and strong kit accents. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Fangclub — Bullet Head"
+      ]
+    },
+    {
+      "id": "hard_rock_mexicano",
+      "name": "Hard rock mexicano",
+      "family": "rock",
+      "lineage": "Hard rock mexicano is represented here by Coda — 2015 documented lineup. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Hard rock mexicano is represented by Coda’s documented 2015 lineup. The festival institution lists voice, guitar, bass, drums and keyboards; the band-reviewed history describes the move from metal into hard rock and early Mexico City performances. This authored arrangement combines riff-led guitars with a supporting keyboard layer. Exact studio chain, tuning and technique selections are authored present-day production choices.",
+      "exemplars": [
+        "Coda — 2015 documented lineup"
+      ]
+    },
+    {
+      "id": "hard_stoner_rock",
+      "name": "Hard stoner rock",
+      "family": "rock_punk",
+      "lineage": "Hard stoner rock is represented here by Roadsaw. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Hard stoner rock is represented by Roadsaw’s Boston heavy-riff branch. Small Stone documents Ian Ross on guitar, Tim Catz on bass, Craig Riggs on vocals and Jeremy Hemond on drums in its 2010 lineup; its account connects electric blues, Southern rock and psychedelic desert rock. The authored model favors thick repeating guitar riffs and a firm backline. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Roadsaw"
+      ]
+    },
+    {
+      "id": "heavy_gothic_rock",
+      "name": "Heavy gothic rock",
+      "family": "rock_punk",
+      "lineage": "Heavy gothic rock is represented here by Vlad in Tears. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.gothicRock",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Heavy gothic rock is represented by Vlad in Tears’ Berlin dark-rock branch. Bochum Total’s artist profile documents Kris Vlad on voice, D. Vlad on bass, Gregor Friday on guitar and Cosmo Cadar on drums for the 2014 lineup, describing a dark-rock and metal mixture. The authored model uses weighty amplified riffs supporting a prominent solo voice. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Vlad in Tears"
+      ]
+    },
+    {
+      "id": "hong_kong_rock",
+      "name": "Hong Kong rock",
+      "family": "rock_punk",
+      "lineage": "Hong Kong rock is represented here by Prune Deer. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Hong Kong rock is represented by Prune Deer’s instrumental branch. The official biography identifies a Hong Kong band formed in 2013 and lists guitarists Nature and S.F. Tang, bassist Jimmy Ling and drummer Kwan Shing. The selected model uses interlocking clean guitar figures, bass and kit without a lead singer. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Prune Deer"
+      ]
+    },
+    {
+      "id": "hungarian_rock",
+      "name": "Hungarian rock",
+      "family": "rock_punk",
+      "lineage": "Hungarian rock is represented here by Bankrupt. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Hungarian rock is represented by Bankrupt’s Budapest melodic-punk branch. Its own biography identifies Rocco on voice and bass, William on guitar and voice, and Shorty on drums, describing a blend of punk, indie, surf and garage rock. The authored arrangement uses compact amplified chord figures and shared singing. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Bankrupt"
+      ]
+    },
+    {
+      "id": "icelandic_rock",
+      "name": "Icelandic rock",
+      "family": "rock_punk",
+      "lineage": "Icelandic rock is represented here by The Vintage Caravan. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Icelandic rock is represented by The Vintage Caravan’s progressive classic-rock trio branch. Its label identifies Óskar Logi Ágústsson on vocals and guitar, Alexander Örn Númason on bass and Stefán Ari on drums; the official artist catalog identifies Reykjavík. The authored arrangement combines riff-driven guitar with a compact rhythm section. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "The Vintage Caravan"
+      ]
+    },
+    {
+      "id": "idol_rock",
+      "name": "Idol rock",
+      "family": "rock_punk",
+      "lineage": "Idol rock is represented here by BAND-MAID. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Idol rock is modeled as a discovery cluster represented by BAND-MAID’s self-described hard-rock band. Its official biography documents Miku Kobato on guitar and vocals, Saiki on vocals, Kanami on guitar, Misa on bass and Akane on drums, emphasizing forceful guitar playing, drums and hooks. The authored realization retains the live-instrument band and shared vocal roles. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "BAND-MAID"
+      ]
+    },
+    {
+      "id": "indian_instrumental_rock",
+      "name": "Indian instrumental rock",
+      "family": "rock_punk",
+      "lineage": "Indian instrumental rock is represented here by Celestial Teapot. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Indian instrumental rock is represented by Celestial Teapot’s Pune instrumental-rock branch. Locus Of Control credits Nishant Karve and Kartikeya Dixit on guitars, Tushar Verma on bass, Adam Janzi on drums and Anubhav Gupta on atmospherics. The selected model centers the documented string-and-drum core, with clean repeating figures and dynamic expansion. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Celestial Teapot"
+      ]
+    },
+    {
+      "id": "indian_rock",
+      "name": "Indian rock",
+      "family": "rock_punk",
+      "lineage": "Indian rock is represented here by Motherjane. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indian rock is represented by Motherjane’s Kochi-founded progressive branch. Its official profile describes progressive rock and alternative-metal influences, with Suraj Mani’s lead voice, Deepu Sasidharan’s rhythm guitar and backing voice, Baiju Dharmajan’s lead guitar, Alan Santosh’s bass and Alloy Francis’s drums. The authored model emphasizes melodic lead guitar over a rock rhythm section. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Motherjane"
+      ]
+    },
+    {
+      "id": "indie_pop_rock",
+      "name": "Indie pop rock",
+      "family": "rock_punk",
+      "lineage": "Indie pop rock is represented here by Shaimus. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electric_piano_tine",
+        "voice"
+      ],
+      "description": "Indie pop rock is represented by Shaimus’ Los Angeles branch. The artist’s self-managed profile identifies lead voice and keyboards, two guitar-and-vocal roles, bass and drums, and describes energetic alternative rock with a focus on clear songwriting. The authored model couples clean guitar figures and shared singing with a tine-electric-piano realization of the documented keyboard role. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Shaimus"
+      ]
+    },
+    {
+      "id": "indie_psychedelic_rock",
+      "name": "Indie psychedelic rock",
+      "family": "rock_punk",
+      "lineage": "Indie psychedelic rock is represented here by The Bevis Frond. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indie psychedelic rock is represented by The Bevis Frond’s Walthamstow-associated guitar-band branch. Its official Live release credits Nick Saloman on guitar and vocals, Adrian Shaw on bass and vocals, and Andy Ward on drums. The artist describes a range from guitar jams to quieter songwriter material. The authored core emphasizes fuzz-led guitar development with supporting voices. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "The Bevis Frond"
+      ]
+    },
+    {
+      "id": "indie_rock_colombiano",
+      "name": "Indie rock colombiano",
+      "family": "rock_punk",
+      "lineage": "Indie rock colombiano is represented here by Diamante Eléctrico. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indie rock colombiano is represented by Diamante Eléctrico’s Bogotá trio-era branch. Its official biography identifies Juan Galeano on voice and bass, Daniel Álvarez on guitar and Andee Zeta on drums; it describes rock drawing on blues, indie and R&B, with concise hook-centered songs. The authored model favors a compact groove and singing over amplified guitar. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Diamante Eléctrico"
+      ]
+    },
+    {
+      "id": "indie_rock_italiano",
+      "name": "Indie rock italiano",
+      "family": "rock_punk",
+      "lineage": "Indie rock italiano is represented here by Bee Bee Sea. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indie rock italiano is represented by Bee Bee Sea’s Castel Goffredo garage-oriented branch. The official self-titled release credits Damiano Negrisoli on guitar and voice, Giacomo Parisio on bass and backing voice, and Andrea Onofrio on drums and backing voice. Its artist tags connect garage, punk and power pop. The authored realization emphasizes a small electric trio with group singing. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Bee Bee Sea"
+      ]
+    },
+    {
+      "id": "indie_rock_mexicano",
+      "name": "Indie rock mexicano",
+      "family": "rock_punk",
+      "lineage": "Indie rock mexicano is represented here by El Shirota. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indie rock mexicano is represented by El Shirota’s Atizapán noise-rock branch. Duck Club’s artist profile lists guitar-and-vocal roles for Ignacio Gómez Kurth and Rubén Anzaldúa, bass and voice for Mauricio Avendaño, and drums for Gabriel Mendoza. The authored model emphasizes rough sustained guitar textures and a firm rhythm section. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "El Shirota"
+      ]
+    },
+    {
+      "id": "indie_rock_peruano",
+      "name": "Indie rock peruano",
+      "family": "rock_punk",
+      "lineage": "Indie rock peruano is represented here by Los Outsaiders. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indie rock peruano is represented by Los Outsaiders’ Lima branch. The band’s official release identifies Lima and indie rock; the Ministry of Culture’s Afuera Fest artist profile lists Charlie VTW on voice and rhythm guitar, Dani Catello on guitar, Juan Carlos Calderón on bass and voice, and Renzo Pinedo on drums and voice. The authored model uses concise guitar-led songs and shared singing. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Los Outsaiders"
+      ]
+    },
+    {
+      "id": "indie_shoegaze",
+      "name": "Indie shoegaze",
+      "family": "rock_punk",
+      "lineage": "Indie shoegaze is represented here by The Meeting Places. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indie shoegaze is represented by The Meeting Places’ Los Angeles quartet. Words On Music documents Chase Harris on rhythm guitar and voice, Scott McDonald on guitar, Arthur Chan on bass and Dean Yoshihara on drums, describing reverberant guitar layers and melodic noise-pop. The authored arrangement sets voice against sustained electric textures. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "The Meeting Places"
+      ]
+    },
+    {
+      "id": "indonesian_alternative_rock",
+      "name": "Indonesian alternative rock",
+      "family": "rock_punk",
+      "lineage": "Indonesian alternative rock is represented here by Navicula. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian alternative rock is represented by Navicula’s Bali psychedelic-grunge branch. The official artist account lists Robi on voice and guitar, Dadang on guitar, Krishna on bass and Palel on drums, and identifies 1990s alternative and grunge influences alongside other styles. The authored model uses a weighty electric ensemble and riff-centered motion. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Navicula"
+      ]
+    },
+    {
+      "id": "indonesian_indie_rock",
+      "name": "Indonesian indie rock",
+      "family": "rock_punk",
+      "lineage": "Indonesian indie rock is represented here by Grrrl Gang. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian indie rock is represented by Grrrl Gang’s Yogyakarta indie-pop/rock branch. Damnably’s Dream Grrrl release credits Angeeta Sentana and Edo Alventa on guitars and vocals, Akbar Rumandung on bass and vocals, and Fakhriyan Ardyanto on drums. The authored model pairs light guitar motion with an ensemble vocal role. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Grrrl Gang"
+      ]
+    },
+    {
+      "id": "indonesian_pop_rock",
+      "name": "Indonesian pop rock",
+      "family": "rock_punk",
+      "lineage": "Indonesian pop rock is represented here by The Rain. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian pop rock is represented by The Rain’s Yogyakarta band branch. Nagaswara documents Indra Prasta on voice and guitar, Iwan on guitar and voice, Ipul on bass and Aang on drums. Its account traces the group’s Jogja activity and describes crunchy guitar with an energetic drum beat on Percaya. The authored realization keeps a melodic vocal-led electric ensemble. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "The Rain"
+      ]
+    },
+    {
+      "id": "indonesian_rock",
+      "name": "Indonesian rock",
+      "family": "rock_punk",
+      "lineage": "Indonesian rock is represented here by Slank. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian rock is represented by Slank’s Jakarta electric-band branch. The official history documents its Jakarta formation and guitar-led rock lineage; its member profiles identify Kaka on vocals, Ridho and Abdee on guitars, Ivanka on bass and Bimbim on drums. The authored model uses amplified chord motion with a prominent vocal lead. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Slank"
+      ]
+    },
+    {
+      "id": "indonesian_shoegaze",
+      "name": "Indonesian shoegaze",
+      "family": "rock_punk",
+      "lineage": "Indonesian shoegaze is represented here by Sharesprings. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian shoegaze is represented by Sharesprings’ Jakarta twee/shoegaze branch. Gerpfast’s Maydear release credits Ardhi Yudho and Putriani Mulyadi on guitar and voice, Yanu Fuadi on bass and Rusli Budianto on drums. The label describes simple indie-pop structures within a noisy shoegaze background. The authored model combines shared singing with sustained guitar color. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Sharesprings"
+      ]
+    },
+    {
+      "id": "instrumental_math_rock",
+      "name": "Instrumental math rock",
+      "family": "rock_punk",
+      "lineage": "Instrumental math rock is represented here by standards. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit"
+      ],
+      "description": "Instrumental math rock is represented by standards’ Los Angeles guitar-and-drums duo on Fruit Island. The official release describes Marcos Mena’s cross-tapping guitar and Forrest Rice’s syncopated drums, pairing intricate melody with danceable rhythmic motion. The authored arrangement keeps the duo format and tapping-led guitar role. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "standards"
+      ]
+    },
+    {
+      "id": "instrumental_post_rock",
+      "name": "Instrumental post-rock",
+      "family": "rock_punk",
+      "lineage": "Instrumental post-rock is represented here by Russian Circles. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        -2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Instrumental post-rock is represented by Russian Circles’ Chicago trio in the Guidance era. Its official account credits Mike Sullivan on guitar, Brian Cook on bass and Dave Turncrantz on drums, describing extended instrumental narratives and contrasts between quiet restraint, arpeggiation and heavy passages. The authored model uses a voice-free electric trio with repeating guitar figures. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Russian Circles"
+      ]
+    },
+    {
+      "id": "instrumental_stoner_rock",
+      "name": "Instrumental stoner rock",
+      "family": "rock_punk",
+      "lineage": "Instrumental stoner rock is represented here by Earthless. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        2,
+        -2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Instrumental stoner rock is represented by Earthless’ San Diego instrumental power-trio branch before Black Heaven. Nuclear Blast identifies Isaiah Mitchell on guitar, Mike Eginton on bass and Mario Rubalcaba on drums, and describes the earlier extended instrumental psychedelic jams. The authored realization emphasizes repeating fuzz riffs and open-ended guitar-led development. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Earthless"
+      ]
+    },
+    {
+      "id": "irish_indie_rock",
+      "name": "Irish indie rock",
+      "family": "rock_punk",
+      "lineage": "Irish indie rock is represented here by Pillow Queens. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Irish indie rock is represented by Pillow Queens’ Dublin amplified-band core on Love II. Official credits document Pamela Connolly’s voice and rhythm guitar, Cathy McGuinness’s lead guitar, Sarah Corcoran’s bass and Rachel Lyons’s drums, alongside backing singers. The authored realization keeps a vocal-led guitar arrangement with an ensemble singing role. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Pillow Queens"
+      ]
+    },
+    {
+      "id": "israeli_rock",
+      "name": "Israeli rock",
+      "family": "rock_punk",
+      "lineage": "Israeli rock is represented here by Full Trunk. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electric_piano_tine",
+        "voice"
+      ],
+      "description": "Israeli rock is represented by Full Trunk’s rock-and-blues branch on its self-titled release. Official credits identify Gal Nisman on guitar and voice, Ofer Vayner on bass, Yotam Elazari on drums and Ariel Keshet on keyboards, recorded in Migdal HaEmek. The authored model keeps a blues-led guitar ensemble and realizes the keyboard role with tine electric piano. Exact equipment, room, tuning and technique pins are authored present-day defaults.",
+      "exemplars": [
+        "Full Trunk"
+      ]
+    },
+    {
+      "id": "italian_post_rock",
+      "name": "Italian post-rock",
+      "family": "rock",
+      "lineage": "Italian post-rock is represented here by Platonick Dive — Take A Deep Breath. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Italian post-rock is represented by the guitar-band core of Platonick Dive’s Take A Deep Breath. Artist credits support guitars, bass, drums and voice, alongside keys, electronic samples and programming. Livorno is a documented recording center. The authored core uses repeated guitar figures, a rhythm section and vocals. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "Platonick Dive — Take A Deep Breath"
+      ]
+    },
+    {
+      "id": "italian_rockabilly",
+      "name": "Italian rockabilly",
+      "family": "rock",
+      "lineage": "Italian rockabilly is represented here by The Same Old Shoes — Real Gone Sessions. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "upright_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Italian rockabilly is represented by The Same Old Shoes’ early-rockabilly approach. The releasing label identifies a Forlì formation, lead voice and guitar, lead guitar, upright bass and drums. This authored model retains that compact electric-and-acoustic-bass ensemble. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "The Same Old Shoes — Real Gone Sessions"
+      ]
+    },
+    {
+      "id": "japanese_indie_rock",
+      "name": "Japanese indie rock",
+      "family": "rock",
+      "lineage": "Japanese indie rock is represented here by Lucie,Too — Lucky-era trio. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese indie rock is represented by Lucie,Too’s Lucky-era trio. The artist/label distribution profile identifies Utsunomiya and credits Chisa on voice and guitar, Kanako on bass and backing voice, and Naho Shibahara on drums and backing voice. The authored model emphasizes melody and shared-vocal guitar pop. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "Lucie,Too — Lucky-era trio"
+      ]
+    },
+    {
+      "id": "japanese_math_rock",
+      "name": "Japanese math rock",
+      "family": "rock",
+      "lineage": "Japanese math rock is represented here by LITE. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Japanese math rock is represented by LITE’s expanded contemporary lineup. Official credits support guitars, bass, drums, synthesizer and vocals; the band describes intricate riffs and rhythms. Its artist profile identifies Tokyo. This authored arrangement combines interlocking guitar figures with a synth layer and occasional voice. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "LITE"
+      ]
+    },
+    {
+      "id": "korean_indie_rock",
+      "name": "Korean indie rock",
+      "family": "rock",
+      "lineage": "Korean indie rock is represented here by Say Sue Me — The Last Thing Left. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Korean indie rock is represented by Say Sue Me’s The Last Thing Left. The artist credits guitars, lead and backing voices, bass, drums and percussion; the album was made at the band’s Busan studio. This authored core favors melodic electric-band interplay. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "Say Sue Me — The Last Thing Left"
+      ]
+    },
+    {
+      "id": "korean_shoegaze",
+      "name": "Korean shoegaze",
+      "family": "rock",
+      "lineage": "Korean shoegaze is represented here by FOG — Fogesque. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Korean shoegaze is represented by FOG’s Fogesque. The band describes the release as shoegaze/dream pop and explicitly credits voice, guitars, synthesizers, bass and drums. The Seoul-based artist account supports the practice locality. The authored model combines dense guitar chords and synthesizer texture with vocals. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "FOG — Fogesque"
+      ]
+    },
+    {
+      "id": "japanese_psychedelic_rock",
+      "name": "Japanese psychedelic rock",
+      "family": "rock",
+      "lineage": "Japanese psychedelic rock is represented here by Minami Deutsch — With Dim Light. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Japanese psychedelic rock is represented by Minami Deutsch’s With Dim Light. The artist/label release documents Tokyo formation and credits guitars, voice, synthesizer, bass and drums. Its account emphasizes repetition, fuzz and psychedelic influences. The authored model foregrounds a repeating guitar-and-bass pulse with synth texture. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "Minami Deutsch — With Dim Light"
+      ]
+    },
+    {
+      "id": "japanese_rockabilly",
+      "name": "Japanese rockabilly",
+      "family": "rock",
+      "lineage": "Japanese rockabilly is represented here by The 5.6.7.8's. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.classic",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese rockabilly is represented by the Tokyo garage-rock branch of The 5.6.7.8’s. The official site lists guitar and lead voice, bass and drums, and explicitly places rockabilly among the band’s musical influences. The authored model uses a compact vocal-led electric trio. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "The 5.6.7.8's"
+      ]
+    },
+    {
+      "id": "kindie_rock",
+      "name": "Kindie rock",
+      "family": "rock",
+      "lineage": "Kindie rock is represented here by The Not-Its!. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Kindie rock is represented by The Not-Its!, whose official biography identifies a Seattle band making high-energy rock for children and families. Explicit band roles include voice, rhythm and lead guitars, bass and drums. The authored model centers a vocal-led electric band with bright chordal movement. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "The Not-Its!"
+      ]
+    },
+    {
+      "id": "k_rock",
+      "name": "K-rock",
+      "family": "rock",
+      "lineage": "K-rock is represented here by Rolling Quartz. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "K-rock is represented by Rolling Quartz’s hard-rock band core. In a direct artist interview, members identify voice, two guitar roles, bass and drums, and describe their usual performance area in Seoul’s Hongdae. The authored arrangement emphasizes chordal guitar drive and a vocal lead. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "Rolling Quartz"
+      ]
+    },
+    {
+      "id": "latvian_rock",
+      "name": "Latvian rock",
+      "family": "rock",
+      "lineage": "Latvian rock is represented here by Baložu Pilni Pagalmi. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Latvian rock is represented by Baložu Pilni Pagalmi’s early indie-rock trio branch. The band’s own account identifies formation in Riga in 1994, Māris Šverns on guitar and voice, Jourelys on bass and Uldis Gedra on drums. The authored arrangement uses melodic guitar figures and a compact vocal-led rhythm section. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "Baložu Pilni Pagalmi"
+      ]
+    },
+    {
+      "id": "little_rock_indie",
+      "name": "Little rock indie",
+      "family": "rock",
+      "lineage": "Little rock indie is represented here by American Princes. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Little Rock indie is represented by American Princes’ early guitar-band branch. The label describes the band’s relocation from Brooklyn to Little Rock in 2002 and credits guitar/voice, bass/voice and drums, with an additional guitarist/vocalist joining. The authored model uses a shared-vocal electric-band core. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "American Princes"
+      ]
+    },
+    {
+      "id": "japanese_shoegaze",
+      "name": "Japanese shoegaze",
+      "family": "rock",
+      "lineage": "Japanese shoegaze is represented here by For Tracy Hyde. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese shoegaze is represented by For Tracy Hyde’s documented early electric-band lineup. The artist account identifies Tokyo and voice, two guitar roles, bass and drums. Its own indie-pop description coexists with exact membership in the creator’s Japanese-shoegaze discovery map. The authored model favors layered guitar texture and vocals. Exact equipment, studio chain, tuning, techniques and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "For Tracy Hyde"
+      ]
+    },
+    {
+      "id": "malaysian_post_rock",
+      "name": "Malaysian post-rock",
+      "family": "rock",
+      "lineage": "Malaysian post-rock is represented here by mutesite — re: (selected instrumental core). This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Malaysian post-rock is represented by mutesite’s guitar, bass, drums and synthesizer core. The artist release explicitly credits those roles and locates the band in Petaling Jaya. This authored arrangement selects the core instrumental texture and a spacious keyboard layer. Exact studio chain, tuning, technique selections and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "mutesite — re: (selected instrumental core)"
+      ]
+    },
+    {
+      "id": "math_rock_latinoamericano",
+      "name": "Math rock latinoamericano",
+      "family": "rock",
+      "lineage": "Math rock latinoamericano is represented here by tortuganónima — Corrientes (Instrumental). This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1,
+        -2,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Math rock latinoamericano is represented by tortuganónima’s explicitly designated instrumental version of Corrientes. The Santiago quartet describes effects and loops on guitars, pedal-shaped bass lines and irregular drum rhythms, with math-rock and post-rock connections. Exact studio chain, tuning, technique selections and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "tortuganónima — Corrientes (Instrumental)"
+      ]
+    },
+    {
+      "id": "melodic_hard_rock",
+      "name": "Melodic hard rock",
+      "family": "rock",
+      "lineage": "Melodic hard rock is represented here by Harem Scarem — Chasing Euphoria. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Melodic hard rock is represented by Harem Scarem’s Chasing Euphoria. The releasing label documents lead and backing voices, guitars, bass, keyboards and drums, and characterizes their writing through strong melodic hooks and forceful riffs. The authored model includes a supporting synthesizer layer. Exact studio chain, tuning, technique selections and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "Harem Scarem — Chasing Euphoria"
+      ]
+    },
+    {
+      "id": "modern_blues_rock",
+      "name": "Modern blues rock",
+      "family": "rock",
+      "lineage": "Modern blues rock is represented here by The Black Keys — selected duo core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Modern blues rock is represented by the Black Keys’ singer-guitarist and drummer duo core. Their official account connects the group to Akron and describes a stripped-down, guitar-led approach. The authored arrangement selects voice, electric guitar and drum kit. Exact studio chain, tuning, technique selections and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "The Black Keys — selected duo core"
+      ]
+    },
+    {
+      "id": "modern_j_rock",
+      "name": "Modern j-rock",
+      "family": "rock",
+      "lineage": "Modern j-rock is represented here by My Hair is Bad. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Modern j-rock is represented by My Hair is Bad’s three-member band branch. The official biography documents guitar and lead voice, bass and backing voice, and drums, with a direct connection to Jōetsu in Niigata. The authored arrangement emphasizes a vocal lead supported by electric rhythm playing. Exact studio chain, tuning, technique selections and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "My Hair is Bad"
+      ]
+    },
+    {
+      "id": "nordic_post_rock",
+      "name": "Nordic post-rock",
+      "family": "rock",
+      "lineage": "Nordic post-rock is represented here by pg.lost — selected guitar-band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2,
+        1,
+        -2,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Nordic post-rock is represented by pg.lost’s guitar, bass and drums core. Their label identifies two guitarists, bass and drums and documents the band’s Norrköping formation. This authored model selects a guitar-led dynamic branch with sustained textures and rhythmic buildup. Exact studio chain, tuning, technique selections and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "pg.lost — selected guitar-band core"
+      ]
+    },
+    {
+      "id": "nordic_shoegaze",
+      "name": "Nordic shoegaze",
+      "family": "rock",
+      "lineage": "Nordic shoegaze is represented here by Star Horse — Lust. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Nordic shoegaze is represented by Star Horse’s Lust. The artist calls this Stockholm shoegaze pop and explicitly credits guitar, shared vocals, bass and drums. The authored model uses layered electric-guitar texture with combined lead and backing voices. Exact studio chain, tuning, technique selections and numeric axes are authored present-day production choices.",
+      "exemplars": [
+        "Star Horse — Lust"
+      ]
+    },
+    {
+      "id": "panamanian_rock",
+      "name": "Panamanian rock",
+      "family": "rock_punk",
+      "lineage": "Panamanian rock is represented here by Carlos Méndez & Lilo Sánchez — Cuentas del Alma. This documented branch is realized as an authored present-day recording arrangement.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "A song-centered Panamanian rock branch is represented by Cuentas del Alma, retaining credited electric/acoustic guitars, voice, bass and drums. Exact equipment, room, chain, tuning, technique pins and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Carlos Méndez & Lilo Sánchez — Cuentas del Alma"
+      ]
+    },
+    {
+      "id": "persian_rock",
+      "name": "Persian rock",
+      "family": "rock_punk",
+      "lineage": "Persian rock is represented here by Peyman Salimi — The Psychology of Letting Go. This documented branch is realized as an authored present-day recording arrangement.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "acoustic_guitar_dread",
+        "analog_synth"
+      ],
+      "description": "Persian rock is represented by Salimi’s diasporic singer-songwriter branch. This selected arrangement retains the credited electric/acoustic band, keys and voice. Exact equipment, room, chain, tuning, technique pins and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Peyman Salimi — The Psychology of Letting Go"
+      ]
+    },
+    {
+      "id": "pinoy_rock",
+      "name": "Pinoy rock",
+      "family": "rock_punk",
+      "lineage": "Pinoy rock is represented here by Oh, Flamingo! — Live Performance at Route 196 (2015). This documented branch is realized as an authored present-day recording arrangement.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Pinoy rock is represented by the documented Oh, Flamingo! live quartet, with melodic guitar-led songs, bass, drums and voice. Exact equipment, room, chain, tuning, technique pins and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Oh, Flamingo! — Live Performance at Route 196 (2015)"
+      ]
+    },
+    {
+      "id": "pittsburgh_rock",
+      "name": "Pittsburgh rock",
+      "family": "rock_punk",
+      "lineage": "Pittsburgh rock is represented here by The Cynics — Learn to Lose. This documented branch is realized as an authored present-day recording arrangement.",
+      "parent": "distortedRock.regional",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "harmonica"
+      ],
+      "description": "Pittsburgh rock is represented by The Cynics’ garage-band branch, using credited guitars, bass, drums, shared voices and harmonica. Exact equipment, room, chain, tuning, technique pins and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "The Cynics — Learn to Lose"
+      ]
+    },
+    {
+      "id": "polish_indie_rock",
+      "name": "Polish indie rock",
+      "family": "rock_punk",
+      "lineage": "Polish indie rock is represented here by Trupa Trupa — Headache. This documented branch is realized as an authored present-day recording arrangement.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_synth"
+      ],
+      "description": "Polish indie rock is represented by Headache’s guitar, keyboard, bass, drum and vocal ensemble. Exact equipment, room, chain, tuning, technique pins and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Trupa Trupa — Headache"
+      ]
+    },
+    {
+      "id": "polish_noise_rock",
+      "name": "Polish noise rock",
+      "family": "rock_punk",
+      "lineage": "Polish noise rock is represented here by Nagrobki — Pod Ziemią. This documented branch is realized as an authored present-day recording arrangement.",
+      "parent": "distortedRock.noiseRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Polish noise rock is represented by Nagrobki’s guitar-and-drum vocal core on Pod Ziemią. Exact equipment, room, chain, tuning, technique pins and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Nagrobki — Pod Ziemią"
+      ]
+    },
+    {
+      "id": "pop_rock",
+      "name": "Pop rock",
+      "family": "rock_punk",
+      "lineage": "Pop rock is represented here by Toad the Wet Sprocket — Come Down (All You Want, Bonus Edition). This documented branch is realized as an authored present-day recording arrangement.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Pop rock is represented by the song-led guitar band on Toad the Wet Sprocket’s Come Down re-recording. Exact equipment, room, chain, tuning, technique pins and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Toad the Wet Sprocket — Come Down (All You Want, Bonus Edition)"
+      ]
+    },
+    {
+      "id": "portuguese_indie_rock",
+      "name": "Portuguese indie rock",
+      "family": "rock_punk",
+      "lineage": "Portuguese indie rock is represented here by Pega Monstro — Alfarroba. This documented branch is realized as an authored present-day recording arrangement.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Portuguese indie rock is represented by Pega Monstro’s guitar-and-drums vocal duo on Alfarroba. Exact equipment, room, chain, tuning, technique pins and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Pega Monstro — Alfarroba"
       ]
     }
   ]

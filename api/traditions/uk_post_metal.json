@@ -5,7 +5,7 @@
   "lineage": "UK post-metal is represented here by Bossk. This selected branch has an authored present-day studio realization.",
   "recipe": "classic uk post-metal, distorted Rock, post metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 382,
-  "score": 43.916,
+  "score": 43.929,
   "config": {
     "traditions": [
       "uk_post_metal"
@@ -19,7 +19,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -34,14 +34,14 @@
           "body_wood": 7.279999999999999,
           "neck_wood": 0.173625,
           "fretboard": 0.173625,
-          "pickup_magnet": 0.015,
-          "pickup_winding": 0.2355,
+          "pickup_magnet": 0.005625,
+          "pickup_winding": 0.23099999999999998,
           "string_material": 0.173625,
-          "bridge": 1.551125,
+          "bridge": 1.571,
           "scale_length": 7.279999999999999,
-          "string_gauge": 1.582625,
+          "string_gauge": 1.6025,
           "finish": 0,
-          "string_tuning": 0.37424999999999997
+          "string_tuning": 0.379875
         }
       },
       {
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 1.885,
           "body_wood": 0.04875,
-          "pickup_config": 0.0465,
+          "pickup_config": 0.0315,
           "string_type": 4.875,
-          "scale_length_b": 0.0465,
+          "scale_length_b": 0.0315,
           "fretted_or_not": 0.007499999999999999,
           "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.755625,
-          "drumhead": 0.368625,
+          "drumhead": 0.37424999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.037125,
           "voice_multitrack_stack": 0.045
         }
       },

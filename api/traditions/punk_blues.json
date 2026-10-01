@@ -5,7 +5,7 @@
   "lineage": "Blues form played with punk attack, emerging from US and Australian garage scenes 1985-2001 through the Gun Club, the Cramps, the Jon Spencer Blues Explosion, Beasts of Bourbon and the White Stripes — 120-180 BPM one- and twelve-bar structures, blown-out fuzz guitar and slide, minimal or drummer-only rhythm sections, and a howled, unpitched vocal recorded fast and deliberately distorted.",
   "recipe": "classic mid-1990s punk blues, distorted Rock, punk branch, noise rock distorted rock, blues electric functional song, alternative distorted rock detroit blues swamp blues. thick, blues-shouter, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric open g tuning slide steel resonator guitar, brushes-and-sticks drum kit, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 789,
-  "score": 428.715,
+  "score": 426.585,
   "config": {
     "traditions": [
       "punk_blues",
@@ -31,16 +31,16 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 33.72000000000002,
           "voice_quality": 11.407499999999988,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.055,
+          "voice_vibrato": 23.01,
           "voice_articulation": 17.614999999999995,
-          "voice_microtone": 24.475,
+          "voice_microtone": 24.43,
           "voice_tradition": 12.122499999999999,
           "voice_mechanism_compound": 7.280000000000001,
           "voice_estill_quality": 5.7524999999999995,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 17.09499999999999,
           "voice_ornament_system": 1.7549999999999994,
           "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 4.065,
+          "voice_processing_chain": 4.11,
           "voice_multitrack_stack": 2.34
         }
       },
@@ -96,7 +96,7 @@
         },
         "scores": {
           "acoustic_technique": 4.484999999999999,
-          "string_tuning": 4.115,
+          "string_tuning": 4.16,
           "cone_type": 2.125,
           "body_resonator": 0.65,
           "res_strings": 0.65
@@ -134,7 +134,7 @@
           "string_type": 13.8125,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.32999999999999996,
-          "bass_technique": 21.16,
+          "bass_technique": 21.01,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,11 +149,11 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 1.005,
-          "harmonica_comb": 22.264999999999997,
+          "harmonica_type": 0.8999999999999999,
+          "harmonica_comb": 22.025,
           "harmonica_reed": 22.224999999999998,
-          "harmonica_technique": 25.09,
-          "harmonica_maker_school": 23.744999999999997,
+          "harmonica_technique": 24.115,
+          "harmonica_maker_school": 23.084999999999997,
           "harmonica_tuning": 11.05
         }
       }

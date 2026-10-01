@@ -3,14 +3,14 @@
   "name": "Chicha (Peruvian Amazonian psychedelic cumbia)",
   "family": "global",
   "lineage": "Peruvian working-class cumbia hybrid formed circa 1968-1980 between Lima's Andean migrant barrios and the oil-boom Amazon towns of Pucallpa and Moyobamba, codified by Los Destellos, Juaneco y su Combo and Los Mirlos, joining Colombian cumbia's 4/4 güiro pattern to surf-fuzz Farfisa-and-guitar timbres and huayno-derived pentatonic melodies.",
-  "recipe": "classic mid-1970s chicha, functional Song, tropical song branch, andean field work, surf rock distorted rock rautalanka surf music. thick, breath veiled tone, pure, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright ebony soft down tuning single coil electric guitar, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, timbales, congas, guiro, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 691,
-  "score": 294.547,
+  "recipe": "classic mid-1970s chicha, functional Song, tropical song branch, andean field work, surf rock distorted rock folklore boliviano música andina. thick, forward-resonance, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright tremolo single coil electric guitar, psychedelic foregrounded organ driven rock combo organ, ernie ball slinky electric bass, timbales, congas, guiro, oil filled brushes-and-sticks drum kit. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 616,
+  "score": 237.335,
   "config": {
     "traditions": [
       "chicha",
-      "rautalanka",
-      "surf_music"
+      "folklore_boliviano",
+      "musica_andina"
     ],
     "instruments": [
       {
@@ -23,26 +23,26 @@
           "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "pure_nickel",
-          "string_gauge": "g_10",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "eb_standard",
+          "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 12.100000000000001,
-          "amp_make": 16.874999999999996,
+          "electric_technique": 6.325,
+          "amp_make": 6.695,
           "body_wood": 0.7,
           "neck_wood": 0.195,
-          "fretboard": 1.3,
+          "fretboard": 0.195,
           "pickup_magnet": 0.045,
           "string_material": 0,
-          "string_gauge": 0.9099999999999999,
-          "bridge": 1.3,
+          "string_gauge": 1.3,
+          "bridge": 0.195,
           "scale_length": 0.39,
-          "finish": 0.045,
-          "string_tuning": 9.49,
+          "finish": 0.195,
+          "string_tuning": 1.8199999999999998,
           "single_coil_pickup_construction": 0
         }
       },
@@ -50,24 +50,24 @@
         "id": "combo_organ",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "combo_organ_model": "farfisa_compact",
-          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_model": "gem_imperial_combo",
+          "combo_organ_voicing": "combo_organ_16_pedal",
           "combo_organ_context": "combo_organ_doors_psych",
           "amp_make": "amp_british_60s_selmer"
         },
         "scores": {
-          "keyboard_technique": 2.09,
-          "combo_organ_model": 2.5749999999999997,
-          "combo_organ_voicing": 2.1399999999999997,
-          "combo_organ_context": 10.464999999999998,
-          "amp_make": 1.755
+          "keyboard_technique": -0.07,
+          "combo_organ_model": 1.3,
+          "combo_organ_voicing": 0.975,
+          "combo_organ_context": 3.7049999999999996,
+          "amp_make": 0.8449999999999999
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -76,13 +76,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.75,
-          "body_wood": 1.3,
-          "pickup_config": 1.3,
-          "string_type": 21.03,
+          "amp_make": 2.99,
+          "body_wood": 0.39,
+          "pickup_config": 0.195,
+          "string_type": 4.549999999999999,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.3,
-          "bass_technique": 16.884999999999998,
+          "fretted_or_not": 0.65,
+          "bass_technique": 4.534999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -94,7 +94,7 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": -0.07,
+          "percussion_technique": 0.87,
           "timbales_shell": 0.135,
           "timbales_context": 1
         }
@@ -108,8 +108,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": -0.07,
-          "conga_set": 0.195,
+          "percussion_technique": 0.87,
+          "conga_set": 0.845,
           "conga_skin": 0.195,
           "conga_shell_wood": 0
         }
@@ -122,19 +122,19 @@
         },
         "scores": {
           "guiro_origin": 0.195,
-          "guiro_striker": 1.6249999999999998
+          "guiro_striker": 1.8850000000000002
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "hydraulic",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.694999999999997,
-          "drumhead": 2.1799999999999997,
+          "drum_technique": 17.744999999999997,
+          "drumhead": 1.65,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -142,39 +142,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 20.809999999999995,
-          "voice_quality": 9.685000000000002,
+          "voice_register": 4.285000000000001,
+          "voice_quality": 18.664999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8200000000000003,
-          "voice_articulation": 21.514999999999997,
-          "voice_microtone": 22.099999999999994,
-          "voice_tradition": 10.075,
-          "voice_mechanism_compound": 3.575000000000001,
-          "voice_estill_quality": 6.234999999999999,
-          "voice_speech_song": 26.779999999999998,
-          "voice_ensemble_config": 20.344999999999995,
-          "voice_ornament_system": 7.41,
-          "voice_pitch_organization": 1.4624999999999995,
-          "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 2.8600000000000003
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 20.214999999999993,
+          "voice_microtone": 19.824999999999992,
+          "voice_tradition": 27.2025,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 13.860000000000001,
+          "voice_speech_song": 23.659999999999993,
+          "voice_ensemble_config": 17.614999999999995,
+          "voice_ornament_system": 18.16,
+          "voice_pitch_organization": 1.2799999999999998,
+          "voice_processing_chain": 2.795,
+          "voice_multitrack_stack": 4.9725
         }
       }
     ],

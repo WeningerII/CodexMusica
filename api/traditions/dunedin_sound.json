@@ -3,14 +3,14 @@
   "name": "Dunedin Sound",
   "family": "rock",
   "lineage": "New Zealand indie style formed in Dunedin around 1980-85 and documented by the Flying Nun label and the Dunedin Double EP — The Clean, The Chills, The Verlaines, Look Blue Go Purple, Sneaky Feelings — built on cheap four-track and small-hall recordings, mid-tempo driving 4/4 or motorik eighth-note drumming, chiming trebly single-coil guitar and Vox organ drones, buried melodic vocals, and a deliberately hissy, room-heavy lo-fi mix.",
-  "recipe": "classic North American early-1980s dunedin sound, distorted Rock, alternative branch, noise rock distorted rock, anglo singer song indie folk no wave. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 709,
-  "score": 343.495,
+  "recipe": "classic North American early-1980s dunedin sound, distorted Rock, alternative branch, noise rock distorted rock, anglo singer song indie folk chinese minyao. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 690,
+  "score": 319.577,
   "config": {
     "traditions": [
       "dunedin_sound",
       "noise_rock",
-      "no_wave"
+      "chinese_minyao"
     ],
     "instruments": [
       {
@@ -20,68 +20,68 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "microtonal_31tet_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 28.389999999999993,
-          "voice_quality": 15.274999999999993,
+          "voice_register": 28.13999999999999,
+          "voice_quality": 16.964999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2825000000000006,
-          "voice_articulation": 20.604999999999997,
-          "voice_microtone": 26.404999999999994,
-          "voice_tradition": 5.04,
-          "voice_mechanism_compound": 11.602499999999996,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 20.34499999999999,
-          "voice_ensemble_config": 20.864999999999995,
-          "voice_ornament_system": 2.600000000000001,
-          "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 5.329999999999999,
-          "voice_multitrack_stack": 4.335
+          "voice_vibrato": 2.7950000000000004,
+          "voice_articulation": 18.264999999999993,
+          "voice_microtone": 20.549999999999997,
+          "voice_tradition": 12.577499999999999,
+          "voice_mechanism_compound": 8.352500000000001,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 21.57999999999999,
+          "voice_ensemble_config": 19.369999999999994,
+          "voice_ornament_system": 2.6325000000000003,
+          "voice_pitch_organization": 1.0499999999999998,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 3.640000000000001
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_feedback_drone",
+          "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
-          "bridge": "two_point_trem",
+          "string_gauge": "g_11",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 10.979999999999999,
-          "amp_make": 14.689999999999996,
+          "electric_technique": 8.775,
+          "amp_make": 11.114999999999998,
           "body_wood": 1.885,
           "neck_wood": 1.885,
           "fretboard": 1.8199999999999998,
           "pickup_magnet": 0.78,
-          "string_material": 0.78,
-          "string_gauge": 2.0799999999999996,
+          "string_material": 1.4300000000000002,
+          "string_gauge": 1.885,
           "bridge": 0.39,
           "scale_length": 1.885,
           "finish": 0.3,
-          "string_tuning": 13.909999999999998,
+          "string_tuning": 11.115,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.064999999999998,
+          "amp_make": 11.114999999999998,
           "body_wood": 1.885,
           "pickup_config": 1.24,
-          "string_type": 29.03,
+          "string_type": 24.63,
           "scale_length_b": 1.885,
-          "fretted_or_not": 0.39,
-          "bass_technique": 26.615,
+          "fretted_or_not": 0.24,
+          "bass_technique": 20.865,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.92,
-          "drumhead": 2.0475000000000003,
+          "drum_technique": 20.07,
+          "drumhead": 1.885,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -131,21 +131,21 @@
           "amp_make": "amp_british_60s_vox_ac"
         },
         "scores": {
-          "keyboard_technique": 0.06499999999999999,
-          "combo_organ_model": 3.055,
-          "combo_organ_voicing": 1.4299999999999997,
-          "combo_organ_context": 14.884999999999998,
-          "amp_make": 1.7999999999999998
+          "keyboard_technique": 1.1449999999999998,
+          "combo_organ_model": 4.415,
+          "combo_organ_voicing": 2.6325,
+          "combo_organ_context": 12.284999999999998,
+          "amp_make": 2.3
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_jingle": "tambourine_orch_brass",
           "tambourine_orch_context": "tambourine_orch_film"
         },
         "scores": {
-          "tambourine_orch_jingle": 0,
+          "tambourine_orch_jingle": 0.12999999999999998,
           "tambourine_orch_context": 0.585
         }
       }

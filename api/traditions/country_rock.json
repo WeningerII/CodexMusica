@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s LA-centered amplified country-and-rock fusion codified by The Byrds Sweetheart of the Rodeo (1968), The Flying Burrito Brothers, Poco, the Eagles Take It Easy era, Linda Ronstadt, Emmylou Harris",
   "recipe": "classic North American 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre.",
   "recipe_chars": 997,
-  "score": 957.452,
+  "score": 959.059,
   "config": {
     "traditions": [
       "country_rock",
@@ -38,17 +38,17 @@
           "voice_quality": 12.73999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 25.919374999999995,
+          "voice_vibrato": 25.964374999999997,
           "voice_articulation": 14.299999999999994,
           "voice_microtone": 45.870000000000026,
-          "voice_tradition": 23.790624999999995,
+          "voice_tradition": 24.255624999999995,
           "voice_mechanism_compound": 2.405,
-          "voice_estill_quality": 28.166249999999994,
+          "voice_estill_quality": 28.312499999999996,
           "voice_speech_song": 20.994999999999994,
           "voice_ensemble_config": 15.209999999999992,
           "voice_ornament_system": 1.2349999999999997,
-          "voice_pitch_organization": 0.736875,
-          "voice_processing_chain": 8.860000000000001,
+          "voice_pitch_organization": 0.7124999999999999,
+          "voice_processing_chain": 8.905000000000001,
           "voice_multitrack_stack": 8.543125000000002
         }
       },
@@ -63,7 +63,7 @@
         },
         "scores": {
           "acoustic_technique": 40.5,
-          "string_tuning": 0.6512499999999999,
+          "string_tuning": 0.6962499999999999,
           "top_wood": 1.235,
           "back_sides": 0.435,
           "string_acoustic": 2.9762499999999994
@@ -141,7 +141,7 @@
           "amp_make": 25.671249999999997,
           "body_wood": 1.235,
           "pickup_config": 0.16874999999999998,
-          "string_type": 46.24375000000001,
+          "string_type": 46.93375000000002,
           "scale_length_b": 2.49,
           "fretted_or_not": 0.195,
           "bass_technique": 40.45625000000001,
@@ -219,7 +219,7 @@
           "bowed_technique": 25.649999999999995,
           "fiddle_strings": 1.9499999999999997,
           "fiddle_bow": 0.33,
-          "fiddle_mute": 0.3,
+          "fiddle_mute": 0.495,
           "fiddle_articulation": 1.04,
           "fiddle_string_configuration": 0
         }

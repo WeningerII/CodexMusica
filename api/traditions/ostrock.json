@@ -3,14 +3,14 @@
   "name": "Ostrock (GDR rock)",
   "family": "rock_punk",
   "lineage": "East German rock produced from the late 1960s to 1990 under the state Amiga label and the mandatory 60-percent domestic-repertoire rule, with Puhdys, City, Karat, Silly and Pankow writing German-language songs that fold Anglo hard-rock riffing and progressive keyboard arrangements into radio-length forms, using Hammond and string-machine pads, folk violin colour, restrained heavy-rock guitar and lyrics coded to slip past censors.",
-  "recipe": "classic Central European 1967-1969 ostrock, distorted Rock, classic branch, progressive rock distorted rock, European protest song classic canadian rock space rock. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, string machine, steel sitka spruce hard rock maple acer saccharum violin orchestral. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 824,
-  "score": 480.833,
+  "recipe": "classic Central European 1967-1969 ostrock, distorted Rock, classic branch, progressive rock distorted rock, European protest song classic canadian rock classic hungarian rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, string machine, rectified machine polished sitka spruce hard rock maple acer saccharum violin orchestral. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 862,
+  "score": 434.515,
   "config": {
     "traditions": [
       "ostrock",
       "classic_canadian_rock",
-      "space_rock"
+      "classic_hungarian_rock"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 36.575000000000024,
-          "voice_quality": 10.334999999999994,
+          "voice_register": 34.074999999999996,
+          "voice_quality": 8.385,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8849999999999996,
-          "voice_articulation": 14.299999999999995,
-          "voice_microtone": 34.27500000000001,
+          "voice_vibrato": 1.1099999999999999,
+          "voice_articulation": 11.699999999999996,
+          "voice_microtone": 31.774999999999995,
           "voice_tradition": 5.135,
-          "voice_mechanism_compound": 6.370000000000002,
-          "voice_estill_quality": 3.3200000000000003,
-          "voice_speech_song": 15.794999999999993,
-          "voice_ensemble_config": 13.844999999999994,
-          "voice_ornament_system": 1.4949999999999997,
-          "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 7.079999999999999,
-          "voice_multitrack_stack": 7.442499999999999
+          "voice_mechanism_compound": 5.915000000000001,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 12.999999999999993,
+          "voice_ensemble_config": 11.244999999999994,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 1,
+          "voice_processing_chain": 5.015,
+          "voice_multitrack_stack": 5.330000000000001
         }
       },
       {
@@ -64,25 +64,25 @@
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 6.467500000000001,
-          "amp_make": 17.744999999999997,
+          "electric_technique": 4.680000000000001,
+          "amp_make": 16.444999999999997,
           "body_wood": 0.195,
-          "neck_wood": 1.6899999999999997,
-          "fretboard": 1.6899999999999997,
+          "neck_wood": 1.1099999999999999,
+          "fretboard": 1.1099999999999999,
           "pickup_magnet": 0,
-          "pickup_winding": 1.7999999999999998,
-          "string_material": 1.6899999999999997,
-          "bridge": 0.105,
-          "scale_length": 0.5849999999999996,
-          "string_gauge": 0.105,
+          "pickup_winding": 2.6449999999999996,
+          "string_material": 1.1099999999999999,
+          "bridge": 0.65,
+          "scale_length": 0,
+          "string_gauge": 0.65,
           "finish": 0,
-          "string_tuning": 22.554999999999996
+          "string_tuning": 21.45
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 18.46,
+          "amp_make": 17.355,
           "body_wood": 0,
           "pickup_config": 0,
-          "string_type": 40.15,
+          "string_type": 38.49,
           "scale_length_b": 0,
           "fretted_or_not": 0.195,
-          "bass_technique": 34.325,
+          "bass_technique": 31.825,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 34.375,
-          "drumhead": 1.6899999999999997,
+          "drum_technique": 31.875,
+          "drumhead": 1.1099999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,11 +133,11 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "drawbar_setting": 34.375,
-          "rotary_speed": 34.325,
-          "percussion_setting": 17.875,
-          "tonewheel_model": 19.824999999999996,
-          "leslie_cabinet_model": 2.925
+          "drawbar_setting": 31.875,
+          "rotary_speed": 31.825,
+          "percussion_setting": 16.575,
+          "tonewheel_model": 17.679999999999996,
+          "leslie_cabinet_model": 2.08
         }
       },
       {
@@ -149,7 +149,7 @@
           "sm_voicing": "sm_brass"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 0.06499999999999999,
           "sm_voice_count": 0,
           "sm_chorus": 2.99,
           "sm_voicing": 0.285
@@ -158,11 +158,11 @@
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_chopped_old_time",
-          "orch_strings": "steel_orch",
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "rectified_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "french_polish_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
@@ -170,15 +170,15 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.06499999999999999,
-          "orch_strings": 1.6899999999999997,
+          "bowed_technique": 0.12999999999999998,
+          "orch_strings": 1.625,
           "orch_top_wood": 2.28,
-          "orch_back_wood": 20.8,
-          "orch_varnish": -0.035,
-          "orch_setup_period": 0.52,
-          "orch_bow": 0.48,
+          "orch_back_wood": 19.5,
+          "orch_varnish": 0.12999999999999998,
+          "orch_setup_period": 0.7149999999999999,
+          "orch_bow": 0.285,
           "orch_bow_stick": -0.05,
-          "orch_articulation": 0.22499999999999998,
+          "orch_articulation": 0.195,
           "orch_rosin": -0.035
         }
       }

@@ -3,14 +3,14 @@
   "name": "Post-punk revival",
   "family": "rock_punk",
   "lineage": "Early-2000s indie rock subgenre revisiting late-1970s and early-1980s post-punk aesthetic (Joy Division, Wire, Gang of Four, the Fall) with explicit angular-guitar-and-driving-bass arrangement. Interpol (NYC 2002-onward), Franz Ferdinand (Glasgow), Bloc Party, the Editors, the Killers, the Strokes (parallel garage-rock-revival), and the broader 2002-2006 NME-promoted UK-American post-punk-revival wave consolidated the canonical sound.",
-  "recipe": "classic British 2002-2006 post-punk revival, distorted Rock, alternative branch, classic distorted rock britpop merseybeat. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 653,
-  "score": 336.415,
+  "recipe": "classic British 2002-2006 post-punk revival, distorted Rock, alternative branch, classic distorted rock britpop classic danish rock. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 671,
+  "score": 305.26,
   "config": {
     "traditions": [
       "post_punk_revival",
       "britpop",
-      "merseybeat"
+      "classic_danish_rock"
     ],
     "instruments": [
       {
@@ -27,28 +27,28 @@
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 22.269999999999992,
-          "voice_quality": 22.425,
+          "voice_register": 23.019999999999992,
+          "voice_quality": 15.014999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.43,
-          "voice_articulation": 14.169999999999998,
-          "voice_microtone": 22.174999999999997,
-          "voice_tradition": 2.0475,
-          "voice_mechanism_compound": 5.525000000000001,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 14.169999999999998,
-          "voice_ensemble_config": 16.639999999999997,
-          "voice_ornament_system": 0.845,
-          "voice_pitch_organization": 9.055,
-          "voice_processing_chain": 11.245000000000001,
+          "voice_vibrato": 2.58,
+          "voice_articulation": 9.23,
+          "voice_microtone": 22.924999999999997,
+          "voice_tradition": 3.0875000000000004,
+          "voice_mechanism_compound": 5.070000000000002,
+          "voice_estill_quality": 2.145,
+          "voice_speech_song": 9.034999999999998,
+          "voice_ensemble_config": 10.924999999999999,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 6.5649999999999995,
+          "voice_processing_chain": 12.284999999999998,
           "voice_multitrack_stack": 4.790000000000001
         }
       },
@@ -70,19 +70,19 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 13.259999999999998,
-          "amp_make": 26.519999999999996,
-          "body_wood": 5.915,
-          "neck_wood": 0.845,
-          "fretboard": 0.78,
+          "electric_technique": 10.27,
+          "amp_make": 26.064999999999998,
+          "body_wood": 4.225,
+          "neck_wood": 1.04,
+          "fretboard": 0.975,
           "pickup_magnet": 0.195,
-          "pickup_winding": 2.8600000000000003,
+          "pickup_winding": 3.7049999999999996,
           "string_material": 0.195,
-          "bridge": 0.845,
-          "scale_length": 5.069999999999999,
+          "bridge": 1.04,
+          "scale_length": 3.3799999999999994,
           "string_gauge": 0.845,
           "finish": 0.435,
-          "string_tuning": 18.72
+          "string_tuning": 18.46
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.884999999999998,
-          "body_wood": 0.845,
+          "amp_make": 14.429999999999996,
+          "body_wood": 1.04,
           "pickup_config": 0.045,
-          "string_type": 26.975,
+          "string_type": 27.95,
           "scale_length_b": 0.845,
           "fretted_or_not": 0,
-          "bass_technique": 29.885,
+          "bass_technique": 30.635,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 20.84,
+          "drum_technique": 21.59,
           "drumhead": 1.6650000000000003,
           "drum_kit_kick_pedal": 0
         }

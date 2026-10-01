@@ -3,14 +3,14 @@
   "name": "Scottish rock",
   "family": "rock",
   "lineage": "Rock from Glasgow, East Kilbride and Edinburgh from the late 1970s onward — Simple Minds and Big Country building wide, reverberant anthem rock with e-bowed or MXR-processed guitars imitating pipe drones, The Jesus and Mary Chain burying doo-wop melody under feedback in 1985, and later Primal Scream, Mogwai and Franz Ferdinand working dance-rock and instrumental crescendo forms, typically 110-150 BPM 4/4 with big gated snares, chorused bass and plain-spoken Scottish vocal accent.",
-  "recipe": "classic British 1977-1979 scottish rock, distorted Rock, regional branch, alternative distorted rock, noise rock distorted rock, pop rock new wave. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, plucked short envelope analog poly synth, African blackwood grenadilla canonical Scottish cane double reed canonical arundo donax synthetic bannatyne ross canonical modern highland bagpipes. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 999,
-  "score": 543.23,
+  "recipe": "classic British 1977-1979 scottish rock, distorted Rock, regional branch, alternative distorted rock, noise rock distorted rock, pop rock new wave polish noise rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation feedback single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth, African blackwood grenadilla canonical Scottish cane double reed canonical arundo donax synthetic bannatyne ross canonical modern highland bagpipes. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 994,
+  "score": 517.463,
   "config": {
     "traditions": [
       "scottish_rock",
       "noise_rock",
-      "no_wave"
+      "polish_noise_rock"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 48.43000000000002,
-          "voice_quality": 9.165,
+          "voice_register": 46.755000000000024,
+          "voice_quality": 7.02,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.150000000000001,
-          "voice_articulation": 23.985,
-          "voice_microtone": 44.60000000000001,
+          "voice_vibrato": 4.800000000000001,
+          "voice_articulation": 19.37,
+          "voice_microtone": 42.92500000000001,
           "voice_tradition": 6.044999999999999,
-          "voice_mechanism_compound": 12.902499999999998,
+          "voice_mechanism_compound": 12.447499999999998,
           "voice_estill_quality": 8.09,
-          "voice_speech_song": 25.025,
-          "voice_ensemble_config": 22.164999999999996,
-          "voice_ornament_system": 1.7999999999999998,
-          "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 5.32,
-          "voice_multitrack_stack": 6.402500000000001
+          "voice_speech_song": 20.865000000000002,
+          "voice_ensemble_config": 18.2,
+          "voice_ornament_system": 0.49999999999999983,
+          "voice_pitch_organization": 1.8199999999999998,
+          "voice_processing_chain": 4.8950000000000005,
+          "voice_multitrack_stack": 5.46
         }
       },
       {
@@ -62,26 +62,26 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_short",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 12.699999999999998,
-          "amp_make": 23.854999999999997,
+          "amp_make": 22.879999999999995,
           "body_wood": 0.585,
           "neck_wood": 0.39,
           "fretboard": 0.39,
           "pickup_magnet": 0.39,
           "string_material": 0.39,
-          "string_gauge": 0.78,
+          "string_gauge": 0.845,
           "bridge": 0.195,
           "scale_length": 0.39,
-          "finish": 0.15,
-          "string_tuning": 21.71,
+          "finish": 0,
+          "string_tuning": 21.515,
           "single_coil_pickup_construction": 0
         }
       },
@@ -90,7 +90,7 @@
         "slots": {
           "electric_technique": "electric_feedback_drone",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "basswood_h",
+          "body_wood": "alder_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
@@ -98,31 +98,31 @@
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": 12.699999999999998,
-          "amp_make": 23.854999999999997,
+          "amp_make": 22.879999999999995,
           "body_wood": 0.585,
           "neck_wood": 0.39,
           "fretboard": 0.39,
           "pickup_magnet": 0.195,
-          "pickup_winding": 1.04,
+          "pickup_winding": 1.02,
           "string_material": 0.39,
-          "bridge": 0.39,
+          "bridge": 0.845,
           "scale_length": 0.585,
-          "string_gauge": 0.78,
-          "finish": 0.15,
-          "string_tuning": 21.904999999999998
+          "string_gauge": 0.845,
+          "finish": 0,
+          "string_tuning": 21.71
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -132,12 +132,12 @@
         },
         "scores": {
           "amp_make": 23.205,
-          "body_wood": 0.39,
+          "body_wood": 0.195,
           "pickup_config": 0.585,
           "string_type": 48.305,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.39,
-          "bass_technique": 43.025,
+          "fretted_or_not": 0.105,
+          "bass_technique": 42.275,
           "electric_bass_string_configuration": 0
         }
       },
@@ -150,20 +150,20 @@
         },
         "scores": {
           "drum_technique": 40.625,
-          "drumhead": 3.445,
+          "drumhead": 2.645,
           "drum_kit_kick_pedal": 0
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pluck_short",
+          "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 3.1,
+          "electronic_technique": 2.6,
           "poly_archetypes": 22.425,
           "poly_voices": 0.3,
           "poly_maker_lineage": 0.12999999999999998

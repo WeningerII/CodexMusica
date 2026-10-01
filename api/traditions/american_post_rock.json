@@ -5,7 +5,7 @@
   "lineage": "American post-rock is represented here by Caspian. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic american post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 315,
-  "score": 41.96,
+  "score": 41.334,
   "config": {
     "traditions": [
       "american_post_rock"
@@ -20,7 +20,7 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": -0.1,
           "amp_make": 4.8100000000000005,
-          "body_wood": 0.7979999999999999,
-          "neck_wood": 0.5145,
-          "fretboard": 0.5145,
-          "pickup_magnet": 0.357,
-          "pickup_winding": 0.357,
-          "string_material": 0.5145,
-          "bridge": 1.663,
-          "scale_length": 1.4739999999999998,
-          "string_gauge": 1.6,
+          "body_wood": 0.5565,
+          "neck_wood": 0.417,
+          "fretboard": 0.417,
+          "pickup_magnet": 0.147,
+          "pickup_winding": 0.3435,
+          "string_material": 0.417,
+          "bridge": 2.08,
+          "scale_length": 1.1664999999999999,
+          "string_gauge": 2.08,
           "finish": 0.1365,
-          "string_tuning": 0.3
+          "string_tuning": 0.39
         }
       },
       {
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 5.265,
           "body_wood": 0.21,
-          "pickup_config": 0.38849999999999996,
+          "pickup_config": 0.1785,
           "string_type": 12.35,
-          "scale_length_b": 0.613,
+          "scale_length_b": 0.40299999999999997,
           "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.5145,
+          "drumhead": 0.417,
           "drum_kit_kick_pedal": 0
         }
       }

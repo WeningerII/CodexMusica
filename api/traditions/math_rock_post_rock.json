@@ -3,14 +3,14 @@
   "name": "Math rock and post-rock",
   "family": "rock_punk",
   "lineage": "Late-1980s onward underground rock movement deploying odd time signatures, polymetric and angular guitar interplay, instrumental-or-near-instrumental song form, and crescendo-based arrangement — codified through Slint (Spiderland 1991), Tortoise (Millions Now Living Will Never Die 1996), Mogwai (Mogwai Young Team 1997), Godspeed You Black Emperor (F♯ A♯ ∞ 1997), Don Caballero (American Don 2000), Battles (Mirrored 2007)",
-  "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock american post-rock british post-rock. marshall plexi amp British rock amp power chord single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 453,
-  "score": 146.132,
+  "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock american post-rock malaysian post-rock. marshall plexi amp British rock amp lower tension down tuning power chord single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 481,
+  "score": 153.088,
   "config": {
     "traditions": [
       "math_rock_post_rock",
       "american_post_rock",
-      "british_post_rock"
+      "malaysian_post_rock"
     ],
     "instruments": [
       {
@@ -19,30 +19,30 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "pine",
-          "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
-          "pickup_magnet": "alnico_2",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d",
+          "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 5.07,
           "amp_make": 14.819999999999999,
           "body_wood": 0.7,
-          "neck_wood": 0.39,
-          "fretboard": 0.325,
-          "pickup_magnet": 0.24,
-          "string_material": 0.195,
-          "string_gauge": 2.07,
+          "neck_wood": 0.7350000000000001,
+          "fretboard": 0.7350000000000001,
+          "pickup_magnet": 0.7350000000000001,
+          "string_material": 0.7350000000000001,
+          "string_gauge": 2.72,
           "bridge": 0.6,
           "scale_length": 0.39,
           "finish": 0.195,
-          "string_tuning": 14.495000000000001,
+          "string_tuning": 15.34,
           "single_coil_pickup_construction": 0
         }
       },
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 15.08,
+          "amp_make": 15.275,
           "body_wood": 0.39,
           "pickup_config": 0.555,
-          "string_type": 33.9425,
+          "string_type": 35.1925,
           "scale_length_b": 0.6900000000000001,
           "fretted_or_not": 0.195,
-          "bass_technique": 27.45,
+          "bass_technique": 28.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.5,
+          "drum_technique": 28.75,
           "drumhead": 1.09,
           "drum_kit_kick_pedal": 0
         }

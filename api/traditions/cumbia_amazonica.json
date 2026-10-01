@@ -3,14 +3,14 @@
   "name": "Cumbia amazónica",
   "family": "global",
   "lineage": "Peruvian jungle cumbia from Pucallpa, Iquitos and Moyobamba in the late 1960s–1970s, codified by Juaneco y su Combo, Los Mirlos and Los Wemblers de Iquitos — 95–105 BPM cumbia paseo with surf-toned tremolo electric guitar carrying pentatonic-inflected Amazonian melodies over Farfisa organ, timbales, güiro and congas.",
-  "recipe": "classic 1967-1969 cumbia amazónica, groove Percussion, Latin am branch, tropical song functional song, surf rock distorted rock rautalanka surf music. thick, breath veiled tone, fast rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright ebony tremolo single coil electric guitar, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ, open slap hand drum timbales, guiro, open slap hand drum congas, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, open slap hand drum bongos. tin roofed shack. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 726,
-  "score": 251.348,
+  "recipe": "classic 1967-1969 cumbia amazónica, groove Percussion, Latin am branch, tropical song functional song, surf rock distorted rock chicha australian surf rock. thick, full chest belt, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright tremolo single coil electric guitar, psychedelic foregrounded organ driven rock combo organ, open slap hand drum timbales, guiro, open slap hand drum congas, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, open slap hand drum bongos. tin roofed shack. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 705,
+  "score": 194.512,
   "config": {
     "traditions": [
       "cumbia_amazonica",
-      "rautalanka",
-      "surf_music"
+      "chicha",
+      "australian_surf_rock"
     ],
     "instruments": [
       {
@@ -20,10 +20,10 @@
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -31,18 +31,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 12.477500000000001,
-          "amp_make": 14.145,
+          "electric_technique": 11.327499999999999,
+          "amp_make": 10.319999999999999,
           "body_wood": 0.69,
           "neck_wood": 0.69,
-          "fretboard": 1.045,
+          "fretboard": 0.435,
           "pickup_magnet": 0.435,
           "string_material": 0.435,
-          "string_gauge": 0.735,
-          "bridge": 1.045,
+          "string_gauge": 1.1225,
+          "bridge": 0.045,
           "scale_length": 1.3800000000000001,
           "finish": 0,
-          "string_tuning": 8.495,
+          "string_tuning": 5.525,
           "single_coil_pickup_construction": 0
         }
       },
@@ -50,17 +50,17 @@
         "id": "combo_organ",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "combo_organ_model": "farfisa_compact",
-          "combo_organ_voicing": "combo_organ_vibrato_on",
+          "combo_organ_model": "gem_imperial_combo",
+          "combo_organ_voicing": "combo_organ_16_pedal",
           "combo_organ_context": "combo_organ_doors_psych",
-          "amp_make": "amp_british_60s_selmer"
+          "amp_make": "amp_unspecified"
         },
         "scores": {
-          "keyboard_technique": 2.135,
-          "combo_organ_model": 3.1825,
-          "combo_organ_voicing": 2.2749999999999995,
-          "combo_organ_context": 9.2175,
-          "amp_make": 1.545
+          "keyboard_technique": -0.07,
+          "combo_organ_model": 2.4775,
+          "combo_organ_voicing": 0.39,
+          "combo_organ_context": 6.8675,
+          "amp_make": 0
         }
       },
       {
@@ -73,7 +73,7 @@
         "scores": {
           "percussion_technique": 4.48,
           "timbales_shell": 0.195,
-          "timbales_context": 0.67
+          "timbales_context": 0.65
         }
       },
       {
@@ -84,7 +84,7 @@
         },
         "scores": {
           "guiro_origin": 0.78,
-          "guiro_striker": 2.3025
+          "guiro_striker": 1.5025
         }
       },
       {
@@ -97,7 +97,7 @@
         },
         "scores": {
           "percussion_technique": 4.48,
-          "conga_set": 0.195,
+          "conga_set": 0.8250000000000002,
           "conga_skin": 0.8249999999999998,
           "conga_shell_wood": 0.8249999999999998
         }
@@ -115,13 +115,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.2225,
+          "amp_make": 6.045,
           "body_wood": 1.3800000000000001,
-          "pickup_config": 1.045,
-          "string_type": 17.09,
+          "pickup_config": 0.045,
+          "string_type": 11.215,
           "scale_length_b": 0.735,
           "fretted_or_not": 0,
-          "bass_technique": 16.45,
+          "bass_technique": 10.575,
           "electric_bass_string_configuration": 0
         }
       },
@@ -129,39 +129,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 20.044999999999995,
-          "voice_quality": 9.685000000000002,
+          "voice_register": 11.144999999999992,
+          "voice_quality": 12.349999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 17.224999999999998,
-          "voice_microtone": 18.549999999999997,
-          "voice_tradition": 3.9,
-          "voice_mechanism_compound": 4.3549999999999995,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 20.409999999999997,
-          "voice_ensemble_config": 18.524999999999995,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.0724999999999998,
-          "voice_processing_chain": 4.7925,
-          "voice_multitrack_stack": 4.680000000000001
+          "voice_vibrato": 0.9749999999999999,
+          "voice_articulation": 12.284999999999997,
+          "voice_microtone": 12.674999999999994,
+          "voice_tradition": 5.6875,
+          "voice_mechanism_compound": 3.7049999999999996,
+          "voice_estill_quality": 2.8649999999999998,
+          "voice_speech_song": 16.054999999999996,
+          "voice_ensemble_config": 12.154999999999994,
+          "voice_ornament_system": 3.7675,
+          "voice_pitch_organization": 1.8849999999999996,
+          "voice_processing_chain": 4.4425,
+          "voice_multitrack_stack": 4.8375
         }
       },
       {
@@ -175,7 +175,7 @@
         "scores": {
           "percussion_technique": 4.48,
           "bongos_skin": 0,
-          "bongos_context": 1.3,
+          "bongos_context": 0.65,
           "bongos_shell_wood": 0.8249999999999998
         }
       }

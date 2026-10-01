@@ -5,7 +5,7 @@
   "lineage": "Poland-centered techno production, represented by Jacek Sienkiewicz’s club and experimental practice through Recognition Records. The selected model combines synthesized figures and manipulated sample percussion; it is one documented branch of a broader national network.",
   "recipe": "classic modern polish techno, electronic Dance, techno branch. analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 289,
-  "score": 8.059,
+  "score": 7.902,
   "config": {
     "traditions": [
       "polish_techno"
@@ -21,10 +21,10 @@
           "modulation": "sample_hold"
         },
         "scores": {
-          "electronic_technique": 1.0352499999999998,
-          "oscillator": 0,
-          "filter_topology": 0.27025,
-          "envelope": 0.20325000000000001,
+          "electronic_technique": 0.9999999999999998,
+          "oscillator": 0.0315,
+          "filter_topology": 0.15275,
+          "envelope": 0.168,
           "modulation": 0
         }
       },

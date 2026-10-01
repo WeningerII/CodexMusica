@@ -5,7 +5,7 @@
   "lineage": "Los Angeles studio-pop of roughly 1965-1970 made by session-band productions around Curt Boettcher, Gary Usher and Roger Nichols and by vocal groups such as The Association and The Mamas & the Papas — bright major-key songs at 90-130 BPM with jazz-derived major-seventh and added-sixth harmony, four- and five-part close vocal blocks stacked on multitrack, orchestral colour from harpsichord, flutes, French horn and vibraphone, brushed or lightly played drums, and lyrics of pastoral optimism cut with wistfulness.",
   "recipe": "classic Los Angeles mid-1960s sunshine pop, functional Song, pop rock branch, pop rock folk rock, surf rock distorted rock, pop rock girl group 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, acoustic guitar 12 string, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque block chord harpsichord, powell boston canonical American orchestral flute, french horn, mallets vibraphone, traditional mellow brass tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
   "recipe_chars": 968,
-  "score": 433.148,
+  "score": 433.237,
   "config": {
     "traditions": [
       "sunshine_pop",
@@ -41,15 +41,15 @@
           "voice_vibrato": 3.9899999999999998,
           "voice_articulation": 22.684999999999995,
           "voice_microtone": 46.54500000000001,
-          "voice_tradition": 24.060000000000002,
+          "voice_tradition": 24.285,
           "voice_mechanism_compound": 5.915000000000001,
           "voice_estill_quality": 5.525000000000001,
           "voice_speech_song": 28.794999999999998,
           "voice_ensemble_config": 25.609999999999992,
           "voice_ornament_system": 0.22499999999999998,
-          "voice_pitch_organization": 5.125,
-          "voice_processing_chain": 13.52,
-          "voice_multitrack_stack": 7.159999999999998
+          "voice_pitch_organization": 5.08,
+          "voice_processing_chain": 13.475000000000001,
+          "voice_multitrack_stack": 7.114999999999998
         }
       },
       {

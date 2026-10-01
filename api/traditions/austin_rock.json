@@ -5,7 +5,7 @@
   "lineage": "Austin rock is represented here by A Giant Dog. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic austin rock, distorted Rock, regional branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 355,
-  "score": 43.844,
+  "score": 43.889,
   "config": {
     "traditions": [
       "austin_rock"
@@ -34,14 +34,14 @@
           "body_wood": 0.273,
           "neck_wood": 0.273,
           "fretboard": 0.273,
-          "pickup_magnet": 0.168,
+          "pickup_magnet": 0.0315,
           "pickup_winding": 0.147,
           "string_material": 0.273,
-          "bridge": 1.4785,
-          "scale_length": 0.8190000000000001,
-          "string_gauge": 1.51,
+          "bridge": 1.6075,
+          "scale_length": 0.7875000000000001,
+          "string_gauge": 1.6075,
           "finish": 0,
-          "string_tuning": 0.363
+          "string_tuning": 0.39
         }
       },
       {
@@ -49,7 +49,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
@@ -58,8 +58,8 @@
         },
         "scores": {
           "amp_make": 5.654999999999999,
-          "body_wood": 0.0315,
-          "pickup_config": 0.063,
+          "body_wood": 0,
+          "pickup_config": 0,
           "string_type": 13.325,
           "scale_length_b": 0.063,
           "fretted_or_not": 0.1365,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 10.25,
-          "drumhead": 0.3,
+          "drumhead": 0.354,
           "drum_kit_kick_pedal": 0
         }
       },

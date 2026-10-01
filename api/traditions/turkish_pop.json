@@ -3,14 +3,14 @@
   "name": "Turkish Pop",
   "family": "pop",
   "lineage": "Türk pop müziği, running from the 1960s aranjman craze of foreign melodies with Turkish lyrics through Sezen Aksu's songwriting school and the 1990s Tarkan-era boom — 95-130 BPM verse-chorus songs with darbuka and programmed kit under Western pop harmony, bağlama or kanun countermelodies, synth pads and horn stabs, and a melismatic, makam-inflected but tempered lead vocal.",
-  "recipe": "classic Middle Eastern mid-1960s turkish pop, functional Song, mid east n African pop branch, europop functional song, regional distorted rock chinese indie rock classic j-rock. thick, breath veiled tone, slow rate, interlocked note trading. makam correct steel canonical modern saz baglama, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, kanun tortoiseshell traditional kanun, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 881,
-  "score": 278.41,
+  "recipe": "classic Middle Eastern mid-1960s turkish pop, functional Song, mid east n African pop branch, europop functional song, regional distorted rock classic greek rock indian rock. thick, breath veiled tone, slow rate, interlocked note trading. makam correct steel canonical modern saz baglama, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, kanun tortoiseshell traditional kanun, lead plus third fifth 3 part stack mid 1960s double tracking era 2 to 4 track chorus detuned thickener across stack multitrack vocal stack. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 878,
+  "score": 272.81,
   "config": {
     "traditions": [
       "turkish_pop",
-      "chinese_indie_rock",
-      "classic_j_rock"
+      "classic_greek_rock",
+      "indian_rock"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 27.64499999999999,
-          "voice_quality": 6.76,
+          "voice_register": 26.34499999999999,
+          "voice_quality": 5.915,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 10.789999999999994,
-          "voice_microtone": 30.824999999999992,
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 9.879999999999999,
+          "voice_microtone": 29.449999999999992,
           "voice_tradition": 19.529999999999998,
-          "voice_mechanism_compound": 4.029999999999999,
-          "voice_estill_quality": 3.835,
-          "voice_speech_song": 14.624999999999995,
-          "voice_ensemble_config": 11.764999999999993,
-          "voice_ornament_system": 1.075,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 4.8,
+          "voice_speech_song": 13.129999999999995,
+          "voice_ensemble_config": 10.205,
+          "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 7.749999999999999,
-          "voice_processing_chain": 3.885,
-          "voice_multitrack_stack": 4.875000000000001
+          "voice_processing_chain": 4.984999999999999,
+          "voice_multitrack_stack": 4.680000000000001
         }
       },
       {
@@ -63,8 +63,8 @@
           "saz_tradition": "saz_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 1.2675,
-          "saz_size": 0.195,
+          "plucked_traditional_technique": 1.1049999999999998,
+          "saz_size": 1.7550000000000003,
           "saz_frets": 1.3,
           "saz_body_wood": 0.585,
           "saz_strings": 1.1250000000000002,
@@ -95,9 +95,9 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 16.395,
-          "poly_archetypes": 6.254999999999999,
-          "poly_voices": 0.785,
+          "electronic_technique": 16.845,
+          "poly_archetypes": 5.904999999999999,
+          "poly_voices": 0.195,
           "poly_maker_lineage": -0.035
         }
       },
@@ -114,13 +114,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.129999999999999,
+          "amp_make": 5.779999999999999,
           "body_wood": 1.95,
           "pickup_config": 0.345,
-          "string_type": 13.214999999999996,
+          "string_type": 12.34,
           "scale_length_b": 1.935,
           "fretted_or_not": 0.195,
-          "bass_technique": 12.324999999999998,
+          "bass_technique": 11.45,
           "electric_bass_string_configuration": 0
         }
       },
@@ -132,7 +132,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.374999999999998,
+          "drum_technique": 11.5,
           "drumhead": 15.35,
           "drum_kit_kick_pedal": 0
         }
@@ -145,7 +145,7 @@
           "kanun_articulation": "kanun_tortoiseshell_pick"
         },
         "scores": {
-          "plucked_traditional_technique": 0.25,
+          "plucked_traditional_technique": 0.39999999999999997,
           "kanun_school": 10.75,
           "kanun_articulation": 2.8400000000000003
         }
@@ -158,7 +158,7 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 1.6899999999999997,
+          "multitrack_stack_density": 2.0799999999999996,
           "multitrack_stack_era_aesthetic": 5.9799999999999995,
           "multitrack_stack_processing": 1.09
         }

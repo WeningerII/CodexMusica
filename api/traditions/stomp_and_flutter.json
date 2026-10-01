@@ -5,7 +5,7 @@
   "lineage": "North American and Icelandic indie-folk-pop tendency of roughly 2009-2016, an algorithmically-named counterpart to stomp-and-holler distinguished by lighter, often female or mixed-gender lead voices — 100-140 BPM four-on-the-floor foot-stomp and handclap percussion, strummed dreadnought guitar with mandolin, glockenspiel and upright piano coloration, group 'hey' shouts and airy multitracked harmony over major-key diatonic progressions.",
   "recipe": "classic mid-2010s stomp and flutter, ballad Poetry, indie folk branch, anglo singer song freak folk, pop rock folk rock new weird america. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack, cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, bowl back Italian redwood big leaf maple modern American x brace mandolin, block chord upright piano, mid attack plastic glockenspiel, stomp boot foot stomp, communal wide group massed hand clap. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 757,
-  "score": 281.249,
+  "score": 281.02,
   "config": {
     "traditions": [
       "stomp_and_flutter",
@@ -47,9 +47,9 @@
           "voice_speech_song": 22.944999999999993,
           "voice_ensemble_config": 18.004999999999995,
           "voice_ornament_system": 5.070000000000002,
-          "voice_pitch_organization": 2.7100000000000004,
+          "voice_pitch_organization": 2.6050000000000004,
           "voice_processing_chain": 8.7695,
-          "voice_multitrack_stack": 6.423000000000002
+          "voice_multitrack_stack": 6.435000000000001
         }
       },
       {
@@ -75,7 +75,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 29.913000000000004,
+          "acoustic_technique": 29.776500000000002,
           "string_tuning": 0.52,
           "top_wood": 1.04,
           "back_sides": 0.8785,
