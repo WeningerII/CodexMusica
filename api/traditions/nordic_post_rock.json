@@ -5,7 +5,7 @@
   "lineage": "Nordic post-rock is represented here by pg.lost — selected guitar-band core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic nordic post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 313,
-  "score": 49.809,
+  "score": 48.659,
   "config": {
     "traditions": [
       "nordic_post_rock"
@@ -31,24 +31,24 @@
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 6.11,
-          "body_wood": 0.7979999999999999,
-          "neck_wood": 0.5145,
-          "fretboard": 0.5145,
-          "pickup_magnet": 0.357,
+          "body_wood": 0.63825,
+          "neck_wood": 0.378,
+          "fretboard": 0.378,
+          "pickup_magnet": 0.147,
           "pickup_winding": 0.39,
-          "string_material": 0.5145,
-          "bridge": 1.48675,
-          "scale_length": 1.344,
-          "string_gauge": 1.42375,
+          "string_material": 0.378,
+          "bridge": 1.69,
+          "scale_length": 1.0792499999999998,
+          "string_gauge": 1.69,
           "finish": 0.1365,
-          "string_tuning": 0.337125
+          "string_tuning": 0.39
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "swamp_ash_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 6.954999999999999,
-          "body_wood": 0.21,
-          "pickup_config": 0.38849999999999996,
+          "body_wood": 0.126,
+          "pickup_config": 0.1785,
           "string_type": 15.6,
-          "scale_length_b": 0.483,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_clear",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 12,
-          "drumhead": 0.5145,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
       }

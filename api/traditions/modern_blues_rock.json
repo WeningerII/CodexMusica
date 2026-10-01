@@ -5,7 +5,7 @@
   "lineage": "Modern blues rock is represented here by The Black Keys — selected duo core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic modern blues rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood alnico humbucker electric guitar, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 374,
-  "score": 41.853,
+  "score": 41.678,
   "config": {
     "traditions": [
       "modern_blues_rock"
@@ -32,16 +32,16 @@
           "electric_technique": -0.07,
           "amp_make": 6.11,
           "body_wood": 2.9899999999999998,
-          "neck_wood": 0.441,
+          "neck_wood": 0.5775,
           "fretboard": 0.21000000000000002,
           "pickup_magnet": 2.4364999999999997,
           "pickup_winding": 2.4364999999999997,
           "string_material": 0.105,
-          "bridge": 1.69,
+          "bridge": 1.573,
           "scale_length": 2.9899999999999998,
-          "string_gauge": 1.69,
+          "string_gauge": 1.573,
           "finish": 0,
-          "string_tuning": 0.33899999999999997
+          "string_tuning": 0.3
         }
       },
       {
@@ -53,7 +53,7 @@
         },
         "scores": {
           "drum_technique": 12,
-          "drumhead": 6.1985,
+          "drumhead": 6.1594999999999995,
           "drum_kit_kick_pedal": 0
         }
       },

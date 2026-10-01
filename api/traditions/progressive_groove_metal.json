@@ -3,9 +3,9 @@
   "name": "Progressive groove metal",
   "family": "rock_punk",
   "lineage": "Progressive-groove-metal field represented by Jinjer’s rhythmically intricate guitar, bass, drum and vocal quartet and its Kyiv-based Wallflowers period.",
-  "recipe": "classic modern progressive groove metal, distorted Rock, prog branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 474,
-  "score": 49.792,
+  "recipe": "classic modern progressive groove metal, distorted Rock, prog branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 512,
+  "score": 49.996,
   "config": {
     "traditions": [
       "progressive_groove_metal"
@@ -35,7 +35,7 @@
           "neck_wood": 0.33599999999999997,
           "fretboard": 0.33599999999999997,
           "pickup_magnet": 0.3315,
-          "pickup_winding": 0.22049999999999997,
+          "pickup_winding": 0.252,
           "string_material": 0.33599999999999997,
           "bridge": 0.9099999999999999,
           "scale_length": 5.329999999999999,
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 4.355,
-          "body_wood": 0.189,
+          "body_wood": 0.252,
           "pickup_config": 0.0315,
           "string_type": 4.875,
-          "scale_length_b": 0.189,
+          "scale_length_b": 0.252,
           "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.2607499999999998,
+          "voice_ensemble_config": 1.2810000000000001,
           "voice_ornament_system": 0.1575,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0945,
-          "voice_multitrack_stack": 0.49912499999999993
+          "voice_multitrack_stack": 0.5249999999999999
         }
       }
     ],

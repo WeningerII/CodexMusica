@@ -5,7 +5,7 @@
   "lineage": "Atmospheric post-rock is represented here by The Day We Left Earth. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic atmospheric post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 318,
-  "score": 42.574,
+  "score": 42.49,
   "config": {
     "traditions": [
       "atmospheric_post_rock"
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "swamp_ash_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 5.654999999999999,
-          "body_wood": 0.21,
+          "body_wood": 0.126,
           "pickup_config": 0.1785,
           "string_type": 13.325,
           "scale_length_b": 0.39299999999999996,

@@ -3,9 +3,9 @@
   "name": "Jazz fusion (1970s post-Bitches-Brew electric jazz-rock)",
   "family": "jazz",
   "lineage": "1970s jazz subgenre developed from Miles Davis's late-1960s Bitches Brew sessions, integrating jazz-improvisational practice with rock-and-funk rhythmic vocabulary and electric-amplified-instrumentation. Weather Report (founded 1970 by Joe Zawinul and Wayne Shorter), Mahavishnu Orchestra (John McLaughlin), Return to Forever (Chick Corea), and Headhunters (Herbie Hancock) constitute the canonical 1970s fusion roster. Distinguished from broader jazz by fusion's explicit rock-and-funk-rhythmic-electric-instrument synthesis.",
-  "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, prog rock electric violin. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 674,
-  "score": 294.134,
+  "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, analog synth, prog rock electric violin. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 669,
+  "score": 287.703,
   "config": {
     "traditions": [
       "fusion_70s_electric",
@@ -31,7 +31,7 @@
           "sax_body_alloy": 24.375,
           "sax_mouthpiece": 0.845,
           "sax_technique": 23.5,
-          "sax_maker_school": 28.363000000000003
+          "sax_maker_school": 26.515000000000004
         }
       },
       {
@@ -43,19 +43,19 @@
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 3.9765,
+          "keyboard_technique": 3.99,
           "grand_piano_size": 0.24,
-          "grand_piano_brand": 1.6315,
+          "grand_piano_brand": 1.495,
           "piano_hammer": 14.852500000000001,
           "piano_rim": 13.1625,
           "piano_soundboard": 1.005,
-          "piano_pinblock": 0.9199999999999999,
-          "piano_plate": 1.0725,
+          "piano_pinblock": 1.005,
+          "piano_plate": 1.065,
           "piano_pitch_standard": 1.1374999999999997
         }
       },
@@ -86,12 +86,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "fiberskyn_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 45.312,
-          "drumhead": 26.0465,
+          "drum_technique": 42.55499999999999,
+          "drumhead": 24.375,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -107,8 +107,8 @@
         "scores": {
           "electronic_technique": -0.05,
           "oscillator": 0.845,
-          "filter_topology": 0.9165,
-          "envelope": 2.8579999999999997,
+          "filter_topology": 0.9750000000000001,
+          "envelope": 2.6899999999999995,
           "modulation": 0.15
         }
       },

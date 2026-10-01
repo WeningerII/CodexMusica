@@ -5,7 +5,7 @@
   "lineage": "Italian post-rock is represented here by Platonick Dive — Take A Deep Breath. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic italian post-rock, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 352,
-  "score": 51.086,
+  "score": 50.275,
   "config": {
     "traditions": [
       "italian_post_rock"
@@ -20,7 +20,7 @@
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 6.11,
-          "body_wood": 0.7979999999999999,
-          "neck_wood": 0.5145,
-          "fretboard": 0.5145,
-          "pickup_magnet": 0.357,
-          "pickup_winding": 0.357,
-          "string_material": 0.5145,
-          "bridge": 1.523875,
-          "scale_length": 1.344,
-          "string_gauge": 1.4608750000000001,
+          "body_wood": 0.693,
+          "neck_wood": 0.378,
+          "fretboard": 0.378,
+          "pickup_magnet": 0.252,
+          "pickup_winding": 0.33599999999999997,
+          "string_material": 0.378,
+          "bridge": 1.69,
+          "scale_length": 1.1025,
+          "string_gauge": 1.646125,
           "finish": 0.1365,
-          "string_tuning": 0.337125
+          "string_tuning": 0.37987499999999996
         }
       },
       {
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 6.5649999999999995,
           "body_wood": 0.21,
-          "pickup_config": 0.38849999999999996,
+          "pickup_config": 0.2835,
           "string_type": 15.6,
-          "scale_length_b": 0.483,
+          "scale_length_b": 0.378,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_clear",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 12,
-          "drumhead": 0.5145,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.063,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.26249999999999996
+          "voice_multitrack_stack": 0.27375
         }
       }
     ],

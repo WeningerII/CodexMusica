@@ -5,7 +5,7 @@
   "lineage": "Math rock latinoamericano is represented here by tortuganónima — Corrientes (Instrumental). This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic math rock latinoamericano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 322,
-  "score": 54.459,
+  "score": 54.47,
   "config": {
     "traditions": [
       "math_rock_latinoamericano"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.357,
           "pickup_winding": 0.357,
           "string_material": 0.5145,
-          "bridge": 1.5190000000000001,
+          "bridge": 1.523875,
           "scale_length": 1.344,
-          "string_gauge": 1.456,
+          "string_gauge": 1.4608750000000001,
           "finish": 0.1365,
-          "string_tuning": 0.33599999999999997
+          "string_tuning": 0.337125
         }
       },
       {

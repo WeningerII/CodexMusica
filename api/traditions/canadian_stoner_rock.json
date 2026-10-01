@@ -3,9 +3,9 @@
   "name": "Canadian stoner rock",
   "family": "rock_punk",
   "lineage": "Canadian stoner rock is represented here by Low Orbit. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic canadian stoner rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp mahogany maple rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe": "classic canadian stoner rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp alder mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 387,
-  "score": 56.795,
+  "score": 57.078,
   "config": {
     "traditions": [
       "canadian_stoner_rock"
@@ -16,7 +16,7 @@
         "slots": {
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "alder_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_8_h",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7945,
+          "electric_technique": 0.8724999999999999,
           "amp_make": 5.2,
           "body_wood": 1.69,
-          "neck_wood": 1.69,
-          "fretboard": 1.625,
-          "pickup_magnet": 0.1365,
+          "neck_wood": 1.6045,
+          "fretboard": 1.5545,
+          "pickup_magnet": 0.16899999999999998,
           "pickup_winding": 1.69,
           "string_material": 0.105,
-          "bridge": 3.0420000000000003,
+          "bridge": 3.38,
           "scale_length": 1.69,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.33899999999999997
+          "string_tuning": 0.39
         }
       },
       {
@@ -51,7 +51,7 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -59,10 +59,10 @@
         "scores": {
           "amp_make": 5.654999999999999,
           "body_wood": 1.69,
-          "pickup_config": 0.273,
+          "pickup_config": 0.3055,
           "string_type": 13.325,
           "scale_length_b": 1.69,
-          "fretted_or_not": 0.0735,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 10.25,
-          "drumhead": 1.7755,
+          "drumhead": 1.8925,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,7 +113,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.273,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
           "voice_multitrack_stack": 0.39

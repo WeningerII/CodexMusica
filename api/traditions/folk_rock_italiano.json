@@ -5,7 +5,7 @@
   "lineage": "Folk rock italiano is represented here by Enrico Capuano and Tammurriatarock — Spazio Rossellini performance. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic folk rock italiano, functional Song, folk rock branch. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, hard rock maple acer saccharum violin orchestral. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 403,
-  "score": 69.618,
+  "score": 72.282,
   "config": {
     "traditions": [
       "folk_rock_italiano"
@@ -25,23 +25,23 @@
           "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
-          "finish": "poly_hum",
+          "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 3.7075,
+          "electric_technique": 3.7,
           "amp_make": 7.15,
-          "body_wood": 0.33599999999999997,
+          "body_wood": 0.4725,
           "neck_wood": 0.231,
           "fretboard": 0.0945,
-          "pickup_magnet": 0.105,
-          "pickup_winding": 0.105,
+          "pickup_magnet": 0.2415,
+          "pickup_winding": 0.2415,
           "string_material": 0.126,
-          "bridge": 1.5365,
+          "bridge": 1.69,
           "scale_length": 0.46199999999999997,
-          "string_gauge": 1.4735,
-          "finish": 0.007499999999999999,
-          "string_tuning": 0.3615
+          "string_gauge": 1.69,
+          "finish": 0,
+          "string_tuning": 0.39
         }
       },
       {
@@ -51,18 +51,18 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 7.6049999999999995,
           "body_wood": 0.46199999999999997,
-          "pickup_config": 0.105,
-          "string_type": 16.142999999999997,
-          "scale_length_b": 0.231,
-          "fretted_or_not": 0.0315,
+          "pickup_config": 0.2415,
+          "string_type": 17.624,
+          "scale_length_b": 0.3675,
+          "fretted_or_not": 0.063,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.315,
+          "voice_ensemble_config": 0.3465,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.189,
-          "voice_multitrack_stack": 0.315
+          "voice_multitrack_stack": 0.3465
         }
       },
       {
@@ -135,14 +135,14 @@
         },
         "scores": {
           "bowed_technique": 2.34,
-          "orch_strings": 0.2575,
+          "orch_strings": 0.25,
           "orch_top_wood": 0.26,
           "orch_back_wood": 7.215,
-          "orch_varnish": 0.2875,
+          "orch_varnish": 0.325,
           "orch_setup_period": 0.26,
           "orch_bow": 0.0315,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.15900000000000003,
+          "orch_articulation": 0.15150000000000002,
           "orch_rosin": 0.2
         }
       }

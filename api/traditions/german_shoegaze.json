@@ -3,9 +3,9 @@
   "name": "German shoegaze",
   "family": "rock",
   "lineage": "German shoegaze is represented here by JAGUWAR — Ringthing. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic german shoegaze, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 320,
-  "score": 30.408,
+  "recipe": "classic german shoegaze, distorted Rock, alternative branch. group vocals. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 30.243,
   "config": {
     "traditions": [
       "german_shoegaze"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 3.1200000000000006,
-          "body_wood": 1.3335,
+          "body_wood": 1.1969999999999998,
           "neck_wood": 0.3045,
           "fretboard": 0.1365,
           "pickup_magnet": 0,
           "pickup_winding": 0.5775,
           "string_material": 0.105,
           "bridge": 1.69,
-          "scale_length": 0.7875000000000001,
+          "scale_length": 0.651,
           "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 0.39
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.489,
+          "voice_ensemble_config": 0.543,
           "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.054
         }
       }
     ],

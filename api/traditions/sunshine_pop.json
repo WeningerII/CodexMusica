@@ -5,7 +5,7 @@
   "lineage": "Los Angeles studio-pop of roughly 1965-1970 made by session-band productions around Curt Boettcher, Gary Usher and Roger Nichols and by vocal groups such as The Association and The Mamas & the Papas — bright major-key songs at 90-130 BPM with jazz-derived major-seventh and added-sixth harmony, four- and five-part close vocal blocks stacked on multitrack, orchestral colour from harpsichord, flutes, French horn and vibraphone, brushed or lightly played drums, and lyrics of pastoral optimism cut with wistfulness.",
   "recipe": "classic Los Angeles mid-1960s sunshine pop, functional Song, pop rock branch, pop rock folk rock, surf rock distorted rock, pop rock girl group 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track multitrack vocal stack, acoustic guitar 12 string, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque block chord harpsichord, powell boston canonical American orchestral flute, french horn, mallets vibraphone, traditional mellow brass tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
   "recipe_chars": 968,
-  "score": 433.237,
+  "score": 432.657,
   "config": {
     "traditions": [
       "sunshine_pop",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 53.03500000000001,
           "voice_quality": 18.785,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9899999999999998,
+          "voice_vibrato": 4.185,
           "voice_articulation": 22.684999999999995,
-          "voice_microtone": 46.54500000000001,
-          "voice_tradition": 24.285,
+          "voice_microtone": 46.39500000000001,
+          "voice_tradition": 25.29,
           "voice_mechanism_compound": 5.915000000000001,
           "voice_estill_quality": 5.525000000000001,
           "voice_speech_song": 28.794999999999998,
           "voice_ensemble_config": 25.609999999999992,
-          "voice_ornament_system": 0.22499999999999998,
-          "voice_pitch_organization": 5.08,
-          "voice_processing_chain": 13.475000000000001,
-          "voice_multitrack_stack": 7.114999999999998
+          "voice_ornament_system": 0.13499999999999998,
+          "voice_pitch_organization": 5.035,
+          "voice_processing_chain": 12.545000000000002,
+          "voice_multitrack_stack": 6.955000000000002
         }
       },
       {
@@ -60,7 +60,7 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 4.03,
+          "multitrack_stack_density": 4.015000000000001,
           "multitrack_stack_era_aesthetic": 6.7925,
           "multitrack_stack_processing": 0.195
         }
@@ -93,7 +93,7 @@
         "scores": {
           "amp_make": 11.440000000000001,
           "body_wood": 0.65,
-          "pickup_config": 0.39,
+          "pickup_config": 0.09,
           "string_type": 28.275,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.195,
@@ -110,7 +110,7 @@
         },
         "scores": {
           "drum_technique": 24.244999999999994,
-          "drumhead": 21.164999999999996,
+          "drumhead": 21.119999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,7 +125,7 @@
           "harpsichord_temperament": "harpsichord_meantone_quarter"
         },
         "scores": {
-          "keyboard_technique": 22.24,
+          "keyboard_technique": 22.195,
           "harpsichord_register": 0.195,
           "harpsichord_context": 0.195,
           "harpsichord_maker_school": 1.7950000000000002,

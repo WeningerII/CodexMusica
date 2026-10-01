@@ -3,9 +3,9 @@
   "name": "Danish pop rock",
   "family": "rock",
   "lineage": "Danish pop rock is represented here by Michael Learns To Rock. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic danish pop rock, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 555,
-  "score": 88.023,
+  "recipe": "classic danish pop rock, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 517,
+  "score": 88.083,
   "config": {
     "traditions": [
       "danish_pop_rock"
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 8.254999999999999,
           "body_wood": 0.168,
-          "pickup_config": 0.16799999999999998,
-          "string_type": 18.02125,
-          "scale_length_b": 0.105,
+          "pickup_config": 0.27299999999999996,
+          "string_type": 17.96875,
+          "scale_length_b": 0.1365,
           "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.15525,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.19987499999999997,
-          "voice_multitrack_stack": 0.5085
+          "voice_multitrack_stack": 0.41062499999999996
         }
       },
       {
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 9.5,
+          "rompler_preset_bank": 9.5735,
           "rompler_context": 9.605,
           "rompler_lineage": 1.1995
         }

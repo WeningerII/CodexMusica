@@ -5,7 +5,7 @@
   "lineage": "A Canadian experimental-rock network represented by Godspeed You! Black Emperor, Do Make Say Think, Silver Mt. Zion and Esmerine. This default selects Godspeed’s Montreal-based instrumental guitar-and-violin branch, with arranged ensemble passages and manipulated recorded sound.",
   "recipe": "classic modern canadian post-rock, distorted Rock, experimental branch. single coil electric guitar, violin orchestral, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sound design field sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay electro-harmonix big muff pi.",
   "recipe_chars": 515,
-  "score": 43.277,
+  "score": 43.385,
   "config": {
     "traditions": [
       "canadian_post_rock"
@@ -40,7 +40,7 @@
           "bridge": 0.09899999999999999,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.03599999999999999,
+          "string_tuning": 0.07199999999999998,
           "single_coil_pickup_construction": 0
         }
       },
@@ -111,9 +111,9 @@
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.13499999999999998,
+          "drumhead": 0.17099999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.13499999999999998,
+          "shell_wood": 0.17099999999999999,
           "shell_thickness": 0,
           "bearing_edges": 0.564,
           "snare_wires": 0,
