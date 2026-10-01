@@ -1,0 +1,1479 @@
+{
+  "entries": [
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 476,
+      "source_label": "rap cristao",
+      "source_url": "https://everynoise.com/engenremap-rapcristao.html",
+      "id": "rap_cristao",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_cristao",
+        "name": "Rap cristão",
+        "lineage": "Brazilian Christian rap represented by the Greater Florianópolis gospel-rap practice documented in fieldwork.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine",
+          "turntable"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Faith-centered rhythmic verses are carried by electronic backing and DJ playback. The ethnography documents gospel events and MC/electronic-base roles, including situations where groups share DJ equipment. This selects a studio realization of that local practice, not an assumption that Christian rap universally has a choir or organ.",
+        "exemplars": [
+          "Reverso",
+          "Culto Racional"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -27.5969,
+        -48.5495,
+        "Greater Florianópolis",
+        "South America"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://www.scielo.br/j/vb/a/VhsnLXJt9BK95wcKBG95FcK/?format=pdf&lang=en",
+          "title": "Souza and Montardo: Music and Musicalities in the Hip Hop Movement",
+          "support_notes": "Primary ethnographic fieldwork in Greater Florianópolis documents gospel-rap groups, MC performance, prerecorded instrumental bases and electronic/DJ equipment; pages2 and13–19.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Portuguese-language Brazilian gospel-rap community, narrower than the existing international Christian hip-hop and Christian trap entries.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine",
+          "turntable"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_cristao",
+          "name": "Rap cristão",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 477,
+      "source_label": "rap dominicano",
+      "source_url": "https://everynoise.com/engenremap-rapdominicano.html",
+      "id": "rap_dominicano",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_dominicano",
+        "name": "Rap dominicano",
+        "lineage": "Dominican rap; selected Santo Domingo cypher practice represented by MECAL and collaborators.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Interchanging rhythmic verses lead a produced beat. The vocal cypher and beat credit are documented; the sample-based drum-machine realization is authored, without claiming a particular device or conflating the category with Dominican dembow.",
+        "exemplars": [
+          "MECAL",
+          "Mafuul Flay",
+          "Gaudy Mercy"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        18.4861,
+        -69.9312,
+        "Santo Domingo",
+        "North America"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://mecal.bandcamp.com/track/cypher-one",
+          "title": "MECAL: Cypher One",
+          "support_notes": "Artist identifies Dominican hip-hop cypher, featured MCs, Santo Domingo location and his own beat/recording/mix credits.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Dominican MC cypher practice rather than the separate dembow or Latin trap fields.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_dominicano",
+          "name": "Rap dominicano",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 480,
+      "source_label": "rap euskera",
+      "source_url": "https://everynoise.com/engenremap-rapeuskera.html",
+      "id": "rap_euskera",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_euskera",
+        "name": "Rap euskera",
+        "lineage": "Basque-language rap represented by Selektah Kolektiboa and its MC/DJ formation.",
+        "instruments": [
+          "voice",
+          "turntable"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic Basque-language verses alternate over DJ playback and scratches. The group member page documents three vocalists and DZ as DJ; the production dossier identifies vinyl and scratch skills. One voice card abstracts successive MC roles, without assuming a fixed range or one unique Basque timbre.",
+        "exemplars": [
+          "Selektah Kolektiboa",
+          "Daddy Jeff",
+          "Wanka",
+          "MC Molte",
+          "Zigor DZ"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.3183,
+        -1.9812,
+        "Basque Country (representative center)",
+        "Europe"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://daddyjeffmusic.wixsite.com/daddyjeff/soup-salads--sides",
+          "title": "Daddy Jeff: Selektah Kolektiboa",
+          "support_notes": "Member website documents Basque-language group, MC lineup, DJ and 2000/2002 records.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://hikateatroa.eus/wp-content/uploads/2022/10/dossier-gazte-en.pdf",
+          "title": "Hika Teatroa: GAZTE production dossier",
+          "support_notes": "Production team biography identifies Zigor DZ as Selektah founding member, DJ and vinyl/scratch performer.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Language-defined Basque rap, separate from Basque kantautor and rock-rap fusion.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "turntable"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_euskera",
+          "name": "Rap euskera",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 481,
+      "source_label": "rap femenino mexicano",
+      "source_url": "https://everynoise.com/engenremap-rapfemeninomexicano.html",
+      "id": "rap_femenino_mexicano",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_femenino_mexicano",
+        "name": "Rap femenino mexicano",
+        "lineage": "Mexican women’s rap represented by Oaxaca rapper Mare Advertencia and the collaborative SHHH release.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rapped lead and guest verses foreground the named performers over DJ Rambón’s produced accompaniment. The sample-based drum machine is an authored implementation of that accompaniment, not an assertion about the producer’s hardware. Neither vocal range nor a universal gendered timbre is prescribed.",
+        "exemplars": [
+          "Mare Advertencia",
+          "Magic Classic",
+          "DJ Rambón"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        17.0732,
+        -96.7266,
+        "Oaxaca",
+        "North America"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://mareadvertencia.bandcamp.com/",
+          "title": "Mare Advertencia: artist page",
+          "support_notes": "Artist identifies herself as a Zapotec rapper and gives Oaxaca location.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://mareadvertencia.bandcamp.com/album/shhh-ft-magic-classic",
+          "title": "Mare Advertencia: SHHH",
+          "support_notes": "Artist release credits lyrics to Mare and Magic Classic and music production/mix/master to DJ Rambón.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Mexican women-led rap scene, here anchored to an Oaxacan performer rather than a pan-Latina or generic Mexican template.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_femenino_mexicano",
+          "name": "Rap femenino mexicano",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 483,
+      "source_label": "rap feminino nacional",
+      "source_url": "https://everynoise.com/engenremap-rapfemininonacional.html",
+      "id": "rap_feminino_nacional",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_feminino_nacional",
+        "name": "Rap feminino nacional",
+        "lineage": "Brazilian women’s rap; selected Dina Di / Visão de Rua MC-and-DJ branch from Campinas.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine",
+          "turntable"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "An assertive rhythmic lead and alternating MC responses sit against a DJ-led beat. The source’s participant-research account identifies Dina Di, Tum and DJ O.G.; the existing sampler/turntable model represents those roles without inferring instrument materials or biologically prescribed vocal range.",
+        "exemplars": [
+          "Dina Di",
+          "Visão de Rua",
+          "Tum",
+          "DJ O.G."
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -22.9056,
+        -47.0608,
+        "Campinas",
+        "South America"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://www.scielo.br/j/rk/a/tD5tWsn8JY3VCfJQH7nHtJQ/?lang=pt",
+          "title": "Arte e Serviço Social: aspects of artistic being",
+          "support_notes": "Author reports personal encounters and analyzes Visão de Rua; identifies Campinas,1993 formation, Dina Di/Tum/DJ O.G. and women’s representation.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.sescsp.org.br/editorial/50-anos-de-hip-hop/",
+          "title": "Sesc São Paulo:50 anos de Hip-Hop",
+          "support_notes": "Institutional program identifies Dina Di among pioneering women in Brazilian hip-hop.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Women-led Brazilian rap repertoire/community rather than every Brazilian hip-hop recording.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine",
+          "turntable"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_feminino_nacional",
+          "name": "Rap feminino nacional",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 485,
+      "source_label": "rap francais nouvelle vague",
+      "source_url": "https://everynoise.com/engenremap-rapfrancaisnouvellevague.html",
+      "id": "rap_francais_nouvelle_vague",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_francais_nouvelle_vague",
+        "name": "Rap français nouvelle vague",
+        "lineage": "French new-wave rap discovery field; selected Gracy Hopkins crossover with Crayon and Jo Lowenthal on Misplaced.",
+        "instruments": [
+          "voice",
+          "analog_poly_synth",
+          "sampler_drum_machine"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "A rapped verse contrasts with melodic vocal phrases over polyphonic synthesizer and crisp electronic percussion. Crayon’s first-person production account names the Prophet synth jam, pitched opening voice and spontaneous microphone performance. The existing analog-poly card models that synth role; the drum-machine card realizes the electronic percussion without claiming a documented drum model.",
+        "exemplars": [
+          "Gracy Hopkins",
+          "Crayon",
+          "Jo Lowenthal",
+          "Bastien Brison"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        48.8566,
+        2.3522,
+        "Paris",
+        "Europe"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://crayon-music.bandcamp.com/track/misplaced-ft-tora-gracy-hopkins",
+          "title": "Crayon: Misplaced",
+          "support_notes": "Producer gives firsthand account of synth, vocal and electronic production roles with personnel and credits.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://gracyhopkins.bandcamp.com/track/from-paris-with-love",
+          "title": "Gracy Hopkins: From Paris With Love",
+          "support_notes": "Artist page supports Paris hip-hop practice.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.concertarchives.org/concerts/di-meh-gracy-hopkins-kikesa",
+          "title": "L’Affranchi concert genre index",
+          "support_notes": "Discovery-only corroboration associates Gracy Hopkins with exact nouvelle-vague label; not used for instrument claims.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Specific rap/electronic soul crossover branch, not a second copy of the comprehensive french_rap entry.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "analog_poly_synth",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_francais_nouvelle_vague",
+          "name": "Rap français nouvelle vague",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 486,
+      "source_label": "rap gabonais",
+      "source_url": "https://everynoise.com/engenremap-rapgabonais.html",
+      "id": "rap_gabonais",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_gabonais",
+        "name": "Rap gabonais",
+        "lineage": "Gabonese rap represented by Sima Ndong’s Moane Yebinvegn and its Fang-language cultural focus.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "The credited lead rapper delivers verses over G-Menga’s produced Afro-hip-hop bed. This authored beat realization preserves the separate MC and producer roles. References to Bwiti concern the artist’s narrative and initiation; they do not authorize adding undocumented ritual instruments to the arrangement.",
+        "exemplars": [
+          "Sima Ndong",
+          "G-Menga"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        0.3924,
+        9.4536,
+        "Gabon (representative Libreville center)",
+        "Africa"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://tengsobaproductions.bandcamp.com/album/moane-yebinvegn",
+          "title": "Teng Soba Productions: Moane Yebinvegn",
+          "support_notes": "Label credits lyrics/rap to Sima Ndong, music/production to David Giorgi/G-Menga and vocal recording to three Gabon studios; identifies Fang and Gabon rap.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Gabonese/Fang-centered rap practice, not generalized from other francophone African scenes.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_gabonais",
+          "name": "Rap gabonais",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 488,
+      "source_label": "rap gasy",
+      "source_url": "https://everynoise.com/engenremap-rapgasy.html",
+      "id": "rap_gasy",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_gasy",
+        "name": "Rap gasy",
+        "lineage": "Malagasy rap represented by Karnaz / Bigga Tovo’s Zao Zay studio release.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine",
+          "turntable"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Successive rap verses and DJ-framed interludes anchor a produced beat. The artist identifies recording at Studio Valimad, Antanimena, Madagascar and names DJ Natty, DJ Deem and other producers. The authored turntable/beat-device rendering does not assert those producers used particular vintage hardware or extend the one credited choir feature to every track.",
+        "exemplars": [
+          "Karnaz",
+          "Bigga Tovo",
+          "DJ Natty",
+          "DJ Deem"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -18.8792,
+        47.5079,
+        "Antanimena, Antananarivo",
+        "Africa"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://tovolah.bandcamp.com/album/zao-zay-2004",
+          "title": "Bigga Tovo: Zao Zay (2004)",
+          "support_notes": "Artist release documents recording place, Malagasy rap identity, producer credits and named DJ intro/interlude.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Malagasy-language recording scene with specific Antanimena release anchor, not Guinean or Gabonese rap.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine",
+          "turntable"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_gasy",
+          "name": "Rap gasy",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 498,
+      "source_label": "rap liegeois",
+      "source_url": "https://everynoise.com/engenremap-rapliegeois.html",
+      "id": "rap_liegeois",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_liegeois",
+        "name": "Rap liégeois",
+        "lineage": "Liège rap represented by Indocile’s Ambrosia collaboration with Brussels MC Mr.Clasik.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Group verses exchange with a guest MC over separately authored beats. The artist documents local rappers and producers DeBahia, ATLS, Bvtlman and Mataya. One voice card models successive rap roles; a sample-based drum-machine accompaniment is an authored realization of credited beatmaking, not evidence of a particular sampler.",
+        "exemplars": [
+          "Indocile",
+          "Mr.Clasik",
+          "DeBahia",
+          "ATLS",
+          "Bvtlman",
+          "Mataya"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        50.6326,
+        5.5797,
+        "Liège",
+        "Europe"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://indocile.bandcamp.com/album/ambrosia",
+          "title": "Indocile: Ambrosia",
+          "support_notes": "Artist identifies Liège rappers, Brussels guest MC, beatmakers and2020 release.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Liège local collaborative scene, distinct from a generic French-language rap model.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_liegeois",
+          "name": "Rap liégeois",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    },
+    {
+      "allocation_group_id": "020",
+      "allocation_group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "allocation_ordinal": 500,
+      "source_label": "rap malien",
+      "source_url": "https://everynoise.com/engenremap-rapmalien.html",
+      "id": "rap_malien",
+      "authoring_status": "draft_pending_photo_and_integration_validation",
+      "tradition": {
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_recording_model",
+        "pin_parts": true,
+        "family": "hip_hop",
+        "id": "rap_malien",
+        "name": "Rap malien",
+        "lineage": "Malian rap represented by Amkoullel’s documented contemporary live ensemble.",
+        "instruments": [
+          "voice",
+          "drum_kit",
+          "ngoni",
+          "talking_drum"
+        ],
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic lead voice and beatboxing meet a played drum kit, ngoni and pressure-drum responses. The artist representative’s roster explicitly names these roles. The ngoni is kept separate from kora or Wassoulou harp-lutes, and the generic pressure drum avoids asserting a Yoruba-specific origin. Twelve-tone studio reference and chain are authored convenience choices, not a claim about indigenous intonation.",
+        "exemplars": [
+          "Amkoullel",
+          "Christophe Perotin",
+          "Yacouba Sissoko"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        12.6392,
+        -8.0029,
+        "Bamako",
+        "Africa"
+      ],
+      "geo_rationale": "Representative documented practice or recording center for this branch; not an exclusive origin.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://www.womex.com/virtual/bam/amkoullel_2",
+          "title": "BAM!: Amkoullel artist roster",
+          "support_notes": "Artist representative identifies Malian rapper, French/Bambara verses, beatboxing and touring drums/ngoni/talking-drum lineup.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Malian live rap ensemble preserving documented lute and pressure-drum roles, not interchangeable with electronic West African rap.",
+      "model_policy": "Representative authored recording arrangement. Sources establish the selected scene, credited roles and repertoire; room, chain, numerical axes, tuning baseline and implementation of unspecified produced beats are authored choices, not claims about original hardware or an exhaustive regional sound. No static recipe/UI default equivalence is asserted.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "drum_kit",
+          "ngoni",
+          "talking_drum"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Uses existing catalog roles. Beat-device choice is an authored realization where the primary source credits production without identifying hardware."
+      },
+      "photo": {
+        "status": "pending_download_and_visual_verification",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_malien",
+          "name": "Rap malien",
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+          "source_title": "Shure SM58-1708032215.jpg",
+          "photographer_credit": "Autom",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Autom; Shure SM58-1708032215.jpg; CC BY-SA 4.0",
+          "matched_label": "Dynamic microphone: illustrative vocal-recording context, not a photograph of this genre or its performers.",
+          "match_confidence": "context_only"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "Commons file-specific caption, creator and CC BY-SA 4.0 declaration read through web tool. Image bytes and pixel review not yet verified.",
+          "change_notice": "Proposed unchanged Commons thumbnail; no additional edit."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false
+        },
+        "rationale": "The primary source identifies rapped vocal performance. The microphone illustrates recording that voice only; no claim the pictured make/model was used in the cited session.",
+        "blocker": "urllib GET exact Commons-offered thumbnail: Tunnel connection failed: 403 Forbidden"
+      }
+    }
+  ],
+  "holds": [
+    {
+      "source_label": "rap francais",
+      "source_url": "https://everynoise.com/engenremap-rapfrancais.html",
+      "suggested_id": "rap_francais",
+      "allocation_ordinal": 484,
+      "group_id": "020",
+      "group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "status": "hold_semantic_duplicate",
+      "reason": "Semantic duplicate: existing french_rap already covers French-language rap, from Dee Nasty/MC Solaar/NTM/IAM through contemporary continuation.",
+      "existing_id": "french_rap",
+      "evidence_path": "references/05_traditions.js"
+    }
+  ],
+  "research": {
+    "rap_cristao": [
+      "https://www.scielo.br/j/vb/a/VhsnLXJt9BK95wcKBG95FcK/?format=pdf&lang=en"
+    ],
+    "rap_dominicano": [
+      "https://mecal.bandcamp.com/track/cypher-one",
+      "https://antineptiko.bandcamp.com/album/necesito-un-martini"
+    ],
+    "rap_ecuatoguineano": [
+      "https://hipermedula.org/2012/11/vi-festival-internacional-malabo-hip-hop/"
+    ],
+    "rap_ecuatoriano": [
+      "https://mrsak.bandcamp.com/track/en-su-ley",
+      "https://changomc.bandcamp.com/"
+    ],
+    "rap_euskera": [
+      "https://daddyjeffmusic.wixsite.com/daddyjeff/soup-salads--sides",
+      "https://hikateatroa.eus/wp-content/uploads/2022/10/dossier-gazte-en.pdf"
+    ],
+    "rap_femenino_mexicano": [
+      "https://mycielo.org/weaving-words-and-rhymes/"
+    ],
+    "rap_feminino_nacional": [
+      "https://www.sescsp.org.br/editorial/50-anos-de-hip-hop/",
+      "https://www.scielo.br/j/rk/a/tD5tWsn8JY3VCfJQH7nHtJQ/?lang=pt"
+    ],
+    "rap_gabonais": [
+      "https://tengsobaproductions.bandcamp.com/album/moane-yebinvegn",
+      "https://theconsciousrhythmchapter.bandcamp.com/track/n-s-pour-a-feat-mel-b"
+    ]
+  },
+  "data_options": []
+}

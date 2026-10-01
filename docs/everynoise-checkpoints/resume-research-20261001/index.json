@@ -1,0 +1,25 @@
+{
+  "checkpoint_kind": "research_and_source_drafts_NOT_a_release",
+  "base_commit": "5c17b7ea522ad8dc2da9574ad0678e75b4ef6203",
+  "allocation_commit": "6c22659c84459822843021ea46e485894a48d1ef",
+  "fixed_allocation_count": 4586,
+  "merged_count": 600,
+  "remaining_allocation_count": 3986,
+  "source_draft_counts": {
+    "019": 17,
+    "020": 10,
+    "021": 7,
+    "022": 13,
+    "023": 10
+  },
+  "new_release_validated": 0,
+  "new_release_merged": 0,
+  "files_sha256": {
+    "group-019.json": "0855b093ec48452f01eaadf85e4af075b2ba2d6924576c043f44d7409c698442",
+    "group-020.json": "6ee7322d79bf08f0cceb04dea78fe99d1348039cbb0db85746e2a0d2fa83f44e",
+    "group-021.json": "fb2f33605ee2e6cb604cdcba8a8d004f3d53f8063c19776e64cd0f06fe10bf01",
+    "group-022.json": "9af7dacad5557145d052a7fbed4685c100df7cce4746e57d6ee7060b61fa04c1",
+    "group-023.json": "eb860942ffaf07211dfd712bcff502f3be666d526e4df9a5dac39bc4543572e0"
+  },
+  "verification": "Incomplete drafts. Individual source, geography, schema and photo-attribution review still in progress. Commons byte download returned403; no local image hashes or pixel checks claimed. File-specific browser verification is recorded per entry. No engine changes or catalog integration in this checkpoint."
+}

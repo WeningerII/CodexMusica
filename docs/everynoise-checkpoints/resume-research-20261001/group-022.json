@@ -1,0 +1,1997 @@
+{
+  "entries": [
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 526,
+      "source_label": "rap sureno chileno",
+      "source_url": "https://everynoise.com/engenremap-rapsurenochileno.html",
+      "id": "rap_sureno_chileno",
+      "tradition": {
+        "id": "rap_sureno_chileno",
+        "name": "Rap sureno chileno",
+        "family": "hip_hop",
+        "lineage": "Rap sureno chileno is represented here by Teorema; a selected regional or independent performance branch, distinct from claiming a uniform national sound.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Southern Chilean rap includes the Cañete-rooted battle practice of Teorema. This branch uses rhythmically articulated verses over DJ-supplied beats; the 2025 Concepción event credits DJ Atenea. A sampler drum workstation is the authored backing-playback realization, not an assertion about the original DJ hardware. Vocal timbre, exact meter feel and digital signal chain remain production choices.",
+        "exemplars": [
+          "Teorema"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -37.801,
+        -73.397,
+        "Cañete (Teorema branch)",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-rapsurenochileno.html",
+          "title": "Every Noise author archive: rap sureno chileno",
+          "support_notes": "Exact category lists selected exemplar. Discovery evidence only; not production documentation.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.redbull.com/do-es/artist/teorema",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Event organizer identifies Teorema as a freestyler from Cañete, Chile.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.redbull.com/cl-es/red-bull-batalla-final-nacional-chile-2025-teorema-campeon",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Organizer documents MC battle in Concepción and beats supplied by DJ Atenea. Supports voice plus DJ-controlled rhythmic backing; no specific sampler model attested.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Rap sureno chileno is represented here by Teorema; a selected regional or independent performance branch, distinct from claiming a uniform national sound.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_sureno_chileno",
+          "name": "Rap sureno chileno"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 527,
+      "source_label": "rap tico",
+      "source_url": "https://everynoise.com/engenremap-raptico.html",
+      "id": "rap_tico",
+      "tradition": {
+        "id": "rap_tico",
+        "name": "Rap tico",
+        "family": "hip_hop",
+        "lineage": "Rap tico is represented here by Nakury and Barzo; a selected regional or independent performance branch, distinct from claiming a uniform national sound.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "The Nakury and Barzo collaboration places rap verses over a producer-shaped backing track. The label credits Nakury’s text and Barzo’s music on Para mi gente from O; the festival profile connects Nakury to Turrialba. The electronic beat workstation and its moderate swing are an authored arrangement, not evidence that all Costa Rican rap uses one rhythm or instrument.",
+        "exemplars": [
+          "Nakury and Barzo"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        9.904,
+        -83.683,
+        "Turrialba (Nakury branch)",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-raptico.html",
+          "title": "Every Noise author archive: rap tico",
+          "support_notes": "Exact category lists selected exemplar. Discovery evidence only; not production documentation.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/@NakuryMC",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Artist identifies herself as Costa Rican rapper, songwriter and communicator with graffiti, breaking and rap practice.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://rfrecords.bandcamp.com/track/para-mi-gente",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Label credits lyrics to Natasha Maria Campos Méndez and music to Bartosz Brenes Malinowski; album O, 2020, licensed from Lácteo Cósmico.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.facebook.com/madremontefest/posts/nakury-y-barzonakury-es-rapera-y-comunicadora-de-turrialba-costa-rica-el-aprendi/429308455153263/",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Festival identifies Nakury as Turrialba rapper and Barzo as Costa Rican DJ/producer.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Rap tico is represented here by Nakury and Barzo; a selected regional or independent performance branch, distinct from claiming a uniform national sound.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_tico",
+          "name": "Rap tico"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 528,
+      "source_label": "rap toscana",
+      "source_url": "https://everynoise.com/engenremap-raptoscana.html",
+      "id": "rap_toscana",
+      "tradition": {
+        "id": "rap_toscana",
+        "name": "Rap toscana",
+        "family": "hip_hop",
+        "lineage": "Rap toscana is represented here by Tommy Dali and NDG — MISS; a selected regional or independent performance branch, distinct from claiming a uniform national sound.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Tommy Dali’s Florence-rooted vocal collaborations form one branch of the Tuscan rap discovery scene. MISS credits Tommy Dali and NDG on vocals and Ayden Lau and thuke on production. Alternating vocal turns over a programmed rhythmic bed supply this authored model; it does not impose folk instruments or a fixed dialect on the whole region.",
+        "exemplars": [
+          "Tommy Dali and NDG — MISS"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        43.7696,
+        11.2558,
+        "Florence (Tommy Dali branch)",
+        "Europe"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-raptoscana.html",
+          "title": "Every Noise author archive: rap toscana",
+          "support_notes": "Exact category lists selected exemplar. Discovery evidence only; not production documentation.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.universalmusic.it/popular-music/album/miss_36358491529/",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Label credits vocals to Tommy Dali and NDG and production to Ayden Lau and thuke; released 19 May 2023.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://open.spotify.com/artist/0dus12DVjr0hoFaUDOz9B5",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Artist bio identifies Firenze.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Rap toscana is represented here by Tommy Dali and NDG — MISS; a selected regional or independent performance branch, distinct from claiming a uniform national sound.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_toscana",
+          "name": "Rap toscana"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 529,
+      "source_label": "rap tuga underground",
+      "source_url": "https://everynoise.com/engenremap-raptugaunderground.html",
+      "id": "rap_tuga_underground",
+      "tradition": {
+        "id": "rap_tuga_underground",
+        "name": "Rap tuga underground",
+        "family": "hip_hop",
+        "lineage": "Rap tuga underground is represented here by Sam The Kid and DJ Kwan; a selected regional or independent performance branch, distinct from claiming a uniform national sound.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "The independent Portuguese MC/DJ network is represented by the January 2001 Hip-Hop Don’t Stop radio mixtape featuring Sam The Kid and other MCs, hosted by D-Mars and DJ Kwan. One voice card represents successive freestyle turns over beat playback. The sampler drum machine is an authored playback tool; DJ credit does not establish turntable scratching or any particular sampler.",
+        "exemplars": [
+          "Sam The Kid and DJ Kwan"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        38.7223,
+        -9.1393,
+        "Lisbon (independent rap network)",
+        "Europe"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-raptugaunderground.html",
+          "title": "Every Noise author archive: rap tuga underground",
+          "support_notes": "Exact category lists selected exemplar. Discovery evidence only; not production documentation.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://adamandlizamusic.bandcamp.com/album/d-mars-dj-kwan-apresentam-estilo-marginal-2001",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Label documents January 2001 radio mixtape initially issued on cassette; credits DJ Kwan and numerous MCs including Sam The Kid and Chullage.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://coloniacalunia.bandcamp.com/",
+          "title": "Artist, label or organizer source",
+          "support_notes": "Artist collective in exact roster locates itself in Lisbon, Portugal.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Rap tuga underground is represented here by Sam The Kid and DJ Kwan; a selected regional or independent performance branch, distinct from claiming a uniform national sound.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_tuga_underground",
+          "name": "Rap tuga underground"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 530,
+      "source_label": "rap tunisien",
+      "source_url": "https://everynoise.com/engenremap-raptunisien.html",
+      "id": "rap_tunisien",
+      "tradition": {
+        "id": "rap_tunisien",
+        "name": "Rap tunisien",
+        "family": "hip_hop",
+        "lineage": "Tunisian rap includes the alternative freestyle and mixtape branch represented by KTYB; this is not a universal account of Tunisian vocal or tuning practices.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "KTYB’s Mixtape Vol2 pairs vocal tracks with instrumental counterparts and credits Feddini and Spicy Scoop for production. The model uses rhythmic lead voice and a digital beat workstation; moderate swing, one-shot layering, room and signal chain are authored choices. The Gammarth map pin marks a documented performance venue for this selected practice.",
+        "exemplars": [
+          "KTYB",
+          "Feddini",
+          "Spicy Scoop"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        36.9131,
+        10.2895,
+        "Gammarth (performance network)",
+        "Africa"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-raptunisien.html",
+          "title": "Every Noise author archive: rap tunisien",
+          "support_notes": "Exact discovery roster contains KTYB. Roster establishes category association, not equipment.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://oumouribeats.bandcamp.com/album/ktyb-mixtape-vol2-instrumental",
+          "title": "Oumouribeats: Ktyb Mixtape Vol2",
+          "support_notes": "Label documents vocal and instrumental tracks, producers Feddini and Spicy Scoop, release 14 August 2022.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://lartrue.org/en/ktyb-dc22-biography",
+          "title": "L’Art Rue: KTYB biography",
+          "support_notes": "Presenter documents Tunisian alternative-scene freestyle and rap practice, active since 2008.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://neverstill.tunis.events/en/events/39O1yk/outbox-presents-ktyb-flo-tunis",
+          "title": "Neverstill / Outbox presents KTYB",
+          "support_notes": "Organizer lists KTYB performance at flō Tunis in Gammarth; map pin is the performance center only.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Tunisian rap includes the alternative freestyle and mixtape branch represented by KTYB; this is not a universal account of Tunisian vocal or tuning practices.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_tunisien",
+          "name": "Rap tunisien"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 531,
+      "source_label": "rap uliczny",
+      "source_url": "https://everynoise.com/engenremap-rapuliczny.html",
+      "id": "rap_uliczny",
+      "tradition": {
+        "id": "rap_uliczny",
+        "name": "Rap uliczny",
+        "family": "hip_hop",
+        "lineage": "Polish street rap is represented by Hemp Gru’s Warsaw neighborhood narratives and sample-led production, rather than every Polish rap style.",
+        "instruments": [
+          "voice",
+          "sampler_classic"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "electronic_technique": "electronic_sample_chopped"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Hemp Gru’s own Uliczna Liryka release provides the street-rap reference, while the Adam Mickiewicz Institute documents sampling in 63 Dni Chwały and the group’s Warsaw connection. Rhythmic lead delivery over a layered sampler bed represents this selected practice. The sampler model, bit depth, room and unprocessed vocal chain are authored production settings, not original-session reconstruction.",
+        "exemplars": [
+          "Hemp Gru — Uliczna Liryka",
+          "Hemp Gru — 63 Dni Chwały"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        52.2297,
+        21.0122,
+        "Warsaw",
+        "Europe"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "sample-foundational"
+      ],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=u3XSv4uAuIs",
+          "title": "Hemp Gru / DIIL.TV: Uliczna Liryka",
+          "support_notes": "Official artist video credits Hemp Gru and Hudy HZD; primary street-rap repertoire reference.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://culture.pl/en/article/how-polish-hip-hop-remixed-romanticism",
+          "title": "Adam Mickiewicz Institute: How Polish Hip-Hop Remixed Romanticism",
+          "support_notes": "Institution identifies Warsaw-based Hemp Gru and its sampling of Warszawskie Dzieci in 63 Dni Chwały.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Polish street rap is represented by Hemp Gru’s Warsaw neighborhood narratives and sample-led production, rather than every Polish rap style.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_classic"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_uliczny",
+          "name": "Rap uliczny"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 532,
+      "source_label": "rap underground argentino",
+      "source_url": "https://everynoise.com/engenremap-rapundergroundargentino.html",
+      "id": "rap_underground_argentino",
+      "tradition": {
+        "id": "rap_underground_argentino",
+        "name": "Rap underground argentino",
+        "family": "hip_hop",
+        "lineage": "Argentine underground rap is represented by the independent Buenos Aires hardcore collaborations of Genezis MC; distinct from the existing national record’s mainstream freestyle-to-trap trajectory.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Genezis MC’s self-published Cronicas de Bastardos identifies underground and hardcore rap, with Sectario producing Tiempos De Sangre and guest verses by Se7enSandman and Zen Starwalker. The authored model gives successive rap verses a beat-workstation backing. It does not assume tango instrumentation or derive a specific tempo, accent or sampling technique solely from Buenos Aires geography.",
+        "exemplars": [
+          "Genezis MC — Cronicas de Bastardos",
+          "Sectario"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -34.6037,
+        -58.3816,
+        "Buenos Aires (Genezis MC network)",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://genezismc.bandcamp.com/track/17-tiempos-de-sangre-feat-se7ensandman-zen-starwalker-prod-by-sectario",
+          "title": "Genezis MC: Tiempos De Sangre",
+          "support_notes": "Artist identifies Buenos Aires, underground/hardcore rap, guest MCs and Sectario production; released July 6 2016.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://genezismc.bandcamp.com/album/dark-angel",
+          "title": "Genezis MC: Dark Angel",
+          "support_notes": "Independent artist release establishes earlier 2014 underground rap activity in Buenos Aires.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Argentine underground rap is represented by the independent Buenos Aires hardcore collaborations of Genezis MC; distinct from the existing national record’s mainstream freestyle-to-trap trajectory.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_underground_argentino",
+          "name": "Rap underground argentino"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 534,
+      "source_label": "rap underground espanol",
+      "source_url": "https://everynoise.com/engenremap-rapundergroundespanol.html",
+      "id": "rap_underground_espanol",
+      "tradition": {
+        "id": "rap_underground_espanol",
+        "name": "Rap underground espanol",
+        "family": "hip_hop",
+        "lineage": "Spanish underground rap is represented by Natos y Waor’s self-organized Madrid duo practice, rather than a blanket national style.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Two rap voices trade verses over a producer-shaped beat bed. Natos y Waor identify themselves as a Madrid rap duo and document their trajectory in the self-produced Underground Kings film. One voice card represents alternating MC turns; the sampler workstation, rhythm treatment and room are authored choices, with no claim of a particular device or mandatory flamenco instrumentation.",
+        "exemplars": [
+          "Natos y Waor — Underground Kings"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        40.4168,
+        -3.7038,
+        "Madrid (Natos y Waor network)",
+        "Europe"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-rapundergroundespanol.html",
+          "title": "Every Noise author archive: rap underground espanol",
+          "support_notes": "Exact discovery roster contains Natos y Waor. Roster establishes category association, not equipment.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://natosywaor.com/pages/biografia-natos-y-waor",
+          "title": "Natos y Waor: official biography",
+          "support_notes": "Artists identify their Madrid rap duo and independent career.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=C2iC2tGw3II",
+          "title": "Natos y Waor: Underground Kings",
+          "support_notes": "Artist-produced autobiographical documentary establishing underground trajectory and performance practice.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Spanish underground rap is represented by Natos y Waor’s self-organized Madrid duo practice, rather than a blanket national style.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_underground_espanol",
+          "name": "Rap underground espanol"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 535,
+      "source_label": "rap underground mexicano",
+      "source_url": "https://everynoise.com/engenremap-rapundergroundmexicano.html",
+      "id": "rap_underground_mexicano",
+      "tradition": {
+        "id": "rap_underground_mexicano",
+        "name": "Rap underground mexicano",
+        "family": "hip_hop",
+        "lineage": "The Mexican independent rap network is represented by Bocafloja’s sample-based spoken-word and rap branch; distinct from imposing this political or musical approach on all Mexican hip hop.",
+        "instruments": [
+          "voice",
+          "sampler_classic"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "electronic_technique": "electronic_sample_chopped"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic speech and rap sit over a looped sample bed. Producer Jim B identifies the source used in Bocafloja’s Quilombo Mocambo, while the artist describes his rap and spoken-word practice. A sixteen-bit sampler with layered phrases is an authored realization of that documented sampling role; the photograph is only microphone context.",
+        "exemplars": [
+          "Bocafloja — Quilombo Mocambo",
+          "Jim B"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        19.4326,
+        -99.1332,
+        "Mexico City (Bocafloja origins)",
+        "Latin America & Caribbean"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "sample-foundational"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-rapundergroundmexicano.html",
+          "title": "Every Noise author archive: rap underground mexicano",
+          "support_notes": "Exact discovery roster contains Bocafloja. Roster establishes category association, not equipment.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.emancipassion.com/about",
+          "title": "Bocafloja: About",
+          "support_notes": "Artist describes rap and spoken-word performance as critical pedagogy.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://jimb.bandcamp.com/track/freda-payne-the-man-of-my-dreams-bocafloja-quilombo-mocambo",
+          "title": "Jim B: sample source for Quilombo Mocambo",
+          "support_notes": "Producer identifies the sample used in Bocafloja’s track; supports sampler role without claiming exact hardware.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://trinityhiphop.domains.trincoll.edu/artist-profiles/bocafloja-mexico/",
+          "title": "Trinity International Hip Hop Festival: Bocafloja",
+          "support_notes": "Festival documents Mexico City origins and Bronx experience; map identifies origins rather than every recording location.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "The Mexican independent rap network is represented by Bocafloja’s sample-based spoken-word and rap branch; distinct from imposing this political or musical approach on all Mexican hip hop.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_classic"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rap_underground_mexicano",
+          "name": "Rap underground mexicano"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 537,
+      "source_label": "rhode island rap",
+      "source_url": "https://everynoise.com/engenremap-rhodeislandrap.html",
+      "id": "rhode_island_rap",
+      "tradition": {
+        "id": "rhode_island_rap",
+        "name": "Rhode island rap",
+        "family": "hip_hop",
+        "lineage": "Rhode Island rap includes an independent spoken-word-informed branch represented by Sage Francis, alongside other contemporary rap practices.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Sage Francis’s Personal Journals foregrounds confessional verses and poetic delivery. His label documents the album’s shift from boastful rap toward personal and social reflection. A close rap voice over a spare programmed beat bed is the authored recording model; this arrangement does not claim the original album used these exact devices or that all Rhode Island rap shares this delivery.",
+        "exemplars": [
+          "Sage Francis — Personal Journals"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        41.824,
+        -71.4128,
+        "Providence (independent rap network)",
+        "North America"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-rhodeislandrap.html",
+          "title": "Every Noise author archive: rhode island rap",
+          "support_notes": "Exact discovery roster contains Sage Francis. Roster establishes category association, not equipment.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://store.strangefamousrecords.com/products/sage-francis-personal-journals",
+          "title": "Strange Famous Records: Personal Journals",
+          "support_notes": "Artist-owned label describes poetic and confessional studio vocals on the 2002 debut.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://strangefamousrecords.bandcamp.com/community",
+          "title": "Strange Famous Records: official Bandcamp community",
+          "support_notes": "Label identifies Providence, Rhode Island and its 1996 founding by Sage Francis to release his own music.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Rhode Island rap includes an independent spoken-word-informed branch represented by Sage Francis, alongside other contemporary rap practices.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rhode_island_rap",
+          "name": "Rhode island rap"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 538,
+      "source_label": "romanian rap",
+      "source_url": "https://everynoise.com/engenremap-romanianrap.html",
+      "id": "romanian_rap",
+      "tradition": {
+        "id": "romanian_rap",
+        "name": "Romanian rap",
+        "family": "hip_hop",
+        "lineage": "Romanian rap is represented by Deliric’s collaborations with Bucharest electronic composer Silent Strike, distinct from the separate trap-crew branch.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 2,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Deliric’s vocal feature on Gloante Oarbe and the Demoncratie collaboration establish rapper-plus-electronic-producer roles. This authored arrangement places rhythmic verses over a spare digital beat workstation, leaving room for the composer’s electronic textures. It does not claim all Romanian rap shares the selected production or uses folk instruments.",
+        "exemplars": [
+          "Deliric",
+          "Silent Strike — Gloante Oarbe"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        44.4268,
+        26.1025,
+        "Bucharest (Silent Strike collaboration)",
+        "Europe"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-romanianrap.html",
+          "title": "Every Noise author archive: romanian rap",
+          "support_notes": "Exact discovery roster contains Deliric. Roster establishes category association, not equipment.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://silentstrike.bandcamp.com/track/gloante-oarbe-feat-deliric",
+          "title": "Silent Strike: Gloante Oarbe featuring Deliric",
+          "support_notes": "Producer’s 2009 album track explicitly credits Deliric; supports rapper/composer collaboration.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://silentstrike.bandcamp.com/track/deliric-demoncratie",
+          "title": "Silent Strike: Deliric — Demoncratie",
+          "support_notes": "Composer identifies himself as Bucharest-based electronic/film composer whose work spans hip hop.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Romanian rap is represented by Deliric’s collaborations with Bucharest electronic composer Silent Strike, distinct from the separate trap-crew branch.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "romanian_rap",
+          "name": "Romanian rap"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 539,
+      "source_label": "romanian trap",
+      "source_url": "https://everynoise.com/engenremap-romaniantrap.html",
+      "id": "romanian_trap",
+      "tradition": {
+        "id": "romanian_trap",
+        "name": "Romanian trap",
+        "family": "hip_hop",
+        "lineage": "Romanian trap includes the Bucharest Seek Music collective branch represented by Șatra B.E.N.Z.; distinct from the broader Romanian rap composer-collaboration model.",
+        "instruments": [
+          "voice",
+          "drum_machine_808",
+          "digital_subtractive"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_trap",
+          "tr808_production_origin": "tr808_tr_8s_modern",
+          "electronic_technique": "electronic_pluck_short"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 2,
+          "intensity": 2,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Șatra B.E.N.Z.’s O.$.O.D. II is described as trap by its label, whose release catalog identifies the vocal collective and Bucharest base. The authored production places rap-group vocal turns over a long electronic kick and short synth notes. The 808-style machine and synth patch are chosen tools for that trap realization, not claims about the actual studio equipment.",
+        "exemplars": [
+          "Șatra B.E.N.Z. — O.$.O.D. II",
+          "Lu-K Beats"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        44.4268,
+        26.1025,
+        "Bucharest (Seek Music)",
+        "Europe"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "sub-bass"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-romaniantrap.html",
+          "title": "Every Noise author archive: romanian trap",
+          "support_notes": "Exact discovery roster contains Șatra B.E.N.Z. and Lu-K Beats. Roster establishes category association, not equipment.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCnVs_K-Rkzkdts9sxISF8Uw/about",
+          "title": "Seek Music official channel",
+          "support_notes": "Label describes O.$.O.D. II as trap and documents its 2017 release.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://m.soundcloud.com/seekmusicro/satra-b-e-n-z-hype",
+          "title": "Seek Music: HYPE",
+          "support_notes": "Label identifies Bucharest base and the Șatra B.E.N.Z. vocal quartet.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=5q0R0GwrOm8",
+          "title": "Seek Music: Șatra B.E.N.Z.",
+          "support_notes": "Official credits identify Lu-K Beats and vocal collective.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Romanian trap includes the Bucharest Seek Music collective branch represented by Șatra B.E.N.Z.; distinct from the broader Romanian rap composer-collaboration model.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "drum_machine_808",
+          "digital_subtractive"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "romanian_trap",
+          "name": "Romanian trap"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    },
+    {
+      "allocation_group_id": "022",
+      "allocation_ordinal": 550,
+      "source_label": "rwandan hip hop",
+      "source_url": "https://everynoise.com/engenremap-rwandanhiphop.html",
+      "id": "rwandan_hip_hop",
+      "tradition": {
+        "id": "rwandan_hip_hop",
+        "name": "Rwandan hip hop",
+        "family": "hip_hop",
+        "lineage": "Rwandan hip hop is represented by the Kigali DIY collective +250, whose members overlap the discovery roster; one contemporary collective branch rather than all Rwandan song.",
+        "instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "BARAFINDA credits Ice Nova, Bushali, B-Threy, Angell Mutoni, Ish Kevin, Slum Drip, Sema Sole and Nikita Heaven with producers Dr. Nganji, Barick, Roark Bailey and Kushbeatz. The project documents Kigali recording sessions. Successive rap voices over an authored digital beat workstation represent this collective production; no traditional instruments are assumed from national identity.",
+        "exemplars": [
+          "+250 — BARAFINDA",
+          "B-Threy",
+          "Bushali"
+        ],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [
+        -1.9441,
+        30.0619,
+        "Kigali",
+        "Africa"
+      ],
+      "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+      "signature_tokens": [
+        "rhythmic-speech",
+        "backbeat"
+      ],
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-rwandanhiphop.html",
+          "title": "Every Noise author archive: rwandan hip hop",
+          "support_notes": "Exact discovery roster contains B-Threy, Bushali, Angell Mutoni, Ish Kevin and others. Roster establishes category association, not equipment.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://abirinitanu.bandcamp.com/track/barafinda",
+          "title": "+250 / PAM Rec: BARAFINDA",
+          "support_notes": "Primary release credits singers and producers and identifies DIY Kigali recording; released 11 February 2026.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Rwandan hip hop is represented by the Kigali DIY collective +250, whose members overlap the discovery roster; one contemporary collective branch rather than all Rwandan song.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_drum_machine"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+      },
+      "photo": {
+        "status": "pending_fetch_and_visual_verification",
+        "manifest": {
+          "source": "wikimedia_commons_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+          "source_title": "SM58&Beta58a.jpg",
+          "photographer_credit": "Iain Fergusson (Iainf)",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+          "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+          "match_confidence": "context_only",
+          "kind": "tradition",
+          "id": "rwandan_hip_hop",
+          "name": "Rwandan hip hop"
+        },
+        "rights": {
+          "checked_date": "2026-10-01",
+          "evidence": "File-specific description and licensing inspected via Commons web result. Author Iain Fergusson, own work, 24 June 2006; CC BY 2.5. Display and original bytes not fetched due proxy HTTP 403; SHA256, dimensions and visual confirmation pending.",
+          "change_notice": "No transformation proposed."
+        },
+        "visual": {
+          "checked": false,
+          "observation": "Awaiting fetched pixels; caption is not pixel verification."
+        }
+      },
+      "readiness": "pending_photo"
+    }
+  ],
+  "holds": [],
+  "research": [
+    {
+      "id": "rap_sureno_chileno",
+      "exemplar": "Teorema",
+      "roster_url": "https://furia.com/everynoise_public/engenremap-rapsurenochileno.html",
+      "sources": [
+        {
+          "url": "https://www.redbull.com/do-es/artist/teorema",
+          "support": "Event organizer identifies Teorema as a freestyler from Cañete, Chile."
+        },
+        {
+          "url": "https://www.redbull.com/cl-es/red-bull-batalla-final-nacional-chile-2025-teorema-campeon",
+          "support": "Organizer documents MC battle in Concepción and beats supplied by DJ Atenea. Supports voice plus DJ-controlled rhythmic backing; no specific sampler model attested."
+        }
+      ],
+      "geo": [
+        -37.801,
+        -73.397,
+        "Cañete (Teorema branch)",
+        "South America"
+      ],
+      "model": "Single rap voice and programmed beat playback represent the battle-derived recording branch; neutral vocal details, authored digital chain."
+    },
+    {
+      "id": "rap_tico",
+      "exemplar": "Nakury and Barzo",
+      "roster_url": "https://furia.com/everynoise_public/engenremap-raptico.html",
+      "sources": [
+        {
+          "url": "https://www.youtube.com/@NakuryMC",
+          "support": "Artist identifies herself as Costa Rican rapper, songwriter and communicator with graffiti, breaking and rap practice."
+        },
+        {
+          "url": "https://rfrecords.bandcamp.com/track/para-mi-gente",
+          "support": "Label credits lyrics to Natasha Maria Campos Méndez and music to Bartosz Brenes Malinowski; album O, 2020, licensed from Lácteo Cósmico."
+        },
+        {
+          "url": "https://www.facebook.com/madremontefest/posts/nakury-y-barzonakury-es-rapera-y-comunicadora-de-turrialba-costa-rica-el-aprendi/429308455153263/",
+          "support": "Festival identifies Nakury as Turrialba rapper and Barzo as Costa Rican DJ/producer."
+        }
+      ],
+      "geo": [
+        9.904,
+        -83.683,
+        "Turrialba (Nakury branch)",
+        "North America"
+      ],
+      "model": "Rap voice and electronic beat workstation as authored realization of documented vocalist/producer duo; no assumed indigenous instruments."
+    },
+    {
+      "id": "rap_toscana",
+      "exemplar": "Tommy Dali and NDG — MISS",
+      "roster_url": "https://furia.com/everynoise_public/engenremap-raptoscana.html",
+      "sources": [
+        {
+          "url": "https://www.universalmusic.it/popular-music/album/miss_36358491529/",
+          "support": "Label credits vocals to Tommy Dali and NDG and production to Ayden Lau and thuke; released 19 May 2023."
+        },
+        {
+          "url": "https://open.spotify.com/artist/0dus12DVjr0hoFaUDOz9B5",
+          "support": "Artist bio identifies Firenze."
+        }
+      ],
+      "geo": [
+        43.7696,
+        11.2558,
+        "Florence (Tommy Dali branch)",
+        "Europe"
+      ],
+      "model": "Two vocal turns represented using one voice card over an authored electronic beat workstation; avoid invented session gear or treating all Tuscany rap as trap."
+    },
+    {
+      "id": "rap_tuga_underground",
+      "exemplar": "Sam The Kid and DJ Kwan",
+      "roster_url": "https://furia.com/everynoise_public/engenremap-raptugaunderground.html",
+      "sources": [
+        {
+          "url": "https://adamandlizamusic.bandcamp.com/album/d-mars-dj-kwan-apresentam-estilo-marginal-2001",
+          "support": "Label documents January 2001 radio mixtape initially issued on cassette; credits DJ Kwan and numerous MCs including Sam The Kid and Chullage."
+        },
+        {
+          "url": "https://coloniacalunia.bandcamp.com/",
+          "support": "Artist collective in exact roster locates itself in Lisbon, Portugal."
+        }
+      ],
+      "geo": [
+        38.7223,
+        -9.1393,
+        "Lisbon (independent rap network)",
+        "Europe"
+      ],
+      "model": "Freestyle MC turns with turntable backing; authored cassette-era chain appropriate to explicitly documented mixtape branch."
+    },
+    {
+      "id": "rap_tunisien",
+      "exemplar": "Ktyb — Mixtape Vol2",
+      "roster_url": "https://furia.com/everynoise_public/engenremap-raptunisien.html",
+      "sources": [
+        {
+          "url": "https://oumouribeats.bandcamp.com/album/ktyb-mixtape-vol2-instrumental",
+          "support": "Producer label credits Feddini and Spicy Scoop, includes KTYB vocal tracks with separate instrumental versions; released August 14 2022."
+        },
+        {
+          "url": "https://t-rexmagazine.com/no-music-land-records-rap-sans-frontieres/",
+          "support": "Direct label interview identifies KTYB as Tunisian."
+        }
+      ],
+      "geo_pending": "Need primary location beyond nationality; do not infer Tunis from country's name.",
+      "model": "Rap lead over produced instrumental bed, sampler drum machine an authored realization; no asserted maqam or acoustic folk instrument."
+    }
+  ]
+}
