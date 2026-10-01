@@ -2288,7 +2288,10 @@ class Reviser:
                 bearing={ln - 1 for g in m.groups for ln in g
                          if 1 <= ln <= len(lines)},
                 requested_pairs={tuple(sorted(v["lines"]))
-                                 for v in _asked})
+                                 for v in _asked},
+                # A trial grade reads pass/fail only: stop asking a pair
+                # once one satisfier holds it (the answer cannot move).
+                settle=_verdicts_only)
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
             for v in _asked:

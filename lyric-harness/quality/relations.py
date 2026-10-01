@@ -7111,7 +7111,7 @@ class VocabularyPairResults(dict):
 
 def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
                            requested_pairs=None, line_status=None,
-                           schemas=None):
+                           schemas=None, settle=False):
     """Every 1-based line pair, with EVERY registered schema true of it
     -> {(i, j): [canonical schema names, sorted]}.
 
@@ -7146,6 +7146,18 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     verdict of the few schemas its end-token screen found, and asked the
     whole registry per candidate). `quality/test_relations.py` X9b pins it.
     A name not in `REGISTRY` raises `ValueError` naming every such name.
+
+    `settle=True` (with `requested_pairs`) is for a caller that reads only
+    WHETHER a pair stands in a schema that may satisfy a group -- a trial
+    grade in `revise.Reviser.declared_offer`. A pair is dropped from the
+    question as soon as one schema the registry does not disown
+    (`normative` not forbidden/deprecated) holds it, the pair-local schemas
+    are asked before the whole-song ones, and a whole-song schema is not
+    asked at all once every pair has settled. A settled pair's list is
+    therefore SHORT (at least one satisfier), and an unsettled pair is
+    asked of every schema exactly as without it, undecided and all. The
+    memo keeps the two answers apart. `quality/test_relations.py` X9c pins
+    that the pass/fail answer is the full call's.
     """
     requested_pairs = _normalise_pair_query(requested_pairs, len(text_lines))
     names = sorted(REGISTRY) if schemas is None else sorted(set(schemas))
@@ -7157,6 +7169,15 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
                         line_status)
     if memo_key is not None and schemas is not None:
         memo_key = memo_key + (("schemas",) + tuple(names),)
+    settle = bool(settle) and requested_pairs is not None
+    if settle:
+        if memo_key is not None:
+            memo_key = memo_key + (("settle",),)
+        # Cheap first: a pair-local schema judges only the asked pairs, a
+        # whole-song one re-reads the whole draft whatever is asked.
+        names = ([n for n in names if pair_scope_representable(REGISTRY[n])]
+                 + [n for n in names
+                    if not pair_scope_representable(REGISTRY[n])])
     try:
         lang = phon.declaration().get("language") or "und"
     except (AttributeError, TypeError):
@@ -7191,14 +7212,21 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     stream = _build(phon)
     _ctx_box["stream"] = stream
     out, undecided, refused, lines = {}, {}, {}, {}
+    open_pairs = set(requested_pairs) if settle else None
     for name in names:
+        if settle and not open_pairs:
+            break
         ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=True,
-                            requested_pairs=requested_pairs)
+                            requested_pairs=(open_pairs if settle
+                                             else requested_pairs))
         if isinstance(ps, Refusal):
             refused[name] = ps
             continue
         for pair in ps:
             out.setdefault(pair, []).append(name)
+        if settle and REGISTRY[name].normative not in ("forbidden",
+                                                       "deprecated"):
+            open_pairs.difference_update(ps)
         for pair in getattr(ps, "undecided", ()):
             undecided.setdefault(pair, []).append(name)
         for li in getattr(ps, "lines", ()):

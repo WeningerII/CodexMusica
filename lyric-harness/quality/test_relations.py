@@ -3276,6 +3276,115 @@ def test_a_schema_subset_is_the_full_answer_restricted():
     RT._WVP_MEMO.clear()
 
 
+def test_a_settled_question_has_the_full_answer():
+    """X9c. `whole_vocabulary_pairs(..., settle=True)` (2026-10-01): a trial
+    grade in `Reviser.declared_offer` reads only whether a pair stands in a
+    schema that may satisfy a group, so the judge stops asking a pair once
+    one such schema holds it and skips the whole-song schemas when every
+    pair has settled. Measured cost on a 24-line draft with one line
+    changed: `chain rhyme (rap)` alone is 3.4 s of the 5.5 s fan.
+
+    The claims: every pair's PASS/FAIL is the full call's; a pair nothing
+    satisfies is asked of every schema, so its list and its undecided names
+    are the full call's exactly; a settled pair's list is a subset of the
+    full one; the memo keeps the two answers apart; and a call whose pairs
+    all settle asks no whole-song schema. The grade itself is then checked
+    end to end: its violations and refusals are the same with the mode on
+    and forced off.
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ("the river took the bridge at dawn",
+             "and no one saw the water again",
+             "the cattle waded through the silt",
+             "past every fence the county rebuilt",
+             "we carry the evening to the will",
+             "and no one had to tell us about wall")
+    every = {(i, j) for i in range(1, 7) for j in range(i + 1, 7)}
+
+    def counts(names):
+        return any(RT.REGISTRY[n].normative not in ("forbidden", "deprecated")
+                   for n in names)
+    RT._WVP_MEMO.clear()
+    full = RT.whole_vocabulary_pairs(lines, phon, requested_pairs=every)
+    passed = {p for p in every if counts(full.get(p, ()))}
+    failed = every - passed
+    RT._WVP_MEMO.clear()
+    st = RT.whole_vocabulary_pairs(lines, phon, requested_pairs=every,
+                                   settle=True)
+    check("the comparison examines both kinds: some pairs pass and some "
+          "fail on the full call",
+          bool(passed) and bool(failed),
+          f"{len(passed)} pass, {len(failed)} fail of {len(every)}")
+    check("every pair passes or fails exactly as on the full call",
+          {p for p in every if counts(st.get(p, ()))} == passed,
+          f"settled {sorted(p for p in every if counts(st.get(p, ())))} "
+          f"against {sorted(passed)}")
+    check("a pair nothing satisfies is asked of every schema: its list and "
+          "its undecided names are the full call's",
+          all(sorted(st.get(p, ())) == sorted(full.get(p, ()))
+              and sorted(st.undecided.get(p, ()))
+              == sorted(full.undecided.get(p, ())) for p in failed),
+          {p: (st.get(p), full.get(p)) for p in failed
+           if sorted(st.get(p, ())) != sorted(full.get(p, ()))})
+    check("a settled pair's list is a subset of the full one",
+          all(set(st.get(p, ())) <= set(full.get(p, ())) for p in passed),
+          "")
+    again = RT.whole_vocabulary_pairs(lines, phon, requested_pairs=every)
+    check("the memo keeps the two apart: a full call after a settled one is "
+          "answered in full",
+          dict(again) == dict(full), f"{len(again)} against {len(full)}")
+    asked, real = [], RT.line_pairs_for
+
+    def spy(schema, *a, **k):
+        asked.append(schema.name)
+        return real(schema, *a, **k)
+    RT._WVP_MEMO.clear()
+    RT.line_pairs_for = spy
+    try:
+        RT.whole_vocabulary_pairs(lines, phon, requested_pairs=passed,
+                                  settle=True)
+    finally:
+        RT.line_pairs_for = real
+    whole_song = sorted(n for n in RT.REGISTRY
+                        if not RT.pair_scope_representable(RT.REGISTRY[n]))
+    check("when every pair settles, no whole-song schema is asked",
+          bool(asked) and not set(asked) & set(whole_song),
+          f"asked {len(asked)}; whole-song asked "
+          f"{sorted(set(asked) & set(whole_song))}")
+    # End to end: the trial grade's answer with the mode on and forced off.
+    from quality.revise import Reviser
+    from quality import schemes as SC
+    R = Reviser()
+    m = SC.mandate([[1, 2, 3, 4, 5, 6]], n_lines=6)
+
+    def verdict():
+        RT._WVP_MEMO.clear()
+        g = R.grade(list(lines), m, _verdicts_only=True)
+        return (sorted((tuple(v["lines"]), v["group"])
+                       for v in g["violations"]),
+                sorted(map(tuple, g.get("refused_obligations", ()))))
+    on = verdict()
+    keep = RT.whole_vocabulary_pairs
+    try:
+        RT.whole_vocabulary_pairs = (
+            lambda *a, **k: keep(*a, **{**k, "settle": False}))
+        off = verdict()
+        # Control: with the fan answering nothing the grade must differ, or
+        # the comparison above never reached the fan at all.
+        RT.whole_vocabulary_pairs = (
+            lambda *a, **k: RT.VocabularyPairResults({}, {}, {}, {}))
+        none = verdict()
+    finally:
+        RT.whole_vocabulary_pairs = keep
+    check("the trial grade's violations and refusals are the same with the "
+          "mode on and forced off, and the fan moved them",
+          on == off and none != on,
+          f"on {on} off {off} fan-silent {none}")
+    RT._WVP_MEMO.clear()
+
+
 # ---------------------------------------------------------------------------
 # X10. The pair guard fires BEFORE `evaluate()` — M-244's cost, closed
 # ---------------------------------------------------------------------------
@@ -3668,6 +3777,7 @@ if __name__ == "__main__":
     test_frequency_refusal_is_measured_against_the_shipped_tables()
     test_the_judge_memo_answers_identical_calls_only()
     test_a_schema_subset_is_the_full_answer_restricted()
+    test_a_settled_question_has_the_full_answer()
     test_the_pair_guard_refuses_before_it_evaluates()
     test_every_schema_judges_and_no_differ_only_excludes()
     print("=" * 66)
