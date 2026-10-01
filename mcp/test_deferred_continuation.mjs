@@ -26,15 +26,26 @@ const verdict = (result) => {
   assert.fail(JSON.stringify(result));
 };
 try {
-  const input = ['Cat', 'Dog'];
+  // 2026-10-01: the fixture was ['Cat', 'Dog'] under 'AA'/'type:rime riche',
+  // and L1 was asked first only because a one-word line broke the prominence
+  // band [2, 7] — which the owner deleted that day (lyric-harness/CLAUDE.md,
+  // "AND THE PROMINENCE BAND IS DELETED TOO"). With no band only L2 was
+  // briefed, the oak answer did not rhyme with 'Cat', no edit was accepted,
+  // and the run stopped instead of being interrupted. Three lines in ONE
+  // group under perfect rhyme give two briefed rhyme partners again (L2, L3),
+  // dependent and so asked serially; each answer ends on an OFFERED rhyme of
+  // 'Cat' (not a modal one, which verify refuses — doctrine 9).
+  // superseded: input ['Cat', 'Dog'], scheme 'AA', relation 'type:rime
+  // riche', answers ending 'oak' / 'door', accepted prefix [p0, 'Dog'].
+  const input = ['Cat', 'Dog', 'Sun'];
   const proposed = [
-    'I left the basket underneath the oak',
-    'The copper kettle cooled beside the door',
+    'I watched the window like a diplomat',
+    'She tumbled down the stairs, an acrobat',
   ];
   const first = verdict(
     await call({
-      scheme: 'AA',
-      relation: 'type:rime riche',
+      scheme: 'AAA',
+      relation: 'class:RHYME',
       draft: input,
       writer: 'interview',
       attempts: 1,
@@ -45,7 +56,7 @@ try {
   assert.equal(first.exit_code, 4);
   const state = decodeState(first.state);
   assert.deepEqual(state.input_draft, input);
-  assert.equal(state.connector_declarations.relation, 'type:rime riche');
+  assert.equal(state.connector_declarations.relation, 'class:RHYME');
   assert.equal(state.pending.kind, 'propose', 'dependent rhyme partners are asked serially');
   const controller = new AbortController();
   const stopped = verdict(
@@ -66,15 +77,15 @@ try {
     'interview journals never become kitchen checkpoints'
   );
   assert.ok(stopped.state);
-  assert.deepEqual(stopped.final_draft, [proposed[0], input[1]]);
+  assert.deepEqual(stopped.final_draft, [input[0], proposed[0], input[2]]);
   assert.deepEqual(decodeState(stopped.state).accepted_lines, stopped.final_draft);
   const resumed = verdict(
     await call({ run_id: stopped.run_id, run_revision: stopped.run_revision })
   );
   assert.equal(resumed.exit_code, 4);
-  assert.deepEqual(resumed.final_draft, [proposed[0], input[1]]);
+  assert.deepEqual(resumed.final_draft, [input[0], proposed[0], input[2]]);
   const finished = verdict(await call({ state: resumed.state, answer: proposed[1] }));
-  assert.deepEqual(finished.final_draft, proposed);
+  assert.deepEqual(finished.final_draft, [input[0], ...proposed]);
   assert.deepEqual(finished.replay_draft, input);
   // Carry an otherwise valid journal near its decoded capacity. Retained
   // metadata cannot be discarded merely because it is expensive to transport.

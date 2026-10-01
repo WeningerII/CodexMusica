@@ -18,10 +18,19 @@ import { _workerInternals } from './lyric_tools.js';
 import { acceptedRepairs } from '../scripts/battery_repairs.mjs';
 import { completedArtifact } from '../scripts/battery_verdict.mjs';
 
-const initial = [
-  'The elephant elephant elephant elephant elephant elephant elephant stove',
-  'Your fingers brush my heavy coat',
-];
+// 2026-10-01: L1 was a seven-'elephant' line briefed only because it broke
+// the prominence band [2, 7], which the owner deleted that day
+// (lyric-harness/CLAUDE.md, "AND THE PROMINENCE BAND IS DELETED TOO"). With no
+// band, L1 carried no line finding: the only finding left was the whole-draft
+// LEXICAL_MONOTONY, asked as an L1+L2 group rewrite the one-line writer cannot
+// answer, so nothing was verified and no repair was counted. The repaired line
+// is now briefed by a genuine violation of the declared relation: 'sink' is
+// not assonant with 'coat', the replacement's 'stove' is, and the later line of
+// a violated pair is the one asked.
+// superseded: initial ['The elephant elephant elephant elephant elephant
+// elephant elephant stove', 'Your fingers brush my heavy coat'], L1 replaced,
+// "Preserve the second line", noop answer initial[0].
+const initial = ['Your fingers brush my heavy coat', 'My kettle whistles by the sink'];
 const replacement = 'My kettle whistles by the stove';
 const sha = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const nativeFetch = globalThis.fetch;
@@ -38,7 +47,7 @@ const writer = createServer(async (request, response) => {
     JSON.stringify({
       candidates: [
         {
-          content: { parts: [{ text: `LINE:${mode === 'accepted' ? replacement : initial[0]}` }] },
+          content: { parts: [{ text: `LINE:${mode === 'accepted' ? replacement : initial[1]}` }] },
           finishReason: 'STOP',
         },
       ],
@@ -125,7 +134,7 @@ try {
     const request = {
       request_id: requestId,
       task: { domain: 'lyrics', phase: 'edit' },
-      message: `Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the second line.\n${initial.join('\n')}`,
+      message: `Revise this supplied two-line draft with groups 1,2 and class:ASSONANCE. Preserve the first line.\n${initial.join('\n')}`,
     };
     const http = await nativeFetch(base + '/chat', {
       method: 'POST',
@@ -174,7 +183,7 @@ try {
           null
         );
       }
-      assert.deepEqual(call.final_draft, [replacement, initial[1]]);
+      assert.deepEqual(call.final_draft, [initial[0], replacement]);
       assert.ok(call.verified_outcomes.some((outcome) => outcome.accepted && outcome.applied));
     } else {
       assert.deepEqual(call.final_draft, initial);

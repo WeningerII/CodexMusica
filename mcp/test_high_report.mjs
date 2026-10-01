@@ -387,8 +387,18 @@ test('a ban names the bound words and their places, and an unknown name lists th
 test('lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes', async () => {
   const { server, client } = await connect({ task: { domain: 'lyrics' } });
   const raw = (args) => client.callTool({ name: 'lyric_revise', arguments: args });
+  // 2026-10-01: under ABAB with no declared relation both pairs now PASS —
+  // a mandated pair holds if it stands in any registry schema, and under the
+  // any-reading rule (lyric-harness/CLAUDE.md, standing rule 5) a small word
+  // may be sung stressed, so L1~L3 holds as anaphora on 'I' and L2~L4 as an
+  // internal rhyme; the run finished at exit 0 with no question. Declaring
+  // perfect rhyme makes the question genuine: L3 now ends on 'bite' (an
+  // offered rhyme of 'tonight', not the banned same-spelled '-ight'), so only
+  // L4 ('us' against 'sea') violates and the interview asks that one line.
+  // superseded: L3 'I held your hand and felt the rain', first run
+  // { draft_text, scheme: 'ABAB' } with the default relation.
   const draft_text =
-    'I walked along the road tonight\nThe stars were cold above the sea\nI held your hand and felt the rain\nAnd nothing else was left for us';
+    'I walked along the road tonight\nThe stars were cold above the sea\nI held your hand and felt the bite\nAnd nothing else was left for us';
   try {
     // Declarations that only shape a plan used to be accepted, stored and
     // never read on a pasted song's run.
@@ -402,7 +412,7 @@ test('lyric_revise: a pasted run refuses plan declarations, a long answer, and f
     assert.match(seededGrid.content[0].text, /subdivision/);
 
     const before = RUNS.size();
-    const first = await raw({ draft_text, scheme: 'ABAB' });
+    const first = await raw({ draft_text, scheme: 'ABAB', relation: 'class:RHYME' });
     const v1 = verdictIn(first);
     assert.equal(v1.exit_code, 4, 'the interview suspends on its first question');
     // The note names every field a continuation needs, run_revision included.
