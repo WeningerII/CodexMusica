@@ -3,14 +3,14 @@
   "name": "Action rock",
   "family": "rock_punk",
   "lineage": "Scandinavian high-energy rock-and-roll and garage-punk continuum, represented by the Swedish Hellacopters. The action-rock label foregrounds immediate riff attack, melodic guitar leads and a driving band backbeat. This contemporary studio model selects the guitar-bass-drums core rather than prescribing every keyboard or percussion overdub heard across the repertoire.",
-  "recipe": "classic modern action rock, distorted Rock, classic branch, punk distorted rock hardcore punk gypsy punk. thick, interlocked note trading, equal tempered, modern pop training. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, high-headroom ampeg svt amp rock bass amp electric bass, driving sticks drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive.",
-  "recipe_chars": 541,
-  "score": 180.705,
+  "recipe": "classic modern action rock, distorted Rock, classic branch, punk distorted rock hardcore punk austrian punk. thick, interlocked note trading, equal tempered, modern pop training. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, high-headroom ampeg svt amp rock bass amp electric bass, driving sticks drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive.",
+  "recipe_chars": 544,
+  "score": 173.705,
   "config": {
     "traditions": [
       "action_rock",
       "hardcore_punk",
-      "gypsy_punk"
+      "austrian_punk"
     ],
     "instruments": [
       {
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 0.39499999999999996,
-          "amp_make": 31.584999999999994,
+          "amp_make": 32.01,
           "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 1.4949999999999999,
@@ -43,7 +43,7 @@
           "scale_length": 0.195,
           "string_gauge": 1.885,
           "finish": 0.195,
-          "string_tuning": 0
+          "string_tuning": 0.15
         }
       },
       {
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 15.469999999999999,
+          "amp_make": 14.43,
           "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 0.28500000000000003,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 39.595,
+          "bass_technique": 39.345,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16.874999999999996,
-          "drumhead": 0,
+          "drum_technique": 17.4,
+          "drumhead": 0.15,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -103,18 +103,18 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 22.764999999999986,
-          "voice_quality": 1.8041124150158794e-17,
+          "voice_register": 21.63999999999999,
+          "voice_quality": -0.4099999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 14.689999999999994,
-          "voice_microtone": 22.624999999999993,
-          "voice_tradition": 2.8600000000000003,
+          "voice_articulation": 10.594999999999994,
+          "voice_microtone": 21.499999999999993,
+          "voice_tradition": 3.7199999999999998,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.235,
-          "voice_ensemble_config": 1.6899999999999997,
+          "voice_speech_song": 1.04,
+          "voice_ensemble_config": 0.845,
           "voice_ornament_system": 0.3,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.195,

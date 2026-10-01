@@ -3,14 +3,14 @@
   "name": "Canadian metalcore",
   "family": "rock_punk",
   "lineage": "Canadian metal/hardcore crossover scene, represented by Montreal’s Despised Icon. The selected branch follows Eric Jarrin’s account of The Aftermath as straightforward hardcore with grind elements; the band also documents death-metal/slam material.",
-  "recipe": "classic modern canadian metalcore, distorted Rock, metal branch, punk distorted rock crust punk d-beat. palm muted humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 394,
-  "score": 98.355,
+  "recipe": "classic modern canadian metalcore, distorted Rock, metal branch, punk distorted rock adelaide punk alabama hardcore. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 404,
+  "score": 75.733,
   "config": {
     "traditions": [
       "canadian_metalcore",
-      "crust_punk",
-      "d_beat_swedish"
+      "adelaide_punk",
+      "alabama_hardcore"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 24,
+          "electric_technique": 17.375,
           "amp_make": 0,
-          "body_wood": 0.845,
+          "body_wood": 0.585,
           "neck_wood": 0.09,
-          "fretboard": 0.845,
+          "fretboard": 0.195,
           "pickup_magnet": 0,
           "pickup_winding": 0.195,
           "string_material": 0.09,
-          "bridge": 0.845,
+          "bridge": 0.585,
           "scale_length": 0,
-          "string_gauge": 0.7,
+          "string_gauge": 2.05,
           "finish": 0,
-          "string_tuning": 9.62
+          "string_tuning": 7.02
         }
       },
       {
@@ -60,12 +60,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.845,
+          "body_wood": 0.585,
           "pickup_config": 0,
           "string_type": 0.28500000000000003,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 21.42,
+          "bass_technique": 16.6225,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,16 +85,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 10.375,
-          "drumhead": 1.7550000000000001,
-          "drum_kit_kick_pedal": 2.08,
+          "drum_technique": 7.124999999999999,
+          "drumhead": 0.9099999999999999,
+          "drum_kit_kick_pedal": 0.78,
           "shell_wood": 0.135,
           "shell_thickness": 0,
           "bearing_edges": 0.28500000000000003,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 12.59,
-          "cymbal_lathing": 10.899999999999999,
+          "cymbal_hammering": 9.54,
+          "cymbal_lathing": 9.149999999999999,
           "cymbal_finish": 0
         }
       },

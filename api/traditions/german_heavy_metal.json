@@ -5,7 +5,7 @@
   "lineage": "German heavy metal is represented here by Accept. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic german heavy metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 460,
-  "score": 55.922,
+  "score": 55.856,
   "config": {
     "traditions": [
       "german_heavy_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.962,
+          "electric_technique": 13.927499999999998,
           "amp_make": 4.745,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.5775,
@@ -62,7 +62,7 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.105,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }

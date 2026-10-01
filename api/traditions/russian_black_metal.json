@@ -5,7 +5,7 @@
   "lineage": "Russian black metal is represented here by Grima. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic russian black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, b system buttons stradella bass Russian tradition bayan russian. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 597,
-  "score": 44.147,
+  "score": 44.066,
   "config": {
     "traditions": [
       "russian_black_metal"
@@ -19,7 +19,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -33,11 +33,11 @@
           "amp_make": 4.745,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.483,
-          "fretboard": 0.446625,
-          "pickup_magnet": 0.0315,
+          "fretboard": 0.4095,
+          "pickup_magnet": 0.03899999999999999,
           "pickup_winding": 0.063,
-          "string_material": 0.446625,
-          "bridge": 1.279,
+          "string_material": 0.4095,
+          "bridge": 1.3,
           "scale_length": 4.9399999999999995,
           "string_gauge": 1.3,
           "finish": 0.16799999999999998,
@@ -63,7 +63,7 @@
           "string_type": 4.875,
           "scale_length_b": 0.483,
           "fretted_or_not": 0.0315,
-          "bass_technique": 4.1725,
+          "bass_technique": 4.21525,
           "electric_bass_string_configuration": 0
         }
       },
@@ -130,7 +130,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "rompler_preset_bank": 0.399,
-          "rompler_context": 1.69,
+          "rompler_context": 1.642,
           "rompler_lineage": 1.3
         }
       },
@@ -144,9 +144,9 @@
         },
         "scores": {
           "free_reed_technique": 0.19500000000000003,
-          "bayan_russian_model": 3.07325,
+          "bayan_russian_model": 3.0807499999999997,
           "bayan_russian_context": 0.39,
-          "bayan_russian_reed_voicing": 0.950625
+          "bayan_russian_reed_voicing": 0.9135
         }
       }
     ],

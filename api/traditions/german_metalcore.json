@@ -5,7 +5,7 @@
   "lineage": "German metalcore is represented here by Caliban. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic german metalcore, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 347,
-  "score": 35.482,
+  "score": 35.475,
   "config": {
     "traditions": [
       "german_metalcore"
@@ -62,7 +62,7 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 0.105,
+          "fretted_or_not": 0.1365,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.042749999999999996,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.33899999999999997,
+          "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0.78
         }
       }

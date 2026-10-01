@@ -5,7 +5,7 @@
   "lineage": "American third-wave ska-punk of 1987-98, formed in Orange County and Boston by Operation Ivy, the Mighty Mighty Bosstones and Less Than Jake — alternating upstroke offbeat ska verses at 150-190 BPM with distorted straight-eighth punk choruses, a two-to-four-piece horn section riffing behind, walking or pumping electric bass, and shouted-melodic vocals cut in mid-budget US indie studios.",
   "recipe": "classic North American late-1980s ska punk, distorted Rock, punk branch, pop punk distorted rock, Jamaican bass system oshare kei skate punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, bach 42 canonical American orchestral tenor student commercial trombone, saxophone, psychedelic foregrounded organ driven rock block chord combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 873,
-  "score": 473.195,
+  "score": 474.095,
   "config": {
     "traditions": [
       "ska_punk",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 24.414999999999992,
+          "voice_register": 24.369999999999994,
           "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,10 +42,10 @@
           "voice_articulation": 18.199999999999992,
           "voice_microtone": 24.119999999999997,
           "voice_tradition": 11.504999999999997,
-          "voice_mechanism_compound": 12.68,
+          "voice_mechanism_compound": 13.355,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 17.09499999999999,
-          "voice_ensemble_config": 33.285,
+          "voice_ensemble_config": 33.15,
           "voice_ornament_system": 1.56,
           "voice_pitch_organization": 3.770000000000001,
           "voice_processing_chain": 3.5100000000000002,
@@ -62,7 +62,7 @@
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
-          "string_material": "nickel_plated_h",
+          "string_material": "pure_nickel_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_11_hum",
@@ -71,13 +71,13 @@
         },
         "scores": {
           "electric_technique": 26.845,
-          "amp_make": 36.175000000000004,
+          "amp_make": 36.85,
           "body_wood": 2.73,
           "neck_wood": 2.275,
           "fretboard": 2.21,
           "pickup_magnet": 0.845,
           "pickup_winding": 0.195,
-          "string_material": 0.15,
+          "string_material": 0.045,
           "bridge": 2.275,
           "scale_length": 2.275,
           "string_gauge": 2.275,
@@ -101,9 +101,9 @@
           "amp_make": 11.635000000000002,
           "body_wood": 2.47,
           "pickup_config": 0.39,
-          "string_type": 17.880000000000003,
+          "string_type": 18.555000000000003,
           "scale_length_b": 2.275,
-          "fretted_or_not": 0.135,
+          "fretted_or_not": 0.09,
           "bass_technique": 40.845,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 24.625,
-          "drumhead": 8.834999999999999,
+          "drumhead": 8.7,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -125,7 +125,7 @@
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_ska_skank_stab",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "cornet",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_ska_skank",
@@ -134,7 +134,7 @@
         },
         "scores": {
           "wind_articulation": 8.95,
-          "brass_size": 0.15,
+          "brass_size": 0,
           "trumpet_mouthpiece": 5.3950000000000005,
           "brass_mute": 0.845,
           "trumpet_technique": 8.95,
@@ -158,8 +158,8 @@
           "trombone_type": 0.65,
           "trombone_mouthpiece": 8.895,
           "trombone_mute": 0.3,
-          "trombone_technique": 1.4949999999999999,
-          "trombone_bell_metal": 0.32999999999999996,
+          "trombone_technique": 1.3299999999999998,
+          "trombone_bell_metal": 0.285,
           "trombone_maker_school": 1.69
         }
       },
@@ -168,7 +168,7 @@
         "slots": {
           "wind_articulation": "wind_ska_skank_stab",
           "sax_size": "baritone_sax",
-          "sax_reed": "soft_reed",
+          "sax_reed": "medium_reed",
           "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_split_tone_overblown",
@@ -177,7 +177,7 @@
         "scores": {
           "wind_articulation": 8.95,
           "sax_size": 2.275,
-          "sax_reed": 0.15,
+          "sax_reed": 0.09,
           "sax_body_alloy": 0.9099999999999999,
           "sax_mouthpiece": 0.5399999999999999,
           "sax_technique": 0.325,
@@ -195,8 +195,8 @@
         },
         "scores": {
           "keyboard_technique": 8.879999999999997,
-          "combo_organ_model": 10.769999999999998,
-          "combo_organ_voicing": 10.934999999999999,
+          "combo_organ_model": 10.679999999999998,
+          "combo_organ_voicing": 10.784999999999998,
           "combo_organ_context": 8.645,
           "amp_make": 0.19500000000000003
         }

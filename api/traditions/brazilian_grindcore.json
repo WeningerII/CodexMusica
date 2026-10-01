@@ -3,14 +3,14 @@
   "name": "Brazilian grindcore",
   "family": "rock_punk",
   "lineage": "Brazilian grindcore discovery field represented by Desalmado’s São Paulo underground practice from2004 onward. The band names grindcore roots and a deathgrind identity; this record selects that overlap rather than reducing the national field to one fixed sound.",
-  "recipe": "classic modern brazilian grindcore, distorted Rock, metal branch, punk distorted rock hardcore punk. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, rapid alternating kick snare blast beat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 526,
-  "score": 96.897,
+  "recipe": "classic modern brazilian grindcore, distorted Rock, metal branch, punk distorted rock alternative hardcore hardcore punk. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension blast beat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 539,
+  "score": 77.715,
   "config": {
     "traditions": [
       "brazilian_grindcore",
-      "hardcore_punk",
-      "ska_punk"
+      "alternative_hardcore",
+      "hardcore_punk"
     ],
     "instruments": [
       {
@@ -20,30 +20,30 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
           "electric_technique": -0.1,
-          "amp_make": 25.709999999999997,
-          "body_wood": 4.03,
-          "neck_wood": 1.04,
-          "fretboard": 0.975,
+          "amp_make": 20.604999999999997,
+          "body_wood": 3.185,
+          "neck_wood": 0.195,
+          "fretboard": 0.39,
           "pickup_magnet": 0.39,
           "pickup_winding": 0.39,
           "string_material": 0.09,
-          "bridge": 1.04,
-          "scale_length": 2.9899999999999998,
-          "string_gauge": 1.04,
+          "bridge": 1.56,
+          "scale_length": 3.185,
+          "string_gauge": 1.2,
           "finish": 0.195,
-          "string_tuning": 0.39
+          "string_tuning": 0.585
         }
       },
       {
@@ -51,21 +51,21 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.735000000000001,
-          "body_wood": 1.04,
-          "pickup_config": 0.585,
-          "string_type": 14.787500000000001,
-          "scale_length_b": 1.04,
+          "amp_make": 6.37,
+          "body_wood": 0.195,
+          "pickup_config": 0.39,
+          "string_type": 13.65,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.3,
-          "bass_technique": 25.295,
+          "bass_technique": 19.545,
           "electric_bass_string_configuration": 0
         }
       },
@@ -73,12 +73,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "blast_beat_single_strokes",
-          "drumhead": "double_coated",
+          "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 2.6,
-          "drumhead": 1.95,
+          "drum_technique": 1.95,
+          "drumhead": 1.3649999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,8 +114,8 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.04,
-          "voice_ornament_system": 0.35,
+          "voice_ensemble_config": 0.845,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.195,
           "voice_multitrack_stack": 0

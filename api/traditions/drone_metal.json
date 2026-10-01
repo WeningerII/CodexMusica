@@ -3,14 +3,14 @@
   "name": "Drone metal",
   "family": "rock",
   "lineage": "extreme-minimalist sustained-tone metal — guitar-as-feedback-and-pure-overtone genre established by Earth (Earth 2 1993, Pentastar 1996) and Sunn O))) (the Earth-tribute project become canon through ØØ Void 2000, Black One 2005, Monoliths and Dimensions 2009), with Boris (drone-era), Khanate, and Nadja in the broader continuum — distinct from doom metal by abandonment of riff-progression-as-song-form in favor of sustained-distorted-chord-as-event compositional approach",
-  "recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom brazilian doom metal. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 586,
-  "score": 299.97,
+  "recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 562,
+  "score": 280.96,
   "config": {
     "traditions": [
       "drone_metal",
       "funeral_doom",
-      "brazilian_doom_metal"
+      "uk_doom_metal"
     ],
     "instruments": [
       {
@@ -20,30 +20,30 @@
           "amp_make": "amp_british_orange",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 35.93,
-          "amp_make": 19.795,
-          "body_wood": 13.195,
+          "electric_technique": 34.68,
+          "amp_make": 16.419999999999998,
+          "body_wood": 12.545,
           "neck_wood": 0.525,
-          "fretboard": 0.375,
+          "fretboard": 0.33,
           "pickup_magnet": 0.195,
           "pickup_winding": 0.525,
-          "string_material": 0.375,
-          "bridge": 0.65,
-          "scale_length": 13.195,
-          "string_gauge": 1.04,
+          "string_material": 0.195,
+          "bridge": 1.04,
+          "scale_length": 12.74,
+          "string_gauge": 1.205,
           "finish": 0,
-          "string_tuning": 21.775
+          "string_tuning": 21.319999999999997
         }
       },
       {
@@ -59,12 +59,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 19.795,
+          "amp_make": 16.419999999999998,
           "body_wood": 1.095,
           "pickup_config": 0.3,
           "string_type": 16.575,
           "scale_length_b": 0.7950000000000002,
-          "fretted_or_not": 0.195,
+          "fretted_or_not": 0.09,
           "bass_technique": 11.895,
           "electric_bass_string_configuration": 0
         }
@@ -72,13 +72,13 @@
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
+          "drum_technique": "sticks_rock",
           "drumhead": "kevlar_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.194999999999997,
-          "drumhead": 2.515,
+          "drum_technique": 11.75,
+          "drumhead": 2.665,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -94,13 +94,13 @@
           "baritone_electric_pickup": "baritone_dual_humbucker"
         },
         "scores": {
-          "electric_technique": 26.404999999999998,
-          "amp_make": 19.795,
+          "electric_technique": 25.154999999999998,
+          "amp_make": 16.419999999999998,
           "baritone_use": 0.33,
-          "baritone_electric_tuning": 13.975,
-          "baritone_electric_scale": 14.040000000000001,
-          "baritone_electric_strings": 27.795,
-          "baritone_electric_pickup": 25.72
+          "baritone_electric_tuning": 13.325,
+          "baritone_electric_scale": 13.585,
+          "baritone_electric_strings": 26.545,
+          "baritone_electric_pickup": 24.47
         }
       }
     ],

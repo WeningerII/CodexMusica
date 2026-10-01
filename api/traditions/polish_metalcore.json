@@ -3,14 +3,14 @@
   "name": "Polish metalcore",
   "family": "rock_punk",
   "lineage": "Polish metalcore discovery category represented by Frontside’s Sosnowiec-rooted metalcore/death-thrash crossover and the Zmierzch Bogów repertoire.",
-  "recipe": "classic modern polish metalcore, distorted Rock, metal branch, punk distorted rock, death metal hardcore punk peruvian death metal. single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 524,
-  "score": 107.509,
+  "recipe": "classic modern polish metalcore, distorted Rock, metal branch, punk distorted rock, death metal peruvian death metal portuguese death metal. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 580,
+  "score": 99.367,
   "config": {
     "traditions": [
       "polish_metalcore",
-      "hardcore_punk",
-      "peruvian_death_metal"
+      "peruvian_death_metal",
+      "portuguese_death_metal"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 19.57375,
-          "amp_make": 20.0525,
-          "body_wood": 6.37,
-          "neck_wood": 0.195,
+          "electric_technique": 16.07375,
+          "amp_make": 10.4,
+          "body_wood": 7.15,
+          "neck_wood": 0.585,
           "fretboard": 0.25125,
           "pickup_magnet": 0.44625,
           "pickup_winding": 0.21,
           "string_material": 0.09,
-          "bridge": 1.5599999999999996,
-          "scale_length": 6.175,
-          "string_gauge": 1.5599999999999996,
+          "bridge": 2.0149999999999997,
+          "scale_length": 7.15,
+          "string_gauge": 2.0149999999999997,
           "finish": 0.195,
-          "string_tuning": 10.855
+          "string_tuning": 11.440000000000001
         }
       },
       {
@@ -59,12 +59,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.280000000000001,
-          "body_wood": 0.195,
+          "amp_make": 7.0200000000000005,
+          "body_wood": 1.1700000000000002,
           "pickup_config": 0.25125,
-          "string_type": 15.925,
-          "scale_length_b": 0.195,
-          "fretted_or_not": 0.195,
+          "string_type": 14.3,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.25,
-          "drumhead": 1.5599999999999996,
+          "drum_technique": 11,
+          "drumhead": 1.8199999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,11 +114,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.12374999999999999,
+          "voice_ensemble_config": 1.04,
+          "voice_ornament_system": 0.195,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.585
+          "voice_multitrack_stack": 0.975
         }
       }
     ],

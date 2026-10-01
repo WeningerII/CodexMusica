@@ -3,47 +3,47 @@
   "name": "Nintendocore",
   "family": "rock_punk",
   "lineage": "United States, roughly 2000-2010, named from Horse the Band's Long Beach output and extended by Sky Eats Airplane and Genghis Tron — metalcore and post-hardcore instrumentation (down-tuned humbucker riffing, double-kick blasts, screamed vocals) interleaved with lead lines voiced on chiptune and FM synths in the melodic register of 8-bit video-game music, with abrupt tempo cuts between 90 and 200 BPM.",
-  "recipe": "classic mid-2000s nintendocore, distorted Rock, experimental branch, avant metal, punk distorted rock, retro aesthetic experimental electric synthcore. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead digital subtractive, native instruments fm8 modern software 8 operator lead fm synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 716,
-  "score": 328.695,
+  "recipe": "classic mid-2000s nintendocore, distorted Rock, experimental branch, avant metal, punk distorted rock, retro aesthetic experimental electric synthcore cybergrind. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, digital subtractive, native instruments fm8 modern software 8 operator fm synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 696,
+  "score": 319.67,
   "config": {
     "traditions": [
       "nintendocore",
       "synthcore",
-      "ska_punk"
+      "cybergrind"
     ],
     "instruments": [
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_palm_muted_chug",
+          "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 15.299999999999999,
-          "amp_make": 26.483999999999998,
-          "body_wood": 2.9899999999999998,
-          "neck_wood": 1.295,
-          "fretboard": 1.2449999999999999,
+          "electric_technique": 15.663,
+          "amp_make": 19.565,
+          "body_wood": 3.77,
+          "neck_wood": 1.24,
+          "fretboard": 1.24,
           "pickup_magnet": 1,
-          "pickup_winding": 1.75,
+          "pickup_winding": 2.25,
           "string_material": 1.24,
-          "bridge": 1.295,
-          "scale_length": 3.445,
-          "string_gauge": 1.34,
+          "bridge": 0.75,
+          "scale_length": 5.07,
+          "string_gauge": 0.69,
           "finish": 0.39,
-          "string_tuning": 11.180000000000001
+          "string_tuning": 13.260000000000002
         }
       },
       {
@@ -53,19 +53,19 @@
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.58,
-          "body_wood": 1.34,
+          "amp_make": 7.9300000000000015,
+          "body_wood": 0.69,
           "pickup_config": 1,
-          "string_type": 18.85,
-          "scale_length_b": 1.295,
-          "fretted_or_not": 0.09,
-          "bass_technique": 26.875,
+          "string_type": 19.987500000000004,
+          "scale_length_b": 0.84,
+          "fretted_or_not": 0.195,
+          "bass_technique": 21.000000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 17.029999999999994,
-          "drumhead": 2.5999999999999996,
+          "drumhead": 2.2249999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -89,48 +89,48 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 17.304999999999993,
-          "voice_quality": 7.215000000000001,
+          "voice_register": 17.304999999999996,
+          "voice_quality": 6.5,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.94,
-          "voice_articulation": 18.71999999999999,
-          "voice_microtone": 18.91499999999999,
-          "voice_tradition": 7.85,
-          "voice_mechanism_compound": 20.338,
-          "voice_estill_quality": 4.485,
-          "voice_speech_song": 19.109999999999992,
-          "voice_ensemble_config": 21.014499999999998,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 17.679999999999993,
+          "voice_microtone": 17.87499999999999,
+          "voice_tradition": 9.6,
+          "voice_mechanism_compound": 23.313000000000002,
+          "voice_estill_quality": 4.29,
+          "voice_speech_song": 19.174999999999994,
+          "voice_ensemble_config": 17.61499999999999,
           "voice_ornament_system": 1.0899999999999999,
-          "voice_pitch_organization": 1.2999999999999998,
-          "voice_processing_chain": 5.8695,
-          "voice_multitrack_stack": 3.120000000000001
+          "voice_pitch_organization": 1.7399999999999998,
+          "voice_processing_chain": 6.3695,
+          "voice_multitrack_stack": 5.1675
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "novation_supernova",
+          "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.495,
-          "va_archetypes": 1.0145,
+          "electronic_technique": 2.62,
+          "va_archetypes": 0.845,
           "digital_subtractive_context": 17.874999999999996
         }
       },
@@ -144,10 +144,10 @@
           "fm_model_lineage": "fm_native_instruments_fm8"
         },
         "scores": {
-          "electronic_technique": 3.495,
-          "fm_algorithm": 2.49,
-          "fm_modulator_ratio": 1.0995,
-          "fm_polyphony": 1.09,
+          "electronic_technique": 2.62,
+          "fm_algorithm": 2.865,
+          "fm_modulator_ratio": 0.7995,
+          "fm_polyphony": 1.24,
           "fm_model_lineage": 1.3
         }
       }

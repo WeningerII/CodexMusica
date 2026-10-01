@@ -3,25 +3,25 @@
   "name": "Goth",
   "family": "rock",
   "lineage": "Formed 1979-1985 out of British post-punk around the Batcave club in London and Leeds' Merrion Centre scene — Bauhaus, Siouxsie and the Banshees, The Sisters of Mercy and The Cure established flanged and chorused single-coil guitar drenched in long plate and digital reverb, high-mixed chorused bass carrying the riff, tribal floor-tom or drum-machine patterns at 100-140 BPM, and baritone or keening declamatory vocals over minor and Phrygian modal harmony.",
-  "recipe": "classic North American mid-1980s goth, distorted Rock, gothic rock branch, punk distorted rock, pop rock new wave post-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drum machine analog, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca short envelope analog poly synth. denver gothic basement studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 734,
-  "score": 477.398,
+  "recipe": "classic North American mid-1980s goth, distorted Rock, gothic rock branch, punk distorted rock, pop rock new wave minimal wave. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, drum machine analog, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca short envelope analog poly synth. denver gothic basement studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 737,
+  "score": 449.555,
   "config": {
     "traditions": [
       "goth",
       "new_wave",
-      "post_punk"
+      "minimal_wave"
     ],
     "instruments": [
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_palm_muted_chug",
+          "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
-          "pickup_magnet": "ceramic",
+          "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
           "bridge": "hardtail",
@@ -31,18 +31,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 17.124999999999996,
-          "amp_make": 33.88499999999999,
+          "electric_technique": 15.274999999999999,
+          "amp_make": 27.009999999999994,
           "body_wood": 1.4300000000000002,
           "neck_wood": 1.4300000000000002,
           "fretboard": 1.365,
-          "pickup_magnet": 0.5399999999999999,
-          "string_material": 0.5399999999999999,
+          "pickup_magnet": 0.3,
+          "string_material": 0.195,
           "string_gauge": 2.08,
           "bridge": 0.78,
           "scale_length": 1.4300000000000002,
           "finish": 0.195,
-          "string_tuning": 17.16,
+          "string_tuning": 15.405000000000001,
           "single_coil_pickup_construction": 0
         }
       },
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 19.37,
+          "amp_make": 17.355,
           "body_wood": 1.4300000000000002,
           "pickup_config": 0.39,
-          "string_type": 33.900000000000006,
+          "string_type": 32.025000000000006,
           "scale_length_b": 1.4300000000000002,
           "fretted_or_not": 0.045,
-          "bass_technique": 46.095000000000006,
+          "bass_technique": 38.095000000000006,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.875000000000004,
-          "drumhead": 12.174999999999999,
+          "drum_technique": 27.000000000000004,
+          "drumhead": 15.049999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -109,31 +109,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 41.24000000000003,
-          "voice_quality": 14.29999999999999,
+          "voice_register": 41.74000000000002,
+          "voice_quality": 14.429999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2199999999999998,
-          "voice_articulation": 22.164999999999996,
-          "voice_microtone": 40.45000000000001,
-          "voice_tradition": 13.745000000000001,
-          "voice_mechanism_compound": 6.240000000000001,
-          "voice_estill_quality": 1.5599999999999996,
-          "voice_speech_song": 26.584999999999994,
-          "voice_ensemble_config": 23.205,
-          "voice_ornament_system": 1.0899999999999996,
-          "voice_pitch_organization": 1.4299999999999997,
-          "voice_processing_chain": 7.08,
-          "voice_multitrack_stack": 9.66
+          "voice_vibrato": 4.47,
+          "voice_articulation": 20.735,
+          "voice_microtone": 40.95000000000001,
+          "voice_tradition": 15.969999999999999,
+          "voice_mechanism_compound": 3.575000000000001,
+          "voice_estill_quality": 1.845,
+          "voice_speech_song": 26.389999999999997,
+          "voice_ensemble_config": 21.124999999999996,
+          "voice_ornament_system": 0.5,
+          "voice_pitch_organization": 1.9449999999999998,
+          "voice_processing_chain": 6.255,
+          "voice_multitrack_stack": 8.3525
         }
       },
       {
@@ -145,10 +145,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 11.644999999999998,
-          "poly_archetypes": 15.015,
+          "electronic_technique": 14.519999999999998,
+          "poly_archetypes": 14.040000000000001,
           "poly_voices": 0.44999999999999996,
-          "poly_maker_lineage": 3.4450000000000003
+          "poly_maker_lineage": 1.495
         }
       }
     ],

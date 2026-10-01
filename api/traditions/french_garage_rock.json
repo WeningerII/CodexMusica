@@ -5,7 +5,7 @@
   "lineage": "French garage-rock scenes, represented by The Limiñanas’ Perpignan-based, self-recorded riff-led practice. Direct interviews describe garage-punk roots, played repeating figures, acoustic drums, voice and small percussion, with selective guest instruments and arrangement changes.",
   "recipe": "classic modern french garage rock, functional Song, pop rock branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. single coil electric guitar, electric bass, sticks backbeat drum kit, tambourine orch. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 442,
-  "score": 42.469,
+  "score": 42.105,
   "config": {
     "traditions": [
       "french_garage_rock"
@@ -36,13 +36,13 @@
           "voice_quality": 0,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.1335,
+          "voice_vibrato": 1.0945,
           "voice_articulation": 0,
-          "voice_microtone": 13.088999999999997,
+          "voice_microtone": 13.049999999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.0315,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.141,
+          "voice_speech_song": 1.063,
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.231,
@@ -68,7 +68,7 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 1.0755,
+          "electric_technique": 1.0365,
           "amp_make": -0.14,
           "body_wood": 0.063,
           "neck_wood": 0.2415,
@@ -99,7 +99,7 @@
           "amp_make": -0.14,
           "body_wood": 0.063,
           "pickup_config": 0,
-          "string_type": 0.29799999999999993,
+          "string_type": 0.168,
           "scale_length_b": 0,
           "fretted_or_not": 0,
           "bass_technique": 12.105,
@@ -114,7 +114,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.5705,
+          "drum_technique": 9.5315,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0
         }

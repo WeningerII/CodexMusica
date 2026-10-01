@@ -5,7 +5,7 @@
   "lineage": "Finnish heavy metal is represented here by Battle Beast. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic finnish heavy metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 596,
-  "score": 60.651,
+  "score": 60.585,
   "config": {
     "traditions": [
       "finnish_heavy_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 14.712,
+          "electric_technique": 14.677499999999998,
           "amp_make": 5.135,
           "body_wood": 5.329999999999999,
           "neck_wood": 0.5775,
@@ -62,7 +62,7 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.105,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }

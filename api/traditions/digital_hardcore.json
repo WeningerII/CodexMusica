@@ -3,31 +3,31 @@
   "name": "Digital Hardcore",
   "family": "electronic",
   "lineage": "Coined in Berlin in 1993 by Alec Empire, who founded the Digital Hardcore Recordings label and Atari Teenage Riot to fuse hardcore punk's shouted political sloganeering with 180-220 BPM breakbeat programming — Amen and Funky Drummer breaks pushed into clipping distortion, downtuned electric guitar riffs cut into sampler-triggered stabs, screamed dual male-female vocals in German and English, and an anti-fascist agitprop lyric stance shaped by the post-reunification squat scene.",
-  "recipe": "classic Central European early-1990s digital hardcore, experimental Elec, industrial noise branch, punk distorted rock, hardstyle electronic dance afro-punk gypsy punk. thick, breath veiled tone, fast rate, interlocked note trading. field textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony humbucker electric guitar, analog mono synth, roland tr 8s modern aira digital recreation TR-909, ampeg svt amp rock bass amp alder ernie ball slinky electric bass. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 698,
-  "score": 302.78,
+  "recipe": "classic Central European early-1990s digital hardcore, experimental Elec, industrial noise branch, punk distorted rock, hardstyle electronic dance flashcore frenchcore. thick, breath veiled tone, slow rate, interlocked note trading. glitched textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, analog mono synth, roland tr 8s modern aira digital recreation TR-909, rock canon ernie ball slinky electric bass. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 683,
+  "score": 228.012,
   "config": {
     "traditions": [
       "digital_hardcore",
-      "afro_punk",
-      "gypsy_punk"
+      "flashcore",
+      "frenchcore"
     ],
     "instruments": [
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "akai_mpc",
+          "sampler_archetypes": "roland_s750",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_edm"
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 3.7,
-          "sampler_archetypes": 0.585,
-          "sampler_bit_depth": 1.3,
-          "sampler_workflow": 5.870000000000001,
-          "sampler_classic_context": 20.604999999999997
+          "electronic_technique": 7.25,
+          "sampler_archetypes": 0.195,
+          "sampler_bit_depth": 1.4949999999999999,
+          "sampler_workflow": 7.75,
+          "sampler_classic_context": 16.9
         }
       },
       {
@@ -35,32 +35,32 @@
         "slots": {
           "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "bridge": "stoptail",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 14.624999999999998,
-          "amp_make": 31.56,
-          "body_wood": 0.63,
-          "neck_wood": 0.585,
-          "fretboard": 1.3,
-          "pickup_magnet": 1.4949999999999999,
+          "electric_technique": 5.699999999999999,
+          "amp_make": 13.129999999999999,
+          "body_wood": 0.845,
+          "neck_wood": 0.845,
+          "fretboard": 0.78,
+          "pickup_magnet": 0.585,
           "pickup_winding": 0.21,
           "string_material": 0.09,
-          "bridge": 1.3,
-          "scale_length": 1.1700000000000002,
-          "string_gauge": 0.585,
+          "bridge": 0.845,
+          "scale_length": 2.025,
+          "string_gauge": 0.845,
           "finish": 0.195,
-          "string_tuning": 6.175000000000001
+          "string_tuning": 2.46
         }
       },
       {
@@ -70,73 +70,73 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 11.064999999999996,
-          "voice_quality": 6.5,
+          "voice_register": 2.740000000000002,
+          "voice_quality": 11.179999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
-          "voice_articulation": 19.694999999999997,
-          "voice_microtone": 19.239999999999995,
-          "voice_tradition": 5.655000000000001,
-          "voice_mechanism_compound": 22.684999999999995,
-          "voice_estill_quality": 3.4450000000000003,
-          "voice_speech_song": 20.929999999999996,
-          "voice_ensemble_config": 28.304999999999996,
-          "voice_ornament_system": 0.8449999999999995,
-          "voice_pitch_organization": 0.35000000000000003,
-          "voice_processing_chain": 6.499999999999999,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 1.625,
+          "voice_articulation": 16.249999999999996,
+          "voice_microtone": 16.054999999999993,
+          "voice_tradition": 6.465,
+          "voice_mechanism_compound": 20.535,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 17.679999999999993,
+          "voice_ensemble_config": 18.63,
+          "voice_ornament_system": 1.0399999999999996,
+          "voice_pitch_organization": 0.9099999999999999,
+          "voice_processing_chain": 14.645000000000001,
+          "voice_multitrack_stack": 5.7524999999999995
         }
       },
       {
         "id": "analog_mono_synth",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_acid_squelch",
           "mono_oscillator": "mono_digitally_controlled",
           "mono_filter": "moog_ladder",
-          "mono_archetypes": "sh_101",
-          "mono_maker_lineage": "mono_moog_robert"
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
-          "electronic_technique": 0.9099999999999998,
+          "electronic_technique": 3.75,
           "mono_oscillator": 0.195,
-          "mono_filter": 0.585,
-          "mono_archetypes": 1.4949999999999999,
-          "mono_maker_lineage": -0.035
+          "mono_filter": 0.845,
+          "mono_archetypes": 0.845,
+          "mono_maker_lineage": 0.585
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_kick",
+          "tr909_voice": "tr909_clap",
           "drum_machine_909_context": "drum_machine_909_hardcore",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 1.4299999999999997,
-          "drum_machine_909_context": 1.885,
+          "tr909_voice": 0.75,
+          "drum_machine_909_context": 0.585,
           "tr909_production_origin": 2.7949999999999995
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "alder_b",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -145,13 +145,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.532499999999999,
-          "body_wood": 1.4949999999999999,
-          "pickup_config": 1.4949999999999999,
-          "string_type": 12.8375,
-          "scale_length_b": 0.585,
+          "amp_make": 2.695,
+          "body_wood": 0.845,
+          "pickup_config": 0.39,
+          "string_type": 3.25,
+          "scale_length_b": 0.845,
           "fretted_or_not": 0.045,
-          "bass_technique": 24.17,
+          "bass_technique": 8.295,
           "electric_bass_string_configuration": 0
         }
       }

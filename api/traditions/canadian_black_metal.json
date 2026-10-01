@@ -5,7 +5,7 @@
   "lineage": "Canadian black-metal discovery scope represented by Vancouver’s Blasphemy, with primary founders’ accounts of guitar, bass/voice, kit, rehearsal work and the Fiasco Brothers studio recordings.",
   "recipe": "classic modern canadian black metal, distorted Rock, black branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 385,
-  "score": 25.498,
+  "score": 24.564,
   "config": {
     "traditions": [
       "canadian_black_metal"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.643875,
+          "body_wood": 0.483,
           "neck_wood": 0.44849999999999995,
-          "fretboard": 0.23137499999999997,
+          "fretboard": 0.0705,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.44849999999999995,
-          "bridge": 0.643875,
+          "bridge": 0.483,
           "scale_length": 0,
           "string_gauge": 0.235,
           "finish": 0,
-          "string_tuning": 0.0705
+          "string_tuning": 0.102
         }
       },
       {
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.643875,
+          "body_wood": 0.483,
           "pickup_config": 0,
           "string_type": 0.44849999999999995,
-          "scale_length_b": 0.192375,
+          "scale_length_b": 0.0315,
           "fretted_or_not": 0.03899999999999999,
           "bass_technique": 4.21525,
           "electric_bass_string_configuration": 0
@@ -84,7 +84,7 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 0.643875,
+          "drumhead": 0.483,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.48749999999999993,
           "shell_thickness": 0,

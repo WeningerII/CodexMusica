@@ -5,7 +5,7 @@
   "lineage": "German death metal is represented here by Obscura. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic german death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 399,
-  "score": 41.298,
+  "score": 41.158,
   "config": {
     "traditions": [
       "german_death_metal"
@@ -34,12 +34,12 @@
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.814125,
           "fretboard": 0.3045,
-          "pickup_magnet": 0.37875000000000003,
-          "pickup_winding": 0.34724999999999995,
+          "pickup_magnet": 0.34162499999999996,
+          "pickup_winding": 0.310125,
           "string_material": 0.3045,
           "bridge": 1.3,
           "scale_length": 5.329999999999999,
-          "string_gauge": 1.19725,
+          "string_gauge": 1.2425,
           "finish": 0.0315,
           "string_tuning": 0.39
         }
@@ -61,7 +61,7 @@
           "body_wood": 1.62825,
           "pickup_config": 0.3,
           "string_type": 4.875,
-          "scale_length_b": 0.9577499999999998,
+          "scale_length_b": 0.8834999999999997,
           "fretted_or_not": 0.3315,
           "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.37424999999999997,
+          "voice_processing_chain": 0.337125,
           "voice_multitrack_stack": 0.39
         }
       }

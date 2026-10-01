@@ -3,14 +3,14 @@
   "name": "Brazilian metalcore",
   "family": "rock_punk",
   "lineage": "Brazilian metalcore discovery scope represented by São Paulo’s Project46. Primary accounts document band-level riff development, Portuguese-language performance and a later shift toward more melody and groove.",
-  "recipe": "classic modern brazilian metalcore, distorted Rock, metal branch, punk distorted rock afro-punk hardcore punk. solo with instrumental accompaniment. ebony palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 443,
-  "score": 94.447,
+  "recipe": "classic modern brazilian metalcore, distorted Rock, metal branch, punk distorted rock dutch punk adelaide punk. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 438,
+  "score": 72.535,
   "config": {
     "traditions": [
       "brazilian_metalcore",
-      "afro_punk",
-      "hardcore_punk"
+      "dutch_punk",
+      "adelaide_punk"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 16.749999999999996,
+          "electric_technique": 12.5,
           "amp_make": 0,
-          "body_wood": 0.585,
+          "body_wood": 0.39,
           "neck_wood": 0.39,
-          "fretboard": 1.04,
+          "fretboard": 0.585,
           "pickup_magnet": 0,
           "pickup_winding": 0.195,
           "string_material": 0.39,
-          "bridge": 0.585,
+          "bridge": 0.39,
           "scale_length": 0,
-          "string_gauge": 0,
+          "string_gauge": 1,
           "finish": 0,
-          "string_tuning": 6.954999999999999
+          "string_tuning": 5.720000000000001
         }
       },
       {
@@ -60,12 +60,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.585,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0.39,
           "scale_length_b": 0.39,
           "fretted_or_not": 0,
-          "bass_technique": 24.419999999999998,
+          "bass_technique": 18.195,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,16 +85,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 11.374999999999996,
-          "drumhead": 0.585,
-          "drum_kit_kick_pedal": 0.8449999999999999,
-          "shell_wood": 0.735,
+          "drum_technique": 8.749999999999998,
+          "drumhead": 0.39,
+          "drum_kit_kick_pedal": 0.78,
+          "shell_wood": 0.39,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0,
-          "cymbal_alloy": 0.2924999999999999,
-          "cymbal_hammering": 13.29,
-          "cymbal_lathing": 12.899999999999999,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 9.54,
+          "cymbal_lathing": 9.149999999999999,
           "cymbal_finish": 0
         }
       },
@@ -130,8 +130,8 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.235,
-          "voice_ornament_system": 0.35,
+          "voice_ensemble_config": 1.8850000000000002,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
           "voice_multitrack_stack": 0.15

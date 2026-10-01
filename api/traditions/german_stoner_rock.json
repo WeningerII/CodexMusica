@@ -3,9 +3,9 @@
   "name": "German stoner rock",
   "family": "rock_punk",
   "lineage": "German stoner rock represented by Kadavar’s Berlin-era power trio. Stoner is an external scene classification here, not a claimed self-description: the guitarist has objected to the term. The selected2015 ensemble precedes later piano/synth expansion and the second-guitar lineup.",
-  "recipe": "classic german stoner rock, distorted Rock, classic branch. solo with instrumental accompaniment. marshall plexi amp British rock amp mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp mahogany electric bass, sticks backbeat drum kit. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital germanium fuzz.",
-  "recipe_chars": 360,
-  "score": 31.098,
+  "recipe": "classic german stoner rock, distorted Rock, classic branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp mahogany electric bass, sticks backbeat drum kit. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital germanium fuzz.",
+  "recipe_chars": 345,
+  "score": 30.669,
   "config": {
     "traditions": [
       "german_stoner_rock"
@@ -43,10 +43,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 1.0335,
+          "voice_ensemble_config": 0.9944999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.1905,
-          "voice_processing_chain": 0.27249999999999996,
+          "voice_processing_chain": 0.1425,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -70,7 +70,7 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 4.42,
-          "body_wood": 1.126,
+          "body_wood": 0.996,
           "neck_wood": 0.66825,
           "fretboard": 0.18525,
           "pickup_magnet": 0.1365,
@@ -101,7 +101,7 @@
           "pickup_config": 0,
           "string_type": 0.042749999999999996,
           "scale_length_b": 0.66825,
-          "fretted_or_not": 0.4149999999999999,
+          "fretted_or_not": 0.285,
           "bass_technique": -0.05,
           "electric_bass_string_configuration": 0
         }

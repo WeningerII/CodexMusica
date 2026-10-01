@@ -5,7 +5,7 @@
   "lineage": "Gothic symphonic metal is represented by Sirenia’s Stavanger-linked mixture of gothic metal, classical orchestration, contrasting voices and amplified rhythm instruments.",
   "recipe": "classic modern gothic symphonic metal, distorted Rock, symphonic branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit, rompler workstation, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, homophonic chordal rhythm aligned choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 614,
-  "score": 86.75,
+  "score": 87.138,
   "config": {
     "traditions": [
       "gothic_symphonic_metal"
@@ -29,15 +29,15 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 13.970875,
+          "electric_technique": 14.171499999999998,
           "amp_make": 6.695,
           "body_wood": 6.24,
-          "neck_wood": 0.0045,
+          "neck_wood": 0,
           "fretboard": 0.0735,
-          "pickup_magnet": 0.305625,
+          "pickup_magnet": 0.3,
           "pickup_winding": 0.3,
           "string_material": 0.0735,
-          "bridge": 0.747625,
+          "bridge": 0.9099999999999999,
           "scale_length": 6.24,
           "string_gauge": 0.9099999999999999,
           "finish": 0,
@@ -51,17 +51,17 @@
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.079125,
+          "body_wood": 0.0735,
           "pickup_config": 0.39,
           "string_type": 4.875,
-          "scale_length_b": 0.32025,
+          "scale_length_b": 0.31124999999999997,
           "fretted_or_not": 0.31124999999999997,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.1864999999999999,
+          "drumhead": 1.2179999999999997,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.3,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.01125,
-          "voice_multitrack_stack": 0.176625
+          "voice_multitrack_stack": 0.165375
         }
       },
       {
@@ -128,7 +128,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": -0.0955,
+          "electronic_technique": -0.1,
           "rompler_preset_bank": -0.035,
           "rompler_context": 0.78,
           "rompler_lineage": 0
@@ -151,10 +151,10 @@
         "scores": {
           "bowed_technique": 4.75,
           "orch_strings": 0.38475,
-          "orch_top_wood": 2.7590000000000003,
+          "orch_top_wood": 2.7545,
           "orch_back_wood": 3.5927499999999997,
           "orch_varnish": 3.25,
-          "orch_setup_period": 3.7318749999999996,
+          "orch_setup_period": 3.7802499999999997,
           "orch_bow": 0,
           "orch_bow_stick": 3.2,
           "orch_articulation": 0.39,
@@ -170,8 +170,8 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 1.141,
-          "choir_polyphonic_configuration": 1.3225,
+          "choir_size": 1.1365,
+          "choir_polyphonic_configuration": 1.316875,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 0.363
         }
