@@ -22,12 +22,7 @@
           "id": "san_antonio_rap",
           "name": "San antonio rap",
           "lineage": "San Antonio conscious rap represented by Third Root: Black and Chicano MC dialogue, turntablism and a funk-inflected rhythm section.",
-          "instruments": [
-            "voice",
-            "turntable",
-            "drum_kit",
-            "bongos"
-          ],
+          "instruments": ["voice", "turntable", "drum_kit", "bongos"],
           "parts": {
             "voice_register": "voice_register_source_unspecified",
             "voice_quality": "rap_voice",
@@ -52,41 +47,28 @@
         "extras": {
           "parent": "mcRhythm.intlHipHop",
           "axes": {
-            "harm": -1,
-            "pitch": -1,
+            "harm": 0,
+            "pitch": 0,
             "ornament": 0,
             "meter": 1,
-            "density": 0,
+            "density": 1,
             "transmission": 0,
             "improv": 1,
             "soundTech": 1,
             "intensity": 1,
             "voice": 2,
-            "timbre": 0,
+            "timbre": 1,
             "percussion": 2,
             "cyclicity": 2
           },
           "description": "Two MCs exchange social-commentary verses over DJ cuts and drums; bongos follow the credited Yanga’s Theme branch of Libertad. This compact arrangement draws on named album roles without asserting that every track or San Antonio rapper uses them.",
-          "exemplars": [
-            "Third Root",
-            "Easy Lee",
-            "MexStep",
-            "DJ Chicken George"
-          ],
+          "exemplars": ["Third Root", "Easy Lee", "MexStep", "DJ Chicken George"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          29.4241,
-          -98.4936,
-          "San Antonio (Third Root branch)",
-          "North America"
-        ],
+        "geo": [29.4241, -98.4936, "San Antonio (Third Root branch)", "North America"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://thirdroot.bandcamp.com/album/libertad",
@@ -98,12 +80,7 @@
         "neighbor_distinction": "City scene represented through Third Root’s MC/DJ and played-percussion branch; not synonymous with statewide Texas rap.",
         "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
         "dependency_audit": {
-          "reused_instruments": [
-            "voice",
-            "turntable",
-            "drum_kit",
-            "bongos"
-          ],
+          "reused_instruments": ["voice", "turntable", "drum_kit", "bongos"],
           "new_instruments": [],
           "new_parts": [],
           "new_variants": [],
@@ -117,7 +94,7 @@
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "license": "CC BY-SA",
             "license_raw": "CC BY-SA 2.5",
             "credit": "Danel Solabarrieta",
@@ -135,26 +112,32 @@
             "license_raw": "CC BY-SA 2.5",
             "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
             "credit": "Danel Solabarrieta",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Danel Solabarrieta, dated 25 February 2007, licensed CC BY-SA 2.5. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Drum kit in a recording studio",
+            "source_metadata_dimensions": [3008, 2000]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -211,40 +194,33 @@
         "extras": {
           "parent": "mcRhythm.intlHipHop",
           "axes": {
-            "harm": -1,
-            "pitch": -1,
+            "harm": 1,
+            "pitch": 1,
             "ornament": 0,
             "meter": 1,
-            "density": 0,
+            "density": 1,
             "transmission": 0,
             "improv": 1,
-            "soundTech": 1,
+            "soundTech": 2,
             "intensity": 1,
             "voice": 2,
-            "timbre": 0,
+            "timbre": 1,
             "percussion": 2,
             "cyclicity": 2
           },
           "description": "Rapped lead and sung responses join electric bass, guitar, kit and synth layers. Self-recording and resampling connect the band performance to loop-based hip-hop production; this represents their rap repertoire, not the rap-free Night Rip duet.",
-          "exemplars": [
-            "Stanley Odd",
-            "Solareye",
-            "Veronika Electronika"
-          ],
+          "exemplars": ["Stanley Odd", "Solareye", "Veronika Electronika"],
           "status": "documented",
           "crossRefs": []
         },
         "geo": [
           55.9533,
           -3.1883,
-          "Edinburgh / Central Belt (Stanley Odd branch)",
+          "Central Belt, Edinburgh–Glasgow (approximate regional anchor)",
           "Europe"
         ],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://thepartae.com/stanley-odd/",
@@ -283,7 +259,7 @@
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "license": "CC BY-SA",
             "license_raw": "CC BY-SA 2.5",
             "credit": "Danel Solabarrieta",
@@ -301,26 +277,32 @@
             "license_raw": "CC BY-SA 2.5",
             "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
             "credit": "Danel Solabarrieta",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Danel Solabarrieta, dated 25 February 2007, licensed CC BY-SA 2.5. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Drum kit in a recording studio",
+            "source_metadata_dimensions": [3008, 2000]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -343,12 +325,7 @@
           "id": "spiritual_hip_hop",
           "name": "Spiritual hip hop",
           "lineage": "Spiritual hip hop represented by MC Yogi’s yoga-devotional rap crossover, joining sacred narratives and guest devotional vocals with hip-hop beats.",
-          "instruments": [
-            "voice",
-            "turntable",
-            "tabla",
-            "sampler_drum_machine"
-          ],
+          "instruments": ["voice", "turntable", "tabla", "sampler_drum_machine"],
           "parts": {
             "voice_register": "voice_register_source_unspecified",
             "voice_quality": "rap_voice",
@@ -373,40 +350,28 @@
         "extras": {
           "parent": "mcRhythm.intlHipHop",
           "axes": {
-            "harm": -1,
-            "pitch": -1,
-            "ornament": 0,
+            "harm": 0,
+            "pitch": 1,
+            "ornament": 1,
             "meter": 1,
             "density": 0,
             "transmission": 0,
             "improv": 1,
             "soundTech": 1,
-            "intensity": 1,
+            "intensity": 0,
             "voice": 2,
-            "timbre": 0,
+            "timbre": 1,
             "percussion": 2,
             "cyclicity": 2
           },
           "description": "Rhythmic verses and devotional responses sit against turntable gestures, tabla and a programmed beat bed. Turntable/tabla roles are explicitly named by the releasing label; the sampler is an authored realization of the credited hip-hop beats and breaks.",
-          "exemplars": [
-            "MC Yogi",
-            "Bhagavan Das",
-            "Jai Uttal"
-          ],
+          "exemplars": ["MC Yogi", "Bhagavan Das", "Jai Uttal"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          38.0691,
-          -122.8069,
-          "Point Reyes Station (MC Yogi practice)",
-          "North America"
-        ],
+        "geo": [38.0691, -122.8069, "Point Reyes Station (MC Yogi practice)", "North America"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://whiteswanrecords.bandcamp.com/album/elephant-power",
@@ -430,12 +395,7 @@
         "neighbor_distinction": "Devotional thematic umbrella represented by yoga-rap; distinct from historical African-American spirituals and instrumental spiritual jazz.",
         "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
         "dependency_audit": {
-          "reused_instruments": [
-            "voice",
-            "turntable",
-            "tabla",
-            "sampler_drum_machine"
-          ],
+          "reused_instruments": ["voice", "turntable", "tabla", "sampler_drum_machine"],
           "new_instruments": [],
           "new_parts": [],
           "new_variants": [],
@@ -449,12 +409,12 @@
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable,_circa_1977.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg/500px-An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg",
             "license": "CC BY-SA",
             "license_raw": "CC BY-SA 4.0",
             "credit": "WmArbaugh",
             "match_confidence": "context_only",
-            "matched_label": "Representative Turntable (DJ vinyl deck) production-model illustration; not a photograph of a spiritual hip hop performer, location or session.",
+            "matched_label": "Fisher home turntable as a turntable-family production-model illustration; not a DJ session, genre performer, or claimed MC Yogi hardware.",
             "source_title": "An image of a Fisher MT-6225 Studio Standard Automatic Linear Motor Direct-Drive Turntable, circa 1977.jpg",
             "photographer_credit": "WmArbaugh",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
@@ -467,26 +427,32 @@
             "license_raw": "CC BY-SA 4.0",
             "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
             "credit": "WmArbaugh",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by WmArbaugh, dated 17 March 2020, licensed CC BY-SA 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Fisher MT-6225 home turntable, circa 1977",
+            "source_metadata_dimensions": [600, 354]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "Not individually attempted: earlier Commons sampler/kit image requests returned proxy tunnel403; no payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg/500px-An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -539,39 +505,28 @@
         "extras": {
           "parent": "mcRhythm.intlHipHop",
           "axes": {
-            "harm": -1,
-            "pitch": -1,
-            "ornament": 0,
+            "harm": 1,
+            "pitch": 1,
+            "ornament": 1,
             "meter": 1,
-            "density": 0,
+            "density": 1,
             "transmission": 0,
             "improv": 1,
             "soundTech": 1,
             "intensity": 1,
             "voice": 2,
-            "timbre": 0,
+            "timbre": 1,
             "percussion": 2,
             "cyclicity": 2
           },
           "description": "A rhythmically agile vocal leads guitar and trumpet phrases over electronically constructed beats. The selected branch connects township lyricism and jazz-trained playing; it does not reduce the entire national scene to one sound.",
-          "exemplars": [
-            "Laliboi",
-            "Spoek Mathambo"
-          ],
+          "exemplars": ["Laliboi", "Spoek Mathambo"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          -26.2041,
-          28.0473,
-          "Johannesburg (Laliboi collaboration)",
-          "Africa"
-        ],
+        "geo": [-26.2041, 28.0473, "Johannesburg (Laliboi collaboration)", "Africa"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://tekarecords.bandcamp.com/album/siyangaphi",
@@ -612,46 +567,52 @@
             "kind": "tradition",
             "name": "South african hip hop",
             "source": "wikimedia_commons_instrument_context",
-            "source_page": "https://www.europeana.eu/item/91616/arme_object_AM010895",
-            "image_url": "https://mm.dimu.org/image/022sAYkKHHrV?dimension=1200x1200",
-            "thumb_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fmm.dimu.org%2Fimage%2F022sAYkKHHrV%3Fdimension%3D1200x1200&type=IMAGE",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "license": "CC BY",
-            "license_raw": "http://creativecommons.org/licenses/by/4.0/",
-            "credit": "Army Museum via Europeana",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
             "match_confidence": "context_only",
-            "matched_label": "Representative Trumpet / cornet / flugelhorn production-model illustration; not a photograph of a south african hip hop performer, location or session.",
-            "source_title": "https://www.europeana.eu/item/91616/arme object AM010895",
-            "photographer_credit": "Army Museum via Europeana",
-            "license_url": "PENDING_FILE_SPECIFIC_RIGHTS_REVIEW"
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a south african hip hop performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
           },
           "rights": {
-            "source_page": "https://www.europeana.eu/item/91616/arme_object_AM010895",
-            "source_title": "https://www.europeana.eu/item/91616/arme object AM010895",
-            "photographer_credit": "Army Museum via Europeana",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
             "license": "CC BY",
-            "license_raw": "http://creativecommons.org/licenses/by/4.0/",
-            "license_url": "PENDING_FILE_SPECIFIC_RIGHTS_REVIEW",
-            "credit": "Army Museum via Europeana",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
           },
           "full": {
-            "requested_url": "https://mm.dimu.org/image/022sAYkKHHrV?dimension=1200x1200",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://api.europeana.eu/thumbnail/v2/url.json?uri=https%3A%2F%2Fmm.dimu.org%2Fimage%2F022sAYkKHHrV%3Fdimension%3D1200x1200&type=IMAGE",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -707,40 +668,28 @@
         "extras": {
           "parent": "mcRhythm.intlHipHop",
           "axes": {
-            "harm": -1,
-            "pitch": -1,
+            "harm": 1,
+            "pitch": 1,
             "ornament": 0,
             "meter": 1,
-            "density": 0,
+            "density": 2,
             "transmission": 0,
             "improv": 1,
             "soundTech": 1,
             "intensity": 1,
             "voice": 2,
-            "timbre": 0,
+            "timbre": 2,
             "percussion": 2,
             "cyclicity": 2
           },
           "description": "Rapped verses join a live guitar, bass, keyboard and drum rhythm section with brass accents. A single trumpet models the source’s live brass section compactly; piano models its keyboard role and is not asserted to be the exact session instrument.",
-          "exemplars": [
-            "Murat & Jose",
-            "Rok Golob",
-            "Big Band RTV Slovenia"
-          ],
+          "exemplars": ["Murat & Jose", "Rok Golob", "Big Band RTV Slovenia"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          46.0569,
-          14.5058,
-          "Ljubljana (RTV Slovenia collaboration)",
-          "Europe"
-        ],
+        "geo": [46.0569, 14.5058, "Ljubljana (RTV Slovenia collaboration)", "Europe"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://www.rokgolob.com/album/soul-activation-with-rok-golob-feat-big-band-rtv-slovenia-and-murat-jose/",
@@ -785,7 +734,7 @@
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "license": "CC BY-SA",
             "license_raw": "CC BY-SA 2.5",
             "credit": "Danel Solabarrieta",
@@ -803,26 +752,32 @@
             "license_raw": "CC BY-SA 2.5",
             "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
             "credit": "Danel Solabarrieta",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Danel Solabarrieta, dated 25 February 2007, licensed CC BY-SA 2.5. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Drum kit in a recording studio",
+            "source_metadata_dimensions": [3008, 2000]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -845,13 +800,7 @@
           "id": "san_diego_rap",
           "name": "San diego rap",
           "lineage": "San Diego rap represented by Vokab Kompany’s two-MC hip-hop, funk and electronic crossover band.",
-          "instruments": [
-            "voice",
-            "electric_bass",
-            "drum_kit",
-            "grand_piano",
-            "saxophone"
-          ],
+          "instruments": ["voice", "electric_bass", "drum_kit", "grand_piano", "saxophone"],
           "parts": {
             "voice_register": "voice_register_source_unspecified",
             "voice_quality": "rap_voice",
@@ -877,40 +826,28 @@
         "extras": {
           "parent": "mcRhythm.intlHipHop",
           "axes": {
-            "harm": -1,
-            "pitch": -1,
+            "harm": 1,
+            "pitch": 1,
             "ornament": 0,
             "meter": 1,
-            "density": 0,
+            "density": 1,
             "transmission": 0,
             "improv": 1,
             "soundTech": 1,
             "intensity": 1,
             "voice": 2,
-            "timbre": 0,
+            "timbre": 1,
             "percussion": 2,
             "cyclicity": 2
           },
           "description": "Two vocalists lead bass, drum kit, keys and saxophone. Piano is an authored realization of the credited keyboard role; no claim is made that the album or every stage performance uses a grand piano.",
-          "exemplars": [
-            "Vokab Kompany",
-            "Rob Hurt",
-            "Burke Baby"
-          ],
+          "exemplars": ["Vokab Kompany", "Rob Hurt", "Burke Baby"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          32.7157,
-          -117.1611,
-          "San Diego (Vokab Kompany branch)",
-          "North America"
-        ],
+        "geo": [32.7157, -117.1611, "San Diego (Vokab Kompany branch)", "North America"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://gravitasrecordings.com/artist/vokab-kompany/",
@@ -928,13 +865,7 @@
         "neighbor_distinction": "City-based rap category modeled through a credited live-band branch, distinct from broader West Coast hip hop.",
         "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
         "dependency_audit": {
-          "reused_instruments": [
-            "voice",
-            "electric_bass",
-            "drum_kit",
-            "grand_piano",
-            "saxophone"
-          ],
+          "reused_instruments": ["voice", "electric_bass", "drum_kit", "grand_piano", "saxophone"],
           "new_instruments": [],
           "new_parts": [],
           "new_variants": [],
@@ -948,7 +879,7 @@
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "license": "CC BY-SA",
             "license_raw": "CC BY-SA 2.5",
             "credit": "Danel Solabarrieta",
@@ -966,26 +897,32 @@
             "license_raw": "CC BY-SA 2.5",
             "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
             "credit": "Danel Solabarrieta",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Danel Solabarrieta, dated 25 February 2007, licensed CC BY-SA 2.5. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Drum kit in a recording studio",
+            "source_metadata_dimensions": [3008, 2000]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -1043,38 +980,28 @@
         "extras": {
           "parent": "mcRhythm.intlHipHop",
           "axes": {
-            "harm": -1,
-            "pitch": -1,
+            "harm": 1,
+            "pitch": 1,
             "ornament": 0,
             "meter": 1,
-            "density": 0,
+            "density": 2,
             "transmission": 0,
             "improv": 1,
             "soundTech": 1,
             "intensity": 1,
             "voice": 2,
-            "timbre": 0,
+            "timbre": 2,
             "percussion": 2,
             "cyclicity": 2
           },
           "description": "Rhythmic lead and melodic vocal replies meet guitar, bass, keys, drums and trumpet/saxophone/trombone punctuation. Piano stands for the listed keys role; source credits establish ensemble roles, not universal hardware or settings.",
-          "exemplars": [
-            "Lo & Leduc"
-          ],
+          "exemplars": ["Lo & Leduc"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          46.948,
-          7.4474,
-          "Bern (Lo & Leduc branch)",
-          "Europe"
-        ],
+        "geo": [46.948, 7.4474, "Bern (Lo & Leduc branch)", "Europe"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://www.lo-leduc.ch/",
@@ -1115,7 +1042,7 @@
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "license": "CC BY-SA",
             "license_raw": "CC BY-SA 2.5",
             "credit": "Danel Solabarrieta",
@@ -1133,26 +1060,32 @@
             "license_raw": "CC BY-SA 2.5",
             "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
             "credit": "Danel Solabarrieta",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Danel Solabarrieta, dated 25 February 2007, licensed CC BY-SA 2.5. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Drum kit in a recording studio",
+            "source_metadata_dimensions": [3008, 2000]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Bateria.jpg/500px-Bateria.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -1175,11 +1108,7 @@
           "id": "sacramento_hip_hop",
           "name": "Sacramento hip hop",
           "lineage": "Sacramento hip hop represented by Death Grips’ abrasive rap, live drumming and sample construction.",
-          "instruments": [
-            "voice",
-            "drum_kit",
-            "sampler_drum_machine"
-          ],
+          "instruments": ["voice", "drum_kit", "sampler_drum_machine"],
           "parts": {
             "voice_register": "voice_register_source_unspecified",
             "voice_quality": "rap_voice",
@@ -1208,37 +1137,24 @@
             "pitch": -1,
             "ornament": 0,
             "meter": 1,
-            "density": 0,
+            "density": 2,
             "transmission": 0,
             "improv": 1,
-            "soundTech": 1,
-            "intensity": 1,
+            "soundTech": 2,
+            "intensity": 2,
             "voice": 2,
-            "timbre": 0,
+            "timbre": 2,
             "percussion": 2,
             "cyclicity": 2
           },
           "description": "An urgent rapped lead cuts through forceful kit patterns and manipulated sample fragments. This is a named experimental branch of Sacramento rap, not a claim that the entire city shares this sound.",
-          "exemplars": [
-            "Death Grips",
-            "MC Ride",
-            "Zach Hill",
-            "Andy Morin"
-          ],
+          "exemplars": ["Death Grips", "MC Ride", "Zach Hill", "Andy Morin"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          38.5816,
-          -121.4944,
-          "Sacramento (Death Grips branch)",
-          "North America"
-        ],
+        "geo": [38.5816, -121.4944, "Sacramento (Death Grips branch)", "North America"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://pitchfork.com/features/interview/8815-death-grips/",
@@ -1256,11 +1172,7 @@
         "neighbor_distinction": "Geographic discovery category represented by a specific experimental ensemble, distinct from general industrial or experimental hip-hop technique labels.",
         "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
         "dependency_audit": {
-          "reused_instruments": [
-            "voice",
-            "drum_kit",
-            "sampler_drum_machine"
-          ],
+          "reused_instruments": ["voice", "drum_kit", "sampler_drum_machine"],
           "new_instruments": [],
           "new_parts": [],
           "new_variants": [],
@@ -1274,7 +1186,7 @@
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Akai_CD3000XL_9248.jpg/500px-Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "license": "CC BY",
             "license_raw": "CC BY 4.0",
             "credit": "Ashley Pomeroy",
@@ -1292,26 +1204,32 @@
             "license_raw": "CC BY 4.0",
             "license_url": "https://creativecommons.org/licenses/by/4.0/",
             "credit": "Ashley Pomeroy",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Akai_CD3000XL_9248.jpg/500px-Akai_CD3000XL_9248.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -1334,10 +1252,7 @@
           "id": "singaporean_hip_hop",
           "name": "Singaporean hip hop",
           "lineage": "Singaporean hip hop represented by ShiGGa Shay’s multilingual writing and local producer collaborations.",
-          "instruments": [
-            "voice",
-            "sampler_drum_machine"
-          ],
+          "instruments": ["voice", "sampler_drum_machine"],
           "parts": {
             "voice_register": "voice_register_source_unspecified",
             "voice_quality": "rap_voice",
@@ -1361,14 +1276,14 @@
         "extras": {
           "parent": "mcRhythm.intlHipHop",
           "axes": {
-            "harm": -1,
-            "pitch": -1,
+            "harm": 0,
+            "pitch": 0,
             "ornament": 0,
             "meter": 1,
             "density": 0,
             "transmission": 0,
             "improv": 1,
-            "soundTech": 1,
+            "soundTech": 2,
             "intensity": 1,
             "voice": 2,
             "timbre": 0,
@@ -1376,25 +1291,13 @@
             "cyclicity": 2
           },
           "description": "Close rhythmic storytelling sits above a compact programmed backing. The sample-based drum machine realizes the documented producer-backed arrangement; it is an authored production role, not a claim that the collaborators used this hardware.",
-          "exemplars": [
-            "ShiGGa Shay",
-            "evanturetime",
-            "LINEATH"
-          ],
+          "exemplars": ["ShiGGa Shay", "evanturetime", "LINEATH"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          1.3521,
-          103.8198,
-          "Singapore (ShiGGa Shay branch)",
-          "Asia"
-        ],
+        "geo": [1.3521, 103.8198, "Singapore (ShiGGa Shay branch)", "Southeast Asia"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
             "url": "https://www.shiggashay.com/",
@@ -1418,10 +1321,7 @@
         "neighbor_distinction": "Singapore multilingual local-production scene; not a synonym for all Chinese-language or Southeast Asian rap.",
         "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
         "dependency_audit": {
-          "reused_instruments": [
-            "voice",
-            "sampler_drum_machine"
-          ],
+          "reused_instruments": ["voice", "sampler_drum_machine"],
           "new_instruments": [],
           "new_parts": [],
           "new_variants": [],
@@ -1435,7 +1335,7 @@
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Akai_CD3000XL_9248.jpg/500px-Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "license": "CC BY",
             "license_raw": "CC BY 4.0",
             "credit": "Ashley Pomeroy",
@@ -1453,26 +1353,32 @@
             "license_raw": "CC BY 4.0",
             "license_url": "https://creativecommons.org/licenses/by/4.0/",
             "credit": "Ashley Pomeroy",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Akai_CD3000XL_9248.jpg/500px-Akai_CD3000XL_9248.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
-          }
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       },
       {
         "allocation_group_id": "023",
@@ -1495,10 +1401,436 @@
           "id": "sesotho_hip_hop",
           "name": "Sesotho hip hop",
           "lineage": "Sesotho hip hop centers rap in the Sesotho language and Basotho cultural reference, including Kommanda Obbs’s Ts’epe practice.",
-          "instruments": [
-            "voice",
-            "sampler_drum_machine"
-          ],
+          "instruments": ["voice", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": -1,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 1,
+            "density": -1,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Rhythmic speech leads a spare programmed backing, keeping the language foregrounded. The beat machine is an authored compact accompaniment; no accordion or other traditional instrument is added merely from Basotho identity.",
+          "exemplars": ["Kommanda Obbs", "Ntate Stunna"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [-28.8972, 27.9928, "Maputsoe (Kommanda Obbs branch)", "Africa"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://hdsentertainment.co.za/kommanda-obbs/",
+            "title": "HDS Entertainment: Kommanda Obbs",
+            "support_notes": "Booking representative identifies Lesotho-born artist from Maputsoe, Sesotho-rooted Ts’epe, lyricism and cultural storytelling.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://omny.fm/shows/power-perspective/in-conversation-with-ntate-stunna",
+            "title": "POWER Perspective: Ntate Stunna interview",
+            "support_notes": "Broadcast interview presents Sesotho cultural rap and the artist’s releases.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://africasacountry.com/2011/07/sesotho-cipher",
+            "title": "Africa Is a Country: Core Wreckah interview",
+            "support_notes": "Firsthand account identifies Maputsoe artists, Lesotho rap ciphers and bedroom recording practices.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "Language/community category spanning Basotho practice, distinct from the broad South African national scene and from famo accordion music.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "sesotho_hip_hop",
+            "kind": "tradition",
+            "name": "Sesotho hip hop",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a sesotho hip hop performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 565,
+        "source_label": "slovak hip hop",
+        "source_url": "https://everynoise.com/engenremap-slovakhiphop.html",
+        "id": "slovak_hip_hop",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "slovak_hip_hop",
+          "name": "Slovak hip hop",
+          "lineage": "Slovak hip hop represented by Torula’s recorded rap collaboration with Trnava producer Masif.",
+          "instruments": ["voice", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": -1,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 2,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Rapped lead and guest exchanges ride a compact beat bed. The sampler realizes the release’s separately issued instrumental backing; exact machine and voicing are authored choices.",
+          "exemplars": ["Torula", "Masif", "Boy Wonder"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [48.3774, 17.5872, "Trnava (Masifsound practice)", "Europe"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://masifsound.bandcamp.com/album/na-torulu-neplac-ep",
+            "title": "Masifsound: Na Torulu neplací",
+            "support_notes": "Label identifies Trnava, Slovakia; credits Masif music production, Torula and guest Boy Wonder, and supplies instrumental versions.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "National-language discovery category represented through Trnava’s independently released rap; distinct from the later Slovak trap branch.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "slovak_hip_hop",
+            "kind": "tradition",
+            "name": "Slovak hip hop",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a slovak hip hop performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 566,
+        "source_label": "slovak trap",
+        "source_url": "https://everynoise.com/engenremap-slovaktrap.html",
+        "id": "slovak_trap",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "slovak_trap",
+          "name": "Slovak trap",
+          "lineage": "Slovak trap represented by Edúv Syn’s raw freestyle and punk-associated electronic rap releases.",
+          "instruments": ["voice", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 2,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "A close lead vocal rides a minimal programmed backing. The sampler is an authored backing-role choice; the source explicitly discusses Auto-Tune but this model adds no new engine effect or default.",
+          "exemplars": ["Edúv Syn", "Puppy Diemond"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [50.0755, 14.4378, "Prague (Edúv Syn documented practice)", "Europe"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://www.heartnoize.cz/mc-yallah-debmaster-eduv-syn-amalgam/",
+            "title": "Heartnoize: Šelest artist announcement",
+            "support_notes": "Event organizer specifically identifies Edúv Syn’s music as contemporary Slovak trap.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://eduvsyn.bandcamp.com/album/trap-je-nov-punk",
+            "title": "Edúv Syn: Trap Je Nový Punk!",
+            "support_notes": "Artist release identifies Prague base, trap/punk tags, raw freestyle and Auto-Tune practice; credits Puppy Diemond.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "Slovak-language trap branch represented through an artist working in Prague; not a claim that Prague is its birthplace or that all Slovak hip hop is trap.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "slovak_trap",
+            "kind": "tradition",
+            "name": "Slovak trap",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a slovak trap performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 571,
+        "source_label": "south african underground rap",
+        "source_url": "https://everynoise.com/engenremap-southafricanundergroundrap.html",
+        "id": "south_african_underground_rap",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "south_african_underground_rap",
+          "name": "South african underground rap",
+          "lineage": "South African underground rap represented by Pioneer Unit’s Cape Town open-mic and independent spaza release network.",
+          "instruments": ["voice", "sampler_drum_machine"],
           "parts": {
             "voice_register": "voice_register_source_unspecified",
             "voice_quality": "rap_voice",
@@ -1536,52 +1868,26 @@
             "percussion": 2,
             "cyclicity": 2
           },
-          "description": "Rhythmic speech leads a spare programmed backing, keeping the language foregrounded. The beat machine is an authored compact accompaniment; no accordion or other traditional instrument is added merely from Basotho identity.",
-          "exemplars": [
-            "Kommanda Obbs",
-            "Ntate Stunna"
-          ],
+          "description": "Rhythmic lead and guest verses use a compact produced beat bed. The sampler realizes the label-credited beats without claiming a specific session machine.",
+          "exemplars": ["Manqoba", "Driemanskap", "Hipe", "Dplanet"],
           "status": "documented",
           "crossRefs": []
         },
-        "geo": [
-          -28.8972,
-          27.9928,
-          "Maputsoe (Kommanda Obbs branch)",
-          "Africa"
-        ],
+        "geo": [-33.9249, 18.4241, "Cape Town (Pioneer Unit branch)", "Africa"],
         "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
-        "signature_tokens": [
-          "rhythmic-speech",
-          "backbeat"
-        ],
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
         "sources": [
           {
-            "url": "https://hdsentertainment.co.za/kommanda-obbs/",
-            "title": "HDS Entertainment: Kommanda Obbs",
-            "support_notes": "Booking representative identifies Lesotho-born artist from Maputsoe, Sesotho-rooted Ts’epe, lyricism and cultural storytelling.",
-            "checked_date": "2026-10-01"
-          },
-          {
-            "url": "https://omny.fm/shows/power-perspective/in-conversation-with-ntate-stunna",
-            "title": "POWER Perspective: Ntate Stunna interview",
-            "support_notes": "Broadcast interview presents Sesotho cultural rap and the artist’s releases.",
-            "checked_date": "2026-10-01"
-          },
-          {
-            "url": "https://africasacountry.com/2011/07/sesotho-cipher",
-            "title": "Africa Is a Country: Core Wreckah interview",
-            "support_notes": "Firsthand account identifies Maputsoe artists, Lesotho rap ciphers and bedroom recording practices.",
+            "url": "https://pioneerunit.bandcamp.com/album/the-winner",
+            "title": "Pioneer Unit: The Winner",
+            "support_notes": "Independent label documents Khayelitsha MC, local open-mic competition, Cape Town studios, guests and beat producers Hipe, El Nino and Dplanet.",
             "checked_date": "2026-10-01"
           }
         ],
-        "neighbor_distinction": "Language/community category spanning Basotho practice, distinct from the broad South African national scene and from famo accordion music.",
+        "neighbor_distinction": "Independent-label/open-mic category modeled through spaza practice, distinct from the national umbrella’s Laliboi band model and Emtee’s trap branch.",
         "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
         "dependency_audit": {
-          "reused_instruments": [
-            "voice",
-            "sampler_drum_machine"
-          ],
+          "reused_instruments": ["voice", "sampler_drum_machine"],
           "new_instruments": [],
           "new_parts": [],
           "new_variants": [],
@@ -1589,18 +1895,18 @@
         },
         "photo": {
           "manifest": {
-            "id": "sesotho_hip_hop",
+            "id": "south_african_underground_rap",
             "kind": "tradition",
-            "name": "Sesotho hip hop",
+            "name": "South african underground rap",
             "source": "wikimedia_commons_instrument_context",
             "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
-            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Akai_CD3000XL_9248.jpg/500px-Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "license": "CC BY",
             "license_raw": "CC BY 4.0",
             "credit": "Ashley Pomeroy",
             "match_confidence": "context_only",
-            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a sesotho hip hop performer, location or session.",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a south african underground rap performer, location or session.",
             "source_title": "Akai CD3000XL 9248.jpg",
             "photographer_credit": "Ashley Pomeroy",
             "license_url": "https://creativecommons.org/licenses/by/4.0/"
@@ -1613,29 +1919,1498 @@
             "license_raw": "CC BY 4.0",
             "license_url": "https://creativecommons.org/licenses/by/4.0/",
             "credit": "Ashley Pomeroy",
-            "change_notice": "No image edits proposed; original and Commons-generated display thumbnail linked.",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
             "checked_date": "2026-10-01",
-            "evidence": "File-specific Commons rights page read for sampler and drum-kit images; turntable/trumpet/tabla require final file-specific rights review. Pixel download blocked by network proxy; not publication-ready."
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
           },
           "full": {
             "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons image requests in this worker failed with proxy tunnel403."
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
           },
           "thumbnail": {
-            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Akai_CD3000XL_9248.jpg/500px-Akai_CD3000XL_9248.jpg",
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
             "status": null,
-            "error": "Pending successful fetch; direct Commons thumbnail requests in this worker failed with proxy tunnel403."
+            "error": "Same original URL for display; no successful payload or hash claimed."
           },
           "visual": {
             "checked": false,
-            "observation": "No local pixel payload available; do not count as visually verified."
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 570,
+        "source_label": "south african trap",
+        "source_url": "https://everynoise.com/engenremap-southafricantrap.html",
+        "id": "south_african_trap",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "south_african_trap",
+          "name": "South african trap",
+          "lineage": "South African trap represented by Emtee’s African Trap Music practice and South African language storytelling.",
+          "instruments": ["voice", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
           }
         },
-        "author_status": "researched_data_candidate_pending_photo_verification"
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 2,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Rhythmic and melodic lead phrases meet a compact electronic beat bed. The sampler is an authored realization of the trap beats described by the artist; no specific producer hardware is asserted.",
+          "exemplars": ["Emtee", "Ruff", "Kreazoe"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [-26.2485, 27.854, "Soweto (Emtee practice)", "Africa"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://www.thefader.com/2018/09/21/emtee-is-pushing-south-african-trap-to-the-outside-world",
+            "title": "The Fader: Emtee interview",
+            "support_notes": "Artist identifies his sound as trap, African stories over trap beats, and Ruff/Kreazoe production partnerships.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://hdsentertainment.co.za/emtee/",
+            "title": "HDS Entertainment: Emtee",
+            "support_notes": "Booking representative identifies Soweto upbringing and rap career.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "National trap branch centered on local storytelling and artist-identified ATM; distinct from all South African hip hop.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "south_african_trap",
+            "kind": "tradition",
+            "name": "South african trap",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a south african trap performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 575,
+        "source_label": "st louis drill",
+        "source_url": "https://everynoise.com/engenremap-stlouisdrill.html",
+        "id": "st_louis_drill",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "st_louis_drill",
+          "name": "St louis drill",
+          "lineage": "St Louis drill represents the city and county’s distinct street-rap branches in dialogue with Chicago drill.",
+          "instruments": ["voice", "sampler_drum_machine", "grand_piano", "analog_poly_synth"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit",
+            "keyboard_technique": "keyboard_block_chord_pop"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 1,
+            "density": 1,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 2,
+            "intensity": 2,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Abrupt piano figures, soft synth lines and programmed percussion support rhythmically irregular spoken verses. Piano and synth roles model the documented second-wave texture; the sampler compactly represents the electronic rhythm bed.",
+          "exemplars": ["30 Deep Grimeyy", "3 Problems", "CTS Luh Wick"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [38.627, -90.1994, "St Louis metropolitan scene", "North America"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://nobells.blog/the-long-hot-winter-of-st-louis-drill/",
+            "title": "No Bells: St Louis drill field feature",
+            "support_notes": "Reported feature includes firsthand Tef Poe testimony, local artist history, piano/synth/808 roles and 30 Deep Grimeyy examples.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "A regional drill lineage with local cadence and second-wave piano textures; not generic Chicago drill or all St Louis pop rap.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": [
+            "voice",
+            "sampler_drum_machine",
+            "grand_piano",
+            "analog_poly_synth"
+          ],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "st_louis_drill",
+            "kind": "tradition",
+            "name": "St louis drill",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a st louis drill performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 573,
+        "source_label": "spanish hip hop",
+        "source_url": "https://everynoise.com/engenremap-spanishhiphop.html",
+        "id": "spanish_hip_hop",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "spanish_hip_hop",
+          "name": "Spanish hip hop",
+          "lineage": "Spanish hip hop represented by Zaragoza MC Kase.O’s Jazz Magnetism live-band project.",
+          "instruments": [
+            "voice",
+            "electric_guitar_single_coil",
+            "electric_bass",
+            "drum_kit",
+            "saxophone"
+          ],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "drum_technique": "sticks_rock",
+            "bass_technique": "fingerstyle_locked",
+            "electric_technique": "electric_clean_strummed"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 1,
+            "pitch": 1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 1,
+            "transmission": 0,
+            "improv": 2,
+            "soundTech": 1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 1,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Rapped lead rides a played guitar, electric bass and drum groove, with saxophone responses. The source explicitly offers both upright and electric bass; this model selects the electric-bass branch.",
+          "exemplars": ["Kase.O", "Jazz Magnetism"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [41.6488, -0.8891, "Zaragoza (Kase.O origin)", "Europe"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://hotsak.eus/es/albisteak/kase-o-jazz-magnetism/",
+            "title": "Gaztelupeko Hotsak: Kase.O Jazz Magnetism concert",
+            "support_notes": "Music company’s concert announcement identifies Zaragoza MC and names guitar, saxophone, double/electric bass and drum players.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "National discovery label represented by a documented live jazz-rap ensemble; not all Spanish-language rap worldwide.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": [
+            "voice",
+            "electric_guitar_single_coil",
+            "electric_bass",
+            "drum_kit",
+            "saxophone"
+          ],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "spanish_hip_hop",
+            "kind": "tradition",
+            "name": "Spanish hip hop",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+            "license": "CC BY-SA",
+            "license_raw": "CC BY-SA 2.5",
+            "credit": "Danel Solabarrieta",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Drum kit (Western) production-model illustration; not a photograph of a spanish hip hop performer, location or session.",
+            "source_title": "Bateria.jpg",
+            "photographer_credit": "Danel Solabarrieta",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.5/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
+            "source_title": "Bateria.jpg",
+            "photographer_credit": "Danel Solabarrieta",
+            "license": "CC BY-SA",
+            "license_raw": "CC BY-SA 2.5",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+            "credit": "Danel Solabarrieta",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Danel Solabarrieta, dated 25 February 2007, licensed CC BY-SA 2.5. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Drum kit in a recording studio",
+            "source_metadata_dimensions": [3008, 2000]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 560,
+        "source_label": "serbian hip hop",
+        "source_url": "https://everynoise.com/engenremap-serbianhiphop.html",
+        "id": "serbian_hip_hop",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "serbian_hip_hop",
+          "name": "Serbian hip hop",
+          "lineage": "Serbian hip hop represented by Marčelo’s socially conscious lyrics and Napeti Quintet’s 2015 festival ensemble.",
+          "instruments": ["voice", "electric_bass", "drum_kit", "violin_orchestral", "trumpet"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "drum_technique": "sticks_rock",
+            "bass_technique": "fingerstyle_locked"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 1,
+            "pitch": 1,
+            "ornament": 1,
+            "meter": 1,
+            "density": 1,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 2,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Rhythmic speech meets bass and drums with violin and trumpet counterlines. This records the specifically documented Nišville lineup, not every later configuration of the group.",
+          "exemplars": ["Marčelo", "Napeti Quintet"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [44.7866, 20.4489, "Belgrade (Marčelo practice)", "Europe"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://nisville.com/wp-content/uploads/2026/03/Nisville-Katalog-2015.pdf",
+            "title": "Nišville Festival 2015 official program",
+            "support_notes": "Organizer identifies Serbian hip-hop artist and credits Marko Fabry bass, Aleksandar Cvetković drums, Filip Krumes violin and Miloš Nikolić trumpet.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://marelo.bandcamp.com/album/napet-ou-zagrevanje",
+            "title": "Marčelo artist catalog",
+            "support_notes": "Artist identifies Belgrade, Serbia and the Napet Šou release.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "Serbian national-language discovery category modeled through a specific jazz-band collaboration.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": [
+            "voice",
+            "electric_bass",
+            "drum_kit",
+            "violin_orchestral",
+            "trumpet"
+          ],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "serbian_hip_hop",
+            "kind": "tradition",
+            "name": "Serbian hip hop",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+            "license": "CC BY-SA",
+            "license_raw": "CC BY-SA 2.5",
+            "credit": "Danel Solabarrieta",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Drum kit (Western) production-model illustration; not a photograph of a serbian hip hop performer, location or session.",
+            "source_title": "Bateria.jpg",
+            "photographer_credit": "Danel Solabarrieta",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.5/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
+            "source_title": "Bateria.jpg",
+            "photographer_credit": "Danel Solabarrieta",
+            "license": "CC BY-SA",
+            "license_raw": "CC BY-SA 2.5",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+            "credit": "Danel Solabarrieta",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Danel Solabarrieta, dated 25 February 2007, licensed CC BY-SA 2.5. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Drum kit in a recording studio",
+            "source_metadata_dimensions": [3008, 2000]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 572,
+        "source_label": "south carolina hip hop",
+        "source_url": "https://everynoise.com/engenremap-southcarolinahiphop.html",
+        "id": "south_carolina_hip_hop",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "south_carolina_hip_hop",
+          "name": "South carolina hip hop",
+          "lineage": "South Carolina hip hop represented by DJ Joey Joe’s Columbia-associated instrumental beat-tape practice.",
+          "instruments": ["sampler_drum_machine", "turntable"],
+          "parts": {
+            "sample_bitdepth": "sixteen_bit",
+            "turntable_technique": "turntable_scratch"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 2,
+            "intensity": 0,
+            "voice": -2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Sampled loops and turntable fragments make an instrumental beat bed. The artist names a Roland JS-30 and tape-transfer process; the existing sampler models that role without asserting it is the pictured Akai hardware.",
+          "exemplars": ["DJ Joey Joe"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [34.0007, -81.0348, "Columbia (DJ Joey Joe release tags)", "North America"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["backbeat"],
+        "sources": [
+          {
+            "url": "https://djjoeyjoe.bandcamp.com/album/basement-beatz-from-da-east",
+            "title": "DJ Joey Joe: Basement Beatz From Da East",
+            "support_notes": "Artist explicitly describes 1996–99 beats made with Roland JS-30, turntable, tape deck and mixer, and tags Columbia/South Carolina/instrumental hip hop.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "State discovery category represented by an instrumental producer branch rather than a universal local rap sound.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["sampler_drum_machine", "turntable"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "south_carolina_hip_hop",
+            "kind": "tradition",
+            "name": "South carolina hip hop",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a south carolina hip hop performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 559,
+        "source_label": "scream rap",
+        "source_url": "https://everynoise.com/engenremap-screamrap.html",
+        "id": "scream_rap",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "scream_rap",
+          "name": "Scream rap",
+          "lineage": "Scream rap represented by Scarlxrd’s screamed rap delivery, guitar distortion and electronic trap backing.",
+          "instruments": ["voice", "electric_guitar_single_coil", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": -1,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 2,
+            "intensity": 2,
+            "voice": 2,
+            "timbre": 2,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "An intense vocal alternates rhythmic speech and screamed accents over guitar and a programmed beat. The existing guitar and sampler are compact role choices; the source describes distorted guitar but no precise pickup or machine is asserted.",
+          "exemplars": ["Scarlxrd"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [52.5862, -2.128, "Wolverhampton (Scarlxrd origin)", "Europe"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://www.loudersound.com/features/scarlxrd-the-new-sound-of-the-underground",
+            "title": "Metal Hammer: Scarlxrd interview",
+            "support_notes": "Artist discusses screaming over trap beats and prior rap/grind/metal performance; feature documents shrieks, distorted guitars and heavy trap beats.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://www.xxlmag.com/scarlxrd-interview/",
+            "title": "XXL: Scarlxrd Who Am I interview",
+            "support_notes": "Firsthand artist interview identifies Wolverhampton origin.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "A vocal-texture rap umbrella represented by Scarlxrd’s branch; distinct from the existing screamo punk tradition.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "electric_guitar_single_coil", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "scream_rap",
+            "kind": "tradition",
+            "name": "Scream rap",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a scream rap performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 558,
+        "source_label": "scouse rap",
+        "source_url": "https://everynoise.com/engenremap-scouserap.html",
+        "id": "scouse_rap",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "scouse_rap",
+          "name": "Scouse rap",
+          "lineage": "Scouse rap foregrounds Liverpool speech and local storytelling, represented here by Aystar and producer Jxmie.",
+          "instruments": ["voice", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": -1,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 1,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Locally accented rhythmic speech leads a compact hip-hop beat bed. The sampler realizes the artist’s described produced backing without asserting a particular machine.",
+          "exemplars": ["Aystar", "Jxmie"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [53.4084, -2.9916, "Liverpool (Aystar practice)", "Europe"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://www.newwavemagazine.com/single-post/from-myspace-to-rap-sensation-how-scouse-legend-aystar-is-keeping-hip-hop-alive",
+            "title": "New Wave: Aystar interview",
+            "support_notes": "Artist discusses Liverpool identity, Scousematic and Jxmie as his producer of hard hip-hop beats.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://www.thelinkup.com/content/3825/reppin-the-city-of-liverpool-aystar",
+            "title": "Link Up TV: Aystar",
+            "support_notes": "Performance publisher documents Liverpool rapper and Diztortion-produced instrumental for Lebron.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "Liverpool dialect/scene umbrella; this Aystar branch is broader than Scouse trap alone.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "scouse_rap",
+            "kind": "tradition",
+            "name": "Scouse rap",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a scouse rap performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 556,
+        "source_label": "scottish drill",
+        "source_url": "https://everynoise.com/engenremap-scottishdrill.html",
+        "id": "scottish_drill",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "scottish_drill",
+          "name": "Scottish drill",
+          "lineage": "Scottish drill represented by Glasgow duo Triple01s and their back-and-forth verse delivery.",
+          "instruments": ["voice", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": -1,
+            "pitch": -1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 1,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 2,
+            "intensity": 2,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Two MC roles alternate brisk phrases over a compact programmed backing. The sampler models the producer-backed rhythm role of Robbing Hood; exact hardware and voice count in the engine remain authored abstractions.",
+          "exemplars": ["Triple01s", "Trigga", "YSK", "FIIDE BEATS"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [55.8642, -4.2518, "Glasgow (Triple01s practice)", "Europe"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://www.youtube.com/%40Triple01s",
+            "title": "Triple01s official artist channel",
+            "support_notes": "Artist identifies Glasgow-based drill group and members Trigga/YSK.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://www.mixtapemadness.com/blog/music/suburban-spotlight-glasgow",
+            "title": "Mixtape Madness: Glasgow spotlight",
+            "support_notes": "Music platform includes the duo’s own comments and identifies FIIDE BEATS production with back-to-back verses on Robbing Hood.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "Glasgow electronic drill branch distinct from Stanley Odd’s live-band Scottish hip hop model.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "scottish_drill",
+            "kind": "tradition",
+            "name": "Scottish drill",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a scottish drill performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 564,
+        "source_label": "sinhala rap",
+        "source_url": "https://everynoise.com/engenremap-sinhalarap.html",
+        "id": "sinhala_rap",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "sinhala_rap",
+          "name": "Sinhala rap",
+          "lineage": "Sinhala rap represented by Costa’s Sinhala/English rap, beatmaking and sung-rap crossover.",
+          "instruments": ["voice", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 1,
+            "ornament": 0,
+            "meter": 1,
+            "density": 0,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 2,
+            "intensity": 1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Rhythmic storytelling alternates with melodic lead phrases above a produced backing. The sampler is an authored realization of Costa’s stated beatmaking practice; the model does not claim a specific device.",
+          "exemplars": ["Costa"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [7.2906, 80.6337, "Kandy (Costa origin and lyrical reference)", "South Asia"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://www.youtube.com/c/CostaMaarley/about",
+            "title": "Costa official artist channel",
+            "support_notes": "Artist identifies Sinhala/English hip-hop practice, Kandy roots and rapper/producer/beatmaker roles.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://decibel.lk/decibel-exclusive-rapper-costa/",
+            "title": "Decibel: Costa interview",
+            "support_notes": "Artist explains making beats before stories/lyrics and spending twenty years in Kandy; discusses migration to Finland and local rap community.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "Language-based category represented by a Kandyan diaspora artist; distinct from all Sri Lankan pop or rap in every local language.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "sinhala_rap",
+            "kind": "tradition",
+            "name": "Sinhala rap",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a sinhala rap performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
+      },
+      {
+        "allocation_group_id": "023",
+        "allocation_ordinal": 568,
+        "source_label": "smutny rap",
+        "source_url": "https://everynoise.com/engenremap-smutnyrap.html",
+        "id": "smutny_rap",
+        "tradition": {
+          "family": "hip_hop",
+          "room": "studio_auteur_home_pro",
+          "tuning": "twelve_tet",
+          "chain_mic": "dynamic_mic",
+          "chain_pre": "pre_500_series_modern",
+          "chain_console": "console_in_the_box",
+          "chain_comp": "comp_none",
+          "chain_eq": "eq_none",
+          "chain_medium": "digital_high",
+          "chain_status": "authored_representative_production_model",
+          "pin_parts": true,
+          "id": "smutny_rap",
+          "name": "Smutny rap",
+          "lineage": "Smutny rap is represented by Ebro’s self-labeled Polish melancholic rap and songs about difficult romantic feelings.",
+          "instruments": ["voice", "sampler_drum_machine"],
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "rap_voice",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_speech_song_local_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "sample_bitdepth": "sixteen_bit"
+          }
+        },
+        "extras": {
+          "parent": "mcRhythm.intlHipHop",
+          "axes": {
+            "harm": 0,
+            "pitch": 0,
+            "ornament": 0,
+            "meter": 1,
+            "density": -1,
+            "transmission": 0,
+            "improv": 1,
+            "soundTech": 1,
+            "intensity": -1,
+            "voice": 2,
+            "timbre": 0,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Intimate rhythmic verses and guest voices ride a compact produced backing. The sampler realizes the credited beat-production role without inferring piano or guitar from the emotional label.",
+          "exemplars": ["Ebro", "Ziarecki", "KarolaJ", "Em"],
+          "status": "documented",
+          "crossRefs": []
+        },
+        "geo": [52.2306, 19.3641, "Kutno (Ebro self-identification)", "Europe"],
+        "geo_rationale": "Selected documented practice center for the representative branch; approximate city coordinate, not exclusive birthplace or national capital inference.",
+        "signature_tokens": ["rhythmic-speech", "backbeat"],
+        "sources": [
+          {
+            "url": "https://m.soundcloud.com/ebro/sets/smutne-piosenki-o-mi-o-ci-2023",
+            "title": "Ebro: Smutne piosenki o miłości",
+            "support_notes": "Artist self-identifies as smutny rap, describes melancholy/love theme, tags Ebro Kutno and lists collaborations.",
+            "checked_date": "2026-10-01"
+          },
+          {
+            "url": "https://m.soundcloud.com/ebro/ziarecki-nie-wiem-jak-ft-ebro-karolaj-prod-em?in=ebro/sets/smutne-piosenki-o-mi-o-ci-2023",
+            "title": "Ebro: Nie wiem jak artist upload",
+            "support_notes": "Artist upload credits Ziarecki/Ebro/KarolaJ with production by Em.",
+            "checked_date": "2026-10-01"
+          }
+        ],
+        "neighbor_distinction": "A Polish mood-oriented rap discovery label; no independent instrumental tradition or universal minor-key recipe asserted.",
+        "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+        "dependency_audit": {
+          "reused_instruments": ["voice", "sampler_drum_machine"],
+          "new_instruments": [],
+          "new_parts": [],
+          "new_variants": [],
+          "rationale": "Existing instruments represent the sourced performance roles; exact hardware, voicings and chain are authored choices, not a reconstructed session."
+        },
+        "photo": {
+          "manifest": {
+            "id": "smutny_rap",
+            "kind": "tradition",
+            "name": "Smutny rap",
+            "source": "wikimedia_commons_instrument_context",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "credit": "Ashley Pomeroy",
+            "match_confidence": "context_only",
+            "matched_label": "Representative Sampler (vintage) production-model illustration; not a photograph of a smutny rap performer, location or session.",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+            "source_title": "Akai CD3000XL 9248.jpg",
+            "photographer_credit": "Ashley Pomeroy",
+            "license": "CC BY",
+            "license_raw": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "credit": "Ashley Pomeroy",
+            "change_notice": "No image edits proposed; Commons offered original linked for both image roles.",
+            "checked_date": "2026-10-01",
+            "evidence": "Commons identifies own work by Ashley Pomeroy, dated 15 April 2022, licensed CC BY 4.0. File caption and offered original URL inspected in browser. Remote metadata only; no downloaded-pixel verification.",
+            "source_caption": "Akai CD3000XL rackmount sampler",
+            "source_metadata_dimensions": [3000, 1750]
+          },
+          "full": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "download_unavailable403: environment restriction; no successful payload or hash claimed.",
+            "download_status": "download_unavailable403_environment"
+          },
+          "thumbnail": {
+            "requested_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+            "status": null,
+            "error": "Same original URL for display; no successful payload or hash claimed."
+          },
+          "visual": {
+            "checked": false,
+            "observation": "No local pixel payload available; do not count as visually verified.",
+            "reason": "Original image bytes unavailable in this execution environment; source page metadata supports subject and rights."
+          },
+          "metadata_verified": true
+        },
+        "author_status": "source_ready_remote_photo_metadata_verified",
+        "axis_rationale": "Authored comparative navigation values for this selected compact arrangement; not measured genre-wide attributes."
       }
     ],
     "data_options": []
   },
-  "holds": []
+  "holds": [
+    {
+      "allocation_group_id": "023",
+      "allocation_ordinal": 552,
+      "source_label": "samurai trap",
+      "id": "samurai_trap",
+      "reason": "Primary artist catalogs confirm thematic trap track titles, but inspected sources do not document the specific instrumental fusion associated with the allocation label. No shamisen/koto or Japan origin inferred from samurai imagery. Needs primary production/arrangement evidence before a distinct model can be authored.",
+      "sources": [
+        {
+          "url": "https://blueclawphilharmonic.bandcamp.com/track/code-of-the-samurai-trap-mix",
+          "title": "Blue Claw Philharmonic: Code of the Samurai",
+          "support_notes": "2019 instrumental trap track, New Jersey artist; no instrument credits.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://yizusbeatz.bandcamp.com/music",
+          "title": "YizusBeatZ artist catalog",
+          "support_notes": "Artist offers RŌNIN Samurai Trap beat; title establishes use of term but no specific ensemble.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "status": "held_not_added"
+    },
+    {
+      "allocation_group_id": "023",
+      "allocation_ordinal": 562,
+      "source_label": "sichuanese hip hop",
+      "id": "sichuanese_hip_hop",
+      "reason": "Semantic overlap unresolved: current chinese_hip_hop already models Higher Brothers, Chengdu, Sichuanese speech and trap production. Primary field reporting establishes a real broader dialect scene, but candidate evidence was not sufficient here to justify a second distinct source model without duplicating the merged entry. Hold for a separately credited dialect artist/ensemble; not a claim that the allocation label is invalid.",
+      "sources": [
+        {
+          "url": "https://www.guernicamag.com/chengdu-cool-the-rise-of-sichuans-homegrown-hip-hop/",
+          "title": "Guernica: Chengdu field reporting",
+          "support_notes": "Firsthand interviews document dialect flow, Higher Brothers, Ty, Fat Shady and local apartment production scene. Existing merged Chinese model already uses the best-supported Higher Brothers branch.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "status": "held_not_added"
+    }
+  ]
 }

@@ -1,0 +1,19 @@
+{
+  "base_commit": "5c17b7ea522ad8dc2da9574ad0678e75b4ef6203",
+  "source_sha256": {
+    "references/05_traditions.js": "72d4fc03d284af61513b5c2a617a14c7a372ae8923bbc09334136b7b348720a2",
+    "references/06_extras.js": "be30e12a4eb4499f9abb1835331530428e36b15af956b2b6f948e8efe4264fd4",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/_tradition_signatures.json": "80ca92f3181c6c870323cc38913529077473f12260bfbf7e8751c085eb8705d9",
+    "references/_image_manifest.json": "8bac62521f6bf0fb7679646ef710f8336d81f79dfe49fe0c1f3cc3e3dbd6e4e9",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "56781ac779bc85f5bf57b760527f55f3df0b239603bead47ab2319b1d3299d54",
+    "tests/regression_snapshot.json": "171a7d51235a5ea7483330ad7b43aa676b71b09c9d26b770fe1bfa7578a4cdfc"
+  },
+  "baseline_validation_log": "/workspace/scratch/resume-baseline-validation.log",
+  "traditions": 3238,
+  "instruments": 1467,
+  "merged_additions": 600
+}

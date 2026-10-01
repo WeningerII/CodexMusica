@@ -12,12 +12,7 @@
         "name": "Rap metal español",
         "family": "hip_hop",
         "lineage": "Spanish rap-metal bands connect hip-hop vocal delivery with heavy electric-band arrangements. Def Con Dos supplies the selected ensemble.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "studio_auteur_home_pro",
         "tuning": "twelve_tet",
         "chain_mic": "dynamic_mic",
@@ -67,24 +62,14 @@
           "percussion": 2,
           "cyclicity": 2
         },
-        "description": "Multiple rap voices work over guitar, bass and drum-kit backing. The official band lineup documents those roles. Humbucker guitar, palm-muted articulation and modern digital recording are authored settings; the model does not claim these exact instruments for the2012 photograph or every Spanish rap-metal group.",
-        "exemplars": [
-          "Def Con Dos"
-        ],
+        "description": "Multiple rap voices work over guitar, bass and drum-kit backing. The official band lineup documents those roles. Humbucker guitar, palm-muted articulation and modern digital recording are authored settings; the model does not claim these exact instruments for the 2012 photograph or every Spanish rap-metal group.",
+        "exemplars": ["Def Con Dos"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        40.4168,
-        -3.7038,
-        "Madrid / Vallecas",
-        "Europe"
-      ],
+      "geo": [40.4168, -3.7038, "Madrid / Vallecas", "Europe"],
       "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
-      "signature_tokens": [
-        "rhythmic-speech",
-        "backbeat"
-      ],
+      "signature_tokens": ["rhythmic-speech", "backbeat"],
       "sources": [
         {
           "url": "https://www.defcondos.com/",
@@ -108,24 +93,19 @@
       "neighbor_distinction": "Spanish-language scene branch; existing rap_metal describes an early1990s American RATM-centered lineage.",
       "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
         "rationale": "Existing instruments cover the credited roles; no default changes proposed."
       },
       "photo": {
-        "status": "pending-photo",
+        "status": "remote-rights-verified",
         "manifest": {
           "kind": "tradition",
           "id": "rap_metal_espanol",
           "name": "Rap metal español",
-          "source": "wikimedia_commons_candidate",
+          "source": "wikimedia_commons",
           "source_page": "https://commons.wikimedia.org/wiki/File:Def_con_dos_2012.jpg",
           "source_title": "Def con dos 2012.jpg",
           "photographer_credit": "Rubén G. Herrera",
@@ -136,7 +116,7 @@
           "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
           "credit": "Rubén G. Herrera; source photo: Def con dos 2012.jpg",
           "matched_label": "Def Con Dos at Oasis studio, Vallecas, 2012; an exemplar portrait, not an exact gear specification.",
-          "match_confidence": "pending_pixel_review"
+          "match_confidence": "source_caption_verified"
         },
         "rights": {
           "source_page": "https://commons.wikimedia.org/wiki/File:Def_con_dos_2012.jpg",
@@ -148,23 +128,22 @@
           "credit": "Rubén G. Herrera",
           "checked_date": "2026-10-01",
           "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
-          "evidence": "File-specific Commons source, author and license inspected with web tool. Download, hash, actual dimensions and pixel review NOT completed."
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
         },
         "full": null,
         "thumbnail": null,
         "visual": {
           "checked": false,
-          "observation": "Pending byte download and visual inspection."
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
         },
-        "blocker": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
       },
-      "publication_status": "pending-photo",
+      "publication_status": "author-ready-pending-parent-review",
       "validation": {
         "checked": false,
-        "issues": [
-          "Photo byte fetch/hash/dimensions/pixel review pending",
-          "Parent integration and exact-head tests pending"
-        ]
+        "issues": ["Parent integration and exact-head checks pending"],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
       }
     },
     {
@@ -179,10 +158,7 @@
         "name": "Rap mineiro",
         "family": "hip_hop",
         "lineage": "Minas Gerais rap includes the Belo Horizonte collaboration between Djonga and producer Coyote Beatz.",
-        "instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "instruments": ["voice", "sampler_classic"],
         "room": "studio_auteur_home_pro",
         "tuning": "aural_relative",
         "chain_mic": "dynamic_mic",
@@ -235,25 +211,13 @@
           "cyclicity": 2
         },
         "description": "A foreground rap vocal sits over a sampler-based rhythmic bed. The selected partnership documents rap and beatmaking; sample resolution and MPC-family hardware are choices for a new recording, not an identification of Coyote’s actual equipment.",
-        "exemplars": [
-          "Djonga",
-          "Coyote Beatz"
-        ],
+        "exemplars": ["Djonga", "Coyote Beatz"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        -19.9167,
-        -43.9345,
-        "Belo Horizonte",
-        "South America"
-      ],
+      "geo": [-19.9167, -43.9345, "Belo Horizonte", "Latin America & Caribbean"],
       "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
-      "signature_tokens": [
-        "rhythmic-speech",
-        "sample-foundational",
-        "backbeat"
-      ],
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
       "sources": [
         {
           "url": "https://cultura.uol.com.br/programas/provoca/videos/10042_djonga-provoca.html",
@@ -277,61 +241,57 @@
       "neighbor_distinction": "Belo Horizonte practice branch differs from the São Paulo Racionais-centered brazilian_hip_hop model.",
       "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "reused_instruments": ["voice", "sampler_classic"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
         "rationale": "Existing instruments cover the credited roles; no default changes proposed."
       },
       "photo": {
-        "status": "pending-photo",
+        "status": "remote-rights-verified",
         "manifest": {
           "kind": "tradition",
           "id": "rap_mineiro",
           "name": "Rap mineiro",
-          "source": "wikimedia_commons_candidate",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
-          "source_title": "Akai MPC2000XL.jpg",
-          "photographer_credit": "Withe",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Akai_MPC2000XL.jpg",
-          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Akai_MPC2000XL.jpg",
-          "license": "Public domain",
-          "license_raw": "PD-self",
-          "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
-          "credit": "Withe; source photo: Akai MPC2000XL.jpg",
-          "matched_label": "Akai MPC2000XL: sampler production-model context, not the exemplar artist’s own hardware.",
-          "match_confidence": "pending_pixel_review"
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Djonga_in_2021.png",
+          "source_title": "Djonga in 2021.png",
+          "photographer_credit": "Na Favela",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Djonga_in_2021.png",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Djonga_in_2021.png",
+          "license": "CC BY",
+          "license_raw": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "credit": "Na Favela; Djonga in 2021.png",
+          "matched_label": "Djonga, captioned 2021: exemplar portrait from a CC-licensed YouTube video; not a recording-session image.",
+          "match_confidence": "source_caption_verified"
         },
         "rights": {
-          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
-          "source_title": "Akai MPC2000XL.jpg",
-          "photographer_credit": "Withe",
-          "license": "Public domain",
-          "license_raw": "PD-self",
-          "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
-          "credit": "Withe",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Djonga_in_2021.png",
+          "source_title": "Djonga in 2021.png",
+          "photographer_credit": "Na Favela",
+          "license": "CC BY",
+          "license_raw": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "credit": "Na Favela; Djonga in 2021.png",
           "checked_date": "2026-10-01",
           "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
-          "evidence": "File-specific Commons source, author and license inspected with web tool. Download, hash, actual dimensions and pixel review NOT completed."
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
         },
         "full": null,
         "thumbnail": null,
         "visual": {
           "checked": false,
-          "observation": "Pending byte download and visual inspection."
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
         },
-        "blocker": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
       },
-      "publication_status": "pending-photo",
+      "publication_status": "author-ready-pending-parent-review",
       "validation": {
         "checked": false,
-        "issues": [
-          "Photo byte fetch/hash/dimensions/pixel review pending",
-          "Parent integration and exact-head tests pending"
-        ]
+        "issues": ["Parent integration and exact-head checks pending"],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
       }
     },
     {
@@ -345,7 +305,7 @@
         "id": "rap_montrealais",
         "name": "Rap montréalais",
         "family": "hip_hop",
-        "lineage": "Montreal rap includes collective production and cross-city Quebec collaborations. Alaclair Ensemble’s2010 bonus-track arrangement supplies a documented live-instrument branch.",
+        "lineage": "Montreal rap includes collective production and cross-city Quebec collaborations. Alaclair Ensemble’s 2010 bonus-track arrangement supplies a documented live-instrument branch.",
         "instruments": [
           "voice",
           "electric_bass",
@@ -415,17 +375,9 @@
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        45.5019,
-        -73.5674,
-        "Montréal",
-        "North America"
-      ],
+      "geo": [45.5019, -73.5674, "Montréal", "North America"],
       "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
-      "signature_tokens": [
-        "rhythmic-speech",
-        "backbeat"
-      ],
+      "signature_tokens": ["rhythmic-speech", "backbeat"],
       "sources": [
         {
           "url": "https://alaclairensemble.bandcamp.com/album/499",
@@ -451,12 +403,12 @@
         "rationale": "Existing instruments cover the credited roles; no default changes proposed."
       },
       "photo": {
-        "status": "pending-photo",
+        "status": "remote-rights-verified",
         "manifest": {
           "kind": "tradition",
           "id": "rap_montrealais",
           "name": "Rap montréalais",
-          "source": "wikimedia_commons_candidate",
+          "source": "wikimedia_commons",
           "source_page": "https://commons.wikimedia.org/wiki/File:Alaclair_Ensemble_(35222819232).jpg",
           "source_title": "Alaclair Ensemble (35222819232).jpg",
           "photographer_credit": "Exile on Ontario St",
@@ -467,7 +419,7 @@
           "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
           "credit": "Exile on Ontario St; source photo: Alaclair Ensemble (35222819232).jpg",
           "matched_label": "Alaclair Ensemble at FrancoFolies de Montréal, 17 June 2017; exemplar image, not the 2010 recording session.",
-          "match_confidence": "pending_pixel_review"
+          "match_confidence": "source_caption_verified"
         },
         "rights": {
           "source_page": "https://commons.wikimedia.org/wiki/File:Alaclair_Ensemble_(35222819232).jpg",
@@ -479,23 +431,22 @@
           "credit": "Exile on Ontario St",
           "checked_date": "2026-10-01",
           "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
-          "evidence": "File-specific Commons source, author and license inspected with web tool. Download, hash, actual dimensions and pixel review NOT completed."
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
         },
         "full": null,
         "thumbnail": null,
         "visual": {
           "checked": false,
-          "observation": "Pending byte download and visual inspection."
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
         },
-        "blocker": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
       },
-      "publication_status": "pending-photo",
+      "publication_status": "author-ready-pending-parent-review",
       "validation": {
         "checked": false,
-        "issues": [
-          "Photo byte fetch/hash/dimensions/pixel review pending",
-          "Parent integration and exact-head tests pending"
-        ]
+        "issues": ["Parent integration and exact-head checks pending"],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
       }
     },
     {
@@ -509,11 +460,8 @@
         "id": "rap_regio",
         "name": "Rap regio",
         "family": "hip_hop",
-        "lineage": "Monterrey rap includes Control Machete’s mid1990s sampler-led productions. Toy Selectah’s firsthand lecture describes building beats from records before adding rhymes.",
-        "instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "lineage": "Monterrey rap includes Control Machete’s mid-1990s sampler-led productions. Toy Selectah’s firsthand lecture describes building beats from records before adding rhymes.",
+        "instruments": ["voice", "sampler_classic"],
         "room": "studio_auteur_home_pro",
         "tuning": "aural_relative",
         "chain_mic": "dynamic_mic",
@@ -566,25 +514,13 @@
           "cyclicity": 2
         },
         "description": "Rapped voices and sampler phrases anchor the selected Control Machete branch. Toy Selectah documents obtaining a sampler, making beats, and adding rhymes. This model does not convert sampled regional timbres into undocumented live accordion/brass players.",
-        "exemplars": [
-          "Control Machete",
-          "Toy Selectah"
-        ],
+        "exemplars": ["Control Machete", "Toy Selectah"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        25.6866,
-        -100.3161,
-        "Monterrey",
-        "North America"
-      ],
+      "geo": [25.6866, -100.3161, "Monterrey", "North America"],
       "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
-      "signature_tokens": [
-        "rhythmic-speech",
-        "sample-foundational",
-        "backbeat"
-      ],
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
       "sources": [
         {
           "url": "https://www.redbullmusicacademy.com/lectures/toy-selectah-toy-story/",
@@ -596,22 +532,19 @@
       "neighbor_distinction": "Narrow Monterrey discovery category overlaps the Control Machete branch already represented by mexican_hip_hop; requires semantic review before publication.",
       "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "reused_instruments": ["voice", "sampler_classic"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
         "rationale": "Existing instruments cover the credited roles; no default changes proposed."
       },
       "photo": {
-        "status": "pending-photo",
+        "status": "remote-rights-verified",
         "manifest": {
           "kind": "tradition",
           "id": "rap_regio",
           "name": "Rap regio",
-          "source": "wikimedia_commons_candidate",
+          "source": "wikimedia_commons",
           "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
           "source_title": "Akai MPC2000XL.jpg",
           "photographer_credit": "Withe",
@@ -622,7 +555,7 @@
           "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
           "credit": "Withe; source photo: Akai MPC2000XL.jpg",
           "matched_label": "Akai MPC2000XL: sampler production-model context, not the exemplar artist’s own hardware.",
-          "match_confidence": "pending_pixel_review"
+          "match_confidence": "source_caption_verified"
         },
         "rights": {
           "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
@@ -634,24 +567,25 @@
           "credit": "Withe",
           "checked_date": "2026-10-01",
           "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
-          "evidence": "File-specific Commons source, author and license inspected with web tool. Download, hash, actual dimensions and pixel review NOT completed."
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
         },
         "full": null,
         "thumbnail": null,
         "visual": {
           "checked": false,
-          "observation": "Pending byte download and visual inspection."
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
         },
-        "blocker": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
       },
-      "publication_status": "pending-source-and-photo",
+      "publication_status": "held-for-source-review",
       "validation": {
         "checked": false,
         "issues": [
-          "Photo byte fetch/hash/dimensions/pixel review pending",
-          "Parent integration and exact-head tests pending",
-          "Semantic overlap with existing mexican_hip_hop Control Machete model: hold until distinct justified branch/adjudication."
-        ]
+          "Parent integration and exact-head checks pending",
+          "Existing mexican_hip_hop already models Control Machete and Monterrey sampling; requires distinct branch or alias adjudication."
+        ],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
       }
     },
     {
@@ -666,10 +600,7 @@
         "name": "Rap portuense",
         "family": "hip_hop",
         "lineage": "Porto-area rap includes the Dealema and Mundo Segundo studio lineage across Porto and Vila Nova de Gaia.",
-        "instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "instruments": ["voice", "sampler_classic"],
         "room": "studio_auteur_home_pro",
         "tuning": "aural_relative",
         "chain_mic": "dynamic_mic",
@@ -722,25 +653,13 @@
           "cyclicity": 2
         },
         "description": "Rap delivery sits over sampler-built loops. Mundo Segundo’s interview describes shared MPC practice; exact sampler generation, swing and bit depth are authored recording settings. The category centers the Porto-area network rather than imposing one vocal accent on every Portuguese rapper.",
-        "exemplars": [
-          "Mundo Segundo",
-          "Dealema"
-        ],
+        "exemplars": ["Mundo Segundo", "Dealema"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        41.1333,
-        -8.6167,
-        "Vila Nova de Gaia / Porto",
-        "Europe"
-      ],
+      "geo": [41.1333, -8.6167, "Vila Nova de Gaia / Porto", "Europe"],
       "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
-      "signature_tokens": [
-        "rhythmic-speech",
-        "sample-foundational",
-        "backbeat"
-      ],
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
       "sources": [
         {
           "url": "https://viva-porto.pt/mundo-segundo/",
@@ -753,27 +672,30 @@
           "title": "Mundo Segundo and Expeão studio interview",
           "support_notes": "Interview conducted in Segundo Piso studio, Vila Nova de Gaia, establishes local studio practice and Dealema connection.",
           "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.visitarcos.pt/o-melhor/essencial/agenda-cultural/geo_evento/sam-the-kid-vs-mundo-segundo-soundclash",
+          "title": "Municipal tourism: Sam the Kid versus Mundo Segundo SoundClash",
+          "support_notes": "Complete indexed event text explicitly identifies both MC/producers and their MPC live acts; confirms Mundo Segundo’s northern Dealema lineage.",
+          "checked_date": "2026-10-01"
         }
       ],
       "neighbor_distinction": "Porto/Gaia city scene branch, distinguished from cross-national Portuguese rap.",
       "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "reused_instruments": ["voice", "sampler_classic"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
         "rationale": "Existing instruments cover the credited roles; no default changes proposed."
       },
       "photo": {
-        "status": "pending-photo",
+        "status": "remote-rights-verified",
         "manifest": {
           "kind": "tradition",
           "id": "rap_portuense",
           "name": "Rap portuense",
-          "source": "wikimedia_commons_candidate",
+          "source": "wikimedia_commons",
           "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
           "source_title": "Akai MPC2000XL.jpg",
           "photographer_credit": "Withe",
@@ -784,7 +706,7 @@
           "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
           "credit": "Withe; source photo: Akai MPC2000XL.jpg",
           "matched_label": "Akai MPC2000XL: sampler production-model context, not the exemplar artist’s own hardware.",
-          "match_confidence": "pending_pixel_review"
+          "match_confidence": "source_caption_verified"
         },
         "rights": {
           "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
@@ -796,24 +718,22 @@
           "credit": "Withe",
           "checked_date": "2026-10-01",
           "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
-          "evidence": "File-specific Commons source, author and license inspected with web tool. Download, hash, actual dimensions and pixel review NOT completed."
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
         },
         "full": null,
         "thumbnail": null,
         "visual": {
           "checked": false,
-          "observation": "Pending byte download and visual inspection."
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
         },
-        "blocker": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
       },
-      "publication_status": "pending-source-and-photo",
+      "publication_status": "author-ready-pending-parent-review",
       "validation": {
         "checked": false,
-        "issues": [
-          "Photo byte fetch/hash/dimensions/pixel review pending",
-          "Parent integration and exact-head tests pending",
-          "MPC evidence currently search-index excerpt only; recover and review full primary interview before final acceptance."
-        ]
+        "issues": ["Parent integration and exact-head checks pending"],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
       }
     },
     {
@@ -827,11 +747,8 @@
         "id": "rap_sardegna",
         "name": "Rap Sardegna",
         "family": "hip_hop",
-        "lineage": "Sardinian rap includes Quilo and Sa Razza’s recording practice, active since1990. The selected modern solo release credits a sampler and rap.",
-        "instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "lineage": "Sardinian rap includes Quilo and Sa Razza’s recording practice, active since 1990. The selected modern solo release credits a sampler and rap.",
+        "instruments": ["voice", "sampler_classic"],
         "room": "studio_auteur_home_pro",
         "tuning": "aural_relative",
         "chain_mic": "dynamic_mic",
@@ -884,25 +801,13 @@
           "cyclicity": 2
         },
         "description": "Rhythmic speech and sampler textures frame an authored contemporary recording. Label-delivered credits for Anamnesi name Alessandro Sanna on sampler and rap. No launeddas or traditional polyphonic singing is inferred merely from the island location.",
-        "exemplars": [
-          "Quilo",
-          "Sa Razza"
-        ],
+        "exemplars": ["Quilo", "Sa Razza"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        39.2184,
-        9.1201,
-        "Cagliari (Sardinian scene reference)",
-        "Europe"
-      ],
+      "geo": [39.3092, 8.5372, "Iglesias, Sardinia", "Europe"],
       "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
-      "signature_tokens": [
-        "rhythmic-speech",
-        "sample-foundational",
-        "backbeat"
-      ],
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
       "sources": [
         {
           "url": "https://quilosarazza.bandcamp.com/",
@@ -915,27 +820,30 @@
           "title": "Nootempo release credits: Anamnesi",
           "support_notes": "Label-delivered performance credits identify Alessandro Sanna on sampler and rap; release January2026.",
           "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.nootempo.net/artists/quilo-sa-razza/",
+          "title": "Nootempo: Quilo Sa Razza artist biography",
+          "support_notes": "Artist label states Quilo and Su Rais founded Sa Razza in Iglesias in 1990.",
+          "checked_date": "2026-10-01"
         }
       ],
       "neighbor_distinction": "Island rap scene, separate from italian_hip_hop live Jovanotti band and Sardinian traditional polyphony.",
       "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "reused_instruments": ["voice", "sampler_classic"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
         "rationale": "Existing instruments cover the credited roles; no default changes proposed."
       },
       "photo": {
-        "status": "pending-photo",
+        "status": "remote-rights-verified",
         "manifest": {
           "kind": "tradition",
           "id": "rap_sardegna",
           "name": "Rap Sardegna",
-          "source": "wikimedia_commons_candidate",
+          "source": "wikimedia_commons",
           "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
           "source_title": "Akai MPC2000XL.jpg",
           "photographer_credit": "Withe",
@@ -946,7 +854,7 @@
           "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
           "credit": "Withe; source photo: Akai MPC2000XL.jpg",
           "matched_label": "Akai MPC2000XL: sampler production-model context, not the exemplar artist’s own hardware.",
-          "match_confidence": "pending_pixel_review"
+          "match_confidence": "source_caption_verified"
         },
         "rights": {
           "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
@@ -958,24 +866,22 @@
           "credit": "Withe",
           "checked_date": "2026-10-01",
           "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
-          "evidence": "File-specific Commons source, author and license inspected with web tool. Download, hash, actual dimensions and pixel review NOT completed."
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
         },
         "full": null,
         "thumbnail": null,
         "visual": {
           "checked": false,
-          "observation": "Pending byte download and visual inspection."
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
         },
-        "blocker": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
       },
-      "publication_status": "pending-source-and-photo",
+      "publication_status": "author-ready-pending-parent-review",
       "validation": {
         "checked": false,
-        "issues": [
-          "Photo byte fetch/hash/dimensions/pixel review pending",
-          "Parent integration and exact-head tests pending",
-          "Artist profile supports Sardinia, not exact Cagliari coordinate; verify a specific practice center or parent-supported regional geolocation convention."
-        ]
+        "issues": ["Parent integration and exact-head checks pending"],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
       }
     },
     {
@@ -990,10 +896,7 @@
         "name": "Rap paraguayo",
         "family": "hip_hop",
         "lineage": "Paraguayan rap includes the Asunción partnership of B.H.S and Undress Cinco-Mil. The label’s Pong release documents their rap-and-producer collaboration.",
-        "instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "instruments": ["voice", "sampler_classic"],
         "room": "studio_auteur_home_pro",
         "tuning": "aural_relative",
         "chain_mic": "dynamic_mic",
@@ -1046,25 +949,13 @@
           "cyclicity": 2
         },
         "description": "Foreground rap rides an authored sampler-built beat bed with restrained lo-fi texture. The label establishes the rap/music roles and golden-age influence; sampled hardware is a proposed realization rather than a verified session credit.",
-        "exemplars": [
-          "Undress Cinco-Mil",
-          "B.H.S"
-        ],
+        "exemplars": ["Undress Cinco-Mil", "B.H.S"],
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        -25.2637,
-        -57.5759,
-        "Asunción",
-        "South America"
-      ],
+      "geo": [-25.2637, -57.5759, "Asunción", "Latin America & Caribbean"],
       "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
-      "signature_tokens": [
-        "rhythmic-speech",
-        "sample-foundational",
-        "backbeat"
-      ],
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
       "sources": [
         {
           "url": "https://inbetweenpy.bandcamp.com/album/pong",
@@ -1076,22 +967,19 @@
       "neighbor_distinction": "Paraguayan national scene branch; neighboring Latin-American catalogs are separate places and production networks.",
       "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "sampler_classic"
-        ],
+        "reused_instruments": ["voice", "sampler_classic"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
         "rationale": "Existing instruments cover the credited roles; no default changes proposed."
       },
       "photo": {
-        "status": "pending-photo",
+        "status": "remote-rights-verified",
         "manifest": {
           "kind": "tradition",
           "id": "rap_paraguayo",
           "name": "Rap paraguayo",
-          "source": "wikimedia_commons_candidate",
+          "source": "wikimedia_commons",
           "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
           "source_title": "Akai MPC2000XL.jpg",
           "photographer_credit": "Withe",
@@ -1102,7 +990,7 @@
           "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
           "credit": "Withe; source photo: Akai MPC2000XL.jpg",
           "matched_label": "Akai MPC2000XL: sampler production-model context, not the exemplar artist’s own hardware.",
-          "match_confidence": "pending_pixel_review"
+          "match_confidence": "source_caption_verified"
         },
         "rights": {
           "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
@@ -1114,28 +1002,1749 @@
           "credit": "Withe",
           "checked_date": "2026-10-01",
           "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
-          "evidence": "File-specific Commons source, author and license inspected with web tool. Download, hash, actual dimensions and pixel review NOT completed."
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
         },
         "full": null,
         "thumbnail": null,
         "visual": {
           "checked": false,
-          "observation": "Pending byte download and visual inspection."
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
         },
-        "blocker": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
       },
-      "publication_status": "pending-source-and-photo",
+      "publication_status": "held-for-source-review",
       "validation": {
         "checked": false,
         "issues": [
-          "Photo byte fetch/hash/dimensions/pixel review pending",
-          "Parent integration and exact-head tests pending",
-          "Primary release credits music production but not sampling specifically; verify sampler role or author a sourced alternate ensemble before acceptance."
+          "Parent integration and exact-head checks pending",
+          "Pong credits rap and music production but does not establish sampled instruments; sampler role still requires primary evidence."
+        ],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 520,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap rock",
+      "source_url": "https://everynoise.com/engenremap-raprock.html",
+      "id": "rap_rock",
+      "tradition": {
+        "id": "rap_rock",
+        "name": "Rap rock",
+        "family": "hip_hop",
+        "lineage": "Rap rock joins rapped delivery with rock-derived guitar and performance energy. The selected Beastie Boys branch grows from lower Manhattan punk into rap, guitar collaborations and layered sampling.",
+        "instruments": ["voice", "sampler_classic", "electric_guitar_humbucker"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "electronic_technique": "electronic_sample_chopped",
+          "electric_technique": "electric_palm_muted_chug"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rap voices, electric guitar and sampled rhythm form an authored hybrid. The museum documents the group’s sampling practice and Kerry King’s guitar riffs and solo on No Sleep Till Brooklyn. These career-level practices inform a new arrangement; the sampler is not asserted as a documented instrument on that particular song.",
+        "exemplars": ["Beastie Boys"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [40.7209, -73.9997, "Lower Manhattan, New York", "North America"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://rockhall.com/inductees/beastie-boys/",
+          "title": "Rock and Roll Hall of Fame: Beastie Boys",
+          "support_notes": "Institution identifies lower Manhattan origin, rap-rock lineage, layered sampling and Kerry King guitar performance.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Earlier punk/rap and sample-collage branch, distinct from existing RATM-centered rap_metal and Korn/Limp Bizkit nu-metal.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic", "electric_guitar_humbucker"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_rock",
+          "name": "Rap rock",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Beastie-boys.jpg",
+          "source_title": "Beastie-boys.jpg",
+          "photographer_credit": "Masao Nakagami",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Beastie-boys.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Beastie-boys.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "credit": "Masao Nakagami; Beastie-boys.jpg",
+          "matched_label": "Beastie Boys at Club Citta, Kawasaki, September 1992, Check Your Head tour; exemplar performance, not the 1986 session. Existing Commons crop retained.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Beastie-boys.jpg",
+          "source_title": "Beastie-boys.jpg",
+          "photographer_credit": "Masao Nakagami",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "credit": "Masao Nakagami; Beastie-boys.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent integration and exact-head checks pending"],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 516,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap pernambucano",
+      "source_url": "https://everynoise.com/engenremap-rappernambucano.html",
+      "id": "rap_pernambucano",
+      "tradition": {
+        "id": "rap_pernambucano",
+        "name": "Rap pernambucano",
+        "family": "hip_hop",
+        "lineage": "Pernambuco rap includes Recife artist Zé Brown’s connection between rap, embolada and an amplified backing band. His Poesias do povo project supplies the selected lineup.",
+        "instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "electric_technique": "electric_chicken_scratch",
+          "bass_technique": "fingerstyle_locked",
+          "drum_technique": "sticks_rock"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rapped delivery leads guitar, electric bass and drum kit. Brown names Celo on drums, Riva Le Boss on guitar and Valdir Afonjá on bass in his description of the DVD performance. Guitar pickup type and techniques are authored settings. Guest instrumentation is omitted, and no conventional regional percussion is assumed.",
+        "exemplars": ["Zé Brown", "Celo", "Riva Le Boss", "Valdir Afonjá"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-8.0476, -34.877, "Recife", "Latin America & Caribbean"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "backbeat"],
+      "sources": [
+        {
+          "url": "https://www.cultura.pe.gov.br/o-rap-antropofagico-de-ze-brown-ganha-registro-em-dvd/",
+          "title": "Pernambuco culture department: Zé Brown DVD",
+          "support_notes": "Institutional announcement indexed with named instrumental backing; page fetch failed.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://jc.uol.com.br/canal/cultura/noticia/2015/01/16/para-fugir-das-previas-tem-reggae-samba-rock-forro-e-muito-romantismo-no-fim-de-semana-164352.php",
+          "title": "Zé Brown firsthand statement about Poesias do povo",
+          "support_notes": "Direct artist quotations specify Celo drums, Riva Le Boss guitar and Valdir Afonjá bass; Recife context and rap/embolada identified.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Recife rap/embolada band branch, distinct from São Paulo sampler-centered brazilian_hip_hop and Pernambuco manguebeat.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_pernambucano",
+          "name": "Rap pernambucano",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Fender_AP_P-Bass_20230801.jpg",
+          "source_title": "Fender AP P-Bass 20230801.jpg",
+          "photographer_credit": "Niranjan Arminius",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Fender_AP_P-Bass_20230801.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Fender_AP_P-Bass_20230801.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Niranjan Arminius; Fender AP P-Bass 20230801.jpg",
+          "matched_label": "Electric bass production-model context for the credited bass role; not Valdir Afonjá’s actual instrument or a Pernambuco performance.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Fender_AP_P-Bass_20230801.jpg",
+          "source_title": "Fender AP P-Bass 20230801.jpg",
+          "photographer_credit": "Niranjan Arminius",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Niranjan Arminius; Fender AP P-Bass 20230801.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent integration and exact-head checks pending"],
+        "photo_policy": "Remote photo with verified file-specific attribution accepted by parent; local byte and pixel checks unavailable and not represented as completed."
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 506,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap moldovenesc",
+      "source_url": "https://everynoise.com/engenremap-rapmoldovenesc.html",
+      "id": "rap_moldovenesc",
+      "tradition": {
+        "id": "rap_moldovenesc",
+        "name": "Rap moldovenesc",
+        "family": "hip_hop",
+        "lineage": "Moldovan rap includes Kapushon’s collaborations with Guz and Puya. Eșuat supplies a credited guitar-and-bass branch.",
+        "instruments": ["voice", "electric_guitar_single_coil", "electric_bass"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "electric_technique": "electric_chicken_scratch",
+          "bass_technique": "fingerstyle_locked"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rapped voices lead an authored guitar and electric-bass arrangement. Official video credits name Vadim Luchin on guitar and Taras Blajco on bass. The model isolates these documented roles rather than reconstructing every sound in the master; guitar type, picking and studio chain are proposed settings.",
+        "exemplars": ["Kapushon", "Guz", "Puya"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [47.0105, 28.8638, "Chișinău performance network", "Europe"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "backbeat"],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=Fw_CSMRbkBU",
+          "title": "Kapushon: Eșuat official video",
+          "support_notes": "Official indexed credits name Kapushon/Guz music, Puya/Kapushon words, Mareshow production, Vadim Luchin guitar and Taras Blajco bass.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.instagram.com/reel/DJPHKiGt_wz/",
+          "title": "Kapushon official: Tekwill Chișinău performance",
+          "support_notes": "Artist’s own post identifies Chișinău concert context; practice-center map, not birth origin.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://anp.gov.md/index.php/rapperul-kapushon-oaspete-special-la-evantai-cultural",
+          "title": "Moldova administration: Kapushon guest",
+          "support_notes": "Government institution identifies Kapushon as a rapper.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Moldovan collaborator branch, distinct from Romanian national rap and Balkan folk models.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "electric_guitar_single_coil", "electric_bass"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_moldovenesc",
+          "name": "Rap moldovenesc",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Fender_AP_P-Bass_20230801.jpg",
+          "source_title": "Fender AP P-Bass 20230801.jpg",
+          "photographer_credit": "Niranjan Arminius",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Fender_AP_P-Bass_20230801.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Fender_AP_P-Bass_20230801.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Niranjan Arminius; Fender AP P-Bass 20230801.jpg",
+          "matched_label": "Electric bass production-model context for the credited bass role; not Valdir Afonjá’s actual instrument or a Pernambuco performance.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Fender_AP_P-Bass_20230801.jpg",
+          "source_title": "Fender AP P-Bass 20230801.jpg",
+          "photographer_credit": "Niranjan Arminius",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Niranjan Arminius; Fender AP P-Bass 20230801.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific creator, license, caption and offered original URL reviewed via browser; no local byte hashes claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons image GET blocked by proxy tunnel 403; no pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent integration and exact-head checks pending"]
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 505,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap mocambicana",
+      "source_url": "https://everynoise.com/engenremap-rapmocambicana.html",
+      "id": "rap_mocambicana",
+      "tradition": {
+        "id": "rap_mocambicana",
+        "name": "Rap moçambicana",
+        "family": "hip_hop",
+        "lineage": "Mozambican rap encompasses Maputo MC/DJ networks and their instrumental beatmaking branch. Nandele’s Argolas Deliciosas supplies the selected production model.",
+        "instruments": ["sampler_classic"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "electronic_technique": "electronic_sample_chopped"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Instrumental hip-hop sampling and programmed rhythmic fragments form this voice-free branch. Nandele’s own release identifies instrumental hip-hop and programmed instruments; his interview describes the Dilla-inspired sampling approach and later sampler use. A modern sampler is an authored realization, not a historical hardware claim. The model does not depict Makonde ritual performance or add uncited traditional instruments.",
+        "exemplars": ["Nandele"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-25.9692, 32.5732, "Maputo", "Africa"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://nandele.bandcamp.com/album/argolas-deliciosas",
+          "title": "Nandele: Argolas Deliciosas official release",
+          "support_notes": "Artist calls release instrumental hip-hop, credits all programmed instruments, locates project in Maputo and states MC/DJ history with Azagaia.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.okayafrica.com/meet-nandele-the-producer-shaping-mozambiques-alternative-music-scene/190618",
+          "title": "Nandele firsthand interview and musical analysis",
+          "support_notes": "Artist explains Donuts tribute and Maputo practice; interviewer describes source-fragment sampling on Argolas Deliciosas.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.theransomnote.com/music/nandele-the-ransom-note-mix/",
+          "title": "Nandele equipment interview",
+          "support_notes": "Artist explicitly names sampler in later live rig; does not prove that model was used on 2015 release.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Maputo instrumental production branch explicitly connected to local rap networks; not an exclusive description of all Mozambican rap.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["sampler_classic"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_mocambicana",
+          "name": "Rap moçambicana",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
+          "source_title": "Akai MPC2000XL.jpg",
+          "photographer_credit": "Withe",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Akai_MPC2000XL.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Akai_MPC2000XL.jpg",
+          "license": "Public domain",
+          "license_raw": "PD-self",
+          "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "credit": "Withe; source photo: Akai MPC2000XL.jpg",
+          "matched_label": "Akai MPC2000XL: sampler production-model context, not the exemplar artist’s own hardware.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
+          "source_title": "Akai MPC2000XL.jpg",
+          "photographer_credit": "Withe",
+          "license": "Public domain",
+          "license_raw": "PD-self",
+          "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "credit": "Withe",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific creator, license, caption and offered original URL reviewed via browser; no local byte hashes claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons image GET blocked by proxy tunnel 403; no pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403"
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent integration and exact-head checks pending"]
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 525,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap siciliano",
+      "source_url": "https://everynoise.com/engenremap-rapsiciliano.html",
+      "id": "rap_siciliano",
+      "tradition": {
+        "id": "rap_siciliano",
+        "name": "Rap siciliano",
+        "family": "hip_hop",
+        "lineage": "Sicilian rap includes Shakalab’s reggae/hip-hop network and DJ Delta’s Alcamo turntablism practice.",
+        "instruments": ["voice", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic vocals and turntable cuts define an authored DJ/MC arrangement. The agency biography identifies Shakalab’s vocal crew, while the competition organizer documents Delta’s vinyl, scratch and mixing technique and membership. The model is the hip-hop-facing branch, not a prescription for every Shakalab reggae song.",
+        "exemplars": ["Shakalab", "DJ Delta", "Lorrè"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [37.9808, 12.9647, "Alcamo, Sicily", "Europe"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://www.oceanspettacoli.it/cv-artista/bio-shakalab.pdf",
+          "title": "Ocean Spettacoli: Shakalab biography",
+          "support_notes": "Agency identifies Sicilian reggae/hip-hop crew and members.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.redbull.com/it-it/dj-delta-vince-la-finale-italiana-del-rb-thre3style",
+          "title": "Red Bull: DJ Delta competition report",
+          "support_notes": "Organizer documents turntable performance, scratching, Alcamo origin and Shakalab DJ role.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=sXiBIELwosg",
+          "title": "Holi Colors Italia: Lorrè and DJ Delta show",
+          "support_notes": "Event organizer documents Shakalab members performing in Alcamo.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Sicilian MC/DJ crossover differs from existing Italian live-band rap and Sardinian sampler model.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_siciliano",
+          "name": "Rap siciliano",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "matched_label": "Turntable production-model context; not the exemplar DJ’s personal equipment or a genre performance.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific creator, license, caption and offered original URL reviewed via browser; no local byte hashes claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons image GET blocked by proxy tunnel 403; no pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403"
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent integration and exact-head checks pending"]
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 518,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap potiguar",
+      "source_url": "https://everynoise.com/engenremap-rappotiguar.html",
+      "id": "rap_potiguar",
+      "tradition": {
+        "id": "rap_potiguar",
+        "name": "Rap potiguar",
+        "family": "hip_hop",
+        "lineage": "Rio Grande do Norte rap includes Natal’s Time de Patrão MC/DJ network. The selected branch joins multiple MCs with vinyl-deck performance.",
+        "instruments": ["voice", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rap voices and DJ deck manipulation form a bounded performance model. The regional music dossier names Breno Slick, Mano Edu, Koala Loko and SBlack with DJ Nego at the pickups. Scratch articulation and studio settings are authored choices; no sampled-source instruments are represented as live players.",
+        "exemplars": ["Time de Patrão", "DJ Nego"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-5.7945, -35.211, "Natal", "Latin America & Caribbean"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://oganpazan.com.br/dossie-potiguar-rap-volume-1/",
+          "title": "Oganpazan: Potiguar rap dossier",
+          "support_notes": "Music researcher’s direct listening account names MC lineup and DJ Nego on pickups, locates the network in Natal. Secondary scene synthesis is disclosed; not an artist session sheet.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=NyajXCnKv_U",
+          "title": "Time de Patrão: A Vibe É Nossa",
+          "support_notes": "Artist video linked by dossier establishes selected group release.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Natal MC/DJ practice branch, separate from Pernambuco amplified band and São Paulo Racionais sampler model.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_potiguar",
+          "name": "Rap potiguar",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "matched_label": "Turntable production-model context; not the exemplar DJ’s personal equipment or a genre performance.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific creator, license, caption and offered original URL reviewed via browser; no local byte hashes claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons image GET blocked by proxy tunnel 403; no pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403"
+      },
+      "publication_status": "held-for-source-review",
+      "validation": {
+        "checked": false,
+        "issues": [
+          "Parent integration and exact-head checks pending",
+          "Primary deck-role confirmation needed; current musical-role source is researcher journalism."
         ]
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 512,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap nortista",
+      "source_url": "https://everynoise.com/engenremap-rapnortista.html",
+      "id": "rap_nortista",
+      "tradition": {
+        "id": "rap_nortista",
+        "name": "Rap nortista",
+        "family": "hip_hop",
+        "lineage": "Northern Brazilian rap includes Manaus networks documented in fieldwork with Igor Muniz and S Preto. Their boom-bap practice supplies this selected regional branch.",
+        "instruments": ["voice", "sampler_classic"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop",
+          "electronic_technique": "electronic_sample_chopped"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rap and layered sample construction form an authored studio model. Norberto’s fieldwork identifies Igor Muniz’s sampling of brega, rock and MPB and documents software-based local production. The selected hardware sampler is an optional realization of that sampled role, not a claim that the artist used an MPC; no live regional instruments are inferred from sampled material.",
+        "exemplars": ["Igor Muniz", "S Preto"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-3.119, -60.0217, "Manaus", "Latin America & Caribbean"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://lume.ufrgs.br/handle/10183/220071",
+          "title": "Norberto2020 doctoral ethnography of Rap AM",
+          "support_notes": "Institutional record of primary field research; detailed text read from author-hosted copy.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.academia.edu/48975168/Tese_de_Doutorado_O_Rap_AM_interseccionando_gera%C3%A7%C3%B5es_um_estudo_etnomusicol%C3%B3gico_sobre_pr%C3%A1ticas_pol%C3%ADtico_musicais_e_as_din%C3%A2micas_de_periferia_no_circuito_manauara",
+          "title": "Norberto: author-hosted thesis text",
+          "support_notes": "Fieldwork specifies Igor sampling, Manaus practice, software production, and contrasts layered sample methods. Passages around printedpp117,170,184, and Intacto discussion.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://soundcloud.com/igormunizmc",
+          "title": "Igor Muniz official discography",
+          "support_notes": "Author-identified official artist account, provided as release pointer; instrumentation claim rests on ethnography.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Manaus network with documented sampled recording practice; distinct from Pará/Belém MC-DJ branch, not every northern Brazilian style.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_nortista",
+          "name": "Rap nortista",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
+          "source_title": "Akai MPC2000XL.jpg",
+          "photographer_credit": "Withe",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Akai_MPC2000XL.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Akai_MPC2000XL.jpg",
+          "license": "Public domain",
+          "license_raw": "PD-self",
+          "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "credit": "Withe; source photo: Akai MPC2000XL.jpg",
+          "matched_label": "Akai MPC2000XL: sampler production-model context, not the exemplar artist’s own hardware.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
+          "source_title": "Akai MPC2000XL.jpg",
+          "photographer_credit": "Withe",
+          "license": "Public domain",
+          "license_raw": "PD-self",
+          "license_url": "https://commons.wikimedia.org/wiki/Template:PD-self",
+          "credit": "Withe",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific Commons creator, license, caption and offered image URL inspected with web tool. Local byte download unavailable; no fetched hash or dimensions claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons/image GET returned proxy tunnel 403; metadata reviewed remotely. No pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403",
+        "limitation": "Executor proxy returns Tunnel connection failed: 403 Forbidden for Commons/image GET; no bypass attempted."
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent source review, integration and exact-head checks pending"]
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 513,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap paraense",
+      "source_url": "https://everynoise.com/engenremap-rapparaense.html",
+      "id": "rap_paraense",
+      "tradition": {
+        "id": "rap_paraense",
+        "name": "Rap paraense",
+        "family": "hip_hop",
+        "lineage": "Pará rap includes the Belém partnership of Bruno B.O. and DJ Morcegão, documented in Mixtape Afroamazônico.",
+        "instruments": ["voice", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rapped voice and turntable collage define the selected arrangement. Official release credits specify scratches, collages, effects and mixing by DJ Morcegão. The deck model and recording chain are authored; the model does not add acoustic Amazonian instruments from regional identity alone.",
+        "exemplars": ["Bruno B.O.", "DJ Morcegão"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-1.4558, -48.4902, "Belém", "Latin America & Caribbean"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=HnT1uZCldWw",
+          "title": "Bruno BO and DJ Morcegão: Mixtape Afroamazônico",
+          "support_notes": "Official indexed release credits explicitly identify scratches/collages/effects/mixing by DJ Morcegão; Natura Musical presents release.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.sympla.com.br/evento/bambata-brothers-bronx-em-o-baile-black-starring-mc-bruno-b-o/33847",
+          "title": "Bambata Brothers official event listing",
+          "support_notes": "Organizer identifies Bruno BO’s return to performing in Belém and Família Sempre Pelo Certo live set.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://dol.com.br/_/noticia-277148-um-dia-para-celebrar-a-discotecagem.html",
+          "title": "DJ Morcegão interview about disc-jockey practice",
+          "support_notes": "Direct artist statement plus report identifies vinyl performance among Belém rap groups.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Belém MC/vinyl-collage collaboration, distinct from Manaus software-sampling branch and traditional carimbó.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_paraense",
+          "name": "Rap paraense",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "matched_label": "Turntable production-model context; not the exemplar DJ’s personal equipment or a genre performance.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific creator, license, caption and offered original URL reviewed via browser; no local byte hashes claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons image GET blocked by proxy tunnel 403; no pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403"
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent source review, integration and exact-head checks pending"]
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 524,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap sergipano",
+      "source_url": "https://everynoise.com/engenremap-rapsergipano.html",
+      "id": "rap_sergipano",
+      "tradition": {
+        "id": "rap_sergipano",
+        "name": "Rap sergipano",
+        "family": "hip_hop",
+        "lineage": "Sergipe rap includes Aracaju’s Infecção Sonnora and DJ Edinho collaboration on Guia prático de sobrevivência.",
+        "instruments": ["voice", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rapped vocal delivery meets turntable scratching in an authored album-level model. The release names its scratch feature and DJ Edinho; the DJ’s own profile identifies toca-discos, Aracaju and Sergipe. This does not claim all album tracks use turntables or identify a particular deck brand.",
+        "exemplars": ["Infecção Sonnora", "Fuky Nery", "Kenan PCR", "DJ Edinho"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-10.9472, -37.0731, "Aracaju", "Latin America & Caribbean"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://audiomack.com/infeccao-sonnora/song/scratch-dj-edinho",
+          "title": "Infecção Sonnora: Scratch DJ Edinho",
+          "support_notes": "Artist-hosted release lists DJ Edinho feature, album, producer and2009date.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=IBluKiRMQN0",
+          "title": "Infecção Sonnora official: O bota preta e a Flor",
+          "support_notes": "Official band channel description identifies Fuky/Kenan and Aracaju.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.instagram.com/___ed79/",
+          "title": "DJ Edinho official profile",
+          "support_notes": "Indexed artist profile explicitly identifies hip-hopSE, toca-discos and Aracaju/Sergipe.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Aracaju album-specific MC/turntable partnership; separate from Recife rap/embolada band and Natal crew.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_sergipano",
+          "name": "Rap sergipano",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "matched_label": "Turntable production-model context; not the exemplar DJ’s personal equipment or a genre performance.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific creator, license, caption and offered original URL reviewed via browser; no local byte hashes claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons image GET blocked by proxy tunnel 403; no pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403"
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent source review, integration and exact-head checks pending"]
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 515,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap paranaense",
+      "source_url": "https://everynoise.com/engenremap-rapparanaense.html",
+      "id": "rap_paranaense",
+      "tradition": {
+        "id": "rap_paranaense",
+        "name": "Rap paranaense",
+        "family": "hip_hop",
+        "lineage": "Paraná rap includes Londrina producer DJ Samu AKA Suguiura’s MC collaborations, scratch performances and sampled production.",
+        "instruments": ["voice", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rapped voices meet vinyl-deck cuts in this authored model of the Londrina network. The producer’s official releases explicitly foreground turntablism, while artist credits identify scratch and collage work. The arrangement isolates the MC/DJ layer rather than inventing live instruments behind a complete master.",
+        "exemplars": ["DJ Samu AKA Suguiura", "Mano Fler", "Família IML"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-23.3045, -51.1696, "Londrina", "Latin America & Caribbean"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://audiomack.com/dj-samu-aka-suguiura-1/album/do-turntablism-ao-sampler",
+          "title": "DJ Samu official: Do Turntablism ao Sampler",
+          "support_notes": "Artist-owned release identifies turntablism/sampling project and MC collaborators.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.facebook.com/djsamuscratch/videos/guina-pr-mano-fler-%C3%A9-s%C3%B3-m0ntr40-envolvido-prod-dj-samu-aka-suguiura-rap-real-con/1057706690014181/",
+          "title": "DJ Samu official: Guina PR/Mano Fler collaboration",
+          "support_notes": "Producer describes a Londrina–Umuarama Paraná connection.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.bocadaforte.com.br/materias/entrevistas/entrevistadjbenne",
+          "title": "DJ Benné interview page: indexed release credits",
+          "support_notes": "Indexed artist release credits state production, scratches and collages by DJ Samu AKA Suguiura, Londrina/PR; full page fetch failed.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Londrina MC/turntablist network, distinct from existing Curitiba rap and broad Brazilian sampler model.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_paranaense",
+          "name": "Rap paranaense",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "matched_label": "Turntable production-model context; not the exemplar DJ’s personal equipment or a genre performance.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific creator, license, caption and offered original URL reviewed via browser; no local byte hashes claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons image GET blocked by proxy tunnel 403; no pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403"
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent source review, integration and exact-head checks pending"]
+      }
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_ordinal": 511,
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "source_label": "rap norteno chileno",
+      "source_url": "https://everynoise.com/engenremap-rapnortenochileno.html",
+      "id": "rap_norteno_chileno",
+      "tradition": {
+        "id": "rap_norteno_chileno",
+        "name": "Rap norteño chileno",
+        "family": "hip_hop",
+        "lineage": "Northern Chilean rap includes Carlitos Furia and Eskina Familia Skuad’s Iquique network. Credited scratch collaborations supply the selected arrangement.",
+        "instruments": ["voice", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "turntable_technique": "turntable_scratch"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rap delivery sits beside turntable cuts. Carlitos Furia’s official release credits Florencio Galvez on scratches, and another release identifies Trastorna2 DJ Group. This is a bounded MC/DJ production model; no Mexican norteño accordion or brass ensemble is inferred from the shared adjective norteño.",
+        "exemplars": ["Carlitos Furia", "Eskina Familia Skuad", "Florencio Galvez"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-20.2307, -70.1357, "Iquique", "Latin America & Caribbean"],
+      "geo_rationale": "Documented practice center for this selected branch; coordinates locate the named city and do not assert exclusive origin.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "backbeat"],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=hlE6zde9Wk0",
+          "title": "Carlitos Furia official: No hay innovación",
+          "support_notes": "Artist/group channel indexed credits specify scratch by Florencio Galvez.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=c3C8W7R2tbc",
+          "title": "Carlitos Furia official: En tu lomo como esquirla",
+          "support_notes": "Artist/group indexed credits specify Trastorna2 DJ Group scratches.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ouxKZArilSU",
+          "title": "SHIA firsthand interview with Eskina Familia Skuad",
+          "support_notes": "Direct interview at Iquique show establishes practice network.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=QeuwMAh5rNU",
+          "title": "SHIA concert coverage: Guerra Interna anniversary",
+          "support_notes": "Filmmaker identifies La Crew Bar, Iquique performance. Used as scene location, not exclusive origin.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/3ySZupq3ek5CtxVh8BUOgM",
+          "title": "The Sounds of Spotify: Rap Norteño Chileno",
+          "support_notes": "Discovery roster contains Carlitos Furia/Eskina Familia Skuad; category fit only, not instrumentation.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Iquique-linked northern Chile scene branch; existing Chilean national model is not this specific collective.",
+      "model_policy": "Representative authored recording arrangement. Sources establish artist practice, geography and performance roles; exact hardware subtype, room, tuning baseline, chain, axes and part settings are proposed production choices, not historical session facts. No universal regional timbre or ethnicity inferred.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing instruments cover the credited roles; no default changes proposed."
+      },
+      "photo": {
+        "status": "remote-rights-verified",
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_norteno_chileno",
+          "name": "Rap norteño chileno",
+          "source": "wikimedia_commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "matched_label": "Turntable production-model context; not the exemplar DJ’s personal equipment or a genre performance.",
+          "match_confidence": "source_caption_verified"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+          "source_title": "Technics sl-1200 mk5.jpg",
+          "photographer_credit": "MärkJ2057",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "MärkJ2057; Technics SL-1200 MK5, Wikimedia Commons",
+          "checked_date": "2026-10-01",
+          "change_notice": "Planned unchanged Commons image; no new crop/edit. Existing source crop retained.",
+          "evidence": "File-specific creator, license, caption and offered original URL reviewed via browser; no local byte hashes claimed."
+        },
+        "full": null,
+        "thumbnail": null,
+        "visual": {
+          "checked": false,
+          "reason": "Executor Commons image GET blocked by proxy tunnel 403; no pixel inspection claimed."
+        },
+        "download_status": "download_unavailable403"
+      },
+      "publication_status": "author-ready-pending-parent-review",
+      "validation": {
+        "checked": false,
+        "issues": ["Parent source review, integration and exact-head checks pending"]
       }
     }
   ],
-  "holds": [],
+  "holds": [
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 501,
+      "source_label": "rap maromba",
+      "source_url": "https://everynoise.com/engenremap-rapmaromba.html",
+      "id": "rap_maromba",
+      "status": "held_for_further_research",
+      "reason": "Bodybuilding-themed rap is supported by artist uploads, but production credit alone does not establish the instrument ensemble. Need primary instrument/beatmaking evidence for selected Jax or Bonde da Stronda branch.",
+      "evidence_urls": [
+        "https://www.youtube.com/watch?v=SNg1Icld-vI",
+        "https://music.youtube.com/@BondedaStronda"
+      ],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 503,
+      "source_label": "rap metalcore",
+      "source_url": "https://everynoise.com/engenremap-rapmetalcore.html",
+      "id": "rap_metalcore",
+      "status": "held_for_further_research",
+      "reason": "Hacktivist provides a documented grime/metal candidate, but fit to this exact discovery category and distinction from existing grime-metal/rap-metal models remain unverified. Avoid treating adjacent marketing labels as identical.",
+      "evidence_urls": [
+        "https://unfdcentral.com/artists/hacktivist/",
+        "https://www.youtube.com/@HacktivistUK",
+        "https://scenestr.com.au/music/enter-shikari-the-triffid-review"
+      ],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 508,
+      "source_label": "rap motywacja",
+      "source_url": "https://everynoise.com/engenremap-rapmotywacja.html",
+      "id": "rap_motywacja",
+      "status": "held_for_further_research",
+      "reason": "Polish motivational rap playlist identifies a thematic discovery category. Need primary performer practice and instrument evidence before choosing a representative model; theme alone does not specify ensemble.",
+      "evidence_urls": ["https://open.spotify.com/playlist/37i9dQZF1DXa3d3ljLBxSG"],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 509,
+      "source_label": "rap nacional antigo",
+      "source_url": "https://everynoise.com/engenremap-rapnacionalantigo.html",
+      "id": "rap_nacional_antigo",
+      "status": "held_for_further_research",
+      "reason": "Existing brazilian_hip_hop already represents Racionais MCs/KL Jay sampling. Need a distinct early branch such as Thaíde/DJ Hum with primary ensemble evidence, or alias adjudication; avoid duplicate São Paulo model.",
+      "evidence_urls": [
+        "https://www.redbullmusicacademy.com/about/projects/red-bull-music-academy-festival-sao-paulo-2017/",
+        "https://f5.folha.uol.com.br/musica/2018/07/dj-hum-lanca-primeiro-cd-solo-em-30-anos-anos-de-carreira-ouca.shtml"
+      ],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 510,
+      "source_label": "rap nica",
+      "source_url": "https://everynoise.com/engenremap-rapnica.html",
+      "id": "rap_nica",
+      "status": "held_for_further_research",
+      "reason": "Artist sources support Nicaraguan rap and named productions, but producer credits do not establish sampler/drum-machine roles. Need an exact musical practice source and suitable attributed photo.",
+      "evidence_urls": [
+        "https://www.facebook.com/LosGueguensesflowPalacaguina/",
+        "https://www.instagram.com/reel/DZthEEfSRGX/"
+      ],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 514,
+      "source_label": "rap paraguayo",
+      "source_url": "https://everynoise.com/engenremap-rapparaguayo.html",
+      "id": "rap_paraguayo",
+      "status": "held_for_further_research",
+      "reason": "Pong credits rap and music production but does not establish sampled instruments; sampler role still requires primary evidence.",
+      "evidence_urls": ["https://inbetweenpy.bandcamp.com/album/pong"],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 518,
+      "source_label": "rap potiguar",
+      "source_url": "https://everynoise.com/engenremap-rappotiguar.html",
+      "id": "rap_potiguar",
+      "status": "held_for_further_research",
+      "reason": "Primary deck-role confirmation needed; current musical-role source is researcher journalism.",
+      "evidence_urls": [
+        "https://oganpazan.com.br/dossie-potiguar-rap-volume-1/",
+        "https://www.youtube.com/watch?v=NyajXCnKv_U"
+      ],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 519,
+      "source_label": "rap regio",
+      "source_url": "https://everynoise.com/engenremap-rapregio.html",
+      "id": "rap_regio",
+      "status": "held_for_further_research",
+      "reason": "Existing mexican_hip_hop already models Control Machete and Monterrey sampling; requires distinct branch or alias adjudication.",
+      "evidence_urls": ["https://www.redbullmusicacademy.com/lectures/toy-selectah-toy-story/"],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 521,
+      "source_label": "rap romantico",
+      "source_url": "https://everynoise.com/engenremap-rapromantico.html",
+      "id": "rap_romantico",
+      "status": "held_for_further_research",
+      "reason": "Thematic category requires a documented representative artist and arrangement, not automatic piano/strings assumptions. Primary musical-role dossier remains unresolved after screening available romantic-rap discovery material.",
+      "evidence_urls": ["https://everynoise.com/engenremap-rapromantico.html"],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    },
+    {
+      "allocation_group_id": "021",
+      "allocation_group_sha256": "870b6899ea0822c74dd84d51df34b48b2d11d222f8cf5bd9e7186ab252323aa6",
+      "allocation_ordinal": 522,
+      "source_label": "rap salvadoreno",
+      "source_url": "https://everynoise.com/engenremap-rapsalvadoreno.html",
+      "id": "rap_salvadoreno",
+      "status": "held_for_further_research",
+      "reason": "Pescozada/Debil Estar primary channels and release credits support Salvadoran rap. Production credits alone do not specify instruments or sampler use; need actual musical roles before authoring.",
+      "evidence_urls": [
+        "https://www.youtube.com/@estardebil",
+        "https://audiomack.com/pescozada/song/noviembre-10",
+        "https://m.soundcloud.com/pescozada"
+      ],
+      "evidence_scope": "Research leads actually located; does not assert complete verification of all linked page contents. No claim that this category cannot be supported.",
+      "next_action": "Resolve documented gap with primary evidence, then complete or revise schema draft and photo attribution.",
+      "checked_date": "2026-10-01"
+    }
+  ],
   "research": [
     {
       "id": "rap_metal_espanol",

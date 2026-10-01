@@ -1,0 +1,1076 @@
+{
+  "at": "2026-10-01T17:26:16.348044+00:00",
+  "review_scope": "Source/attribution review only, not execution/build approval. Snapshot-based; any changed entry needs comparison. Photo bytes/pixels unavailable is disclosed, not automatic failure.",
+  "inputs": {
+    "019": {
+      "path": "/workspace/scratch/author019/entries.json",
+      "sha256": "72bb4847470b3f422643e7ab7a4633de603d3d73ae61630c3b39a9fdda615245",
+      "count": 17
+    },
+    "020": {
+      "path": "/workspace/scratch/author020/entries.json",
+      "sha256": "d89b42b804ff6aecede53a11a5fd60aa8982f4144d3416b5642c630d2edc7cf3",
+      "count": 20
+    },
+    "021": {
+      "path": "/workspace/scratch/author021/entries.json",
+      "sha256": "dadf9127db2eb9ef3fff2a359c0b560d40c332b5645f5207afeaea9c3ed5f823",
+      "count": 13
+    },
+    "022": {
+      "path": "/workspace/scratch/author022/entries.json",
+      "sha256": "575dd1eff3d0b691cd0155e3042c8d34bb91ec2e88fe50ec3668e11950859eea",
+      "count": 18
+    },
+    "023": {
+      "path": "/workspace/scratch/author023/entries.json",
+      "sha256": "f5616a61f6ab74979e00db24ac73025aa4e3c38b51f0f92cc52bb1d2338757e4",
+      "count": 23
+    }
+  },
+  "entries": [
+    {
+      "group": "020",
+      "id": "rap_cristao",
+      "entry_sha256": "de3ccabec9b29a77d296d79deb7749d6e86458a889f07e59199cfd62eadd0d30",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://www.scielo.br/j/vb/a/VhsnLXJt9BK95wcKBG95FcK/?format=pdf&lang=en"]
+    },
+    {
+      "group": "020",
+      "id": "rap_ecuatoguineano",
+      "entry_sha256": "564a84a42759f2dc10da308b3c903dc498f2ba6d14b5b74a1beff089008d3c51",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://hipermedula.org/2012/11/vi-festival-internacional-malabo-hip-hop/"]
+    },
+    {
+      "group": "020",
+      "id": "rap_euskera",
+      "entry_sha256": "342433d1be01ca35fc328cd577d9890ae2f1d57e27c651a173fac52dc59679de",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://daddyjeffmusic.wixsite.com/daddyjeff/soup-salads--sides",
+        "https://hikateatroa.eus/wp-content/uploads/2022/10/dossier-gazte-en.pdf",
+        "https://www.muguruzafm.eus/en/tours-4/negu-gorriak-1990-2001/"
+      ]
+    },
+    {
+      "group": "020",
+      "id": "rap_femenino_mexicano",
+      "entry_sha256": "4b5698cb096ca40aa583f65e6c285c47ff9f5d191af0b4d1cb1dbf37cd54312a",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://mareadvertencia.bandcamp.com/",
+        "https://mareadvertencia.bandcamp.com/album/shhh-ft-magic-classic"
+      ]
+    },
+    {
+      "group": "020",
+      "id": "rap_feminino_chileno",
+      "entry_sha256": "5fd3deb63f4a6fdef0e13f6e042824da4cd4bb94261baf836f610ed0a1a68dd6",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://vocalo.org/tiny-desk-premiere-ana-tijoux-2024",
+        "https://anatijoux.bandcamp.com/album/1977-2"
+      ]
+    },
+    {
+      "group": "020",
+      "id": "rap_feminino_nacional",
+      "entry_sha256": "11dd5d7efd68a895d84ee66833213da779c375f0aebee39dc2ff34b09d3d34a2",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://www.scielo.br/j/rk/a/tD5tWsn8JY3VCfJQH7nHtJQ/?lang=pt",
+        "https://www.sescsp.org.br/editorial/50-anos-de-hip-hop/"
+      ]
+    },
+    {
+      "group": "020",
+      "id": "rap_francais_nouvelle_vague",
+      "entry_sha256": "e96c99e04fdec1f4898124a5a13e9effa3f609e9efdc6d0e18abb087efc1eded",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://crayon-music.bandcamp.com/track/misplaced-ft-tora-gracy-hopkins",
+        "https://gracyhopkins.bandcamp.com/track/from-paris-with-love",
+        "https://www.concertarchives.org/concerts/di-meh-gracy-hopkins-kikesa"
+      ]
+    },
+    {
+      "group": "020",
+      "id": "rap_gabonais",
+      "entry_sha256": "ddac15ca4b6e4dd4f44c0b55a5b6eb90e26384a5cebaa7e6ec9a431ad01444de",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://tengsobaproductions.bandcamp.com/album/moane-yebinvegn"]
+    },
+    {
+      "group": "020",
+      "id": "rap_gaucho",
+      "entry_sha256": "d8859b2bbf3f11d3b7944ecad098b04c26121deae894b7f6a746f4de50542707",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://www.pucrs.br/cultura/evento/festival-ressoa-musica/"]
+    },
+    {
+      "group": "020",
+      "id": "rap_guarulhense",
+      "entry_sha256": "7785c77c970d808b0500b90404d9c1bbcb8e3e52372497d6b9d49d0f2341b1b1",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://portaleducacao.guarulhos.sp.gov.br/siseduc/portal/site/detalhar/conteudo/3708/"
+      ]
+    },
+    {
+      "group": "020",
+      "id": "rap_guineen",
+      "entry_sha256": "49e7fb0df9c19db6f8e7ec1ae0a8ee840af8fc83dde80205959fb04a3abde58c",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://www.womex.com/virtual/meurs_libre_prod/degg_j_force_3"]
+    },
+    {
+      "group": "020",
+      "id": "rap_inde",
+      "entry_sha256": "e7134300c4b6a772655ee266ba5c1c0e9d1abe1ef49b4925adcbed5e779eb32b",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://diegoawe.bandcamp.com/album/comme-l-poque"]
+    },
+    {
+      "group": "020",
+      "id": "rap_italiano_old_school",
+      "entry_sha256": "f5a1c3d5b01a64264c59ff3b8eb080fd0b842e4ecdfa11df527476e24857f08a",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://funkazzismoproductions.bandcamp.com/album/la-rinascita-del-funkazzismo"
+      ]
+    },
+    {
+      "group": "020",
+      "id": "rap_ivoire",
+      "entry_sha256": "117ce08aad876a860bdb4e8da57825c7931fb3a613b47e24e4dbeb96ad1a01b9",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://www.universalmusic.fr/artistes/31856353553"]
+    },
+    {
+      "group": "020",
+      "id": "rap_liegeois",
+      "entry_sha256": "cdee711134986dc2b39240a3937e026cc7d74ab3fbded624bd0916acc9756cd3",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://indocile.bandcamp.com/album/ambrosia"]
+    },
+    {
+      "group": "020",
+      "id": "rap_lyonnais",
+      "entry_sha256": "3b54241c406da79de2248c7cb9365f88adf8c9a7f2d9cd6d5072f3800908bae5",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://thomskor.bandcamp.com/album/hier-et-apr-s"]
+    },
+    {
+      "group": "020",
+      "id": "rap_malien",
+      "entry_sha256": "5edb45c2d29c6a886f14c1f17de5b529063b81851ed216e6d8fc60e7d7382cd6",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://www.womex.com/virtual/bam/amkoullel_2"]
+    },
+    {
+      "group": "021",
+      "id": "rap_mineiro",
+      "entry_sha256": "a700bd4c9ce789354db675397181d73c11c5ac66432a6a17c23e1581857ce3e6",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://cultura.uol.com.br/programas/provoca/videos/10042_djonga-provoca.html",
+        "https://open.spotify.com/intl-fr/artist/2PhFsxtwCQLS3e9SJwDN3j",
+        "https://www.uol.com.br/splash/noticias/2021/06/24/briga-djonga-e-filho-de-tim-maia-musica.htm"
+      ]
+    },
+    {
+      "group": "021",
+      "id": "rap_regio",
+      "entry_sha256": "48c3c19bfe5be734eb94f9ac35fd8d293ce2a8f212257ca328d7deae71a4ed65",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://www.redbullmusicacademy.com/lectures/toy-selectah-toy-story/"]
+    },
+    {
+      "group": "021",
+      "id": "rap_portuense",
+      "entry_sha256": "5fc3ebb1a3b148d9034d89b8270384be4fef979ed476b7f80ebd1be500813b98",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://viva-porto.pt/mundo-segundo/",
+        "https://musica.com.pt/entrevistas/entrevista-dealema-mundo-segundo-expeao/"
+      ]
+    },
+    {
+      "group": "021",
+      "id": "rap_sardegna",
+      "entry_sha256": "fd034b3c5eb038dc9b7f20cfaf4bf4475567cf7162e9ccfe15a1ff17845311e0",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Nootempo primary biography confirms Iglesias founding; independently indexed Shazam label credits explicitly name Alessandro Sanna sampler and rap.",
+        "Previously verified Withe PD-self MPC photo accurately context-only."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://quilosarazza.bandcamp.com/",
+        "https://www.shazam.com/en-gb/song/1871650547/anamnesi-slam-poetry-edition",
+        "https://www.nootempo.net/artists/quilo-sa-razza/"
+      ]
+    },
+    {
+      "group": "021",
+      "id": "rap_paraguayo",
+      "entry_sha256": "1a9c7e5def7dbe51af879e6d549f105e2ef4c2950af2bcebf153f5ea0a5dcc63",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://inbetweenpy.bandcamp.com/album/pong"]
+    },
+    {
+      "group": "022",
+      "id": "rap_sureno_chileno",
+      "entry_sha256": "d2022fb4faa94b8bc84d434b760c76c4580d262484bbdda6c4029076d201e2fe",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-rapsurenochileno.html",
+        "https://www.redbull.com/do-es/artist/teorema",
+        "https://www.redbull.com/cl-es/red-bull-batalla-final-nacional-chile-2025-teorema-campeon"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_tico",
+      "entry_sha256": "4e4358651106242f184244ce0f7f1fe7f2f991c69969f31fb9ae13b2940e88d1",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-raptico.html",
+        "https://www.youtube.com/@NakuryMC",
+        "https://rfrecords.bandcamp.com/track/para-mi-gente",
+        "https://www.facebook.com/madremontefest/posts/nakury-y-barzonakury-es-rapera-y-comunicadora-de-turrialba-costa-rica-el-aprendi/429308455153263/"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_toscana",
+      "entry_sha256": "872d72a25b210ca0960667155b7a99ef7a8a791a2fcc4cf76ec6d50d27a22344",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-raptoscana.html",
+        "https://www.universalmusic.it/popular-music/album/miss_36358491529/",
+        "https://open.spotify.com/artist/0dus12DVjr0hoFaUDOz9B5"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_tuga_underground",
+      "entry_sha256": "17842cfbc6971348ca450facb433e41ff2d88fb1ff866d07d7dbf558fdaec936",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-raptugaunderground.html",
+        "https://adamandlizamusic.bandcamp.com/album/d-mars-dj-kwan-apresentam-estilo-marginal-2001",
+        "https://coloniacalunia.bandcamp.com/"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_tunisien",
+      "entry_sha256": "74d6901ee430fb07a5c2be96a81f1d13764cdda9932be4f7812db31199eac923",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-raptunisien.html",
+        "https://oumouribeats.bandcamp.com/album/ktyb-mixtape-vol2-instrumental",
+        "https://lartrue.org/en/ktyb-dc22-biography",
+        "https://neverstill.tunis.events/en/events/39O1yk/outbox-presents-ktyb-flo-tunis"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_uliczny",
+      "entry_sha256": "356ca3696e187befa5d9469fd6b71de46c2a9ec9a38189565b83d42a26322984",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://www.youtube.com/watch?v=u3XSv4uAuIs",
+        "https://culture.pl/en/article/how-polish-hip-hop-remixed-romanticism"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_underground_argentino",
+      "entry_sha256": "043ede07934c5e43be94dfeb277f730d64386d5bf0c2bbfd10c1f7bd52e74308",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://genezismc.bandcamp.com/track/17-tiempos-de-sangre-feat-se7ensandman-zen-starwalker-prod-by-sectario",
+        "https://genezismc.bandcamp.com/album/dark-angel"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_underground_colombiano",
+      "entry_sha256": "978e67fa9bc51a29076aef5ae4e37f6d926df6d302e1a21e7e0127465e98325b",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://trevortyrone.bandcamp.com/album/by-the-time-you-read-this-2",
+        "https://trevortyrone.bandcamp.com/track/fast-fumes-feat-entity-prod-noise-system"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_underground_espanol",
+      "entry_sha256": "af4d9a4337c90470dd58281810a3e6b8785c356adf8ecaf5e1657f1804cfdc34",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-rapundergroundespanol.html",
+        "https://natosywaor.com/pages/biografia-natos-y-waor",
+        "https://www.youtube.com/watch?v=C2iC2tGw3II"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_underground_mexicano",
+      "entry_sha256": "4a602e6b1ccc6bfb89a1645864010c1dcdbdebb2046b234160beb970e98a5568",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-rapundergroundmexicano.html",
+        "https://www.emancipassion.com/about",
+        "https://jimb.bandcamp.com/track/freda-payne-the-man-of-my-dreams-bocafloja-quilombo-mocambo",
+        "https://trinityhiphop.domains.trincoll.edu/artist-profiles/bocafloja-mexico/"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rap_uruguayo",
+      "entry_sha256": "18f016d551f09664c47e9ea7ed85ed881068c0e9b4190ad320be00a5f35ab32f",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-rapuruguayo.html",
+        "https://open.spotify.com/artist/5HgYp4LTsgdeeclzVlrtfO",
+        "https://www.facebook.com/DostrescincoOficial/videos/",
+        "https://www.youtube.com/watch?v=1YNrrsuev7s"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rhode_island_rap",
+      "entry_sha256": "06d8c6d4a273e42a7161ebed73cbc60f965042bae41449f6f8a5cde430c80ac3",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-rhodeislandrap.html",
+        "https://store.strangefamousrecords.com/products/sage-francis-personal-journals",
+        "https://strangefamousrecords.bandcamp.com/community"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "romanian_rap",
+      "entry_sha256": "8f8b70ba932e0b03f253998f027e23b4faae6645ad21708b6c93355114d3a856",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-romanianrap.html",
+        "https://silentstrike.bandcamp.com/track/gloante-oarbe-feat-deliric",
+        "https://silentstrike.bandcamp.com/track/deliric-demoncratie"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "romanian_trap",
+      "entry_sha256": "f83b63be6a1e5c15aba3e17e71420ebe5d41181668d463319ec15085e90071eb",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-romaniantrap.html",
+        "https://www.youtube.com/channel/UCnVs_K-Rkzkdts9sxISF8Uw/about",
+        "https://m.soundcloud.com/seekmusicro/satra-b-e-n-z-hype",
+        "https://www.youtube.com/watch?v=5q0R0GwrOm8"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "russian_hip_hop",
+      "entry_sha256": "2756706f787a2af2a7b5e3638c63eddbe17e817fc6fcdf451b5dd7c3f0a2fed7",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://kasta.world/artist/kasta/"]
+    },
+    {
+      "group": "022",
+      "id": "russian_old_school_hip_hop",
+      "entry_sha256": "78253498129a1697ba4a7b8d4fd768ba4f7936962147d473a7cbe1a43007b791",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-russianoldschoolhiphop.html",
+        "https://100pro.su/concert/2.html",
+        "https://www.100pro.su/stati/71.html",
+        "https://www.youtube.com/watch?v=QVPDW7X99to"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "russian_underground_rap",
+      "entry_sha256": "b132989a9e4a7fd8675912e6b2077bf0815c4d1a334f2ab63b972091e7e777d7",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://lirikaizmorga.bandcamp.com/album/--13",
+        "https://lirikaizmorga.bandcamp.com/music"
+      ]
+    },
+    {
+      "group": "022",
+      "id": "rwandan_hip_hop",
+      "entry_sha256": "ad08686e40c9cadaf09b1aa3be31e1040c0a34334ece278b49ad78a3dfd55b84",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://furia.com/everynoise_public/engenremap-rwandanhiphop.html",
+        "https://abirinitanu.bandcamp.com/track/barafinda"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "slovenian_hip_hop",
+      "entry_sha256": "09edbde93dcfaf01ffe87243e3b64afa70e520c1d3e40b3c20fc3bcc045e123f",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://www.rokgolob.com/album/soul-activation-with-rok-golob-feat-big-band-rtv-slovenia-and-murat-jose/",
+        "https://novisadjazzfestival.rs/Jazz-Festival-Novi-Sad/jazz09/bend6eng.htm",
+        "https://www.instagram.com/muxlrose/"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "schweizer_rap",
+      "entry_sha256": "17acd5d8427191e1cdfd7694a7ad841fb1aa90e232d5f86704f213d4777aa228",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://www.lo-leduc.ch/",
+        "https://www.srf.ch/play/tv/bounce/video/lo--leduc-schreiben-ihre-exclusive-bars-nur-unter-druck-staffel-3-folge-4?urn=urn%3Asrf%3Avideo%3A7568ab27-2614-480b-bf04-bc7ed2e5fd3a"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "sacramento_hip_hop",
+      "entry_sha256": "8c3a101da02322d96f5d21765a40d94cb3e10a07d10f2bd3b169cd0555672a59",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://pitchfork.com/features/interview/8815-death-grips/",
+        "https://www.theskinny.co.uk/music/interviews/death-grips-theres-a-lot-of-recycling-and-destruction-in-the-making-of-our-music"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "singaporean_hip_hop",
+      "entry_sha256": "fade2ea213fea99cff8dfd696639b097f08f6be55b915a69be0f25b1ff6b7358",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://www.shiggashay.com/",
+        "https://hear65.bandwagon.asia/articles/shigga-shay-becomes-first-artist-from-singapore-to-be-featured-on-colorsxstudios-watch-singapore-april-2023-hip-hop-new-music-release-rainy-days",
+        "https://www.youtube.com/watch?v=hQ0ydV1h_QA"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "sesotho_hip_hop",
+      "entry_sha256": "315088a81a4f6931a5fd3b68ce524e1b90af81dd43be2ab57c8075ec260dbed5",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://hdsentertainment.co.za/kommanda-obbs/",
+        "https://omny.fm/shows/power-perspective/in-conversation-with-ntate-stunna",
+        "https://africasacountry.com/2011/07/sesotho-cipher"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "slovak_hip_hop",
+      "entry_sha256": "a19d21a37363c0975faa730dcfd015d6bf08d8f3a51dd602522ddcc9168c43b9",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://masifsound.bandcamp.com/album/na-torulu-neplac-ep"]
+    },
+    {
+      "group": "023",
+      "id": "slovak_trap",
+      "entry_sha256": "16b9f7ee81ae8b1d506e5805dd14cdbd5cb30f4984935ef735673b353a0fdca4",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://www.heartnoize.cz/mc-yallah-debmaster-eduv-syn-amalgam/",
+        "https://eduvsyn.bandcamp.com/album/trap-je-nov-punk"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "south_african_underground_rap",
+      "entry_sha256": "c3efc939991bb2b5e8e768e154de8c42fe22dfa038284d949154cbd8b8614513",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://pioneerunit.bandcamp.com/album/the-winner"]
+    },
+    {
+      "group": "023",
+      "id": "south_african_trap",
+      "entry_sha256": "850247c241e956b857b086e668da60cbd9695cef994c6bcdd7eb055c7e1247eb",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": [
+        "https://www.thefader.com/2018/09/21/emtee-is-pushing-south-african-trap-to-the-outside-world",
+        "https://hdsentertainment.co.za/emtee/"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "st_louis_drill",
+      "entry_sha256": "954118cea984f834e7d7d4ed77c941a2c78a1530561dbe5a0c20d6e206f4e310",
+      "status": "review_pending",
+      "pass_notes": [],
+      "issues": [],
+      "photo_metadata_status": "pending_independent_review",
+      "source_urls": ["https://nobells.blog/the-long-hot-winter-of-st-louis-drill/"]
+    },
+    {
+      "group": "020",
+      "id": "rap_dominicano",
+      "entry_sha256": "6b26106e66f8fbd8ee7c375613b303d89118ea1eccd243b317304415eea55acc",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "MECAL release independently verifies beat credit, cypher and Santo Domingo location. Authored beat-device settings explicitly separated from session hardware; Autom microphone image rights confirmed."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://mecal.bandcamp.com/track/cypher-one"]
+    },
+    {
+      "group": "020",
+      "id": "rap_ecuatoriano",
+      "entry_sha256": "4b511e768fda3b647b69348bf0e0fb245df6d989195f1397d3eb08b92214cc7f",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Mr Sak primary release independently confirms MC personnel and Quito/Ecuador genre/location tags. Exact device remains authored; microphone context clearly labeled and rights confirmed."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://mrsak.bandcamp.com/track/en-su-ley"]
+    },
+    {
+      "group": "020",
+      "id": "rap_galego",
+      "entry_sha256": "05defaeebcc347d11f5aeda020fc78f14f0a3f05c095b9d4a8d11c3eb1b1fa35",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Sokram primary release independently confirms Galician rap/Ordes tags and vocal/production credits. Context photo rights checked."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://sokram.bandcamp.com/track/fotos-ntese"]
+    },
+    {
+      "group": "021",
+      "id": "rap_metal_espanol",
+      "entry_sha256": "812fda2034c321edc33dfe8533e8e16070fbece386d19951b86e0c746bdb7094",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Official band roster independently confirms three voices/bass/drums/guitar. Commons studio portrait proves Vallecas context and BYSA2 Rubén G Herrera attribution; musical model limited to named branch."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://www.defcondos.com/",
+        "https://www.youtube.com/user/defcondos",
+        "https://commons.wikimedia.org/wiki/File:Def_con_dos_2012.jpg"
+      ]
+    },
+    {
+      "group": "021",
+      "id": "rap_montrealais",
+      "entry_sha256": "73fa780cce4e5cd5ff307c767963d96a24f3470b6e20c3b2081c7aa5fb9ea609",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Artist album credits independently confirm Tehu bass/Rhodes/organ/programming and named guitar/flute collaborators; Montreal/Quebec identification. Draft selects remix and excludes unrelated scratch credits. Exact Alaclair photo caption/creator/BYSA2 checked."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://alaclairensemble.bandcamp.com/album/499"]
+    },
+    {
+      "group": "023",
+      "id": "san_antonio_rap",
+      "entry_sha256": "72d6026c146ee3762985307a05f95b9085c9b03b3ead8b7e0c1110d1865bbed3",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Third Root artist release directly confirms San Antonio MC/DJ ensemble, turntablism and specific Yanga track drums/bongos. Exact Bateria CC BYSA2.5 Danel credit and studio-kit caption checked."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://thirdroot.bandcamp.com/album/libertad"]
+    },
+    {
+      "group": "023",
+      "id": "scottish_hip_hop",
+      "entry_sha256": "20c7dd783f96fb160181d577ebd3c85f17a8feadc53331503ea2bcb9702f0947",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Direct Solareye interview confirms Glasgow–Edinburgh Central Belt, guitar/kit/bass/synths/rap/singing and resampling. Corrected geo is approximate regional anchor; avoids treating rap-free Night Rip as rap example. Kit context photo rights checked."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://thepartae.com/stanley-odd/", "https://stanleyodd.bandcamp.com/music"]
+    },
+    {
+      "group": "023",
+      "id": "san_diego_rap",
+      "entry_sha256": "881b520422946a9b8742c4d5766b5106aab60546f3d09588ca79fc40a70aec7f",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Label roster directly verifies San Diego and MC/keys/bass/drums/sax roles. Grand piano is explicitly authored realization of keys; kit context image rights checked."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://gravitasrecordings.com/artist/vokab-kompany/",
+        "https://vokabkompany.bandcamp.com/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "portland_hip_hop",
+      "entry_sha256": "98c7df88780dad2d9ce215a36e6cd82f85efda70b25777ddb54ec54c09f2ca84",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Earthbound artist credits directly checked; Portland artist role and Commons Crenshaw portrait attribution checked."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://ofn.uoregon.edu/profile/michael-mic-crenshaw",
+        "https://miccrenshaw.bandcamp.com/album/earthbound"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_baiano",
+      "entry_sha256": "9330e2eecd589c5a1d8c15a55ec7f55b3ad11684368c086ea8eb5bdccef6eba3",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Organizer role description and independently indexed official Salvador artist announcement corroborate ensemble and practice pin."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://prefeitura.sp.gov.br/web/cultura/w/noticias/31988",
+        "https://www.instagram.com/p/DdEmUXolqVX/",
+        "https://www.ba.gov.br/irdeb/noticias/2026-09/872/familia-triplice-e-o-grupo-da-semana-no-selo-educadora-fm-independente"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_cearense",
+      "entry_sha256": "b41d1b1ea4024189821994173843591f624e6d4b3b9f42ecda8d9a8c1079a878",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Independently indexed official profile confirms MC/DJ lineup and Maracanau/Pacatuba; limited indexed access disclosed, no claim full-page fetch."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://mapacultural.secult.ce.gov.br/agente/5981/?page=2",
+        "https://mapacultural.icapui.ce.gov.br/agente/5981/",
+        "https://music.apple.com/br/song/caminhada/1305430436"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_catala",
+      "entry_sha256": "c363448616168a6a89aafd44b938cb89451a6c307ef82c12f5797fe42e95fce5",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Artist-hosted biography confirms Catalan MC/DJ configuration and Barcelona performances; corrected city; sampler authored."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://paullonch.cat/projectes/mc/"]
+    },
+    {
+      "group": "019",
+      "id": "psychedelic_hip_hop",
+      "entry_sha256": "525be8d6d81ec6fbda6150c76b9567be1a24e43d21292626a346f07d51102260",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Sub Pop explicitly names Seattle studio ensemble; current branch separated from earlier release; Butler portrait BY-SA4 verified."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://www.subpop.com/artists/shabazz_palaces",
+        "https://www.subpop.com/releases/shabazz_palaces/lese_majesty"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "queens_hip_hop",
+      "entry_sha256": "db76060b3d5df42f15ae65648b191b76728f132c7b5ed35df84d13db245a3e22",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Museum signature description supports drum-machine/scratches/coordinated rap; contemporary recording realization clearly disclosed; Queens pin is representative."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://rockhall.com/inductees/run-dmc/"]
+    },
+    {
+      "group": "019",
+      "id": "polish_viral_rap",
+      "entry_sha256": "26bb6543c51d4cc74e45daf194239f8c5b0d2ab77e5f0743f635b3e4eae52263",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Culture.pl profile verifies viral breakthrough and rapper practice; Warsaw reporting cited; sampler realization authored."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://culture.pl/pl/tworca/mata",
+        "https://notesfrompoland.com/2019/12/16/teens-viral-rap-song-stirs-a-debate-about-sex-drugs-and-privilege-in-poland/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "polynesian_hip_hop",
+      "entry_sha256": "c4060d0684942c0b3c3bca1e567d85c0175f3803c347176e5dc6f04d7d836d89",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "AudioCulture documents Savage/Pacific scene and produced beats; Savage performing portrait BY-SA3 and source modifications verified."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://audioculture.co.nz/profile/savage",
+        "https://blog.tepapa.govt.nz/2014/12/02/hip-hop-was-herefrom-day-1/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "pop_rap",
+      "entry_sha256": "a148940fb7a02f32adfd75dc768318532516160ed989f08b03f0fe64bd7c6bae",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Sampling account and MLB Oakland nativity independently verified; contemporary model clearly declared."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://www.pointblankmusicschool.com/blog/sampling-history-development-techniques/",
+        "https://www.soundonsound.com/people/steve-ouimette-re-recording-hits-video-games",
+        "https://www.mlb.com/news/mc-hammer-to-throw-out-1st-pitch-at-al-wild-card-game"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_abc_paulista",
+      "entry_sha256": "47043da47487561b7a4963b69420fa905a9b0665a8fd6983fab032a94e2d57f6",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Indexed event body explicitly verifies Tifu/B8 MC/DJ remixes and Santo Andre context; dates rightly excluded."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://culturaz.santoandre.sp.gov.br/agente/9368/",
+        "https://www.instagram.com/dj_b8/?hl=en",
+        "https://paudedaemdoido.bandcamp.com/album/arnaldo-tifu-a-rima-n-o-para",
+        "https://abcdoabc.com.br/evento/arnaldo-tifu-dj-b8-remixes/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_catarinense",
+      "entry_sha256": "8f74ecdcaf6ffda0942c33f22a4c163b104f8f475c31591428cef3054d7390c7",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "UFSC original fieldwork directly establishes Florianopolis Arma-Zen MC/DJ practice; authored sampling distinction adequate."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://repositorio.ufsc.br/bitstream/handle/123456789/128861/PPSI0605-D.pdf?sequence=1",
+        "https://www.flickr.com/photos/cenahiphop/485876376/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_chileno",
+      "entry_sha256": "c5dc0914ad22681dfd53e40075caa00bbc0947fc17b2411619e26bf8ce8c4a6c",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "DJ Raff first-person interview directly confirms early Santiago circle and sampler/turntable/cassette backing; current-chain realization disclosed."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://soundsandcolours.com/articles/chile/premiere-dj-raff-presents-new-album-movimiento-38564/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_capixaba",
+      "entry_sha256": "363903177e47e3c9eca6b15a0b7816fa38b98a26a542da5e478308b1ceacbc74",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Independent Tempo Novo report directly verifies MCs, DJ Vitinho, strings and Vitoria/VilaVelha venues."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://secult.es.gov.br/noticias?page=5&pageSize=10&pagenum=273",
+        "https://tribunaonline.com.br/entretenimento/rap-e-classicos-em-concerto-da-orquestra-sinfonica-do-espirito-santo-116627",
+        "https://www.portaltemponovo.com.br/orquestra-sinfonica-do-es-se-une-a-rappers-capixabas-em-concerto-inedito-esta-semana/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "pop_rap_brasileiro",
+      "entry_sha256": "22b84e02c94b1eeea470e40de61b5ef97176e18ea6b128eb5220f6352237c186",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Production-role reporting plus firsthand Projota interview support authored guitar/beat model; publisher confirms Sao Paulo practice."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://web.portalsucesso.com.br/noticias/projota-2",
+        "https://www.terra.com.br/diversao/musica/projota-se-une-a-rapper-budah-na-inedita-coisas-da-vida,c08edf41426fd50be740e29728b6d01c69gv5142.html",
+        "https://music.apple.com/us/album/coisas-da-vida-single/1708656704",
+        "https://nasnuvensmusic.com/portfolio/projota/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_chretien",
+      "entry_sha256": "3b5002d3fa14e5d9e89be4e3d146f0ee65af1b2a82a762baf2e03c9a798d4fad",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Direct interview verifies rap/electro background and Toulouse current practice."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://www.infochretienne.com/articles/je-suis-fan-de-jesus-cest-ouf-manou-bolomik-pionnier-du-rap-chretien-francais-sort-un-nouvel-ep/"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_burkinabe",
+      "entry_sha256": "9bea0b76cb3af7e0ea45f9d7eed3c06f6241c037d96b63a3fd7164203013dcd6",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Arizona source line32 independently confirms Studio Abazon in Ouagadougou; hip-hop identity/studio production documented; MPC illustration explicitly contextual PD."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://humanrightspractice.arizona.edu/person/serge-bambara-smockey",
+        "https://shs.cairn.info/revue-mouvements-2018-4-page-65?lang=fr&tab=resume"
+      ]
+    },
+    {
+      "group": "019",
+      "id": "rap_baixada_fluminense",
+      "entry_sha256": "2cd58fa24d57cdedb250ca63e313ea2600ae7e0fbcf0d1b4273a6e5d5b9fd901",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Municipal page directly confirms MC group personnel and MorroAgudo/NovaIguacu practice; artist-release production credit supports authored beat model."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://novaiguacu.rj.gov.br/2015/05/11/grupo-comboio-de-morro-agudo-conquista-campeonato-mundial-de-hip-hop/",
+        "https://www.youtube.com/watch?v=KPh8jy1WvDk"
+      ]
+    },
+    {
+      "group": "020",
+      "id": "rap_gasy",
+      "entry_sha256": "4641f7d7183716efd02c67dc2eea783c13656c3041d160ce9a3f33a9b0c54ea7",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Artist page confirms Valimad Antanimena recording, rappers, producers and DJ interludes; turntable implementation is explicitly authored."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://tovolah.bandcamp.com/album/zao-zay-2004"]
+    },
+    {
+      "group": "023",
+      "id": "spiritual_hip_hop",
+      "entry_sha256": "95207fa029004ad9db261d45544228bf360af368188276f6661acb0edd1debff",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Label directly confirms turntables/tablas/beats and devotional vocals; festival confirms Point Reyes home studio; Fisher image file metadata verified."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://whiteswanrecords.bandcamp.com/album/elephant-power",
+        "https://mcyogi.com/music/",
+        "https://www.bhaktifest.com/bf2024/mcyogi"
+      ]
+    },
+    {
+      "group": "023",
+      "id": "south_african_hip_hop",
+      "entry_sha256": "8edeea0a2ef6a53449dda1dba5ee82f870e5c2e464f78836640c0bba22042816",
+      "status": "source_review_pass",
+      "pass_notes": [
+        "Label directly confirms rap/guitar/trumpet over beats; firsthand interview confirms Joburg practice; replacement contextual sampler rights verified."
+      ],
+      "issues": [],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": [
+        "https://tekarecords.bandcamp.com/album/siyangaphi",
+        "https://gallomusicpublishers.co.za/composers-g-l/laliboi-2/",
+        "https://pan-african-music.com/en/laliboi-from-the-eastern-cape-with-raps/"
+      ]
+    },
+    {
+      "group": "021",
+      "id": "rap_rock",
+      "entry_sha256": "aa2b507431c6cfaee1fc88725606355fd0c1e00aec675d8a33eb3c5b66d44a00",
+      "status": "source_review_pass",
+      "issues": [],
+      "pass_notes": [
+        "Museum supports Lower Manhattan, guitar collaboration and career sampling; career hybrid scope explicit.",
+        "Commons Beastie-boys.jpg independently verified Masao Nakagami BY-SA2.0, Kawasaki September1992 and source crop."
+      ],
+      "photo_metadata_status": "independently_confirmed_source_file_rights",
+      "source_urls": ["https://rockhall.com/inductees/beastie-boys/"]
+    }
+  ]
+}
