@@ -4076,44 +4076,38 @@ class Reviser:
             # one pair, and repeating it under every line is the shape of the
             # duplicate-findings defect BACKLOG 1.5 was about: it does not
             # hide a finding, it hides the OTHER findings underneath it.
+            # WHAT THE WRITER READS IS THE CURRENT FACT; THE HISTORY LIVES
+            # HERE (2026-09-30, song run B). This evidence string used to
+            # carry the whole change record — the struck RHYME_RELATIONS, the
+            # 2026-08-16 typing of `check_scheme`'s members, the single
+            # `THETA_COLLISION` constant — about 1,800 characters repeated in
+            # every revise brief, and it named `self.decl.admit` as what "this
+            # run declared" on a run whose mandate declared
+            # `schema:perfect rhyme`, which `grade()` judges without
+            # consulting `admits()` at all. The record: the set is still
+            # exactly `check_scheme`'s, the cut is ONE constant
+            # (`lyric_harness.THETA_COLLISION`, imported), each member is
+            # typed (doctrine 24), and making the two questions one was
+            # MEASURED on 2026-08-16 to make NEAR_COLLISION unreachable
+            # (recorded beside the cut in `Reviser._matrix`).
+            _declared = sorted({str(m.relation_of(k))
+                                for k in range(len(m.groups))
+                                if m.relation_of(k)})
+            _door = (f"its group's declared relation "
+                     f"({', '.join(_declared)})" if _declared else
+                     f"`admits()` at the declared admit set "
+                     f"{tuple(self.decl.admit)} or a registry schema")
             whole.append(Finding(
                 "COLLISION_CUT_IS_SCALAR_ONLY", "note",
                 f"{near} of the {len(rep['collisions'])} collision(s) on this "
                 f"draft are NOT rhymes under this harness's own band, and the "
                 f"collision detector reported them anyway",
-                f"the collision cut is `total >= {THETA_COLLISION}` — the "
-                f"SCALAR alone — while `grade()` accepts a mandated pair only "
-                f"when `admits()` does: the scalar AND a relation in the "
-                f"DECLARED admit set — ~~RHYME_RELATIONS~~, which was this "
-                f"sentence's answer while the default was the two rhyme "
-                f"relations and stopped being it on 2026-08-22, when the "
-                f"default widened to every admittable relation (doctrine "
-                f"17: the superseded value stays visible). This run "
-                f"declared {tuple(self.decl.admit)}. So the two halves of "
-                f"this module ask "
-                f"different questions about the same pair, which is the "
-                f"defect `RESULTS_REVISION_LOOP.md` §1 found in `_field` and "
-                f"fixed there, surviving here. The SET is not changed: it is "
-                f"still exactly `check_scheme`'s, and the two constants must "
-                f"not drift. What is changed is that each member is now "
-                f"typed, because doctrine 24 says a rule that would delete a "
-                f"category must relabel instead — an ASSONANCE running across "
-                f"a song is a real sonic event and deleting it would be the "
-                f"worse defect. `lyric_harness.check_scheme` TYPES ITS OWN "
-                f"members too, since 2026-08-11 — this sentence said it "
-                f"carried an untyped message until 2026-08-16, which was "
-                f"true when written and stopped being true five days "
-                f"later, in a finding whose whole subject is a claim two "
-                f"modules make about one set (doctrine 17). What they "
-                f"share now is the CUT, and it is ONE constant: "
-                f"`lyric_harness.THETA_COLLISION`, imported here rather "
-                f"than re-declared, so the two cannot drift. AND THE TWO "
-                f"QUESTIONS SHOULD NOT BE MADE ONE — that was MEASURED on "
-                f"2026-08-16 and the verdict is recorded beside the cut "
-                f"itself in `Reviser._matrix`: adding `admits()` here "
-                f"makes NEAR_COLLISION unreachable and silently stops the "
-                f"refrain merge firing. This sentence names a deliberate "
-                f"difference, not an open defect", []))
+                f"the collision cut is `total >= {THETA_COLLISION}`, the "
+                f"scalar alone; a MANDATED pair is judged by {_door}. So a "
+                f"collision here may be a pair the grade would not accept as "
+                f"its rhyme. The two cuts differ on purpose (one cut would "
+                f"leave NEAR_COLLISION unreachable); each collision is typed "
+                f"by its own relation", []))
         if getattr(m, "scope", ()):
             # SAID ONCE, ABOUT THE MANDATE, and only when the coordinate was
             # DECLARED — a mandate with no scope speaks about every line and
@@ -4234,6 +4228,17 @@ class Reviser:
                 "prominence_runs": _prom_runs}
 
     # -- the brief --------------------------------------------------------
+
+    def _anchors_at(self, text, slot, word):
+        """-> bool. Whether `word`, spliced in at `slot`, gives the grade an
+        anchor there: the test `grade()`'s `_anchorless` applies, asked of
+        the line the writer would hand back."""
+        from quality.loop import swap_at_slot
+        trial = swap_at_slot(text, slot, word)
+        if trial is None:
+            return False
+        anc, label, _ = _SL.resolve(self.lex, trial, slot)
+        return bool(anc and label)
 
     def declared_offer(self, candidates, lines, m, line, slot, group_indices,
                        profile=None, sections=None, limit=None,
@@ -5961,6 +5966,25 @@ class Reviser:
                             _off = _extra[:self.rdecl.offered]
                             _widened += len(_off)
                         _off = [w for w in _off if w not in {_cur, *_forb, *_drop}]
+                    # A WORD THE SLOT CANNOT ANCHOR IS NOT AN ANSWER (song
+                    # run A, 2026-09-30). At a declared token the grade asks
+                    # `slots.resolve` for an anchor and REFUSES the pair when
+                    # there is none (`_anchorless` in `grade()`): `on`, `by`
+                    # and `in` carry no stress there, so a writer who took
+                    # `on` off this menu — it was offered FIRST — was
+                    # rejected for turning a judged pair into a refused one.
+                    # The same predicate, asked of the word spliced in, keeps
+                    # the menu to words the grade can compare; the rest are
+                    # `grader_refused`, whose published sentence ("with one
+                    # of them here the grader could no longer judge this
+                    # pair") is exactly what happens.
+                    if _off and not _SL.is_default(_sl):
+                        _unanch = [w for w in _off
+                                   if not self._anchors_at(lines[ln - 1], _sl, w)]
+                        if _unanch:
+                            _off = [w for w in _off if w not in _unanch]
+                            _grader_ref = list(dict.fromkeys(
+                                [*_grader_ref, *_unanch]))
                     # THE JOINT OFFER IS NOT SCREENED HERE, AND THE REASON IS
                     # THE REFUSAL'S OWN TRIGGER RATHER THAN ITS COST
                     # (`MISSING.md` M-315). A word in the joint offer answers

@@ -2425,10 +2425,20 @@ def names_at(a, b, phon, position, preset=None):
     import dataclasses as _dc
     kw = {"preset": preset} if preset else {}
     found, skipped = [], []
+    # TWO BARE WORDS HAVE A SIMPLE BOUNDARY (song run A, 2026-09-30).
+    # `boundary` is DECLARED to `classify_pair` rather than measured, so
+    # asking each name at its own registered boundary declared `mosaic`,
+    # `broken` and `phrasal` onto `cat`/`hat` and named compound, split and
+    # phrasal rhyme for two monosyllables. Each of those needs a span that
+    # crosses a word boundary, which two single tokens cannot have: a real
+    # no, not an undetermined one, so they are neither found nor skipped.
+    single = not any(ch.isspace() for ch in f"{a}{b}")
     for key, val in NAMED.items():
         names_here = (val if isinstance(val, (list, tuple, set, frozenset))
                       else (val,))
         if key[6] != "phonetic":
+            continue
+        if single and key[4] != "simple":
             continue
         reg = key[3]
         if reg is not None and reg != position:

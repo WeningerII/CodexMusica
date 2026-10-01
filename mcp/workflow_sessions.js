@@ -82,8 +82,20 @@ export function verdictOf(result) {
   return null;
 }
 
+// A revise the deadline stopped mid-run tells a caller-managed client to
+// resume with run_id or state, both of which a session withholds. In a
+// session the run's journal is carried, so the continuation is lyric_revise
+// with the latest session_id and no answer (song run B, 2026-09-30: a writer
+// told to send run_id re-sent the answer instead and was refused).
+const CALLER_RESUME =
+  / Resume explicitly with run_id or (?:state|checkpoint) under the same declarations; completed proposals are in that journal\./;
+const SESSION_RESUME =
+  ' Continue with lyric_revise, the latest session_id and no answer: the session carries this run and replays its journal. If that is stopped again, lyric_revise with recover_only: true exports the journal, and a new run can start from its accepted lines.';
+
 function visible(value) {
   if (Array.isArray(value)) return value.map(visible);
+  if (value && typeof value === 'object' && typeof value.meaning === 'string')
+    value = { ...value, meaning: value.meaning.replace(CALLER_RESUME, SESSION_RESUME) };
   if (!value || typeof value !== 'object') return value;
   return Object.fromEntries(
     Object.entries(value)
