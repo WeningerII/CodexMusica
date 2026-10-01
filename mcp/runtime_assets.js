@@ -56,6 +56,10 @@ function assetEpoch(env) {
         const base = asset.base === 'root' ? root : staged;
         const file = path.join(base, item.path);
         files.push(file);
+        // A root asset's directory is source (quality/ holds Python modules),
+        // and Python caching bytecode there moves its metadata; the root's data
+        // and corpus trees are walked whole below.
+        if (asset.base === 'root') continue;
         for (
           let parent = path.dirname(file);
           parent.startsWith(base) && parent !== path.dirname(parent);

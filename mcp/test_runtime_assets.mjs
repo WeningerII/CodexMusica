@@ -129,6 +129,38 @@ test('cached readiness notices an undeclared file in an existing unlisted nested
   }
 });
 
+test('a root asset beside Python modules does not tie readiness to its directory', () => {
+  // quality/canon_index.tsv is a root asset in a source directory. Python
+  // writing bytecode under it moved that directory's ctime (an overlay
+  // copy-up in the image), which re-ran both blocking checks on the event
+  // loop mid-grade: /health timed out in every capacity shard of
+  // qualification run 36869223383. The file's own identity is still watched.
+  const directory = mkdtempSync(join(tmpdir(), 'runtime-root-asset-'));
+  const proof = join(directory, 'proof.json');
+  writeFileSync(proof, '{"version":1}');
+  const quality = fileURLToPath(new URL('../lyric-harness/quality/', import.meta.url));
+  let checks = 0;
+  const reader = createRuntimeAssetReader({
+    env: { LYRIC_RELEASE_ASSETS_REQUIRED: '1', LYRIC_CAPACITY_ATTESTATION: proof },
+    source: () => 'fixed',
+    run: (_python, args) => {
+      if (!args[0].endsWith('release_assets.py')) return { status: 0 };
+      checks++;
+      return assetInventory;
+    },
+  });
+  let churn;
+  try {
+    assert.equal(reader().ok, true);
+    churn = mkdtempSync(join(quality, '.runtime-assets-test-'));
+    assert.equal(reader().ok, true);
+    assert.equal(checks, 1);
+  } finally {
+    if (churn) rmSync(churn, { recursive: true, force: true });
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
 test('production cannot execute an NLTK override outside the model tree whose bytes were approved', () => {
   const directory = mkdtempSync(join(tmpdir(), 'runtime-tagger-'));
   const staged = join(directory, 'staged'),
