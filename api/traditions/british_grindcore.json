@@ -3,14 +3,14 @@
   "name": "British grindcore",
   "family": "rock_punk",
   "lineage": "British grindcore represented by Napalm Death’s Birmingham scene and a primary retrospective of its early BBC Peel session. Short high-intensity songs, live basic tracking and blast drumming provide the branch.",
-  "recipe": "classic modern british grindcore, distorted Rock, metal branch, punk distorted rock norwegian hardcore connecticut hardcore. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter electro-harmonix big muff pi.",
-  "recipe_chars": 468,
-  "score": 44.484,
+  "recipe": "classic modern british grindcore, distorted Rock, metal branch, punk distorted rock norwegian hardcore psychedelic punk. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter electro-harmonix big muff pi.",
+  "recipe_chars": 464,
+  "score": 46.004,
   "config": {
     "traditions": [
       "british_grindcore",
       "norwegian_hardcore",
-      "connecticut_hardcore"
+      "psychedelic_punk"
     ],
     "instruments": [
       {
@@ -31,15 +31,15 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.1,
+          "electric_technique": 0.04999999999999999,
           "amp_make": 0,
-          "body_wood": 0.585,
+          "body_wood": 0.195,
           "neck_wood": 0.09,
-          "fretboard": 0.39,
+          "fretboard": 0.585,
           "pickup_magnet": 0,
           "pickup_winding": 0.195,
           "string_material": 0.09,
-          "bridge": 0.585,
+          "bridge": 0.195,
           "scale_length": 0,
           "string_gauge": 1.86875,
           "finish": 0,
@@ -60,12 +60,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.585,
+          "body_wood": 0.195,
           "pickup_config": 0,
           "string_type": 0.28500000000000003,
-          "scale_length_b": 0,
+          "scale_length_b": 0.15,
           "fretted_or_not": 0,
-          "bass_technique": 15.795,
+          "bass_technique": 17.42,
           "electric_bass_string_configuration": 0
         }
       },
@@ -86,7 +86,7 @@
         },
         "scores": {
           "drum_technique": 1.69,
-          "drumhead": 0.9099999999999999,
+          "drumhead": 1.105,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.135,
           "shell_thickness": 0,

@@ -5,7 +5,7 @@
   "lineage": "Japanese girl punk is represented here by Otoboke Beaver. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic japanese girl punk, distorted Rock, punk branch. group vocals, live take. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 375,
-  "score": 53.04,
+  "score": 53.201,
   "config": {
     "traditions": [
       "japanese_girl_punk"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 15.079999999999997,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.8382499999999997,
           "neck_wood": 0.40950000000000003,
           "fretboard": 0.273,
           "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.147,
           "string_material": 0.063,
-          "bridge": 1.2730000000000001,
-          "scale_length": 1.4174999999999998,
-          "string_gauge": 1,
+          "bridge": 1.3,
+          "scale_length": 1.4602499999999998,
+          "string_gauge": 1.1425,
           "finish": 0.1365,
-          "string_tuning": 0.3
+          "string_tuning": 0.34275
         }
       },
       {
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.305,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.6
         }
       }

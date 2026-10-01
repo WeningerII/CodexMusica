@@ -5,7 +5,7 @@
   "lineage": "Alternative hardcore is represented here by Bastions. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic alternative hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 390,
-  "score": 37.987,
+  "score": 38.191,
   "config": {
     "traditions": [
       "alternative_hardcore"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.40950000000000003,
           "pickup_winding": 0.147,
           "string_material": 0.063,
-          "bridge": 1.2730000000000001,
+          "bridge": 1.3,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 1,
+          "string_gauge": 1.1425,
           "finish": 0.1365,
-          "string_tuning": 0.3
+          "string_tuning": 0.34275
         }
       },
       {
@@ -113,10 +113,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.042749999999999996,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.08549999999999999
         }
       }
     ],

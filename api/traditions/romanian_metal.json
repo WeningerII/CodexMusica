@@ -5,7 +5,7 @@
   "lineage": "Romanian metal is represented here by Bucovina. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic romanian metal, distorted Rock, folk metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 362,
-  "score": 61.206,
+  "score": 61.037,
   "config": {
     "traditions": [
       "romanian_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 17.30175,
+          "electric_technique": 17.178,
           "amp_make": 6.695,
           "body_wood": 6.89,
           "neck_wood": 0.5774999999999999,
@@ -113,9 +113,9 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.273,
-          "voice_ornament_system": 0.37424999999999997,
+          "voice_ornament_system": 0.363,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.35925,
+          "voice_processing_chain": 0.3255,
           "voice_multitrack_stack": 0.273
         }
       }

@@ -3,9 +3,9 @@
   "name": "J-Ska",
   "family": "pop_rock",
   "lineage": "Japanese ska scene founded in Tokyo in 1985 by Tokyo Ska Paradise Orchestra and extended through the 1990s by Kemuri and Ska Flames, combining a full horn section of trumpets, trombones and saxophones with offbeat upstroke guitar and walking bass at 160-200 BPM, Jamaican first-wave and 2 Tone rhythmic phrasing, instrumental-forward arrangements drawing on jazz and Showa-era kayokyoku melody, and bright close-miked studio tracking.",
-  "recipe": "classic East Asian mid-1990s j-ska, functional Song, pop rock branch, pop punk distorted rock, Jamaican bass system traditional ska ska jazz. thick, breath veiled tone, straight onset, interlocked note trading. yamaha xeno modern Japanese shallow cup lead trumpet trumpet, bach 42 canonical American orchestral tenor student commercial trombone, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ.",
-  "recipe_chars": 978,
-  "score": 524.355,
+  "recipe": "classic East Asian mid-1990s j-ska, functional Song, pop rock branch, pop punk distorted rock, Jamaican bass system traditional ska ska jazz. thick, breath veiled tone, straight onset, interlocked note trading. yamaha xeno modern Japanese shallow cup lead trumpet trumpet, bach 42 canonical American orchestral tenor student commercial trombone, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ.",
+  "recipe_chars": 979,
+  "score": 521.31,
   "config": {
     "traditions": [
       "j_ska",
@@ -27,7 +27,7 @@
         "scores": {
           "wind_articulation": 19.25,
           "brass_size": 1.65,
-          "trumpet_mouthpiece": 14.905,
+          "trumpet_mouthpiece": 14.815,
           "brass_mute": 1,
           "trumpet_technique": 19.25,
           "trumpet_bell_metal": 0.195,
@@ -47,11 +47,11 @@
         },
         "scores": {
           "wind_articulation": 19.25,
-          "trombone_type": 12.75,
-          "trombone_mouthpiece": 19.494999999999997,
+          "trombone_type": 12.84,
+          "trombone_mouthpiece": 19.449999999999996,
           "trombone_mute": 1,
-          "trombone_technique": 3.43,
-          "trombone_bell_metal": 0.285,
+          "trombone_technique": 3.34,
+          "trombone_bell_metal": 0.24,
           "trombone_maker_school": 3.0549999999999997
         }
       },
@@ -73,7 +73,7 @@
           "sax_body_alloy": 14.284999999999998,
           "sax_mouthpiece": 1.65,
           "sax_technique": 12.75,
-          "sax_maker_school": 11.045
+          "sax_maker_school": 10.895
         }
       },
       {
@@ -96,14 +96,14 @@
         "scores": {
           "electric_technique": 7.525,
           "amp_make": 6.305000000000001,
-          "body_wood": 1.09,
+          "body_wood": 1.045,
           "neck_wood": 1.65,
           "fretboard": 1.65,
           "pickup_magnet": 1.65,
           "string_material": 1.65,
           "string_gauge": 1.3,
           "bridge": 0.65,
-          "scale_length": 1.05,
+          "scale_length": 0.66,
           "finish": 0.045,
           "string_tuning": 5.005,
           "single_coil_pickup_construction": 0
@@ -117,16 +117,16 @@
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_walking",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 8.84,
-          "body_wood": 1.05,
-          "pickup_config": 1.045,
-          "string_type": 12.84,
-          "scale_length_b": 0.5249999999999999,
+          "body_wood": 0.66,
+          "pickup_config": 1,
+          "string_type": 12.795,
+          "scale_length_b": 0.32999999999999996,
           "fretted_or_not": 0.09,
           "bass_technique": 15.2,
           "electric_bass_string_configuration": 0
@@ -140,8 +140,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.43,
-          "drumhead": 12.895,
+          "drum_technique": 26.695,
+          "drumhead": 12.745,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -162,7 +162,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -170,17 +170,17 @@
           "voice_quality": 12.479999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.589999999999998,
+          "voice_vibrato": 13.394999999999998,
           "voice_articulation": 22.880000000000003,
           "voice_microtone": 24.395,
-          "voice_tradition": 12.795,
+          "voice_tradition": 12.75,
           "voice_mechanism_compound": 4.42,
           "voice_estill_quality": 2.5350000000000006,
           "voice_speech_song": 24.830000000000002,
           "voice_ensemble_config": 23.009999999999998,
-          "voice_ornament_system": 2.755,
+          "voice_ornament_system": 2.305,
           "voice_pitch_organization": 3.2350000000000008,
-          "voice_processing_chain": 5.98,
+          "voice_processing_chain": 5.9799999999999995,
           "voice_multitrack_stack": 3.5100000000000016
         }
       },
@@ -195,11 +195,11 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 6.38,
-          "drawbar_setting": 13.32,
+          "keyboard_technique": 6.425,
+          "drawbar_setting": 13.125,
           "rotary_speed": 6.175,
           "percussion_setting": 13.14,
-          "tonewheel_model": 16.314999999999998,
+          "tonewheel_model": 16.435,
           "leslie_cabinet_model": -0.035
         }
       }

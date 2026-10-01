@@ -5,7 +5,7 @@
   "lineage": "Slovenian hip hop represented by Murat & Jose’s crossover with Rok Golob’s Soul Activation and Big Band RTV Slovenia.",
   "recipe": "classic modern slovenian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, drum kit, clean strummed single coil electric guitar, grand piano, ensemble trumpet. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 438,
-  "score": 38.309,
+  "score": 38.843,
   "config": {
     "traditions": [
       "slovenian_hip_hop"
@@ -63,10 +63,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.1656250000000004,
+          "amp_make": 3.1285000000000003,
           "body_wood": 0,
           "pickup_config": 0.285,
-          "string_type": 3.171125,
+          "string_type": 3.134,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
           "bass_technique": 2.4,
@@ -115,7 +115,7 @@
           "bridge": 0.105,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.40950000000000003,
+          "string_tuning": 0.6825,
           "single_coil_pickup_construction": 0
         }
       },
@@ -135,7 +135,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.18,
-          "grand_piano_brand": 0.168,
+          "grand_piano_brand": 0.3045,
           "piano_hammer": -0.035,
           "piano_rim": -0.035,
           "piano_soundboard": 0.26,
@@ -153,7 +153,7 @@
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_yamaha_xeno"
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": 3.184,
@@ -162,7 +162,7 @@
           "brass_mute": 0.18,
           "trumpet_technique": 3.184,
           "trumpet_bell_metal": 0.78,
-          "trumpet_maker_school": 0.5459999999999999
+          "trumpet_maker_school": 0.7455
         }
       }
     ],

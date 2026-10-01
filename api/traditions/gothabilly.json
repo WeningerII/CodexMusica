@@ -5,7 +5,7 @@
   "lineage": "Term circulating from The Cramps' orbit and made a scene label in the 1990s by Ghoultown, The Quakes and Zombie Ghost Train — 1950s rockabilly form (slapback-echoed hollowbody twang, slapped upright bass, minimal kit, walking 4/4 at 130-170 BPM) recast in minor and harmonic-minor keys with reverb-drenched tremolo guitar and theatrical, sepulchral crooned vocals.",
   "recipe": "classic mid-1990s gothabilly, distorted Rock, punk branch, surf rock distorted rock, gothic rock distorted rock deathrock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, upright bass, pre muffled edge muffled sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 556,
-  "score": 235.972,
+  "score": 235.432,
   "config": {
     "traditions": [
       "gothabilly",
@@ -47,7 +47,7 @@
           "voice_speech_song": 19.109999999999992,
           "voice_ensemble_config": 18.134999999999994,
           "voice_ornament_system": 0.8449999999999995,
-          "voice_pitch_organization": 4.015000000000001,
+          "voice_pitch_organization": 3.8200000000000003,
           "voice_processing_chain": 2.9899999999999998,
           "voice_multitrack_stack": 1.95
         }
@@ -80,7 +80,7 @@
           "string_gauge": 1.04,
           "bridge": 0.39,
           "scale_length": 0.845,
-          "finish": 0.65,
+          "finish": 0.5,
           "string_tuning": 13.129999999999999,
           "single_coil_pickup_construction": 0
         }
@@ -88,11 +88,11 @@
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "steel_upright",
+          "upright_strings": "gut_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "upright_strings": 0.15,
+          "upright_strings": 0,
           "upright_play": 1.645
         }
       },
@@ -104,7 +104,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 25.264999999999997,
+          "drum_technique": 25.22,
           "drumhead": 2.8299999999999996,
           "drum_kit_kick_pedal": 0
         }

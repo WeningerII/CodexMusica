@@ -3,9 +3,9 @@
   "name": "Surf Pop (vocal surf)",
   "family": "pop_rock",
   "lineage": "Southern Californian vocal branch of the surf craze, 1962-1965, codified by Brian Wilson with the Beach Boys and by Jan Berry with Jan & Dean — mid-tempo 4/4 rock-and-roll at 130-165 BPM with a shuffling or straight backbeat, doo-wop and Four Freshmen-derived four- and five-part block harmony, falsetto lead, reverb-drenched single-coil guitar figures, honking sax, and Los Angeles session-player backing tracked live in small chamber-equipped rooms.",
-  "recipe": "classic Los Angeles 1962-1965 surf pop, distorted Rock, surf rock branch, soul R&B doowop, pop rock girl group yé-yé 1960s girl group. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, block chord tack piano, tenor phosphor bronze ensemble honking attack saxophone, tambourine orch, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 823,
-  "score": 487.064,
+  "recipe": "classic Los Angeles 1962-1965 surf pop, distorted Rock, surf rock branch, soul R&B doowop, pop rock girl group yé-yé 1960s girl group. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany clean single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, block chord tack piano, tenor phosphor bronze ensemble honking attack saxophone, tambourine orch, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 820,
+  "score": 487.924,
   "config": {
     "traditions": [
       "surf_pop",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 40.26862500000001,
+          "voice_register": 40.26300000000001,
           "voice_quality": 14.495000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.405,
           "voice_articulation": 23.59499999999999,
-          "voice_microtone": 36.085625,
-          "voice_tradition": 19.280499999999996,
+          "voice_microtone": 36.08,
+          "voice_tradition": 19.419999999999995,
           "voice_mechanism_compound": 6.954999999999999,
           "voice_estill_quality": 6.5649999999999995,
           "voice_speech_song": 27.884999999999994,
@@ -71,15 +71,15 @@
         },
         "scores": {
           "electric_technique": 19.136499999999995,
-          "amp_make": 21.460874999999998,
-          "body_wood": 1.05625,
-          "neck_wood": 1.05625,
-          "fretboard": 1.0062499999999999,
+          "amp_make": 21.499499999999998,
+          "body_wood": 1.045,
+          "neck_wood": 1.045,
+          "fretboard": 0.995,
           "pickup_magnet": 0.0315,
           "string_material": 0,
           "string_gauge": 1.3,
           "bridge": 0.2415,
-          "scale_length": 1.106875,
+          "scale_length": 1.09,
           "finish": 0,
           "string_tuning": 9.295,
           "single_coil_pickup_construction": 0
@@ -101,10 +101,10 @@
           "amp_make": 10.075000000000001,
           "body_wood": 1.3,
           "pickup_config": 0.27299999999999996,
-          "string_type": 20.504875,
-          "scale_length_b": 1.050625,
+          "string_type": 21.2395,
+          "scale_length_b": 1.045,
           "fretted_or_not": 0.195,
-          "bass_technique": 18.283625,
+          "bass_technique": 18.278000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -146,11 +146,11 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 5.354499999999999,
+          "wind_articulation": 5.385999999999999,
           "sax_size": 3.245,
           "sax_reed": 0,
           "sax_body_alloy": 1.0499999999999998,
-          "sax_mouthpiece": 0.15562499999999999,
+          "sax_mouthpiece": 0.15,
           "sax_technique": 3.9314999999999993,
           "sax_maker_school": 0.9099999999999999
         }
@@ -178,7 +178,7 @@
         },
         "scores": {
           "keyboard_technique": 19.4465,
-          "drawbar_setting": 18.302125000000004,
+          "drawbar_setting": 18.2965,
           "rotary_speed": 18.9175,
           "percussion_setting": 9.295,
           "tonewheel_model": 10.692499999999999,

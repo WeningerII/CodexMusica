@@ -5,7 +5,7 @@
   "lineage": "German post-hardcore is represented here by Give Me Rain. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic german post-hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 390,
-  "score": 42.655,
+  "score": 42.985,
   "config": {
     "traditions": [
       "german_post_hardcore"
@@ -20,7 +20,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 9.620000000000001,
-          "body_wood": 1.7954999999999999,
+          "body_wood": 1.8494999999999997,
           "neck_wood": 0.40950000000000003,
           "fretboard": 0.273,
-          "pickup_magnet": 0.40950000000000003,
-          "pickup_winding": 0.147,
+          "pickup_magnet": 0.4635,
+          "pickup_winding": 0.1905,
           "string_material": 0.063,
-          "bridge": 1.2730000000000001,
-          "scale_length": 1.4174999999999998,
-          "string_gauge": 1,
+          "bridge": 1.3,
+          "scale_length": 1.4714999999999998,
+          "string_gauge": 1.18,
           "finish": 0.1365,
-          "string_tuning": 0.3
+          "string_tuning": 0.354
         }
       },
       {
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.3
         }
       }

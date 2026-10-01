@@ -5,7 +5,7 @@
   "lineage": "Schweizer rap represented by Lo & Leduc’s Bernese dialect rap/pop and full-band performance practice.",
   "recipe": "classic modern schweizer rap, mc Rhythm, intl hip hop branch. rap. electric bass, controlled decay pre muffled edge muffled drum kit, alder clean strummed single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, trumpet, saxophone, student commercial trombone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 459,
-  "score": 52.077,
+  "score": 53.676,
   "config": {
     "traditions": [
       "schweizer_rap"
@@ -33,7 +33,7 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": 14.844875,
+          "voice_quality": 14.816,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
@@ -115,7 +115,7 @@
           "bridge": 0.105,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.40950000000000003,
+          "string_tuning": 0.6825,
           "single_coil_pickup_construction": 0
         }
       },
@@ -135,7 +135,7 @@
         "scores": {
           "keyboard_technique": 2.45,
           "grand_piano_size": 1,
-          "grand_piano_brand": 0.168,
+          "grand_piano_brand": 0.3045,
           "piano_hammer": 2.996,
           "piano_rim": 3.185,
           "piano_soundboard": 2.8775,
@@ -153,7 +153,7 @@
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_yamaha_xeno"
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
@@ -161,8 +161,8 @@
           "trumpet_mouthpiece": 0.7149999999999999,
           "brass_mute": 1,
           "trumpet_technique": 0.19500000000000003,
-          "trumpet_bell_metal": 0.381,
-          "trumpet_maker_school": 0.5459999999999999
+          "trumpet_bell_metal": 0.6539999999999999,
+          "trumpet_maker_school": 0.7455
         }
       },
       {
@@ -195,16 +195,16 @@
           "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
-          "trombone_maker_school": "trombone_yamaha_xeno"
+          "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
           "wind_articulation": 0.19500000000000003,
           "trombone_type": 0.063,
-          "trombone_mouthpiece": 2.7230000000000003,
+          "trombone_mouthpiece": 2.9960000000000004,
           "trombone_mute": 1,
           "trombone_technique": 0.39,
-          "trombone_bell_metal": 0.381,
-          "trombone_maker_school": 0.5459999999999999
+          "trombone_bell_metal": 0.6539999999999999,
+          "trombone_maker_school": 0.7455
         }
       }
     ],

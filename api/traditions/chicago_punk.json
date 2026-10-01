@@ -5,7 +5,7 @@
   "lineage": "Chicago punk is represented here by The Cheap Dates. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic chicago punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 373,
-  "score": 58.717,
+  "score": 58.756,
   "config": {
     "traditions": [
       "chicago_punk"
@@ -30,7 +30,7 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 15.729999999999997,
+          "amp_make": 15.714999999999998,
           "body_wood": 1.1145,
           "neck_wood": 0.31575,
           "fretboard": 0.063,
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.08549999999999999
+          "voice_multitrack_stack": 0.1395
         }
       }
     ],
