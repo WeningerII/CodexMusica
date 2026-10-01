@@ -5,7 +5,7 @@
   "lineage": "Italian post-punk is represented here by We Are Waves. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic italian post-punk, functional Song, new wave branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation arpeggiated humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 500,
-  "score": 38.091,
+  "score": 38.294,
   "config": {
     "traditions": [
       "italian_post_punk"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": 3.404,
-          "amp_make": 9.043999999999999,
+          "amp_make": 9.23,
           "body_wood": 0.1995,
           "neck_wood": 0.168,
           "fretboard": 0.063,
           "pickup_magnet": 0.168,
           "pickup_winding": 0.168,
           "string_material": 0.063,
-          "bridge": 1.2925,
+          "bridge": 1.3,
           "scale_length": 0.336,
-          "string_gauge": 1.2925,
+          "string_gauge": 1.3,
           "finish": 0.0315,
-          "string_tuning": 0.38775
+          "string_tuning": 0.39
         }
       },
       {

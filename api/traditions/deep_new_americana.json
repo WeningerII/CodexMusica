@@ -5,7 +5,7 @@
   "lineage": "This discovery-oriented Americana cluster links roots songwriting with contemporary indie and psychedelic band practice. Artist metadata includes Liz Cooper and SUSTO; Liz Cooper’s documented guitar-bass-drums trio supplies the selected arrangement branch.",
   "recipe": "classic modern deep new americana, functional Song, folk rock branch. thick, breath veiled tone, straight onset, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive.",
   "recipe_chars": 523,
-  "score": 87.034,
+  "score": 87.233,
   "config": {
     "traditions": [
       "deep_new_americana"
@@ -36,8 +36,8 @@
           "voice_quality": 1.2999999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7075,
-          "voice_articulation": -0.14600000000000002,
+          "voice_vibrato": 1.8327499999999999,
+          "voice_articulation": -0.15725,
           "voice_microtone": 11.081499999999997,
           "voice_tradition": 0,
           "voice_mechanism_compound": 1.69,
@@ -47,7 +47,7 @@
           "voice_ornament_system": 0.8477499999999998,
           "voice_pitch_organization": 0.15000000000000002,
           "voice_processing_chain": 1.8199999999999998,
-          "voice_multitrack_stack": 1.447
+          "voice_multitrack_stack": 1.43575
         }
       },
       {
@@ -70,11 +70,11 @@
         "scores": {
           "electric_technique": 2.4314999999999998,
           "amp_make": 4.030000000000001,
-          "body_wood": 0.7787499999999999,
+          "body_wood": 0.7525,
           "neck_wood": 0.39,
           "fretboard": 0.3315,
           "pickup_magnet": 0.3315,
-          "string_material": 0.21600000000000003,
+          "string_material": 0.1935,
           "string_gauge": 0.9099999999999999,
           "bridge": 0.39,
           "scale_length": 1.3,
@@ -98,10 +98,10 @@
         "scores": {
           "amp_make": 5.525,
           "body_wood": 0.39,
-          "pickup_config": 0.1525,
+          "pickup_config": 0.27774999999999994,
           "string_type": 9.75,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.07274999999999998,
+          "fretted_or_not": 0.09299999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Malaysian post-rock is represented here by mutesite — re: (selected instrumental core). This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic malaysian post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 335,
-  "score": 54.595,
+  "score": 54.485,
   "config": {
     "traditions": [
       "malaysian_post_rock"
@@ -29,16 +29,16 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.10500000000000001,
+          "electric_technique": -0.11850000000000002,
           "amp_make": 6.11,
           "body_wood": 0.5565,
-          "neck_wood": 0.378,
-          "fretboard": 0.378,
+          "neck_wood": 0.42074999999999996,
+          "fretboard": 0.42074999999999996,
           "pickup_magnet": 0.147,
-          "pickup_winding": 0.471,
-          "string_material": 0.378,
+          "pickup_winding": 0.34725000000000006,
+          "string_material": 0.42074999999999996,
           "bridge": 1.69,
-          "scale_length": 1.1212499999999999,
+          "scale_length": 1.0402500000000001,
           "string_gauge": 1.69,
           "finish": 0.1365,
           "string_tuning": 0.39
@@ -61,7 +61,7 @@
           "body_wood": 0.126,
           "pickup_config": 0.1785,
           "string_type": 15.6,
-          "scale_length_b": 0.39675,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.042749999999999996,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_coated",
+          "drumhead": "single_clear",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 12,
-          "drumhead": 0.39,
+          "drumhead": 0.42074999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -85,13 +85,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": -0.07,
           "poly_archetypes": 6.24,
-          "poly_voices": 0,
+          "poly_voices": 0.042749999999999996,
           "poly_maker_lineage": -0.035
         }
       }

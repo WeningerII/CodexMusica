@@ -5,7 +5,7 @@
   "lineage": "A Czech pop-rock discovery network including Chinaski, Mirai, Kryštof, Jelen and other song-oriented bands. This default selects Kryštof’s documented guitar-and-three-horn band configuration from the2000s and early2010s.",
   "recipe": "classic czech pop rock, functional Song, pop rock branch. one note per syllable. saxophone, heavy one piece matched to monette horn ensemble trumpet, student commercial trombone, strummed open chord ringing overtones dreadnought acoustic marshall plexi amp British rock amp clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 497,
-  "score": 79.751,
+  "score": 79.669,
   "config": {
     "traditions": [
       "czech_pop_rock"
@@ -41,16 +41,16 @@
           "brass_mute": "no_mute_brass",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
-          "trumpet_maker_school": "trumpet_bach_stradivarius"
+          "trumpet_maker_school": "trumpet_schilke"
         },
         "scores": {
           "wind_articulation": 1.9914999999999998,
           "brass_size": 0.0315,
-          "trumpet_mouthpiece": 2.081,
+          "trumpet_mouthpiece": 2.211,
           "brass_mute": 0.063,
           "trumpet_technique": 1.9914999999999998,
           "trumpet_bell_metal": 0.39,
-          "trumpet_maker_school": 0.504
+          "trumpet_maker_school": 0.39
         }
       },
       {
@@ -67,11 +67,11 @@
         "scores": {
           "wind_articulation": 1.9914999999999998,
           "trombone_type": 0.2815,
-          "trombone_mouthpiece": 9.340499999999999,
+          "trombone_mouthpiece": 9.203999999999999,
           "trombone_mute": 0.063,
           "trombone_technique": 0.2415,
           "trombone_bell_metal": 0.39,
-          "trombone_maker_school": 0.504
+          "trombone_maker_school": 0.231
         }
       },
       {
@@ -88,7 +88,7 @@
           "string_tuning": 0,
           "top_wood": 0.1365,
           "back_sides": 0,
-          "string_acoustic": 0.5774999999999999
+          "string_acoustic": 0.44099999999999995
         }
       },
       {
@@ -116,7 +116,7 @@
           "fretboard": 0.0315,
           "pickup_magnet": 0.0315,
           "string_material": 0.3,
-          "string_gauge": 0.1995,
+          "string_gauge": 0.36849999999999994,
           "bridge": 0.1365,
           "scale_length": 0.378,
           "finish": 0,
@@ -140,7 +140,7 @@
           "amp_make": 4.875,
           "body_wood": 0.378,
           "pickup_config": 0.3045,
-          "string_type": 11.291,
+          "string_type": 11.375,
           "scale_length_b": 0.168,
           "fretted_or_not": 0.3315,
           "bass_technique": -0.15000000000000002,
@@ -158,9 +158,9 @@
         },
         "scores": {
           "drum_technique": 8.7815,
-          "drumhead": 0,
+          "drumhead": 0.03899999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.03899999999999999,
           "cymbal_alloy": -0.14
         }
       },
@@ -195,7 +195,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.663,
+          "voice_speech_song": 0.78,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,

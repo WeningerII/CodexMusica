@@ -1,0 +1,1662 @@
+{
+  "required_predecessor": "ea04e7b231f6b877b097a427cda71c35a15d076d",
+  "expected_additions": 100,
+  "expected_traditions": 4138,
+  "expected_instruments": 1467,
+  "ids": [
+    "latin_surf_rock",
+    "lithuanian_rock",
+    "italian_pop_rock",
+    "italian_progressive_rock",
+    "italian_stoner_rock",
+    "jangle_rock",
+    "japanese_alternative_rock",
+    "japanese_post_rock",
+    "kiwi_rock",
+    "latin_shoegaze",
+    "macedonian_rock",
+    "kurdish_rock",
+    "mexican_rock_and_roll",
+    "modern_country_rock",
+    "modern_folk_rock",
+    "modern_rock",
+    "modern_southern_rock",
+    "neo_industrial_rock",
+    "neo_rockabilly",
+    "norwegian_alternative_rock",
+    "norwegian_folk_rock",
+    "nz_alternative_rock",
+    "mexican_post_rock",
+    "modern_alternative_rock",
+    "modern_hard_rock",
+    "modern_progressive_rock",
+    "norwegian_rock",
+    "pakistani_rock",
+    "paraguayan_rock",
+    "peruvian_rock",
+    "pinoy_alternative_rock",
+    "pinoy_indie_rock",
+    "pinoy_shoegaze",
+    "pittsburgh_indie_rock",
+    "polish_alternative_rock",
+    "polish_post_rock",
+    "polish_rock",
+    "pop_rock_brasileiro",
+    "portuguese_post_rock",
+    "portuguese_rock",
+    "post_rock_latinoamericano",
+    "power_blues_rock",
+    "psychedelic_blues_rock",
+    "psychedelic_folk_rock",
+    "psychedelic_space_rock",
+    "pub_rock",
+    "puerto_rican_rock",
+    "rhythm_rock",
+    "rock_abc_paulista",
+    "rock_alagoano",
+    "rock_alternatif_francais",
+    "reggae_rock",
+    "rock_alternativo_espanol",
+    "rock_andaluz",
+    "rock_baiano",
+    "rock_campineiro",
+    "rock_catarinense",
+    "rock_cearense",
+    "rock_goiano",
+    "raga_rock",
+    "rock_alternativo_brasileiro",
+    "rock_brasiliense",
+    "rock_catala",
+    "rock_catracho",
+    "rock_chapin",
+    "rock_cristao_fluminense",
+    "rock_curitibano",
+    "rock_dominicano",
+    "rock_en_asturiano",
+    "rock_gaucho",
+    "rock_gospel_brasileiro",
+    "rock_gotico",
+    "rock_paraense",
+    "rock_piauiense",
+    "rock_quebecois",
+    "rock_of_gibraltar",
+    "rock_mineiro",
+    "rock_paraibano",
+    "rock_pernambucano",
+    "rock_potiguar",
+    "rock_sul_mato_grossense",
+    "romanian_rock",
+    "russian_alternative_rock",
+    "rock_tico",
+    "rock_viet",
+    "rock_progresivo_mexicano",
+    "rock_progressif_francais",
+    "rock_keyboard",
+    "rock_sergipano",
+    "rock_nica",
+    "rock_kapak",
+    "rock_independant_francais",
+    "rockabilly_en_espanol",
+    "russian_folk_rock",
+    "russian_indie_rock",
+    "russian_post_rock",
+    "russian_shoegaze",
+    "scottish_indie_rock",
+    "serbian_alternative_rock",
+    "shoegaze_brasileiro"
+  ],
+  "baseline_sha256": {
+    "references/05_traditions.js": "81521aace99feba9a0874ada06d4113aebd9222019eb2345223961e3aea5476c",
+    "references/06_extras.js": "b9e79692b7c34d420431af7e335895073b3b08961e5513df32862662d089d9aa",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "77e47e6b22bc6c34b6b4f08743b523a088374386b9225e1498b4133eb9d6c1e3",
+    "references/_image_manifest.json": "3c1a0c7a35b5c490c34ea2f63b9a90cc35986e66b0fe03bfbb75a0ee9f7a731e",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "92583f03dd4df3419799468dff0dcbf8d04254c0c29fa2b945a74f4038e60d74",
+    "tests/regression_snapshot.json": "8512209ee5b4e00bb3d8801055349f927dd6ec422d5673ef035e54207343d601"
+  },
+  "source_sha256": {
+    "references/05_traditions.js": "abdac23cd870a1c0337928010232be3b22c6b06ce37b1839796692c95e55396b",
+    "references/06_extras.js": "b61189900deed5dc8f1a72cc26175294f3f371026ca98c0418457a9125eea1e6",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "637a952f2064feb9471ba7f37ace578fcac13cde6778fed7eb7457f6073f3365",
+    "references/_image_manifest.json": "700f388f4479189411bb3f044e18228a58313866dc7cb08fef836e6c8d530365",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "e19f5c04fbbe4454ae0722cb5a62f0ca86bc8242417b4f3823d5e25b31a4fa6b",
+    "tests/regression_snapshot.json": "aa973b0dd49a88c183a92b44d7266fdfb6459bd17d868460fcd27a0777573437"
+  },
+  "scope": "Existing-schema genre data and generated artifacts only. Original engine, compiler, pipeline, UI behavior, test logic and workflows unchanged.",
+  "validation_status": "DRAFT: all available requested local source/build checks passed including primary full4138 API and final1149/1149 recipes after6 individually reviewed expectations. Required exact-head CI independent freshness and browser checks remain pending; not merge approval.",
+  "candidate_entry_sha256": {
+    "latin_surf_rock": "f1ad953bc3e87872942a381a97cde49112ddc5c0f3fd0d8c03d7b3f20c5f7e53",
+    "lithuanian_rock": "4ab11e487d06d06e288395eacb363225168834dd366d04b43189b2370f79a5d5",
+    "italian_pop_rock": "c203f3b74e4d0f58cd5a6550c7d3cea28b6c0c5b9bd04f97a734235f8f0c46f5",
+    "italian_progressive_rock": "6010d832969b39991e6c52e796b8af6f47f630b8a0b3d28866cae6a8d54ee6cc",
+    "italian_stoner_rock": "e3b358cee6a6b81446aee19ae0dd80008de556cbec2427cb1b506f0674aa00f5",
+    "jangle_rock": "037c465000b6fa9a80eedd76b79c257cda4f4d891e08ce9c9e549521642dd65e",
+    "japanese_alternative_rock": "f4468d8bd25eebbc33003302ad5072a1823d4738d026848f51cada1d8907cb1e",
+    "japanese_post_rock": "cacd2214a1adecf5b90672b73d5d3f8b82784e2c143b8bc6eb3f22f71a76ea6c",
+    "kiwi_rock": "7ddd746ef01bc5a0596c0bc3c99e6440c6c9cbb02b99826cafa6c0397fedb685",
+    "latin_shoegaze": "78b7819b797ca81e1c961a256858f8b715c2489ec27c120d171458b40d64b758",
+    "macedonian_rock": "3da22038e8038f4a01ecdf317fabff220d1766baa7f978c27f253b94c249b12f",
+    "kurdish_rock": "1a391101cb02770b83e735762eecdada16d661625c00d741cbcd09bbc9d52ed7",
+    "mexican_rock_and_roll": "6a4538d3449bccd85ee665bcdd3b306f94256e4418d353583d951d3747dabbaf",
+    "modern_country_rock": "1c5d74dd41dc42804d438f828b4bab29b1c08055e5010a756f49b21516894950",
+    "modern_folk_rock": "39a1e3ed52f6d73c012571177f8d83b151cf469fc245f29c7e3b9c20d615d61b",
+    "modern_rock": "4ff427bf3ea6320b9c54a67f92a38a0a8064b2ee179b97c5336e9450d3a39845",
+    "modern_southern_rock": "a4e8907d2925e1e4a4aa8b930bcd3f32f346334f5a5b881a80900a7bbaa29611",
+    "neo_industrial_rock": "a838dd5aff0db9cdf8ffaae69c8cae6cab9ad1cdc376e2adbe15082872f6a14b",
+    "neo_rockabilly": "08bef2c6d359a1c13dc89953b54a6409f6de81ab515664fc9ae96480ad2f249c",
+    "norwegian_alternative_rock": "e4353d5eb5be7cc6a23a224853ba98e71737b8d5cd2d8bd0524c8b3e0ef819f1",
+    "norwegian_folk_rock": "450e674876a662e4af9d2444882ee62f987c888c95ed21165efda675a8fb87dc",
+    "nz_alternative_rock": "cf102d710a77afb77e1509256dfa9a64af61a0c16784550f73726e459c2f39e8",
+    "mexican_post_rock": "c14bc8844c3507d6d3611369646a929609303248e8b6754ca5b9db3a42a71103",
+    "modern_alternative_rock": "3f10f52c44ca802337a76733239f80ad3df606b63879e120504db702672b03e8",
+    "modern_hard_rock": "8f2e29cee95e507497bfe298a4cfc6294bfa36d57c93e00bf4a13681778b6327",
+    "modern_progressive_rock": "5d6c10114ba1c8271f6b6b4ed1cd17d63b8a3477903abf596844f71d7ac4d115",
+    "norwegian_rock": "9fe12c4ab6b0b1a02256295e7393faca1bf11d6241d47025d1bb07a4d1e60f1d",
+    "pakistani_rock": "c11aa2595e80effc38ecdeceeb5a2767dd0e14f57d9c388d181e822d807af72c",
+    "paraguayan_rock": "b4d50890390dbc2ac77f0a69d0d0c79d8c7317f3f7693351b1c876bc2373aaf0",
+    "peruvian_rock": "3b0cf865d1b85d75d7cb62f712a2e641c1abf221c20577010fbf2a3b916ff016",
+    "pinoy_alternative_rock": "8f7d2713fd6369f8c87cd6592cd76ffe653a07d2729ccd734176bb7c57f6cd12",
+    "pinoy_indie_rock": "8bbf0b79da837f2bdaaf57596e6bb48b916395eebb22dd1e4aa26a4b5146491e",
+    "pinoy_shoegaze": "bb09afcc6902201955f396800643d697506bfaac271ab884af11cfc15d44b36c",
+    "pittsburgh_indie_rock": "22e412b6a8c8f17b850aeb1827e75066e60a9a4ec9f2817fcbd6d325ab4130b0",
+    "polish_alternative_rock": "bc1b343fcbbb44526d7cffc30facf50d570f9bd6ac8354c63ab512a4599fd85d",
+    "polish_post_rock": "67096fb5fce83bf40b93953e3f15182760e169df4e417e7fd424b1736a514018",
+    "polish_rock": "ab86823a98242f2b03b9c7a699f6ef91e2f0e9bdb1a26d946bbc29cd666606dc",
+    "pop_rock_brasileiro": "92257422ba77c29db20c9357b9a4fb7e4657c0108a7e48488ca7a9b4dd45bf89",
+    "portuguese_post_rock": "6c6d585f059049f37ce1896942075257ee70454ceebd512919232dbe711806ed",
+    "portuguese_rock": "d6a8e702d90cb2dbc44c628225dfe4863cb883ab040b1ca4da54b5f8e3f6d46e",
+    "post_rock_latinoamericano": "770d87d2829d0384194e2c7a9f7c08e9842ce9eebde71bcd1509b8cf1bdde49c",
+    "power_blues_rock": "5237c669649fe6db3fab7824938d7f94276e64b4f7e7b3bad07980cbfc037900",
+    "psychedelic_blues_rock": "d02d3f4be28db41bc78b4213098a38f5b72a67a649557424e3d62fde32a995c4",
+    "psychedelic_folk_rock": "5f9007f671d4d11275777a95fac1d29cbc2d4d64678c7b6d78b0ce99e518eff0",
+    "psychedelic_space_rock": "2a97685a64fb46bd1eafc217601811f1f8df9b91e9153a4021401d3e552113c8",
+    "pub_rock": "77eb387bd9b7a5a7c917d1cad0bd5bc13dc8179dd09e666837f5494a2287b176",
+    "puerto_rican_rock": "c9d578e77ef8cadea864dc8ece467fbd8dc53651dcadc29e1e5e9f3af56a9904",
+    "rhythm_rock": "60b148ef0efa45dab3c72c8bd22029bc3c32f4e0bb13fd0c7021dd6a0c26579a",
+    "rock_abc_paulista": "7bc24f237b4e9b4a1a92f7b42c49f0fff645a85cc9c53e169b743db0f336e440",
+    "rock_alagoano": "eee5b0b1e2669fd8b6baee5702c8132a4fe0c29aef830aa7158a97b2b58c359c",
+    "rock_alternatif_francais": "88756bb10a18108dbdbadc714400375a9c53ce83e97e27b9410c423af5f102d6",
+    "reggae_rock": "ae7b0d730332be23d090137adf05e826a1ba3f326d02f4633a05574b2b99d681",
+    "rock_alternativo_espanol": "9194c217d7ceb9a554bdf7023721a0f1245650a36ecd58c5c5c9309c2dc52e49",
+    "rock_andaluz": "c604b9071c185d0207e152d7ae56f5c24568292cdee25fc9fafb6480eb4aeda6",
+    "rock_baiano": "91f337af03512b5d5da6977ffd138962847e99075981739a24b98357bcbec679",
+    "rock_campineiro": "aedc09104833cc1a79e971565cec2129ab397228e4542b2b9d3f55c4b025f685",
+    "rock_catarinense": "9e73f2b1c32ccf5676709c8187571cdb227070eb7576af55803c57576ce77f1f",
+    "rock_cearense": "452ecf464f0726162aba0401b3be083b7529f1a7d361748bf4355c4e0f4e9ec7",
+    "rock_goiano": "3d7137aa3b0dafc2e2deafeb133e1e001fbd0fe134915654ff2c4c55c2de6ecc",
+    "raga_rock": "c50ccda0b7548d89416c80a24eafdd41d641baf9f16b0145cd934e9f9019e3a2",
+    "rock_alternativo_brasileiro": "60f12cd998116fac870ff274c992c163ae835edfda895b29902ee840f9a311a9",
+    "rock_brasiliense": "73cd31f74e29a96658599ec9c53eb3fa183e47f622fa27e8a9a8e0cb165338d7",
+    "rock_catala": "4e1fad14a8b6a949d8472b3159d5cd25d335a69bc27a15c46ec23e1bd4894990",
+    "rock_catracho": "a00913f53d4f2c4c705c6b70e3d0de8f2c2b6b31b1e539c0d52c51b831faaf90",
+    "rock_chapin": "348361072cd312cd95faed61a2383d9c77b346651f37e1ceb99dfe76af256739",
+    "rock_cristao_fluminense": "39cb4b566e58d0bebb3c7f91a65780964ec5e5c0b130add2ee9936e6cb3c5413",
+    "rock_curitibano": "54941a45609be616489ead8542963e471b4f9ed34c9c0f868ecd48a2b2e742b2",
+    "rock_dominicano": "d0f4232d94a3400ed17df3dfa75caa7851a3d4e9bb877acd6b5ac35ff24d28e9",
+    "rock_en_asturiano": "8e8d71722a7e5b0cdbfa42762a98410aa9ea83b9fc5f86db8bc43a4fe983c447",
+    "rock_gaucho": "98d53f0237a42cb34c8fe306c877f405f8db42ce825a2d5b9cab738d681f18b0",
+    "rock_gospel_brasileiro": "5d9588a7c279af2b24a736df500aea219f8f7e7b9149c6c6c821ef933c27db85",
+    "rock_gotico": "4d5fdad579bff72196cdd7042a7c80f474c35fd963a749fc665693c7118e16de",
+    "rock_paraense": "3c6212b619b4d207c922d97fe3906be99a3f1c93d31cb874577c1b2ee9a10586",
+    "rock_piauiense": "390830503b66daefbe5cd44d72e8e684a050f68252a303e4347b16c20989542a",
+    "rock_quebecois": "32b0d8a0cdb2243e6efbe2544692faeaad9a59cf148ea8fa1e8155985a8a9426",
+    "rock_of_gibraltar": "7387155acc7885fdf2fd3e529af4133e51a0db2c3ec5aef4ca11cd7e968b9413",
+    "rock_mineiro": "90f491bd7150ffcb3dba207dcf259baecf8775fa31388bec0d1373227fe0e142",
+    "rock_paraibano": "aba9bdeb04964dd0276cf640be4668f0df43345ab2b67fffab9f020581e4067b",
+    "rock_pernambucano": "146cb926c61f6143339f0ee4dff3957722ac134a0d6f233f8d355a8dbd6f303e",
+    "rock_potiguar": "4004b9fe5b41cf04617f793a70b03790541ad82793ac5952687df36c10d0e225",
+    "rock_sul_mato_grossense": "cfbea06a78de61c6005a32292efc51dadf0329bc12433b9635691ff0b7a547c7",
+    "romanian_rock": "74c3c751865e6a494549283e4c7c38e046de799961b054a10f4cd19994de320b",
+    "russian_alternative_rock": "8072e3178ae0ab33ce6669615f54a5f58013d8f9cee18cb91b3217c5f5df7a21",
+    "rock_tico": "f6b08bd868d0bcebb61f43785b8a257ad2cd223ea3ffafd5673d2d17939cfb2e",
+    "rock_viet": "e2688a94d842f8839122a5ec78725f0d04981a4fad2bae8cdd2da86f567ae66e",
+    "rock_progresivo_mexicano": "fe31be853c4c3e8184aec54607474b8550312882118b3cf1aac7620233883a49",
+    "rock_progressif_francais": "d172ead10e7f25760ba1b9a3ddb2250f1d951637644bc4c85b87527f1294260d",
+    "rock_keyboard": "c6266f71e07f9a270933e919371ffaae5c0399b9a153d676e2ee33f484daaa5e",
+    "rock_sergipano": "8adf677411f489c16c43b0bb60f9a59859b632429c9db0ccaba211f55a430062",
+    "rock_nica": "58a230bec857cace55a875456f4a49c5c733e5b5c39eacee2cfa1383aaf6e8f4",
+    "rock_kapak": "9f8f3b9bbb4d55e59e62d3ea2ee07e7b55227d8e880a61fc8cc6d88b807072c8",
+    "rock_independant_francais": "eb9543bcb5b1181c947d6dc84b646304e45e53a2e50738d17786c36c4f8a4c84",
+    "rockabilly_en_espanol": "902bbf6aa465aca14cafe383c3cea26753a9d100994e0bb9cd24cadd663f72b6",
+    "russian_folk_rock": "7e30fa56681e8ae01ed73181838fcefc29628790c72ccba6b7606c04133d05f6",
+    "russian_indie_rock": "7696f50f838fcbcaa6eb82c6aa57a45d174b5ebab6adade393b036ce4997fa43",
+    "russian_post_rock": "4de0d96986ceb04c8bd8c0101fbc2ffbb2fee7eed309567b2366c575fa1fd6a7",
+    "russian_shoegaze": "0376fc1cfc2465822ff375f9b29ee5618e263c001f8c66f4f7af525889376151",
+    "scottish_indie_rock": "b6d74d2a081a0b696f166e0f6df5a38cf648c91d7be58f1c5475ae309121ec27",
+    "serbian_alternative_rock": "bfefa4f3189f5aa03a131846ac4dc5874259366bd691047148b275e71b2d22f7",
+    "shoegaze_brasileiro": "52a6069c9dfb13eebfabcea33e22ee840266902ee0debda8099c6c0086202c8c"
+  },
+  "predecessor_note": "Verified actual remote predecessor; the local baseline has the identical validated source/tree. Earlier published provenance remains unchanged.",
+  "local_checks": {
+    "canonical_refs": "PASS 4138 traditions / 1467 instruments",
+    "primary_full_api": "PASS 4138 compiled / 0 failed / all recipes <=1000 characters / IDs resolve",
+    "api_contract": "PASS",
+    "atlas": "PASS 4138 placed / 0 unplaced",
+    "descriptor_df": "PASS 97.14%, frozen table unchanged",
+    "signatures": "PASS",
+    "duplicate_gate": "PASS 0 unruled collisions; 1 pre-existing unresolved; 328 advisory pairs",
+    "prefaces": "PASS 79/79",
+    "slots": "PASS 4/4",
+    "app_recipes": "PASS 56/56",
+    "equivalence": "PASS 8/8",
+    "docs": "PASS 13 executable commands and 8 behaviors; count-only public changes verified byte-for-byte",
+    "lint": "PASS",
+    "format": "PASS",
+    "structural_ui": "PASS geometry/workbench/chat counter",
+    "initial_recipe_regression": "1143/1149 matched; 6 expectations individually reviewed and selectively updated; 0 blends independently rebuilt on prior data",
+    "final_full_local_regression": "PASS 1149/1149 unchanged default parallel pool, no concurrent API compiler",
+    "independent_freshness": "PENDING required exact-head CI; no redundant independent local freshness rebuild",
+    "browser_checks": "PENDING required exact-head CI; local Chromium unavailable; no install or bypass"
+  },
+  "scope_audit": {
+    "sourceCounts": {
+      "baseline": 4038,
+      "current": 4138,
+      "additions": 100,
+      "instruments": 1467
+    },
+    "prior_tradition_and_extras_records_unchanged": true,
+    "prior_instrument_room_tree_vocabulary_bytes_unchanged": true,
+    "app_logic_unchanged_outside_generated_signature_data": true,
+    "prohibited_changed_paths": [],
+    "issues": []
+  },
+  "full_api_config_audit": {
+    "changed_existing_api_tradition_files": 81,
+    "recipes_changed": 27,
+    "slot_maps_changed": 39,
+    "changed_slot_values": 127,
+    "all_sources_roles_environment_preserved": true,
+    "all_explicit_pinned_parts_preserved": true,
+    "issues": [],
+    "entries": [
+      {
+        "id": "agronejo",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "american_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "anadolu_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "art_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "atmospheric_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "australian_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "australian_surf_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "austrian_stoner_rock",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "belgian_indie_rock",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_indie_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_stoner_rock",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_surf_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "british_folk_revival",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "british_soul",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "cambodian_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "canadian_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "canadian_stoner_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "classic_canadian_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "classic_hungarian_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "classic_soul",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "cosmic_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "country_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "croatian_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "czech_folk_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "czech_pop_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "danish_pop_rock",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "deathrock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "deep_new_americana",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "dream_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "dutch_pop",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "finnish_progressive_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "folk_rock_italiano",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "french_shoegaze",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "fusion_70s_electric",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "german_hard_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "german_post_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_shoegaze",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "goth",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "gothabilly",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "grunge_argentina",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "gulf_and_western",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "indorock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "italian_post_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "italian_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "japanese_post_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "japanese_rockabilly",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "japanese_shoegaze",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "k_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "korean_shoegaze",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "malaysian_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "math_rock_latinoamericano",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "modern_blues_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "new_romantic",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "nl_folk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "nordic_post_rock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "nordic_shoegaze",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "ostrock",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "paisley_underground",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "phleng_phuea_chiwit",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "polish_techno",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "power_pop",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "progressive_folk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "progressive_groove_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "psychedelic_folk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "redneck_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "rock_caipira",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "rock_en_espanol",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "romanian_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "roots_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "shiver_pop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "skiffle",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "slacker_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "southern_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "stomp_and_flutter",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "sunshine_pop",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "surf_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "swamp_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "synthpop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "ukrainian_metalcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      }
+    ]
+  },
+  "review_artifact": "docs/everynoise-integrations/data-only-015-snapshot-review.json",
+  "count_only_public_docs_proof": {
+    "scope": "Unchanged original check_docs --fix only; numeric catalog count substitutions, no instructions, behavior, listings, price or publication scope altered",
+    "entries": [
+      {
+        "path": "AGENTS.md",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/AGENTS.md\n+++ after/AGENTS.md\n@@ -1,7 +1,7 @@\n # Codex Musica — guide for AI agents\n \n This repository publishes a **static, server-free \"API\"**: pre-compiled recording\n-**recipes** for **4038 recorded-music traditions** and data for **1467 instruments**.\n+**recipes** for **4138 recorded-music traditions** and data for **1467 instruments**.\n There is no server to call, no API key, and no rate limit — every \"endpoint\" is just a\n plain JSON file you fetch and read.\n \n@@ -19,7 +19,7 @@\n \n Base URL: `https://codexmusica.com`\n \n-**Fastest path — one fetch for everything:** `…/api/all.json` returns all 4038\n+**Fastest path — one fetch for everything:** `…/api/all.json` returns all 4138\n traditions with their `recipe` strings in a single file (~1.9 MB). Fetch it once and you\n have the whole catalog; no per-id requests needed. <!-- @promise: all-traditions-one-fetch -->\n \n"
+      },
+      {
+        "path": "README.md",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/README.md\n+++ after/README.md\n@@ -3,7 +3,7 @@\n A structured catalog of recorded-music traditions in 13-dimensional parameter space,\n and an engine that turns a song specification into a tightly compressed structural\n **recipe** — a descriptor stack that tells you how to record it. The catalog spans\n-**4,038 traditions** and **1467 instruments** (with per-part variant decomposition),\n+**4,138 traditions** and **1467 instruments** (with per-part variant decomposition),\n **256 rooms**, **84 chain archetypes**, and **122 tunings**.\n \n The headline operation is recipe generation; the same catalog also supports tradition\n"
+      },
+      {
+        "path": "SKILL.md",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/SKILL.md\n+++ after/SKILL.md\n@@ -1,6 +1,6 @@\n ---\n name: codex-music-tool\n-description: Query, compose, validate, and mutate the Codex Musica dataset — 4038 recorded-music traditions (in a 317-node genre tree, 13-axis space), 1467 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 122 tunings, and a 740-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack \"recipe\", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.\n+description: Query, compose, validate, and mutate the Codex Musica dataset — 4138 recorded-music traditions (in a 317-node genre tree, 13-axis space), 1467 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 122 tunings, and a 740-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack \"recipe\", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.\n license: UNLICENSED\n ---\n \n@@ -57,8 +57,8 @@\n | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |\n | tunings | 122 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |\n | tree nodes | 317 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |\n-| traditions | 4038 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |\n-| tradition extras | 4038 | keyed by tradition id | `TRADITION_EXTRAS` (object) |\n+| traditions | 4138 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |\n+| tradition extras | 4138 | keyed by tradition id | `TRADITION_EXTRAS` (object) |\n | voice/preface lexicon | 740 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |\n | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |\n \n@@ -130,7 +130,7 @@\n - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).\n   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,\n   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,\n-  pop_rock`; `global` dominates at 1262/4038) — a top-level genre bucket, NOT an\n+  pop_rock`; `global` dominates at 1262/4138) — a top-level genre bucket, NOT an\n   instrument family.\n - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots\n   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and\n@@ -179,7 +179,7 @@\n ```bash\n CODEX_REF=\"$PWD/references\" node -e 'const T=require(\"./load.js\");\n console.log(\"loaded:\",T.INSTRUMENTS.length,\"insts,\",T.TRADITIONS.length,\"trads\")'\n-# → loaded: 1467 insts, 4038 trads\n+# → loaded: 1467 insts, 4138 trads\n ```\n \n ### B. `require` for the preface lexicon only (it has `module.exports`)\n@@ -854,7 +854,7 @@\n - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB\n   bundles per query.\n - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table\n-  (1467 instruments / 4038 traditions — a lot of tokens).\n+  (1467 instruments / 4138 traditions — a lot of tokens).\n - Prefer counts/samples while exploring; pull full records only for the few ids that\n   land in the output.\n - For a single name lookup, `grep -oE \"name: '…'\"` beats spinning up node.\n"
+      },
+      {
+        "path": "atlas.html",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/atlas.html\n+++ after/atlas.html\n@@ -6,7 +6,7 @@\n     <title>Traditions Atlas — Codex Musica</title>\n     <meta\n       name=\"description\"\n-      content=\"An atlas of 4038 music traditions, coloured by the catalog's own taxonomy rather than by geography. Every pin opens its recording recipe in Codex Musica.\"\n+      content=\"An atlas of 4138 music traditions, coloured by the catalog's own taxonomy rather than by geography. Every pin opens its recording recipe in Codex Musica.\"\n     />\n     <link rel=\"canonical\" href=\"./atlas.html\" />\n     <link rel=\"icon\" href=\"assets/favicon-32.png\" sizes=\"32x32\" type=\"image/png\" />\n@@ -19,7 +19,7 @@\n     <script src=\"src/theme.js\"></script>\n     <meta property=\"og:type\" content=\"website\" />\n     <meta property=\"og:title\" content=\"Traditions Atlas — Codex Musica\" />\n-    <meta property=\"og:description\" content=\"4038 music traditions, mapped by sound rather than by border.\" />\n+    <meta property=\"og:description\" content=\"4138 music traditions, mapped by sound rather than by border.\" />\n     <meta property=\"og:url\" content=\"https://codexmusica.com/atlas.html\" />\n     <style>\n       /* Base only. Every colour, size and component style is in src/map.css,\n"
+      },
+      {
+        "path": "docs/connector-directory-submission.md",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/docs/connector-directory-submission.md\n+++ after/docs/connector-directory-submission.md\n@@ -44,14 +44,14 @@\n instrument — into a precise, structured recording recipe: the instruments,\n materials, room, signal chain, and per-instrument *prefaces* (named\n aesthetic/technique signatures) that define how to record it. Backed by a\n-structured catalog spanning 4038 traditions and 1467 instruments, plus a\n+structured catalog spanning 4138 traditions and 1467 instruments, plus a\n separate songwriting pipeline that plans and grades lyrics the caller writes. No\n account; no external calls.\n \n ### Long description (≈120 words)\n \n CodexMusica is a recording-arrangement engine exposed as MCP tools. Its\n-catalog places **4038 recorded-music traditions** in a 13-dimensional parameter\n+catalog places **4138 recorded-music traditions** in a 13-dimensional parameter\n space alongside **1467 instruments** (decomposed into per-part variants), **256\n rooms**, **122 tunings**, and **740 \"prefaces\"** — named aesthetic/technique/\n delivery signatures (e.g. `satirical`, `keening`, `jhala-cascading`) that map\n"
+      },
+      {
+        "path": "docs/connector.md",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/docs/connector.md\n+++ after/docs/connector.md\n@@ -8,7 +8,7 @@\n naming the instruments, materials, room, signal chain, and per-instrument\n *prefaces* that tell you how to record it.\n \n-- **Catalog:** 4038 traditions · 1467 instruments (with per-part variants) ·\n+- **Catalog:** 4138 traditions · 1467 instruments (with per-part variants) ·\n   256 rooms · 122 tunings · 740 prefaces, placed in a 13-dimensional parameter space.\n - **Browser app:** <https://codexmusica.com/codex.html>\n - **Endpoint:** `https://mcp.codexmusica.com/mcp` · health: `/health`\n"
+      },
+      {
+        "path": "index.html",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/index.html\n+++ after/index.html\n@@ -6,7 +6,7 @@\n     <title>Codex Musica</title>\n     <meta\n       name=\"description\"\n-      content=\"Codex Musica — recording recipes for 4038 music traditions and 1467 instruments. Human app at codex.html; machine-readable recipes at api/all.json (one fetch, all recipes). No server, no key.\"\n+      content=\"Codex Musica — recording recipes for 4138 music traditions and 1467 instruments. Human app at codex.html; machine-readable recipes at api/all.json (one fetch, all recipes). No server, no key.\"\n     />\n     <link rel=\"canonical\" href=\"./codex.html\" />\n     <link rel=\"icon\" href=\"assets/favicon-32.png\" sizes=\"32x32\" type=\"image/png\" />\n@@ -65,7 +65,7 @@\n   <body>\n     <main>\n       <h1>Codex Musica</h1>\n-      <p>Recording recipes for <strong>4038 music traditions</strong> and 1467 instruments.</p>\n+      <p>Recording recipes for <strong>4138 music traditions</strong> and 1467 instruments.</p>\n       <p><a class=\"launch\" href=\"./codex.html\">Launch the app →</a></p>\n       <p style=\"margin-top: 0.5rem\"><a href=\"./atlas.html\">Browse the traditions atlas →</a></p>\n \n"
+      },
+      {
+        "path": "llms.txt",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/llms.txt\n+++ after/llms.txt\n@@ -1,6 +1,6 @@\n # Codex Musica\n \n-> A static, server-free catalog of recording \"recipes\" for 4038 recorded-music\n+> A static, server-free catalog of recording \"recipes\" for 4138 recorded-music\n > traditions and 1467 instruments. Each tradition resolves to a compressed\n > descriptor-stack recipe (how to record a song in that style) plus a structured\n > arrangement (ensemble, room, signal chain, tuning). All data is plain JSON served as\n@@ -49,7 +49,7 @@\n NOT a snapshot of what start_recipe returns. These recipes come from a search over the\n axis space, the connector's from seeding a workspace and rendering it, so the two describe\n the same tradition in different words. If you need the string a user would see in the app,\n-call the connector; if you need 4038 recipes in one fetch, this is the only thing that\n+call the connector; if you need 4138 recipes in one fetch, this is the only thing that\n does that.\n - ALL default recipes in one fetch: https://codexmusica.com/api/all.json\n - List of traditions: https://codexmusica.com/api/traditions/index.json\n"
+      },
+      {
+        "path": "package.json",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/package.json\n+++ after/package.json\n@@ -2,7 +2,7 @@\n   \"name\": \"codex-music-tool\",\n   \"version\": \"2.0.0\",\n   \"private\": true,\n-  \"description\": \"Compressed song-recipe descriptor engine over a 4038-tradition / 1467-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a lazy-loading browseable HTML catalog app over a static, server-free JSON API.\",\n+  \"description\": \"Compressed song-recipe descriptor engine over a 4138-tradition / 1467-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a lazy-loading browseable HTML catalog app over a static, server-free JSON API.\",\n   \"license\": \"UNLICENSED\",\n   \"author\": \"CodexMusica\",\n   \"type\": \"commonjs\",\n"
+      },
+      {
+        "path": "server.json",
+        "exact_count_replacement_only": true,
+        "before_count": 4038,
+        "after_count": 4138,
+        "patch": "--- before/server.json\n+++ after/server.json\n@@ -2,7 +2,7 @@\n   \"$schema\": \"https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json\",\n   \"name\": \"io.github.weningerii/codex-musica\",\n   \"title\": \"Codex Musica\",\n-  \"description\": \"Recording recipes over 4038 traditions and a separate lyrics planning, grading and revision pipeline. Recipe tools are deterministic. Lyrics tools plan and grade; the caller writes every line, and revision stores private run state.\",\n+  \"description\": \"Recording recipes over 4138 traditions and a separate lyrics planning, grading and revision pipeline. Recipe tools are deterministic. Lyrics tools plan and grade; the caller writes every line, and revision stores private run state.\",\n   \"version\": \"3.2.0\",\n   \"websiteUrl\": \"https://codexmusica.com\",\n   \"repository\": {\n"
+      }
+    ]
+  },
+  "append_only_source_proof": {
+    "issues": [],
+    "entries": [
+      {
+        "path": "data/geo.json",
+        "all_prior_values_unchanged": true,
+        "old_count": 4038,
+        "new_count": 4138,
+        "added": 100
+      },
+      {
+        "path": "references/_tradition_signatures.json",
+        "all_prior_values_unchanged": true,
+        "old_count": 2016,
+        "new_count": 2116,
+        "added": 100
+      },
+      {
+        "path": "references/_image_manifest.json",
+        "old_image_records_unchanged": true,
+        "old_count": 5455,
+        "new_count": 5555,
+        "added": 100
+      },
+      {
+        "path": "references/05_traditions.js",
+        "all_prior_literal_bytes_unchanged": true,
+        "appended_lines": 100
+      },
+      {
+        "path": "references/06_extras.js",
+        "all_prior_literal_bytes_unchanged": true,
+        "appended_lines": 100
+      }
+    ]
+  },
+  "publication_schedule": "Draft with all available local checks passed; existing required exact-head CI must pass before merge. Independent freshness is required CI, no redundant second local full compile.",
+  "local_resource_measurements": {
+    "primary_api": {
+      "command": ["node", "scripts/build_static_api.js", "--jobs=4"],
+      "returncode": 0,
+      "wall_seconds": 310.835,
+      "peak_rss": 2267820,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 1221.05776,
+      "system_cpu_seconds": 4.67563,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    },
+    "initial_regression": {
+      "command": ["env", "-u", "REGRESSION_SERIAL", "node", "scripts/regression_recipes.js"],
+      "returncode": 1,
+      "wall_seconds": 65.79,
+      "peak_rss": 3430076,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 454.436139,
+      "system_cpu_seconds": 5.114813,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    },
+    "final_regression": {
+      "command": ["env", "-u", "REGRESSION_SERIAL", "node", "scripts/regression_recipes.js"],
+      "returncode": 0,
+      "wall_seconds": 69.044,
+      "peak_rss": 3379948,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 444.549235,
+      "system_cpu_seconds": 7.493807,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    }
+  },
+  "frozen_candidate_packet_sha256": "3c0a43c72ec5f75b58e9005c1535d080287a5a959261430a10e47b7fffdc6584",
+  "frozen_candidate_entry_sha256_canonical": {
+    "latin_surf_rock": "5e0d52b6d1efd7e72bda751bd4017b8297f1fa09754c6f8462926b5794c415e1",
+    "lithuanian_rock": "ac550804d8da15f5d1712f17b6229625ea79c20ab4b0f8c0ae7a15f1ca4af31d",
+    "italian_pop_rock": "4593db352af0567413aaa2154c9acad2ed7491d4465a6ee995ad955eddd9aa42",
+    "italian_progressive_rock": "0a2f032c795a469c8bb741c6a86adceccc67c1caeeb83206809e3db7cbfce4c2",
+    "italian_stoner_rock": "b8e96cc43332fd9fea5b8905389d87c576dd574a6dd5fa98c203ce7e1dfa1c5b",
+    "jangle_rock": "74f3bb92753416472e4d44e464c89642c9d15e658cf850b7ded9995c8481d387",
+    "japanese_alternative_rock": "20b1728cffc8b9b15683c62c37bee2f876bbf124893b526fdcef2fbb640da2de",
+    "japanese_post_rock": "5a1586825a26c60147775e4372840cd253dbe65950a5d05a8629257ee11101f0",
+    "kiwi_rock": "fd81e638f57b69d9a6787c2720caf03cc1b42968f1bd9db7db3cbf2c7aa6e103",
+    "latin_shoegaze": "181944120993d6603a1ceacdea53b3bcb3d7c6b28c5890c6c370e4482829d48f",
+    "macedonian_rock": "ef3fb5c505e781a8c3efbbb083935e8867ab5cec8980f1eb33de92c93c3fc347",
+    "kurdish_rock": "41f08e32d096efb7f110c57147a91f68f38e560431b524dfe1d96fd6df0551f9",
+    "mexican_rock_and_roll": "615d036afa78b6c5f0f11dc97d52e396c8ac3adec59dd15fbb69a3756cf71285",
+    "modern_country_rock": "9d1b906b4e0ac64b46948a9fd87dbb614ae0e01ca092ca2255725db4de10c0de",
+    "modern_folk_rock": "98adcc0230f91b25eead71222d1d670940e96f934dac00410b671aad6641b22c",
+    "modern_rock": "596382eacd528d36288bb68a19f54724fad9b3b4fc656491ad4feea213522adb",
+    "modern_southern_rock": "b1eb316b3156c7345a930216a235ab92230ee3e9026d6699cda6efe29c5b8ad0",
+    "neo_industrial_rock": "995114f88b09bf7fe3ec0bd0543f6aa281c81e3db592f17a10528effa8d01034",
+    "neo_rockabilly": "075e0290f07b8c58d981b88685f5a3cf61efebb328e136948e909e7be4c7de88",
+    "norwegian_alternative_rock": "213373b6f26560ccc2fb1e31b43c5493b081d1e1fb384675aa9f4cfbcf3197a4",
+    "norwegian_folk_rock": "d9ab2fcebdd7152fe8b4f4e97fdab03b5b1747c6ee1050a6a1e7b894d03610a3",
+    "nz_alternative_rock": "9c2418e4ff99630a05fb765de7fcd79b0bed47dc6a23106e1ccd3c0a5eb9ff1e",
+    "mexican_post_rock": "36d3eadd0e63999f500af12531d8aecd3b8aa89595806d069efcae9efaec9c03",
+    "modern_alternative_rock": "7201b9cca6e888ff8ee068f3420225008514e145c4cbdac8aeb6d24e3748ad55",
+    "modern_hard_rock": "0a15441aad20e5e8e46fd06d1a164aaf446ab48e775dbc17a42c8dd9770cab30",
+    "modern_progressive_rock": "eb03af0c99e022d3501379477c814821693eb1cd10d693a2131add5c17556c52",
+    "norwegian_rock": "848c369f47c5179c3694fdddbe8f79e13a2a04637ebaed606075da5fd5f100fe",
+    "pakistani_rock": "b87fae8dee5f98460c1cb3f066242c612010ec6a2174df08c927a32a9600bef9",
+    "paraguayan_rock": "e20b6d1d7cfe81e257bb9f3413068fb335142e6133402cfced30997673aab26c",
+    "peruvian_rock": "d6e0169c47c20955238f894df0ada24f18a6621cb104e6b3a78b6f212d77df2e",
+    "pinoy_alternative_rock": "c7186d1625b684eab341e1bfa8337cb2e30dbffd7b3124162b56b5855c296570",
+    "pinoy_indie_rock": "9a86ca46e1ec8a8eb9610bac803d613dc914a42c08f2c2ee9bd8c83559805748",
+    "pinoy_shoegaze": "a70dafbfc9dab1c0c509cd762162b22561ab21cfd17183d77e85045ef9a229f3",
+    "pittsburgh_indie_rock": "c2e5c0b2b22faaeebe294542c417945c92fc8f2c0e44f910a7bc990d35b65027",
+    "polish_alternative_rock": "e7e12df8eb63b7c9c54ebe79c84dc28c560315d1e328131dd771817238353aab",
+    "polish_post_rock": "2f3ca6fd9de2878d44fa067f85da3aff6d518828656312027f648fdfa0cab51d",
+    "polish_rock": "f4cb18c7b8db8ea7aef91f3672ac6125c7eda32f2d6a5aee831663a61f2a5abc",
+    "pop_rock_brasileiro": "80c372784ebb59813f503ddbb5d7251af39904a379b068a013eafb03aff892cd",
+    "portuguese_post_rock": "13b64d66d149340b0ee45ad0b059d9da12d9293103a0343d61c7b806df7e78c2",
+    "portuguese_rock": "0a5290c681203c5929df8d45b66cec6ccc68efbcfc5ff300f0474607bbfc3917",
+    "post_rock_latinoamericano": "2c17180175545f35501b60ca4a5cb296d889ee2685e1e1beb82620b641617c97",
+    "power_blues_rock": "797a78c3aa912c42375a8b25172b5340e852e7f30eaa62041fe63b8ec530dac8",
+    "psychedelic_blues_rock": "206cf692b85f6a37f600276dfba41a80f003be1b0c17dfd098cb53870d3195b8",
+    "psychedelic_folk_rock": "fa70dcb302c4e2db640496f5b67badaa1199e621b00bffc325e556e1898888e3",
+    "psychedelic_space_rock": "d3acf81a91ac0e25696e67b79ba4027f315f5eed0c3767bf4510c68293334868",
+    "pub_rock": "17bc7283a92860d597d8b756f9ee6bc4e2020e83cecf62c6637ba675e076900f",
+    "puerto_rican_rock": "3b0174fac023913900efe00f230654049bacfae11491a7b1a73570d8cb3687b6",
+    "rhythm_rock": "124b949c41cef407110029c2ac9ef8d6e1cd6dcb485f9f83f0e49b3f3f55560c",
+    "rock_abc_paulista": "19bf9f4044c4695a004924296c7314b5c60a95f4b1b0e492b272a9552b50289b",
+    "rock_alagoano": "785197d38f12d1a0b97a1d7f4114e6d424a32d6ba6ed07abf1d7dc83ac346b36",
+    "rock_alternatif_francais": "fbcb9554cbafceb038728a3155792bdb9a10858a0390b3e3d1e19010e9d81da2",
+    "reggae_rock": "014055aca2ba7255aa1263d3fb9e01df625cdde21d93d5e980f84ae84932e9e3",
+    "rock_alternativo_espanol": "506ffaf6ab4074947fb2f2f6a202495fc5cda804ebb612efdd63678a2fecd777",
+    "rock_andaluz": "345821fd89e1d81304ad8670f0ce921bae87d9655800cde980e8f4e3a09a5ac4",
+    "rock_baiano": "872083032d169f859cace05bd02f69a02e32f2731ce9b11dd83084b06512e396",
+    "rock_campineiro": "c2e749a966d1d1a60238ec19766b59ec1b9814b0b932aaeaa0ee258a3a29c49f",
+    "rock_catarinense": "35b0241bfc8f53696924b03439131fb6eb3d88b1db83ef3086f4ff55f6263859",
+    "rock_cearense": "847794129108750109638d727c676e90a226ea5e930f30ffeae019040e389e91",
+    "rock_goiano": "19ceed34cfedf040380b558ae47f4c73f1f896bd43640d0304904b1414709aa0",
+    "raga_rock": "d4b8b27508f7a57ed2b44571ab986d3fa9aac4a17a345553bdd81dfc08d3092f",
+    "rock_alternativo_brasileiro": "12a302ac13a569e808f0280682dfc4cf329929752c96e50aa2a8df44b443f82f",
+    "rock_brasiliense": "5e8a9b4883467ee247795b5a3bf8e7c8ab5e2f4829ee58dd37f9250364aca07a",
+    "rock_catala": "8e5366b94280072b422d9ec2f58c05f5fcd796a25231452b327d967e0129f6c6",
+    "rock_catracho": "bfdf6a06f3b3fd6a9e98ec143f7e9325226ada7886d35265282dda6f54d80eb7",
+    "rock_chapin": "e1b25d107110fde825832d85c2001d79d1acb2d90e2db578f835f52cb9d5ef48",
+    "rock_cristao_fluminense": "eb96b82713ecac67fc3247b26f9e75cf1a717dd3501eeb4a08546fbfe2d5ee00",
+    "rock_curitibano": "c25fa566fabd30ca11f3ed6a3d754949e805c7c209e60721a3ddf5fc912c23d9",
+    "rock_dominicano": "e5ea8a9d05102888e004610d9d98f69350d731a5f008c7205aa9d84b1b74895a",
+    "rock_en_asturiano": "baf797b34be88d11e17369aec63a8df7eda07ba2750ca573a49aa7c3fc565155",
+    "rock_gaucho": "d57cbfc6dd952c37a01d2fd1909b89a1a34d36353655c66df66b86b77e476641",
+    "rock_gospel_brasileiro": "0c4d0472ef5e81d64622ac7c8c330440d7b7212048ce29e08c81bd55bdcf6c0c",
+    "rock_gotico": "3c963d49458c5488c3fa5a6a251ad8a7813490f02cda5027035f14ad68ccb9a2",
+    "rock_paraense": "7db329b5e27b8a955a1b0e6bd2893b16b744534e1c21e739a85fb49b3fd9ffed",
+    "rock_piauiense": "8a99c1b72a5425f374730b297025eb1848f592081d242d5c64b4a66545ca756b",
+    "rock_quebecois": "964826e88dc75ed5d6b7594300246f22e8984f21fe5161a58267e0852a89964b",
+    "rock_of_gibraltar": "fb613c2bf32f7d6380b7fdc5dbf659e46e1273911ece6e4803cd09baaa14fb10",
+    "rock_mineiro": "f57bda614ebaf80af795cb1f28e21c00d50fd25e5ea480dcee5080c393060116",
+    "rock_paraibano": "d7df7f041fc75d7f011a254de1cf40e1410b3e6ef9a7fe96f2c73d903aa72d54",
+    "rock_pernambucano": "53423dbaa0709481735338348733799e5f03fffbd521087295391b0ef11d4936",
+    "rock_potiguar": "4a524dd1acc0588b2ef468cf603acb9878b57bf01a6f9072c7a4f99770e09e17",
+    "rock_sul_mato_grossense": "1e1f96bb2ff420c483ec05fd1ae35bce4688c7bf529397487190ecfc6275204b",
+    "romanian_rock": "c6591db9952c0969a784788ec6e6cea52c22ae9825b702a155195715632ee165",
+    "russian_alternative_rock": "f2f9e39f8b57b7bc9f483224c739e59e94396816bf268a04fa9b531e10d673a5",
+    "rock_tico": "acb24a8048abf569d08f0121dc6b5abb120cb556d4fb0bb33e6fda587d6cf29c",
+    "rock_viet": "c2ccaa4b17a9f5170fe22a14facb98ec8b9f00523ed8b928e5f24e6b04deeed8",
+    "rock_progresivo_mexicano": "41e98181bc132fa2fe6eeb03bd0a132687944d3e2e1bc046273b2d3279ce0c8e",
+    "rock_progressif_francais": "49f07b608edbb23d0ac9b9d2d0ceea97a93d8ccf26ebfcd80dae42b8ee865987",
+    "rock_keyboard": "611891547880b5af824bd2731425e235d7428bedfb268f3eac51dd6499587814",
+    "rock_sergipano": "87fbdcde1809420667b36a2e32f92cf01bb0d29498e9e8d03a185158957ffd4a",
+    "rock_nica": "d29255a99ea73f80ff430312959385555c1d9779ceb48505a525c4704e84b2c8",
+    "rock_kapak": "7e3f16898c0f34873f7fc8740227fc482740c28776a4ea582510e5ec45b02fd5",
+    "rock_independant_francais": "c014a970391344f622ecefa232930fc457dfafeae67870765235753704f35c2c",
+    "rockabilly_en_espanol": "32bd28d5d88cd4e988f5b0b6e4aaea76067a1c8da497c84acc8a3269527c8775",
+    "russian_folk_rock": "2f62c00261494add0465f1e98ce70bd391cfc588edcf2fa89b98cb99bbc96a94",
+    "russian_indie_rock": "d00b041eea2de086bdc4833f1d3e7586301dfae446c99256b3ea2c52c289201b",
+    "russian_post_rock": "d7e0d58c6d1b02cdfad822a06cbc47116e1f442a6b1bb7029ee8a073a5b0ec1c",
+    "russian_shoegaze": "2d77670f71e0796268473534b06012450572a3d4cc146fe9524cf29cde59b173",
+    "scottish_indie_rock": "6cacbc39608a456ba0c7933677c8c1712a1c78f8c343fea380eea14c8db12e9d",
+    "serbian_alternative_rock": "224c800ac6ad766af02bc0cb39c41b248728ec5d821dffda4612626d7b372349",
+    "shoegaze_brasileiro": "6e55596407379b9ba147999ea5a080b92094b47ff520b4b27777726615203b0c"
+  },
+  "final_entry_sha256_canonical": {
+    "latin_surf_rock": "5e0d52b6d1efd7e72bda751bd4017b8297f1fa09754c6f8462926b5794c415e1",
+    "lithuanian_rock": "ac550804d8da15f5d1712f17b6229625ea79c20ab4b0f8c0ae7a15f1ca4af31d",
+    "italian_pop_rock": "4593db352af0567413aaa2154c9acad2ed7491d4465a6ee995ad955eddd9aa42",
+    "italian_progressive_rock": "0a2f032c795a469c8bb741c6a86adceccc67c1caeeb83206809e3db7cbfce4c2",
+    "italian_stoner_rock": "b8e96cc43332fd9fea5b8905389d87c576dd574a6dd5fa98c203ce7e1dfa1c5b",
+    "jangle_rock": "74f3bb92753416472e4d44e464c89642c9d15e658cf850b7ded9995c8481d387",
+    "japanese_alternative_rock": "20b1728cffc8b9b15683c62c37bee2f876bbf124893b526fdcef2fbb640da2de",
+    "japanese_post_rock": "5a1586825a26c60147775e4372840cd253dbe65950a5d05a8629257ee11101f0",
+    "kiwi_rock": "fd81e638f57b69d9a6787c2720caf03cc1b42968f1bd9db7db3cbf2c7aa6e103",
+    "latin_shoegaze": "181944120993d6603a1ceacdea53b3bcb3d7c6b28c5890c6c370e4482829d48f",
+    "macedonian_rock": "ef3fb5c505e781a8c3efbbb083935e8867ab5cec8980f1eb33de92c93c3fc347",
+    "kurdish_rock": "41f08e32d096efb7f110c57147a91f68f38e560431b524dfe1d96fd6df0551f9",
+    "mexican_rock_and_roll": "615d036afa78b6c5f0f11dc97d52e396c8ac3adec59dd15fbb69a3756cf71285",
+    "modern_country_rock": "9d1b906b4e0ac64b46948a9fd87dbb614ae0e01ca092ca2255725db4de10c0de",
+    "modern_folk_rock": "98adcc0230f91b25eead71222d1d670940e96f934dac00410b671aad6641b22c",
+    "modern_rock": "596382eacd528d36288bb68a19f54724fad9b3b4fc656491ad4feea213522adb",
+    "modern_southern_rock": "b1eb316b3156c7345a930216a235ab92230ee3e9026d6699cda6efe29c5b8ad0",
+    "neo_industrial_rock": "995114f88b09bf7fe3ec0bd0543f6aa281c81e3db592f17a10528effa8d01034",
+    "neo_rockabilly": "075e0290f07b8c58d981b88685f5a3cf61efebb328e136948e909e7be4c7de88",
+    "norwegian_alternative_rock": "213373b6f26560ccc2fb1e31b43c5493b081d1e1fb384675aa9f4cfbcf3197a4",
+    "norwegian_folk_rock": "d9ab2fcebdd7152fe8b4f4e97fdab03b5b1747c6ee1050a6a1e7b894d03610a3",
+    "nz_alternative_rock": "9c2418e4ff99630a05fb765de7fcd79b0bed47dc6a23106e1ccd3c0a5eb9ff1e",
+    "mexican_post_rock": "36d3eadd0e63999f500af12531d8aecd3b8aa89595806d069efcae9efaec9c03",
+    "modern_alternative_rock": "7201b9cca6e888ff8ee068f3420225008514e145c4cbdac8aeb6d24e3748ad55",
+    "modern_hard_rock": "0a15441aad20e5e8e46fd06d1a164aaf446ab48e775dbc17a42c8dd9770cab30",
+    "modern_progressive_rock": "eb03af0c99e022d3501379477c814821693eb1cd10d693a2131add5c17556c52",
+    "norwegian_rock": "848c369f47c5179c3694fdddbe8f79e13a2a04637ebaed606075da5fd5f100fe",
+    "pakistani_rock": "b87fae8dee5f98460c1cb3f066242c612010ec6a2174df08c927a32a9600bef9",
+    "paraguayan_rock": "e20b6d1d7cfe81e257bb9f3413068fb335142e6133402cfced30997673aab26c",
+    "peruvian_rock": "d6e0169c47c20955238f894df0ada24f18a6621cb104e6b3a78b6f212d77df2e",
+    "pinoy_alternative_rock": "c7186d1625b684eab341e1bfa8337cb2e30dbffd7b3124162b56b5855c296570",
+    "pinoy_indie_rock": "9a86ca46e1ec8a8eb9610bac803d613dc914a42c08f2c2ee9bd8c83559805748",
+    "pinoy_shoegaze": "a70dafbfc9dab1c0c509cd762162b22561ab21cfd17183d77e85045ef9a229f3",
+    "pittsburgh_indie_rock": "c2e5c0b2b22faaeebe294542c417945c92fc8f2c0e44f910a7bc990d35b65027",
+    "polish_alternative_rock": "e7e12df8eb63b7c9c54ebe79c84dc28c560315d1e328131dd771817238353aab",
+    "polish_post_rock": "2f3ca6fd9de2878d44fa067f85da3aff6d518828656312027f648fdfa0cab51d",
+    "polish_rock": "f4cb18c7b8db8ea7aef91f3672ac6125c7eda32f2d6a5aee831663a61f2a5abc",
+    "pop_rock_brasileiro": "80c372784ebb59813f503ddbb5d7251af39904a379b068a013eafb03aff892cd",
+    "portuguese_post_rock": "13b64d66d149340b0ee45ad0b059d9da12d9293103a0343d61c7b806df7e78c2",
+    "portuguese_rock": "0a5290c681203c5929df8d45b66cec6ccc68efbcfc5ff300f0474607bbfc3917",
+    "post_rock_latinoamericano": "2c17180175545f35501b60ca4a5cb296d889ee2685e1e1beb82620b641617c97",
+    "power_blues_rock": "797a78c3aa912c42375a8b25172b5340e852e7f30eaa62041fe63b8ec530dac8",
+    "psychedelic_blues_rock": "206cf692b85f6a37f600276dfba41a80f003be1b0c17dfd098cb53870d3195b8",
+    "psychedelic_folk_rock": "fa70dcb302c4e2db640496f5b67badaa1199e621b00bffc325e556e1898888e3",
+    "psychedelic_space_rock": "d3acf81a91ac0e25696e67b79ba4027f315f5eed0c3767bf4510c68293334868",
+    "pub_rock": "17bc7283a92860d597d8b756f9ee6bc4e2020e83cecf62c6637ba675e076900f",
+    "puerto_rican_rock": "3b0174fac023913900efe00f230654049bacfae11491a7b1a73570d8cb3687b6",
+    "rhythm_rock": "124b949c41cef407110029c2ac9ef8d6e1cd6dcb485f9f83f0e49b3f3f55560c",
+    "rock_abc_paulista": "19bf9f4044c4695a004924296c7314b5c60a95f4b1b0e492b272a9552b50289b",
+    "rock_alagoano": "785197d38f12d1a0b97a1d7f4114e6d424a32d6ba6ed07abf1d7dc83ac346b36",
+    "rock_alternatif_francais": "fbcb9554cbafceb038728a3155792bdb9a10858a0390b3e3d1e19010e9d81da2",
+    "reggae_rock": "014055aca2ba7255aa1263d3fb9e01df625cdde21d93d5e980f84ae84932e9e3",
+    "rock_alternativo_espanol": "45d8b3419095e4625f9d73f7b688875a8434ee8b73e90d1a7dd2de3602993749",
+    "rock_andaluz": "345821fd89e1d81304ad8670f0ce921bae87d9655800cde980e8f4e3a09a5ac4",
+    "rock_baiano": "872083032d169f859cace05bd02f69a02e32f2731ce9b11dd83084b06512e396",
+    "rock_campineiro": "c2e749a966d1d1a60238ec19766b59ec1b9814b0b932aaeaa0ee258a3a29c49f",
+    "rock_catarinense": "35b0241bfc8f53696924b03439131fb6eb3d88b1db83ef3086f4ff55f6263859",
+    "rock_cearense": "847794129108750109638d727c676e90a226ea5e930f30ffeae019040e389e91",
+    "rock_goiano": "19ceed34cfedf040380b558ae47f4c73f1f896bd43640d0304904b1414709aa0",
+    "raga_rock": "d4b8b27508f7a57ed2b44571ab986d3fa9aac4a17a345553bdd81dfc08d3092f",
+    "rock_alternativo_brasileiro": "12a302ac13a569e808f0280682dfc4cf329929752c96e50aa2a8df44b443f82f",
+    "rock_brasiliense": "5e8a9b4883467ee247795b5a3bf8e7c8ab5e2f4829ee58dd37f9250364aca07a",
+    "rock_catala": "8e5366b94280072b422d9ec2f58c05f5fcd796a25231452b327d967e0129f6c6",
+    "rock_catracho": "bfdf6a06f3b3fd6a9e98ec143f7e9325226ada7886d35265282dda6f54d80eb7",
+    "rock_chapin": "e1b25d107110fde825832d85c2001d79d1acb2d90e2db578f835f52cb9d5ef48",
+    "rock_cristao_fluminense": "eb96b82713ecac67fc3247b26f9e75cf1a717dd3501eeb4a08546fbfe2d5ee00",
+    "rock_curitibano": "c25fa566fabd30ca11f3ed6a3d754949e805c7c209e60721a3ddf5fc912c23d9",
+    "rock_dominicano": "e5ea8a9d05102888e004610d9d98f69350d731a5f008c7205aa9d84b1b74895a",
+    "rock_en_asturiano": "baf797b34be88d11e17369aec63a8df7eda07ba2750ca573a49aa7c3fc565155",
+    "rock_gaucho": "d57cbfc6dd952c37a01d2fd1909b89a1a34d36353655c66df66b86b77e476641",
+    "rock_gospel_brasileiro": "0c4d0472ef5e81d64622ac7c8c330440d7b7212048ce29e08c81bd55bdcf6c0c",
+    "rock_gotico": "3c963d49458c5488c3fa5a6a251ad8a7813490f02cda5027035f14ad68ccb9a2",
+    "rock_paraense": "7db329b5e27b8a955a1b0e6bd2893b16b744534e1c21e739a85fb49b3fd9ffed",
+    "rock_piauiense": "8a99c1b72a5425f374730b297025eb1848f592081d242d5c64b4a66545ca756b",
+    "rock_quebecois": "964826e88dc75ed5d6b7594300246f22e8984f21fe5161a58267e0852a89964b",
+    "rock_of_gibraltar": "fb613c2bf32f7d6380b7fdc5dbf659e46e1273911ece6e4803cd09baaa14fb10",
+    "rock_mineiro": "f57bda614ebaf80af795cb1f28e21c00d50fd25e5ea480dcee5080c393060116",
+    "rock_paraibano": "d7df7f041fc75d7f011a254de1cf40e1410b3e6ef9a7fe96f2c73d903aa72d54",
+    "rock_pernambucano": "53423dbaa0709481735338348733799e5f03fffbd521087295391b0ef11d4936",
+    "rock_potiguar": "4a524dd1acc0588b2ef468cf603acb9878b57bf01a6f9072c7a4f99770e09e17",
+    "rock_sul_mato_grossense": "1e1f96bb2ff420c483ec05fd1ae35bce4688c7bf529397487190ecfc6275204b",
+    "romanian_rock": "c6591db9952c0969a784788ec6e6cea52c22ae9825b702a155195715632ee165",
+    "russian_alternative_rock": "f2f9e39f8b57b7bc9f483224c739e59e94396816bf268a04fa9b531e10d673a5",
+    "rock_tico": "acb24a8048abf569d08f0121dc6b5abb120cb556d4fb0bb33e6fda587d6cf29c",
+    "rock_viet": "c2ccaa4b17a9f5170fe22a14facb98ec8b9f00523ed8b928e5f24e6b04deeed8",
+    "rock_progresivo_mexicano": "41e98181bc132fa2fe6eeb03bd0a132687944d3e2e1bc046273b2d3279ce0c8e",
+    "rock_progressif_francais": "49f07b608edbb23d0ac9b9d2d0ceea97a93d8ccf26ebfcd80dae42b8ee865987",
+    "rock_keyboard": "611891547880b5af824bd2731425e235d7428bedfb268f3eac51dd6499587814",
+    "rock_sergipano": "87fbdcde1809420667b36a2e32f92cf01bb0d29498e9e8d03a185158957ffd4a",
+    "rock_nica": "d29255a99ea73f80ff430312959385555c1d9779ceb48505a525c4704e84b2c8",
+    "rock_kapak": "7e3f16898c0f34873f7fc8740227fc482740c28776a4ea582510e5ec45b02fd5",
+    "rock_independant_francais": "c014a970391344f622ecefa232930fc457dfafeae67870765235753704f35c2c",
+    "rockabilly_en_espanol": "32bd28d5d88cd4e988f5b0b6e4aaea76067a1c8da497c84acc8a3269527c8775",
+    "russian_folk_rock": "2f62c00261494add0465f1e98ce70bd391cfc588edcf2fa89b98cb99bbc96a94",
+    "russian_indie_rock": "d00b041eea2de086bdc4833f1d3e7586301dfae446c99256b3ea2c52c289201b",
+    "russian_post_rock": "d7e0d58c6d1b02cdfad822a06cbc47116e1f442a6b1bb7029ee8a073a5b0ec1c",
+    "russian_shoegaze": "2d77670f71e0796268473534b06012450572a3d4cc146fe9524cf29cde59b173",
+    "scottish_indie_rock": "6cacbc39608a456ba0c7933677c8c1712a1c78f8c343fea380eea14c8db12e9d",
+    "serbian_alternative_rock": "224c800ac6ad766af02bc0cb39c41b248728ec5d821dffda4612626d7b372349",
+    "shoegaze_brasileiro": "6e55596407379b9ba147999ea5a080b92094b47ff520b4b27777726615203b0c"
+  },
+  "final_entry_hash_method": "SHA256 sorted keys compact separators ensure_ascii=false UTF-8",
+  "candidate_hash_note": "candidate_entry_sha256 is helper serialization after license normalization; separate frozen/final canonical hashes retain both exact records.",
+  "verification_log_sha256": {
+    "batch015-additional-collector.log": "a3c61ebfc53217ff7eb4b44c4199204524c5abac85514cad817f65c557bbe186",
+    "batch015-additional-reproduction.log": "cbd2e87dbbc078f528b60a2ef56ec2817350f4cf27b1142121b0e868f5d2a050",
+    "batch015-api-configs.log": "afaa3e56fd5f94c805cb6d3f50d8b882376d3c4f20753d60fa58d7c94982a8e1",
+    "batch015-api-diff.log": "c4a3bcf20fb926cfaeb563a4c1ad0bed06016aa41b0de9e5693c9e223021b02a",
+    "batch015-api.log": "9550c00b65f96242ef7636bba4c0d2c19dc43e5d3ecb39a57701555ea68ce924",
+    "batch015-app-recipes.log": "ebd45325ddac6a73227e2614fc768fc520c7d8255d14f7083980e2a8a75731ca",
+    "batch015-append-only.log": "258abd3693832c67a2ce211de5a71e6f5a8679d559bd4688b867043d29814fef",
+    "batch015-atlas-final.log": "140d4da1b3c73d1e85c84f6743716fc3f1e29d7bcf2c3b42ced09eb351114632",
+    "batch015-atlas.log": "e137d360f67b5f19b14ba73d7b2478d172ce3b29ab18194ad220cef65ff7f6a6",
+    "batch015-candidate-mechanics.log": "d728db9181d1de0751ca623281a1f50ae087a0c2c6bbbd78d70561332f1d09e6",
+    "batch015-chat-counter.log": "581fc5d5c409821988eea83b848cf635043380a197b9f863292626984d589dfd",
+    "batch015-check-api.log": "0ac19915a2a6eba0c99e46a23c90b85be8aa9136317855e746040bce7381a572",
+    "batch015-check-docs.log": "a55029206e695995f43a810bc7c8c44286b0e5f786f1e091366a0630e208c631",
+    "batch015-df.log": "a8a6e53e2279c9b9f427633d8df08fcbb535c04e1b9edef9e8af5124a047b2f2",
+    "batch015-discovery.log": "04455c9d2605e199afa2058a6fa3643d54b1aa2d65f0afaed683c30c70ca63db",
+    "batch015-docs-fix.log": "afdc8ba917d27f99a28b58d981290cbc80684983f68ff3fdd638a3876e117f71",
+    "batch015-duplicates.log": "0fc6122e153d5241d7e5d7759be9e49287d0ff0abb383ebd23b90d064c8ec0a9",
+    "batch015-equivalence.log": "47185b0813cd510bb970d6e453214718f483843b51727814df0fe80608c8ff89",
+    "batch015-format-check.log": "cc002c9970c60a473fb318bcb9fb7937ca47c7e397f00d657b1c7976982979fc",
+    "batch015-html.log": "bd8d1e3c84c08d46ab88bc258be0ab962e0c83691c473079b3fd5bf9f7c757fd",
+    "batch015-integration.log": "222229c1f6f12a7e4a6438a359584fa98e16bdd7cb7afeed43a98c72400d9a53",
+    "batch015-layout-geometry.log": "9a5aca9c6359cfc1ac045712cad002564872dbe1445c012d5e9c1cb4fa7375b5",
+    "batch015-lint.log": "ef11d31c254e7adcb216a05575838c4b3d847c27befb58028ed1d1b6c58522ba",
+    "batch015-preface-lexicon.log": "5c5257fd3122987b1eb4637fb6b437ebfb4527f09849c5989ffc4a7b631cf1cf",
+    "batch015-prefaces.log": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+    "batch015-preflight.log": "a95060616fccd58a001c947f309096ecfea9cb30fb6686157076ccb296389713",
+    "batch015-regression-final.log": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+    "batch015-regression.log": "372c4eaf8822c8522bc35c48bbb28c1b7d7a449f0492dfd193fd8d820c73f050",
+    "batch015-review.log": "074ccf16cf61b57e3bbdf4090f26678b473e385b9a3ebf647e33387d61e0431a",
+    "batch015-scope.log": "e862f051a2ee37bd38940bb78b216873a91f6f8593432cc685364127607ed08d",
+    "batch015-signatures.log": "814afafefd59c3c7d846dc3974e3b13fad93f9f2ebc072cd105a841636e23a2c",
+    "batch015-slots.log": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+    "batch015-validate-final.log": "fd569927b2e39b4a2be8ffb9d84bcb5c6156c449f9d1e1c2533cdbd0518da76f",
+    "batch015-workbench.log": "80a5ddc52457c3f5a411cc88fbca808f99128bb75f4d3ceee382818abcff9edd"
+  },
+  "publisher_independent_review": {
+    "checked_date": "2026-10-01",
+    "scope": "Independent publisher cross-check of21 additional changed API outputs; no repository changes or compiler run",
+    "summary": {
+      "old_and_new_full_recipe_config_score_records_equal_to_exact_api_bytes": 21,
+      "explicit_selected_pins_preserved": 198,
+      "source_extras_roles_environment_preserved": true,
+      "new_authored_source_defects_found": 0
+    },
+    "boundary": "Accept reproducible original-optimizer changes only under the unchanged-source/pin/role/environment criteria. Unpinned legacy cultural/pitch or hardware choices are not newly sourced facts and are not endorsed as historically correct. Existing test and engine logic remain unchanged; final full checks and exact-head CI remain required.",
+    "high_impact_review": [
+      "Rock en español and related distorted-rock outputs change unpinned neighbors/physical slots; existing roles and all explicit source pins remain preserved.",
+      "Country-related old outputs change unpinned neighbors and selections under the unchanged scoring model; the modern-country-rock source has verified multiple singers.",
+      "Pinned single-tradition outputs predominantly change descriptor visibility or unpinned physical fields, with stored full scores/configurations exactly reproduced."
+    ],
+    "new_vocal_screen": {
+      "source_unspecified_culture_pitch_microtone_and_no_ornament": 89,
+      "no_voice": 11
+    },
+    "primary_sources_independently_reread": [
+      {
+        "id": "modern_country_rock",
+        "url": "https://www.weareolddominion.com/home/",
+        "finding": "Official biography explicitly names three vocal roles plus bass and drums, supporting the bounded plural-vocal guitar-band model."
+      },
+      {
+        "id": "rock_abc_paulista",
+        "url": "https://www.palcomp3.com.br/derbaumband/",
+        "finding": "Artist-managed release section names four vocal roles with guitar, bass, drums and keyboard; location and new-wave/post-punk context support the selected branch."
+      }
+    ],
+    "byte_comparison_receipt": "batch015-publisher-independent-byte-checks.json",
+    "checks": [
+      {
+        "id": "rock_en_espanol",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "agronejo",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "swamp_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "redneck_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "stomp_and_flutter",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "goth",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "gulf_and_western",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "new_romantic",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "roots_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "rock_caipira",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "cambodian_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "deathrock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 0,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "german_hard_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 30,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "progressive_groove_metal",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 20,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "brazilian_stoner_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 21,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "danish_pop_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 22,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "austrian_stoner_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 21,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "belgian_indie_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 21,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "canadian_stoner_rock",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 21,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "german_shoegaze",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 21,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      },
+      {
+        "id": "japanese_rockabilly",
+        "source_equal_baseline": true,
+        "extras_equal_baseline": true,
+        "before_reproduction_matches_exact_git_bytes": true,
+        "after_reproduction_matches_exact_worktree_bytes": true,
+        "explicit_pins_checked": 21,
+        "all_explicit_pins_preserved": true,
+        "roles_equal": true,
+        "environment_equal": true
+      }
+    ]
+  },
+  "publisher_independent_byte_checks": [
+    {
+      "id": "rock_en_espanol",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "agronejo",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "swamp_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "redneck_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "stomp_and_flutter",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "goth",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "gulf_and_western",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "new_romantic",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "roots_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "rock_caipira",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "cambodian_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "deathrock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 0,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "german_hard_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 30,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "progressive_groove_metal",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 20,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "brazilian_stoner_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 21,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "danish_pop_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 22,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "austrian_stoner_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 21,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "belgian_indie_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 21,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "canadian_stoner_rock",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 21,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "german_shoegaze",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 21,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    },
+    {
+      "id": "japanese_rockabilly",
+      "source_equal_baseline": true,
+      "extras_equal_baseline": true,
+      "before_reproduction_matches_exact_git_bytes": true,
+      "after_reproduction_matches_exact_worktree_bytes": true,
+      "explicit_pins_checked": 21,
+      "all_explicit_pins_preserved": true,
+      "roles_equal": true,
+      "environment_equal": true
+    }
+  ]
+}

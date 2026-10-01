@@ -5,7 +5,7 @@
   "lineage": "UK 1953-1958 working-class amateur DIY folk-jazz hybrid genre — codified through Lonnie Donegan’s \"Rock Island Line\" (1954, his Chris Barber Jazz Band session) and subsequent solo records, with the Chas McDevitt and Nancy Whiskey \"Freight Train\" (1957) reaching the US Top 40; characterized by amateur-acoustic instrumentation (washboard, tea-chest bass, acoustic guitar, banjo) and American-folk repertoire adapted for UK youth",
   "recipe": "classic British mid-1950s skiffle, functional Song, skiffle branch, pop rock folk rock, blues narrative jug band. thick, worn fold, wide pitch sway, interlocked note trading. cedar walnut flatwound thomastik fingerpicked acoustic guitar, tea chest bass, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, wood walnut mid tier scruggs stelling bluegrass setup banjo 5 string. bedroom. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
   "recipe_chars": 548,
-  "score": 558.655,
+  "score": 561.357,
   "config": {
     "traditions": [
       "skiffle",
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 81.69875,
+          "voice_register": 81.67,
           "voice_quality": 17.900000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 18.074999999999996,
           "voice_articulation": 23.789999999999996,
           "voice_microtone": 41.52,
-          "voice_tradition": 31.91824999999999,
+          "voice_tradition": 33.57249999999999,
           "voice_mechanism_compound": 3.7050000000000005,
-          "voice_estill_quality": 8.2535,
+          "voice_estill_quality": 8.505,
           "voice_speech_song": 29.119999999999994,
           "voice_ensemble_config": 24.504999999999992,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 10.493749999999999,
-          "voice_multitrack_stack": 7.13475
+          "voice_processing_chain": 10.734999999999998,
+          "voice_multitrack_stack": 7.26
         }
       },
       {
@@ -62,7 +62,7 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 8.207499999999998,
+          "string_tuning": 8.304999999999998,
           "top_wood": 1.625,
           "back_sides": 1.8199999999999998,
           "string_acoustic": 4.084999999999999,
@@ -86,7 +86,7 @@
         },
         "scores": {
           "frottoir_construction": 16.185,
-          "frottoir_striker": 0.048749999999999995
+          "frottoir_striker": 0.045
         }
       },
       {
@@ -101,11 +101,11 @@
         },
         "scores": {
           "harmonica_type": 3.9949999999999988,
-          "harmonica_comb": 25.300249999999995,
-          "harmonica_reed": 15.663249999999996,
-          "harmonica_technique": 27.481999999999996,
-          "harmonica_maker_school": 22.234999999999992,
-          "harmonica_tuning": 10.906249999999996
+          "harmonica_comb": 25.489999999999995,
+          "harmonica_reed": 15.634999999999996,
+          "harmonica_technique": 27.464999999999993,
+          "harmonica_maker_school": 22.479999999999993,
+          "harmonica_tuning": 10.889999999999997
         }
       },
       {
@@ -135,9 +135,9 @@
           "banjo_back": 1.4299999999999997,
           "tone_ring": 1.4299999999999997,
           "banjo_head": 24.83,
-          "banjo_pot": 0.048749999999999995,
+          "banjo_pot": 0.045,
           "banjo_play": 0.39,
-          "banjo_rim_wood": 0.44949999999999996,
+          "banjo_rim_wood": 0.44499999999999995,
           "banjo_neck_wood": 1.4300000000000002,
           "banjo_strings": 0.39,
           "banjo_bridge": 0.195,

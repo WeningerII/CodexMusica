@@ -3,9 +3,9 @@
   "name": "Brazilian stoner rock",
   "family": "rock_punk",
   "lineage": "Brazilian stoner rock is represented here by Dead Level — Intoxicated. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic brazilian stoner rock, distorted Rock, alternative branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 397,
-  "score": 50.466,
+  "recipe": "classic brazilian stoner rock, distorted Rock, alternative branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 388,
+  "score": 48.407,
   "config": {
     "traditions": [
       "brazilian_stoner_rock"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.7945,
+          "electric_technique": 0.8724999999999999,
           "amp_make": 6.11,
-          "body_wood": 2.5945,
-          "neck_wood": 0.61,
-          "fretboard": 0.379,
-          "pickup_magnet": 0.1365,
-          "pickup_winding": 0.8830000000000002,
+          "body_wood": 1.6715000000000004,
+          "neck_wood": 0.4735,
+          "fretboard": 0.3055,
+          "pickup_magnet": 0.16899999999999998,
+          "pickup_winding": 0.7465000000000002,
           "string_material": 0.105,
           "bridge": 1.69,
-          "scale_length": 2.081,
+          "scale_length": 1.2945000000000002,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.33899999999999997
+          "string_tuning": 0.39
         }
       },
       {
@@ -58,11 +58,11 @@
         },
         "scores": {
           "amp_make": 5.654999999999999,
-          "body_wood": 1.2200000000000002,
-          "pickup_config": 0.273,
+          "body_wood": 0.9470000000000001,
+          "pickup_config": 0.3055,
           "string_type": 13.325,
-          "scale_length_b": 0.611,
-          "fretted_or_not": 0.0735,
+          "scale_length_b": 0.78,
+          "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0,
-          "voice_ornament_system": 0.273,
+          "voice_ensemble_config": 0.03899999999999999,
+          "voice_ornament_system": 0.1365,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.07799999999999999
         }
       }
     ],

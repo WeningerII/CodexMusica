@@ -5,7 +5,7 @@
   "lineage": "Australian surf rock is represented here by Skegss. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic australian surf rock, distorted Rock, surf rock branch. solo with instrumental accompaniment, single lead single track no stacking. Fender blackface amp American 60s amp spring reverb bright humbucker electric guitar, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 371,
-  "score": 39.106,
+  "score": 39.138,
   "config": {
     "traditions": [
       "australian_surf_rock"
@@ -108,7 +108,7 @@
           "voice_ornament_system": 0.1575,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.272
+          "voice_multitrack_stack": 1.3035
         }
       }
     ],

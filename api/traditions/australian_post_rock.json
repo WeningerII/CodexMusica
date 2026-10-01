@@ -5,7 +5,7 @@
   "lineage": "Australian post-rock is represented here by sleepmakeswaves. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic australian post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 336,
-  "score": 48.165,
+  "score": 47.463,
   "config": {
     "traditions": [
       "australian_post_rock"
@@ -29,16 +29,16 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": -0.07,
+          "electric_technique": -0.1,
           "amp_make": 5.2,
-          "body_wood": 0.693,
+          "body_wood": 0.5565,
           "neck_wood": 0.378,
           "fretboard": 0.378,
-          "pickup_magnet": 0.252,
-          "pickup_winding": 0.37312500000000004,
+          "pickup_magnet": 0.147,
+          "pickup_winding": 0.341625,
           "string_material": 0.378,
           "bridge": 1.69,
-          "scale_length": 1.1025,
+          "scale_length": 0.9975,
           "string_gauge": 1.69,
           "finish": 0.1365,
           "string_tuning": 0.39
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "swamp_ash_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 5.654999999999999,
-          "body_wood": 0.21,
-          "pickup_config": 0.2835,
+          "body_wood": 0.126,
+          "pickup_config": 0.1785,
           "string_type": 13.325,
-          "scale_length_b": 0.378,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.03712499999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

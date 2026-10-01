@@ -5,7 +5,7 @@
   "lineage": "Late-1960s British and American acid-folk, codified 1967-1971 by the Incredible String Band, Vashti Bunyan, Comus and Pearls Before Swine, applying modal fingerstyle guitar in altered tunings to raga-derived drone (sitar, tanpura, hand percussion), free-floating tempo, chamber-string and recorder overdubs, and high, unforced close-miked vocals treated with tape flange and reverse tape.",
   "recipe": "classic British 1967-1971 psychedelic folk, ballad Poetry, britfolk branch, anglo singer song freak folk, pop rock folk rock, modal electric drone modal new weird america. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning fingerpicked acoustic marshall plexi amp British rock amp riff driven single coil electric guitar, drone like modal sitar, dark folk clay tabla, gut gut string strummed open chord ringing overtones celtic harp, melodic recorder, string quartet inst. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 691,
-  "score": 311.94,
+  "score": 307.735,
   "config": {
     "traditions": [
       "psychedelic_folk",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 30.064999999999994,
+          "voice_register": 30.019999999999996,
           "voice_quality": 8.580000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.585,
           "voice_articulation": 15.859999999999994,
           "voice_microtone": 20.539999999999992,
-          "voice_tradition": 35.29999999999999,
+          "voice_tradition": 34.27999999999999,
           "voice_mechanism_compound": 7.345000000000001,
-          "voice_estill_quality": 7.020000000000001,
+          "voice_estill_quality": 6.855,
           "voice_speech_song": 22.424999999999997,
           "voice_ensemble_config": 15.404999999999992,
           "voice_ornament_system": 4.770000000000001,
-          "voice_pitch_organization": 3.7050000000000005,
-          "voice_processing_chain": 3.335,
-          "voice_multitrack_stack": 9.004999999999999
+          "voice_pitch_organization": 3.3000000000000007,
+          "voice_processing_chain": 3.29,
+          "voice_multitrack_stack": 9.02
         }
       },
       {
@@ -62,7 +62,7 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 3.6450000000000005,
+          "string_tuning": 3.7350000000000003,
           "top_wood": 0.65,
           "back_sides": 0.65,
           "string_acoustic": 0.65,
@@ -84,12 +84,12 @@
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 11.309999999999999,
+          "plucked_traditional_technique": 9.51,
           "sitar_neck": 0.65,
-          "sitar_resonator": 0.42,
-          "sitar_jawari": 0.135,
-          "sitar_taraf": 0.09,
-          "sitar_frets": 0.09,
+          "sitar_resonator": 0.09,
+          "sitar_jawari": 0.09,
+          "sitar_taraf": 0.045,
+          "sitar_frets": 0.045,
           "sitar_pluck": 0.195,
           "sitar_main_strings": -0.35,
           "sitar_jawari_style": 0.65,
@@ -117,7 +117,7 @@
           "celtic_harp_strings": "celtic_gut"
         },
         "scores": {
-          "acoustic_technique": 5.12,
+          "acoustic_technique": 4.925000000000001,
           "celtic_harp_levers": 9.749999999999998,
           "celtic_harp_strings": 3.705
         }
@@ -160,7 +160,7 @@
           "fretboard": "rosewood_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -173,13 +173,13 @@
           "body_wood": 0.65,
           "neck_wood": 0.65,
           "fretboard": 0.585,
-          "pickup_magnet": 0.135,
+          "pickup_magnet": 0.09,
           "string_material": 0.18,
-          "string_gauge": 0.65,
-          "bridge": 0.135,
+          "string_gauge": 0.69,
+          "bridge": 0.09,
           "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 4.875,
+          "string_tuning": 4.755,
           "single_coil_pickup_construction": 0
         }
       }

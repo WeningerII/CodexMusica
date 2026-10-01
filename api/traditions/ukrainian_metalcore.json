@@ -5,7 +5,7 @@
   "lineage": "Ukrainian metalcore is represented here by Space of Variations. This selected branch has an authored present-day studio realization.",
   "recipe": "classic ukrainian metalcore, distorted Rock, metal branch. basswood palm muted humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 274,
-  "score": 33.654,
+  "score": 33.79,
   "config": {
     "traditions": [
       "ukrainian_metalcore"
@@ -62,7 +62,7 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.168,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.651,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.063,
           "voice_multitrack_stack": 0.39
         }
       }

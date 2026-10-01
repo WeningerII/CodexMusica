@@ -3,14 +3,14 @@
   "name": "Slacker rock (early-1990s American lo-fi indie)",
   "family": "rock_punk",
   "lineage": "Early-1990s American indie rock substyle characterized by deliberately-loose performance aesthetic, lo-fi production, deadpan vocal delivery, and oblique-fragmentary lyrical content. Pavement (Stockton, 1989-1999) is the canonical type-specimen; parallel acts include Sebadoh, Guided by Voices, Silver Jews, and Built to Spill. Distinguished from broader indie rock by slacker rock's explicit casual-attitudinal aesthetic and emphasis on rough-edged production.",
-  "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock canadian psychedelic rock post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp basswood arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
-  "recipe_chars": 610,
-  "score": 289.827,
+  "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock canadian psychedelic rock modern progressive rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp soft down tuning arpeggiated clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
+  "recipe_chars": 632,
+  "score": 263.69,
   "config": {
     "traditions": [
       "slacker_rock",
       "canadian_psychedelic_rock",
-      "post_rock_extended"
+      "modern_progressive_rock"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 25.21999999999999,
-          "voice_quality": 5.460000000000001,
+          "voice_register": 25.319999999999993,
+          "voice_quality": 3.510000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.1125,
-          "voice_articulation": 12.479999999999995,
-          "voice_microtone": 26.119999999999994,
-          "voice_tradition": 7.995,
+          "voice_vibrato": 0.7800000000000001,
+          "voice_articulation": 9.879999999999999,
+          "voice_microtone": 25.869999999999997,
+          "voice_tradition": 7.345000000000001,
           "voice_mechanism_compound": 4.615000000000001,
-          "voice_estill_quality": 5.22,
-          "voice_speech_song": 11.537499999999998,
-          "voice_ensemble_config": 10.529999999999994,
-          "voice_ornament_system": 2.8275000000000006,
-          "voice_pitch_organization": 5.185,
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 8.19,
+          "voice_ensemble_config": 8.319999999999999,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 3.8850000000000002,
           "voice_processing_chain": 5.915,
-          "voice_multitrack_stack": 3.02
+          "voice_multitrack_stack": 2.5350000000000006
         }
       },
       {
@@ -63,26 +63,26 @@
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 10.57,
-          "amp_make": 12.544999999999998,
-          "body_wood": 1.8849999999999996,
-          "neck_wood": 0.845,
-          "fretboard": 0.845,
+          "electric_technique": 8.944999999999999,
+          "amp_make": 13.194999999999999,
+          "body_wood": 0.5850000000000002,
+          "neck_wood": 0.7800000000000001,
+          "fretboard": 0.7800000000000001,
           "pickup_magnet": 0.15,
-          "pickup_winding": 0.845,
-          "string_material": 0.845,
-          "bridge": 0.09,
-          "scale_length": 2.7299999999999995,
-          "string_gauge": 0.09,
+          "pickup_winding": 0.48,
+          "string_material": 0.7800000000000001,
+          "bridge": 0.74,
+          "scale_length": 0.5850000000000002,
+          "string_gauge": 0.65,
           "finish": 0.195,
-          "string_tuning": 16.9
+          "string_tuning": 15.21
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.805,
+          "amp_make": 13.65,
           "body_wood": 0.3,
-          "pickup_config": 1.4949999999999999,
-          "string_type": 30.765,
+          "pickup_config": 1.8849999999999996,
+          "string_type": 32.015,
           "scale_length_b": 0.09,
           "fretted_or_not": 0.15,
-          "bass_technique": 24.325,
+          "bass_technique": 25.575,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.375,
-          "drumhead": 1.1374999999999997,
+          "drum_technique": 25.625,
+          "drumhead": 2.06,
           "drum_kit_kick_pedal": 0
         }
       }
