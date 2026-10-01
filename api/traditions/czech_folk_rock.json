@@ -5,7 +5,7 @@
   "lineage": "A Czech folk-rock scene with a selected Čechomor branch: Czech, Moravian and Slovak song material arranged for an active band. Violin and accordion retain the melodic center while guitar and a rhythm section provide support.",
   "recipe": "classic czech folk rock, functional Song, folk rock branch. five string low c extension bowed song accompaniment fiddle, accordion, strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 424,
-  "score": 69.45,
+  "score": 69.82,
   "config": {
     "traditions": [
       "czech_folk_rock"
@@ -25,9 +25,9 @@
           "bowed_technique": 4.55,
           "fiddle_strings": 0.273,
           "fiddle_bow": 0,
-          "fiddle_mute": 0.7494999999999999,
-          "fiddle_articulation": 1.05025,
-          "fiddle_string_configuration": 1.5945
+          "fiddle_mute": 0.94125,
+          "fiddle_articulation": 1.0315,
+          "fiddle_string_configuration": 1.6995
         }
       },
       {
@@ -44,7 +44,7 @@
         "scores": {
           "free_reed_technique": -0.1,
           "accordion_reed_material": 0.3315,
-          "musette_offset": 0,
+          "musette_offset": 0.0315,
           "reed_config": 0,
           "bellows": 0.063,
           "voicing_chamber": 0,
@@ -114,9 +114,9 @@
           "shell_thickness": 0.0315,
           "bearing_edges": 0.2415,
           "snare_wires": 0,
-          "cymbal_alloy": -0.1685,
+          "cymbal_alloy": -0.14,
           "cymbal_hammering": 16.96125,
-          "cymbal_lathing": 16.99275,
+          "cymbal_lathing": 17.02425,
           "cymbal_finish": 0
         }
       },

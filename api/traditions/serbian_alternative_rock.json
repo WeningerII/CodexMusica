@@ -5,7 +5,7 @@
   "lineage": "Serbian alternative rock is represented here by Repetitor — Prazan prostor među nama koji može i da ne postoji. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic serbian alternative rock, distorted Rock, alternative branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 339,
-  "score": 58.449,
+  "score": 58.374,
   "config": {
     "traditions": [
       "serbian_alternative_rock"
@@ -38,10 +38,10 @@
           "pickup_winding": 0.5775,
           "string_material": 0.105,
           "bridge": 1.69,
-          "scale_length": 1.3725,
+          "scale_length": 1.3335000000000001,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.38175
+          "string_tuning": 0.38549999999999995
         }
       },
       {
@@ -124,13 +124,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 6.629999999999999,
-          "poly_voices": 0.03899999999999999,
+          "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Chinese post-rock is represented here by Zhaoze — 1911. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic early-1910s chinese post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, guqin. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 333,
-  "score": 44.706,
+  "score": 44.409,
   "config": {
     "traditions": [
       "chinese_post_rock"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 5.2,
-          "body_wood": 0.8674285714285713,
+          "body_wood": 0.7624285714285713,
           "neck_wood": 0.39,
           "fretboard": 0.39,
-          "pickup_magnet": 0.357,
+          "pickup_magnet": 0.252,
           "pickup_winding": 0.37071428571428566,
           "string_material": 0.39,
-          "bridge": 1.4787142857142856,
+          "bridge": 1.6314642857142858,
           "scale_length": 0.39,
-          "string_gauge": 1.381,
+          "string_gauge": 1.53375,
           "finish": 0.1365,
-          "string_tuning": 0.3
+          "string_tuning": 0.33525
         }
       },
       {
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 5.654999999999999,
           "body_wood": 0.21,
-          "pickup_config": 0.38849999999999996,
+          "pickup_config": 0.2835,
           "string_type": 13.325,
-          "scale_length_b": 0.5524285714285714,
+          "scale_length_b": 0.4474285714285714,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -90,11 +90,11 @@
           "guqin_lacquer": "guqin_lacquer_modern_plain"
         },
         "scores": {
-          "plucked_traditional_technique": 0.325,
-          "guqin_strings": 0.357,
+          "plucked_traditional_technique": 0.31675,
+          "guqin_strings": 0.252,
           "guqin_context": 0.651,
           "guqin_body_wood": 0.4724999999999999,
-          "guqin_lacquer": 0.357
+          "guqin_lacquer": 0.252
         }
       }
     ],

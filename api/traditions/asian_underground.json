@@ -3,14 +3,14 @@
   "name": "Asian Underground",
   "family": "electronic",
   "lineage": "London club-scene fusion formed 1995-2000 around Talvin Singh's Anokha nights at the Blue Note and Nitin Sawhney's Outcaste circle, welding 160-175 BPM jungle and breakbeat programming to live tabla tarang, sitar and sarangi with Hindustani raga melody and Punjabi/Bengali vocal lines sung over sampled amen edits and long dub-delayed sub-bass.",
-  "recipe": "classic mid-1990s asian underground, bass System, uk soundsystem branch, bass descendants bass system, indian classical improv improv on frame, south Asian pop functional song tamil pop afghan pop. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, open jawari long sustain buzzing overtones maihar gharana instrumental concert lineage sitar, gut 3 main playing strings tun cedar microtonal sarangi, chopped sampler, singing lead analog poly synth, suited to female vocal bronze steel mix gourd body canonical traditional ornamented tanpura. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 797,
-  "score": 267.847,
+  "recipe": "classic mid-1990s asian underground, bass System, uk soundsystem branch, bass descendants bass system, indian classical improv improv on frame, south Asian pop functional song tarana tappa. vocal fry, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, open jawari long sustain buzzing overtones maihar gharana instrumental concert lineage sitar, gut 3 main playing strings tun cedar legato sarangi, chopped sampler, sub bass analog poly synth, suited to female vocal bronze steel mix gourd body canonical traditional tanpura. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 774,
+  "score": 263.03,
   "config": {
     "traditions": [
       "asian_underground",
-      "tamil_pop",
-      "afghan_pop"
+      "tarana",
+      "tappa"
     ],
     "instruments": [
       {
@@ -21,17 +21,17 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 1.89,
-          "tabla_bayan": 1.3,
-          "tabla_syahi": 2.275
+          "tabla_dayan": 6.19,
+          "tabla_bayan": 4.04,
+          "tabla_syahi": 1.4300000000000002
         }
       },
       {
         "id": "sitar",
         "slots": {
-          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "plucked_traditional_technique": "plucked_classical_idiom",
           "sitar_neck": "teak",
-          "sitar_resonator": "single_kaddu",
+          "sitar_resonator": "with_tumba",
           "sitar_jawari": "camel_bone",
           "sitar_taraf": "taraf_11",
           "sitar_frets": "tied_gut_parda",
@@ -41,22 +41,22 @@
           "sitar_gharana": "sitar_maihar_gharana"
         },
         "scores": {
-          "plucked_traditional_technique": 4.4750000000000005,
-          "sitar_neck": 0.45499999999999996,
-          "sitar_resonator": 0.195,
+          "plucked_traditional_technique": 9.625,
+          "sitar_neck": 0.78,
+          "sitar_resonator": 0.5,
           "sitar_jawari": 0.39,
           "sitar_taraf": 0.195,
           "sitar_frets": 0.3,
-          "sitar_pluck": 1.195,
+          "sitar_pluck": 3.8449999999999998,
           "sitar_main_strings": 0,
           "sitar_jawari_style": 1.045,
-          "sitar_gharana": 1.7850000000000001
+          "sitar_gharana": 6.085
         }
       },
       {
         "id": "sarangi",
         "slots": {
-          "bowed_technique": "bowed_microtonal_inflected",
+          "bowed_technique": "bowed_legato_classical",
           "sarangi_belly": "goat_skin_sarangi",
           "sarangi_taraf": "sarangi_35_strings",
           "sarangi_bow": "horse_hair_loose",
@@ -64,25 +64,25 @@
           "sarangi_body_wood": "sarangi_tun_body"
         },
         "scores": {
-          "bowed_technique": 3.45,
-          "sarangi_belly": 3.445,
+          "bowed_technique": 9.625,
+          "sarangi_belly": 4.29,
           "sarangi_taraf": 0,
-          "sarangi_bow": 0.45499999999999996,
-          "sarangi_main_strings": 2.925,
+          "sarangi_bow": 0.585,
+          "sarangi_main_strings": 4.225,
           "sarangi_body_wood": 1.9500000000000002
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "hindustani_khyal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -90,63 +90,63 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 19.944999999999997,
-          "voice_quality": 9.295000000000002,
+          "voice_register": 4.29,
+          "voice_quality": 7.800000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9,
-          "voice_articulation": 23.334999999999994,
-          "voice_microtone": 20.34499999999999,
-          "voice_tradition": 16.939999999999998,
-          "voice_mechanism_compound": 3.2150000000000003,
-          "voice_estill_quality": 4.48,
-          "voice_speech_song": 28.07999999999999,
-          "voice_ensemble_config": 21.31999999999999,
-          "voice_ornament_system": 10.415000000000001,
-          "voice_pitch_organization": 8.700000000000001,
-          "voice_processing_chain": 4.91,
-          "voice_multitrack_stack": 4.452500000000001
+          "voice_vibrato": 10.535,
+          "voice_articulation": 14.234999999999994,
+          "voice_microtone": 11.43999999999999,
+          "voice_tradition": 15.2,
+          "voice_mechanism_compound": 9.415,
+          "voice_estill_quality": 12.104999999999997,
+          "voice_speech_song": 14.234999999999994,
+          "voice_ensemble_config": 13.064999999999996,
+          "voice_ornament_system": 17.665,
+          "voice_pitch_organization": 11.399999999999999,
+          "voice_processing_chain": 4.55,
+          "voice_multitrack_stack": 5.265
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "akai_s1000",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_archetypes": "akai_s900",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_chopped_breaks",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 1.5299999999999998,
-          "sampler_archetypes": 1.25,
-          "sampler_bit_depth": 0.325,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": 0,
           "sampler_workflow": 3.4800000000000004,
-          "sampler_classic_context": 23.139999999999993
+          "sampler_classic_context": 18.134999999999998
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
+          "electronic_technique": "electronic_bass_sub",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 15.145,
-          "poly_archetypes": 1.105,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": -1.085
+          "electronic_technique": 6.565000000000001,
+          "poly_archetypes": 0.65,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": -0.9800000000000001
         }
       },
       {
         "id": "tanpura",
         "slots": {
-          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "plucked_traditional_technique": "plucked_classical_idiom",
           "tanpura_size": "female_size",
           "tanpura_jawari": "curved_jawari",
           "tanpura_strings": "five_string_chitra",
@@ -154,9 +154,9 @@
           "tanpura_body_wood": "tanpura_gourd_body"
         },
         "scores": {
-          "plucked_traditional_technique": 4.4750000000000005,
-          "tanpura_size": 4.484999999999999,
-          "tanpura_jawari": 2.5,
+          "plucked_traditional_technique": 9.625,
+          "tanpura_size": 7.279999999999999,
+          "tanpura_jawari": 9.125,
           "tanpura_strings": 1.345,
           "tanpura_string_material": 1.9500000000000002,
           "tanpura_body_wood": 1.9500000000000002

@@ -5,7 +5,7 @@
   "lineage": "Rock progresivo mexicano is represented here by Sistema Sonar — Pléyades LIVE. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic rock progresivo mexicano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 48.746,
+  "score": 48.387,
   "config": {
     "traditions": [
       "rock_progresivo_mexicano"
@@ -37,11 +37,11 @@
           "pickup_magnet": 0.252,
           "pickup_winding": 0.46599999999999997,
           "string_material": 0.378,
-          "bridge": 1.68475,
+          "bridge": 1.523875,
           "scale_length": 1.1025,
-          "string_gauge": 1.62175,
+          "string_gauge": 1.4608750000000001,
           "finish": 0.1365,
-          "string_tuning": 0.37424999999999997
+          "string_tuning": 0.337125
         }
       },
       {

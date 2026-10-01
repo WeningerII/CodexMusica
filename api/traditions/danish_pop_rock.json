@@ -5,7 +5,7 @@
   "lineage": "Danish pop rock is represented here by Michael Learns To Rock. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic danish pop rock, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 517,
-  "score": 88.083,
+  "score": 88.146,
   "config": {
     "traditions": [
       "danish_pop_rock"
@@ -16,10 +16,10 @@
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 0.19500000000000003,
           "amp_make": 7.8,
-          "body_wood": 0.39,
+          "body_wood": 0.378,
           "neck_wood": 0.1365,
           "fretboard": 0.0315,
-          "pickup_magnet": 0.105,
+          "pickup_magnet": 0.1365,
           "pickup_winding": 0.15525,
           "string_material": 0.0315,
-          "bridge": 1.063,
-          "scale_length": 0.36749999999999994,
-          "string_gauge": 1.126,
+          "bridge": 1.1365,
+          "scale_length": 0.504,
+          "string_gauge": 1.1995,
           "finish": 0,
           "string_tuning": 0.3
         }
@@ -59,10 +59,10 @@
         "scores": {
           "amp_make": 8.254999999999999,
           "body_wood": 0.168,
-          "pickup_config": 0.27299999999999996,
-          "string_type": 17.96875,
-          "scale_length_b": 0.1365,
-          "fretted_or_not": 0.39,
+          "pickup_config": 0.3045,
+          "string_type": 18.045624999999998,
+          "scale_length_b": 0.168,
+          "fretted_or_not": 0.3,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -111,12 +111,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
+          "voice_speech_song": 1.5295,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0.15525,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.19987499999999997,
-          "voice_multitrack_stack": 0.41062499999999996
+          "voice_processing_chain": 0.23137499999999997,
+          "voice_multitrack_stack": 0.24975
         }
       },
       {

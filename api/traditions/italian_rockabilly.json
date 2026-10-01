@@ -3,9 +3,9 @@
   "name": "Italian rockabilly",
   "family": "rock",
   "lineage": "Italian rockabilly is represented here by The Same Old Shoes — Real Gone Sessions. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic italian rockabilly, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit basswood humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 353,
-  "score": 31.613,
+  "recipe": "classic italian rockabilly, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 344,
+  "score": 31.473,
   "config": {
     "traditions": [
       "italian_rockabilly"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": 1.8199999999999998,
-          "amp_make": 8.147749999999998,
-          "body_wood": 1.4069999999999998,
-          "neck_wood": 0.6194999999999999,
+          "amp_make": 8.332999999999998,
+          "body_wood": 0.9974999999999998,
+          "neck_wood": 0.483,
           "fretboard": 0.0945,
           "pickup_magnet": 0.1365,
           "pickup_winding": 1.95,
           "string_material": 0.1365,
-          "bridge": 1.48525,
-          "scale_length": 1.2390000000000003,
-          "string_gauge": 1.51675,
+          "bridge": 1.6705,
+          "scale_length": 0.9660000000000002,
+          "string_gauge": 1.69,
           "finish": 0.3045,
-          "string_tuning": 0.34275
+          "string_tuning": 0.38549999999999995
         }
       },
       {
@@ -52,7 +52,7 @@
         },
         "scores": {
           "upright_strings": 0.1365,
-          "upright_play": 2.8279999999999994
+          "upright_play": 3.0559999999999996
         }
       },
       {
@@ -64,7 +64,7 @@
         },
         "scores": {
           "drum_technique": 6.313,
-          "drumhead": 0.6194999999999999,
+          "drumhead": 0.483,
           "drum_kit_kick_pedal": 0
         }
       },

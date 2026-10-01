@@ -3,14 +3,14 @@
   "name": "Progressive Folk",
   "family": "pop_rock",
   "lineage": "British and American folk of roughly 1965-1975 that extended revival repertoire into long-form, harmonically ambitious arrangement — Pentangle, the Incredible String Band, Roy Harper, Bert Jansch and Tim Buckley — using open and altered guitar tunings, jazz-derived double bass and brushed kit, modal and chromatic harmony, extended instrumental sections, and free-metred introductions before settling into a sung strophic body.",
-  "recipe": "classic British mid-1970s progressive folk, ballad Poetry, britfolk branch, pop rock folk rock, progressive rock distorted rock czech folk rock. thick, incomplete closure resting, straight onset, interlocked note trading. dadgad tuning cedar walnut fingerpicked acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled sticks backbeat drum kit, maple mid tier Baroque alternative melodic recorder, bowl back Italian redwood hard rock maple thomastik flatwound mandolin. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 754,
-  "score": 385.175,
+  "recipe": "classic British mid-1970s progressive folk, ballad Poetry, britfolk branch, pop rock folk rock, progressive rock distorted rock ukrainian folk rock czech folk rock. thick, incomplete closure resting, straight onset, interlocked note trading. dadgad tuning fingerpicked acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled sticks backbeat drum kit, melodic recorder, bowl back Italian hard rock maple thomastik flatwound jazz mandolin mandolin. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 732,
+  "score": 308.26,
   "config": {
     "traditions": [
       "progressive_folk",
-      "czech_folk_rock",
-      "folk_rock"
+      "ukrainian_folk_rock",
+      "czech_folk_rock"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 55.37000000000001,
-          "voice_quality": 7.325,
+          "voice_register": 45.19500000000001,
+          "voice_quality": 5.55,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6400000000000006,
-          "voice_articulation": 18.069999999999993,
-          "voice_microtone": 31.419999999999998,
-          "voice_tradition": 28.184999999999995,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 6.077500000000001,
-          "voice_speech_song": 24.764999999999993,
-          "voice_ensemble_config": 18.199999999999992,
-          "voice_ornament_system": 2.7950000000000004,
-          "voice_pitch_organization": 1.6749999999999998,
-          "voice_processing_chain": 5.305000000000001,
-          "voice_multitrack_stack": 6.2725
+          "voice_vibrato": 2.7950000000000004,
+          "voice_articulation": 14.299999999999995,
+          "voice_microtone": 28.545,
+          "voice_tradition": 21.84,
+          "voice_mechanism_compound": 3.185,
+          "voice_estill_quality": 2.990000000000001,
+          "voice_speech_song": 20.539999999999996,
+          "voice_ensemble_config": 14.234999999999994,
+          "voice_ornament_system": 2.1500000000000004,
+          "voice_pitch_organization": 1.8699999999999999,
+          "voice_processing_chain": 2.9899999999999998,
+          "voice_multitrack_stack": 3.4450000000000003
         }
       },
       {
@@ -62,11 +62,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 4.08,
-          "top_wood": 1.235,
-          "back_sides": 1.235,
-          "string_acoustic": 3.1849999999999996,
-          "acoustic_om_technique": 26.839999999999993
+          "string_tuning": 4.32,
+          "top_wood": 0.195,
+          "back_sides": 0.195,
+          "string_acoustic": 2.3449999999999998,
+          "acoustic_om_technique": 20.145
         }
       },
       {
@@ -76,24 +76,24 @@
           "bass_size": "bass_three_quarter",
           "bass_strings": "venice_catlin_bass",
           "bass_top_wood": "plywood_bass_top",
-          "bass_back_wood": "european_maple_bass_back",
+          "bass_back_wood": "plywood_bass_back",
           "bass_varnish": "spirit_varnish_bass",
           "bass_setup_period": "baroque_setup_bass",
           "bass_play": "bass_pizz",
           "bass_rosin": "nyman_bass_rosin",
-          "bass_bow_stick": "pernambuco_stick_bass"
+          "bass_bow_stick": "brazilwood_stick_bass"
         },
         "scores": {
           "bowed_technique": -0.05,
-          "bass_size": 0.195,
-          "bass_strings": 2.2099999999999995,
+          "bass_size": 0.045,
+          "bass_strings": 1.8199999999999998,
           "bass_top_wood": 0.795,
-          "bass_back_wood": 0.8949999999999999,
+          "bass_back_wood": 0.75,
           "bass_varnish": 0.75,
-          "bass_setup_period": 1.9499999999999997,
-          "bass_play": 3.295,
-          "bass_rosin": 5.645,
-          "bass_bow_stick": 0.8449999999999999
+          "bass_setup_period": 1.755,
+          "bass_play": 3.25,
+          "bass_rosin": 5.21,
+          "bass_bow_stick": 0.75
         }
       },
       {
@@ -104,8 +104,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.549999999999997,
-          "drumhead": 7.06,
+          "drum_technique": 20.050000000000004,
+          "drumhead": 6.25,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -118,10 +118,10 @@
           "recorder_body_wood": "recorder_maple"
         },
         "scores": {
-          "wind_articulation": 21.519999999999992,
+          "wind_articulation": 16.645,
           "recorder_size": 0.195,
-          "recorder_context": 1.17,
-          "recorder_body_wood": 1.04
+          "recorder_context": 0.315,
+          "recorder_body_wood": 0.24
         }
       },
       {
@@ -133,18 +133,18 @@
           "mandolin_back": "hard_rock_maple_mandolin",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
           "mandolin_strings": "thomastik_jazz_mandolin_flat",
-          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 9.995,
-          "mandolin_shape": 11.244999999999997,
-          "mandolin_top": 1.235,
-          "mandolin_back": 11.569999999999999,
-          "mandolin_bracing": 0.12999999999999998,
-          "mandolin_strings": 3.535,
-          "mandolin_fingerboard": 1.17,
-          "mandolin_pickup": 19.629999999999995
+          "acoustic_technique": 8.450000000000001,
+          "mandolin_shape": 8.709999999999999,
+          "mandolin_top": 0.195,
+          "mandolin_back": 10.27,
+          "mandolin_bracing": -0.035,
+          "mandolin_strings": 3.25,
+          "mandolin_fingerboard": 0.195,
+          "mandolin_pickup": 15.274999999999999
         }
       }
     ],

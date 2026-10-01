@@ -5,7 +5,7 @@
   "lineage": "Russian post-rock is represented here by Artificial waves — Fragile. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic russian post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 50.221,
+  "score": 49.874,
   "config": {
     "traditions": [
       "russian_post_rock"
@@ -34,8 +34,8 @@
           "body_wood": 0.39,
           "neck_wood": 0.378,
           "fretboard": 0.378,
-          "pickup_magnet": 0.252,
-          "pickup_winding": 0.375,
+          "pickup_magnet": 0.147,
+          "pickup_winding": 0.3435,
           "string_material": 0.378,
           "bridge": 1.69,
           "scale_length": 0.39,
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 6.954999999999999,
           "body_wood": 0.21,
-          "pickup_config": 0.2835,
+          "pickup_config": 0.1785,
           "string_type": 16.575,
-          "scale_length_b": 0.378,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
