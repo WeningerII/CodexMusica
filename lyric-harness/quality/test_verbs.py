@@ -663,6 +663,14 @@ def test_brief_refuses_instead_of_tracebacking():
     # broad default unresolved for these lines, so the fixture explicitly
     # asks class:RHYME and retains that unresolved default as a negative
     # control. This tests modal exclusion without inventing a judged pair.
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the broad
+    # default no longer leaves these lines unresolved. Both pairs are judged
+    # (2 of 2, certified): dawn/silt HOLDS under one reading (the `internal
+    # rhyme` schema), and again/rebuilt FAILS under every reading, so it is a
+    # judged SCHEME_VIOLATION. superseded: certified False, rhyme:1:3:0 and
+    # rhyme:2:4:1 refused, no SCHEME_VIOLATION. The CONTROL's subject needs a
+    # genuinely unresolved pair, so it is now asked of a copy whose L1 end
+    # word no dictionary reads (`qzzxv`).
     with tempfile.NamedTemporaryFile("w", suffix=".txt",
                                      delete=False) as fh:
         fh.write("The river took the bridge at dawn\n"
@@ -670,17 +678,47 @@ def test_brief_refuses_instead_of_tracebacking():
                  "our cattle waded knee deep in silt\n"
                  "past every fence the county rebuilt\n")
         mod_path = fh.name
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write("The river took the bridge at qzzxv\n"
+                 "and no one saw the water again\n"
+                 "our cattle waded knee deep in silt\n"
+                 "past every fence the county rebuilt\n")
+        unread_path = fh.name
     try:
         _, default_out, _ = run("brief", mod_path, "ABAB")
+        _, unread_out, _ = run("brief", unread_path, "ABAB")
         _, mod_out, _ = run("brief", mod_path, "ABAB", "--relation=class:RHYME")
     finally:
         os.unlink(mod_path)
+        os.unlink(unread_path)
     default_report = _machine_result(default_out)
+    unread_report = _machine_result(unread_out)
     explicit_report = _machine_result(mod_out)
+    _dcov = default_report.get("coverage", {})
+    check("the broad default now JUDGES both pairs (any-reading rule): "
+          "dawn/silt holds, again/rebuilt is a judged violation",
+          _dcov.get("certified") is True
+          and _dcov.get("pairs_judged") == 2 and _dcov.get("pairs_refused") == 0
+          and _dcov.get("refused_obligations") == []
+          and not any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [1, 3]
+                      for f in default_report.get("findings", []))
+          and any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [2, 4]
+                  for f in default_report.get("findings", [])),
+          str((_dcov.get("certified"), _dcov.get("refused_obligations"))))
+    # The unread pair L1~L3 is refused and charged no violation, while the
+    # JUDGED pair beside it (L2~L4, failing under every reading) is charged
+    # one -- the contrast the control is named for, on one draft.
     check("CONTROL: an unresolved default pair cannot stand in for a judged violation",
-          default_report.get("coverage", {}).get("certified") is False
-          and "rhyme:1:3:0" in default_report.get("coverage", {}).get("refused_obligations", [])
-          and not any(f["code"] == "SCHEME_VIOLATION" for f in default_report.get("findings", [])))
+          unread_report.get("coverage", {}).get("certified") is False
+          and "rhyme:1:3:0" in unread_report.get("coverage", {}).get("refused_obligations", [])
+          and any(f["code"] == "SCHEME_UNREADABLE" and f["locations"] == [1, 3]
+                  for f in unread_report.get("findings", []))
+          and not any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [1, 3]
+                      for f in unread_report.get("findings", []))
+          and any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [2, 4]
+                  for f in unread_report.get("findings", [])),
+          str(unread_report.get("coverage", {}).get("refused_obligations")))
     check("the modal exclusion is still printed for an explicitly judged rhyme violation",
           "FORBIDDEN (modal" in mod_out
           and any(f["code"] == "SCHEME_VIOLATION" and f["severity"] == "flag"
@@ -2297,6 +2335,10 @@ def test_propose_selects_who_writes_the_line():
     # spelling is MEASURED to stand in no schema against L1
     # (relations.whole_vocabulary_pairs), so the pair is refused on the
     # scalar and L3 is asked, which is the premise of the whole section.
+    # (2026-10-01, standing rule 5: under the any-reading rule that pair now
+    # stands in `internal rhyme` under one reading, so the bare default no
+    # longer asks L3; the writer cases below declare class:RHYME, which
+    # still does.)
     with open(quat, "w") as fh:
         fh.write("The river took the bridge at dawn\n"
                  "and no one saw the water again\n"
@@ -2316,13 +2358,22 @@ def test_propose_selects_who_writes_the_line():
     # MODAL_RHYME back at the call, and the loop converges — `SUCCESS after
     # 1 round(s), fixed L3, L4` (repinned 2026-09-02). The subject is still
     # the disclosure; the exit is pinned so the next move is seen.
+    # rc 0 SINCE 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule
+    # 5): under the broad default L1~L3 (dawn/silt) now HOLDS under one
+    # reading instead of staying unresolved, and L2~L4 (again/rebuilt) is
+    # judged violated, so the stub fixes L4 (`... the county plane`) and the
+    # loop converges certified: `SUCCESS after 1 round(s)`. superseded: rc 2,
+    # coverage uncertified with rhyme:1:3:0 refused. The subject is still the
+    # disclosure.
     rc, out, err = run("revise", quat, "ABAB")
     default_result = _machine_result(out)
     check("with no --propose at all, the stub is selected and named",
           default_result.get("status") == "finished"
           and default_result.get("exit") == rc
-          and rc == 2 and default_result.get("coverage", {}).get("certified") is False
-          and "rhyme:1:3:0" in default_result.get("coverage", {}).get("refused_obligations", [])
+          and rc == 0 and default_result.get("stop_reason") == "SUCCESS"
+          and default_result.get("coverage", {}).get("certified") is True
+          and default_result.get("coverage", {}).get("refused_obligations") == []
+          and default_result.get("unresolved_lines") == []
           and "PROPOSER: stub (the default)" in out,
           [l for l in out.splitlines() if "PROPOSER" in l][:1])
     check("and says out loud that nothing outside the process was reached",
@@ -2369,8 +2420,10 @@ def test_propose_selects_who_writes_the_line():
             {"line": 4, "attempt": 0,
              "text": "past every fence the county left to rot"}],
             "propose_group": []}, fh)
-    # Ask an explicit, judged relation for the positive writer cases. The
-    # broad default above deliberately remains an uncertified negative.
+    # Ask an explicit, judged relation for the positive writer cases.
+    # (The broad default above was an uncertified negative until the
+    # any-reading rule of 2026-10-01; it now converges certified, so the
+    # explicit class:RHYME is what keeps dawn/silt failing and L3 asked.)
     # Two attempts expose both a supplied answer and a genuine replay miss.
     driver_flags = ("--relation=class:RHYME", "--max-rounds=1", "--attempts=2", "--backtrack=0")
     rc, out, err = run("revise", quat, "ABAB", f"--propose=replay:{rp}",
@@ -2689,10 +2742,37 @@ def test_the_loop_suspends_instead_of_guessing():
                          "--attempts=0", "--backtrack=0")
     receipts = [json.loads(row.split("lyric result: ", 1)[1])
                 for row in old.splitlines() if "lyric result: " in row]
-    check("the old unresolved-reading premise refuses certification instead of inventing a repair",
-          rc_old == 2 and receipts and not receipts[-1]["coverage"]["certified"]
-          and "rhyme:2:3:0" in receipts[-1]["coverage"]["refused_obligations"],
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the old
+    # premise's L2~L3 (four/own) is no longer unresolved -- it holds under
+    # one reading, so both pairs are judged and the run certifies at exit 0
+    # with nothing to repair. superseded: rc 2, uncertified, rhyme:2:3:0
+    # refused, NO_PROGRESS.
+    check("the old premise is now JUDGED under the any-reading rule: it "
+          "certifies at exit 0 with the draft untouched",
+          rc_old == 0 and receipts
+          and receipts[-1]["coverage"]["certified"] is True
+          and receipts[-1]["coverage"]["refused_obligations"] == []
+          and receipts[-1].get("stop_reason") == "SUCCESS"
+          and receipts[-1].get("final_draft") == NOISY_LINES[:4],
           f"rc {rc_old}")
+    # The negative control keeps its subject on a genuinely unresolved pair:
+    # L3's end word is one no dictionary reads, so L2~L3 cannot be judged.
+    unread = os.path.join(d, "unread-premise.txt")
+    unread_lines = list(NOISY_LINES[:4])
+    unread_lines[2] = unread_lines[2].replace("we own", "we qzzxv")
+    with open(unread, "w") as fh:
+        fh.write("\n".join(unread_lines) + "\n")
+    rc_unr, unr, _ = run("revise", unread, "--groups=2,3;1,4",
+                         "--attempts=0", "--backtrack=0")
+    receipts = [json.loads(row.split("lyric result: ", 1)[1])
+                for row in unr.splitlines() if "lyric result: " in row]
+    check("the old unresolved-reading premise refuses certification instead of inventing a repair",
+          unread_lines[2].endswith("we qzzxv")
+          and rc_unr == 2 and receipts and not receipts[-1]["coverage"]["certified"]
+          and receipts[-1]["coverage"]["refused_obligations"] == ["rhyme:2:3:0"]
+          and receipts[-1].get("unresolved_lines") == [3]
+          and receipts[-1].get("final_draft") == unread_lines,
+          f"rc {rc_unr}")
 
     original = ["My kettle whistles by the stove", "Your fingers brush a little leaf"]
     answer = "Your fingers brush my heavy coat"
@@ -4105,7 +4185,8 @@ def test_the_structures_spelling_reaches_the_verbs():
     ships. The binding assertion is a DIFFERENCE between two runs (the
     §19 lesson: byte-identical output is the only shape that proves a
     silent drop): the same draft under the same groups grades sun/silver
-    unjudged without the declaration and judged under the declared structure.
+    ~~unjudged~~ VIOLATED (any-reading rule, 2026-10-01) without the
+    declaration and satisfied under the declared structure.
     """
     print("\n39. `--structures=` reaches the verbs — the Kalevala "
           "adoption's own spelling")
@@ -4122,11 +4203,23 @@ def test_the_structures_spelling_reaches_the_verbs():
         rc0, out0, _ = run("brief", path, "--groups=1,2;3,4")
         declared = _machine_result(out1)
         default = _machine_result(out0)
-        check("the declared structure answers sun/silver while the broad default stays unjudged",
+        # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the
+        # broad default now JUDGES sun/silver -- no whole reading holds it,
+        # so it is a SCHEME_VIOLATION flag on L3/L4 (certified, 2 of 2
+        # judged) -- where the declared structure passes it. The difference
+        # between the two runs is still what proves the flag is read, and it
+        # is now a verdict difference rather than judged-vs-refused.
+        # superseded (check named "...while the broad default stays
+        # unjudged"): default uncertified, refused == ["rhyme:3:4:1"].
+        check("the declared structure answers sun/silver while the broad default judges it violated",
               rc1 == rc0 == 0 and declared.get("coverage", {}).get("certified") is True
               and declared.get("coverage", {}).get("pairs_judged") == 2
-              and default.get("coverage", {}).get("certified") is False
-              and default.get("coverage", {}).get("refused_obligations") == ["rhyme:3:4:1"]
+              and default.get("coverage", {}).get("certified") is True
+              and default.get("coverage", {}).get("pairs_judged") == 2
+              and default.get("coverage", {}).get("refused_obligations") == []
+              and any(f.get("code") == "SCHEME_VIOLATION" and f.get("severity") == "flag"
+                      and f.get("locations") == [3, 4]
+                      for f in default.get("findings", []))
               and not [f for f in declared.get("findings", []) if f.get("severity") == "flag"])
         check("...and the run that declared it carries the language-aware "
               "disclosure: fin-calibrated, this draft is eng, laziness is "
@@ -5103,35 +5196,54 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
     # the flag. M-304 also keeps this historical fixture's text-dependent
     # unknown lines open; clearing the title still cannot certify them.
     # Section 53 separately pins a fully judged whole-flag-only control.
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): on the
+    # banked song itself nothing is unresolved any more. Group G (15.T7
+    # 'plea', L16 'quay', 17.T3 'tree') HOLDS under the K IY1 reading of
+    # 'quay', so (15,16) and (16,17) are judged; and L4/L8 were open only on
+    # the prominence band, deleted the same day. That run stamps `exit 3 —
+    # WHOLE_DRAFT_UNRESOLVED after 0 round(s) — no line flag stands —
+    # WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK — COVERAGE UNCERTIFIED:
+    # meter:COUNT_IS_A_LOWER_BOUND:L4, meter:COUNT_IS_A_LOWER_BOUND:L15,
+    # meter:PROMINENCE_UNDECIDED:L8` with `unresolved_lines == []`.
+    # superseded: `UNRESOLVED: L4, L8, L15, L16, L17` with rhyme:15:16:6 and
+    # rhyme:16:17:6 refused. The subject needs a genuinely unresolved
+    # reading target BESIDE the whole-draft flag, so L16's end word is
+    # replaced by one no dictionary reads (`qzzxv`) in a copy; both runs
+    # below grade that same copy and differ only in the title.
+    with open(song, encoding="utf-8") as fh:
+        _song_text = fh.read()
+    _swapped = _song_text.count("down to the quay\n")
+    song_q = os.path.join(d, "keep_the_light.unread.txt")
+    with open(song_q, "w", encoding="utf-8") as fh:
+        fh.write(_song_text.replace("down to the quay\n",
+                                    "down to the qzzxv\n"))
     st = os.path.join(d, "state.json")
-    rc3, out3, _ = run("revise", song, mand, "--returns=6,9;6,14",
+    rc3, out3, _ = run("revise", song_q, mand, "--returns=6,9;6,14",
                        f"--blueprint={bpath}", "--subdivision", "2",
                        "--max-rounds=1", "--attempts=0", "--backtrack=0",
                        f"--propose=defer:{st}")
-    # ~~UNRESOLVED: L4, L8~~ -> L4, L8, L15, L16, L17 (2026-09-23, N-relation
-    # model). Group G binds 15.T7 'plea', L16 'quay', 17.T3 'tree'; CMUdict
-    # reads 'quay' K IY1 and K EY1. Main scored plea/KAY 0.787 as RHYME
-    # (IY~EY); vowel agreement is now identity, so that reading stands in NO
-    # relation while K IY1 is RHYME — the verdict differs across unresolved
-    # readings and both (15,16) and (16,17) are REFUSED for G, not passed.
+    # ~~UNRESOLVED: L4, L8~~ -> ~~L4, L8, L15, L16, L17 (2026-09-23,
+    # N-relation model)~~ -> L16 (2026-10-01, the unread copy above: G's
+    # (15,16) and (16,17) are REFUSED because L16 has no reading at all).
     _R3 = _machine_result(out3)
     m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
-                   r"(\d+) round\(s\) — UNRESOLVED: L4, L8, L15, L16, L17 — "
+                   r"(\d+) round\(s\) — UNRESOLVED: L16 — "
                    r"WHOLE-DRAFT FLAG: "
                    r"([^\]—]+) — COVERAGE UNCERTIFIED: [^\]]+\]", out3)
     check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
           "TITLE_NOT_IN_HOOK` beside the unresolved reading targets and "
           "uncertified coverage, and its exit is the process's 3",
-          rc3 == 3 and m3 is not None and m3.group(1) == "3"
+          _swapped == 1
+          and rc3 == 3 and m3 is not None and m3.group(1) == "3"
           and m3.group(4).strip() == "TITLE_NOT_IN_HOOK"
-          and _R3.get('unresolved_lines') == [4, 8, 15, 16, 17]
+          and _R3.get('unresolved_lines') == [16]
           and _R3.get('coverage', {}).get('certified') is False
           and {"rhyme:15:16:6", "rhyme:16:17:6"}
           <= set(_R3.get('coverage', {}).get('refused_obligations') or ()),
           m3.group(0) if m3 else out3[-300:])
     st0 = os.path.join(d, "state0.json")
     bp0 = os.path.join(HERE, "..", "songs", "keep_the_light.blueprint.json")
-    rc4, out4, _ = run("revise", song, mand, "--returns=6,9;6,14",
+    rc4, out4, _ = run("revise", song_q, mand, "--returns=6,9;6,14",
                        f"--blueprint={bp0}", "--subdivision", "2",
                        "--max-rounds=1", "--attempts=0", "--backtrack=0",
                        f"--propose=defer:{st0}")
@@ -5235,11 +5347,23 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
         fh.write("\n".join(uncertain) + "\n")
     rcu, outu, _ = run("finish", fresh, "--title=wakes the rain", *common)
     unjudged = _machine_result(outu)
+    # 2026-10-01, CLAUDE.md standing rule 5: the prominence band [2, 7] is
+    # deleted, so its `prominence:L4`/`prominence:L10` refusals are gone and
+    # neither line is an unresolved target any more (stop UNCERTIFIED after
+    # 0 rounds, was NO_PROGRESS with UNRESOLVED: L4, L10). The disputed
+    # readings still leave the METER layer (fit.py) undecided -- 'into'
+    # (stress on either syllable) on L4, 'towels' (T AW1 AH0 L Z / T AW1 L
+    # Z) on L10 -- and those refusals stood before the ruling too, so the draft
+    # still cannot certify. superseded: {"prominence:L4", "prominence:L10"}
+    # among the refused obligations.
+    _uref = unjudged.get("coverage", {}).get("refused_obligations", [])
     check("CONTROL: the prior ambiguous readings stay uncertified despite zero flags",
           rcu == 2 and unjudged.get("whole_flags") == []
           and unjudged.get("coverage", {}).get("certified") is False
-          and {"prominence:L4", "prominence:L10"}.issubset(
-              unjudged.get("coverage", {}).get("refused_obligations", [])))
+          and {"meter:PROMINENCE_UNDECIDED:L4",
+               "meter:COUNT_IS_A_LOWER_BOUND:L10"}.issubset(_uref)
+          and not any(x.startswith("prominence:") for x in _uref),
+          str(_uref))
     shutil.rmtree(d, ignore_errors=True)
 
 
@@ -5272,9 +5396,19 @@ def test_the_pasted_song_has_the_same_door_as_a_planned_one():
     # THE STAMP ON A PASTED SONG'S LOOP: no seed, a declared mandate, the
     # same [FINISHED — …] shape `finish` prints, with `declared mandate`
     # where a seed would stand, so the connector reads both.
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): on
+    # NOISY_LINES[:4] itself L2~L3 (four/own) now holds under one reading,
+    # so that run stamps `exit 0 — SUCCESS after 0 round(s) — no line flag
+    # stands`, certified. superseded: exit 2, COVERAGE UNCERTIFIED:
+    # rhyme:2:3:0. Both checks below are about an UNCERTIFIED stop, so L3's
+    # end word is replaced by one no dictionary reads (`qzzxv`): the stamp
+    # is `exit 2 — NO_PROGRESS after 1 round(s) — UNRESOLVED: L3 — COVERAGE
+    # UNCERTIFIED: rhyme:2:3:0`.
+    pasted = list(NOISY_LINES[:4])
+    pasted[2] = pasted[2].replace("we own", "we qzzxv")
     draft = os.path.join(d, "draft.txt")
     with open(draft, "w", encoding="utf-8") as fh:
-        fh.write("\n".join(NOISY_LINES[:4]) + "\n")
+        fh.write("\n".join(pasted) + "\n")
     state = os.path.join(d, "state.json")
     rc, out, _ = run("revise", draft, "--groups=2,3;1,4", "--attempts=0",
                      "--backtrack=0", f"--propose=defer:{state}")
@@ -5283,9 +5417,10 @@ def test_the_pasted_song_has_the_same_door_as_a_planned_one():
     result = _machine_result(out)
     check("`revise --propose=defer:` renders the lines in order under a "
           "[FINISHED — declared mandate — …] stamp at a stop condition",
-          rc == 2 and result.get("status") == "finished"
+          pasted[2].endswith("we qzzxv")
+          and rc == 2 and result.get("status") == "finished"
           and result.get("coverage", {}).get("certified") is False
-          and result.get("final_draft") == NOISY_LINES[:4]
+          and result.get("final_draft") == pasted
           and "THE SONG, PERFORMANCE ORDER" in out
           and m is not None and int(m.group(1)) == rc
           and "COVERAGE UNCERTIFIED" in m.group(4),
