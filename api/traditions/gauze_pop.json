@@ -66,7 +66,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 25.864999999999995,
@@ -80,7 +81,8 @@
           "bridge": 0.9950000000000001,
           "scale_length": 5.329999999999999,
           "finish": 0,
-          "string_tuning": 10.205
+          "string_tuning": 10.205,
+          "single_coil_pickup_construction": 0
         }
       },
       {

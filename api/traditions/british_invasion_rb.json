@@ -66,7 +66,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "d_standard"
+          "string_tuning": "d_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 8.274999999999999,
@@ -80,7 +81,8 @@
           "bridge": 0.045,
           "scale_length": 1.69,
           "finish": 0.045,
-          "string_tuning": 20.734999999999996
+          "string_tuning": 20.734999999999996,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -91,7 +93,8 @@
           "archtop_pickup": "archtop_floating",
           "archtop_top_wood": "archtop_laminated_maple",
           "archtop_strings": "thomastik_jazz_flat",
-          "archtop_technique": "archtop_comp_swing"
+          "archtop_technique": "archtop_comp_swing",
+          "archtop_string_tuning": "archtop_tuning_source_unspecified"
         },
         "scores": {
           "amp_make": 10.024999999999999,
@@ -99,7 +102,8 @@
           "archtop_pickup": 2.535,
           "archtop_top_wood": 1.865,
           "archtop_strings": 2.9575000000000005,
-          "archtop_technique": 3.085
+          "archtop_technique": 3.085,
+          "archtop_string_tuning": 0
         }
       },
       {

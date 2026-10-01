@@ -3,9 +3,9 @@
   "name": "Balkan hip hop",
   "family": "hip_hop",
   "lineage": "Balkan hip-hop networks; selected Dubioza Kolektiv live crossover branch",
-  "recipe": "classic modern balkan hip hop, mc Rhythm, intl hip hop branch. duet. sampled chopped sampler, sub bass rompler workstation, clean strummed single coil electric guitar, electric bass, full lathed both sides lathed drum kit, saxophone. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 378,
-  "score": 32.376,
+  "recipe": "classic modern balkan hip hop, mc Rhythm, intl hip hop branch. duet. sampled chopped sampler, sub bass rompler workstation, clean strummed single coil electric guitar, electric bass, drum kit, saxophone. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 348,
+  "score": 32.118,
   "config": {
     "traditions": [
       "balkan_hip_hop"
@@ -37,17 +37,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.33899999999999997,
+          "voice_articulation": 0.3,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.6677499999999998,
+          "voice_ensemble_config": 1.62875,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.03899999999999999,
-          "voice_multitrack_stack": 0.38175
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 6.178,
+          "electronic_technique": 6.1,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.38099999999999995,
+          "sampler_bit_depth": 0.46649999999999997,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 9.165
         }
@@ -96,7 +96,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_fender",
           "finish": "poly",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 3.7,
@@ -110,7 +111,8 @@
           "bridge": 0.08549999999999999,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -160,8 +162,8 @@
           "bearing_edges": 0.08549999999999999,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": -0.07,
-          "cymbal_lathing": 1.0317499999999997,
+          "cymbal_hammering": -0.1,
+          "cymbal_lathing": 0.9927499999999997,
           "cymbal_finish": 0
         }
       },
@@ -181,9 +183,9 @@
           "sax_size": 0.15000000000000002,
           "sax_reed": 0,
           "sax_body_alloy": -0.07,
-          "sax_mouthpiece": 0.17274999999999996,
+          "sax_mouthpiece": 0.042749999999999996,
           "sax_technique": -0.15000000000000002,
-          "sax_maker_school": 0.5887499999999999
+          "sax_maker_school": 0.6315
         }
       }
     ],

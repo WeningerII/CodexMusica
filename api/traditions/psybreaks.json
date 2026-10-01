@@ -5,7 +5,7 @@
   "lineage": "UK-Australian hybrid formed circa 2000-2006 (Hedflux, Kick Bong, Tegma, Beatsystem, Elektroniikan Sanansaattaja) placing psytrance's rolling sixteenth bass, acid squelch and FM lead vocabulary over a syncopated broken 130-145 BPM breakbeat drawn from nu-skool breaks rather than a four-on-floor kick, with long filtered builds and dub-style delay throws.",
   "recipe": "classic mid-2000s psybreaks, electronic Dance, trance branch, uk soundsystem bass system, idm glitch experimental electric idm and experimental electronic chiptune / 8-bit. classic acid monosynth acid bass, glitched textural sampler, TR-909, analog mono native instruments fm8 modern software 8 operator fm synth, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 527,
-  "score": 93.296,
+  "score": 93.288,
   "config": {
     "traditions": [
       "psybreaks",
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 15.119374999999998,
           "sampler_archetypes": 1.17,
-          "sampler_bit_depth": 0.34875,
+          "sampler_bit_depth": 0.345,
           "sampler_workflow": 14.25,
           "sampler_classic_context": 15.209999999999997
         }
@@ -88,7 +88,7 @@
           "electronic_technique": 2.6000000000000005,
           "fm_algorithm": 3.873125,
           "fm_modulator_ratio": 0.39,
-          "fm_polyphony": 1.04875,
+          "fm_polyphony": 1.045,
           "fm_model_lineage": 1.45
         }
       },

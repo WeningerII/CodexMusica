@@ -210,6 +210,19 @@
             "electronic",
             "sample-based"
           ]
+        },
+        {
+          "id": "sample_808_legato_slides",
+          "name": "808-style sample pitch slides",
+          "descriptors": [
+            "808-style",
+            "pitched",
+            "legato-glide",
+            "sub-bass",
+            "slide"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -382,6 +395,19 @@
             "electronic",
             "sample-based"
           ]
+        },
+        {
+          "id": "sample_808_legato_slides",
+          "name": "808-style sample pitch slides",
+          "descriptors": [
+            "808-style",
+            "pitched",
+            "legato-glide",
+            "sub-bass",
+            "slide"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

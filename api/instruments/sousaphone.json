@@ -81,6 +81,17 @@
             "brass-section",
             "nola-context"
           ]
+        },
+        {
+          "id": "sousaphone_pop_funk_riff",
+          "name": "Pop/funk bass-hook accompaniment",
+          "descriptors": [
+            "riff-driven",
+            "bass-hook",
+            "pop-funk"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -151,6 +162,17 @@
             "brass-section",
             "nola-context"
           ]
+        },
+        {
+          "id": "sousaphone_pop_funk_riff",
+          "name": "Pop/funk bass-hook accompaniment",
+          "descriptors": [
+            "riff-driven",
+            "bass-hook",
+            "pop-funk"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

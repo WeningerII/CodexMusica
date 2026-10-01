@@ -8845,5 +8845,497 @@
     "rhythmic-speech",
     "sample-foundational",
     "layered"
+  ],
+  "italian_hip_hop": [
+    "rhythmic-speech",
+    "funk-derived",
+    "backbeat"
+  ],
+  "korean_old_school_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "swung"
+  ],
+  "flute_rock": [
+    "wind-driven",
+    "breathing",
+    "electric"
+  ],
+  "german_hard_rock": [
+    "electric",
+    "distorted",
+    "melodic"
+  ],
+  "brass_band_pop": [
+    "rhythmic"
+  ],
+  "egyptian_trap": [
+    "rhythmic-speech",
+    "percussive-attack",
+    "sample-foundational"
+  ],
+  "estonian_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "layered"
+  ],
+  "german_cloud_rap": [
+    "rhythmic-speech",
+    "layered",
+    "percussive-attack"
+  ],
+  "goa_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "layered"
+  ],
+  "hindi_hip_hop": [
+    "rhythmic-speech",
+    "percussive-attack",
+    "low-register"
+  ],
+  "hip_hop_experimental": [
+    "jazz-improvisation",
+    "sample-foundational",
+    "plucked"
+  ],
+  "hungarian_underground_rap": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "swung"
+  ],
+  "igbo_rap": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
+  ],
+  "igbo_trap": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
+  ],
+  "indiana_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "swung"
+  ],
+  "indie_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "sustained"
+  ],
+  "indie_pop_rap": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "italian_underground_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "funk-derived"
+  ],
+  "kannada_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic",
+    "layered-rhythm"
+  ],
+  "kansas_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "khmer_hip_hop": [
+    "rhythmic-speech",
+    "plucked",
+    "layered-rhythm"
+  ],
+  "korean_trap": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
+  ],
+  "kurdish_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "swung"
+  ],
+  "lapland_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "layered-rhythm"
+  ],
+  "celtic_metal": [
+    "distorted",
+    "melodic",
+    "ornamented"
+  ],
+  "chinese_metal": [
+    "distorted",
+    "melodic",
+    "rhythmic"
+  ],
+  "cleveland_metal": [
+    "distorted",
+    "synthetic",
+    "rhythmic"
+  ],
+  "comic_metal": [
+    "distorted",
+    "melodic",
+    "rhythmic"
+  ],
+  "cosmic_death_metal": [
+    "distorted",
+    "synthetic",
+    "reverberant"
+  ],
+  "denver_metal": [
+    "distorted",
+    "rhythmic",
+    "reverberant"
+  ],
+  "dutch_black_metal": [
+    "distorted",
+    "synthetic",
+    "rhythmic"
+  ],
+  "dutch_metal": [
+    "distorted",
+    "melodic",
+    "synthetic"
+  ],
+  "estonian_metal": [
+    "distorted",
+    "rhythmic",
+    "melodic"
+  ],
+  "dutch_indie_rock": [
+    "electric",
+    "melodic",
+    "layered-rhythm"
+  ],
+  "dutch_stoner_rock": [
+    "electric",
+    "distorted",
+    "sustained-tone"
+  ],
+  "electronic_rock": [
+    "synthesized",
+    "electric",
+    "layered-rhythm"
+  ],
+  "faroese_rock": [
+    "electric",
+    "distorted",
+    "rhythmic"
+  ],
+  "finnish_progressive_rock": [
+    "melodic",
+    "electric",
+    "synthesized"
+  ],
+  "french_rockabilly": [
+    "plucked",
+    "rhythmic",
+    "electric"
+  ],
+  "german_post_rock": [
+    "electric",
+    "sustained-tone",
+    "layered-rhythm"
+  ],
+  "german_pop_rock": [
+    "electric",
+    "synthesized",
+    "rhythmic"
+  ],
+  "french_rock": [
+    "electric",
+    "distorted",
+    "melodic"
+  ],
+  "japanese_drill": [
+    "rhythmic-speech",
+    "sub-bass",
+    "slide"
+  ],
+  "dutch_rap_pop": [
+    "rhythmic-speech",
+    "melodic",
+    "percussive-attack"
+  ],
+  "dutch_trap": [
+    "rhythmic-speech",
+    "percussive-attack",
+    "melodic"
+  ],
+  "dutch_underground_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "layered"
+  ],
+  "emo_trap_en_espanol": [
+    "melodic",
+    "sample-foundational",
+    "layered"
+  ],
+  "florida_rap": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "layered"
+  ],
+  "german_alternative_rap": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "melodic"
+  ],
+  "german_trap": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "layered"
+  ],
+  "hungarian_hip_hop": [
+    "rhythmic-speech",
+    "melodic",
+    "layered"
+  ],
+  "israeli_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "israeli_trap": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
+  ],
+  "jamaican_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "strummed"
+  ],
+  "japanese_trap": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
+  ],
+  "kasi_rap": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
+  ],
+  "kids_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "chinese_black_metal": [
+    "distorted",
+    "melodic",
+    "layered",
+    "reverberant"
+  ],
+  "christian_deathcore": [
+    "distorted",
+    "rhythmic",
+    "fast-attack-transient"
+  ],
+  "christian_metalcore": [
+    "distorted",
+    "rhythmic",
+    "fast-attack-transient"
+  ],
+  "czsk_black_metal": [
+    "distorted",
+    "melodic",
+    "reverberant"
+  ],
+  "dub_metal": [
+    "distorted",
+    "rhythmic",
+    "layered",
+    "reverberant"
+  ],
+  "electronic_djent": [
+    "distorted",
+    "synthetic",
+    "rhythmic",
+    "layered"
+  ],
+  "epic_black_metal": [
+    "melodic",
+    "layered",
+    "reverberant",
+    "distorted"
+  ],
+  "dutch_rock": [
+    "electric",
+    "distorted",
+    "reed-tone"
+  ],
+  "euskal_rock": [
+    "electric",
+    "distorted",
+    "rhythmic"
+  ],
+  "finnish_psychedelic_rock": [
+    "electric",
+    "synthesized",
+    "sustained-tone"
+  ],
+  "french_post_rock": [
+    "electric",
+    "melodic",
+    "articulated"
+  ],
+  "geek_rock": [
+    "electric",
+    "bellows-driven",
+    "synthesized"
+  ],
+  "german_alternative_rock": [
+    "electric",
+    "distorted",
+    "rhythmic"
+  ],
+  "german_indie_rock": [
+    "electric",
+    "synthesized",
+    "melodic"
+  ],
+  "lgbtq_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "lithuanian_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "strummed"
+  ],
+  "malay_rap": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
+  ],
+  "malaysian_hip_hop": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
+  ],
+  "melbourne_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "meme_rap": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "sub-bass"
+  ],
+  "minnesota_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "swung"
+  ],
+  "mississippi_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "sub-bass"
+  ],
+  "new_orleans_rap": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "nordnorsk_rap": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "swung"
+  ],
+  "north_carolina_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational"
+  ],
+  "norwegian_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "swung"
+  ],
+  "ohio_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "old_school_hip_hop": [
+    "vinyl-sampled",
+    "sample-foundational",
+    "percussive-attack"
+  ],
+  "old_school_rap_francais": [
+    "rhythmic-speech",
+    "vinyl-sampled",
+    "swung"
+  ],
+  "palestinian_hip_hop": [
+    "rhythmic-speech",
+    "sample-foundational",
+    "layered"
+  ],
+  "finnish_metal": [
+    "distorted",
+    "melodic",
+    "layered"
+  ],
+  "finnish_progressive_metal": [
+    "distorted",
+    "melodic",
+    "layered",
+    "synthetic"
+  ],
+  "german_metal": [
+    "distorted",
+    "rhythmic",
+    "synthetic"
+  ],
+  "german_power_metal": [
+    "distorted",
+    "melodic",
+    "layered"
+  ],
+  "estonian_rock": [
+    "electric",
+    "melodic",
+    "synthesized"
+  ],
+  "finnish_alternative_rock": [
+    "electric",
+    "distorted",
+    "layered-rhythm"
+  ],
+  "galician_rock": [
+    "electric",
+    "reed-tone",
+    "rhythmic"
+  ],
+  "german_rockabilly": [
+    "electric",
+    "plucked",
+    "rhythmic"
+  ],
+  "german_stoner_rock": [
+    "electric",
+    "distorted",
+    "rhythmic"
+  ],
+  "french_stoner_rock": [
+    "electric",
+    "distorted",
+    "low-register"
+  ],
+  "latin_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "manchester_hip_hop": [
+    "rhythmic-speech",
+    "rhythmic"
+  ],
+  "miami_hip_hop": [
+    "rhythmic-speech",
+    "sub-bass",
+    "rhythmic"
   ]
 }

@@ -5,7 +5,7 @@
   "lineage": "Blackened/symphonic deathcore represented by Lorna Shore’s documented orchestral arrangements, distorted riff writing and extreme-metal rhythm section. The model is an authored extended-range studio branch rather than a replica of one current live rig.",
   "recipe": "classic modern blackened deathcore, distorted Rock, death branch, black metal, symphonic metal gothic metal. solo with instrumental accompaniment. drop a seven string electric, ampeg svt amp rock bass amp stainless steel roundwound electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit, melodic orchestral imitation pitched sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 537,
-  "score": 87.696,
+  "score": 87.729,
   "config": {
     "traditions": [
       "blackened_deathcore",
@@ -128,7 +128,7 @@
           "electronic_technique": 0.5199999999999999,
           "sampler_archetypes": 2.5,
           "sampler_bit_depth": 0.39,
-          "sampler_workflow": 3.5399999999999996,
+          "sampler_workflow": 3.5724999999999993,
           "sampler_classic_context": 0.25
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Hard-edged hip-hop delivery and production; selected late-1980s Public Enemy sample-collage branch",
   "recipe": "classic 1987-1989 hardcore hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler, sampled chopped turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 337,
-  "score": 58.926,
+  "score": 59.231,
   "config": {
     "traditions": [
       "hardcore_hip_hop"
@@ -37,13 +37,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.3045,
+          "voice_articulation": 0.4095,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.035,
-          "voice_ensemble_config": 0.9449999999999998,
+          "voice_ensemble_config": 1.0815,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
@@ -60,7 +60,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 5.578,
+          "electronic_technique": 5.609500000000001,
           "sampler_archetypes": 9.035,
           "sampler_bit_depth": -0.05,
           "sampler_workflow": -0.07,
@@ -74,7 +74,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 5.578,
+          "electronic_technique": 5.609500000000001,
           "turntable_technique": 7.6365
         }
       }

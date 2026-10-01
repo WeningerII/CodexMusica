@@ -5,7 +5,7 @@
   "lineage": "Bavarian-dialect rap; selected Dicht & Ergreifend MC/DJ and brass ensemble",
   "recipe": "classic modern bayerischer rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, duet. sampler, turntable, yellow brass canonical orchestral tuba, yellow brass canonical 70 30 bach stradivarius ensemble trumpet. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 375,
-  "score": 51.376,
+  "score": 51.295,
   "config": {
     "traditions": [
       "bayerischer_rap"
@@ -43,11 +43,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 11.309999999999999,
-          "voice_ensemble_config": 2.1475,
+          "voice_ensemble_config": 2.2127499999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.108,
-          "voice_multitrack_stack": 0.15075
+          "voice_multitrack_stack": 0.162
         }
       },
       {
@@ -60,9 +60,9 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 2.45875,
+          "electronic_technique": 2.51275,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.38099999999999995,
+          "sampler_bit_depth": 0.21,
           "sampler_workflow": -0.07,
           "sampler_classic_context": 5.3950000000000005
         }
@@ -74,7 +74,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 2.45875,
+          "electronic_technique": 2.51275,
           "turntable_technique": 2.35075
         }
       },
@@ -89,9 +89,9 @@
           "tuba_maker_school": "tuba_miraphone_german"
         },
         "scores": {
-          "wind_articulation": 1.19275,
+          "wind_articulation": 1.204,
           "tuba_pitch": 0.063,
-          "tuba_context": 2.12925,
+          "tuba_context": 2.001,
           "tuba_bell_metal": 1.927,
           "tuba_valve_system": 0.39,
           "tuba_maker_school": 0.546
@@ -109,11 +109,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.19275,
+          "wind_articulation": 1.204,
           "brass_size": 0.1365,
           "trumpet_mouthpiece": -0.1,
           "brass_mute": 0,
-          "trumpet_technique": 1.19275,
+          "trumpet_technique": 1.204,
           "trumpet_bell_metal": 1.927,
           "trumpet_maker_school": 0.47250000000000003
         }

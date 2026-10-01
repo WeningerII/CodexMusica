@@ -5,7 +5,7 @@
   "lineage": "Brazilian groove-oriented metal, modeled through Sepultura’s documented move toward more percussive guitar writing around Chaos AD. This is an arrangement/rhythmic emphasis within amplified metal, not a new instrument family.",
   "recipe": "classic modern brazilian groove metal, distorted Rock, metal branch. solo with instrumental accompaniment. basswood ebony palm muted humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 391,
-  "score": 39.934,
+  "score": 39.895,
   "config": {
     "traditions": [
       "brazilian_groove_metal"
@@ -35,7 +35,7 @@
           "neck_wood": 0.5775,
           "fretboard": 1.168,
           "pickup_magnet": 0,
-          "pickup_winding": 0.31199999999999994,
+          "pickup_winding": 0.3045,
           "string_material": 0.105,
           "bridge": 0.5775,
           "scale_length": 0,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.7420000000000001,
+          "drumhead": 0.7245,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -112,10 +112,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.07925,
+          "voice_ensemble_config": 1.0717500000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.14475,
+          "voice_processing_chain": 0.13724999999999998,
           "voice_multitrack_stack": 0.39
         }
       }

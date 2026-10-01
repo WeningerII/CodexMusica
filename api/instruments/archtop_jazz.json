@@ -556,6 +556,37 @@
           "canonical_tags": [
             "western-swing"
           ]
+        },
+        {
+          "id": "archtop_fuzz_riff",
+          "name": "Fuzz-driven archtop riff",
+          "descriptors": [
+            "fuzz-driven",
+            "riff-led"
+          ],
+          "auto": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "archtop_string_tuning",
+      "name": "String tuning / altered open setup",
+      "variants": [
+        {
+          "id": "archtop_tuning_source_unspecified",
+          "name": "Source-unspecified string tuning",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "archtop_low_open_unspecified",
+          "name": "Low altered open tuning; exact pitches unspecified",
+          "descriptors": [
+            "low-altered-open-tuning"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -868,6 +899,37 @@
           "canonical_tags": [
             "western-swing"
           ]
+        },
+        {
+          "id": "archtop_fuzz_riff",
+          "name": "Fuzz-driven archtop riff",
+          "descriptors": [
+            "fuzz-driven",
+            "riff-led"
+          ],
+          "auto": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "archtop_string_tuning",
+      "name": "String tuning / altered open setup",
+      "variants": [
+        {
+          "id": "archtop_tuning_source_unspecified",
+          "name": "Source-unspecified string tuning",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "archtop_low_open_unspecified",
+          "name": "Low altered open tuning; exact pitches unspecified",
+          "descriptors": [
+            "low-altered-open-tuning"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

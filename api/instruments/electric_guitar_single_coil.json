@@ -1542,6 +1542,27 @@
           ]
         }
       ]
+    },
+    {
+      "id": "single_coil_pickup_construction",
+      "name": "Single-coil pickup construction",
+      "variants": [
+        {
+          "id": "single_coil_construction_unspecified",
+          "name": "Source-unspecified single-coil construction",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "p90_dogear_single_coil",
+          "name": "P-90 dog-ear single-coil",
+          "descriptors": [
+            "P-90-dog-ear-single-coil"
+          ],
+          "auto": false,
+          "default": false
+        }
+      ]
     }
   ],
   "_ownParts": [
@@ -2305,6 +2326,27 @@
             "plucked",
             "treble-extended"
           ]
+        }
+      ]
+    },
+    {
+      "id": "single_coil_pickup_construction",
+      "name": "Single-coil pickup construction",
+      "variants": [
+        {
+          "id": "single_coil_construction_unspecified",
+          "name": "Source-unspecified single-coil construction",
+          "descriptors": [],
+          "default": true
+        },
+        {
+          "id": "p90_dogear_single_coil",
+          "name": "P-90 dog-ear single-coil",
+          "descriptors": [
+            "P-90-dog-ear-single-coil"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
