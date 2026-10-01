@@ -5,7 +5,7 @@
   "lineage": "Australian scene-origin scope, represented by the documented Melbourne beginnings of Deströyer 666 and their black/thrash crossover. Later membership and residence are multinational.",
   "recipe": "classic modern australian thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 397,
-  "score": 30.679,
+  "score": 30.766,
   "config": {
     "traditions": [
       "australian_thrash_metal"
@@ -33,15 +33,15 @@
           "amp_make": 0,
           "body_wood": 0.5947499999999999,
           "neck_wood": 0.1365,
-          "fretboard": 0.45825,
-          "pickup_magnet": 0.19125,
+          "fretboard": 0.48974999999999996,
+          "pickup_magnet": 0.18,
           "pickup_winding": 0.1785,
           "string_material": 0.1365,
           "bridge": 0.5947499999999999,
           "scale_length": 0,
           "string_gauge": 0,
           "finish": 0,
-          "string_tuning": 0.171
+          "string_tuning": 0.2025
         }
       },
       {
@@ -63,7 +63,7 @@
           "string_type": 0.315,
           "scale_length_b": 0.32549999999999996,
           "fretted_or_not": 0.222,
-          "bass_technique": 3.76525,
+          "bass_technique": 3.7855000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -91,7 +91,7 @@
           "bearing_edges": 0.315,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 3.809,
+          "cymbal_hammering": 3.7865,
           "cymbal_lathing": 3.7355000000000005,
           "cymbal_finish": 0
         }
@@ -128,11 +128,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.7522500000000001,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 0.71775,
+          "voice_ornament_system": 0.063,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 0.19049999999999997
+          "voice_multitrack_stack": 0.19949999999999998
         }
       }
     ],

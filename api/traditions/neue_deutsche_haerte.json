@@ -5,7 +5,7 @@
   "lineage": "German fusion of industrial dance and metal codified by Rammstein's Herzeleid (1995) after Oomph!'s early-1990s template, built on mid-tempo 90-120 BPM four-on-the-floor kick patterns, downtuned palm-muted single-note guitar riffs doubled by synth stabs, orchestral or choir samples, and declaimed rolled-R German vocals in a low baritone, produced with heavy compression and grid-tight editing.",
   "recipe": "classic British 1990-1993 neue deutsche härte, distorted Rock, metal branch, thrash metal, industrial noise experimental electric, late analog major distorted rock arena rock hair metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth, sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 716,
-  "score": 367.073,
+  "score": 367.184,
   "config": {
     "traditions": [
       "neue_deutsche_haerte",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_sob",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,15 +34,15 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 23.715624999999992,
+          "voice_register": 23.670624999999994,
           "voice_quality": 7.280000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.9,
           "voice_articulation": 11.699999999999996,
           "voice_microtone": 23.824999999999996,
-          "voice_tradition": 3.575,
-          "voice_mechanism_compound": 22.781874999999996,
+          "voice_tradition": 3.760625,
+          "voice_mechanism_compound": 22.391874999999995,
           "voice_estill_quality": 2.8600000000000003,
           "voice_speech_song": 10.854999999999995,
           "voice_ensemble_config": 14.884999999999996,
@@ -66,22 +66,22 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 20.689375,
-          "amp_make": 13.31,
+          "electric_technique": 20.764374999999998,
+          "amp_make": 13.43,
           "body_wood": 9.815,
           "neck_wood": 3.5300000000000002,
           "fretboard": 3.4800000000000004,
-          "pickup_magnet": 1.1306249999999998,
+          "pickup_magnet": 1.1756249999999997,
           "pickup_winding": 2.3,
           "string_material": 1,
           "bridge": 3.5300000000000002,
           "scale_length": 9.23,
           "string_gauge": 3.575,
-          "finish": 0.045,
+          "finish": 0,
           "string_tuning": 19.5
         }
       },
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 12.545,
           "body_wood": 3.575,
-          "pickup_config": 1.025625,
-          "string_type": 24.935000000000002,
+          "pickup_config": 1.070625,
+          "string_type": 25.055,
           "scale_length_b": 3.5300000000000002,
-          "fretted_or_not": 0.32999999999999996,
-          "bass_technique": 22.545000000000005,
+          "fretted_or_not": 0.285,
+          "bass_technique": 22.590000000000003,
           "electric_bass_string_configuration": 0
         }
       },

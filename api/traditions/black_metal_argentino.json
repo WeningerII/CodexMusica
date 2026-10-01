@@ -1,0 +1,150 @@
+{
+  "id": "black_metal_argentino",
+  "name": "Black metal argentino",
+  "family": "rock_punk",
+  "lineage": "Argentine black metal includes the Buenos Aires practice of Nekro Cvlt Desecration, a band formed in Venezuela and based in Argentina since2018. Defaults are a present-day authored realization, not a historical session reconstruction.",
+  "recipe": "classic modern black metal argentino, distorted Rock, black branch. thick, false fold engaged, breath pulsed, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier power chord single coil electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 479,
+  "score": 86.75,
+  "config": {
+    "traditions": [
+      "black_metal_argentino"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "false_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 3.2815000000000016,
+          "voice_quality": 6.088000000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.6869999999999999,
+          "voice_articulation": 2.275,
+          "voice_microtone": 3.5315000000000007,
+          "voice_tradition": 3.7050000000000005,
+          "voice_mechanism_compound": 13.194999999999999,
+          "voice_estill_quality": 0.516,
+          "voice_speech_song": 3.9650000000000007,
+          "voice_ensemble_config": 2.600000000000001,
+          "voice_ornament_system": 0.26,
+          "voice_pitch_organization": 0.1995,
+          "voice_processing_chain": 1.8599999999999999,
+          "voice_multitrack_stack": 1.0965
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_mesa_dual_rectifier",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 12.991499999999998,
+          "amp_make": 4.355,
+          "body_wood": 0.528,
+          "neck_wood": 0.552,
+          "fretboard": 0.552,
+          "pickup_magnet": 0.552,
+          "string_material": 0.552,
+          "string_gauge": 2.1415,
+          "bridge": 0.054,
+          "scale_length": 1.056,
+          "finish": 0.213,
+          "string_tuning": 1.95,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 2.275,
+          "body_wood": 1.056,
+          "pickup_config": 0.5069999999999999,
+          "string_type": 4.875,
+          "scale_length_b": 0.528,
+          "fretted_or_not": 0.063,
+          "bass_technique": 4.2925,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_clear",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 3.813,
+          "drumhead": 0.5835,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {},
+    "pin_parts": false,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

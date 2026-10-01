@@ -5,7 +5,7 @@
   "lineage": "Internet-native microgenre that emerged on SoundCloud and Discord around 2020 out of the digicore and hyperpop scenes, associated with Ravenna Golden, Kurtains and the occult-imagery corner of underground rap — typically 140-165 BPM half-time trap skeletons with distorted and clipped 808 glides, detuned wavetable or bell leads, granular and reversed vocal fragments, and heavily pitch-shifted, formant-warped vocals delivered in short whispered or screamed phrases over sigil-and-occult lyric imagery.",
   "recipe": "classic early-2020s sigilkore, experimental Elec, pop experimental branch, us hip hop modern, lofi experimental electric dark plugg detroit trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, field textural sampler, glitched textural wavetable glitched textural granular synth, low sub bass monosynth acid bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 479,
-  "score": 280.613,
+  "score": 280.298,
   "config": {
     "traditions": [
       "sigilkore",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.855000000000002,
+          "voice_register": 5.810000000000002,
           "voice_quality": 14.755000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.575,
           "voice_articulation": 20.865000000000002,
           "voice_microtone": 22.164999999999996,
-          "voice_tradition": 13.110000000000001,
+          "voice_tradition": 13.455000000000002,
           "voice_mechanism_compound": 5.720000000000001,
           "voice_estill_quality": 5.330000000000001,
           "voice_speech_song": 21.904999999999998,
           "voice_ensemble_config": 21.189999999999998,
           "voice_ornament_system": 3.8350000000000013,
-          "voice_pitch_organization": 2.4700000000000006,
+          "voice_pitch_organization": 2.3950000000000005,
           "voice_processing_chain": 9.64,
           "voice_multitrack_stack": 7.3774999999999995
         }
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.785000000000001,
+          "tr808_voice": 4.830000000000001,
           "drum_machine_808_context": 3.055,
           "tr808_production_origin": 2.8600000000000003
         }
@@ -78,7 +78,7 @@
           "electronic_technique": 10.950000000000001,
           "sampler_archetypes": 7.15,
           "sampler_bit_depth": 3.5100000000000002,
-          "sampler_workflow": 11.43,
+          "sampler_workflow": 11.385,
           "sampler_classic_context": 27.43
         }
       },
@@ -107,7 +107,7 @@
         "scores": {
           "electronic_technique": 10.950000000000001,
           "granular_use": 0.65,
-          "granular_synth_source": 5.720000000000001
+          "granular_synth_source": 5.180000000000001
         }
       },
       {
@@ -119,8 +119,8 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 10.795,
-          "wave_acid": 0.285,
+          "electronic_technique": 10.885,
+          "wave_acid": 0.195,
           "filter_acid": 0.195,
           "accent_acid": 0.195
         }

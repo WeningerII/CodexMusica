@@ -5,7 +5,7 @@
   "lineage": "Early-1990s heavy-metal subgenre emerging in northern Europe (UK, Netherlands, Norway) integrating doom-metal slow tempi, gothic-rock atmospheric register, and male-female contrasting-vocal dual-presentation (operatic-female vs growled-male). Paradise Lost's Gothic (1991), My Dying Bride, Anathema, the Theatre of Tragedy (Norway, 1993-onward), and the Type O Negative (NYC, 1989-2010) anchored the canonical roster.",
   "recipe": "classic North American mid-2000s gothic metal, distorted Rock, symphonic branch, gothic rock distorted rock darkwave dark rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit, analog synth. denver gothic basement studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 612,
-  "score": 278.017,
+  "score": 279.054,
   "config": {
     "traditions": [
       "gothic_metal",
@@ -42,12 +42,12 @@
           "voice_articulation": 8.06,
           "voice_microtone": 19.1185,
           "voice_tradition": 4.8100000000000005,
-          "voice_mechanism_compound": 19.038749999999997,
+          "voice_mechanism_compound": 19.171499999999998,
           "voice_estill_quality": 2.34,
           "voice_speech_song": 8.255,
           "voice_ensemble_config": 9.49,
           "voice_ornament_system": 0.52,
-          "voice_pitch_organization": 3.8087500000000007,
+          "voice_pitch_organization": 3.7600000000000007,
           "voice_processing_chain": 3.2914999999999996,
           "voice_multitrack_stack": 2.827500000000001
         }
@@ -70,16 +70,16 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.23025,
+          "electric_technique": 22.363,
           "amp_make": 13.617499999999996,
-          "body_wood": 8.95275,
+          "body_wood": 9.36,
           "neck_wood": 0.195,
           "fretboard": 0.195,
           "pickup_magnet": 0.495,
           "pickup_winding": 0.195,
           "string_material": 0.195,
           "bridge": 0.65,
-          "scale_length": 8.95275,
+          "scale_length": 9.366,
           "string_gauge": 1.885,
           "finish": 0.195,
           "string_tuning": 19.565

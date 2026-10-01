@@ -1,0 +1,340 @@
+{
+  "scope": "Seven individually reviewed deterministic optimizer deltas. All prior source/extras and instrument data unchanged; test logic unchanged.",
+  "reviews": [
+    {
+      "id": "drone_dark_ambient",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "pin_parts": false,
+      "old_neighbors": ["drone_dark_ambient", "doom", "doom_blues"],
+      "new_neighbors": ["drone_dark_ambient"],
+      "old_instruments": [
+        "analog_synth",
+        "modular_synth",
+        "tape_replay_keyboard",
+        "string_machine",
+        "waterphone"
+      ],
+      "new_instruments": [
+        "analog_synth",
+        "modular_synth",
+        "tape_replay_keyboard",
+        "string_machine",
+        "waterphone"
+      ],
+      "changed_slots": [
+        {
+          "instrument": "tape_replay_keyboard",
+          "part": "keyboard_technique",
+          "before": "keyboard_arpeggio_sustain_rich",
+          "after": "keyboard_block_chord_pop",
+          "existing_variant": true
+        },
+        {
+          "instrument": "tape_replay_keyboard",
+          "part": "tape_state",
+          "before": "aged_tape",
+          "after": "fresh_tape",
+          "existing_variant": true
+        },
+        {
+          "instrument": "waterphone",
+          "part": "waterphone_excitation",
+          "before": "waterphone_bowed_rods",
+          "after": "waterphone_struck_rods",
+          "existing_variant": true
+        }
+      ],
+      "old_recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal doom blues. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "new_recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "decision": "accept_individually_reviewed_existing_unpinned_optimization",
+      "reason": "The unchanged doom cross-reference no longer staples doom/doom_blues after the enlarged doom pool is scored. All four primary instrument roles and the full environment remain. Tape keyboard and waterphone changes are existing unpinned options; rendered instrument/environment wording is unchanged apart from the neighbor label."
+    },
+    {
+      "id": "dsbm_black_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "pin_parts": false,
+      "old_neighbors": ["dsbm_black_metal", "traditional_doom", "funeral_doom"],
+      "new_neighbors": ["dsbm_black_metal", "traditional_doom", "funeral_doom"],
+      "old_instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "new_instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "before": "alnico_5_h",
+          "after": "alnico_2_h",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "finish",
+          "before": "oil_satin_hum",
+          "after": "nitro_hum",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "alder_b",
+          "after": "mahogany_b",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretless",
+          "after": "fretted",
+          "existing_variant": true
+        }
+      ],
+      "old_recipe": "classic North American mid-1990s dsbm, distorted Rock, black branch, doom metal traditional doom funeral doom. thick, false fold engaged, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "new_recipe": "classic North American mid-1990s dsbm, distorted Rock, black branch, doom metal traditional doom funeral doom. thick, false fold engaged, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca sub bass analog poly synth. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "decision": "accept_individually_reviewed_existing_unpinned_optimization",
+      "reason": "Same traditional-doom/funeral-doom neighbors and instrument roles. Enlarged catalog scoring selects existing mahogany bass instead of alder; guitar pickup/finish and fretting are likewise pre-existing unpinned options. No source default or engine changed."
+    },
+    {
+      "id": "footwork",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "pin_parts": false,
+      "old_neighbors": ["footwork", "dark_trap", "dark_plugg"],
+      "new_neighbors": ["footwork", "dark_trap", "dark_plugg"],
+      "old_instruments": ["drum_machine_808", "sampler_classic", "digital_subtractive"],
+      "new_instruments": ["drum_machine_808", "sampler_classic", "digital_subtractive"],
+      "changed_slots": [
+        {
+          "instrument": "sampler_classic",
+          "part": "sampler_workflow",
+          "before": "sampler_chopped_breaks",
+          "after": "sampler_one_shot_pitched",
+          "existing_variant": true
+        }
+      ],
+      "old_recipe": "classic 2007-2009 footwork, electronic Dance, footwork branch, us hip hop modern dark trap dark plugg. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, low sub bass digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_recipe": "classic 2007-2009 footwork, electronic Dance, footwork branch, us hip hop modern dark trap dark plugg. behringer rd 8 modern clone analog circuit reproduction TR-808, pitched chopped sampler, low sub bass digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "decision": "accept_individually_reviewed_existing_unpinned_optimization",
+      "reason": "Same dark-trap/dark-plugg neighbors and source role set. The unchanged optimizer selects existing sampler_one_shot_pitched rather than sampler_chopped_breaks; rendered sampler gains pitched. No sampler option or old footwork row changed."
+    },
+    {
+      "id": "melodic_death_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "pin_parts": false,
+      "old_neighbors": ["melodic_death_metal", "brazilian_power_metal", "british_power_metal"],
+      "new_neighbors": ["melodic_death_metal", "brazilian_power_metal", "finnish_power_metal"],
+      "old_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "new_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "fretboard",
+          "before": "ebony_fb_h",
+          "after": "pau_ferro_fb_h",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "before": "alnico_8_h",
+          "after": "alnico_5_h",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "before": "stoptail",
+          "after": "string_thru",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "amp_make",
+          "before": "amp_british_late_60s_marshall_plexi",
+          "after": "amp_american_ampeg_svt",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "before": "soapbar",
+          "after": "humbucker_mm",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "extra_long_b",
+          "after": "short_scale_b",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretted",
+          "after": "fretless",
+          "existing_variant": true
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "double_coated",
+          "after": "vintage_ambassador_drumhead",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "gospel_pentecostal_tradition",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_plate_reverb_medium",
+          "existing_variant": true
+        }
+      ],
+      "old_recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal brazilian power metal british power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "new_recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal brazilian power metal finnish power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "decision": "accept_individually_reviewed_existing_unpinned_optimization",
+      "reason": "Finnish power metal is a documented power-metal branch and replaces British power metal within the old power cross-reference. Existing Ampeg bass amp replaces existing Marshall Plexi. All changed slots are pre-existing unpinned options, and old source/roles/environment remain; inherited vocal-option oddities are not recertified as cultural facts."
+    },
+    {
+      "id": "drone_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "pin_parts": false,
+      "old_neighbors": ["drone_metal", "funeral_doom", "doom"],
+      "new_neighbors": ["drone_metal", "funeral_doom", "brazilian_doom_metal"],
+      "old_instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "baritone_electric"
+      ],
+      "new_instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "baritone_electric"
+      ],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "neck_wood",
+          "before": "maple_neck_h",
+          "after": "mahogany_neck_h",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "before": "stoptail",
+          "after": "string_thru",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "long_scale_b",
+          "after": "extra_long_b",
+          "existing_variant": true
+        }
+      ],
+      "old_recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom brazilian doom metal. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "decision": "accept_individually_reviewed_existing_unpinned_optimization",
+      "reason": "Brazilian doom metal, represented by HellLight funeral doom, joins the old doom cross-reference alongside funeral doom. Existing unpinned guitar neck/bridge and bass scale selections move; source roles and environment remain. No old row or new gear default is rewritten."
+    },
+    {
+      "id": "black_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "pin_parts": false,
+      "old_neighbors": ["black_metal", "doom", "stoner_metal"],
+      "new_neighbors": ["black_metal", "doom", "christian_doom_metal"],
+      "old_instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+      "new_instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "oscillating_vibrato",
+          "after": "diaphragm_vibrato",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "japanese_min_yo_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_sub_semitone_third_glide",
+          "after": "voice_pitch_pelog_7",
+          "existing_variant": true
+        }
+      ],
+      "old_recipe": "classic North American 1987-1989 black metal, distorted Rock, black branch, doom metal stoner metal. thick, false fold engaged, wide pitch sway, interlocked note trading. orange amp British heavy crunch mahogany maple pau ferro single coil electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape boss DS-1.",
+      "new_recipe": "classic North American 1987-1989 black metal, distorted Rock, black branch, doom metal christian doom metal. thick, false fold engaged, breath pulsed, interlocked note trading. orange amp British heavy crunch mahogany maple pau ferro single coil electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape boss DS-1.",
+      "decision": "accept_individually_reviewed_existing_unpinned_optimization",
+      "reason": "Documented Christian doom metal replaces stoner metal within the existing doom cross-reference. Existing unpinned vibrato changes from oscillating to diaphragm; rendered voice shifts wide pitch sway to breath pulsed. Old voice-quality isolation/source and role set remain. Pre-existing non-rendered cultural option selections are not new source claims."
+    },
+    {
+      "id": "death_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "pin_parts": false,
+      "old_neighbors": ["death_metal", "black_speed_metal", "thrash_metal"],
+      "new_neighbors": ["death_metal", "black_speed_metal", "thrash_metal"],
+      "old_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "new_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "amp_make",
+          "before": "amp_british_marshall_jcm800",
+          "after": "amp_mesa_dual_rectifier",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_winding",
+          "before": "low_wind",
+          "after": "high_wind",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "after": "voice_multitrack_pitched_sample_melodic_bed",
+          "existing_variant": true
+        }
+      ],
+      "old_recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "new_recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "decision": "accept_individually_reviewed_existing_unpinned_optimization",
+      "reason": "The same black-speed/thrash neighbors remain. The unchanged optimizer selects existing Mesa Dual Rectifier rather than Marshall JCM800, and existing pickup/vocal-stack options. No source defaults, historical narrative, roles or environment were changed."
+    }
+  ]
+}

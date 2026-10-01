@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s outrun/synthwave subgenre emphasizing aggressive, dark, horror-cinematic atmospheric register over the broader synthwave's nostalgic-cheerful aesthetic. Perturbator (James Kent, French producer) inaugurated the canonical darksynth sound through Dangerous Days (2014) and The Uncanny Valley (2016); Carpenter Brut, GosT, Dance with the Dead, and the broader Blood Music label roster extended the genre.",
   "recipe": "classic darksynth, experimental Elec, ambient branch, thrash metal djent australian thrash metal. pad like lead analog synth, TR-808, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 462,
-  "score": 104.972,
+  "score": 105.029,
   "config": {
     "traditions": [
       "darksynth",
@@ -61,15 +61,15 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 16.618499999999997,
+          "electric_technique": 16.77,
           "amp_make": 13.032499999999999,
           "body_wood": 11.765,
-          "neck_wood": 3.7615,
-          "fretboard": 3.7115,
+          "neck_wood": 3.73,
+          "fretboard": 3.68,
           "pickup_magnet": 1.4949999999999999,
           "pickup_winding": 0.45499999999999996,
           "string_material": 1.6315,
-          "bridge": 3.7615,
+          "bridge": 3.73,
           "scale_length": 8.774999999999999,
           "string_gauge": 4.875,
           "finish": 0,

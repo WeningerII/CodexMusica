@@ -1,0 +1,70 @@
+{
+  "id": "ukrainian_phonk",
+  "name": "Ukrainian phonk",
+  "family": "hip_hop",
+  "lineage": "Ukrainian phonk is a Ukrainian and diasporic producer-community category, represented by Roland Jones’s Memphis-informed sample-based branch. Recording settings are an authored present-day realization, not a reconstruction of an original session.",
+  "recipe": "classic modern ukrainian phonk, mc Rhythm, intl hip hop branch. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 221,
+  "score": 6.6,
+  "config": {
+    "traditions": [
+      "ukrainian_phonk"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twelve_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "chopped_break"
+        },
+        "scores": {
+          "electronic_technique": 2.8000000000000003,
+          "sample_bitdepth": -0.05,
+          "sample_swing": 3.9,
+          "sample_processing": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "electronic_technique",
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sample_bitdepth": "twelve_bit",
+      "sample_swing": "mid_swing",
+      "sample_processing": "chopped_break",
+      "electronic_technique": "electronic_sample_chopped"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

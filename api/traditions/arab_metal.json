@@ -5,7 +5,7 @@
   "lineage": "Arab-world metal discovery scope represented by Myrath’s specifically Tunisian melodic/progressive branch. Primary musicians distinguish their Tunisian tunes, quarter-step vocal inflection and guitar/bass/drum/keyboard core from generic exotic-instrument accumulation.",
   "recipe": "classic modern arab metal, distorted Rock, prog branch. neutral third half flat, many notes per syllable, solo with instrumental accompaniment, single lead single track no stacking. prog lead seven string electric, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 538,
-  "score": 32.405,
+  "score": 32.464,
   "config": {
     "traditions": [
       "arab_metal"
@@ -63,13 +63,13 @@
         "scores": {
           "drum_technique": 3.855,
           "drumhead": 0.11624999999999999,
-          "drum_kit_kick_pedal": 1.6625,
+          "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.39,
           "shell_thickness": 0,
           "bearing_edges": 0.39,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
-          "cymbal_hammering": 3.95,
+          "cymbal_hammering": 3.9815,
           "cymbal_lathing": 3.744,
           "cymbal_finish": 0
         }

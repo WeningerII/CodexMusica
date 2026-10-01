@@ -5,7 +5,7 @@
   "lineage": "Death-metal strand prioritizing abrasive harmonic friction and fractured rhythmic composition, represented by Gorguts’ Obscura (1998) and Colored Sands (2013). Season of Mist’s release accounts document dissonant guitar writing and unconventional rhythm/harmony, plus the guitar-vocal, second-guitar, bass and drum roster. The available palm-muted technique pin is an authored riff-attack reduction, not a transcription of the extended guitar vocabulary.",
   "recipe": "classic late-1990s dissonant death metal, distorted Rock, death branch, avant metal, prog metal cybergrind mathcore. interlocked note trading, equal tempered, solo with instrumental accompaniment, no specific ornament system. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 611,
-  "score": 99.887,
+  "score": 99.88,
   "config": {
     "traditions": [
       "dissonant_death_metal",
@@ -37,7 +37,7 @@
           "neck_wood": 1.3,
           "fretboard": 1.3,
           "pickup_magnet": 0,
-          "pickup_winding": 0.9575,
+          "pickup_winding": 0.9500000000000001,
           "string_material": 1.3,
           "bridge": 0.09,
           "scale_length": 0.18,

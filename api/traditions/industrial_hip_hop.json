@@ -5,7 +5,7 @@
   "lineage": "Hip-hop intersecting industrial and noise practice through abrasive sound construction, processed found sound and beat-centered MC performance. clipping.’s Los Angeles CLPPNG strand anchors this model, particularly Work Work, whose musicians explain using field recordings of metal objects and broken cinder blocks in place of conventional drum samples. Industrial describes the sonic construction rather than a lyrical obligation or one mandatory rock backline.",
   "recipe": "classic modern industrial hip hop, mc Rhythm, experimental branch, industrial noise experimental electric, us hip hop west coast digital hardcore. thick, rap, equal tempered, rhythmic spoken flow no pitch. field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter silicon fuzz.",
   "recipe_chars": 388,
-  "score": 112.23,
+  "score": 112.21,
   "config": {
     "traditions": [
       "industrial_hip_hop",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_adlib_response_lane"
         },
         "scores": {
-          "voice_register": 5.268214285714287,
+          "voice_register": 5.2650000000000015,
           "voice_quality": 9.889999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0.3,
@@ -65,7 +65,7 @@
           "electronic_technique": 11.625000000000002,
           "sampler_archetypes": 0,
           "sampler_bit_depth": 1.2349999999999999,
-          "sampler_workflow": 16.462142857142858,
+          "sampler_workflow": 16.445,
           "sampler_classic_context": 42.875
         }
       }
