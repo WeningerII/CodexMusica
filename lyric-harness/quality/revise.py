@@ -1964,6 +1964,9 @@ class Reviser:
                     refused.add((i, j, k))
                     unknown.update(((i, k), (j, k)))
                     continue
+            # The readings each declared relation was satisfied under, when
+            # it held only under one (CLAUDE.md standing rule 5).
+            _pair_readings = {}
             if "REPEAT" in rels and not any(_schema_name_of(_RT, w) for w in wants):
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
@@ -1992,6 +1995,7 @@ class Reviser:
                 # declared structure, if any. A refusal on any one refuses.
                 _refused_here = False
                 for want in wants:
+                    _rwit = None
                     # THE GROUP DECLARED WHAT RELATION IT WANTS. This is the
                     # coordinate `admits()` could never carry: `admits()` is ONE
                     # global set answering "what satisfies ANY mandate", so
@@ -2122,6 +2126,8 @@ class Reviser:
                         unknown.add((j, k))
                         _refused_here = True
                         break
+                    if ok and _rwit:
+                        _pair_readings[want] = _rwit
                     if not ok:
                         why = (f"does not satisfy the declared relation {want!r} "
                                + (f"— judged by the schema's own channels at the "
@@ -2224,6 +2230,8 @@ class Reviser:
                              # read exactly like one with nothing to say.
                              # A copy of the record, gating nothing.
                              "flags": list(s.get("flags") or []),
+                             **({"readings": _pair_readings}
+                                if _pair_readings and why is None else {}),
                              "why": why})
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration

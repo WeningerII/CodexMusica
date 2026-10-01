@@ -299,13 +299,15 @@ def _round_trip_fixture_checks(R):
                   bool(grade["violations"])
                   and "REPEAT" in grade["verdicts"][0]["relations"])
 
-    # The old fixture is an adversary, not an alternative accepted input.
-    # Its same-length function words must still refuse; the phonology's
-    # weak-word rule stays intact. The round-trip guard must reject it even
-    # when the counters are forged to mimic the original M-144 miscount.
+    # The adversary: a slot that names a word no phonology can anchor must
+    # refuse, and the round-trip guard must reject it even when the counters
+    # are forged to mimic the original M-144 miscount. (The old filler's
+    # line-initial `we` played this part until the owner ruled on 2026-10-01
+    # that a small word may be sung stressed — CLAUDE.md standing rule 5 —
+    # so `we` now anchors; a word the dictionary cannot read still cannot.)
     mandate = SC.mandate([["1.T1", "2.T1"]], n_lines=2,
                          default_relation="class:RHYME")
-    legacy = [legacy_prefix + LH.line_tokens(line)[-1] for line in draft]
+    legacy = ["qzzxv " + LH.line_tokens(line)[-1] for line in draft]
     refused = R.grade(legacy, mandate)
     check("M-146: restoring the old filler is rejected by the sweep's own guard",
           bool(_round_trip_grade_errors(refused, mandate))

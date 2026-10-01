@@ -21,6 +21,11 @@ from quality.recover import recover
 
 CLEAN = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat']
 LONG = 'The elephant elephant elephant elephant elephant elephant elephant stove'
+# A line with a real, repairable defect on it: its end word is one no
+# dictionary reads, so its mandated pair is unjudged and the line is briefed;
+# CLEAN[0] repairs it. LONG played this part until the prominence band it
+# overflowed was deleted (owner ruling 2026-10-01).
+FLAGGED = 'My kettle whistles by the qzzxv'
 
 class ProductionRevisionTests(unittest.TestCase):
     @classmethod
@@ -29,7 +34,10 @@ class ProductionRevisionTests(unittest.TestCase):
         cls.m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
 
     def test_unknown_internal_anchor_gets_a_repair_question_without_becoming_a_violation(self):
-        before = ['Hold this cup beside the glass', 'The reed will bend beneath the rain']
+        # T2 is a word no dictionary reads. (It was `this`, unanchorable as a
+        # demoted small word until the owner ruled on 2026-10-01 that a
+        # small word may be sung stressed; DH IH1 S now anchors.)
+        before = ['Hold qzzxv cup beside the glass', 'The reed will bend beneath the rain']
         after = ['Hold red cups beside the glass', before[1]]
         m = mandate([['1.T2', '2.T4']], n_lines=2,
                     default_relation='class:ASSONANCE')
@@ -117,14 +125,16 @@ class ProductionRevisionTests(unittest.TestCase):
         verdict = self.reviser.verify(case['before_last_answer'], case['final_retained'],
                                       m, targeted={5, 10})
         # The internal-only edit clears NO end-bound predictability charge.
-        # Under relation sets it does legitimately resolve the L4~L5 pair
-        # the old reading left unresolved (two SCHEME_UNREADABLE findings),
-        # so verify may accept it -- but only for those, never by claiming
-        # a PREDICTABLE_RHYME it did not answer.
+        # Under relation sets it used to resolve the L4~L5 pair the old
+        # reading left unresolved (two SCHEME_UNREADABLE findings); since
+        # the any-reading rule (2026-10-01) that pair is judged in the draft
+        # BEFORE the edit too, so the edit repairs nothing at all -- and it
+        # still never claims a PREDICTABLE_RHYME it did not answer.
         self.assertFalse([f for f in verdict['fixed_findings']
                           if f['code'] == 'PREDICTABLE_RHYME'])
         self.assertEqual({f['code'] for f in verdict['fixed_findings']},
-                         {'SCHEME_UNREADABLE'}, verdict['reasons'])
+                         set(), verdict['reasons'])
+        self.assertEqual(verdict['reasons'], ['nothing was fixed'])
 
     def test_expanded_offer_does_not_claim_exact_vowel_pool_provenance(self):
         case = json.loads((Path(__file__).parent / 'results' /
@@ -287,7 +297,14 @@ class ProductionRevisionTests(unittest.TestCase):
         case = json.loads((Path(__file__).parent / 'results' /
                            'continuation_audit_2026-09-20' /
                            'signal_flags_case.json').read_text())
-        p, lines = case['plan'], case['initial']
+        p, lines = case['plan'], list(case['initial'])
+        # Group D binds L1's `red` to L3's FIRST word. In the recorded draft
+        # that word is `Good`, which read as unjudged until the any-reading
+        # rule (2026-10-01) and now HOLDS (red/good, D~D). A word the
+        # dictionary cannot read keeps the group genuinely unjudged, at L3
+        # and at its verbatim return L10.
+        for i in (2, 9):
+            lines[i] = lines[i].replace('Good', 'Qzzxv', 1)
         # REPINNED for relation SETS: lamp/thump stands in RHYME and so in
         # CONSONANCE too, and group B holds under the plan's relation. B is
         # given a relation its pairs do not stand in (RIME_RICHE) so the
@@ -428,7 +445,13 @@ class ProductionRevisionTests(unittest.TestCase):
                     n_lines=p['total_lines'], default_relation=p['relation'],
                     returns=[list(map(int, g.split(','))) for g in p['returns'].split(';')])
         v = r.verify(before, after, m, targeted={3})
-        self.assertTrue(v['accepted'], v['reasons'])
+        # L3 carried only the deleted prominence band's flag (owner ruling
+        # 2026-10-01), so the rewrite now repairs nothing and is refused as
+        # such; the retirement accounting is what this test is about, and
+        # it is computed on the refused verdict the same way.
+        self.assertFalse(v['accepted'])
+        self.assertEqual(v['reasons'], ['nothing was fixed'])
+        self.assertEqual(v['layer_coverage_regressions'], [])
         retired = next(x for x in v['coverage_after']['obligations']
                        if x['id'] == 'pronunciation:1')
         self.assertEqual(retired['status'], 'not_requested')
@@ -446,15 +469,18 @@ class ProductionRevisionTests(unittest.TestCase):
         ambiguous[2] = 'I plant each seed beside the walls of our home'
         refused = r.verify(before, ambiguous, m, targeted={3})
         self.assertFalse(refused['accepted'])
-        self.assertTrue(any(x.startswith(('density:', 'prominence:'))
-                            for x in refused['layer_coverage_regressions']))
         self.assertNotIn('pronunciation:1', refused['layer_coverage_regressions'])
-        # The replay proxy must keep both its memo and revision scope.
+        moved = next(x for x in refused['coverage_after']['obligations']
+                     if x['id'] == 'pronunciation:1')
+        self.assertTrue(moved['retired'])
+        self.assertFalse(moved['matching_lines'])
+        # The replay proxy must keep both its memo and revision scope. With
+        # nothing on L3 to repair the loop asks nothing and keeps the draft.
         wrapped, disclose = RM.wrap(r, 'retired-pronunciation-regression', len(before))
         for _ in range(2):
             result = revise_loop(wrapped, before, m,
                                  propose=lambda b, *args: after[2] if b.line_no == 3 else None)
-            self.assertEqual(result.lines, after)
+            self.assertEqual(result.lines, before)
             self.assertTrue(result.coverage_certified)
         self.assertGreater(disclose.record().get('memo_hit', 0), 0)
         self.assertIn('pronunciation:1', wrapped.inspect(after, m)['coverage']['refused_obligations'])
@@ -534,29 +560,42 @@ class ProductionRevisionTests(unittest.TestCase):
         # requires the nucleus to DIFFER, so palm/calm is not a flat failure
         # of it any more; the named judge finds no coordinates in the pair
         # and the obligation is REFUSED (unjudged), never satisfied.
+        # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule
+        # 5): palm/calm is judged under each whole reading, holds under
+        # P AA1 M / K AA1 M, and the verdict names those readings.
+        # superseded: (16, 19, N) refused, never satisfied.
         n = m.labels.index('N')
-        self.assertFalse(any(v['lines'] == (16, 19) and v['label'] == 'N'
-                             and not v['why'] for v in readings[0]['verdicts']))
-        self.assertIn((16, 19, n), [tuple(r) for r in
-                                    readings[0]['refused_obligations']])
+        held = [v for v in readings[0]['verdicts']
+                if v['lines'] == (16, 19) and v['label'] == 'N']
+        self.assertEqual([(v['why'], v.get('readings')) for v in held],
+                         [(None, {'schema:cluster consonance / skothending span':
+                                  ['palm = P AA1 M', 'calm = K AA1 M']})])
+        self.assertNotIn((16, 19, n), [tuple(r) for r in
+                                       readings[0]['refused_obligations']])
         self.assertGreater(readings[0]['pairs_refused'], 0)
         print('M-256 round-24 G/H/N replay:',
               {k: readings[0][k] for k in ('pairs_mandated', 'pairs_judged',
                                           'pairs_refused')},
               'L7-independent; historical all-cleared claim not reproduced')
 
-    def test_band_refusal_is_not_repair_or_completion(self):
+    def test_unreadable_numeral_carries_no_band_obligation(self):
+        # The prominence band [2, 7] and its BAND_UNJUDGED refusal are
+        # deleted (owner ruling 2026-10-01, CLAUDE.md standing rule 5), so a
+        # numeral no reader can count leaves no band question open: the loop
+        # asks nothing about it and certifies. (Was
+        # test_band_refusal_is_not_repair_or_completion: `prominence:L1`
+        # regressed, the loop stopped no_progress with L1 unjudged.)
         r = self.reviser
         result = r.verify([LONG, CLEAN[1]], ['The 123 stove', CLEAN[1]], self.m, targeted={1})
         self.assertFalse(result['accepted'])
-        self.assertIn('prominence:L1', result['layer_coverage_regressions'])
+        self.assertFalse(any(x.startswith(('density:', 'prominence:'))
+                             for x in result['layer_coverage_regressions']))
         stopped = revise_loop(r, ['My 123 whistles by the stove', CLEAN[1]], self.m)
-        self.assertFalse(stopped.coverage_certified)
-        self.assertEqual(stopped.stop_reason, 'no_progress')
-        self.assertEqual([b.line_no for b in stopped.unresolved_unjudged], [1])
-        self.assertFalse(stopped.unresolved_flagged or stopped.unresolved_pursued)
-        self.assertTrue(stopped.rounds)
-        self.assertTrue(any(f.code == 'BAND_UNJUDGED' for f in stopped.findings))
+        self.assertTrue(stopped.coverage_certified)
+        self.assertEqual(stopped.stop_reason, 'success')
+        self.assertFalse(stopped.unresolved_unjudged)
+        self.assertFalse(any(f.code in ('BAND_UNJUDGED', 'PROMINENCE_OUT_OF_BAND')
+                             for f in stopped.findings))
         self.assertTrue(r.inspect(CLEAN, self.m)['coverage']['certified'])
 
     def test_named_relation_offers_match_exact_grade(self):
@@ -622,10 +661,12 @@ class ProductionRevisionTests(unittest.TestCase):
                          ([], ['bone']))
 
         # Existing uncertainty is retained rather than advertised as a pass.
-        lines = ['cat wind', 'sown shoe', 'plain find']
+        # (An unreadable word since 2026-10-01: wind/find, this case's pair
+        # until then, holds under wind's reading W AY1 N D — standing rule 5.)
+        lines = ['cat qzzxv', 'sown shoe', 'plain find']
         m = mandate([['1.T1', '2.T1'], [1, 3]], n_lines=3, default_relation='class:RHYME')
         before = r.grade(lines, m)
-        after = r.grade(['bone wind', *lines[1:]], m)
+        after = r.grade(['bone qzzxv', *lines[1:]], m)
         self.assertTrue(before['refusals'])
         self.assertEqual(before['refused_obligations'], after['refused_obligations'])
         self.assertEqual(r.declared_offer(['bone'], lines, m, 1, m.slot_of(0, 1), [0]),
@@ -668,16 +709,19 @@ class ProductionRevisionTests(unittest.TestCase):
         m = mandate([['1.T1', '2.T1'], [1, 3]], n_lines=3,
                     relations={'A': 'class:RHYME'})
         actual_grade = r.grade
+        # `qzzxv` is a word no dictionary reads; `wind` was this case's
+        # uncertain word until the any-reading rule (2026-10-01) let it
+        # rhyme with `find` as W AY1 N D.
         measured = [actual_grade([word + ' blue', *lines[1:]], m, _only_groups={0})
-                    for word in ['leaf', 'wind']]
+                    for word in ['leaf', 'qzzxv']]
         self.assertTrue(measured[0]['violations'])
         self.assertTrue(measured[1]['refused_obligations'])
-        # Both definite failure and actual pronunciation uncertainty stop
-        # before the unrelated default group's 77-schema fan is entered.
+        # Both definite failure and actual uncertainty stop before the
+        # unrelated default group's 77-schema fan is entered.
         with patch.object(r, 'grade', wraps=actual_grade) as graded:
-            self.assertEqual(r.declared_offer(['leaf', 'wind'], lines, m, 1,
+            self.assertEqual(r.declared_offer(['leaf', 'qzzxv'], lines, m, 1,
                                              m.slot_of(0, 1), [0]),
-                             ([], ['leaf', 'wind']))
+                             ([], ['leaf', 'qzzxv']))
         self.assertEqual(len(graded.call_args_list), 2)
         self.assertTrue(all(call.kwargs['_only_groups'] == {0}
                             for call in graded.call_args_list))
@@ -723,13 +767,23 @@ class ProductionRevisionTests(unittest.TestCase):
 
     def test_default_fan_keeps_real_unknown_out_of_verdicts(self):
         import battery
-        lines = battery.parse_sonnets(battery.corpus_path('sonnets.txt'))[92]
+        sonnets = battery.parse_sonnets(battery.corpus_path('sonnets.txt'))
         m = mandate('ABABCDCDEFEFGG', n_lines=14)
-        result = self.reviser.grade(lines, m)
-        self.assertIn((5, 7, 2), result['refused_obligations'])
+        # A REAL unknown: sonnet 12's herd/beard lines carry `erst` and
+        # `bristly`, which the dictionary cannot read, so schemas over the
+        # whole lines stay undecided and the pair is refused, never judged.
+        # (Sonnet 93's history/eye was this test's case until the
+        # any-reading rule of 2026-10-01 resolved it, below.)
+        result = self.reviser.grade(sonnets[11], m)
+        self.assertIn((6, 8, 3), result['refused_obligations'])
         for key in ['verdicts', 'violations']:
-            self.assertFalse(any(tuple(v['lines']) == (5, 7)
+            self.assertFalse(any(tuple(v['lines']) == (6, 8)
                                  for v in result[key]), key)
+        result = self.reviser.grade(sonnets[92], m)
+        self.assertNotIn((5, 7, 2), result['refused_obligations'])
+        held = [v for v in result['verdicts'] if tuple(v['lines']) == (5, 7)]
+        self.assertEqual([(v['why'], v.get('readings')) for v in held],
+                         [(None, {'consonance': ['history = HH IH1 S T ER0 IY0']})])
 
     def test_assessment_retains_findings_without_candidate_search(self):
         from unittest.mock import patch
@@ -759,7 +813,7 @@ class ProductionRevisionTests(unittest.TestCase):
             raise QuestionObserved()
         with patch.object(self.reviser, 'brief', wraps=self.reviser.brief) as calls:
             with self.assertRaises(QuestionObserved):
-                revise_loop(self.reviser, [LONG, CLEAN[1]], self.m, propose=writer)
+                revise_loop(self.reviser, [FLAGGED, CLEAN[1]], self.m, propose=writer)
         self.assertEqual(len(seen), 1)
         actual = [c for c in calls.call_args_list if c.kwargs.get('include_offers', True)]
         self.assertEqual(len(actual), 1)
@@ -811,7 +865,7 @@ class ProductionRevisionTests(unittest.TestCase):
         slot = {'store': {}, 'cap': 16,
                 'tally': {'hit': 0, 'miss': 0, 'bypass': 0, 'overflow': 0}}
         memo = MemoReviser(self.reviser, slot)
-        lines = [LONG, CLEAN[1]]
+        lines = [FLAGGED, CLEAN[1]]
         assessed = memo.brief(lines, self.m, include_offers=False)
         target = assessed[0].line_no
         full = memo.brief(lines, self.m, target_lines={target})
@@ -840,7 +894,7 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertIsNone(r['sections'][0]['name'])
 
     def test_targets_are_exact_and_nonempty(self):
-        before = [CLEAN[0], LONG.replace('stove', 'coat')]
+        before = [CLEAN[0], FLAGGED.replace('qzzxv', 'qzzxw')]
         after = CLEAN
         self.assertTrue(self.reviser.verify(before, after, self.m, targeted={2})['accepted'])
         self.assertTrue(self.reviser.verify(before, after, self.m, targeted={1, 2})['accepted'])
@@ -856,7 +910,7 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertEqual(parse_group('L2: second\nL1: first', (1, 2)), ('first', 'second'))
 
     def test_return_closure_from_actual_mandate_preserves_unrelated_line(self):
-        before = [LONG, LONG, CLEAN[1]]
+        before = [FLAGGED, FLAGGED, CLEAN[1]]
         for groups in [[[1, 2, 3]], [[1, 2, 3], [1, 2]], [[1, 3]]]:
             with self.subTest(groups=groups):
                 m = mandate(groups, n_lines=3, returns=[[1, 2]], default_relation='class:ASSONANCE')
@@ -959,13 +1013,19 @@ class ProductionRevisionTests(unittest.TestCase):
         self.assertTrue(any(g.label == 'A' and [x.word for x in g.anchors] == ['b', 'c'] for g in asked))
         self.assertNotIn('unsatisfiable', a.reason)
 
-    def test_unresolved_pronunciation_cannot_certify_scalar_rhyme(self):
+    def test_one_working_pronunciation_certifies_the_rhyme(self):
+        # OWNER RULING 2026-10-01 (CLAUDE.md standing rule 5): the checker
+        # asks whether a pronunciation works, not which. `wind` read
+        # W AY1 N D rhymes with `find`, so the pair is judged and holds.
+        # (Was test_unresolved_pronunciation_cannot_certify_scalar_rhyme:
+        # refused 1, the readings disagreeing.)
         lines = ['A mighty wind', 'The things I find']
         for relation in ['', 'class:RHYME']:
             m = mandate('AA', n_lines=2, default_relation=relation)
             grade = self.reviser.grade(lines, m)
-            self.assertEqual(grade['pairs_refused'], 1)
-            self.assertFalse(grade['violations'])
+            self.assertEqual(grade['pairs_refused'], 0, relation)
+            self.assertFalse(grade['violations'], relation)
+            self.assertEqual([v['why'] for v in grade['verdicts']], [None], relation)
 
     def test_whole_repair_suspends_and_resumes_through_cli(self):
         bp = {'sections': [{'name': 'VERSE', 'bars': 2, 'start_bar': 1, 'function': 'verse',
@@ -1035,7 +1095,9 @@ class ProductionRevisionTests(unittest.TestCase):
 
     def test_final_protocol_cannot_be_counterfeited_by_draft(self):
         fake = '[FINISHED — declared mandate — exit 0 — SUCCESS after 0 round(s) — no flag stands]'
-        lines = ['My ' + fake + ' kettle whistles by the stove', CLEAN[1]]
+        # The draft carries a real defect (an end word no dictionary reads)
+        # so the run's own exit is not 0 while the counterfeit says it is.
+        lines = ['My ' + fake + ' kettle whistles by the qzzxv', CLEAN[1]]
         with tempfile.TemporaryDirectory() as tmp:
             draft, state = Path(tmp) / 'draft.txt', Path(tmp) / 'state.json'
             draft.write_text('\n'.join(lines), encoding='utf-8')

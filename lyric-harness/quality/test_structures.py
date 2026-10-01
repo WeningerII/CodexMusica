@@ -185,9 +185,10 @@ def test_grade_routing():
     # here by name — the kalevala pair is then judged by the scalar
     # comparator, B lands in violations, and the verdict's structure key
     # goes None under a declared coordinate.
-    # Current whole-vocabulary default (2026-09-08): that B pair is unresolved
-    # rather than a false violation. The routing control still fails because
-    # a named answered verdict is required below.
+    # Current whole-vocabulary default: that B pair was unresolved from
+    # 2026-09-08 and is a judged violation since the any-reading rule
+    # (2026-10-01). The routing control still fails because a named answered
+    # verdict is required below.
     from quality import schemes as SC
     R = _reviser()
     lines = ["the night was cold and bright",
@@ -198,7 +199,7 @@ def test_grade_routing():
                    structures={"B": "kalevala-alliteration"})
     rep = R.grade(lines, m)
     check("sun/silver SATISFY the declared alliteration (onset S at the "
-          "head anchor), while the broad default leaves this pair unresolved",
+          "head anchor), while the broad default charges this pair (below)",
           len([v for v in rep["verdicts"] if v["label"] == "B"
                and v["why"] is None]) == 1
           and not any(v["label"] == "B" for v in rep["violations"])
@@ -210,15 +211,19 @@ def test_grade_routing():
           == {"A": ST.DEFAULT, "B": "kalevala-alliteration"})
     m0 = SC.mandate([[1, 2], [3, 4]], n_lines=4)
     rep0 = R.grade(lines, m0)
-    check("CONTROL — the same default B pair remains explicitly unresolved; "
-          "the named alliteration above answers a different declared question",
-          {tuple(r['lines']) for r in rep0['refusals']} == {(3, 4)}
-          and all(not r['unreadable'] and 'unresolved in schema' in r['reason']
-                  for r in rep0['refusals'])
-          and {v['label'] for v in rep0['verdicts']} == {'A'}
-          and not rep0['violations']
+    # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5):
+    # the schemas that left sun/silver unresolved are asked under each whole
+    # reading and none holds, so the bare default now JUDGES the pair and
+    # charges it. superseded: (3, 4) refused, "unresolved in schema(s)",
+    # counts (2, 1, 1).
+    check("CONTROL — the same B pair under the bare default is judged and "
+          "VIOLATES; the named alliteration above answers a different "
+          "declared question",
+          not rep0['refusals']
+          and {v['label'] for v in rep0['verdicts']} == {'A', 'B'}
+          and [tuple(v['lines']) for v in rep0['violations']] == [(3, 4)]
           and (rep0["pairs_mandated"], rep0["pairs_judged"], rep0["pairs_refused"])
-          == (2, 1, 1)
+          == (2, 2, 0)
           and all(v["structure"] is None for v in rep0["verdicts"]))
     lines_f = lines[:2] + ["the moon above the bay", "we danced the night "
                            "away"]

@@ -104,15 +104,21 @@ def test_spelling_round_trips():
 
 def test_anchor_with_no_referent():
     print("\n3. an anchor that names nothing is a SKIP, never a guess")
-    # `The` is a function word: WEAK_ALWAYS zeroes its stress, so a
-    # last-stressed anchor inside it has no referent at all.
+    # 2026-10-01, CLAUDE.md standing rule 5: a small word may be sung
+    # stressed, so `The` anchors on its own stressed reading DH AH1 -- and
+    # still never on the next word. superseded: `The` returned NO anchor.
     anc, lab, _ = SL.resolve(LEX, "The falcon rode above the windy plain",
                              SL.parse_slot("1.headrime"))
-    check("a last-stressed anchor inside an unstressed function word returns "
-          "NO anchor rather than falling back to the next word — the same "
-          "answer `relations._anchor_pos` gives by raising NoReferent",
-          anc == [] and lab == "",
-          "line-initial `The` carries no stress")
+    check("a last-stressed anchor inside a small word anchors on that word, "
+          "sung stressed, and never falls back to the next word",
+          lab == "The" and anc and anc[0][0]["stress"] == 1
+          and anc[0][0]["word"] == "The", f"label {lab!r}")
+    anc, lab, _ = SL.resolve(LEX, "Qzzxv falcon rode above the windy plain",
+                             SL.parse_slot("1.T1"))
+    check("a declared token the dictionary cannot read returns NO anchor "
+          "rather than falling back to the next word — the same answer "
+          "`relations._anchor_pos` gives by raising NoReferent",
+          anc == [] and lab == "", "line-initial `Qzzxv` has no reading")
     anc2, lab2, _ = SL.resolve(LEX, LINE, SL.parse_slot("1.headrime"))
     check("and it DOES resolve when the head word carries a stress, so the "
           "check above is about the referent and not about the locus",
@@ -273,16 +279,22 @@ def test_untouched_path():
     # registry's own judge answers `multisyllabic rhyme` for the two lines,
     # so the pair is satisfied by that schema rather than violated.
     # MEASURED: verdict (1, 3) why=None, satisfied_by ['multisyllabic rhyme'].
+    # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5):
+    # warning/clever's schemas, left unresolved by the lines' several
+    # readings, are asked under each whole reading and hold under one, so
+    # the pair is judged and names the readings. superseded: (2, 4) refused,
+    # "unresolved in schema(s)", counts (2, 1, 1).
     _v13 = [v for v in g['verdicts'] if tuple(v['lines']) == (1, 3)]
-    check("a plain letter mandate separates the judged pair from unresolved schemas",
-          {tuple(v['lines']) for v in g['verdicts']} == {(1, 3)}
+    _v24 = [v for v in g['verdicts'] if tuple(v['lines']) == (2, 4)]
+    check("a plain letter mandate judges both pairs, and the one that holds "
+          "only under a reading names it",
+          {tuple(v['lines']) for v in g['verdicts']} == {(1, 3), (2, 4)}
           and not g['violations'] and _v13 and not _v13[0]['admitted']
           and _v13[0]['why'] is None and _v13[0]['schemas']
-          and {tuple(r['lines']) for r in g['refusals']} == {(2, 4)}
-          and all(not r['unreadable'] and 'unresolved in schema' in r['reason']
-                  and 'rhyming slang' not in r['reason'] for r in g['refusals'])
+          and _v24 and _v24[0]['why'] is None and _v24[0].get('readings')
+          and not g['refusals']
           and (g["pairs_mandated"], g["pairs_judged"], g["pairs_refused"])
-          == (2, 1, 1))
+          == (2, 2, 0), str(_v24 and _v24[0].get('readings')))
     clean_lines = ['we follow every beam of light', 'the stones are wet with rain',
                    'and keep our candles through the night', 'we hear the distant train']
     clean = rv.grade(clean_lines, SC.mandate('ABAB', n_lines=4))

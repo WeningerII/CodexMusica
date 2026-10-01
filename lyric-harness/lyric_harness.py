@@ -4921,14 +4921,23 @@ def word_syllable_map(lex, text):
         lw = fold_apostrophes(w).lower().strip("'\".,;:!?()[]")
         final = (k == len(words) - 1)
         # A SMALL WORD MAY BE SUNG STRESSED (owner ruling 2026-10-01): the
-        # demoted stress stays the reading every count is calibrated on, and
-        # the dictionary's own stress is kept beside it as `weak_stress` so a
-        # slot that needs a stressed syllable here can still find one.
-        dict_stress = None
+        # demoted or unstressed reading stays the one every count is
+        # calibrated on, and a whole dictionary reading that DOES carry a
+        # stress is kept beside it as `sung_alt` -- the word's own stressed
+        # reading (`by` B AY1), or another reading where the one read here
+        # has none (`in` IH1 N, `a` EY1, `and` AE1 N D) -- so a slot that
+        # needs a stressed syllable here can still find one, whole.
+        sung = None
+        stressed = lambda ph: [int(x[-1]) for x in ph if x[-1:].isdigit()]
         if weak_token(reader, lw, phrase_final=final):
-            dict_stress = [int(ph[-1]) for ph in phones if ph[-1:] in "012"
-                           and ph[-1:].isdigit()]
+            if any(x in (1, 2) for x in stressed(phones)):
+                sung = list(phones)
             phones = [re.sub(r"[12]$", "0", ph) for ph in phones]
+        if sung is None and phones and not any(
+                x in (1, 2) for x in stressed(phones)):
+            sung = next((list(alt) for alt in
+                         getattr(reader, "entries", {}).get(lw, ())
+                         if any(x in (1, 2) for x in stressed(alt))), None)
         # The hyphen halves, read exactly as `_tag_span_words` reads them:
         # a span may name a token that is only partly the string it was built
         # from, and a provenance record that cannot say so is the defect
@@ -4936,6 +4945,9 @@ def word_syllable_map(lex, text):
         rd, un = (token_pieces(reader, w) if HYPHEN_SPLIT.search(w)
                   else (None, None))
         sylls = syllabify(phones)
+        sung_sylls = syllabify(sung) if sung else None
+        if sung_sylls is not None and len(sung_sylls) != len(sylls):
+            sung_sylls = None
         for n, s in enumerate(sylls):
             s = dict(s)
             s["word"] = w
@@ -4948,8 +4960,9 @@ def word_syllable_map(lex, text):
             s["word_syllables"] = len(sylls)
             s["word_read"] = tuple(rd) if rd is not None else ()
             s["word_unread"] = tuple(un) if un is not None else ()
-            if dict_stress is not None and n < len(dict_stress):
-                s["weak_stress"] = dict_stress[n]
+            if sung_sylls is not None:
+                s["sung_alt"] = {k: sung_sylls[n][k] for k in
+                                 ("onset", "nucleus", "coda", "stress")}
             out.append(s)
     return out
 
@@ -6090,16 +6103,20 @@ def anchor_disclosure_lines(lex, words):
         before, at_end = token_anchorability(lex, w)
         if before and at_end:
             continue
+        # A small word may be sung stressed (owner ruling 2026-10-01), so a
+        # word fails here only when no dictionary reading of it carries a
+        # stressed syllable -- or the dictionary cannot read it at all.
         if not before and at_end:
             why = ("NO ANCHOR as a declared token BEFORE the line end "
-                   "(T1..Tn, not the last word): demoted to weak there, "
-                   "with no stressed syllable to read a rhyme span from; "
-                   "it anchors as the line's last word")
+                   "(T1..Tn, not the last word): no reading of it there has "
+                   "a stressed syllable to read a rhyme span from; it "
+                   "anchors as the line's last word")
         elif not before and not at_end:
             why = ("NO ANCHOR as a declared token at ANY position (T1..Tn, "
-                   "last word included): this phonology reads it as weak "
-                   "wherever it stands; only the default end slot and "
-                   "`head` (its first syllable) can bind it")
+                   "last word included): no dictionary reading of it has a "
+                   "stressed syllable, or the dictionary cannot read it; "
+                   "only the default end slot and `head` (its first "
+                   "syllable) can bind it")
         else:
             why = ("NO ANCHOR as the line's last declared token, though it "
                    "anchors before the end")
@@ -6169,24 +6186,30 @@ def end_pair_relations(a, b, lex, decl):
     if _PAIR_PHON is None:
         from quality.revise import _relation_phonology as _RPh
         _PAIR_PHON = _RPh()
-    schemas, undecided = [], []
+    schemas, undecided, readings = [], [], {}
     # The stream is built from the two carrier lines, which are readable by
     # construction; an unreadable END word reaches the judge as a Refusal
     # per schema (listed as undecided below), never as an exception.
     pst = _RLall.build_stream([la, lb], _PAIR_PHON)
+    # THE ANY-READING RULE (owner, 2026-10-01): a schema the two end words'
+    # several readings leave undecided is asked again under each whole
+    # reading; it holds if one does, and the reading is reported.
+    build = _RLall.cached_builder(lambda ph: _RLall.build_stream([la, lb], ph))
     for nm in sorted(_RLall.REGISTRY):
         sch = _RLall.REGISTRY[nm]
         if sch.normative in ("forbidden", "deprecated"):
             continue
         if nm in _screen_not_applicable():
             continue
-        ans = _RLall.pair_satisfies(sch, pst, (0, -1), (1, -1))
+        ans, wit = _RLall.pair_satisfies_any(sch, pst, (0, -1), (1, -1), build)
         if isinstance(ans, _RLall.Refusal) or ans is None:
             undecided.append(nm)
         elif ans:
             schemas.append(nm)
+            if wit:
+                readings[nm] = wit
     return {"score": sc, "coarse": coarse, "schemas": schemas,
-            "undecided": undecided}
+            "undecided": undecided, "readings": readings}
 
 
 def screen_pairs(words, lex=None, decl=None, relation=None):
@@ -6266,6 +6289,8 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                    "flags": [], "coda_no_evidence": False,
                    "spans": None, "attribution": "",
                    "named": None, "named_reason": None}
+            if _er.get("readings"):
+                row["readings"] = _er["readings"]
             if _sc is None:
                 row["refused"] = True
                 row["reason"] = (g["refusals"][0]["reason"] if g["refusals"]
@@ -9847,6 +9872,10 @@ def main():
             if r["undecided"]:
                 status += (f"  |  {len(r['undecided'])} undecided at the "
                            f"pair: {', '.join(r['undecided'])}")
+            if r.get("readings"):
+                _rd = "; ".join(f"{n} ({', '.join(w)})"
+                                for n, w in sorted(r["readings"].items()))
+                status += f"  |  held under one reading: {_rd}"
             if r["coda_no_evidence"]:
                 _cf = next(f for f in r["flags"]
                            if f.startswith("coda: no evidence"))
@@ -9882,6 +9911,7 @@ def main():
              "coarse_relations": list(r["coarse_relations"]),
              "schema_relations": list(r["schema_relations"]),
              "undecided": list(r["undecided"]), "score": r["score"],
+             **({"readings": r["readings"]} if r.get("readings") else {}),
              "codes": list(r["codes"]), "refused": r["refused"],
              "reason": r["reason"], "why": r["why"],
              **({"named": r["named"], "named_reason": r["named_reason"]}

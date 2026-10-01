@@ -218,8 +218,14 @@ stale.
    holds it; a check the song must AVOID (a collision) is charged only when
    EVERY reading triggers it. Readings are whole dictionary pronunciations,
    never channels stitched from two (`quality/relations.py`, "THE
-   ANY-READING RULE"), and a verdict that rests on one names it. A small
-   word (`WEAK_ALWAYS`/`WEAK_NONFINAL`) may be sung stressed or unstressed.
+   ANY-READING RULE"), and a schema verdict that rests on one names it
+   (`readings` on the grade's verdict, "held under one reading" on the
+   screen; the coarse class route does not yet name its reading). A small
+   word (`WEAK_ALWAYS`/`WEAK_NONFINAL`) may be sung stressed or unstressed:
+   at a declared token it anchors on a whole dictionary reading that carries
+   a stress (`sung_alt`, `quality/slots.py`), so `in`, `the`, `a` and `and`
+   anchor wherever they stand. Readings past `relations.READING_COMBO_CAP`
+   combinations stay undecided rather than half-searched.
    What this does NOT license: guessing a word the dictionary cannot read
    (that is still a refusal), or a measurement instrument changing its
    population (`coarse_relation_consensus(quantifier="unanimous")` keeps
@@ -1549,6 +1555,13 @@ one line limit kept, `propose.MAX_LINE_CHARS` characters (a syllable is at
 least one character), and a declared melody is not held to it.
 `meter_bands.ADOPTED` still carries the measured `DENSITY` figure as a
 measurement, which nothing enforces.
+**AND THE PROMINENCE BAND IS DELETED TOO (owner ruling 2026-10-01), with no
+replacement:** *"yes, cut the 2-7 rule too"*. `PROMINENCE_OUT_OF_BAND` and its
+`BAND_UNJUDGED` note no longer exist, so the paragraph above describes a gate
+that is gone: `_band_findings` now returns nothing and only fills the
+stress-run disclosure (M-115). Whether a line's stresses fit the MUSIC is
+judged where the music is declared — `fit.py` against a blueprint's bars.
+`meter_bands.ADOPTED` keeps the measured `PROMINENCE` figure as a measurement.
 
 **THE LOOP IS AUTOMATED: quality/loop.py, tests in test_loop.py.**
 `brief`/`verify` graded one round at a time by hand; `revise_loop(reviser,
