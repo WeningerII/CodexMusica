@@ -5,7 +5,7 @@
   "lineage": "Black-metal and speed/thrash-metal intersection represented by the Scottish solo recording project Hellripper, whose own account identifies black/speed metal and documents DIY recording of Coagulating Darkness in 2016-2017. Fast riffs, active lead guitar and harsh vocal attack retain the forward motion and compact song orientation of speed metal. The modern chain below is a reproducible authored model, not the equipment of that session.",
   "recipe": "classic 2016-2017 black speed metal, distorted Rock, thrash branch, black metal, punk distorted rock hardcore punk. thick, interlocked note trading, equal tempered, modern pop training. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 626,
-  "score": 135.567,
+  "score": 135.993,
   "config": {
     "traditions": [
       "black_speed_metal",
@@ -32,7 +32,7 @@
         },
         "scores": {
           "electric_technique": 1.1049999999999998,
-          "amp_make": 21.8675,
+          "amp_make": 21.9125,
           "body_wood": 0.585,
           "neck_wood": 1.235,
           "fretboard": 2.45,
@@ -43,7 +43,7 @@
           "scale_length": 0.585,
           "string_gauge": 2.275,
           "finish": 0.39,
-          "string_tuning": 0.8475
+          "string_tuning": 0.9015
         }
       },
       {
@@ -110,10 +110,10 @@
           "voice_vibrato": 0,
           "voice_articulation": 13.064999999999996,
           "voice_microtone": 12.919999999999996,
-          "voice_tradition": 3.23,
+          "voice_tradition": 3.644,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.8849999999999996,
+          "voice_speech_song": 1.7979999999999996,
           "voice_ensemble_config": 2.8600000000000003,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0.195,

@@ -5,7 +5,7 @@
   "lineage": "Depressive black metal is represented by Austere’s long-form, emotionally bleak black-metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern depressive black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 466,
-  "score": 44.087,
+  "score": 44.141,
   "config": {
     "traditions": [
       "depressive_black_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.097625,
+          "voice_ensemble_config": 1.1032499999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.0945,
+          "voice_processing_chain": 0.173625,
+          "voice_multitrack_stack": 0.131625,
           "voice_tessitura": 0
         }
       },
@@ -76,7 +76,7 @@
           "neck_wood": 0.520125,
           "fretboard": 0.4095,
           "pickup_magnet": 0.0315,
-          "pickup_winding": 0.10012499999999999,
+          "pickup_winding": 0.13724999999999998,
           "string_material": 0.4095,
           "bridge": 0.520125,
           "scale_length": 7.02,
@@ -131,8 +131,8 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.559875,
-          "rompler_context": 0.4620000000000001,
+          "rompler_preset_bank": 0.528375,
+          "rompler_context": 0.43050000000000005,
           "rompler_lineage": 0.633375
         }
       }

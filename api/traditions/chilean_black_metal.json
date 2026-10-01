@@ -5,7 +5,7 @@
   "lineage": "Chilean black metal is represented by the transnational Xalpen recording practice on Sawken Xo’on, with an expressly credited Santiago recording location alongside Sweden and the United States. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern chilean black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 439,
-  "score": 34.879,
+  "score": 34.901,
   "config": {
     "traditions": [
       "chilean_black_metal"
@@ -60,7 +60,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
@@ -75,7 +75,7 @@
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.483,
           "fretboard": 0.4095,
-          "pickup_magnet": 0.0315,
+          "pickup_magnet": 0.042749999999999996,
           "pickup_winding": 0.063,
           "string_material": 0.4095,
           "bridge": 0.483,
@@ -100,10 +100,10 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0.9659999999999999,
-          "pickup_config": 0.40950000000000003,
+          "pickup_config": 0.45225000000000004,
           "string_type": 4.875,
           "scale_length_b": 0.483,
-          "fretted_or_not": 0.063,
+          "fretted_or_not": 0.0315,
           "bass_technique": 4.1725,
           "electric_bass_string_configuration": 0
         }

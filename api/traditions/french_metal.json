@@ -5,7 +5,7 @@
   "lineage": "French metal is represented here by Dagoba. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic french metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 54.405,
+  "score": 54.297,
   "config": {
     "traditions": [
       "french_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 9.947999999999999,
+          "electric_technique": 9.87,
           "amp_make": 5.785,
           "body_wood": 5.329999999999999,
           "neck_wood": 0.5775,
@@ -59,7 +59,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 1.155,
-          "pickup_config": 0.337125,
+          "pickup_config": 0.3,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
           "fretted_or_not": 0.105,
@@ -113,9 +113,9 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.3,
+          "voice_ornament_system": 0.34275,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.39,
+          "voice_processing_chain": 0.354,
           "voice_multitrack_stack": 0.39
         }
       },

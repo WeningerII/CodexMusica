@@ -5,7 +5,7 @@
   "lineage": "Deep folk metal is treated here as a discovery-metadata cohort, represented by the explicitly credited folk-metal ensemble of Svartby. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern deep folk metal, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 464,
-  "score": 69.671,
+  "score": 69.632,
   "config": {
     "traditions": [
       "deep_folk_metal"
@@ -78,7 +78,7 @@
           "pickup_magnet": 0.168,
           "pickup_winding": 0.363,
           "string_material": 0,
-          "bridge": 0.7035,
+          "bridge": 0.5985,
           "scale_length": 9.36,
           "string_gauge": 0.5774999999999999,
           "finish": 0,
@@ -131,9 +131,9 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.7034999999999999,
+          "rompler_preset_bank": 0.7889999999999999,
           "rompler_context": 0.40950000000000003,
-          "rompler_lineage": 0.819
+          "rompler_lineage": 0.7994999999999999
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Indian metal is a broad national discovery field represented here by Mumbai’s Demonic Resurrection and the core symphonic-death ensemble credited on Dashavatar.",
   "recipe": "classic modern indian metal, distorted Rock, metal branch, death metal, symphonic metal gothenburg metal christian symphonic metal. solo with instrumental accompaniment, no specific ornament system, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, kevlar aramid extreme tension drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 669,
-  "score": 117.856,
+  "score": 117.83,
   "config": {
     "traditions": [
       "indian_metal",
@@ -64,8 +64,8 @@
           "pickup_config": 0.585,
           "string_type": 14.3,
           "scale_length_b": 1.2449999999999999,
-          "fretted_or_not": 0.74625,
-          "bass_technique": 11.174999999999999,
+          "fretted_or_not": 0.645,
+          "bass_technique": 11.219999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0.6,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.045,
           "voice_multitrack_stack": 0.69
         }
       },
@@ -130,7 +130,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
+          "electronic_technique": 0.04999999999999999,
           "rompler_preset_bank": -0.05,
           "rompler_context": 3.25,
           "rompler_lineage": 0

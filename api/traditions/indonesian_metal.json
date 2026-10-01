@@ -3,9 +3,9 @@
   "name": "Indonesian metal",
   "family": "rock_punk",
   "lineage": "Indonesian metal is a broad national discovery field represented by Burgerkill’s Bandung underground-metal practice and the core ensemble documented in the band’s Adamantine release account.",
-  "recipe": "classic modern indonesian metal, distorted Rock, metal branch, punk distorted rock hardcore punk afro-punk. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 536,
-  "score": 143.188,
+  "recipe": "classic modern indonesian metal, distorted Rock, metal branch, punk distorted rock hardcore punk afro-punk. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 574,
+  "score": 143.175,
   "config": {
     "traditions": [
       "indonesian_metal",
@@ -31,8 +31,8 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 21.985000000000003,
-          "amp_make": 26.034999999999997,
+          "electric_technique": 22.084000000000003,
+          "amp_make": 25.884999999999998,
           "body_wood": 7.475,
           "neck_wood": 0.195,
           "fretboard": 0.65,
@@ -41,7 +41,7 @@
           "string_material": 0.09,
           "bridge": 1.56,
           "scale_length": 7.085,
-          "string_gauge": 0.7,
+          "string_gauge": 0.826,
           "finish": 0.195,
           "string_tuning": 7.475
         }
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13,
+          "drum_technique": 13.054,
           "drumhead": 1.3649999999999998,
           "drum_kit_kick_pedal": 0
         }
@@ -117,8 +117,8 @@
           "voice_ensemble_config": 0.845,
           "voice_ornament_system": 0.35,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.195,
-          "voice_multitrack_stack": 0.44999999999999996
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.504
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Gothic black metal is a crossover discovery label represented by Cradle of Filth’s Suffolk-origin extreme-metal practice, combining blackened intensity, gothic theatricality and symphonic keyboard color.",
   "recipe": "classic modern gothic black metal, distorted Rock, black branch, symphonic metal christian symphonic metal deep symphonic black metal. duet. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 564,
-  "score": 78.872,
+  "score": 78.513,
   "config": {
     "traditions": [
       "gothic_black_metal",
@@ -34,11 +34,11 @@
           "electric_technique": -0.07,
           "amp_make": 11.829999999999997,
           "body_wood": 12.025,
-          "neck_wood": 0.275625,
-          "fretboard": 0.380625,
+          "neck_wood": 0.2385,
+          "fretboard": 0.3435,
           "pickup_magnet": 0.105,
           "pickup_winding": 0.105,
-          "string_material": 0.380625,
+          "string_material": 0.3435,
           "bridge": 0.9099999999999999,
           "scale_length": 12.025,
           "string_gauge": 0.9099999999999999,
@@ -50,22 +50,22 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 5.525,
-          "body_wood": 0.33599999999999997,
-          "pickup_config": 0.4815,
-          "string_type": 12.017125,
-          "scale_length_b": 0.16799999999999998,
+          "body_wood": 0.1365,
+          "pickup_config": 0.5654999999999999,
+          "string_type": 12.025,
+          "scale_length_b": 0.147,
           "fretted_or_not": 0.045,
-          "bass_technique": 9.5045,
+          "bass_technique": 9.367999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 0.585,
-          "drumhead": 2.0395,
+          "drumhead": 2.0799999999999996,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -117,7 +117,7 @@
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0.08399999999999999,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.03712499999999999,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -131,7 +131,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": -0.05,
+          "rompler_preset_bank": -0.035,
           "rompler_context": 3.0549999999999997,
           "rompler_lineage": 0
         }

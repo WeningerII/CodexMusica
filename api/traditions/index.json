@@ -1,5 +1,5 @@
 {
-  "count": 3538,
+  "count": 3638,
   "items": [
     {
       "id": "honky_tonk",
@@ -21228,6 +21228,606 @@
       "name": "Malaysian metal",
       "family": "rock_punk",
       "href": "traditions/malaysian_metal.json"
+    },
+    {
+      "id": "metal_baiano",
+      "name": "Metal baiano",
+      "family": "rock_punk",
+      "href": "traditions/metal_baiano.json"
+    },
+    {
+      "id": "metal_catarinense",
+      "name": "Metal catarinense",
+      "family": "rock_punk",
+      "href": "traditions/metal_catarinense.json"
+    },
+    {
+      "id": "maltese_metal",
+      "name": "Maltese metal",
+      "family": "rock_punk",
+      "href": "traditions/maltese_metal.json"
+    },
+    {
+      "id": "medieval_black_metal",
+      "name": "Medieval black metal",
+      "family": "rock_punk",
+      "href": "traditions/medieval_black_metal.json"
+    },
+    {
+      "id": "melodic_black_metal",
+      "name": "Melodic black metal",
+      "family": "rock_punk",
+      "href": "traditions/melodic_black_metal.json"
+    },
+    {
+      "id": "melodic_deathcore",
+      "name": "Melodic deathcore",
+      "family": "rock_punk",
+      "href": "traditions/melodic_deathcore.json"
+    },
+    {
+      "id": "melodic_groove_metal",
+      "name": "Melodic groove metal",
+      "family": "rock_punk",
+      "href": "traditions/melodic_groove_metal.json"
+    },
+    {
+      "id": "melodic_metalcore",
+      "name": "Melodic metalcore",
+      "family": "rock_punk",
+      "href": "traditions/melodic_metalcore.json"
+    },
+    {
+      "id": "metal_balear",
+      "name": "Metal balear",
+      "family": "rock_punk",
+      "href": "traditions/metal_balear.json"
+    },
+    {
+      "id": "metal_catala",
+      "name": "Metal català",
+      "family": "rock_punk",
+      "href": "traditions/metal_catala.json"
+    },
+    {
+      "id": "metal_cearense",
+      "name": "Metal cearense",
+      "family": "rock_punk",
+      "href": "traditions/metal_cearense.json"
+    },
+    {
+      "id": "metal_colombiano",
+      "name": "Metal colombiano",
+      "family": "rock_punk",
+      "href": "traditions/metal_colombiano.json"
+    },
+    {
+      "id": "metal_cover",
+      "name": "Metal cover",
+      "family": "rock_punk",
+      "href": "traditions/metal_cover.json"
+    },
+    {
+      "id": "minnesota_metal",
+      "name": "Minnesota metal",
+      "family": "rock_punk",
+      "href": "traditions/minnesota_metal.json"
+    },
+    {
+      "id": "montana_metal",
+      "name": "Montana metal",
+      "family": "rock_punk",
+      "href": "traditions/montana_metal.json"
+    },
+    {
+      "id": "native_american_black_metal",
+      "name": "Native american black metal",
+      "family": "rock_punk",
+      "href": "traditions/native_american_black_metal.json"
+    },
+    {
+      "id": "native_american_metal",
+      "name": "Native american metal",
+      "family": "rock_punk",
+      "href": "traditions/native_american_metal.json"
+    },
+    {
+      "id": "neo_trad_doom_metal",
+      "name": "Neo-trad doom metal",
+      "family": "rock_punk",
+      "href": "traditions/neo_trad_doom_metal.json"
+    },
+    {
+      "id": "neo_trad_metal",
+      "name": "Neo-trad metal",
+      "family": "rock_punk",
+      "href": "traditions/neo_trad_metal.json"
+    },
+    {
+      "id": "new_england_metal",
+      "name": "New england metal",
+      "family": "rock_punk",
+      "href": "traditions/new_england_metal.json"
+    },
+    {
+      "id": "new_wave_of_glam_metal",
+      "name": "New wave of glam metal",
+      "family": "rock_punk",
+      "href": "traditions/new_wave_of_glam_metal.json"
+    },
+    {
+      "id": "new_wave_of_speed_metal",
+      "name": "New wave of speed metal",
+      "family": "rock_punk",
+      "href": "traditions/new_wave_of_speed_metal.json"
+    },
+    {
+      "id": "new_wave_of_thrash_metal",
+      "name": "New wave of thrash metal",
+      "family": "rock_punk",
+      "href": "traditions/new_wave_of_thrash_metal.json"
+    },
+    {
+      "id": "new_york_death_metal",
+      "name": "New york death metal",
+      "family": "rock_punk",
+      "href": "traditions/new_york_death_metal.json"
+    },
+    {
+      "id": "nordic_folk_metal",
+      "name": "Nordic folk metal",
+      "family": "rock_punk",
+      "href": "traditions/nordic_folk_metal.json"
+    },
+    {
+      "id": "north_carolina_metal",
+      "name": "North carolina metal",
+      "family": "rock_punk",
+      "href": "traditions/north_carolina_metal.json"
+    },
+    {
+      "id": "norwegian_black_metal",
+      "name": "Norwegian black metal",
+      "family": "rock_punk",
+      "href": "traditions/norwegian_black_metal.json"
+    },
+    {
+      "id": "norwegian_death_metal",
+      "name": "Norwegian death metal",
+      "family": "rock_punk",
+      "href": "traditions/norwegian_death_metal.json"
+    },
+    {
+      "id": "norwegian_doom_metal",
+      "name": "Norwegian doom metal",
+      "family": "rock_punk",
+      "href": "traditions/norwegian_doom_metal.json"
+    },
+    {
+      "id": "norwegian_metal",
+      "name": "Norwegian metal",
+      "family": "rock_punk",
+      "href": "traditions/norwegian_metal.json"
+    },
+    {
+      "id": "nu_metalcore",
+      "name": "Nu-metalcore",
+      "family": "rock_punk",
+      "href": "traditions/nu_metalcore.json"
+    },
+    {
+      "id": "nyc_metal",
+      "name": "Nyc metal",
+      "family": "rock_punk",
+      "href": "traditions/nyc_metal.json"
+    },
+    {
+      "id": "nz_metal",
+      "name": "Nz metal",
+      "family": "rock_punk",
+      "href": "traditions/nz_metal.json"
+    },
+    {
+      "id": "occult_black_metal",
+      "name": "Occult black metal",
+      "family": "rock_punk",
+      "href": "traditions/occult_black_metal.json"
+    },
+    {
+      "id": "opera_metal",
+      "name": "Opera metal",
+      "family": "rock_punk",
+      "href": "traditions/opera_metal.json"
+    },
+    {
+      "id": "oriental_metal",
+      "name": "Oriental metal",
+      "family": "rock_punk",
+      "href": "traditions/oriental_metal.json"
+    },
+    {
+      "id": "oulu_metal",
+      "name": "Oulu metal",
+      "family": "rock_punk",
+      "href": "traditions/oulu_metal.json"
+    },
+    {
+      "id": "pagan_black_metal",
+      "name": "Pagan black metal",
+      "family": "rock_punk",
+      "href": "traditions/pagan_black_metal.json"
+    },
+    {
+      "id": "peruvian_death_metal",
+      "name": "Peruvian death metal",
+      "family": "rock_punk",
+      "href": "traditions/peruvian_death_metal.json"
+    },
+    {
+      "id": "peruvian_metal",
+      "name": "Peruvian metal",
+      "family": "rock_punk",
+      "href": "traditions/peruvian_metal.json"
+    },
+    {
+      "id": "pinoy_metal",
+      "name": "Pinoy metal",
+      "family": "rock_punk",
+      "href": "traditions/pinoy_metal.json"
+    },
+    {
+      "id": "pittsburgh_metal",
+      "name": "Pittsburgh metal",
+      "family": "rock_punk",
+      "href": "traditions/pittsburgh_metal.json"
+    },
+    {
+      "id": "polish_black_metal",
+      "name": "Polish black metal",
+      "family": "rock_punk",
+      "href": "traditions/polish_black_metal.json"
+    },
+    {
+      "id": "polish_death_metal",
+      "name": "Polish death metal",
+      "family": "rock_punk",
+      "href": "traditions/polish_death_metal.json"
+    },
+    {
+      "id": "polish_folk_metal",
+      "name": "Polish folk metal",
+      "family": "rock_punk",
+      "href": "traditions/polish_folk_metal.json"
+    },
+    {
+      "id": "polish_metal",
+      "name": "Polish metal",
+      "family": "rock_punk",
+      "href": "traditions/polish_metal.json"
+    },
+    {
+      "id": "polish_metalcore",
+      "name": "Polish metalcore",
+      "family": "rock_punk",
+      "href": "traditions/polish_metalcore.json"
+    },
+    {
+      "id": "polish_thrash_metal",
+      "name": "Polish thrash metal",
+      "family": "rock_punk",
+      "href": "traditions/polish_thrash_metal.json"
+    },
+    {
+      "id": "portland_metal",
+      "name": "Portland metal",
+      "family": "rock_punk",
+      "href": "traditions/portland_metal.json"
+    },
+    {
+      "id": "portuguese_black_metal",
+      "name": "Portuguese black metal",
+      "family": "rock_punk",
+      "href": "traditions/portuguese_black_metal.json"
+    },
+    {
+      "id": "portuguese_death_metal",
+      "name": "Portuguese death metal",
+      "family": "rock_punk",
+      "href": "traditions/portuguese_death_metal.json"
+    },
+    {
+      "id": "portuguese_metal",
+      "name": "Portuguese metal",
+      "family": "rock_punk",
+      "href": "traditions/portuguese_metal.json"
+    },
+    {
+      "id": "post_black_metal",
+      "name": "Post-black metal",
+      "family": "rock_punk",
+      "href": "traditions/post_black_metal.json"
+    },
+    {
+      "id": "post_doom_metal",
+      "name": "Post-doom metal",
+      "family": "rock_punk",
+      "href": "traditions/post_doom_metal.json"
+    },
+    {
+      "id": "progressive_black_metal",
+      "name": "Progressive black metal",
+      "family": "rock_punk",
+      "href": "traditions/progressive_black_metal.json"
+    },
+    {
+      "id": "progressive_death_metal",
+      "name": "Progressive death metal",
+      "family": "rock_punk",
+      "href": "traditions/progressive_death_metal.json"
+    },
+    {
+      "id": "progressive_deathcore",
+      "name": "Progressive deathcore",
+      "family": "rock_punk",
+      "href": "traditions/progressive_deathcore.json"
+    },
+    {
+      "id": "progressive_groove_metal",
+      "name": "Progressive groove metal",
+      "family": "rock_punk",
+      "href": "traditions/progressive_groove_metal.json"
+    },
+    {
+      "id": "progressive_metalcore",
+      "name": "Progressive metalcore",
+      "family": "rock_punk",
+      "href": "traditions/progressive_metalcore.json"
+    },
+    {
+      "id": "progressive_power_metal",
+      "name": "Progressive power metal",
+      "family": "rock_punk",
+      "href": "traditions/progressive_power_metal.json"
+    },
+    {
+      "id": "progressive_technical_death_metal",
+      "name": "Progressive technical death metal",
+      "family": "rock_punk",
+      "href": "traditions/progressive_technical_death_metal.json"
+    },
+    {
+      "id": "proto_metal",
+      "name": "Proto-metal",
+      "family": "rock_punk",
+      "href": "traditions/proto_metal.json"
+    },
+    {
+      "id": "puerto_rican_metal",
+      "name": "Puerto Rican metal",
+      "family": "rock_punk",
+      "href": "traditions/puerto_rican_metal.json"
+    },
+    {
+      "id": "quebec_death_metal",
+      "name": "Quebec death metal",
+      "family": "rock_punk",
+      "href": "traditions/quebec_death_metal.json"
+    },
+    {
+      "id": "quebec_metal",
+      "name": "Quebec metal",
+      "family": "rock_punk",
+      "href": "traditions/quebec_metal.json"
+    },
+    {
+      "id": "raw_black_metal",
+      "name": "Raw black metal",
+      "family": "rock_punk",
+      "href": "traditions/raw_black_metal.json"
+    },
+    {
+      "id": "retro_metal",
+      "name": "Retro metal",
+      "family": "rock_punk",
+      "href": "traditions/retro_metal.json"
+    },
+    {
+      "id": "scottish_metal",
+      "name": "Scottish metal",
+      "family": "rock_punk",
+      "href": "traditions/scottish_metal.json"
+    },
+    {
+      "id": "seattle_metal",
+      "name": "Seattle metal",
+      "family": "rock_punk",
+      "href": "traditions/seattle_metal.json"
+    },
+    {
+      "id": "serbian_metal",
+      "name": "Serbian metal",
+      "family": "rock_punk",
+      "href": "traditions/serbian_metal.json"
+    },
+    {
+      "id": "singaporean_metal",
+      "name": "Singaporean metal",
+      "family": "rock_punk",
+      "href": "traditions/singaporean_metal.json"
+    },
+    {
+      "id": "slam_death_metal",
+      "name": "Slam death metal",
+      "family": "rock_punk",
+      "href": "traditions/slam_death_metal.json"
+    },
+    {
+      "id": "slamming_deathcore",
+      "name": "Slamming deathcore",
+      "family": "rock_punk",
+      "href": "traditions/slamming_deathcore.json"
+    },
+    {
+      "id": "romanian_black_metal",
+      "name": "Romanian black metal",
+      "family": "rock_punk",
+      "href": "traditions/romanian_black_metal.json"
+    },
+    {
+      "id": "romanian_metal",
+      "name": "Romanian metal",
+      "family": "rock_punk",
+      "href": "traditions/romanian_metal.json"
+    },
+    {
+      "id": "russian_black_metal",
+      "name": "Russian black metal",
+      "family": "rock_punk",
+      "href": "traditions/russian_black_metal.json"
+    },
+    {
+      "id": "russian_death_metal",
+      "name": "Russian death metal",
+      "family": "rock_punk",
+      "href": "traditions/russian_death_metal.json"
+    },
+    {
+      "id": "russian_folk_metal",
+      "name": "Russian folk metal",
+      "family": "rock_punk",
+      "href": "traditions/russian_folk_metal.json"
+    },
+    {
+      "id": "russian_heavy_metal",
+      "name": "Russian heavy metal",
+      "family": "rock_punk",
+      "href": "traditions/russian_heavy_metal.json"
+    },
+    {
+      "id": "russian_metal",
+      "name": "Russian metal",
+      "family": "rock_punk",
+      "href": "traditions/russian_metal.json"
+    },
+    {
+      "id": "russian_metalcore",
+      "name": "Russian metalcore",
+      "family": "rock_punk",
+      "href": "traditions/russian_metalcore.json"
+    },
+    {
+      "id": "russian_nu_metal",
+      "name": "Russian nu metal",
+      "family": "rock_punk",
+      "href": "traditions/russian_nu_metal.json"
+    },
+    {
+      "id": "russian_power_metal",
+      "name": "Russian power metal",
+      "family": "rock_punk",
+      "href": "traditions/russian_power_metal.json"
+    },
+    {
+      "id": "russian_thrash_metal",
+      "name": "Russian thrash metal",
+      "family": "rock_punk",
+      "href": "traditions/russian_thrash_metal.json"
+    },
+    {
+      "id": "saxony_metal",
+      "name": "Saxony metal",
+      "family": "rock_punk",
+      "href": "traditions/saxony_metal.json"
+    },
+    {
+      "id": "sci_fi_metal",
+      "name": "Sci-fi metal",
+      "family": "rock_punk",
+      "href": "traditions/sci_fi_metal.json"
+    },
+    {
+      "id": "slavic_folk_metal",
+      "name": "Slavic folk metal",
+      "family": "rock_punk",
+      "href": "traditions/slavic_folk_metal.json"
+    },
+    {
+      "id": "slavic_metal",
+      "name": "Slavic metal",
+      "family": "rock_punk",
+      "href": "traditions/slavic_metal.json"
+    },
+    {
+      "id": "slovak_metal",
+      "name": "Slovak metal",
+      "family": "rock_punk",
+      "href": "traditions/slovak_metal.json"
+    },
+    {
+      "id": "slovenian_metal",
+      "name": "Slovenian metal",
+      "family": "rock_punk",
+      "href": "traditions/slovenian_metal.json"
+    },
+    {
+      "id": "south_african_metal",
+      "name": "South african metal",
+      "family": "rock_punk",
+      "href": "traditions/south_african_metal.json"
+    },
+    {
+      "id": "south_asian_metal",
+      "name": "South asian metal",
+      "family": "rock_punk",
+      "href": "traditions/south_asian_metal.json"
+    },
+    {
+      "id": "south_carolina_metal",
+      "name": "South carolina metal",
+      "family": "rock_punk",
+      "href": "traditions/south_carolina_metal.json"
+    },
+    {
+      "id": "southern_metal",
+      "name": "Southern metal",
+      "family": "rock_punk",
+      "href": "traditions/southern_metal.json"
+    },
+    {
+      "id": "spanish_black_metal",
+      "name": "Spanish black metal",
+      "family": "rock_punk",
+      "href": "traditions/spanish_black_metal.json"
+    },
+    {
+      "id": "spanish_death_metal",
+      "name": "Spanish death metal",
+      "family": "rock_punk",
+      "href": "traditions/spanish_death_metal.json"
+    },
+    {
+      "id": "spanish_folk_metal",
+      "name": "Spanish folk metal",
+      "family": "rock_punk",
+      "href": "traditions/spanish_folk_metal.json"
+    },
+    {
+      "id": "spanish_metal",
+      "name": "Spanish metal",
+      "family": "rock_punk",
+      "href": "traditions/spanish_metal.json"
+    },
+    {
+      "id": "utah_metal",
+      "name": "Utah metal",
+      "family": "rock_punk",
+      "href": "traditions/utah_metal.json"
+    },
+    {
+      "id": "vancouver_metal",
+      "name": "Vancouver metal",
+      "family": "rock_punk",
+      "href": "traditions/vancouver_metal.json"
     }
   ]
 }

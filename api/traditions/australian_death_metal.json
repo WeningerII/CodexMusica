@@ -5,7 +5,7 @@
   "lineage": "Australian death-metal scenes represented by Tasmanian quartet Psycroptic. Joe and Dave Haley’s direct accounts document sectional riff-and-drum co-writing, efficient guitar articulation and a hybrid studio/home-computer recording process.",
   "recipe": "classic modern australian death metal, distorted Rock, death branch. basswood soft down tuning palm muted humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 422,
-  "score": 35.745,
+  "score": 35.599,
   "config": {
     "traditions": [
       "australian_death_metal"
@@ -20,7 +20,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_fender_h",
@@ -32,14 +32,14 @@
           "electric_technique": 9.933,
           "amp_make": 0,
           "body_wood": 4.9399999999999995,
-          "neck_wood": 0.88775,
-          "fretboard": 0.49724999999999997,
-          "pickup_magnet": 0.03525,
-          "pickup_winding": 0.3294999999999999,
-          "string_material": 0.317,
-          "bridge": 0.88775,
+          "neck_wood": 0.8714999999999999,
+          "fretboard": 0.49349999999999994,
+          "pickup_magnet": 0.0315,
+          "pickup_winding": 0.32549999999999996,
+          "string_material": 0.34162499999999996,
+          "bridge": 0.8714999999999999,
           "scale_length": 0,
-          "string_gauge": 1.3287499999999999,
+          "string_gauge": 1.3125,
           "finish": 0.0315,
           "string_tuning": 2.73
         }
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.7755,
+          "body_wood": 1.743,
           "pickup_config": 0,
-          "string_type": 0.49749999999999983,
-          "scale_length_b": 0.6337499999999999,
+          "string_type": 0.4781249999999999,
+          "scale_length_b": 0.63,
           "fretted_or_not": 0.0315,
-          "bass_technique": 4.165,
+          "bass_technique": 4.1575,
           "electric_bass_string_configuration": 0
         }
       },
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 1.06625,
+          "drumhead": 1.0185,
           "drum_kit_kick_pedal": 0.78
         }
       },

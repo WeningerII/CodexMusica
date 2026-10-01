@@ -5,7 +5,7 @@
   "lineage": "American soul mutation of 1967-1973 codified by Norman Whitfield at Motown, Sly Stone in San Francisco and George Clinton's Funkadelic, characterized by extended one-chord vamps at 95-115 BPM, fuzz and wah electric guitar, phased and heavily reverberated mixes, layered congas and hand percussion, group-passed lead vocals trading lines, and socially pointed lyrics stretched across multi-part arrangements of six minutes or more.",
   "recipe": "classic Midwestern American mid-1970s psychedelic soul, functional Song, soul R&B branch, funk percussive groove percussion, art rock distorted rock p-funk future funk. thick, blues-shouter, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, lead cowhide mid tier congas, Hammond b3 canonical 1955 1975 jazz gospel rock standard ostinato slow chorale tonewheel organ, hohner d6 canonical 1971 1981 funk era ostinato clavinet, pocket ostinato electric piano tine, bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet. converted house 1959-1972 mid tier hitsville usa motown detroit. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
   "recipe_chars": 974,
-  "score": 534.691,
+  "score": 530.635,
   "config": {
     "traditions": [
       "psychedelic_soul",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 27.77749999999999,
-          "voice_quality": 12.48124999999999,
+          "voice_register": 27.61499999999999,
+          "voice_quality": 12.26999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.0799999999999996,
           "voice_articulation": 19.304999999999993,
           "voice_microtone": 18.19999999999999,
-          "voice_tradition": 14.731249999999996,
+          "voice_tradition": 14.519999999999996,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 13.439999999999996,
           "voice_speech_song": 21.254999999999992,
           "voice_ensemble_config": 21.64499999999999,
-          "voice_ornament_system": 1.755,
+          "voice_ornament_system": 1.7399999999999998,
           "voice_pitch_organization": 1.0399999999999998,
-          "voice_processing_chain": 14.526249999999997,
+          "voice_processing_chain": 14.314999999999998,
           "voice_multitrack_stack": 4.8100000000000005
         }
       },
@@ -71,17 +71,17 @@
         },
         "scores": {
           "electric_technique": 24.359999999999996,
-          "amp_make": 26.624999999999993,
+          "amp_make": 26.66999999999999,
           "body_wood": 1.4949999999999999,
           "neck_wood": 2.8600000000000003,
           "fretboard": 2.8600000000000003,
-          "pickup_magnet": 1.95,
-          "string_material": 1.95,
+          "pickup_magnet": 1.89,
+          "string_material": 1.89,
           "string_gauge": 2.145,
           "bridge": 2.8600000000000003,
           "scale_length": 1.4949999999999999,
           "finish": 0.195,
-          "string_tuning": 8.385,
+          "string_tuning": 8.085,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 21.972499999999993,
+          "amp_make": 21.374999999999993,
           "body_wood": 1.4949999999999999,
-          "pickup_config": 0.15,
-          "string_type": 22.4325,
+          "pickup_config": 0.195,
+          "string_type": 21.555,
           "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 2.8600000000000003,
           "bass_technique": 24.419999999999995,
@@ -130,7 +130,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.0125,
+          "percussion_technique": 1.8499999999999999,
           "conga_set": 1.69,
           "conga_skin": 1.4949999999999999,
           "conga_shell_wood": 0.845
@@ -149,8 +149,8 @@
         "scores": {
           "keyboard_technique": 24.319999999999993,
           "drawbar_setting": 7.545,
-          "rotary_speed": 12.487499999999997,
-          "percussion_setting": 3.37,
+          "rotary_speed": 12.324999999999998,
+          "percussion_setting": 3.045,
           "tonewheel_model": 4.680000000000001,
           "leslie_cabinet_model": 0.78
         }
@@ -197,11 +197,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 14.378749999999997,
-          "brass_size": 1.95,
+          "wind_articulation": 14.094999999999997,
+          "brass_size": 1.89,
           "trumpet_mouthpiece": 5.265000000000001,
-          "brass_mute": 0.9625,
-          "trumpet_technique": 14.378749999999997,
+          "brass_mute": 0.8,
+          "trumpet_technique": 14.094999999999997,
           "trumpet_bell_metal": 0.845,
           "trumpet_maker_school": 2.535
         }

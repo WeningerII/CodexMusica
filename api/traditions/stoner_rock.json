@@ -3,9 +3,9 @@
   "name": "Stoner rock",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-1990s heavy-metal-and-rock subgenre developed primarily in California (Palm Desert \"desert rock\" scene) and northern Europe, characterized by down-tuned-distorted guitar tone, slow-to-mid-tempo grooves, vintage-1970s-Sabbath-Hendrix sonic reference, and improvisational-jam-oriented composition. Kyuss (Palm Desert, 1987-1995) and Sleep (San Jose, 1990-1998) inaugurated the canonical American sound; Queens of the Stone Age (1996-onward, Kyuss successor) extended the genre commercially.",
-  "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
-  "recipe_chars": 602,
-  "score": 381.423,
+  "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
+  "recipe_chars": 600,
+  "score": 380.614,
   "config": {
     "traditions": [
       "stoner_rock",
@@ -38,18 +38,18 @@
           "voice_quality": 16.624999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.745,
+          "voice_vibrato": 4.6715,
           "voice_articulation": 12.934999999999995,
-          "voice_microtone": 21.7815,
-          "voice_tradition": 2.0149999999999997,
-          "voice_mechanism_compound": 29.905999999999995,
+          "voice_microtone": 21.75,
+          "voice_tradition": 1.9744999999999997,
+          "voice_mechanism_compound": 29.973499999999994,
           "voice_estill_quality": 1.6899999999999997,
           "voice_speech_song": 13.129999999999995,
           "voice_ensemble_config": 12.869999999999994,
           "voice_ornament_system": 1.4709999999999999,
-          "voice_pitch_organization": 1.8849999999999996,
-          "voice_processing_chain": 9.531749999999999,
-          "voice_multitrack_stack": 8.167
+          "voice_pitch_organization": 1.8474999999999997,
+          "voice_processing_chain": 9.576749999999999,
+          "voice_multitrack_stack": 8.041
         }
       },
       {
@@ -58,8 +58,8 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_orange",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -70,17 +70,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 28.653499999999998,
-          "amp_make": 22.9395,
+          "electric_technique": 28.657999999999994,
+          "amp_make": 22.997999999999998,
           "body_wood": 12.61,
-          "neck_wood": 1.7395,
-          "fretboard": 1.6894999999999998,
+          "neck_wood": 1.621,
+          "fretboard": 1.621,
           "pickup_magnet": 1.3,
-          "pickup_winding": 1.9344999999999999,
+          "pickup_winding": 1.843,
           "string_material": 1.621,
-          "bridge": 1.771,
+          "bridge": 1.6345,
           "scale_length": 13,
-          "string_gauge": 5.094999999999999,
+          "string_gauge": 4.958499999999999,
           "finish": 0,
           "string_tuning": 25.09
         }
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -98,12 +98,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 22.9395,
-          "body_wood": 2.0799999999999996,
-          "pickup_config": 0,
-          "string_type": 27.0385,
-          "scale_length_b": 2.0709999999999997,
-          "fretted_or_not": 0.0315,
+          "amp_make": 22.997999999999998,
+          "body_wood": 1.9824999999999997,
+          "pickup_config": 0.045,
+          "string_type": 27.195999999999998,
+          "scale_length_b": 1.9344999999999999,
+          "fretted_or_not": 0.0765,
           "bass_technique": 23.43525,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 22,
-          "drumhead": 3.9395000000000007,
+          "drumhead": 3.7430000000000003,
           "drum_kit_kick_pedal": 0
         }
       }

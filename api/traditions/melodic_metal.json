@@ -5,7 +5,7 @@
   "lineage": "Melodic metal is represented here by Dynazty. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic melodic metal, distorted Rock, metal branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 552,
-  "score": 59.01,
+  "score": 58.882,
   "config": {
     "traditions": [
       "melodic_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.649999999999999,
+          "electric_technique": 13.67475,
           "amp_make": 5.785,
           "body_wood": 5.329999999999999,
           "neck_wood": 0.5775,
@@ -59,10 +59,10 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 1.155,
-          "pickup_config": 0.39,
+          "pickup_config": 0.3,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 0.168,
+          "fretted_or_not": 0.1365,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0.03899999999999999,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.141,
+          "voice_processing_chain": 0.10949999999999999,
           "voice_multitrack_stack": 0.39
         }
       },

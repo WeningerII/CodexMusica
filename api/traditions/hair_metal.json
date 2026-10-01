@@ -5,7 +5,7 @@
   "lineage": "Sunset Strip glam-metal commercial 1980s American hard-rock subgenre characterized by virtuoso lead-guitar, anthemic choruses, glamorous androgynous stage presentation, and ballad-and-banger album construction — codified through Mötley Crüe (Shout at the Devil 1983), Ratt (Out of the Cellar 1984), Poison (Look What the Cat Dragged In 1986), Bon Jovi (Slippery When Wet 1986), Def Leppard (Hysteria 1987), Whitesnake (Whitesnake 1987), Warrant, Cinderella",
   "recipe": "classic North American mid-1980s hair metal, distorted Rock, late analog major branch, nwobhm metal metal paranaense mexican metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 MXR phase 90.",
   "recipe_chars": 683,
-  "score": 243.613,
+  "score": 244.804,
   "config": {
     "traditions": [
       "hair_metal",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 15.335999999999993,
+          "voice_register": 15.331499999999993,
           "voice_quality": 5.265000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,14 +42,14 @@
           "voice_articulation": 5.719999999999999,
           "voice_microtone": 15.549999999999997,
           "voice_tradition": 3.7700000000000005,
-          "voice_mechanism_compound": 23.662249999999993,
+          "voice_mechanism_compound": 23.887249999999995,
           "voice_estill_quality": 0.585,
           "voice_speech_song": 6.694999999999999,
           "voice_ensemble_config": 6.044999999999999,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 5.510000000000001,
-          "voice_multitrack_stack": 9.659875
+          "voice_processing_chain": 5.945,
+          "voice_multitrack_stack": 9.655375
         }
       },
       {
@@ -61,7 +61,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -70,13 +70,13 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 24.778749999999995,
+          "electric_technique": 25.003749999999997,
           "amp_make": 12.934999999999997,
           "body_wood": 9.619999999999997,
-          "neck_wood": 0.41025000000000006,
+          "neck_wood": 0.38775000000000004,
           "fretboard": 0.0465,
-          "pickup_magnet": 0.645,
-          "pickup_winding": 0.195,
+          "pickup_magnet": 0.69,
+          "pickup_winding": 0.21000000000000002,
           "string_material": 0.34650000000000003,
           "bridge": 1.3,
           "scale_length": 9.619999999999997,
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 9.555,
-          "body_wood": 0.8204999999999997,
+          "body_wood": 0.7754999999999997,
           "pickup_config": 0.39,
-          "string_type": 17.867625,
-          "scale_length_b": 0.45525,
-          "fretted_or_not": 0,
-          "bass_technique": 15.985,
+          "string_type": 18.077625,
+          "scale_length_b": 0.43274999999999997,
+          "fretted_or_not": 0.045,
+          "bass_technique": 16.03,
           "electric_bass_string_configuration": 0
         }
       },
@@ -133,7 +133,7 @@
           "electronic_technique": -0.07,
           "sm_voice_count": 0.0195,
           "sm_chorus": 0.195,
-          "sm_voicing": 0.345
+          "sm_voicing": 0.39
         }
       }
     ],

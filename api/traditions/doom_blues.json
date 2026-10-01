@@ -5,7 +5,7 @@
   "lineage": "Slow, minor-key blues rendered through doom metal weight, formed in Birmingham 1969-1972 when Black Sabbath recast Delta twelve-bars in tritone-heavy riffs, and revived from the 1990s by Down and Orange Goblin — 55-85 BPM, downtuned humbucker guitar through cranked valve heads, blues pentatonic bends stretched over sustained power chords, and a keening or bellowed vocal riding a lurching half-time drum feel.",
   "recipe": "classic Midwestern American 1969-1972 doom blues, distorted Rock, doom branch, sludge metal, blues electric functional song, classic distorted rock. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 677,
-  "score": 483.045,
+  "score": 484.335,
   "config": {
     "traditions": [
       "doom_blues",
@@ -38,18 +38,18 @@
           "voice_quality": 24.194999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.465,
+          "voice_vibrato": 13.165,
           "voice_articulation": 15.144999999999996,
           "voice_microtone": 22.874999999999996,
           "voice_tradition": 8.06,
-          "voice_mechanism_compound": 32.335,
+          "voice_mechanism_compound": 32.56,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 16.054999999999996,
           "voice_ensemble_config": 15.924999999999995,
           "voice_ornament_system": 0.325,
           "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 4.16,
-          "voice_multitrack_stack": 5.365
+          "voice_multitrack_stack": 5.215
         }
       },
       {
@@ -70,9 +70,9 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 26.005,
-          "amp_make": 30.019999999999996,
-          "body_wood": 7.039999999999999,
+          "electric_technique": 26.229999999999997,
+          "amp_make": 30.169999999999995,
+          "body_wood": 7.084999999999999,
           "neck_wood": 0.39,
           "fretboard": 0.585,
           "pickup_magnet": 0.24,
@@ -80,9 +80,9 @@
           "string_material": 0.195,
           "bridge": 0.585,
           "scale_length": 7.669999999999999,
-          "string_gauge": 3.8400000000000007,
+          "string_gauge": 3.7500000000000004,
           "finish": 0.045,
-          "string_tuning": 22.455
+          "string_tuning": 23.355
         }
       },
       {
@@ -98,12 +98,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 30.019999999999996,
+          "amp_make": 30.169999999999995,
           "body_wood": 0.585,
           "pickup_config": 0,
-          "string_type": 25.405,
-          "scale_length_b": 1.72,
-          "fretted_or_not": 0.09,
+          "string_type": 25.825,
+          "scale_length_b": 1.6749999999999998,
+          "fretted_or_not": 0.135,
           "bass_technique": 26.74,
           "electric_bass_string_configuration": 0
         }
@@ -133,9 +133,9 @@
         },
         "scores": {
           "harmonica_type": 0.585,
-          "harmonica_comb": 16.325,
-          "harmonica_reed": 14.094999999999999,
-          "harmonica_technique": 17.335,
+          "harmonica_comb": 16.28,
+          "harmonica_reed": 14.049999999999999,
+          "harmonica_technique": 17.14,
           "harmonica_maker_school": 16.0875,
           "harmonica_tuning": 6.825
         }

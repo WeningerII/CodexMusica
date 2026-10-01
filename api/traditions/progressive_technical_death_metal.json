@@ -1,0 +1,186 @@
+{
+  "id": "progressive_technical_death_metal",
+  "name": "Progressive technical death metal",
+  "family": "rock_punk",
+  "lineage": "Progressive technical-death-metal field represented by Beyond Creation’s Montréal extended-range guitar and fretless-bass practice.",
+  "recipe": "classic modern progressive technical death metal, distorted Rock, death branch, prog metal progressive deathcore progressive metalcore. solo with instrumental accompaniment. eight string electric, ampeg svt amp rock bass amp ebony unlined fusion fretless canon fretless bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 430,
+  "score": 19.335,
+  "config": {
+    "traditions": [
+      "progressive_technical_death_metal",
+      "progressive_deathcore",
+      "progressive_metalcore"
+    ],
+    "instruments": [
+      {
+        "id": "eight_string_electric",
+        "slots": {
+          "eight_string_tuning": "eight_string_low_f_sharp",
+          "eight_string_technique": "eight_string_djent_chug"
+        },
+        "scores": {
+          "eight_string_tuning": 0.69,
+          "eight_string_technique": 0.42
+        }
+      },
+      {
+        "id": "fretless_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_svt",
+          "fretless_use": "fretless_rock",
+          "fretless_bass_construction": "fretless_bass_factory",
+          "fretless_fingerboard_wood": "fretless_ebony_unlined",
+          "fretless_bass_strings": "fretless_roundwound"
+        },
+        "scores": {
+          "electric_technique": -0.15000000000000002,
+          "amp_make": 9.165,
+          "fretless_use": 0.39,
+          "fretless_bass_construction": 0.045,
+          "fretless_fingerboard_wood": 2.45,
+          "fretless_bass_strings": 0.3
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "blast_beat_single_strokes",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 0.39,
+          "drumhead": 2.21,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.78,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.135,
+          "voice_multitrack_stack": 0.195
+        }
+      }
+    ],
+    "pinned": {
+      "eight_string_electric": [
+        "eight_string_tuning",
+        "eight_string_technique"
+      ],
+      "fretless_bass": [
+        "electric_technique",
+        "fretless_use",
+        "fretless_bass_construction",
+        "fretless_bass_strings"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "eight_string_tuning": "eight_string_low_f_sharp",
+      "eight_string_technique": "eight_string_djent_chug",
+      "electric_technique": "electric_bass_pocket",
+      "fretless_use": "fretless_rock",
+      "fretless_bass_construction": "fretless_bass_factory",
+      "fretless_bass_strings": "fretless_roundwound",
+      "drum_technique": "blast_beat_single_strokes"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [],
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

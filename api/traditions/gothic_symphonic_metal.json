@@ -5,7 +5,7 @@
   "lineage": "Gothic symphonic metal is represented by Sirenia’s Stavanger-linked mixture of gothic metal, classical orchestration, contrasting voices and amplified rhythm instruments.",
   "recipe": "classic modern gothic symphonic metal, distorted Rock, symphonic branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit, rompler workstation, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, homophonic chordal rhythm aligned choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 614,
-  "score": 86.526,
+  "score": 86.75,
   "config": {
     "traditions": [
       "gothic_symphonic_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 13.813374999999999,
+          "electric_technique": 13.970875,
           "amp_make": 6.695,
           "body_wood": 6.24,
           "neck_wood": 0.0045,
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.3,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.01125,
-          "voice_multitrack_stack": 0.145125
+          "voice_multitrack_stack": 0.176625
         }
       },
       {
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": -0.0955,
-          "rompler_preset_bank": -0.03875000000000001,
+          "rompler_preset_bank": -0.035,
           "rompler_context": 0.78,
           "rompler_lineage": 0
         }
@@ -154,7 +154,7 @@
           "orch_top_wood": 2.7590000000000003,
           "orch_back_wood": 3.5927499999999997,
           "orch_varnish": 3.25,
-          "orch_setup_period": 3.7003749999999997,
+          "orch_setup_period": 3.7318749999999996,
           "orch_bow": 0,
           "orch_bow_stick": 3.2,
           "orch_articulation": 0.39,

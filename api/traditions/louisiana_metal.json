@@ -5,7 +5,7 @@
   "lineage": "Louisiana metal is represented here by Crowbar. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic louisiana metal, distorted Rock, sludge branch. solo with instrumental accompaniment. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 365,
-  "score": 51.85,
+  "score": 52.867,
   "config": {
     "traditions": [
       "louisiana_metal"
@@ -19,7 +19,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 12.15375,
-          "amp_make": 5.494625,
-          "body_wood": 4.872375,
+          "electric_technique": 12.32175,
+          "amp_make": 5.638625,
+          "body_wood": 4.9399999999999995,
           "neck_wood": 0.11887499999999998,
           "fretboard": 0.1185,
-          "pickup_magnet": 0,
-          "pickup_winding": 0.1185,
+          "pickup_magnet": 0.0315,
+          "pickup_winding": 0.15,
           "string_material": 0.0315,
-          "bridge": 1.454,
+          "bridge": 1.5525,
           "scale_length": 4.9399999999999995,
-          "string_gauge": 1.3355000000000001,
+          "string_gauge": 1.434,
           "finish": 0,
-          "string_tuning": 0.3075
+          "string_tuning": 0.378
         }
       },
       {
@@ -49,7 +49,7 @@
         "slots": {
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.494625,
+          "amp_make": 5.638625,
           "body_wood": 0.26925000000000004,
-          "pickup_config": 0,
+          "pickup_config": 0.0315,
           "string_type": 4.875,
-          "scale_length_b": 0.2685,
-          "fretted_or_not": 0,
+          "scale_length_b": 0.30000000000000004,
+          "fretted_or_not": 0.0315,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.6219999999999999,
+          "drumhead": 0.6249999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -113,10 +113,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.3,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.317625,
-          "voice_multitrack_stack": 0.3075
+          "voice_processing_chain": 0.313125,
+          "voice_multitrack_stack": 0.3465
         }
       }
     ],

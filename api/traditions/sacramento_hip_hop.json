@@ -5,7 +5,7 @@
   "lineage": "Sacramento hip hop represented by Death Grips’ abrasive rap, live drumming and sample construction.",
   "recipe": "classic modern sacramento hip hop, mc Rhythm, intl hip hop branch. rap. drum kit, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 255,
-  "score": 28.265,
+  "score": 28.276,
   "config": {
     "traditions": [
       "sacramento_hip_hop"
@@ -54,12 +54,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "single_clear",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 0.1365,
+          "drumhead": 0.147,
           "drum_kit_kick_pedal": 0
         }
       },

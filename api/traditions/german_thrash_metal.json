@@ -5,7 +5,7 @@
   "lineage": "German thrash-metal discovery field represented by Kreator’s Essen-rooted guitar, bass, drum and vocal practice, with the band’s different eras acknowledged rather than collapsed into a single historical session.",
   "recipe": "classic modern german thrash metal, distorted Rock, thrash branch. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 490,
-  "score": 57.809,
+  "score": 57.89,
   "config": {
     "traditions": [
       "german_thrash_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 10.265999999999998,
+          "electric_technique": 10.319999999999999,
           "amp_make": 8.58,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.5459999999999999,
@@ -39,7 +39,7 @@
           "string_material": 0.1365,
           "bridge": 1.69,
           "scale_length": 4.9399999999999995,
-          "string_gauge": 1.126,
+          "string_gauge": 1.252,
           "finish": 0,
           "string_tuning": 2.34
         }
@@ -63,7 +63,7 @@
           "string_type": 4.875,
           "scale_length_b": 0.5459999999999999,
           "fretted_or_not": 0.2535,
-          "bass_technique": 3.817,
+          "bass_technique": 3.7855000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -113,10 +113,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 2.08,
-          "voice_ornament_system": 0.39,
+          "voice_ornament_system": 0.354,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.9615
+          "voice_multitrack_stack": 1.9300000000000002
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Cyber metal is represented by Subliminal Fear’s explicitly self-described cyber-metal practice on Escape from Leviathan. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern cyber metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 455,
-  "score": 69.293,
+  "score": 69.525,
   "config": {
     "traditions": [
       "cyber_metal"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.068,
+          "voice_ensemble_config": 1.0755000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
+          "voice_processing_chain": 0.063,
           "voice_multitrack_stack": 0.351,
           "voice_tessitura": 0
         }
@@ -62,7 +62,7 @@
           "fretboard": "maple_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
-          "string_material": "pure_nickel_h",
+          "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
@@ -73,14 +73,14 @@
           "electric_technique": 14.658999999999997,
           "amp_make": 7.215,
           "body_wood": 7.409999999999999,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.6165,
           "fretboard": 0.315,
           "pickup_magnet": 0.4179999999999999,
-          "pickup_winding": 0.3045,
-          "string_material": 0.1365,
-          "bridge": 0.5775,
+          "pickup_winding": 0.31199999999999994,
+          "string_material": 0.144,
+          "bridge": 0.6165,
           "scale_length": 7.409999999999999,
-          "string_gauge": 0.7875,
+          "string_gauge": 0.8265,
           "finish": 0.105,
           "string_tuning": 7.409999999999999
         }
@@ -99,11 +99,11 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.155,
+          "body_wood": 1.233,
           "pickup_config": 0.3519999999999999,
           "string_type": 4.875,
-          "scale_length_b": 0.583,
-          "fretted_or_not": 0.1995,
+          "scale_length_b": 0.661,
+          "fretted_or_not": 0.168,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }

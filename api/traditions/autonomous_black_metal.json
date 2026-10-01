@@ -5,7 +5,7 @@
   "lineage": "The exact Every Noise discovery cluster, represented by its roster member Myrkur. This record does not infer a political doctrine or a universal one-person production rule from the cluster name. The selected branch is an artist-led composition with documented collaborators.",
   "recipe": "classic modern autonomous black metal, distorted Rock, black branch. equal tempered, one note per syllable, solo with instrumental accompaniment, hall reverb long decay cinematic. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano, choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 552,
-  "score": 40.364,
+  "score": 40.223,
   "config": {
     "traditions": [
       "autonomous_black_metal"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.6519999999999999,
+          "body_wood": 0.483,
           "neck_wood": 0.4095,
           "fretboard": 0.0315,
           "pickup_magnet": 0,
           "pickup_winding": 0,
           "string_material": 0.4095,
-          "bridge": 0.6519999999999999,
+          "bridge": 0.483,
           "scale_length": 0,
-          "string_gauge": 0.105,
+          "string_gauge": 0.2415,
           "finish": 0,
           "string_tuning": 0.063
         }
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.6519999999999999,
+          "body_wood": 0.483,
           "pickup_config": 0,
           "string_type": 0.4095,
           "scale_length_b": 0.0315,
@@ -83,7 +83,7 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 3.7815,
+          "drum_technique": 3.813,
           "drumhead": 0.483,
           "drum_kit_kick_pedal": 0.39,
           "shell_wood": 0.4095,
@@ -92,7 +92,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
-          "cymbal_lathing": 4.055000000000001,
+          "cymbal_lathing": 4.1915000000000004,
           "cymbal_finish": 0
         }
       },
@@ -123,7 +123,7 @@
           "voice_effort": 0,
           "voice_vibrato": 0,
           "voice_articulation": 0.3315,
-          "voice_microtone": 3.500000000000001,
+          "voice_microtone": 3.5315000000000007,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
@@ -131,7 +131,7 @@
           "voice_ensemble_config": 2.08,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0.0315,
-          "voice_processing_chain": 0.5355,
+          "voice_processing_chain": 0.567,
           "voice_multitrack_stack": 0.0945
         }
       },
@@ -150,7 +150,7 @@
         },
         "scores": {
           "keyboard_technique": -0.05,
-          "grand_piano_size": 0.27399999999999997,
+          "grand_piano_size": 0.2415,
           "grand_piano_brand": 0.3315,
           "piano_hammer": 1.8199999999999998,
           "piano_rim": 3.1200000000000006,
@@ -169,7 +169,7 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 0,
+          "choir_size": 0.0315,
           "choir_polyphonic_configuration": 0,
           "choir_regional_canonical_configuration": 0,
           "choir_ensemble_repertoire": 0.462
