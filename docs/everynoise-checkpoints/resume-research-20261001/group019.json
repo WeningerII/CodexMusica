@@ -1,0 +1,2416 @@
+{
+  "entries": [
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 455,
+      "source_label": "portland hip hop",
+      "source_url": "https://everynoise.com/engenremap-portlandhiphop.html",
+      "id": "portland_hip_hop",
+      "tradition": {
+        "id": "portland_hip_hop",
+        "name": "Portland hip hop",
+        "family": "hip_hop",
+        "lineage": "Portland hip hop includes the politically engaged MC and DJ practice documented by Mic Crenshaw. His Earthbound project credits guest vocals and DJ Klavical scratches. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_classic", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.usHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic lead verses, guest vocal responses, DJ scratches and a produced backing track form this recording model. A sampler is an authored realization of the credited production role; its exact make and sampled content are not claimed. The city scene also includes live bands, and this entry selects the Earthbound MC/DJ branch. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Mic Crenshaw", "DJ Klavical"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [45.5152, -122.6784, "Portland", "North America"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "vinyl-sampled"],
+      "sources": [
+        {
+          "url": "https://ofn.uoregon.edu/profile/michael-mic-crenshaw",
+          "title": "Oregon Folklife Network: Michael Mic Crenshaw",
+          "support_notes": "University profile establishes Portland practice and MC role.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://miccrenshaw.bandcamp.com/album/earthbound",
+          "title": "Mic Crenshaw: Earthbound artist release",
+          "support_notes": "Credits production by Vision, Theory Hazit and PSL, scratching by DJ Klavical and guest singers.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Portland MC/DJ recording branch, distinguished geographically and by named community practice from seattle_hip_hop and the broad hip_hop record.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "portland_hip_hop",
+          "name": "Portland hip hop",
+          "source": "wikimedia_commons_verified_exemplar",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Mic_Crenshaw_at_Lents_Park_1.jpg",
+          "source_title": "Mic Crenshaw at Lents Park 1.jpg",
+          "photographer_credit": "Pete Forsyth",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mic_Crenshaw_at_Lents_Park_1.jpg",
+          "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mic_Crenshaw_at_Lents_Park_1.jpg",
+          "license": "CC BY",
+          "license_raw": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "credit": "Pete Forsyth; Mic Crenshaw at Lents Park 1.jpg",
+          "matched_label": "Mic Crenshaw addressing a crowd at Lents Park, Portland, July2020; contextual portrait, not an Earthbound studio session.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Mic_Crenshaw_at_Lents_Park_1.jpg",
+          "source_title": "Mic Crenshaw at Lents Park 1.jpg",
+          "photographer_credit": "Pete Forsyth",
+          "license": "CC BY",
+          "license_raw": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "credit": "Pete Forsyth; Mic Crenshaw at Lents Park 1.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mic_Crenshaw_at_Lents_Park_1.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mic_Crenshaw_at_Lents_Park_1.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 464,
+      "source_label": "rap baiano",
+      "source_url": "https://everynoise.com/engenremap-rapbaiano.html",
+      "id": "rap_baiano",
+      "tradition": {
+        "id": "rap_baiano",
+        "name": "Rap baiano",
+        "family": "hip_hop",
+        "lineage": "Bahia rap includes Família Tríplice’s fusion of MCs and DJ with a live guitarist and percussionist. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": [
+          "voice",
+          "sampler_classic",
+          "turntable",
+          "electric_guitar_single_coil",
+          "congas"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "The arrangement places rhythmic verses over DJ-driven electronic beats, guitar and hand percussion. Congas and a single-coil electric guitar are authored implementations of the organizer’s credited percussion and guitar roles, not specified historical makes. The selected live/DJ ensemble distinguishes this model from the broader Brazilian rap baseline. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Família Tríplice"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-12.9777, -38.5016, "Salvador", "Latin America & Caribbean"],
+      "geo_rationale": "Salvador is a documented performance center in the artist’s Pelourinho announcement; this city pin does not claim the group originated within city limits.",
+      "signature_tokens": ["rhythmic-speech", "backbeat", "layered-rhythm"],
+      "sources": [
+        {
+          "url": "https://prefeitura.sp.gov.br/web/cultura/w/noticias/31988",
+          "title": "São Paulo Cultura: Circuito Municipal de Cultura, September program",
+          "support_notes": "Organizer documents Família Tríplice as Bahia rap with MCs, DJ sonic interventions, percussion and guitar, drawing on Afro-Bahian music and reggae.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.instagram.com/p/DdEmUXolqVX/",
+          "title": "Família Tríplice official Salvador performance announcement",
+          "support_notes": "Artist announcement locates its performance at Pelourinho in Salvador. This establishes a representative performance center, not exclusive origin.",
+          "checked_date": "2026-10-01",
+          "access": "browser search-indexed artist post; full social page unavailable",
+          "preserved_excerpt": "SALVADOR, SE PREPARA! A FAMÍLIA TRÍPLICE vai tomar conta do Pelourinho!"
+        },
+        {
+          "url": "https://www.ba.gov.br/irdeb/noticias/2026-09/872/familia-triplice-e-o-grupo-da-semana-no-selo-educadora-fm-independente",
+          "title": "IRDEB: Família Tríplice Toda Vida",
+          "support_notes": "Public broadcaster confirms current project with guitars and percussion; a violin guest belongs to that EP, not all ensemble versions.",
+          "checked_date": "2026-10-01",
+          "access": "browser body verified"
+        }
+      ],
+      "neighbor_distinction": "Família Tríplice live percussion/guitar-plus-DJ branch in Bahia, distinct from brazilian_hip_hop national sample-production scope.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_classic",
+          "turntable",
+          "electric_guitar_single_coil",
+          "congas"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_baiano",
+          "name": "Rap baiano",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 471,
+      "source_label": "rap cearense",
+      "source_url": "https://everynoise.com/engenremap-rapcearense.html",
+      "id": "rap_cearense",
+      "tradition": {
+        "id": "rap_cearense",
+        "name": "Rap cearense",
+        "family": "hip_hop",
+        "lineage": "Ceará rap is represented by Elementos Suspeitos, formed in Maracanaú and Pacatuba in 1997 with MCs and DJ Ice Jay. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_classic", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Lead rap with answering vocal passages sits over a sampled beat and DJ turntable interventions. The official artist profile establishes the MC/DJ lineup and regional practice; sampler and scratch treatment are an authored production realization rather than a claim about a particular studio session. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Elementos Suspeitos", "DJ Ice Jay"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-3.876, -38.625, "Maracanaú and metropolitan Fortaleza", "Latin America & Caribbean"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "layered-rhythm"],
+      "sources": [
+        {
+          "url": "https://mapacultural.secult.ce.gov.br/agente/5981/?page=2",
+          "title": "Mapa Cultural do Ceará: Elementos Suspeitos",
+          "support_notes": "Official indexed profile names Diego Sono, DJ Ice Jay, W.Pity and Dino C; identifies formation in Maracanaú and Pacatuba. Full profile fetch unavailable to reviewer.",
+          "checked_date": "2026-10-01",
+          "access": "browser search-indexed profile; full fetch returns internal error",
+          "preserved_excerpt": "Surgiu no final de 1997 nos Municípios de Maracanaú e Pacatuba"
+        },
+        {
+          "url": "https://mapacultural.icapui.ce.gov.br/agente/5981/",
+          "title": "Icapuí cultural map: Elementos Suspeitos",
+          "support_notes": "Municipal mirrored profile corroborates lineup and municipalities in indexed text.",
+          "checked_date": "2026-10-01",
+          "access": "browser search-indexed profile; full fetch internal error"
+        },
+        {
+          "url": "https://music.apple.com/br/song/caminhada/1305430436",
+          "title": "Elementos Suspeitos: Caminhada credits",
+          "support_notes": "Label-delivered credits name DJ Ice Jay as producer; Dino C and W. Pity in composition.",
+          "checked_date": "2026-10-01",
+          "access": "browser search-indexed expanded credits; opened page gives release metadata"
+        }
+      ],
+      "neighbor_distinction": "Elementos Suspeitos MC/DJ branch from metropolitan Fortaleza, separate geographical scene from rap_baiano and the broad brazilian_hip_hop entry.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_cearense",
+          "name": "Rap cearense",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 469,
+      "source_label": "rap catala",
+      "source_url": "https://everynoise.com/engenremap-rapcatala.html",
+      "id": "rap_catala",
+      "tradition": {
+        "id": "rap_catala",
+        "name": "Rap català",
+        "family": "hip_hop",
+        "lineage": "Catalan-language rap is represented by At Versaris, whose MCs Pau Llonch and Rodrigo Laviña perform with DJ Singular. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_classic", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Catalan rhythmic speech leads a produced looping beat with a DJ performance role. A sampler and turntable realize the documented MC/DJ configuration. This language-led Catalan model is separate from the broader Spanish-language rap entry; it does not imply that all Catalan rap uses one beat style. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["At Versaris", "Pau Llonch", "Rodrigo Laviña", "DJ Singular"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [41.3851, 2.1734, "Barcelona", "Europe"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "vinyl-sampled"],
+      "sources": [
+        {
+          "url": "https://paullonch.cat/projectes/mc/",
+          "title": "Pau Llonch: MC project",
+          "support_notes": "Artist-hosted band biography confirms Catalan-language MC/DJ roles and Barcelona appearances.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Catalan-language At Versaris MC/DJ practice distinct from the Spanish-language scope of rap_espanol.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_catala",
+          "name": "Rap català",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 456,
+      "source_label": "psychedelic hip hop",
+      "source_url": "https://everynoise.com/engenremap-psychedelichiphop.html",
+      "id": "psychedelic_hip_hop",
+      "tradition": {
+        "id": "psychedelic_hip_hop",
+        "name": "Psychedelic hip hop",
+        "family": "hip_hop",
+        "lineage": "Psychedelic hip hop is represented by the surreal Seattle ensemble practice of Shabazz Palaces. The label documents collaborative live bass, drums, guitar, keyboards and saxophone roles. The selected live-ensemble production is documented for the announced It’s a Style Sport project; Lese Majesty establishes the earlier surreal-suite lineage, not the same recording session. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": [
+          "voice",
+          "electric_bass",
+          "drum_kit",
+          "electric_guitar_single_coil",
+          "analog_synth",
+          "saxophone"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.experimental",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic speech and melodic phrases move through shifting instrumental textures. Played electric bass, kit, guitar, synthesizer and saxophone form an authored selection from the label-documented collaborative ensemble. The swirling, free-form production model distinguishes the entry from the abstract-rap and general Seattle categories; exact effects are authored, not a session reconstruction. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Shabazz Palaces", "Ishmael Butler"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [47.6062, -122.3321, "Seattle", "North America"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "layered-ambient", "layered"],
+      "sources": [
+        {
+          "url": "https://www.subpop.com/artists/shabazz_palaces",
+          "title": "Sub Pop: Shabazz Palaces artist biography",
+          "support_notes": "Label documents Seattle Hall of Justice collaborative sessions, named bass/guitar/keyboard/drum/saxophone players and surreal, swirling production.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.subpop.com/releases/shabazz_palaces/lese_majesty",
+          "title": "Sub Pop: Lese Majesty",
+          "support_notes": "Label describes astral suites and Seattle Protect and Exalt Labs recordings, establishing the earlier psychedelic project branch.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Surreal suites and a selected swirling live-band production branch; not synonymous with abstract_hip_hop narrative abstraction or the geographical seattle_hip_hop category.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "electric_bass",
+          "drum_kit",
+          "electric_guitar_single_coil",
+          "analog_synth",
+          "saxophone"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "psychedelic_hip_hop",
+          "name": "Psychedelic hip hop",
+          "source": "wikimedia_commons_verified_exemplar",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ishmael_Butler_01.jpg",
+          "source_title": "Ishmael Butler 01.jpg",
+          "photographer_credit": "Joe Mabel",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ishmael_Butler_01.jpg/500px-Ishmael_Butler_01.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ishmael_Butler_01.jpg/500px-Ishmael_Butler_01.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Joe Mabel; Ishmael Butler 01.jpg",
+          "matched_label": "Ishmael Butler at a2019 MoPOP conference panel in Seattle; contextual portrait, not a Shabazz Palaces recording session.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ishmael_Butler_01.jpg",
+          "source_title": "Ishmael Butler 01.jpg",
+          "photographer_credit": "Joe Mabel",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Joe Mabel; Ishmael Butler 01.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ishmael_Butler_01.jpg/500px-Ishmael_Butler_01.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ishmael_Butler_01.jpg/500px-Ishmael_Butler_01.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 457,
+      "source_label": "queens hip hop",
+      "source_url": "https://everynoise.com/engenremap-queenshiphop.html",
+      "id": "queens_hip_hop",
+      "tradition": {
+        "id": "queens_hip_hop",
+        "name": "Queens hip hop",
+        "family": "hip_hop",
+        "lineage": "Queens hip hop includes the stripped-down Run-DMC MC/DJ branch: hard-edged, coordinated vocal lines, drum machine pulse and turntable scratches. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_drum_machine", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.usHipHop.eastCoast",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Alternating and unison rap phrases sit over a sparse drum machine rhythm with scratch punctuation. This selects the Queens trio branch documented by the Rock Hall, without making rock guitar mandatory. It differs from the broader five-borough NYC entry and from sample-collage golden-age production. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Run-DMC", "Jam Master Jay"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [40.7107, -73.7669, "Hollis, Queens", "North America"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "call-response", "sparse"],
+      "sources": [
+        {
+          "url": "https://rockhall.com/inductees/run-dmc/",
+          "title": "Rock & Roll Hall of Fame: Run DMC",
+          "support_notes": "Museum documents Queens roots, call-and-response/unison raps, drum machine and LP scratching.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Queens local Run-DMC branch with sparse drum machine and scratches; narrower than nyc_rap and different from golden-age sample-collage scope.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_drum_machine", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "queens_hip_hop",
+          "name": "Queens hip hop",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 451,
+      "source_label": "polish viral rap",
+      "source_url": "https://everynoise.com/engenremap-polishviralrap.html",
+      "id": "polish_viral_rap",
+      "tradition": {
+        "id": "polish_viral_rap",
+        "name": "Polish viral rap",
+        "family": "hip_hop",
+        "lineage": "Polish viral rap is a discovery category for internet-amplified Polish rap, represented here by Mata’s breakthrough around Patointeligencja. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_drum_machine"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Upfront rhythmic speech leads an economical produced beat. A sampler/drum machine is the authored realization of the documented beat-led songs; it does not imply a specific machine or that virality itself creates an acoustic genre. The label describes an internet-distribution cohort distinct from a national rap catch-all. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Mata"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [52.2297, 21.0122, "Warsaw", "Europe"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "cyclic", "close"],
+      "sources": [
+        {
+          "url": "https://culture.pl/pl/tworca/mata",
+          "title": "Adam Mickiewicz Institute / Culture.pl: Mata",
+          "support_notes": "Institutional artist profile documents online breakthrough, rap delivery, beats, and the Patointeligencja cohort.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://notesfrompoland.com/2019/12/16/teens-viral-rap-song-stirs-a-debate-about-sex-drugs-and-privilege-in-poland/",
+          "title": "Notes from Poland: Mata viral song report",
+          "support_notes": "Documents the Warsaw school context and viral reach; geography only, not equipment evidence.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Internet-breakthrough cohort centered on Mata; distribution and community category rather than an assertion of unique Polish instrumentation.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_drum_machine"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "polish_viral_rap",
+          "name": "Polish viral rap",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 452,
+      "source_label": "polynesian hip hop",
+      "source_url": "https://everynoise.com/engenremap-polynesianhiphop.html",
+      "id": "polynesian_hip_hop",
+      "tradition": {
+        "id": "polynesian_hip_hop",
+        "name": "Polynesian hip hop",
+        "family": "hip_hop",
+        "lineage": "Polynesian hip hop includes the South Auckland Samoan-diaspora scene represented by Savage and the Deceptikonz. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_drum_machine"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Forceful rapped lead and hook responses ride produced beats. The sampler/drum-machine role realizes the documented beat production on Savage’s Moonshine; the exact machine, sample sources and signal chain are authored. This is a South Auckland diaspora branch, not a replacement for Hawaiian hip hop or a claim to represent every Polynesian island. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Savage", "Deceptikonz", "Sol Messiah"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-36.9928, 174.8794, "South Auckland", "Oceania & Pacific"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "backbeat", "call-response"],
+      "sources": [
+        {
+          "url": "https://audioculture.co.nz/profile/savage",
+          "title": "AudioCulture: Savage",
+          "support_notes": "NZ music history profile documents South Auckland/Samoan scene and Sol Messiah beat production for Moonshine.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://blog.tepapa.govt.nz/2014/12/02/hip-hop-was-herefrom-day-1/",
+          "title": "Museum of New Zealand Te Papa: Hip hop was here from day1",
+          "support_notes": "Museum collection history documents Dawn Raid and New Zealand Pacific hip-hop recordings.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "South Auckland Pacific-diaspora recording branch, distinct from hawaiian_hip_hop and australian_hip_hop.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_drum_machine"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "polynesian_hip_hop",
+          "name": "Polynesian hip hop",
+          "source": "wikimedia_commons_verified_exemplar",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Savage_Deceptikonz_2007.jpg",
+          "source_title": "Savage Deceptikonz 2007.jpg",
+          "photographer_credit": "Rishi C; existing source adjustments by Gpkp",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Savage_Deceptikonz_2007.jpg/330px-Savage_Deceptikonz_2007.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Savage_Deceptikonz_2007.jpg/330px-Savage_Deceptikonz_2007.jpg",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "credit": "Rishi C; existing source adjustments by Gpkp; Savage Deceptikonz 2007.jpg",
+          "matched_label": "Savage of Deceptikonz performing in Adelaide in2007; artist exemplar, not a South Auckland session.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Savage_Deceptikonz_2007.jpg",
+          "source_title": "Savage Deceptikonz 2007.jpg",
+          "photographer_credit": "Rishi C; existing source adjustments by Gpkp",
+          "license": "CC BY-SA",
+          "license_raw": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "credit": "Rishi C; existing source adjustments by Gpkp; Savage Deceptikonz 2007.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Savage_Deceptikonz_2007.jpg/330px-Savage_Deceptikonz_2007.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Savage_Deceptikonz_2007.jpg/330px-Savage_Deceptikonz_2007.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 453,
+      "source_label": "pop rap",
+      "source_url": "https://everynoise.com/engenremap-poprap.html",
+      "id": "pop_rap",
+      "tradition": {
+        "id": "pop_rap",
+        "name": "Pop rap",
+        "family": "hip_hop",
+        "lineage": "Pop rap combines accessible rap hooks with danceable production; the selected early-1990s branch follows MC Hammer’s sample-based crossover practice. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_classic"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.usHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic verses and a recurring vocal hook sit above a looping funk-derived backing. A sampler realizes the documented reused groove while leaving its source instruments within the sample rather than inventing a live band. This emphasizes mainstream dance-hook crossover, separate from indie pop rap’s intimate singer-songwriter branch. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["MC Hammer"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [37.8044, -122.2712, "Oakland", "North America"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "funk-derived", "cyclic"],
+      "sources": [
+        {
+          "url": "https://www.pointblankmusicschool.com/blog/sampling-history-development-techniques/",
+          "title": "Point Blank Music School: Sampling history and techniques",
+          "support_notes": "Teaching institution identifies the Rick James sample and newly written vocal hook in U Can’t Touch This.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.soundonsound.com/people/steve-ouimette-re-recording-hits-video-games",
+          "title": "Sound on Sound: Steve Ouimette interview",
+          "support_notes": "Firsthand re-recording account confirms original Hammer track’s sampled backing; not used as evidence of original studio equipment.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.mlb.com/news/mc-hammer-to-throw-out-1st-pitch-at-al-wild-card-game",
+          "title": "MLB: MC Hammer ceremonial first pitch",
+          "support_notes": "Team event announcement identifies Hammer as an Oakland native.",
+          "checked_date": "2026-10-01",
+          "access": "browser body verified"
+        }
+      ],
+      "neighbor_distinction": "Mainstream danceable sample-and-hook crossover, distinct from indie_pop_rap intimate singer-songwriter production.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "pop_rap",
+          "name": "Pop rap",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 459,
+      "source_label": "rap abc paulista",
+      "source_url": "https://everynoise.com/engenremap-rapabcpaulista.html",
+      "id": "rap_abc_paulista",
+      "tradition": {
+        "id": "rap_abc_paulista",
+        "name": "Rap ABC paulista",
+        "family": "hip_hop",
+        "lineage": "The industrial ABC region of São Paulo has an MC and beatmaker scene represented here by Santo André’s Arnaldo Tifu and DJ B8. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_classic", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic verses and freestyle phrasing are supported by programmed/sample-based backing and DJ interventions. Sampler and turntable are authored realizations of the credited MC, beatmaker and DJ roles. This local ABC scene remains geographically distinct from Rap DF and the broad Brazilian hip-hop category. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Arnaldo Tifu", "DJ B8"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-23.6639, -46.5383, "Santo André", "Latin America & Caribbean"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "vinyl-sampled"],
+      "sources": [
+        {
+          "url": "https://culturaz.santoandre.sp.gov.br/agente/9368/",
+          "title": "CulturAZ Santo André: Arnaldo Tifu",
+          "support_notes": "Municipal artist profile identifies MC/freestyle practice and performance collaborations.",
+          "checked_date": "2026-10-01",
+          "access": "full fetch app shell; no longer sole substantiation"
+        },
+        {
+          "url": "https://www.instagram.com/dj_b8/?hl=en",
+          "title": "DJ B8 artist profile",
+          "support_notes": "Artist self-description identifies beatmaker/music producer and DJ for Arnaldo Tifu, based in Santo André.",
+          "checked_date": "2026-10-01",
+          "access": "browser search-indexed self-profile; full fetch throttled",
+          "preserved_excerpt": "DJ do Projetonave / Arnaldo Tifu // Beatmaker / Music Producer // Santo Andre/SP/BR"
+        },
+        {
+          "url": "https://paudedaemdoido.bandcamp.com/album/arnaldo-tifu-a-rima-n-o-para",
+          "title": "Arnaldo Tifu: A Rima não Para — label release",
+          "support_notes": "Substantive label release credits Tifu with multiple DJ collaborations and produced backing; label location Santo André. This is a separate earlier release corroborating MC/DJ practice, not a claim DJ B8 produced it.",
+          "checked_date": "2026-10-01",
+          "access": "browser body verified"
+        },
+        {
+          "url": "https://abcdoabc.com.br/evento/arnaldo-tifu-dj-b8-remixes/",
+          "title": "Arnaldo Tifu & DJ B8 — Remixes event",
+          "support_notes": "Event announcement explicitly describes MC-and-DJ performance with remixes produced by DJ B8. Event date fields are corrupt, so no date claim used.",
+          "checked_date": "2026-10-01",
+          "access": "browser body verified"
+        }
+      ],
+      "neighbor_distinction": "Santo André MC/beatmaker branch of the ABC industrial region; not the Brasília scene of rap_df or a second national brazilian_hip_hop row.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_abc_paulista",
+          "name": "Rap ABC paulista",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 470,
+      "source_label": "rap catarinense",
+      "source_url": "https://everynoise.com/engenremap-rapcatarinense.html",
+      "id": "rap_catarinense",
+      "tradition": {
+        "id": "rap_catarinense",
+        "name": "Rap catarinense",
+        "family": "hip_hop",
+        "lineage": "Santa Catarina rap is represented by Florianópolis group Arma-Zen, whose MC ensemble and changing DJ personnel are documented by local field research. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_classic", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Interlocking MC verses and collective responses ride a produced beat with DJ punctuation. The sampler realizes the production role while the turntable represents the documented DJ role; no equipment model is asserted. This selects the Florianópolis group branch rather than generalizing all Santa Catarina rap. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Arma-Zen", "Negro Rudhy", "DJ Mon-Há"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-27.5949, -48.5482, "Florianópolis", "Latin America & Caribbean"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "call-response"],
+      "sources": [
+        {
+          "url": "https://repositorio.ufsc.br/bitstream/handle/123456789/128861/PPSI0605-D.pdf?sequence=1",
+          "title": "UFSC: O que pode a música do Arma-Zen",
+          "support_notes": "Original field research identifies Florianópolis practice and 2012 MC/DJ personnel, noting later DJ replacement.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.flickr.com/photos/cenahiphop/485876376/",
+          "title": "Douglas d’Aquino: Arma-Zen rehearsal account",
+          "support_notes": "Firsthand photographer account documents a 2007 university-project interview and rehearsal with named MCs and DJ Carioca.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Florianópolis MC collective branch, distinct from brazilian_hip_hop national scope and Ceará/Bahia regional groups.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_catarinense",
+          "name": "Rap catarinense",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 472,
+      "source_label": "rap chileno",
+      "source_url": "https://everynoise.com/engenremap-rapchileno.html",
+      "id": "rap_chileno",
+      "tradition": {
+        "id": "rap_chileno",
+        "name": "Rap chileno",
+        "family": "hip_hop",
+        "lineage": "Chilean rap is represented by the 1990s Santiago MC-and-sample scene described firsthand by DJ Raff. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_classic", "turntable"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rapped vocals lead a sampler-based groove with turntable interventions. DJ Raff describes preparing beats for rappers using a sampler, turntable and dual-cassette system; this model retains those roles while using an authored modern digital recording chain. It excludes his later instrumental electronic direction and the separate trap_chileno label. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["DJ Raff", "La Frecuencia Rebelde", "Tiro de Gracia"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-33.4489, -70.6693, "Santiago", "Latin America & Caribbean"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "vinyl-sampled"],
+      "sources": [
+        {
+          "url": "https://soundsandcolours.com/articles/chile/premiere-dj-raff-presents-new-album-movimiento-38564/",
+          "title": "Sounds and Colours: DJ Raff interview",
+          "support_notes": "Firsthand account establishes Santiago’s early scene and sampler/turntable/dual-cassette production for MCs.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Santiago early MC-and-sample scene; distinct from trap_chileno and later DJ Raff electronic solo production.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic", "turntable"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_chileno",
+          "name": "Rap chileno",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 468,
+      "source_label": "rap capixaba",
+      "source_url": "https://everynoise.com/engenremap-rapcapixaba.html",
+      "id": "rap_capixaba",
+      "tradition": {
+        "id": "rap_capixaba",
+        "name": "Rap capixaba",
+        "family": "hip_hop",
+        "lineage": "Espírito Santo rap is represented by the documented Rap Sinfônico collaboration between local MCs, DJ Vitinho and the Oses string section in Vitória. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": [
+          "voice",
+          "sampler_classic",
+          "turntable",
+          "violin_orchestral",
+          "viola_classical",
+          "cello"
+        ],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rapped verses and sung hooks sit against a DJ-produced backing and bowed strings. Violin, viola and cello are an authored reduced representation of the credited string section, not a full orchestral personnel claim. The selected collaboration is a branch of local rap rather than a claim that capixaba rap always uses orchestral instruments. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Cesar MC", "Melanina MCs", "Budah", "Beth MC", "DJ Vitinho"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-20.3155, -40.3128, "Vitória", "Latin America & Caribbean"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "layered", "bowed"],
+      "sources": [
+        {
+          "url": "https://secult.es.gov.br/noticias?page=5&pageSize=10&pagenum=273",
+          "title": "SECULT news archive: Oses se une a rappers capixabas no Rap Sinfônico",
+          "support_notes": "Official archive indexed text verifies DJ Vitinho with orchestra string group; direct article redirects to homepage.",
+          "checked_date": "2026-10-01",
+          "access": "browser search-indexed archive; fetched archive pagination differs",
+          "preserved_excerpt": "presença do DJ Vitinho, acompanhado do grupo de cordas da orquestra"
+        },
+        {
+          "url": "https://tribunaonline.com.br/entretenimento/rap-e-classicos-em-concerto-da-orquestra-sinfonica-do-espirito-santo-116627",
+          "title": "A Tribuna: Rap e clássicos em concerto",
+          "support_notes": "Firsthand local reporting and musician interviews corroborate 2022 concert, DJ Vitinho, Cesar MC, Budah, Beth MC and Melanina MCs.",
+          "checked_date": "2026-10-01",
+          "access": "browser body verified"
+        },
+        {
+          "url": "https://www.portaltemponovo.com.br/orquestra-sinfonica-do-es-se-une-a-rappers-capixabas-em-concerto-inedito-esta-semana/",
+          "title": "Tempo Novo: Rap Sinfônico concert",
+          "support_notes": "Report includes maestro and rapper statements, explicitly locates concerts in Vitória and Vila Velha and names strings/DJ roles.",
+          "checked_date": "2026-10-01",
+          "access": "browser body verified"
+        }
+      ],
+      "neighbor_distinction": "Vitória MC/DJ/string-section collaboration, a named branch distinct from the broad brazilian_hip_hop record.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": [
+          "voice",
+          "sampler_classic",
+          "turntable",
+          "violin_orchestral",
+          "viola_classical",
+          "cello"
+        ],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_capixaba",
+          "name": "Rap capixaba",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 454,
+      "source_label": "pop rap brasileiro",
+      "source_url": "https://everynoise.com/engenremap-poprapbrasileiro.html",
+      "id": "pop_rap_brasileiro",
+      "tradition": {
+        "id": "pop_rap_brasileiro",
+        "name": "Pop rap brasileiro",
+        "family": "hip_hop",
+        "lineage": "Brazilian pop rap includes Projota’s acoustic-guitar and electronic-beat crossover with melodic vocal hooks. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "acoustic_guitar_dread", "sampler_drum_machine"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Rhythmic verses meet a sung refrain over acoustic guitar and a produced beat. The dreadnought guitar is an authored realization of the documented violão role; no guitar construction or exact drum-machine brand is sourced. The melodic acoustic crossover distinguishes this branch from general Brazilian hip-hop and trap brasileiro. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Projota", "Budah"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-23.5505, -46.6333, "São Paulo", "Latin America & Caribbean"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "melodic", "backbeat"],
+      "sources": [
+        {
+          "url": "https://web.portalsucesso.com.br/noticias/projota-2",
+          "title": "Portal Sucesso: Projota interview",
+          "support_notes": "Artist describes beginning guitar as a child and rap as his compositional base.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.terra.com.br/diversao/musica/projota-se-une-a-rapper-budah-na-inedita-coisas-da-vida,c08edf41426fd50be740e29728b6d01c69gv5142.html",
+          "title": "Terra / Music Journal: Coisas da Vida",
+          "support_notes": "Documents acoustic guitar and electronic beat in Projota/Budah recording.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://music.apple.com/us/album/coisas-da-vida-single/1708656704",
+          "title": "Universal-supplied release metadata: Coisas da Vida",
+          "support_notes": "Confirms the named Projota and Budah release and label attribution.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://nasnuvensmusic.com/portfolio/projota/",
+          "title": "Nas Nuvens Music: Projota",
+          "support_notes": "Music publisher profile locates his formative MC battles in São Paulo; confirms rapper, composer and producer roles.",
+          "checked_date": "2026-10-01",
+          "access": "browser body verified"
+        }
+      ],
+      "neighbor_distinction": "Acoustic guitar/electronic-beat melodic crossover; distinct from broad brazilian_hip_hop and trap_brasileiro.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "acoustic_guitar_dread", "sampler_drum_machine"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "pop_rap_brasileiro",
+          "name": "Pop rap brasileiro",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 473,
+      "source_label": "rap chretien",
+      "source_url": "https://everynoise.com/engenremap-rapchretien.html",
+      "id": "rap_chretien",
+      "tradition": {
+        "id": "rap_chretien",
+        "name": "Rap chrétien",
+        "family": "hip_hop",
+        "lineage": "French-language Christian rap is represented by Manou Bolomik’s solo rap/electro recording practice and church/concert network. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_drum_machine"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Lead rhythmic testimony and melodic hook passages sit over an authored electronic beat. The drum machine realizes the electro branch the artist explicitly describes; exact instrumental arrangement is an authored recording model rather than an album-session reconstruction. This selects a francophone scene rather than duplicating the US-centered christian_hip_hop entry. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Manou Bolomik"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [43.6047, 1.4442, "Toulouse", "Europe"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "devotional", "backbeat"],
+      "sources": [
+        {
+          "url": "https://www.infochretienne.com/articles/je-suis-fan-de-jesus-cest-ouf-manou-bolomik-pionnier-du-rap-chretien-francais-sort-un-nouvel-ep/",
+          "title": "TopMusic / InfoChrétienne: Manou Bolomik interview",
+          "support_notes": "Firsthand account identifies rap/electro explorations, solo performance, French church network and current Toulouse practice.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Francophone Manou Bolomik rap/electro branch; distinct language/scene from christian_hip_hop, rap_cristiano and christlicher_rap.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_drum_machine"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_chretien",
+          "name": "Rap chrétien",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 467,
+      "source_label": "rap burkinabe",
+      "source_url": "https://everynoise.com/engenremap-rapburkinabe.html",
+      "id": "rap_burkinabe",
+      "tradition": {
+        "id": "rap_burkinabe",
+        "name": "Rap burkinabè",
+        "family": "hip_hop",
+        "lineage": "Burkina Faso rap is represented by Smockey’s Ouagadougou Abazon studio practice, bringing politically engaged vocal writing together with programmed rhythm. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_drum_machine"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Direct rap vocals lead a programmed beat. The drum machine models the documented programming practice; no specific hardware or traditional acoustic instrument is invented. This is a contemporary recording realization of a Burkina Faso studio branch rather than a duplicate of Senegalese hip_hop_galsen. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Smockey"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [12.3714, -1.5197, "Ouagadougou", "Africa"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "backbeat", "cyclic"],
+      "sources": [
+        {
+          "url": "https://humanrightspractice.arizona.edu/person/serge-bambara-smockey",
+          "title": "University of Arizona: Serge Bambara / Smockey",
+          "support_notes": "University profile explicitly locates his studio in Ouagadougou, and documents politically engaged rap practice; browser body line32.",
+          "checked_date": "2026-10-01",
+          "preserved_excerpt": "founder/owner of Studio Abazon in Ouagadougou, Burkina Faso"
+        },
+        {
+          "url": "https://shs.cairn.info/revue-mouvements-2018-4-page-65?lang=fr&tab=resume",
+          "title": "Mouvements: Smockey interview",
+          "support_notes": "Direct interview documents Ouagadougou roots and learning music programming; exact gear is not specified.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Ouagadougou Abazon studio rap branch; distinct from Senegalese hip_hop_galsen and broader continental categories.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_drum_machine"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_burkinabe",
+          "name": "Rap burkinabè",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "019",
+      "allocation_ordinal": 465,
+      "source_label": "rap baixada fluminense",
+      "source_url": "https://everynoise.com/engenremap-rapbaixadafluminense.html",
+      "id": "rap_baixada_fluminense",
+      "tradition": {
+        "id": "rap_baixada_fluminense",
+        "name": "Rap Baixada Fluminense",
+        "family": "hip_hop",
+        "lineage": "Baixada Fluminense rap includes Nova Iguaçu’s Morro Agudo collective practice led by Dudu de Morro Agudo and Comboio. Recording defaults are an authored contemporary studio realization, not period session reconstruction.",
+        "instruments": ["voice", "sampler_classic"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate"
+        }
+      },
+      "extras": {
+        "parent": "mcRhythm.intlHipHop",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 0,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Alternating lead rap passages sit over a produced beat. A sampler is the authored realization of the documented musical-production role, without assuming a particular sampled record or hardware. This entry models the local collaborative MC branch and distinguishes it from the national Brazilian rap category. Recording chain and room are present-day authored choices, not a reconstruction of the exemplar’s original session.",
+        "exemplars": ["Dudu de Morro Agudo", "Comboio", "Marcão Baixada"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-22.7556, -43.4603, "Nova Iguaçu", "Latin America & Caribbean"],
+      "geo_rationale": "A documented practice center for the selected representative branch, not an exclusive origin or geographical limit of the category.",
+      "signature_tokens": ["rhythmic-speech", "sample-foundational", "cyclic"],
+      "sources": [
+        {
+          "url": "https://novaiguacu.rj.gov.br/2015/05/11/grupo-comboio-de-morro-agudo-conquista-campeonato-mundial-de-hip-hop/",
+          "title": "Nova Iguaçu: Grupo Comboio",
+          "support_notes": "Municipal profile establishes Morro Agudo MC collective and its members.",
+          "checked_date": "2026-10-01"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=KPh8jy1WvDk",
+          "title": "Léo da XIII: O Aço featuring Dudu de Morro Agudo",
+          "support_notes": "Artist release credits AltekCWB for musical production and Léo/Dudu for words; sampler implementation remains authored.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Morro Agudo/Nova Iguaçu collective, distinct from brazilian_hip_hop national scope and rap_abc_paulista industrial ABC scene.",
+      "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene. Defaults explicitly implement a present-day authored studio realization of documented musical roles; historical exemplars do not date the proposed signal chain.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "sampler_classic"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Existing catalog roles suffice for the documented ensemble. Exact sampled source instrumentation is not falsely represented as live players."
+      },
+      "allocation_group_sha256": "db1e7f0a6d1d1e3226c83890d34087fca32448084cd257583f18fbd995d1c737",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "rap_baixada_fluminense",
+          "name": "Rap Baixada Fluminense",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "matched_label": "Representative sampler/drum-machine context illustration for the authored produced-beat role; not a genre performer, actual session or claim that the named artists used this MPC2000.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "source_title": "Akai MPC2000.jpg",
+          "photographer_credit": "Alkivar; existing source curves/compression by Jacek Halicki",
+          "license": "Public domain",
+          "license_raw": "Public domain, author release",
+          "license_url": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+          "credit": "Alkivar; existing source curves/compression by Jacek Halicki; Akai MPC2000.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    }
+  ]
+}

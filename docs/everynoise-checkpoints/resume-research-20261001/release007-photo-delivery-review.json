@@ -1,0 +1,533 @@
+{
+  "checked_date": "2026-10-01",
+  "scope": "Read-only browser delivery review of existing release007 image choices",
+  "candidate_evidence_sha256": "e03201deb568efd4e3f7bb1387348c0af4a0e28eaccaceaff849fdfac2175a5e",
+  "summary": {
+    "unique_catalog_urls": 24,
+    "baseline_nonerror": 11,
+    "baseline_tool_inaccessible": 13,
+    "previously_inaccessible_with_offered_nonerror_alternative": 13,
+    "new_http_success_codes_measured": 0,
+    "image_bytes_downloaded": 0,
+    "pixels_inspected": 0
+  },
+  "interpretation": "Nonerror browser response is useful browser-tool delivery evidence, not a measured HTTP200, byte integrity check, decoded-image inspection or availability guarantee. Original baseline failures describe tool reachability and are not proven broken URLs. Commons-offered originals/previews are same-file alternatives, not proxy bypasses. Shell403 limitation remains unchanged. No authentication/network settings changed.",
+  "urls": [
+    {
+      "catalog_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Akai_MPC2000.jpg/330px-Akai_MPC2000.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000.jpg",
+      "entry_ids": [
+        "polish_viral_rap",
+        "pop_rap",
+        "pop_rap_brasileiro",
+        "queens_hip_hop",
+        "rap_abc_paulista",
+        "rap_baiano",
+        "rap_baixada_fluminense",
+        "rap_burkinabe",
+        "rap_capixaba",
+        "rap_catala",
+        "rap_catarinense",
+        "rap_cearense",
+        "rap_chileno",
+        "rap_chretien",
+        "sudanese_hip_hop",
+        "swazi_hip_hop",
+        "syrian_hip_hop"
+      ],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Akai_MPC2000.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn449view5",
+          "page_reference": "turn441view5",
+          "clicked_link_id": 40,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Savage_Deceptikonz_2007.jpg/330px-Savage_Deceptikonz_2007.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Savage_Deceptikonz_2007.jpg",
+      "entry_ids": ["polynesian_hip_hop"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Savage_Deceptikonz_2007.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn452view0",
+          "page_reference": "turn446view0",
+          "clicked_link_id": 39,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mic_Crenshaw_at_Lents_Park_1.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Mic_Crenshaw_at_Lents_Park_1.jpg",
+      "entry_ids": ["portland_hip_hop"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mic_Crenshaw_at_Lents_Park_1.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn452view2",
+          "page_reference": "turn446view2",
+          "clicked_link_id": 39,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ishmael_Butler_01.jpg/500px-Ishmael_Butler_01.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Ishmael_Butler_01.jpg",
+      "entry_ids": ["psychedelic_hip_hop"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Ishmael_Butler_01.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn449view1",
+          "page_reference": "turn441view1",
+          "clicked_link_id": 39,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "entry_ids": [
+        "rap_cristao",
+        "rap_ecuatoriano",
+        "rap_euskera",
+        "rap_feminino_nacional",
+        "rap_gabonais",
+        "rap_gasy",
+        "rap_gaucho",
+        "rap_guarulhense",
+        "rap_guineen",
+        "rap_inde",
+        "rap_italiano_old_school",
+        "rap_liegeois",
+        "rap_lyonnais",
+        "rap_malien"
+      ],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Shure_SM58-1708032215.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn449view4",
+          "page_reference": "turn441view4",
+          "clicked_link_id": 39,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Mecal%2C_Santiago_2019.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Mecal,_Santiago_2019.jpg",
+      "entry_ids": ["rap_dominicano"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Mecal%2C_Santiago_2019.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn461view0",
+          "page_reference": "turn458view0",
+          "clicked_link_id": 40,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Negro_Bey_en_La_Radio_Tomada.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Negro_Bey_en_La_Radio_Tomada.jpg",
+      "entry_ids": ["rap_ecuatoguineano"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Mar_Ad_Lir.PNG",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Mar_Ad_Lir.PNG",
+      "entry_ids": ["rap_femenino_mexicano"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Anita_Tijoux.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Anita_Tijoux.jpg",
+      "entry_ids": ["rap_feminino_chileno"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Dios_ke_te_crew_2008.jpg/330px-Dios_ke_te_crew_2008.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Dios_ke_te_crew_2008.jpg",
+      "entry_ids": ["rap_galego"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Dios_ke_te_crew_2008.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn449view2",
+          "page_reference": "turn441view2",
+          "clicked_link_id": 40,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Elow%27n_Kiff_no_beat_17.jpg/330px-Elow%27n_Kiff_no_beat_17.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Elow'n_Kiff_no_beat_17.jpg",
+      "entry_ids": ["rap_ivoire"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Elow%27n_Kiff_no_beat_17.jpg/960px-Elow%27n_Kiff_no_beat_17.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "kind": "thumbnail",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn452view6",
+          "page_reference": "turn441view0",
+          "clicked_link_id": 35,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane.",
+      "other_attempts": [
+        {
+          "action": "Original file link39 on Commons page",
+          "result": "Internal Error without HTTP status",
+          "browser_reference": "turn449view0"
+        }
+      ]
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Def_con_dos_2012.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Def_con_dos_2012.jpg",
+      "entry_ids": ["rap_metal_espanol"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Djonga_in_2021.png",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Djonga_in_2021.png",
+      "entry_ids": ["rap_mineiro"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Akai_MPC2000XL.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Akai_MPC2000XL.jpg",
+      "entry_ids": ["rap_mocambicana", "rap_nortista", "rap_portuense", "rap_sardegna"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Akai_MPC2000XL.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn452view4",
+          "page_reference": "turn446view4",
+          "clicked_link_id": 39,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Fender_AP_P-Bass_20230801.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Fender_AP_P-Bass_20230801.jpg",
+      "entry_ids": ["rap_moldovenesc", "rap_pernambucano"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Alaclair_Ensemble_%2835222819232%29.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Alaclair_Ensemble_(35222819232).jpg",
+      "entry_ids": ["rap_montrealais"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Technics_sl-1200_mk5.jpg",
+      "entry_ids": ["rap_paraense", "rap_sergipano", "rap_siciliano"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Technics_sl-1200_mk5.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn452view3",
+          "page_reference": "turn446view3",
+          "clicked_link_id": 40,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Beastie-boys.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Beastie-boys.jpg",
+      "entry_ids": ["rap_rock"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+      "entry_ids": [
+        "rap_sureno_chileno",
+        "rap_tico",
+        "rap_toscana",
+        "rap_tuga_underground",
+        "rap_tunisien",
+        "rap_uliczny",
+        "rap_underground_argentino",
+        "rap_underground_colombiano",
+        "rap_underground_espanol",
+        "rap_underground_mexicano",
+        "rap_uruguayo",
+        "rhode_island_rap",
+        "romanian_rap",
+        "romanian_trap",
+        "russian_drill",
+        "russian_gangster_rap",
+        "russian_hip_hop",
+        "russian_old_school_hip_hop",
+        "russian_trap",
+        "russian_underground_rap",
+        "rva_drill",
+        "rwandan_hip_hop"
+      ],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+      "entry_ids": [
+        "sacramento_hip_hop",
+        "scottish_drill",
+        "scouse_rap",
+        "scream_rap",
+        "sesotho_hip_hop",
+        "singaporean_hip_hop",
+        "sinhala_rap",
+        "slovak_hip_hop",
+        "slovak_trap",
+        "smutny_rap",
+        "south_african_hip_hop",
+        "south_african_trap",
+        "south_african_underground_rap",
+        "south_carolina_hip_hop",
+        "st_louis_drill"
+      ],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Akai_CD3000XL_9248.jpg/960px-Akai_CD3000XL_9248.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "kind": "thumbnail",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn458view2",
+          "page_reference": "turn446view6",
+          "clicked_link_id": 36,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane.",
+      "other_attempts": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Akai_CD3000XL_9248.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "result": "explicit_fetch_failure",
+          "reported_http_status": 429,
+          "browser_reference": "turn452view5",
+          "message": "Too Many Requests"
+        }
+      ]
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Bateria.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Bateria.jpg",
+      "entry_ids": [
+        "san_antonio_rap",
+        "san_diego_rap",
+        "schweizer_rap",
+        "scottish_hip_hop",
+        "serbian_hip_hop",
+        "slovenian_hip_hop",
+        "spanish_hip_hop"
+      ],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable%2C_circa_1977.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:An_image_of_a_Fisher_MT-6225_Studio_Standard_Automatic_Linear_Motor_Direct-Drive_Turntable,_circa_1977.jpg",
+      "entry_ids": ["spiritual_hip_hop"],
+      "baseline_result": "browser_nonerror_response",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false
+    },
+    {
+      "catalog_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Pearl_Midtown_compact_drum_kit.jpg",
+      "entry_ids": ["st_louis_rap"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Pearl_Midtown_compact_drum_kit.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn449view3",
+          "page_reference": "turn441view3",
+          "clicked_link_id": 40,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    },
+    {
+      "catalog_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Timbuktu_2014-01-12_001.jpg/330px-Timbuktu_2014-01-12_001.jpg",
+      "commons_file_page": "https://commons.wikimedia.org/wiki/File:Timbuktu_2014-01-12_001.jpg",
+      "entry_ids": ["swedish_hip_hop"],
+      "baseline_result": "tool_inaccessible",
+      "baseline_evidence_file": "photo-delivery-browser.txt",
+      "offered_alternatives": [
+        {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Timbuktu_2014-01-12_001.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
+          "kind": "original",
+          "offered_by_file_page": true,
+          "result": "browser_nonerror_response",
+          "browser_reference": "turn452view1",
+          "page_reference": "turn446view1",
+          "clicked_link_id": 39,
+          "observation": "Tool returned the image-resource URL and citation without an Internal Error. No response headers, binary bytes or decoded pixels were exposed in this text result."
+        }
+      ],
+      "http_status_verified": null,
+      "downloaded_sha256": null,
+      "pixels_inspected": false,
+      "recommended_action": "Parent may select exact offered alternative; source image and attribution unchanged. No catalog mutation performed in this lane."
+    }
+  ]
+}

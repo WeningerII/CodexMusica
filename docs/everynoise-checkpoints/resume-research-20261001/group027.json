@@ -1,0 +1,232 @@
+{
+  "entries": [
+    {
+      "allocation_group_id": "027",
+      "allocation_ordinal": 669,
+      "source_label": "belarusian metal",
+      "source_url": "https://everynoise.com/engenremap-belarusianmetal.html",
+      "id": "belarusian_metal",
+      "tradition": {
+        "id": "belarusian_metal",
+        "name": "Belarusian metal",
+        "family": "rock_punk",
+        "lineage": "Belarusian metal includes Adliga’s Belarusian-language doom/post-metal recordings. Defaults are a present-day authored realization, not a historical session reconstruction.",
+        "instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": false,
+        "parts": {}
+      },
+      "extras": {
+        "parent": "distortedRock.metal",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 2,
+          "transmission": -1,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "Vobrazy documents guitarists Ignat Pomazkov and Uladzimir Burylau, vocalists Burylau and Kate Sidelova, bassist Roman Petrashkevich and drummer Artem Voronko. This selects that band configuration. Electric-guitar/bass subtypes and recording defaults are authored present-day choices, not documented session equipment; Minsk pin marks the explicitly credited 2020–2021 Everest Studio recording, not the band’s current Vilnius address. Room, chain and numeric axes are authored present-day recording choices.",
+        "exemplars": ["Adliga — Vobrazy"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [53.9006, 27.559, "Minsk", "Europe"],
+      "geo_rationale": "Representative documented practice location for this selected branch, not an exclusive origin or geographic limit.",
+      "signature_tokens": ["layered-rhythm", "cyclic"],
+      "sources": [
+        {
+          "url": "https://adliga.bandcamp.com/album/vobrazy",
+          "title": "Adliga: Vobrazy artist release",
+          "support_notes": "Artist describes Belarusian heritage, doom/post-metal scope, full musicians and Minsk Everest Studio recording dates; current profile lists Vilnius.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Belarus-linked metal practice represented by a doom/post-metal band, distinct from Belarusian post-punk and from claims of a single national metal sound.",
+      "model_policy": "Sources establish cultural scope, locality and ensemble. All numeric axes, instrument subtypes, room, tuning and chain are explicit present-day authored recording choices, not historical session claims. Existing neutral instrument parts remain selectable; no unsupported vocal physiology is pinned.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Only existing instruments; chosen physical realization explicitly distinguished from source-supported musical roles."
+      },
+      "allocation_group_sha256": "e280b42c6c6c1cc21f16ae0921f1b9948d3c650e2af36f91ab8a96a8b38b5e77",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "belarusian_metal",
+          "name": "Belarusian metal",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Pearl_Midtown_compact_drum_kit.jpg",
+          "source_title": "Pearl Midtown compact drum kit.jpg",
+          "photographer_credit": "Englishteacher68",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Englishteacher68; Pearl Midtown compact drum kit.jpg",
+          "matched_label": "Representative drum-kit context illustration; not the artist’s instrument or session.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Pearl_Midtown_compact_drum_kit.jpg",
+          "source_title": "Pearl Midtown compact drum kit.jpg",
+          "photographer_credit": "Englishteacher68",
+          "license": "CC BY-SA 4.0",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Englishteacher68; Pearl Midtown compact drum kit.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    },
+    {
+      "allocation_group_id": "027",
+      "allocation_ordinal": 675,
+      "source_label": "black metal argentino",
+      "source_url": "https://everynoise.com/engenremap-blackmetalargentino.html",
+      "id": "black_metal_argentino",
+      "tradition": {
+        "id": "black_metal_argentino",
+        "name": "Black metal argentino",
+        "family": "rock_punk",
+        "lineage": "Argentine black metal includes the Buenos Aires practice of Nekro Cvlt Desecration, a band formed in Venezuela and based in Argentina since2018. Defaults are a present-day authored realization, not a historical session reconstruction.",
+        "instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+        "room": "studio_auteur_home_pro",
+        "tuning": "twelve_tet",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "pre_500_series_modern",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_high",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": false,
+        "parts": {}
+      },
+      "extras": {
+        "parent": "distortedRock.metal.black",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 2,
+          "transmission": -1,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "The artist’s current lineup lists Ereshkigal on bass, Seth Nekromancer on voice, Nashgot on guitar and Hexensabbat on drums. This models the present Buenos Aires lineup; it does not relocate the distinct 2016 album session to Argentina. Selected instrument types, room and signal chain are authored present-day recording choices. Room, chain and numeric axes are authored present-day recording choices.",
+        "exemplars": ["Nekro Cvlt Desecration"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "geo": [-34.6037, -58.3816, "Buenos Aires", "Latin America & Caribbean"],
+      "geo_rationale": "Representative documented practice location for this selected branch, not an exclusive origin or geographic limit.",
+      "signature_tokens": ["layered-rhythm", "cyclic"],
+      "sources": [
+        {
+          "url": "https://nekrocvltdesecration.bandcamp.com/album/nekrosatani-alcoholocausto",
+          "title": "Nekro Cvlt Desecration artist release and profile",
+          "support_notes": "Artist profile explicitly identifies Buenos Aires, Argentina base since2018 and current voice/guitar/bass/drums lineup. Artist tags black metal/black thrash; album’s earlier lineup is separately labeled.",
+          "checked_date": "2026-10-01"
+        }
+      ],
+      "neighbor_distinction": "Argentine-based black/black-thrash band branch distinct from generic Argentine heavy metal, and explicitly separate from its earlier Venezuelan recording phase.",
+      "model_policy": "Sources establish cultural scope, locality and ensemble. All numeric axes, instrument subtypes, room, tuning and chain are explicit present-day authored recording choices, not historical session claims. Existing neutral instrument parts remain selectable; no unsupported vocal physiology is pinned.",
+      "dependency_audit": {
+        "reused_instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+        "new_instruments": [],
+        "new_parts": [],
+        "new_variants": [],
+        "rationale": "Only existing instruments; chosen physical realization explicitly distinguished from source-supported musical roles."
+      },
+      "allocation_group_sha256": "e280b42c6c6c1cc21f16ae0921f1b9948d3c650e2af36f91ab8a96a8b38b5e77",
+      "verification_status": "author_ready_metadata_verified_photo_pixel_limit",
+      "photo": {
+        "manifest": {
+          "kind": "tradition",
+          "id": "black_metal_argentino",
+          "name": "Black metal argentino",
+          "source": "wikimedia_commons_verified_instrument_context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Pearl_Midtown_compact_drum_kit.jpg",
+          "source_title": "Pearl Midtown compact drum kit.jpg",
+          "photographer_credit": "Englishteacher68",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Englishteacher68; Pearl Midtown compact drum kit.jpg",
+          "matched_label": "Representative drum-kit context illustration; not the artist’s instrument or session.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Pearl_Midtown_compact_drum_kit.jpg",
+          "source_title": "Pearl Midtown compact drum kit.jpg",
+          "photographer_credit": "Englishteacher68",
+          "license": "CC BY-SA 4.0",
+          "license_raw": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "credit": "Englishteacher68; Pearl Midtown compact drum kit.jpg",
+          "checked_date": "2026-10-01",
+          "change_notice": "No additional image edits; source revisions/crops retained.",
+          "evidence": "File-specific Commons metadata, creator, caption, license and offered image URL inspected with web browser. Direct byte/pixel verification unavailable because executor image requests returned proxy403. No hash or independently measured dimensions asserted."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+          "status": "download_unavailable403",
+          "reason": "Image byte verification unavailable in this executor: attempted Commons original and display downloads returned proxy403. No byte hash or independent dimensions asserted."
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Pearl_Midtown_compact_drum_kit.jpg/330px-Pearl_Midtown_compact_drum_kit.jpg",
+          "status": "download_unavailable403"
+        },
+        "visual": {
+          "checked": false,
+          "checked_date": "2026-10-01",
+          "reason": "Direct image bytes unavailable; relevance is file-caption and source based."
+        }
+      }
+    }
+  ]
+}

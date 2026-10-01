@@ -1,0 +1,310 @@
+{
+  "checked_date": "2026-10-01",
+  "source_path": "/workspace/scratch/author020/entries.json",
+  "source_sha256": "678fc8a61838b373af15dc6bff7a70472731ee1d7d17544b87c1dbe37cca82e3",
+  "scope": "Independent musical-source, representative geography and remote photo attribution review. Not native/build validation. All recording-chain and unspecified beat-device choices remain explicitly authored. Photo pixel/download review unavailable and unclaimed.",
+  "entries": [
+    {
+      "id": "rap_cristao",
+      "entry_sha256": "05d54dcddbd7a5bb65697e8d246a09602cb530a5dc630a5ddf64c7e8ebc2d81b",
+      "status": "source_review_pass",
+      "notes": "Primary Scielo ethnography establishes Greater Florianópolis gospel MC/DJ practice and prerecorded bases.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_dominicano",
+      "entry_sha256": "478b1a435e94145553ada8efc437fa43030d235414dccaab53f88101d916cd4f",
+      "status": "source_review_pass",
+      "notes": "MECAL release credits cypher vocals and MECAL beat/recording/mix; artist profile establishes Santo Domingo.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Mecal,_Santiago_2019.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_ecuatoguineano",
+      "entry_sha256": "6430cfb919866edf20f392e6430917f657cb70b206dfec50d718968b4282c799",
+      "status": "source_review_pass",
+      "notes": "Organizing-center festival account reproduced by Hipermedula names Negro Bey, Verso Roto and DJ Lírico in Malabo.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Negro_Bey_en_La_Radio_Tomada.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_ecuatoriano",
+      "entry_sha256": "49423e4e4c8a2ddb6ad64e862007a316eb39837bf10b77db8ae6ea76bebe3a87",
+      "status": "source_review_pass",
+      "notes": "Mr Sak release directly credits PsychoMaan Crew vocalists and recording/mix; artist page establishes Quito.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_euskera",
+      "entry_sha256": "f2f2fcce6d11a68c46dcac06f906219eb5b48d90a0799a87ee158c38bc3a35d1",
+      "status": "source_review_pass",
+      "notes": "Daddy Jeff group account and Hika DZ dossier establish MC/DJ roles; Muguruza tour archive supports explicitly selected Donostia performance center.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_femenino_mexicano",
+      "entry_sha256": "fffd21e5901fd00567a3fcb03299e6ac49014219d1810d481d2c3f9852b00fa7",
+      "status": "source_review_pass",
+      "notes": "Mare release credits Mare/Magic Classic vocals and DJ Rambón production; artist profile locates Oaxaca.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Mar_Ad_Lir.PNG",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_feminino_chileno",
+      "entry_sha256": "fe28ef5d220b7291901edb8b5871b95af4359ae983c6fae1e8af8f301ef315ab",
+      "status": "source_review_pass",
+      "notes": "NPR Tiny Desk personnel list verifies vocal, keys, bass/Moog and drums; Ana artist page supports Santiago.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Anita_Tijoux.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_feminino_nacional",
+      "entry_sha256": "fa1016075d843bf79c4df9ae98a6e06d4885fe658bff62adb703e06ae7794366",
+      "status": "source_review_pass",
+      "notes": "Scielo primary fieldwork explicitly names Dina Di, Tum and DJ O.G. in Campinas Visão de Rua.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_francais_nouvelle_vague",
+      "entry_sha256": "8185665c14066b75387f75142edf80379f683db0eba4ddcc0f6d26218e1da172",
+      "status": "source_review_pass",
+      "notes": "Direct Sounds of Spotify category includes Gracy Hopkins OUTSIDE. Crayon first-person Misplaced account explicitly names Prophet synth, pitched vocals and spontaneous Gracy rap; Paris artist profiles support center.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_gabonais",
+      "entry_sha256": "09bcf747e50f6806836908c8a0b4db96e90bdca922dba9174fbd40b8b887012d",
+      "status": "source_review_pass",
+      "notes": "Teng Soba label release credits Sima Ndong rap and G-Menga production; GStore biography supports Libreville/Owendo metropolitan center.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_galego",
+      "entry_sha256": "b9cfb855be42d209fbd9cd8a7560d6ea0a051f1a448e844daee6174a3ff0fca2",
+      "status": "source_review_pass",
+      "notes": "Sokram FotoSíntese directly credits voice, Mou production and Santino guitar; Ordes artist tags. Separate Sokram release confirms membership in pictured Dios ke te crew.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Dios_ke_te_crew_2008.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_gasy",
+      "entry_sha256": "0f636132344766c0aa254007f6baf39eddc780a376068ce6174144276903ef24",
+      "status": "source_review_pass",
+      "notes": "Bigga Tovo original album credits document Antanimena recording, named DJs and production; current Montreal profile does not replace historical recording pin.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_gaucho",
+      "entry_sha256": "c3e89114cc0e18ce2ee5f4af07cd3086bc368d4fc61309906df334e1bb07eb54",
+      "status": "source_review_pass",
+      "notes": "PUCRS festival program supplies Da Guedes Porto Alegre history, MC/DJ lineup and DJ Hum production.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_guarulhense",
+      "entry_sha256": "648249762ec7250ff5e8707142e0fe6ab2fbd5e3f6b94214eb1fa975d4eee60b",
+      "status": "source_review_pass",
+      "notes": "Municipal education program names local MCs and DJs; draft explicitly models composite event roles rather than an undocumented single session.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_guineen",
+      "entry_sha256": "77003380face52ba1cce36c556ed7116c873b972a838a402f93698df8e202331",
+      "status": "source_review_pass",
+      "notes": "Management WOMEX lineup explicitly lists vocals, batterie, guitars, bass and keyboard; biography establishes Boulbinet Conakry. Synth implementation is authored.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_inde",
+      "entry_sha256": "70904585335512bfedd5cd3fc63c5828c8bb79b21b6ab2df273691cb5c1c2561",
+      "status": "source_review_pass",
+      "notes": "Diego artist release profile explicitly states Aix-en-Provence, independent composer/interpreter and self-produced boom bap album.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_italiano_old_school",
+      "entry_sha256": "2e8a9d0b73e6b83364520cff19307a3c4109876379c686d4a5fea7c731fd1fa6",
+      "status": "source_review_pass",
+      "notes": "Funky Maikol artist release explicitly presents old-school funky rap and artist production, Rome profile. Draft correctly calls this a modern revival example.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_ivoire",
+      "entry_sha256": "7c09931f09cc21a9f01cd9ade5aff0dfe44fe6c8fa9a070cd09a59ad75252877",
+      "status": "source_review_pass",
+      "notes": "Universal artist profile establishes Abidjan group and Shado debut production.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Elow'n_Kiff_no_beat_17.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_kreyol",
+      "entry_sha256": "a8ede39faf15849143a44fe396354a8211d3fdf76e6a0a33b0424f0b64660632",
+      "status": "source_review_pass",
+      "notes": "Direct category playlist identifies Haitian Barikad Crew repertoire. Official indexed Toup Pou Yo description supplies Port-au-Prince/BPC; creator Fred Hype channel and official group release establish rap/production relationship. Sampler hardware is explicitly authored.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Barikad-crew.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_latina",
+      "entry_sha256": "0193995d380091518e2d323bac91b499c470b83eab7a113c164234b2a37e0d3b",
+      "status": "source_review_pass",
+      "notes": "Direct Sounds of Spotify category includes Rebeca Lane and Somos Guerreras; Canto supplies vocal/production credits; official indexed biography establishes Guatemala City. Transnational community framing is appropriately qualified.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Rebeca_Lane.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_liegeois",
+      "entry_sha256": "78f2609c50a742db4964e1084a6a7aa3525af53b32ec1db885ca921992545769",
+      "status": "source_review_pass",
+      "notes": "Indocile Bandcamp homepage redirects successfully to Ambrosia and explicitly names Liège Indocile, Brussels Mr Clasik and beatmakers; initial album-open failure resolved.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_lyonnais",
+      "entry_sha256": "bf26de797098e27038ae7f21503868d88de315218822c91b0e3986e75536a42c",
+      "status": "source_review_pass",
+      "notes": "Thom Skor release credits text/production, track1 keyboard and scratches; artist profile establishes Lyon. Draft avoids saxophone credited on other tracks.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    },
+    {
+      "id": "rap_malien",
+      "entry_sha256": "63db3e75011792d01066efe3426475d5293f3050960b9c406571f56b938d3579",
+      "status": "source_review_pass",
+      "notes": "BAM WOMEX roster explicitly lists drums and ngoni/talking drum; Andy Morgan firsthand reporting establishes Amkoullel Bamako practice.",
+      "photo_source": "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg",
+      "photo_review": "metadata_attribution_pass; visual_unverified"
+    }
+  ],
+  "photos": {
+    "https://commons.wikimedia.org/wiki/File:Shure_SM58-1708032215.jpg": {
+      "creator": "Autom",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "metadata_review_pass": true,
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Shure_SM58-1708032215.jpg/330px-Shure_SM58-1708032215.jpg",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    },
+    "https://commons.wikimedia.org/wiki/File:Mecal,_Santiago_2019.jpg": {
+      "creator": "Carlosflowrap",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "metadata_review_pass": true,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Mecal%2C_Santiago_2019.jpg",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    },
+    "https://commons.wikimedia.org/wiki/File:Negro_Bey_en_La_Radio_Tomada.jpg": {
+      "creator": "paseo cultural pc",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "metadata_review_pass": true,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Negro_Bey_en_La_Radio_Tomada.jpg",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    },
+    "https://commons.wikimedia.org/wiki/File:Mar_Ad_Lir.PNG": {
+      "creator": "Users31",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "metadata_review_pass": true,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Mar_Ad_Lir.PNG",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    },
+    "https://commons.wikimedia.org/wiki/File:Anita_Tijoux.jpg": {
+      "creator": "Roxana Miranda / www.roxanamiranda.cl",
+      "license": "CC BY-SA 3.0/cl",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/cl/",
+      "metadata_review_pass": true,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Anita_Tijoux.jpg",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    },
+    "https://commons.wikimedia.org/wiki/File:Dios_ke_te_crew_2008.jpg": {
+      "creator": "Estevoaei",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "metadata_review_pass": true,
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Dios_ke_te_crew_2008.jpg/330px-Dios_ke_te_crew_2008.jpg",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    },
+    "https://commons.wikimedia.org/wiki/File:Elow'n_Kiff_no_beat_17.jpg": {
+      "creator": "Aman ADO",
+      "license": "CC0 1.0 Universal",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "metadata_review_pass": true,
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Elow%27n_Kiff_no_beat_17.jpg/330px-Elow%27n_Kiff_no_beat_17.jpg",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    },
+    "https://commons.wikimedia.org/wiki/File:Barikad-crew.jpg": {
+      "creator": "Kervens Philippe",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "metadata_review_pass": true,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Barikad-crew.jpg",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    },
+    "https://commons.wikimedia.org/wiki/File:Rebeca_Lane.jpg": {
+      "creator": "Realidad Expuesta",
+      "license": "CC BY3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "metadata_review_pass": true,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Rebeca_Lane.jpg",
+      "visual_checked": false,
+      "notes": "File-specific Commons caption, creator and license checked using browser. Remote file/thumbnail link checked; no downloaded byte hash or pixel verification claimed."
+    }
+  },
+  "holds_path": "/workspace/scratch/author020/holds.json",
+  "remaining_holds": [
+    {
+      "source_label": "rap francais",
+      "source_url": "https://everynoise.com/engenremap-rapfrancais.html",
+      "suggested_id": "rap_francais",
+      "allocation_ordinal": 484,
+      "group_id": "020",
+      "group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "status": "hold_semantic_duplicate",
+      "reason": "Semantic duplicate: existing french_rap already covers French-language rap, from Dee Nasty/MC Solaar/NTM/IAM through contemporary continuation.",
+      "existing_id": "french_rap",
+      "evidence_path": "references/05_traditions.js"
+    },
+    {
+      "source_label": "rap geek",
+      "source_url": "https://everynoise.com/engenremap-rapgeek.html",
+      "suggested_id": "rap_geek",
+      "allocation_ordinal": 490,
+      "group_id": "020",
+      "group_sha256": "29896a37fcb704a3db6ca226e88e59621dbe37bcc829fca3cfc211147bf1be58",
+      "status": "hold_research",
+      "reason": "Provisional model distinction gap, not missing taxonomy mapping: exact genre playlist identifies Brazilian anime-character rap and label-distributed credits identify multiple MCs plus 808 Ander production. Existing nerdcore overlaps subject-oriented rap; a clear sourced arrangement/practice distinction and representative geographic center remain to be resolved before integration.",
+      "evidence_urls": [
+        "https://open.spotify.com/embed/playlist/0aq7uwv3CYWNt4evMp7mYj",
+        "https://www.youtube.com/watch?v=Hqdm7qcNgA0",
+        "https://billboard.com.br/animes-e-o-rap-geek-invadem-o-mercado-musica-e-chega-ate-grandes-festivais/"
+      ],
+      "source_findings": [
+        "Direct genre playlist includes 7 Minutoz and MHRAP: Brazilian anime-character branch established.",
+        "Primary label-distributed Rap dos Hokages credits producer 808 Ander and vocalists Felícia Rock, Gabriel Rodrigues, Lucas Alberto Ribeiro Teixeira, MHRAP and Pedro Alvez in search index; full page unavailable.",
+        "Commons 7 Minutoz.jpg is a logo, not performer photo; not proposed."
+      ]
+    }
+  ]
+}

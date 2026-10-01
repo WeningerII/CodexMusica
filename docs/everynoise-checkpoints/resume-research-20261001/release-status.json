@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-01T17:40:00Z",
+  "deadline": "2026-10-02T03:31:00Z",
+  "merged_baseline": 600,
+  "merged_during_window": 0,
+  "release007_candidates": 100,
+  "validation": "3338 refs resolve; build restarted after environment disconnect; full build regression and CI pending",
+  "photo_delivery": "24 distinct source files have browser nonerror responses at original or file-page-offered alternatives. No measured HTTP status, downloaded hashes or pixel inspection claimed."
+}

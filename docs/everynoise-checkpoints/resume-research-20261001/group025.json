@@ -1,0 +1,2923 @@
+[
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 601,
+    "source_label": "trap angolano",
+    "source_url": "https://everynoise.com/engenremap-trapangolano.html",
+    "id": "trap_angolano",
+    "tradition": {
+      "id": "trap_angolano",
+      "name": "Trap angolano",
+      "family": "hip_hop",
+      "lineage": "Luanda vocalist and beat-producer collaboration represented by Lurhany and Teo No Beat.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Lurhany’s Luanda-rooted work with Teo No Beat represents one Angolan trap branch. Tou Na Moda is the repertoire reference; later official credits explicitly separate Lurhany’s voice and text from Teo’s production. An 808-style drum foundation and short synthesized figures support rhythmic vocal turns in this authored model; exact gear and groove are choices rather than verified session equipment.",
+      "exemplars": ["Lurhany", "Teo No Beat"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [-8.839, 13.289, "Luanda", "Africa"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://open.spotify.com/artist/3ohRcZusOEIJxhbEiFkDIi",
+        "title": "Lurhany artist biography",
+        "support_notes": "Artist biography identifies Luanda and singer/songwriter roles.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ZOUwLBzHqH0",
+        "title": "Lurhany: Tou Na Moda",
+        "support_notes": "Release description identifies trap and Teo No Beat production.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Uja7bNE3FQc",
+        "title": "Lurhany and Teo No Beat: Toda Hora",
+        "support_notes": "Official artist technical credits separate lyrics/voice and production.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Luanda vocalist and beat-producer collaboration represented by Lurhany and Teo No Beat.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_angolano",
+        "name": "Trap angolano",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 602,
+    "source_label": "trap antillais",
+    "source_url": "https://everynoise.com/engenremap-trapantillais.html",
+    "id": "trap_antillais",
+    "tradition": {
+      "id": "trap_antillais",
+      "name": "Trap antillais",
+      "family": "hip_hop",
+      "lineage": "Martinican trap and Caribbean vocal crossover represented by Kalash, with Fort-de-France as selected practice center.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Kalash’s trap and Caribbean crossover grounds this Antillean branch. The artist biography identifies a rapper and singer; his booking profile connects his upbringing to Fort-de-France. The authored production uses an 808-style low end and short synth figures beneath rap and response turns. This is one trap-oriented realization within a repertoire also spanning dancehall, not a claim that Antillean music has one uniform rhythm.",
+      "exemplars": ["Kalash"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [14.616, -61.058, "Fort-de-France", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/@Kalash972/about",
+        "title": "Kalash official artist biography",
+        "support_notes": "Artist describes Martinican rapper/singer mixing trap and Caribbean influences.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://fme-booking.com/artists/kalash/",
+        "title": "FME Booking: Kalash",
+        "support_notes": "Booking biography documents Fort-de-France childhood.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.hrbooking.com/artists/646-kalash",
+        "title": "HR Booking: Kalash",
+        "support_notes": "Booking profile confirms rap/trap/Caribbean fusion.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Martinican trap and Caribbean vocal crossover represented by Kalash, with Fort-de-France as selected practice center.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Artiste_Kalash.jpg",
+        "source_title": "Artiste Kalash.jpg",
+        "photographer_credit": "Dalia Del Arte",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit": "Dalia Del Arte, Artiste Kalash.jpg, CC BY-SA 4.0",
+        "matched_label": "Kalash, selected Martinican trap and Caribbean crossover exemplar; performer portrait, not a documented recording session.",
+        "match_confidence": "exact_performer",
+        "kind": "tradition",
+        "id": "trap_antillais",
+        "name": "Trap antillais",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Artiste_Kalash.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Artiste_Kalash.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "File-specific Commons page: own work by Dalia Del Arte, 6 May 2018; caption identifies Martinican singer/rapper Kalash; CC BY-SA4.0. Offered original link inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 603,
+    "source_label": "trap baiano",
+    "source_url": "https://everynoise.com/engenremap-trapbaiano.html",
+    "id": "trap_baiano",
+    "tradition": {
+      "id": "trap_baiano",
+      "name": "Trap baiano",
+      "family": "hip_hop",
+      "lineage": "Feira de Santana-rooted rap/trap and R&B crossover represented by Duquesa’s independent-to-label recordings.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Duquesa’s artist and booking accounts connect her to Feira de Santana and to rap, trap and R&B. In her direct interview about One Time she explains combining two proposed collaborations, with Onnika and Bivolt, over a beat produced by Go Dassisti. This authored trap-oriented model layers response turns over an 808-style drum and digital synth bed. It selects one branch of Bahia’s scene and does not infer pagode instruments from birthplace.",
+      "exemplars": ["Duquesa", "Go Dassisti"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [-12.266, -38.967, "Feira de Santana", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://boogienaipebooking.com.br/artista/duquesa/",
+        "title": "Boogie Naipe: Duquesa",
+        "support_notes": "Booking profile identifies Bahia and rap/trap/R&B practice.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://portalpopline.com.br/quem-e-duquesa-revelacao-feminina-do-trap-nacional/",
+        "title": "Duquesa direct interview about One Time",
+        "support_notes": "Artist testimony explains beat collaboration and guest voices; Go Dassisti production, Feira de Santana background.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Feira de Santana-rooted rap/trap and R&B crossover represented by Duquesa’s independent-to-label recordings.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_baiano",
+        "name": "Trap baiano",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 604,
+    "source_label": "trap beats",
+    "source_url": "https://everynoise.com/engenremap-trapbeats.html",
+    "id": "trap_beats",
+    "tradition": {
+      "id": "trap_beats",
+      "name": "Trap beats",
+      "family": "hip_hop",
+      "lineage": "Instrumental beat-tape and backing-track branch, distinguished from the catalog’s vocal trap model.",
+      "instruments": ["drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": -2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Prince Finest’s self-published Eastside Dream is tagged instrumental hip-hop, trap and beat-tape. His direct Atlanta interview identifies a self-taught producer practice. This model deliberately leaves out the vocalist: an 808-style drum foundation and short digital synth figures form an authored instrumental backing bed. It is a production realization for the instrumental branch, not a reconstruction of the released track’s equipment.",
+      "exemplars": ["Prince Finest"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [33.749, -84.388, "Atlanta", "North America"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["backbeat"],
+    "sources": [
+      {
+        "url": "https://princefinest.bandcamp.com/track/eastside-dream",
+        "title": "Prince Finest: Eastside Dream",
+        "support_notes": "Artist page tags instrumental hip-hop, trap and beat-tape; Atlanta location.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://voyageatl.com/interview/meet-prince-finest-stay-weird-clothing-brand-atlanta/",
+        "title": "Prince Finest direct interview",
+        "support_notes": "Artist identifies self-taught producer practice in Atlanta.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Instrumental beat-tape and backing-track branch, distinguished from the catalog’s vocal trap model.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_beats",
+        "name": "Trap beats",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 605,
+    "source_label": "trap boliviano",
+    "source_url": "https://everynoise.com/engenremap-trapboliviano.html",
+    "id": "trap_boliviano",
+    "tradition": {
+      "id": "trap_boliviano",
+      "name": "Trap boliviano",
+      "family": "hip_hop",
+      "lineage": "Santa Cruz studio trap represented by Cruz Santa’s Modo Percy and Never Pony recording network.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Cruz Santa’s Modo Percy represents a Santa Cruz trap branch built around recorded rap, sampled speech and electronic low-frequency backing. The label-delivered release establishes the recording, while the local scene report identifies Never Pony production and sampled public speech. An 808-style drum and digital synth bed is the authored realization. Specific devices and signal chain are not claimed as the historical session.",
+      "exemplars": ["Cruz Santa — Modo Percy"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [-17.784, -63.183, "Santa Cruz de la Sierra", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=alYT_lmsGmo",
+        "title": "Cruz Santa: Modo Percy",
+        "support_notes": "Official distributor-delivered release and composition credits.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.opinion.com.bo/articulo/cultura/cs-corona-seytan-noni-trap-boliviano-altura/20201119083200796361.amp.html",
+        "title": "Opinión: Cs Corona, Seytan y Noni",
+        "support_notes": "Local reporting documents Santa Cruz ensemble, Never Pony producer network, sampled speech and synthesized bass. Secondary corroboration, not artist technical notes.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Santa Cruz studio trap represented by Cruz Santa’s Modo Percy and Never Pony recording network.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_boliviano",
+        "name": "Trap boliviano",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 606,
+    "source_label": "trap carioca",
+    "source_url": "https://everynoise.com/engenremap-trapcarioca.html",
+    "id": "trap_carioca",
+    "tradition": {
+      "id": "trap_carioca",
+      "name": "Trap carioca",
+      "family": "hip_hop",
+      "lineage": "Rio de Janeiro’s independent trap-oriented rap network represented by Filipe Ret’s Lume-era work.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Filipe Ret’s Lume-era work supplies a trap-oriented reference within Rio’s independent rap scene. In his NOIZE interview he describes concise verses, memorable hooks and guest collaborations, while the account distinguishes that phase from his later boom-bap return. The authored realization layers rap and responses over 808-style drums and short synth figures. Exact equipment is interpretive; the entry does not classify every Ret album as trap.",
+      "exemplars": ["Filipe Ret — Lume"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [-22.907, -43.173, "Rio de Janeiro", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.noize.com.br/filipe-ret-entrevista",
+        "title": "NOIZE: Filipe Ret direct interview",
+        "support_notes": "Firsthand interview documents Rio upbringing and recording networks, Lume beat/verse/hook collaboration strategy and later move away from trap.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://tvbrasil.ebc.com.br/segue-o-som-recebe-o-rapper-filipe-ret-neste-sabado",
+        "title": "TV Brasil: Filipe Ret performance and interview",
+        "support_notes": "Broadcaster’s own program documentation identifies the Rio rapper and DJ Mãolee performance roles; no scratching inferred.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Rio de Janeiro’s independent trap-oriented rap network represented by Filipe Ret’s Lume-era work.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_carioca",
+        "name": "Trap carioca",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 607,
+    "source_label": "trap catala",
+    "source_url": "https://everynoise.com/engenremap-trapcatala.html",
+    "id": "trap_catala",
+    "tradition": {
+      "id": "trap_catala",
+      "name": "Trap catala",
+      "family": "hip_hop",
+      "lineage": "Catalan-language trap represented by Terrassa rapper Lildami and his producer collaborations.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Lildami’s Catalan-language repertoire connects hip-hop, trap and electronic pop. The Institut Ramon Llull identifies Terrassa and his place in Catalan urban music; Halley Records documents the recordings and collaboration with Sr. Chen and Pau Romero. This authored trap-oriented realization uses rap and response lanes over an 808-style drum foundation and short synthesized figures. Equipment and groove choices are not presented as session documentation.",
+      "exemplars": ["Lildami", "Sr. Chen", "Pau Romero"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [41.563, 2.008, "Terrassa", "Europe"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.llull.cat/english/actualitat/actualitat_noticies_detall.cfm?id=38122&url=catalan-urban-music.htm",
+        "title": "Institut Ramon Llull: Catalan urban music",
+        "support_notes": "Institutional account locates Lildami in Terrassa and Catalan trap/hip-hop.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://halleyrecords.com/artist/lildami/",
+        "title": "Halley Records: Lildami",
+        "support_notes": "Artist label biography identifies trap, hip-hop and electronic pop.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://halleyrecords.com/es/producte/viatge-en-espiral/",
+        "title": "Halley Records: Viatge en espiral",
+        "support_notes": "Label credits production to Sr. Chen and Pau Romero; not evidence of a particular drum machine.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Catalan-language trap represented by Terrassa rapper Lildami and his producer collaborations.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Lildami_en_concert_a_La_Mirona_de_Salt.jpg",
+        "source_title": "Lildami en concert a La Mirona de Salt.jpg",
+        "photographer_credit": "Davidpar",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit": "Davidpar, Lildami en concert a La Mirona de Salt.jpg, CC BY-SA 4.0",
+        "matched_label": "Lildami performing at La Mirona, Salt, Festival Strenes, 10 April 2021. Exact selected Catalan trap exemplar; not a recording-session claim.",
+        "match_confidence": "exact_performer",
+        "kind": "tradition",
+        "id": "trap_catala",
+        "name": "Trap catala",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Lildami_en_concert_a_La_Mirona_de_Salt.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Lildami_en_concert_a_La_Mirona_de_Salt.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected: Davidpar own work, 10 April 2021, caption identifies Lildami and concert; CC BY-SA4.0. Offered original link inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 608,
+    "source_label": "trap cristao",
+    "source_url": "https://everynoise.com/engenremap-trapcristao.html",
+    "id": "trap_cristao",
+    "tradition": {
+      "id": "trap_cristao",
+      "name": "Trap cristao",
+      "family": "hip_hop",
+      "lineage": "Portuguese-language Brazilian Christian trap represented by São Paulo-born Brunno Ramos.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Brunno Ramos’s trap gospel records connect Christian lyrical themes to produced rap beats. Universal Music’s release notes identify São Paulo, singing and composition, and collaborations with HeavyBeatts, Curioso Beat and Prod By Baby. This authored realization uses a rap lead and response lane over an 808-style drum and short synth figures; the instruments specify a workable production model, not the documented devices of Não Me Solta or Famoso Galileu.",
+      "exemplars": ["Brunno Ramos", "Prod By Baby"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [-23.551, -46.633, "São Paulo", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.universalmusic.com.br/2023/06/23/o-trapper-brunno-ramos-estreia-na-universal-music-com-o-single-nao-me-solta-que-traz-a-participacao-especial-de-prod-by-baby/",
+        "title": "Universal Music: Brunno Ramos label debut",
+        "support_notes": "Primary label evidence explicitly identifies rap/trap cristão, São Paulo birthplace, vocal/composer roles and named producers.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Portuguese-language Brazilian Christian trap represented by São Paulo-born Brunno Ramos.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_cristao",
+        "name": "Trap cristao",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 609,
+    "source_label": "trap cristiano",
+    "source_url": "https://everynoise.com/engenremap-trapcristiano.html",
+    "id": "trap_cristiano",
+    "tradition": {
+      "id": "trap_cristiano",
+      "name": "Trap cristiano",
+      "family": "hip_hop",
+      "lineage": "Spanish-language Christian trap represented by Dominican rapper Redimi2 and the Trapstorno guest-vocal recording.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Redimi2’s Trapstornadores places Spanish-language Christian rap in a trap-oriented recording context. Trapstorno credits Natan El Profeta, Rubinsky RBK and El Philippe alongside Redimi2. The artist biography locates his beginnings in Santo Domingo. The authored arrangement distributes rap and response turns above an 808-style drum and synth bed; exact devices, tuning and processing are interpretive production choices, not historical session claims.",
+      "exemplars": ["Redimi2 — Trapstorno", "Natan El Profeta", "Rubinsky RBK", "El Philippe"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [18.486, -69.931, "Santo Domingo", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.redimi2web.com/biografia/",
+        "title": "Redimi2 official biography",
+        "support_notes": "Artist account identifies Santo Domingo and Christian rap career.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ZNVrYuTBbMM",
+        "title": "Redimi2: Trapstorno official video",
+        "support_notes": "Official artist upload identifies guest vocalists and repertoire.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://music.apple.com/us/album/trapstornadores/1823786448?l=es",
+        "title": "Redimi2 Records: Trapstornadores",
+        "support_notes": "Label-delivered 2018 Christian rap album metadata; production equipment unspecified.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Spanish-language Christian trap represented by Dominican rapper Redimi2 and the Trapstorno guest-vocal recording.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_cristiano",
+        "name": "Trap cristiano",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 610,
+    "source_label": "trap dominicano",
+    "source_url": "https://everynoise.com/engenremap-trapdominicano.html",
+    "id": "trap_dominicano",
+    "tradition": {
+      "id": "trap_dominicano",
+      "name": "Trap dominicano",
+      "family": "hip_hop",
+      "lineage": "Dominican diasporic trap/drill represented by Bronx-based Chucky73 and the Sie7etr3 crew.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Chucky73 and Fetti031’s Sie7etr3 recordings anchor a Dominican diasporic branch centered in the Bronx. Concord’s artist biography and Chucky’s direct interview document Dominican origins, neighborhood practice and trap/drill crossover. The authored production uses rap exchanges over an 808-style drum and synthetic motif bed. This is the diaspora branch, not an assertion that Dominican trap originated in New York or a generic reggaeton rhythm.",
+      "exemplars": ["Chucky73", "Fetti031", "Sie7etr3"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [40.844, -73.864, "Bronx, New York", "North America"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://concord.com/publishing-roster/chucky73/",
+        "title": "Concord Music Publishing: Chucky73",
+        "support_notes": "Primary publisher biography identifies La Vega birth, Bronx upbringing and trap/drill repertoire.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.thefader.com/2021/04/21/chucky73-gen-f-interview-profile",
+        "title": "The FADER: Chucky73 direct interview",
+        "support_notes": "Artist self-identifies trap practice; interview documents Bronx studio/crew context and guest/producer collaborations. Exact drum devices unspecified.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Dominican diasporic trap/drill represented by Bronx-based Chucky73 and the Sie7etr3 crew.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_dominicano",
+        "name": "Trap dominicano",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 611,
+    "source_label": "trap kreyol",
+    "source_url": "https://everynoise.com/engenremap-trapkreyol.html",
+    "id": "trap_kreyol",
+    "tradition": {
+      "id": "trap_kreyol",
+      "name": "Trap kreyol",
+      "family": "hip_hop",
+      "lineage": "Haitian Creole trap represented by Cap-Haïtien-born Steves J. Bryan and collaborative studio releases.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Steves J. Bryan’s trap-kreyòl repertoire and O-Gun collaboration Shotta ground this Haitian Creole branch. The artist biography identifies Cap-Haïtien; O-Gun’s own release credits name Steves and Martians Productions. The authored realization distributes rap and response turns over 808-style drums and short synth figures. It documents a transnational recording network without assuming that all recording occurred in Haiti or that particular devices were used.",
+      "exemplars": ["Steves J. Bryan", "O-Gun — Shotta", "Martians Productions"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [19.76, -72.2, "Cap-Haïtien", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://open.spotify.com/artist/0msMKt1MqNAHSRHPDXdZ1E",
+        "title": "Steves J. Bryan artist biography",
+        "support_notes": "Artist biography identifies Cap-Haïtien birthplace and rap practice.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.facebook.com/OguNation/posts/new-single-alert-ogunation-trap-kreyol-king-o-gun-ft-steves-j-bryan-shotta-produ/10155137138463595/",
+        "title": "O-Gun official Shotta release announcement",
+        "support_notes": "Artist explicitly uses trap-kreyòl designation and credits guest vocalist and Martians Productions.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://audiomack.com/ogunation/song/shotta-prod-by-martians-productions",
+        "title": "O-Gun: Shotta artist release",
+        "support_notes": "Artist-uploaded track credits guest Steves J. Bryan, Martians Productions title and Pipobeat producer field; no claimed device list.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Haitian Creole trap represented by Cap-Haïtien-born Steves J. Bryan and collaborative studio releases.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_kreyol",
+        "name": "Trap kreyol",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 612,
+    "source_label": "trap maroc",
+    "source_url": "https://everynoise.com/engenremap-trapmaroc.html",
+    "id": "trap_maroc",
+    "tradition": {
+      "id": "trap_maroc",
+      "name": "Trap maroc",
+      "family": "hip_hop",
+      "lineage": "Casablanca Moroccan trap represented by ElGrandeToto’s vocalist/producer collaborations.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "ElGrandeToto’s Casablanca-rooted recordings form one branch of the Moroccan trap movement documented by Spotify’s artist feature. Pablo credits Hades’s production. The authored model combines rap and response turns with an 808-style drum foundation and short digital-synth motifs. Broader regional references to raï melodies do not justify adding a flute to this particular production model; exact historical equipment remains unspecified.",
+      "exemplars": ["ElGrandeToto — Pablo", "Hades"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [33.574, -7.59, "Casablanca", "Africa"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://newsroom.spotify.com/2019-07-22/rappers-issam-shayfeen-and-more-are-growing-traps-moroccan-roots/",
+        "title": "Spotify Newsroom: Moroccan trap roots",
+        "support_notes": "Platform artist feature identifies ElGrandeToto within Moroccan trap and discusses produced beat/synth/vocal practice.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://open.spotify.com/artist/4BFLElxtBEdsdwGA1kHTsx",
+        "title": "ElGrandeToto artist biography",
+        "support_notes": "Artist biography identifies Casablanca.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=P0P8VAS7Nao",
+        "title": "ElGrandeToto: Pablo, produced by Hades",
+        "support_notes": "Official artist release credits producer Hades.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Casablanca Moroccan trap represented by ElGrandeToto’s vocalist/producer collaborations.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_maroc",
+        "name": "Trap maroc",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 613,
+    "source_label": "trap metal italiana",
+    "source_url": "https://everynoise.com/engenremap-trapmetalitaliana.html",
+    "id": "trap_metal_italiana",
+    "tradition": {
+      "id": "trap_metal_italiana",
+      "name": "Trap metal italiana",
+      "family": "hip_hop",
+      "lineage": "Milan rap/metal crossover represented by BLASTPHEMIAN’s transition from dark trap toward Resti.",
+      "instruments": ["voice", "sampler_drum_machine", "electric_guitar_humbucker"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_single_lead",
+        "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "sample_bitdepth": "sixteen_bit",
+        "sample_swing": "mid_swing",
+        "sample_processing": "one_shots_layered",
+        "electric_technique": "electric_clean_strummed",
+        "string_tuning": "standard_tuning"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "BLASTPHEMIAN describes combining trap, old-school rap and metal before the drill and emo-guitar crossover of Resti. That recording, produced by Blocka Beatz and Myron Ianny, anchors a rap, programmed-beat and electric-guitar model. The selected Milan practice is one Italian trap-metal branch. Humbucker guitar voicing, standard tuning and sampled drum workflow are authored choices, not claims about the original equipment.",
+      "exemplars": ["BLASTPHEMIAN — Resti", "Blocka Beatz", "Myron Ianny"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [45.464, 9.19, "Milan", "Europe"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.tuttigiuparterre.it/resti-di-blastphemian-leggi-lintervista/",
+        "title": "Tutti giù parterre: BLASTPHEMIAN direct interview",
+        "support_notes": "Artist testimony explains trap/rap/metal and guitar crossover; accompanying biography identifies Milan and release credits identify beat producers. Guitar documented; exact device unspecified.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Milan rap/metal crossover represented by BLASTPHEMIAN’s transition from dark trap toward Resti.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "sampler_drum_machine", "electric_guitar_humbucker"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Interview supports voice, produced beat and guitar roles. Existing instruments suffice; specific guitar pickup/tuning and drum device remain authored."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_metal_italiana",
+        "name": "Trap metal italiana",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 614,
+    "source_label": "trap peruano",
+    "source_url": "https://everynoise.com/engenremap-trapperuano.html",
+    "id": "trap_peruano",
+    "tradition": {
+      "id": "trap_peruano",
+      "name": "Trap peruano",
+      "family": "hip_hop",
+      "lineage": "Lima trap collective practice represented by Inkas Mob and its rapper/producer network.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Inkas Mob’s collective recordings anchor a Lima-centered Peruvian trap branch. Their direct interview discusses the scene and Trap Fest Lima; member Nero Lvigi’s promoter biography identifies his rap and production roles, while Matraca documents Mono con Suerte’s work with the group. The authored ensemble uses rap exchanges over an 808-style drum and synth bed. It does not add Andean instruments from the collective’s name or claim exact studio gear.",
+      "exemplars": ["Inkas Mob", "Nero Lvigi", "Mono con Suerte"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [-12.046, -77.043, "Lima", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://elcomercio.pe/luces/musica/inkas-mob-pioneros-del-trap-debemos-entender-que-un-solo-artista-no-va-a-hacer-industria-entrevista-trap-fest-noticia/",
+        "title": "El Comercio: Inkas Mob direct interview",
+        "support_notes": "Direct interview establishes group’s Peruvian trap scene and Lima festival practice.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://deapromotora.com.pe/dvteam/nero-lvigi/",
+        "title": "DEA Promotora: Nero Lvigi",
+        "support_notes": "Artist representative identifies rapper/producer from La Victoria and Inkas Mob membership.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://matraca.net/artistas/mono-con-suerte",
+        "title": "Matraca: Mono con Suerte",
+        "support_notes": "Primary label biography documents production work with Inkas Mob.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Lima trap collective practice represented by Inkas Mob and its rapper/producer network.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_peruano",
+        "name": "Trap peruano",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 615,
+    "source_label": "trap pesado",
+    "source_url": "https://everynoise.com/engenremap-trappesado.html",
+    "id": "trap_pesado",
+    "tradition": {
+      "id": "trap_pesado",
+      "name": "Trap pesado",
+      "family": "hip_hop",
+      "lineage": "Heavy Brazilian trap production represented by WIU’s self-produced 808 Club branch.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_single_lead",
+        "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "WIU’s 808 Club marks a deliberate return to a concentrated trap sound after broader stylistic experiments. In his CNN interview he describes self-producing Luísa Sonza and using a lower, near-whispered delivery; São Paulo is the documented early-career setting recalled by that track. The authored model sets an intimate rap lead over long 808-style low end and short synth figures. Heavy here describes the selected production branch, not a requirement for shouted vocals or metal guitar.",
+      "exemplars": ["WIU — 808 Club", "WIU — Luísa Sonza"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [-23.551, -46.633, "São Paulo", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.cnnbrasil.com.br/pop/musica/wiu-mergulha-no-trap-pesado-em-nova-mixtape-manter-minha-raiz/",
+        "title": "CNN Brasil: WIU direct interview about 808 Club",
+        "support_notes": "Artist testimony supplies self-production, lowered vocal delivery and São Paulo early-career setting; editorial framing explicitly calls project trap pesado.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://capricho.abril.com.br/coluna/blog-da-galera-capricho/por-meio-do-trap-wiu-nos-inspira-a-curtir-e-correr-atras-do-que-e-nosso/",
+        "title": "Capricho: WIU direct interview",
+        "support_notes": "Artist discusses rap-focused delivery, composition and bass-heavy listening intent for 808 Club.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Heavy Brazilian trap production represented by WIU’s self-produced 808 Club branch.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_pesado",
+        "name": "Trap pesado",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 616,
+    "source_label": "trap tuga",
+    "source_url": "https://everynoise.com/engenremap-traptuga.html",
+    "id": "trap_tuga",
+    "tradition": {
+      "id": "trap_tuga",
+      "name": "Trap tuga",
+      "family": "hip_hop",
+      "lineage": "Portuguese trap recording network represented by ProfJam’s collaborations with producer Lhast.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "ProfJam’s Água de Côco and #FFFFFF frame this Portuguese trap branch around intricate rap flows and a close beat-producer collaboration. Sony credits Lhast’s production and ProfJam discusses their recording process in a direct interview. Lisbon is the selected documented concert center. A rap lead with responses, an 808-style drum foundation and short synth figures form the authored model; exact equipment is not asserted for the recordings.",
+      "exemplars": ["ProfJam — Água de Côco", "Lhast"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [38.722, -9.139, "Lisbon", "Europe"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.sonymusic.pt/profjam/",
+        "title": "Sony Music: ProfJam and Água de Côco",
+        "support_notes": "Label credits Lhast production and describes rap flows.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://observador.pt/2019/02/22/profjam-preferiu-abracar-a-mudanca-a-resistir-lhe-com-o-primeiro-album-eleva-a-fasquia-do-trap-portugues/",
+        "title": "ProfJam direct interview: trap português",
+        "support_notes": "Artist interview and editorial introduction identify the Portuguese trap branch.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://sonymusic.pt/profjam-top-nacional-de-vendas/",
+        "title": "Sony Music: ProfJam album and concerts",
+        "support_notes": "Primary label documents Lisbon Capitólio concert as selected practice center.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Portuguese trap recording network represented by ProfJam’s collaborations with producer Lhast.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_tuga",
+        "name": "Trap tuga",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 617,
+    "source_label": "trap venezolano",
+    "source_url": "https://everynoise.com/engenremap-trapvenezolano.html",
+    "id": "trap_venezolano",
+    "tradition": {
+      "id": "trap_venezolano",
+      "name": "Trap venezolano",
+      "family": "hip_hop",
+      "lineage": "Mérida-rooted Venezuelan trap and melodic rap crossover represented by Micro TDH’s collaboration network.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_adlib_response_lane",
+        "voice_ensemble_config": "voice_ensemble_live_group",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Micro TDH’s rap and singing connect Venezuelan trap to the Big Ligas producer network. His direct interview explains early independent recordings and subsequent collaboration with Ovy on the Drums; his booking biography documents Mérida beginnings. The authored model selects a trap-oriented rap-and-response branch with 808-style drums and digital synth figures. It does not label all his ballads or dancehall songs as trap, and exact devices remain production choices.",
+      "exemplars": ["Micro TDH", "Ovy on the Drums"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [8.592, -71.157, "Mérida", "Latin America & Caribbean"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://wearemitu.com/crema/micro-tdh-el-tren-interview/",
+        "title": "mitú: Micro TDH direct interview",
+        "support_notes": "Artist describes independent recording, Big Ligas collaboration and singing/rap practice; introduction locates Venezuelan trap branch.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://mn2s.com/booking-agency/live-roster/micro-tdh/",
+        "title": "MN2S: Micro TDH artist biography",
+        "support_notes": "Booking profile identifies Mérida freestyle beginnings and producer/label affiliations.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Mérida-rooted Venezuelan trap and melodic rap crossover represented by Micro TDH’s collaboration network.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "trap_venezolano",
+        "name": "Trap venezolano",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 618,
+    "source_label": "turkce kadin rap",
+    "source_url": "https://everynoise.com/engenremap-turkcekadinrap.html",
+    "id": "turkce_kadin_rap",
+    "tradition": {
+      "id": "turkce_kadin_rap",
+      "name": "Turkce kadin rap",
+      "family": "hip_hop",
+      "lineage": "Women-led Turkish-language rap represented by Ayben’s Istanbul recording and performance practice.",
+      "instruments": ["voice", "sampler_drum_machine"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_single_lead",
+        "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "sample_bitdepth": "sixteen_bit",
+        "sample_swing": "mid_swing",
+        "sample_processing": "one_shots_layered"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Ayben’s Istanbul rap practice supplies the reference for this women-led discovery category. Ethnomusicologist Thomas Solomon’s firsthand interviews and observations document rhythmic delivery with clear, rapid articulation and lyrics addressing women’s experiences. A single rap lead over a programmed beat is the authored recording model, not a biological vocal stereotype or a claim that all women rappers share one sound. Specific equipment and room choices are interpretive.",
+      "exemplars": ["Ayben"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [41.008, 28.978, "Istanbul", "Middle East"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://womensingers.projects.music.ucsb.edu/chapter3_Ayben.shtml",
+        "title": "Women Singers in Global Contexts: Ayben",
+        "support_notes": "Thomas Solomon’s primary fieldwork documents Istanbul recordings, performances, artist interview and rap articulation. The linked official Benim O video supplies repertoire reference.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.youtube.com/@AybenOfficial/videos",
+        "title": "Ayben official artist channel",
+        "support_notes": "Official recorded repertoire supports vocal recording practice; no equipment claims.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Women-led Turkish-language rap represented by Ayben’s Istanbul recording and performance practice.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "sampler_drum_machine"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "turkce_kadin_rap",
+        "name": "Turkce kadin rap",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 620,
+    "source_label": "turkish trap pop",
+    "source_url": "https://everynoise.com/engenremap-turkishtrappop.html",
+    "id": "turkish_trap_pop",
+    "tradition": {
+      "id": "turkish_trap_pop",
+      "name": "Turkish trap pop",
+      "family": "hip_hop",
+      "lineage": "Istanbul melodic trap-pop crossover represented by Reynmen’s Ela and Tanerman’s beat-making practice.",
+      "instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "voice_quality_source_unspecified",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_single_lead",
+        "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_syllabic_singing",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "tr808_voice": "tr808_kick_long",
+        "drum_machine_808_context": "drum_machine_808_trap",
+        "tr808_production_origin": "tr808_tr_8s_modern",
+        "electronic_technique": "electronic_pluck_short"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Reynmen’s Ela provides a melodic crossover reference within the Turkish trap-pop discovery grouping. The official single and Tanerman’s producer studio-session presentation establish a singer and electronic beat production, while the promoter biography documents Istanbul and the song’s pop-facing direction. The authored realization uses a melodic vocal over 808-style drums and short digital synth figures. It is one crossover branch, not a classification of Reynmen’s entire later pop repertoire.",
+      "exemplars": ["Reynmen — Ela", "Tanerman"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [41.008, 28.978, "Istanbul", "Middle East"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["backbeat"],
+    "sources": [
+      {
+        "url": "https://open.spotify.com/embed/playlist/5JNFPJ7RJaSq3joQT8Is4W",
+        "title": "Particle Detector: 2020 in Turkish Trap Pop",
+        "support_notes": "Discovery-series playlist establishes Reynmen within this grouping, not historical instrumentation.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=H1FNtTLzEVY",
+        "title": "Tanerman: Ela Beat Yapımı, Studio Sessions",
+        "support_notes": "Producer’s own beat-making session establishes electronic beat authorship; exact devices not inferred from title.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://music.apple.com/ng/album/ela-single/1472181231",
+        "title": "Houze Istanbul: Ela single",
+        "support_notes": "Label-delivered 2019 recording metadata.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.bubilet.com.tr/sanatci/reynmen-",
+        "title": "Bubilet: Reynmen artist biography",
+        "support_notes": "Promoter profile documents Istanbul birthplace and describes Ela as melodic, danceable pop-facing repertoire.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Istanbul melodic trap-pop crossover represented by Reynmen’s Ela and Tanerman’s beat-making practice.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "drum_machine_808", "digital_subtractive"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Roland_TR-808_drum_machine.jpg",
+        "source_title": "Roland TR-808 drum machine.jpg",
+        "photographer_credit": "Eriq at Dutch Wikipedia",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "credit": "Eriq at Dutch Wikipedia, Roland TR-808 drum machine.jpg, CC BY-SA 3.0",
+        "matched_label": "Instrument context: Roland TR-808 illustrates the authored 808-style drum role. Not an exemplar artist or evidence of their actual session equipment.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "turkish_trap_pop",
+        "name": "Turkish trap pop",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Roland_TR-808_drum_machine.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific caption identifies TR-808; author Eriq at Dutch Wikipedia, 15 May 2005 original upload; CC BY-SA3.0 option inspected. Offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 621,
+    "source_label": "turkmen hip hop",
+    "source_url": "https://everynoise.com/engenremap-turkmenhiphop.html",
+    "id": "turkmen_hip_hop",
+    "tradition": {
+      "id": "turkmen_hip_hop",
+      "name": "Turkmen hip hop",
+      "family": "hip_hop",
+      "lineage": "Turkmen-language rap represented by Turkmenabat-born Bezzat and the HAN MEDIA recording network.",
+      "instruments": ["voice", "sampler_classic"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_single_lead",
+        "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "sampler_archetypes": "mpc_modern",
+        "sampler_bit_depth": "sampler_sixteen_bit",
+        "sampler_workflow": "sampler_loop_layered",
+        "sampler_classic_context": "sampler_classic_hiphop",
+        "electronic_technique": "electronic_sample_chopped"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Bezzat’s artist biography connects Turkmenabat beginnings with later work in Istanbul. Official releases identify him as a rap artist and credit HAN MEDIA production with studio engineering and mix roles. The authored model places a rhythmic spoken lead over a layered sampled beat. It does not infer folk instruments from Turkmen identity or claim that a specific sampler was used on Kaspersky.",
+      "exemplars": ["Bezzat — Kaspersky"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [39.074, 63.579, "Turkmenabat", "Caucasus & Central Asia"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.deezer.com/us/artist/78902702",
+        "title": "Bezzat artist biography",
+        "support_notes": "Artist profile identifies Turkmen hip-hop, Turkmenabat birthplace and subsequent Istanbul residence.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=eCtijXoQNJw",
+        "title": "Bezzat: Kaspersky official audio",
+        "support_notes": "Release credits HAN MEDIA production, Dovlet Orunov studio engineering and Sazyelme mix/mastering.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.instagram.com/bezzatofficial/",
+        "title": "Bezzat official artist profile",
+        "support_notes": "Self-description identifies hip-hop artist, rapper and producer.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Turkmen-language rap represented by Turkmenabat-born Bezzat and the HAN MEDIA recording network.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "sampler_classic"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "turkmen_hip_hop",
+        "name": "Turkmen hip hop",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 623,
+    "source_label": "ugandan hip hop",
+    "source_url": "https://everynoise.com/engenremap-ugandanhiphop.html",
+    "id": "ugandan_hip_hop",
+    "tradition": {
+      "id": "ugandan_hip_hop",
+      "name": "Ugandan hip hop",
+      "family": "hip_hop",
+      "lineage": "Kampala Lugaflow recording practice represented by GNL Zamba and Baboon Forest’s producer network.",
+      "instruments": ["voice", "sampler_classic"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_single_lead",
+        "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "sampler_archetypes": "mpc_modern",
+        "sampler_bit_depth": "sampler_sixteen_bit",
+        "sampler_workflow": "sampler_loop_layered",
+        "sampler_classic_context": "sampler_classic_hiphop",
+        "electronic_technique": "electronic_sample_chopped"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "GNL Zamba describes developing Lugaflow from Kampala’s Kawempe neighborhood with producer Greene Amani. His direct interview explains recording Ugandan instruments and incorporating their samples into beats; Mwana wa Baaba combines Bakisimba drum and xylophone sounds. This authored model uses a rap lead and layered sampler to represent the sampled-material branch. It does not replace the source instruments with a claim of generic live percussion or assert the actual sampler model.",
+      "exemplars": ["GNL Zamba — Mwana wa Baaba", "Greene Amani"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [0.347, 32.583, "Kampala", "Africa"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://murderdog.com/gnl-samba/",
+        "title": "Murder Dog: GNL Zamba direct interview",
+        "support_notes": "Artist testimony locates Kawempe/Kampala, identifies beat producers and documents recorded-and-sampled local instruments. Selected passages only; unrelated editorial debris at article end excluded.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.gnlzamba.com/profile",
+        "title": "GNL Zamba official profile",
+        "support_notes": "Artist identifies Ugandan hip-hop practice and Baboon Forest production company.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "Kampala Lugaflow recording practice represented by GNL Zamba and Baboon Forest’s producer network.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "sampler_classic"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons",
+        "source_page": "https://commons.wikimedia.org/wiki/File:GNL_Zamba_01.jpg",
+        "source_title": "GNL Zamba 01.jpg",
+        "photographer_credit": "GNL Zamba",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit": "GNL Zamba, GNL Zamba 01.jpg, CC BY-SA 4.0",
+        "matched_label": "Selected exemplar GNL Zamba at the American Film Institute, 9 June 2015. Performer portrait, not a documented music recording session.",
+        "match_confidence": "exact_performer",
+        "kind": "tradition",
+        "id": "ugandan_hip_hop",
+        "name": "Ugandan hip hop",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/GNL_Zamba_01.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/GNL_Zamba_01.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific own-work declaration, author GNL Zamba, caption and CC BY-SA4.0 inspected; exact offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 624,
+    "source_label": "uk christian rap",
+    "source_url": "https://everynoise.com/engenremap-ukchristianrap.html",
+    "id": "uk_christian_rap",
+    "tradition": {
+      "id": "uk_christian_rap",
+      "name": "Uk christian rap",
+      "family": "hip_hop",
+      "lineage": "London Christian rap represented by Guvna B’s Odd1Out-era recordings and church-linked collaborations.",
+      "instruments": ["voice", "sampler_drum_machine"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_single_lead",
+        "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "sample_bitdepth": "sixteen_bit",
+        "sample_swing": "mid_swing",
+        "sample_processing": "one_shots_layered"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Guvna B’s Odd1Out-era work supplies a London reference for Christian rap. His direct interview discusses faith-based writing and guest recordings with Keisha Buchanan, Canton Jones and Hillsong London musicians. The authored production pairs a clear rap lead with a programmed beat, selecting a compact rap-focused branch rather than assuming a full worship band. Equipment and processing are model choices; the faith designation concerns repertoire and community.",
+      "exemplars": ["Guvna B — Odd1Out"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [51.507, -0.128, "London", "Europe"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://www.compassionuk.org/blogs/guvna-b/",
+        "title": "Compassion UK: Guvna B direct interview",
+        "support_notes": "Artist’s partner organization interviews the London rapper about Christian rap recordings.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.louderthanthemusic.com/document.php?id=3910",
+        "title": "Louder Than The Music: Guvna B direct interview",
+        "support_notes": "Artist discusses Odd1Out, guest vocalists and Hillsong London collaborations; precise equipment unspecified.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "London Christian rap represented by Guvna B’s Odd1Out-era recordings and church-linked collaborations.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "sampler_drum_machine"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Guvna_B_performing_at_the_O2_Arena_July_2018.jpg",
+        "source_title": "Guvna B performing at the O2 Arena July 2018.jpg",
+        "photographer_credit": "IsaacCharlie89",
+        "license": "CC BY-SA",
+        "license_raw": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "credit": "IsaacCharlie89, Guvna B performing at the O2 Arena July 2018.jpg, CC BY-SA 4.0",
+        "matched_label": "Guvna B performing at the O2 Arena, 26 July 2018. Exact selected UK Christian rap exemplar; not a recording-session claim.",
+        "match_confidence": "exact_performer",
+        "kind": "tradition",
+        "id": "uk_christian_rap",
+        "name": "Uk christian rap",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Guvna_B_performing_at_the_O2_Arena_July_2018.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Guvna_B_performing_at_the_O2_Arena_July_2018.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific own-work declaration, author IsaacCharlie89, caption and CC BY-SA4.0 inspected; exact offered original URL inspected.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  },
+  {
+    "allocation_group_id": "025",
+    "allocation_ordinal": 625,
+    "source_label": "uk desi rap",
+    "source_url": "https://everynoise.com/engenremap-ukdesirap.html",
+    "id": "uk_desi_rap",
+    "tradition": {
+      "id": "uk_desi_rap",
+      "name": "Uk desi rap",
+      "family": "hip_hop",
+      "lineage": "British South Asian rap represented by Luton’s Raxstar and producer SunitMusic.",
+      "instruments": ["voice", "sampler_classic"],
+      "room": "studio_auteur_home_pro",
+      "tuning": "aural_relative",
+      "chain_mic": "dynamic_mic",
+      "chain_pre": "pre_500_series_modern",
+      "chain_console": "console_in_the_box",
+      "chain_comp": "comp_none",
+      "chain_eq": "eq_none",
+      "chain_medium": "digital_high",
+      "chain_status": "authored_representative_production_model",
+      "pin_parts": true,
+      "parts": {
+        "voice_register": "voice_register_source_unspecified",
+        "voice_quality": "rap_voice",
+        "voice_tradition": "voice_tradition_source_unspecified",
+        "voice_microtone": "voice_microtone_local_unspecified",
+        "voice_vibrato": "voice_vibrato_local_unspecified",
+        "voice_articulation": "voice_articulation_source_unspecified",
+        "voice_ornament_system": "voice_ornament_system_source_unspecified",
+        "voice_multitrack_stack": "voice_multitrack_single_lead",
+        "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+        "voice_processing_chain": "voice_processing_unprocessed",
+        "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+        "voice_estill_quality": "voice_estill_quality_source_unspecified",
+        "voice_speech_song": "voice_rhythmic_spoken_flow",
+        "voice_pitch_organization": "voice_pitch_source_unspecified",
+        "voice_vocal_tract": "tract_neutral",
+        "voice_effort": "effort_moderate",
+        "sampler_archetypes": "mpc_modern",
+        "sampler_bit_depth": "sampler_sixteen_bit",
+        "sampler_workflow": "sampler_loop_layered",
+        "sampler_classic_context": "sampler_classic_hiphop",
+        "electronic_technique": "electronic_sample_chopped"
+      }
+    },
+    "extras": {
+      "parent": "mcRhythm.intlHipHop",
+      "axes": {
+        "harm": -1,
+        "pitch": -1,
+        "ornament": 0,
+        "meter": 1,
+        "density": 0,
+        "transmission": 0,
+        "improv": 1,
+        "soundTech": 1,
+        "intensity": 1,
+        "voice": 2,
+        "timbre": 0,
+        "percussion": 2,
+        "cyclicity": 2
+      },
+      "description": "Raxstar’s Luton recordings with SunitMusic connect British rap to South Asian diasporic experience and melodic R&B influences. In direct interviews he describes this cultural duality and their collaborative writing. A single rap lead over layered sampled backing is the authored realization; Jaaneman is the repertoire reference. No sitar, tabla or other acoustic instrument is inferred from ancestry, and the sampler workflow is an authored production choice.",
+      "exemplars": ["Raxstar — Jaaneman", "SunitMusic"],
+      "status": "documented",
+      "crossRefs": []
+    },
+    "geo": [51.879, -0.417, "Luton", "Europe"],
+    "geo_rationale": "Selected documented practice center, not an exclusive origin or boundary of the discovery category.",
+    "signature_tokens": ["rhythmic-speech", "backbeat"],
+    "sources": [
+      {
+        "url": "https://m.soundcloud.com/Raxstar",
+        "title": "Raxstar official SoundCloud",
+        "support_notes": "Artist profile identifies Luton and songwriter/rapper role.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.anokhilife.com/anokhi-magazine/anokhi-magazine-weekly-features-issue-25/raxstar-in-the-raw-our-chat-with-the-globally-renowned-brit-rap-star/",
+        "title": "ANOKHI: Raxstar direct interview",
+        "support_notes": "Artist testimony and interview context establish British South Asian identity and production partnership with Sunit.",
+        "checked_date": "2026-10-01"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=sLImtbaiYEw",
+        "title": "Raxstar: Jaaneman official video, SunitMusic",
+        "support_notes": "Official recording and producer association; exact sample source or equipment not claimed.",
+        "checked_date": "2026-10-01"
+      }
+    ],
+    "neighbor_distinction": "British South Asian rap represented by Luton’s Raxstar and producer SunitMusic.",
+    "model_policy": "Representative authored recording arrangement within this discovery category. Sources establish the selected musical practice, location and performance roles. Exact gear, room, chain, numeric axes, sample resolution and tuning baseline are authored choices unless expressly sourced. No claim to reconstruct a particular session or exhaust a regional scene.",
+    "dependency_audit": {
+      "reused_instruments": ["voice", "sampler_classic"],
+      "new_instruments": [],
+      "new_parts": [],
+      "new_variants": [],
+      "rationale": "Existing roles represent the sourced vocalist/producer or DJ practice. Exact equipment, groove parameters and production chain are explicitly authored; no folk instruments inferred from geography."
+    },
+    "photo": {
+      "status": "remote_metadata_verified_download_unavailable403",
+      "manifest": {
+        "source": "wikimedia_commons_instrument_context",
+        "source_page": "https://commons.wikimedia.org/wiki/File:SM58%26Beta58a.jpg",
+        "source_title": "SM58&Beta58a.jpg",
+        "photographer_credit": "Iain Fergusson (Iainf)",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson (Iainf), SM58&Beta58a.jpg, CC BY 2.5",
+        "matched_label": "Dynamic microphone context illustration for recorded rap vocals; not a genre performer or documented recording session. No claim that either model was used by the exemplar.",
+        "match_confidence": "context_only",
+        "kind": "tradition",
+        "id": "uk_desi_rap",
+        "name": "Uk desi rap",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg",
+        "thumb_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/SM58%26Beta58a.jpg"
+      },
+      "rights": {
+        "checked_date": "2026-10-01",
+        "evidence": "Commons file-specific page inspected 2026-10-01: own work by Iain Fergusson (Iainf), caption identifies Shure SM58 and Beta58a microphones, and CC BY 2.5 license. Exact original file URL inspected from offered Original file link. Context relevance is recorded vocal practice; no performer/session claim.",
+        "change_notice": "No crop, recoloring or other transformation. The unchanged original file serves both image and thumbnail URLs."
+      },
+      "visual": {
+        "checked": false,
+        "reason": "Local original image download unavailable: HTTPS proxy returned HTTP 403. No bypass attempted. Caption-based context selection; pixels and file hash not independently verified."
+      },
+      "download_status": "download_unavailable403"
+    },
+    "readiness": "author_ready_remote_photo_metadata_verified"
+  }
+]

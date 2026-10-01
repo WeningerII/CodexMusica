@@ -1,24 +1,6 @@
 {
-  "checkpoint_kind": "research_and_source_drafts_NOT_a_release",
-  "created_at": "2026-10-01T17:26:20.423037+00:00",
-  "base_commit": "5c17b7ea522ad8dc2da9574ad0678e75b4ef6203",
-  "allocation_commit": "6c22659c84459822843021ea46e485894a48d1ef",
-  "fixed_allocation_count": 4586,
-  "merged_count": 600,
-  "remaining_allocation_count": 3986,
-  "source_full_draft_counts": {
-    "019": 17,
-    "020": 21,
-    "021": 18,
-    "022": 22,
-    "023": 23,
-    "024": 10,
-    "025": 5
-  },
-  "candidate_release_size": 100,
-  "new_release_validated": 0,
-  "new_release_merged": 0,
-  "files_sha256": {
+  "status": "Research checkpoint; no new merged delivery",
+  "file_sha256": {
     "group-019.json": "8ceb5e28e8ffad04db29a3cf25825635dc3e510f4b606f4fcc397aa684088dd2",
     "group-020.json": "9c5d33005c6cf58d17b70811a06d2fbc495be6988fb8400fa38575417bc364e3",
     "group-021.json": "11aa1822a22ab83251cfd033a41202b61333aa8e230862cd9f358ef8eba8160f",
@@ -26,9 +8,23 @@
     "group-023.json": "ba914d43fdbb83c65444293e31c16ce60c18ebfe481bd7adff7847e859c16231",
     "group-024.json": "e6757b6448011de50c396f75a9f90f3bbfc143a55c78cf3e10b1ceed8d0f0f55",
     "group-025.json": "8faabd608794f0c59bbbf38dd17452cafab1fed02e262676506bd2395c43990e",
+    "group019.json": "6314fcc67b980556b5dbb15861f5089636c8db639a203dd3cd94a9fca6620e76",
+    "group020.json": "0d85a026100ab09d014a4c364f1f8bc3941cf8d107c8149df32b34e5337b9361",
+    "group021.json": "d2ec198a3c04ed833edd478c062f5db3d86a3c9faedb0e9f05ab3cece6cce45f",
+    "group022.json": "d937eabb716cead3208482b86bb22bbe84c3b697dbcd723ce2f2445083b5ae7f",
+    "group023.json": "bf473ffc65bef9f58c53677d9dd17cd941e77f8e1d66890857a535541a2fdbac",
+    "group024.json": "83fdaa257cb27bf5727953f3cfd6dc8ab2294ca5c6e22f49f6bfd76d821630a1",
+    "group025.json": "834c3f346b93017ccc30f0175afc52fc8b659f7309b73174493f7541b05f9fee",
+    "group026.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "group027.json": "6cd3e1950a8e1c6e1e0aaa491d14c699d1aa878c38e8e9959a1b7af02f307c40",
+    "group028.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "release-status.json": "e31f0e72059eeb46f2ae44db4b3bc205ce947627d0f9883de83192f355f1398a",
+    "release007-candidate-evidence.json": "9c10f51316dc499d058151bf31b7094227dcc7be3ce121b7256267a0e38ed648",
+    "release007-photo-delivery-current-coverage.json": "5a4cec0fe8e7dbe1973a6b1929eddacfd72f489f83034fa0b402afbe6227968b",
+    "release007-photo-delivery-review.json": "efadbec6a8c70f65c1d9b153a91d9f6a65b4346098216ef438eff7f0983a8e31",
     "resume-baseline.json": "eadb1433a4e299307dadfa9d6ae3c8b53612d6bb3768fbb8bc1e70e393044905",
-    "reviewer.json": "87ba7d27f846dd82b521293508b877b9fbad7524c3d77e2539681e980c672d00",
-    "reviewer022.json": "dfdd2610e2e10abad5f33ffc05fff3d2f5d366f0cd94481466121c5208cf3b4c"
-  },
-  "verification": "Full drafts include provisional holds. Exact entry reviewer hashes distinguish source-review status. The100-candidate API build and reviews are in progress. Remote photo rights/captions inspected; executor image downloads403 and some browser image URLs inaccessible. Delivery evidence is NOT complete for all100. No pixel checks or fetched-byte hashes claimed. No engine changes."
+    "reviewer.json": "0f0d7ee27b2a11acd6d635a517969e28a27ff4fb1941561de1f2ddb163dd6f9e",
+    "reviewer020.json": "5798b452a12335d388936860186a43f66cbed5832eb13d82416a06205be65650",
+    "reviewer022.json": "6fb8a286ea0f66077b2396e3c54cb44796b86d9da35227c352d3a41c8a3e5c13"
+  }
 }
