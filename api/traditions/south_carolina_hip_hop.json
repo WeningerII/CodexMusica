@@ -1,0 +1,79 @@
+{
+  "id": "south_carolina_hip_hop",
+  "name": "South carolina hip hop",
+  "family": "hip_hop",
+  "lineage": "South Carolina hip hop represented by DJ Joey Joe’s Columbia-associated instrumental beat-tape practice.",
+  "recipe": "classic modern south carolina hip hop, mc Rhythm, intl hip hop branch. sampled chopped sampler drum machine, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 271,
+  "score": 25.825,
+  "config": {
+    "traditions": [
+      "south_carolina_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "mid_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": 5.5,
+          "sample_bitdepth": 0.1785,
+          "sample_swing": 9.1,
+          "sample_processing": 0.2415
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 5.5,
+          "turntable_technique": 5.305000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "sample_bitdepth"
+      ],
+      "turntable": [
+        "turntable_technique"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sample_bitdepth": "sixteen_bit",
+      "turntable_technique": "turntable_scratch"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
-  "generated": "2026-09-30",
-  "count": 3238,
+  "generated": "2026-10-01",
+  "count": 3338,
   "items": [
     {
       "id": "honky_tonk",
@@ -1716,8 +1716,8 @@
       "id": "k_pop_modern",
       "name": "K-pop (modern)",
       "family": "global",
-      "recipe": "classic Asian mid-2000s k-pop, functional Song, east Asian pop branch, intl hip hop MC rhythm uk grime australian hip-hop. extended whistle, rap, straight onset, interlocked note trading. chopped sampler, plucked short envelope digital subtractive, roland tr 8s modern aira digital recreation TR-808, stainless steel roundwound sub heavy electric bass, octuple plus dense stack multi track instrument 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-      "recipe_chars": 687
+      "recipe": "classic Asian mid-2000s k-pop, functional Song, east Asian pop branch, intl hip hop MC rhythm schweizer rap slovenian hip hop. extended whistle, rap, straight onset, interlocked note trading. pitched chopped sampler, plucked short envelope digital subtractive, roland tr 8s modern aira digital recreation TR-808, la bella flats Detroit soul bass canon sub heavy electric bass, octuple plus dense stack multi track instrument 2010s melodyne microtuned stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+      "recipe_chars": 720
     },
     {
       "id": "mandopop",
@@ -2066,8 +2066,8 @@
       "id": "dubstep_140",
       "name": "Dubstep (140 bass-music)",
       "family": "global",
-      "recipe": "classic British 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm bc underground hip hop german trap. pitched chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass. treated studio. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3 high-gain distortion hall reverb.",
-      "recipe_chars": 399
+      "recipe": "classic British 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm schweizer rap slovenian hip hop. pitched chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. treated studio. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3 high-gain distortion hall reverb.",
+      "recipe_chars": 403
     },
     {
       "id": "lovers_rock",
@@ -3921,8 +3921,8 @@
       "id": "kapuka_kenyan",
       "name": "Kapuka (Kenyan urban pop)",
       "family": "global",
-      "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm rap marocain uk grime. extended whistle, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 522
+      "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm san antonio rap rap marocain. extended whistle, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 529
     },
     {
       "id": "kabyle_music_algerian",
@@ -17039,8 +17039,8 @@
       "id": "memphis_rap",
       "name": "Memphis rap (Bluff City lineage)",
       "family": "hip_hop",
-      "recipe": "classic late-1980s memphis rap, mc Rhythm, southern branch, experimental MC rhythm, lofi experimental electric hexd industrial hip hop. vocal fry, rap, slow rate, interlocked note trading. TR-808, field textural sampler, sampled chopped turntable, sub bass analog poly synth, mahogany ernie ball slinky electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 425
+      "recipe": "classic late-1980s memphis rap, mc Rhythm, southern branch, experimental MC rhythm, lofi experimental electric psychedelic hip hop hexd. vocal fry, rap, slow rate, interlocked note trading. TR-808, field textural sampler, sampled chopped turntable, sub bass analog poly synth, low mid rich spectrum low-mid-thick mahogany electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 444
     },
     {
       "id": "atl_trap",
@@ -22669,6 +22669,706 @@
       "family": "hip_hop",
       "recipe": "classic modern miami hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. TR-808, rompler workstation, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
       "recipe_chars": 319
+    },
+    {
+      "id": "polish_viral_rap",
+      "name": "Polish viral rap",
+      "family": "hip_hop",
+      "recipe": "classic modern polish viral rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 334
+    },
+    {
+      "id": "polynesian_hip_hop",
+      "name": "Polynesian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern polynesian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 314
+    },
+    {
+      "id": "pop_rap",
+      "name": "Pop rap",
+      "family": "hip_hop",
+      "recipe": "classic 1990-1993 pop rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 291
+    },
+    {
+      "id": "pop_rap_brasileiro",
+      "name": "Pop rap brasileiro",
+      "family": "hip_hop",
+      "recipe": "classic modern pop rap brasileiro, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 395
+    },
+    {
+      "id": "portland_hip_hop",
+      "name": "Portland hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern portland hip hop, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. pitched chopped sampler, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 362
+    },
+    {
+      "id": "psychedelic_hip_hop",
+      "name": "Psychedelic hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern psychedelic hip hop, mc Rhythm, experimental branch. rap, rhythmic spoken flow no pitch. pyramid pure nickel bass British mid 60s era electric bass, drum kit, fuzzed riff driven single coil electric guitar, sub bass analog synth, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 391
+    },
+    {
+      "id": "queens_hip_hop",
+      "name": "Queens hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern queens hip hop, mc Rhythm, east coast branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 297
+    },
+    {
+      "id": "rap_abc_paulista",
+      "name": "Rap ABC paulista",
+      "family": "hip_hop",
+      "recipe": "classic modern rap abc paulista, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. melodic pitched sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 348
+    },
+    {
+      "id": "rap_baiano",
+      "name": "Rap baiano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap baiano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler, turntable, clean strummed single coil electric guitar, congas. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 356
+    },
+    {
+      "id": "rap_baixada_fluminense",
+      "name": "Rap Baixada Fluminense",
+      "family": "hip_hop",
+      "recipe": "classic modern rap baixada fluminense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 305
+    },
+    {
+      "id": "rap_burkinabe",
+      "name": "Rap burkinabè",
+      "family": "hip_hop",
+      "recipe": "classic modern rap burkinabè, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 331
+    },
+    {
+      "id": "rap_capixaba",
+      "name": "Rap capixaba",
+      "family": "hip_hop",
+      "recipe": "classic modern rap capixaba, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. melodic orchestral imitation pitched sampler, turntable, Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, Baroque setup short neck lighter bass bar no chinrest viola classical, gut Baroque setup snakewood cello. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 552
+    },
+    {
+      "id": "rap_catala",
+      "name": "Rap català",
+      "family": "hip_hop",
+      "recipe": "classic modern rap català, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. melodic pitched sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 342
+    },
+    {
+      "id": "rap_catarinense",
+      "name": "Rap catarinense",
+      "family": "hip_hop",
+      "recipe": "classic modern rap catarinense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. melodic pitched sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 271
+    },
+    {
+      "id": "rap_cearense",
+      "name": "Rap cearense",
+      "family": "hip_hop",
+      "recipe": "classic late-1990s rap cearense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 310
+    },
+    {
+      "id": "rap_chileno",
+      "name": "Rap chileno",
+      "family": "hip_hop",
+      "recipe": "classic mid-1990s rap chileno, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. melodic pitched sampler, turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 308
+    },
+    {
+      "id": "rap_chretien",
+      "name": "Rap chrétien",
+      "family": "hip_hop",
+      "recipe": "classic modern rap chrétien, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "rap_cristao",
+      "name": "Rap cristão",
+      "family": "hip_hop",
+      "recipe": "classic modern rap cristão, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 350
+    },
+    {
+      "id": "rap_dominicano",
+      "name": "Rap dominicano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap dominicano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 266
+    },
+    {
+      "id": "rap_ecuatoguineano",
+      "name": "Rap ecuatoguineano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap ecuatoguineano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 319
+    },
+    {
+      "id": "rap_ecuatoriano",
+      "name": "Rap ecuatoriano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap ecuatoriano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 343
+    },
+    {
+      "id": "rap_euskera",
+      "name": "Rap euskera",
+      "family": "hip_hop",
+      "recipe": "classic modern rap euskera, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 328
+    },
+    {
+      "id": "rap_femenino_mexicano",
+      "name": "Rap femenino mexicano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap femenino mexicano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 311
+    },
+    {
+      "id": "rap_feminino_chileno",
+      "name": "Rap feminino chileno",
+      "family": "hip_hop",
+      "recipe": "classic modern rap feminino chileno, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. analog poly synth, electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 332
+    },
+    {
+      "id": "rap_feminino_nacional",
+      "name": "Rap feminino nacional",
+      "family": "hip_hop",
+      "recipe": "classic modern rap feminino nacional, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 322
+    },
+    {
+      "id": "rap_gabonais",
+      "name": "Rap gabonais",
+      "family": "hip_hop",
+      "recipe": "classic modern rap gabonais, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 302
+    },
+    {
+      "id": "rap_galego",
+      "name": "Rap galego",
+      "family": "hip_hop",
+      "recipe": "classic modern rap galego, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine, clean strummed single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 382
+    },
+    {
+      "id": "rap_gasy",
+      "name": "Rap gasy",
+      "family": "hip_hop",
+      "recipe": "classic modern rap gasy, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 309
+    },
+    {
+      "id": "rap_gaucho",
+      "name": "Rap gaúcho",
+      "family": "hip_hop",
+      "recipe": "classic modern rap gaúcho, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 311
+    },
+    {
+      "id": "rap_guarulhense",
+      "name": "Rap guarulhense",
+      "family": "hip_hop",
+      "recipe": "classic modern rap guarulhense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine, turntable. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 316
+    },
+    {
+      "id": "rap_guineen",
+      "name": "Rap guinéen",
+      "family": "hip_hop",
+      "recipe": "classic modern rap guinéen, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. drum kit, clean strummed single coil electric guitar, electric bass, analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 367
+    },
+    {
+      "id": "rap_inde",
+      "name": "Rap indé",
+      "family": "hip_hop",
+      "recipe": "classic modern rap indé, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 336
+    },
+    {
+      "id": "rap_italiano_old_school",
+      "name": "Rap italiano old school",
+      "family": "hip_hop",
+      "recipe": "classic modern rap italiano old school, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 351
+    },
+    {
+      "id": "rap_ivoire",
+      "name": "Rap ivoire",
+      "family": "hip_hop",
+      "recipe": "classic modern rap ivoire, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 300
+    },
+    {
+      "id": "rap_liegeois",
+      "name": "Rap liégeois",
+      "family": "hip_hop",
+      "recipe": "classic modern rap liégeois, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 340
+    },
+    {
+      "id": "rap_lyonnais",
+      "name": "Rap lyonnais",
+      "family": "hip_hop",
+      "recipe": "classic modern rap lyonnais, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine, turntable, analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 370
+    },
+    {
+      "id": "rap_malien",
+      "name": "Rap malien",
+      "family": "hip_hop",
+      "recipe": "classic modern rap malien, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. drum kit, ngoni, talking drum. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 309
+    },
+    {
+      "id": "rap_metal_espanol",
+      "name": "Rap metal español",
+      "family": "hip_hop",
+      "recipe": "classic modern rap metal español, distorted Rock, metal branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 476
+    },
+    {
+      "id": "rap_mineiro",
+      "name": "Rap mineiro",
+      "family": "hip_hop",
+      "recipe": "classic modern rap mineiro, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 324
+    },
+    {
+      "id": "rap_mocambicana",
+      "name": "Rap moçambicana",
+      "family": "hip_hop",
+      "recipe": "classic modern rap moçambicana, mc Rhythm, intl hip hop branch. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 216
+    },
+    {
+      "id": "rap_moldovenesc",
+      "name": "Rap moldovenesc",
+      "family": "hip_hop",
+      "recipe": "classic modern rap moldovenesc, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. single coil electric guitar, pyramid pure nickel bass British mid 60s era electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 362
+    },
+    {
+      "id": "rap_montrealais",
+      "name": "Rap montréalais",
+      "family": "hip_hop",
+      "recipe": "classic early-2010s rap montréalais, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. electric bass, rhodes electric, Hammond a 100 built in Leslie home spinet tonewheel organ, single coil electric guitar, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 443
+    },
+    {
+      "id": "rap_nortista",
+      "name": "Rap nortista",
+      "family": "hip_hop",
+      "recipe": "classic modern rap nortista, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 287
+    },
+    {
+      "id": "rap_paraense",
+      "name": "Rap paraense",
+      "family": "hip_hop",
+      "recipe": "classic modern rap paraense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 319
+    },
+    {
+      "id": "rap_pernambucano",
+      "name": "Rap pernambucano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap pernambucano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. single coil electric guitar, electric bass, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 328
+    },
+    {
+      "id": "rap_portuense",
+      "name": "Rap portuense",
+      "family": "hip_hop",
+      "recipe": "classic modern rap portuense, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 326
+    },
+    {
+      "id": "rap_rock",
+      "name": "Rap rock",
+      "family": "hip_hop",
+      "recipe": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 373
+    },
+    {
+      "id": "rap_sardegna",
+      "name": "Rap Sardegna",
+      "family": "hip_hop",
+      "recipe": "classic early-1990s rap sardegna, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "rap_sergipano",
+      "name": "Rap sergipano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap sergipano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 320
+    },
+    {
+      "id": "rap_siciliano",
+      "name": "Rap siciliano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap siciliano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 336
+    },
+    {
+      "id": "rap_sureno_chileno",
+      "name": "Rap sureno chileno",
+      "family": "hip_hop",
+      "recipe": "classic modern rap sureno chileno, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 336
+    },
+    {
+      "id": "rap_tico",
+      "name": "Rap tico",
+      "family": "hip_hop",
+      "recipe": "classic modern rap tico, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 288
+    },
+    {
+      "id": "rap_toscana",
+      "name": "Rap toscana",
+      "family": "hip_hop",
+      "recipe": "classic modern rap toscana, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 329
+    },
+    {
+      "id": "rap_tuga_underground",
+      "name": "Rap tuga underground",
+      "family": "hip_hop",
+      "recipe": "classic modern rap tuga underground, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 338
+    },
+    {
+      "id": "rap_tunisien",
+      "name": "Rap tunisien",
+      "family": "hip_hop",
+      "recipe": "classic modern rap tunisien, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "rap_uliczny",
+      "name": "Rap uliczny",
+      "family": "hip_hop",
+      "recipe": "classic modern rap uliczny, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 278
+    },
+    {
+      "id": "rap_underground_argentino",
+      "name": "Rap underground argentino",
+      "family": "hip_hop",
+      "recipe": "classic modern rap underground argentino, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 267
+    },
+    {
+      "id": "rap_underground_colombiano",
+      "name": "Rap underground colombiano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap underground colombiano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 344
+    },
+    {
+      "id": "rap_underground_espanol",
+      "name": "Rap underground espanol",
+      "family": "hip_hop",
+      "recipe": "classic modern rap underground espanol, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 265
+    },
+    {
+      "id": "rap_underground_mexicano",
+      "name": "Rap underground mexicano",
+      "family": "hip_hop",
+      "recipe": "classic modern rap underground mexicano, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 307
+    },
+    {
+      "id": "rap_uruguayo",
+      "name": "Rap uruguayo",
+      "family": "hip_hop",
+      "recipe": "classic modern rap uruguayo, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "rhode_island_rap",
+      "name": "Rhode island rap",
+      "family": "hip_hop",
+      "recipe": "classic modern rhode island rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 334
+    },
+    {
+      "id": "romanian_rap",
+      "name": "Romanian rap",
+      "family": "hip_hop",
+      "recipe": "classic modern romanian rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "romanian_trap",
+      "name": "Romanian trap",
+      "family": "hip_hop",
+      "recipe": "classic modern romanian trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 285
+    },
+    {
+      "id": "russian_drill",
+      "name": "Russian drill",
+      "family": "hip_hop",
+      "recipe": "classic modern russian drill, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 293
+    },
+    {
+      "id": "russian_gangster_rap",
+      "name": "Russian gangster rap",
+      "family": "hip_hop",
+      "recipe": "classic modern russian gangster rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 338
+    },
+    {
+      "id": "russian_hip_hop",
+      "name": "Russian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern russian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 311
+    },
+    {
+      "id": "russian_old_school_hip_hop",
+      "name": "Russian old school hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern russian old school hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 271
+    },
+    {
+      "id": "russian_trap",
+      "name": "Russian trap",
+      "family": "hip_hop",
+      "recipe": "classic modern russian trap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, echo word punctuation. TR-808, digital subtractive. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 284
+    },
+    {
+      "id": "russian_underground_rap",
+      "name": "Russian underground rap",
+      "family": "hip_hop",
+      "recipe": "classic modern russian underground rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 303
+    },
+    {
+      "id": "rva_drill",
+      "name": "RVA drill",
+      "family": "hip_hop",
+      "recipe": "classic modern rva drill, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 251
+    },
+    {
+      "id": "rwandan_hip_hop",
+      "name": "Rwandan hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern rwandan hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 273
+    },
+    {
+      "id": "sacramento_hip_hop",
+      "name": "Sacramento hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern sacramento hip hop, mc Rhythm, intl hip hop branch. rap. drum kit, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 255
+    },
+    {
+      "id": "san_antonio_rap",
+      "name": "San antonio rap",
+      "family": "hip_hop",
+      "recipe": "classic modern san antonio rap, mc Rhythm, intl hip hop branch. rap. turntable, drum kit, bongos. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 233
+    },
+    {
+      "id": "san_diego_rap",
+      "name": "San diego rap",
+      "family": "hip_hop",
+      "recipe": "classic modern san diego rap, mc Rhythm, intl hip hop branch. rap, single lead single track no stacking. pocket fingerstyle locked electric bass, drum kit, grand piano, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 315
+    },
+    {
+      "id": "schweizer_rap",
+      "name": "Schweizer rap",
+      "family": "hip_hop",
+      "recipe": "classic modern schweizer rap, mc Rhythm, intl hip hop branch. rap. electric bass, controlled decay pre muffled edge muffled drum kit, alder clean strummed single coil electric guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, trumpet, saxophone, student commercial trombone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 459
+    },
+    {
+      "id": "scottish_drill",
+      "name": "Scottish drill",
+      "family": "hip_hop",
+      "recipe": "classic modern scottish drill, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 263
+    },
+    {
+      "id": "scottish_hip_hop",
+      "name": "Scottish hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern scottish hip hop, mc Rhythm, intl hip hop branch. rap. electric bass, drum kit, clean strummed single coil electric guitar, sub bass analog poly synth, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 340
+    },
+    {
+      "id": "scouse_rap",
+      "name": "Scouse rap",
+      "family": "hip_hop",
+      "recipe": "classic modern scouse rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 297
+    },
+    {
+      "id": "scream_rap",
+      "name": "Scream rap",
+      "family": "hip_hop",
+      "recipe": "classic modern scream rap, mc Rhythm, intl hip hop branch. rap. clean strummed single coil electric guitar, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 265
+    },
+    {
+      "id": "serbian_hip_hop",
+      "name": "Serbian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic mid-2010s serbian hip hop, mc Rhythm, intl hip hop branch. rap. electric bass, drum kit, violin orchestral, trumpet. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 260
+    },
+    {
+      "id": "sesotho_hip_hop",
+      "name": "Sesotho hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern sesotho hip hop, mc Rhythm, intl hip hop branch. rap. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 242
+    },
+    {
+      "id": "singaporean_hip_hop",
+      "name": "Singaporean hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern singaporean hip hop, mc Rhythm, intl hip hop branch. rap. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 246
+    },
+    {
+      "id": "sinhala_rap",
+      "name": "Sinhala rap",
+      "family": "hip_hop",
+      "recipe": "classic modern sinhala rap, mc Rhythm, intl hip hop branch. rap. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 222
+    },
+    {
+      "id": "slovak_hip_hop",
+      "name": "Slovak hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern slovak hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "slovak_trap",
+      "name": "Slovak trap",
+      "family": "hip_hop",
+      "recipe": "classic modern slovak trap, mc Rhythm, intl hip hop branch. rap, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 260
+    },
+    {
+      "id": "slovenian_hip_hop",
+      "name": "Slovenian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern slovenian hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, drum kit, clean strummed single coil electric guitar, grand piano, ensemble trumpet. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 438
+    },
+    {
+      "id": "smutny_rap",
+      "name": "Smutny rap",
+      "family": "hip_hop",
+      "recipe": "classic modern smutny rap, mc Rhythm, intl hip hop branch. rap. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 221
+    },
+    {
+      "id": "south_african_hip_hop",
+      "name": "South african hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern south african hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. clean strummed single coil electric guitar, shallow cup lead trumpet trumpet, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 364
+    },
+    {
+      "id": "south_african_trap",
+      "name": "South african trap",
+      "family": "hip_hop",
+      "recipe": "classic modern south african trap, mc Rhythm, intl hip hop branch. rap, single lead single track no stacking. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 267
+    },
+    {
+      "id": "south_african_underground_rap",
+      "name": "South african underground rap",
+      "family": "hip_hop",
+      "recipe": "classic modern south african underground rap, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 278
+    },
+    {
+      "id": "south_carolina_hip_hop",
+      "name": "South carolina hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern south carolina hip hop, mc Rhythm, intl hip hop branch. sampled chopped sampler drum machine, sampled chopped turntable. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 271
+    },
+    {
+      "id": "spanish_hip_hop",
+      "name": "Spanish hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern spanish hip hop, mc Rhythm, intl hip hop branch. rap. clean strummed single coil electric guitar, thomastik infeld low tension jazz warm electric bass, 60s jazz canon vintage ambassador asymmetric drum kit, phosphor bronze continuous-airflow legato saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 410
+    },
+    {
+      "id": "spiritual_hip_hop",
+      "name": "Spiritual hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern spiritual hip hop, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampled chopped turntable, tabla, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 316
+    },
+    {
+      "id": "st_louis_drill",
+      "name": "St louis drill",
+      "family": "hip_hop",
+      "recipe": "classic modern st louis drill, mc Rhythm, intl hip hop branch. rap, solo with instrumental accompaniment. sampler drum machine, grand piano, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 295
+    },
+    {
+      "id": "st_louis_rap",
+      "name": "St louis rap",
+      "family": "hip_hop",
+      "recipe": "classic modern st louis rap, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. drum kit, electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 333
+    },
+    {
+      "id": "sudanese_hip_hop",
+      "name": "Sudanese hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern sudanese hip hop, mc Rhythm, intl hip hop branch. pitched chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 225
+    },
+    {
+      "id": "swazi_hip_hop",
+      "name": "Swazi hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern swazi hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 347
+    },
+    {
+      "id": "swedish_hip_hop",
+      "name": "Swedish hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern swedish hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. long life coated elixir nanoweb electric bass, drum kit, clean strummed single coil electric guitar, a 440 modern pitch us standard grand piano, trumpet, trombone, saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 486
+    },
+    {
+      "id": "syrian_hip_hop",
+      "name": "Syrian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic modern syrian hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. pitched chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_chars": 335
     }
   ]
 }
