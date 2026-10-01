@@ -387,18 +387,22 @@ test('a ban names the bound words and their places, and an unknown name lists th
 test('lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes', async () => {
   const { server, client } = await connect({ task: { domain: 'lyrics' } });
   const raw = (args) => client.callTool({ name: 'lyric_revise', arguments: args });
-  // 2026-10-01: under ABAB with no declared relation both pairs now PASS —
-  // a mandated pair holds if it stands in any registry schema, and under the
-  // any-reading rule (lyric-harness/CLAUDE.md, standing rule 5) a small word
-  // may be sung stressed, so L1~L3 holds as anaphora on 'I' and L2~L4 as an
-  // internal rhyme; the run finished at exit 0 with no question. Declaring
-  // perfect rhyme makes the question genuine: L3 now ends on 'bite' (an
-  // offered rhyme of 'tonight', not the banned same-spelled '-ight'), so only
-  // L4 ('us' against 'sea') violates and the interview asks that one line.
-  // superseded: L3 'I held your hand and felt the rain', first run
-  // { draft_text, scheme: 'ABAB' } with the default relation.
+  // 2026-10-01: under ABAB with no declared relation this draft now runs to
+  // exit 0 with no question. It used to suspend because L2~L4 was UNJUDGED
+  // (SCHEME_UNREADABLE: a small word could not anchor), so both members were
+  // briefed and asked one at a time, and a rejected coverage-only answer never
+  // escalated to a group question. Under the any-reading rule
+  // (lyric-harness/CLAUDE.md, standing rule 5) a small word may be sung
+  // stressed, so L1~L3 holds as anaphora on 'I' and L2~L4 as an internal
+  // rhyme. The run below declares perfect rhyme over one group instead: no two
+  // of tonight/sea/rain/us rhyme, so L2, L3 and L4 are genuinely in violation
+  // and, being in ONE group, are asked one line at a time. `backtrack: 0`
+  // keeps a rejected answer from escalating to a group question (which takes
+  // `answers`, not the one-line `answer` this test continues with).
+  // superseded: first run { draft_text, scheme: 'ABAB' } with the default
+  // relation and backtrack.
   const draft_text =
-    'I walked along the road tonight\nThe stars were cold above the sea\nI held your hand and felt the bite\nAnd nothing else was left for us';
+    'I walked along the road tonight\nThe stars were cold above the sea\nI held your hand and felt the rain\nAnd nothing else was left for us';
   try {
     // Declarations that only shape a plan used to be accepted, stored and
     // never read on a pasted song's run.
@@ -412,7 +416,12 @@ test('lyric_revise: a pasted run refuses plan declarations, a long answer, and f
     assert.match(seededGrid.content[0].text, /subdivision/);
 
     const before = RUNS.size();
-    const first = await raw({ draft_text, scheme: 'ABAB', relation: 'class:RHYME' });
+    const first = await raw({
+      draft_text,
+      scheme: 'AAAA',
+      relation: 'class:RHYME',
+      backtrack: 0,
+    });
     const v1 = verdictIn(first);
     assert.equal(v1.exit_code, 4, 'the interview suspends on its first question');
     // The note names every field a continuation needs, run_revision included.
