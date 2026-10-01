@@ -142,12 +142,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_off",
-          "vibe_mallets": "vibe_hard_mallets"
+          "vibe_mallets": "vibe_hard_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": 0.375,
           "vibe_motor": 2.6,
-          "vibe_mallets": 3.195
+          "vibe_mallets": 3.195,
+          "vibe_bar_material": 0
         }
       },
       {

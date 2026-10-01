@@ -1,0 +1,255 @@
+{
+  "id": "arab_metal",
+  "name": "Arab metal",
+  "family": "rock_punk",
+  "lineage": "Arab-world metal discovery scope represented by Myrath’s specifically Tunisian melodic/progressive branch. Primary musicians distinguish their Tunisian tunes, quarter-step vocal inflection and guitar/bass/drum/keyboard core from generic exotic-instrument accumulation.",
+  "recipe": "classic modern arab metal, distorted Rock, prog branch. neutral third half flat, many notes per syllable, solo with instrumental accompaniment, single lead single track no stacking. prog lead seven string electric, ampeg svt amp rock bass amp electric bass, double bass rapid double strokes machine hammered symmetric pattern organized rows drum kit, rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 538,
+  "score": 32.405,
+  "config": {
+    "traditions": [
+      "arab_metal"
+    ],
+    "instruments": [
+      {
+        "id": "seven_string_electric",
+        "slots": {
+          "seven_string_tuning": "seven_string_low_b",
+          "seven_string_technique": "seven_string_prog_lead"
+        },
+        "scores": {
+          "seven_string_tuning": 0.39,
+          "seven_string_technique": 1.95
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 3.575,
+          "body_wood": 0.08549999999999999,
+          "pickup_config": 0,
+          "string_type": 0.39,
+          "scale_length_b": 0.054,
+          "fretted_or_not": 0,
+          "bass_technique": 3.7390000000000003,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_double",
+          "shell_wood": "birch_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 3.855,
+          "drumhead": 0.11624999999999999,
+          "drum_kit_kick_pedal": 1.6625,
+          "shell_wood": 0.39,
+          "shell_thickness": 0,
+          "bearing_edges": 0.39,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 3.95,
+          "cymbal_lathing": 3.744,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_melismatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_aural_relative",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0.3315,
+          "voice_microtone": 5.850000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.78,
+          "voice_ensemble_config": 1.17,
+          "voice_ornament_system": 0.3315,
+          "voice_pitch_organization": 0.3315,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.78
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_band_keyboard",
+          "rompler_lineage": "rompler_korg_m1_canonical"
+        },
+        "scores": {
+          "electronic_technique": -0.09250000000000001,
+          "rompler_preset_bank": -0.035,
+          "rompler_context": 0,
+          "rompler_lineage": -1.8984999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "seven_string_electric": [
+        "seven_string_tuning",
+        "seven_string_technique"
+      ],
+      "electric_bass": [
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "distortion_high"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "legato_voice",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "maqam_inflected",
+      "voice_speech_song": "voice_melismatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_aural_relative",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "birch_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "double_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_double",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "seven_string_tuning": "seven_string_low_b",
+      "seven_string_technique": "seven_string_prog_lead",
+      "electronic_technique": "electronic_pad_drone",
+      "rompler_preset_bank": "rompler_preset_piano_orchestral",
+      "rompler_lineage": "rompler_korg_m1_canonical",
+      "rompler_context": "rompler_context_band_keyboard"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "distortion_high"
+    ],
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

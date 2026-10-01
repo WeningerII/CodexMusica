@@ -5,7 +5,7 @@
   "lineage": "A Canadian experimental-rock network represented by Godspeed You! Black Emperor, Do Make Say Think, Silver Mt. Zion and Esmerine. This default selects Godspeed’s Montreal-based instrumental guitar-and-violin branch, with arranged ensemble passages and manipulated recorded sound.",
   "recipe": "classic modern canadian post-rock, distorted Rock, experimental branch. single coil electric guitar, violin orchestral, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sound design field sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay electro-harmonix big muff pi.",
   "recipe_chars": 515,
-  "score": 43.267,
+  "score": 43.568,
   "config": {
     "traditions": [
       "canadian_post_rock"
@@ -25,21 +25,23 @@
           "bridge": "hardtail",
           "scale_length": "scale_fender",
           "finish": "poly",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.26,
+          "electric_technique": 0.239,
           "amp_make": 0,
-          "body_wood": 0.363,
+          "body_wood": 0.39,
           "neck_wood": 0.417,
           "fretboard": -0.035,
           "pickup_magnet": 0.105,
           "string_material": 0.417,
-          "string_gauge": 0.3,
-          "bridge": 0.063,
+          "string_gauge": 0.38399999999999995,
+          "bridge": 0.09899999999999999,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -78,16 +80,18 @@
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.363,
+          "body_wood": 0.39,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.183,
+          "scale_length_b": 0.21899999999999997,
           "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -107,9 +111,9 @@
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.063,
+          "drumhead": 0.09899999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.063,
+          "shell_wood": 0.09899999999999999,
           "shell_thickness": 0,
           "bearing_edges": 0.6689999999999999,
           "snare_wires": 0,
@@ -129,9 +133,9 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 0.3205,
+          "electronic_technique": 0.289,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.63,
+          "sampler_bit_depth": 0.702,
           "sampler_workflow": 7.2315000000000005,
           "sampler_classic_context": 1.2835
         }

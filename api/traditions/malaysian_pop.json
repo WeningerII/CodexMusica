@@ -3,14 +3,14 @@
   "name": "Malaysian pop (pop Melayu / muzik pop Malaysia)",
   "family": "pop",
   "lineage": "Kuala Lumpur's Malay-language pop industry grew out of 1950s-60s P. Ramlee film song and 1970s pop yeh yeh guitar bands, then codified in the 1980s-90s through EMI Malaysia, BMG and the Anugerah Juara Lagu competition — Sheila Majid's jazz-inflected balada, Search and Wings' rock kapak power ballads, and Siti Nurhaliza's irama Malaysia recordings that set florid melismatic cengkok ornament over 60-100 BPM 4/4 or 6/8 with gendang, kompang, accordion and string pads.",
-  "recipe": "classic Southeast Asian mid-1950s malaysian pop, functional Song, east Asian pop branch, pop rock functional song new wave folk rock. thick, breath veiled tone, straight onset, interlocked note trading. gendang melayu, kompang frame drum, castagnari Italian premium folk music straight accordion, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, sitka spruce hard rock maple acer saccharum modern setup longer neck violin orchestral, pre muffled edge muffled sticks backbeat drum kit, melodic suling. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 955,
-  "score": 612.138,
+  "recipe": "classic Southeast Asian mid-1950s malaysian pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. gendang melayu, kompang frame drum, weltmeister east German mid tier vintage volk accordion, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, rectified machine polished sitka spruce hard rock maple acer saccharum violin orchestral, pre muffled edge muffled sticks backbeat drum kit, suling. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 949,
+  "score": 611.305,
   "config": {
     "traditions": [
       "malaysian_pop",
       "new_wave",
-      "folk_rock"
+      "yacht_rock"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 70.65000000000002,
-          "voice_quality": 11.992499999999994,
+          "voice_register": 66.15000000000002,
+          "voice_quality": 11.862499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.759999999999999,
-          "voice_articulation": 18.65499999999999,
-          "voice_microtone": 58.650000000000006,
-          "voice_tradition": 41.455000000000005,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 6.012500000000001,
-          "voice_speech_song": 27.36499999999999,
-          "voice_ensemble_config": 19.17499999999999,
-          "voice_ornament_system": 2.585,
+          "voice_vibrato": 11.32,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 64.65,
+          "voice_tradition": 44.055,
+          "voice_mechanism_compound": 3.055,
+          "voice_estill_quality": 2.665000000000001,
+          "voice_speech_song": 25.28499999999999,
+          "voice_ensemble_config": 17.354999999999993,
+          "voice_ornament_system": 2.285,
           "voice_pitch_organization": 1.7699999999999998,
-          "voice_processing_chain": 14.265,
-          "voice_multitrack_stack": 11.180000000000001
+          "voice_processing_chain": 16.605,
+          "voice_multitrack_stack": 14.159999999999998
         }
       },
       {
@@ -85,16 +85,16 @@
           "reed_config": "lm_only",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 12.924999999999997,
-          "accordion_reed_material": 2.08,
+          "free_reed_technique": 1.5274999999999999,
+          "accordion_reed_material": 2.275,
           "musette_offset": 1,
-          "reed_config": 1.3,
+          "reed_config": 2.73,
           "bellows": 0,
-          "voicing_chamber": 0.195,
-          "accordion_maker_school": 4.549999999999998
+          "voicing_chamber": 0.585,
+          "accordion_maker_school": 4.0600000000000005
         }
       },
       {
@@ -111,21 +111,23 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 34.830000000000005,
-          "amp_make": 17.029999999999994,
-          "body_wood": 2.08,
-          "neck_wood": 2.08,
-          "fretboard": 2.015,
-          "pickup_magnet": 0.195,
-          "string_material": 0.39,
-          "string_gauge": 2.73,
+          "electric_technique": 36.455,
+          "amp_make": 17.679999999999996,
+          "body_wood": 2.275,
+          "neck_wood": 2.275,
+          "fretboard": 2.21,
+          "pickup_magnet": 0.585,
+          "string_material": 0.585,
+          "string_gauge": 2.925,
           "bridge": 0.65,
-          "scale_length": 2.08,
+          "scale_length": 2.275,
           "finish": 0.09,
-          "string_tuning": 14.299999999999997
+          "string_tuning": 15.925,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -137,16 +139,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.349999999999998,
-          "body_wood": 2.08,
+          "amp_make": 12.61,
+          "body_wood": 2.275,
           "pickup_config": 0.195,
-          "string_type": 29.79999999999999,
-          "scale_length_b": 2.08,
+          "string_type": 31.049999999999997,
+          "scale_length_b": 2.275,
           "fretted_or_not": 0.345,
-          "bass_technique": 27.36499999999999
+          "bass_technique": 28.465,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -154,38 +158,38 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 33.78500000000001,
-          "poly_archetypes": 12.024999999999999,
-          "poly_voices": 0.51,
-          "poly_maker_lineage": 3.1849999999999996
+          "electronic_technique": 36.084999999999994,
+          "poly_archetypes": 12.675,
+          "poly_voices": 0.65,
+          "poly_maker_lineage": 2.795
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_bluegrass_double_stops",
+          "bowed_technique": "bowed_chopped_old_time",
           "orch_strings": "rectified_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "french_polish_violin",
+          "orch_varnish": "modern_synthetic_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "baroque_bow",
+          "orch_bow": "modern_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.1750000000000003,
-          "orch_strings": 0.975,
+          "bowed_technique": 0.06499999999999999,
+          "orch_strings": 1.3649999999999998,
           "orch_top_wood": 1.4625,
-          "orch_back_wood": 12.707499999999998,
-          "orch_varnish": 0.8775,
-          "orch_setup_period": 1.0074999999999998,
-          "orch_bow": 0.3,
+          "orch_back_wood": 13.3575,
+          "orch_varnish": 1.0725,
+          "orch_setup_period": 0.8125,
+          "orch_bow": 0.37499999999999994,
           "orch_bow_stick": 1.3324999999999998,
           "orch_articulation": 0.585,
           "orch_rosin": 0.4875
@@ -199,8 +203,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.169999999999995,
-          "drumhead": 33.34,
+          "drum_technique": 24.42,
+          "drumhead": 35.34,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -213,10 +217,10 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 9.629999999999995,
-          "suling_use": 1.3649999999999998,
+          "wind_articulation": 1.0074999999999998,
+          "suling_use": 1.8199999999999998,
           "suling_tuning": 0.195,
-          "suling_body_material": 0.7649999999999999
+          "suling_body_material": 0.39
         }
       }
     ],

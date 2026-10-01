@@ -1,0 +1,139 @@
+{
+  "id": "italian_blues",
+  "name": "Italian blues",
+  "family": "blues_gospel",
+  "lineage": "Italian blues is the performance and local transmission of blues in Italy. Fabio Treves represents its Milan harmonica-led network, linking local bands with visiting and resident American musicians.",
+  "recipe": "classic modern italian blues, functional Song, blues electric branch. pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 413,
+  "score": 62.419,
+  "config": {
+    "traditions": [
+      "italian_blues"
+    ],
+    "instruments": [
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "tremolo_harm",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0.33599999999999997,
+          "harmonica_comb": 13.267,
+          "harmonica_reed": 13.036,
+          "harmonica_technique": 13.687,
+          "harmonica_maker_school": 13.909999999999998,
+          "harmonica_tuning": 6.629999999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "neck_wood": 0.0315,
+          "fretboard": -0.035,
+          "pickup_magnet": 0.0315,
+          "string_material": 0,
+          "string_gauge": 0.0315,
+          "bridge": 0.063,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0.063,
+          "single_coil_pickup_construction": 0
+        }
+      }
+    ],
+    "pinned": {
+      "harmonica": [
+        "harmonica_type",
+        "harmonica_comb",
+        "harmonica_reed",
+        "harmonica_technique",
+        "harmonica_maker_school",
+        "harmonica_tuning"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "harmonica_type": "tremolo_harm",
+      "harmonica_comb": "pearwood_comb",
+      "harmonica_reed": "brass_harm",
+      "harmonica_technique": "harm_blues_cross",
+      "harmonica_maker_school": "harmonica_hohner_marine_band",
+      "harmonica_tuning": "harmonica_richter_canonical",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Historical Japanese jazz recording; selected Akiyoshi 1953 quartet",
   "recipe": "classic early-1950s classic japanese jazz, improv On Frame, bop branch. a 440 modern pitch us standard grand piano, acoustic leaning carved top solid spruce Gibson canon thomastik archtop, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 416,
-  "score": 100.462,
+  "score": 100.573,
   "config": {
     "traditions": [
       "classic_japanese_jazz"
@@ -44,15 +44,17 @@
           "archtop_pickup": "archtop_floating",
           "archtop_top_wood": "archtop_carved_spruce",
           "archtop_strings": "thomastik_jazz_flat",
-          "archtop_technique": "archtop_bebop_lines"
+          "archtop_technique": "archtop_bebop_lines",
+          "archtop_string_tuning": "archtop_tuning_source_unspecified"
         },
         "scores": {
           "amp_make": 0,
-          "archtop_body": 12.102,
+          "archtop_body": 12.0945,
           "archtop_pickup": 6.629999999999999,
-          "archtop_top_wood": 12.1,
+          "archtop_top_wood": 12.063,
           "archtop_strings": 15.6,
-          "archtop_technique": 0.888
+          "archtop_technique": 0.876,
+          "archtop_string_tuning": 0
         }
       },
       {
@@ -85,11 +87,11 @@
           "drum_technique": 6.89,
           "drumhead": 0.3315,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0315,
-          "shell_thickness": 0,
+          "shell_wood": 0.063,
+          "shell_thickness": 0.0315,
           "bearing_edges": 0.168,
           "snare_wires": 0.0315,
-          "cymbal_alloy": 11.849999999999998,
+          "cymbal_alloy": 11.954999999999998,
           "cymbal_hammering": 12.918,
           "cymbal_lathing": 0.6814999999999999,
           "cymbal_finish": 0.3

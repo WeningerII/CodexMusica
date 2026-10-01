@@ -66,7 +66,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "dadgad"
+          "string_tuning": "dadgad",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 4.875,
@@ -80,7 +81,8 @@
           "bridge": 0.6900000000000001,
           "scale_length": 2.9899999999999998,
           "finish": 0.195,
-          "string_tuning": 1.04
+          "string_tuning": 1.04,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -92,7 +94,8 @@
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "thumb_muted"
+          "bass_technique": "thumb_muted",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.4900000000000007,
@@ -101,7 +104,8 @@
           "string_type": 6.43,
           "scale_length_b": 2.84,
           "fretted_or_not": 0.845,
-          "bass_technique": 8.45
+          "bass_technique": 8.45,
+          "electric_bass_string_configuration": 0
         }
       },
       {

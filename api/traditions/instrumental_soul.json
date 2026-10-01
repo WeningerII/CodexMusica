@@ -1,0 +1,270 @@
+{
+  "id": "instrumental_soul",
+  "name": "Instrumental soul",
+  "family": "blues_gospel",
+  "lineage": "Soul arranged without a lead singer, allowing horn melody and rhythm-section phrasing to carry the song. The selected Brooklyn Menahan Street Band practice also feeds hip-hop sampling.",
+  "recipe": "classic modern instrumental soul, functional Song, soul R&B branch. clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, sticks pocket drum kit, bach stradivarius 180 canonical American orchestral trumpet, saxophone, tonewheel organ. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 469,
+  "score": 23.231,
+  "config": {
+    "traditions": [
+      "instrumental_soul"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 3.2,
+          "amp_make": 0,
+          "body_wood": 0.33599999999999997,
+          "neck_wood": 0.378,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "string_material": 0,
+          "string_gauge": 0.0735,
+          "bridge": 0.315,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.33599999999999997,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0.0735,
+          "bass_technique": 9.399999999999999,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_motown",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 9.45,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "cornet",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "brass_size": 0,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0,
+          "trumpet_technique": -0.035,
+          "trumpet_bell_metal": 0.6405000000000001,
+          "trumpet_maker_school": 1.302
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "sax_size": -0.035,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0.0315,
+          "sax_technique": -0.035,
+          "sax_maker_school": -1.4699999999999998
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "fast_tremolo",
+          "percussion_setting": "percussion_off",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "drawbar_setting": -0.05,
+          "rotary_speed": -0.1,
+          "percussion_setting": 0,
+          "tonewheel_model": -1.5049999999999997,
+          "leslie_cabinet_model": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead",
+        "drum_kit_kick_pedal"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "tonewheel_organ": [
+        "keyboard_technique",
+        "drawbar_setting",
+        "rotary_speed",
+        "percussion_setting",
+        "tonewheel_model",
+        "leslie_cabinet_model"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_motown",
+      "drumhead": "single_coated",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "wind_articulation": "wind_continuous_legato",
+      "brass_size": "cornet",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "cup_mute",
+      "trumpet_technique": "trumpet_classical_legato",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "drawbar_setting": "gospel_drawbars",
+      "rotary_speed": "fast_tremolo",
+      "percussion_setting": "percussion_off",
+      "tonewheel_model": "tonewheel_hammond_b3",
+      "leslie_cabinet_model": "leslie_122_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}

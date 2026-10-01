@@ -119,7 +119,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "c_standard"
+          "string_tuning": "c_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 19,
@@ -133,7 +134,8 @@
           "bridge": 0.345,
           "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 1.365
+          "string_tuning": 1.365,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -145,7 +147,8 @@
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 1.995,
@@ -154,7 +157,8 @@
           "string_type": 2.0149999999999997,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.78,
-          "bass_technique": 1.325
+          "bass_technique": 1.325,
+          "electric_bass_string_configuration": 0
         }
       },
       {

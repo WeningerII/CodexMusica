@@ -93,6 +93,20 @@
             "post-punk",
             "indie"
           ]
+        },
+        {
+          "id": "semi_overdriven_strum",
+          "name": "Driving overdriven strumming",
+          "descriptors": [
+            "overdriven-strum",
+            "driving",
+            "rhythmic"
+          ],
+          "auto": false,
+          "default": false,
+          "applies_to": [
+            "semi_hollow"
+          ]
         }
       ],
       "_fromFamily": true
@@ -547,6 +561,17 @@
           "canonical_tags": [
             "british-invasion"
           ]
+        },
+        {
+          "id": "semi_hofner_verythin_ct",
+          "name": "Höfner Verythin CT shallow semi-hollow",
+          "descriptors": [
+            "shallow-semi-hollow",
+            "spruce-center-block",
+            "628-mm-scale"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -820,6 +845,17 @@
           "canonical_tags": [
             "british-invasion"
           ]
+        },
+        {
+          "id": "semi_hofner_verythin_ct",
+          "name": "Höfner Verythin CT shallow semi-hollow",
+          "descriptors": [
+            "shallow-semi-hollow",
+            "spruce-center-block",
+            "628-mm-scale"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

@@ -3,14 +3,14 @@
   "name": "World worship (global contemporary worship)",
   "family": "blues_gospel",
   "lineage": "Global contemporary worship spread from Sydney and Brisbane megachurches (Hillsong, Planetshakers) and Charlotte's Elevation from the mid-1990s onward, translated into Portuguese, Spanish, Korean, Mandarin and dozens of African languages — 68-78 BPM anthemic 4/4 builds, pad-and-delay guitar swells, four-chord diatonic loops, congregational unison melody in a narrow octave range and long repeated tag sections captured live before a crowd.",
-  "recipe": "classic 1994-1996 world worship, ritual Devotional, christian gospel branch, christian gospel pentecostal, christian gospel black gospel, pop rock functional song yacht rock folk rock. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, marshall plexi amp British rock amp mahogany rosewood alnico single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs fast tremolo tonewheel organ. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 990,
-  "score": 577.752,
+  "recipe": "classic 1994-1996 world worship, ritual Devotional, christian gospel branch, christian gospel pentecostal, christian gospel black gospel, pop rock functional song yacht rock skiffle. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, marshall plexi amp British rock amp mahogany rosewood alnico single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs fast tremolo tonewheel organ. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 999,
+  "score": 573.093,
   "config": {
     "traditions": [
       "world_worship",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 55.38000000000001,
-          "voice_quality": 18.374999999999996,
+          "voice_register": 55.50500000000001,
+          "voice_quality": 18.224999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.223749999999999,
-          "voice_articulation": 18.52499999999999,
-          "voice_microtone": 32.85000000000001,
-          "voice_tradition": 18.586249999999996,
-          "voice_mechanism_compound": 1.755,
-          "voice_estill_quality": 10.45,
-          "voice_speech_song": 22.034999999999993,
-          "voice_ensemble_config": 18.849999999999994,
+          "voice_vibrato": 14.473749999999997,
+          "voice_articulation": 19.564999999999998,
+          "voice_microtone": 35.725,
+          "voice_tradition": 15.892499999999997,
+          "voice_mechanism_compound": 2.21,
+          "voice_estill_quality": 10.299999999999999,
+          "voice_speech_song": 23.074999999999996,
+          "voice_ensemble_config": 19.889999999999997,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 3.770625000000001,
-          "voice_processing_chain": 8.605,
-          "voice_multitrack_stack": 5.720000000000001
+          "voice_processing_chain": 6.729375,
+          "voice_multitrack_stack": 5.265000000000001
         }
       },
       {
@@ -61,9 +61,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 4.939999999999999,
+          "choir_size": 5.525,
           "choir_polyphonic_configuration": 2.130625,
-          "choir_regional_canonical_configuration": 4.484999999999999,
+          "choir_regional_canonical_configuration": 5.069999999999999,
           "choir_ensemble_repertoire": 2.6
         }
       },
@@ -81,54 +81,58 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 8.714999999999998,
-          "amp_make": 10.597499999999997,
-          "body_wood": 3.14,
-          "neck_wood": 3.14,
-          "fretboard": 3.0900000000000003,
+          "electric_technique": 9.214999999999998,
+          "amp_make": 11.422499999999998,
+          "body_wood": 2.64,
+          "neck_wood": 2.64,
+          "fretboard": 2.29,
           "pickup_magnet": 1.46875,
-          "string_material": 0.585,
-          "string_gauge": 3.640625,
+          "string_material": 0.39,
+          "string_gauge": 2.840625,
           "bridge": 0.525,
-          "scale_length": 3.5300000000000002,
-          "finish": 0,
-          "string_tuning": 13.158124999999998
+          "scale_length": 2.535,
+          "finish": 0.3,
+          "string_tuning": 12.208124999999999,
+          "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.517499999999998,
-          "body_wood": 3.5300000000000002,
-          "pickup_config": 1.46875,
-          "string_type": 23.7475,
-          "scale_length_b": 3.14,
+          "amp_make": 11.422499999999998,
+          "body_wood": 2.535,
+          "pickup_config": 1.61875,
+          "string_type": 21.3725,
+          "scale_length_b": 2.3400000000000003,
           "fretted_or_not": 0.24562499999999998,
-          "bass_technique": 22.099999999999998
+          "bass_technique": 19.575,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_rock",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22,
-          "drumhead": 8.35,
+          "drum_technique": 21.839999999999996,
+          "drumhead": 8.999999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -138,13 +142,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_yamaha_cs"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 9.720624999999997,
-          "poly_archetypes": 10.6825,
+          "electronic_technique": 10.520624999999997,
+          "poly_archetypes": 9.7325,
           "poly_voices": 3.1306249999999998,
-          "poly_maker_lineage": -0.5950000000000001
+          "poly_maker_lineage": -0.8050000000000002
         }
       },
       {
@@ -152,7 +156,7 @@
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -162,14 +166,14 @@
         },
         "scores": {
           "keyboard_technique": 13.584999999999999,
-          "grand_piano_size": 3.14,
-          "grand_piano_brand": 3.59,
-          "piano_hammer": 10.882499999999997,
-          "piano_rim": 11.182499999999997,
-          "piano_soundboard": 8.2,
+          "grand_piano_size": 2.64,
+          "grand_piano_brand": 3.1306249999999998,
+          "piano_hammer": 9.932500000000001,
+          "piano_rim": 10.232499999999998,
+          "piano_soundboard": 8.849999999999998,
           "piano_pinblock": 1,
           "piano_plate": 0.45499999999999996,
-          "piano_pitch_standard": 4.679999999999999
+          "piano_pitch_standard": 5.719999999999999
         }
       },
       {
@@ -184,10 +188,10 @@
         },
         "scores": {
           "keyboard_technique": 13.584999999999999,
-          "drawbar_setting": 22.15,
-          "rotary_speed": 32.5,
-          "percussion_setting": 10.6825,
-          "tonewheel_model": 26.194999999999997,
+          "drawbar_setting": 19.625,
+          "rotary_speed": 30.275,
+          "percussion_setting": 9.7325,
+          "tonewheel_model": 31.134999999999998,
           "leslie_cabinet_model": -0.035
         }
       }

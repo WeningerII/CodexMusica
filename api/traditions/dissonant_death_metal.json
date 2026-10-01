@@ -3,14 +3,14 @@
   "name": "Dissonant death metal",
   "family": "rock_punk",
   "lineage": "Death-metal strand prioritizing abrasive harmonic friction and fractured rhythmic composition, represented by Gorguts’ Obscura (1998) and Colored Sands (2013). Season of Mist’s release accounts document dissonant guitar writing and unconventional rhythm/harmony, plus the guitar-vocal, second-guitar, bass and drum roster. The available palm-muted technique pin is an authored riff-attack reduction, not a transcription of the extended guitar vocabulary.",
-  "recipe": "classic late-1990s dissonant death metal, distorted Rock, death branch, avant metal, prog metal math metal progressive metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
-  "recipe_chars": 622,
-  "score": 109.602,
+  "recipe": "classic late-1990s dissonant death metal, distorted Rock, death branch, avant metal, prog metal cybergrind mathcore. interlocked note trading, equal tempered, solo with instrumental accompaniment, no specific ornament system. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
+  "recipe_chars": 611,
+  "score": 99.887,
   "config": {
     "traditions": [
       "dissonant_death_metal",
-      "math_metal",
-      "progressive_metal_classic"
+      "cybergrind",
+      "mathcore"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "mahogany_h",
           "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "maple_fb_h",
           "pickup_magnet": "ceramic_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
@@ -31,19 +31,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 28.72,
-          "amp_make": 15.665,
-          "body_wood": 0.195,
-          "neck_wood": 2.28,
-          "fretboard": 2.28,
+          "electric_technique": 24.07,
+          "amp_make": 12.869999999999997,
+          "body_wood": 0.09,
+          "neck_wood": 1.3,
+          "fretboard": 1.3,
           "pickup_magnet": 0,
-          "pickup_winding": 0.39,
-          "string_material": 2.28,
-          "bridge": 0.195,
-          "scale_length": 0.195,
-          "string_gauge": 1.84,
+          "pickup_winding": 0.9575,
+          "string_material": 1.3,
+          "bridge": 0.09,
+          "scale_length": 0.18,
+          "string_gauge": 1.6900000000000002,
           "finish": 0.195,
-          "string_tuning": 0.39
+          "string_tuning": 1.19
         }
       },
       {
@@ -55,16 +55,18 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.675,
-          "body_wood": 0.195,
+          "amp_make": 10.79,
+          "body_wood": 0.09,
           "pickup_config": 0,
-          "string_type": 2.7299999999999995,
+          "string_type": 2.34,
           "scale_length_b": 0.585,
-          "fretted_or_not": 0.09225,
-          "bass_technique": -0.15000000000000002
+          "fretted_or_not": 0.195,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -75,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.375,
-          "drumhead": 0.195,
+          "drum_technique": 1.125,
+          "drumhead": 0.09,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -106,17 +108,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 17.809999999999995,
-          "voice_microtone": 21.474999999999998,
+          "voice_articulation": 14.949999999999996,
+          "voice_microtone": 18,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.145,
-          "voice_ornament_system": 0.1575,
-          "voice_pitch_organization": 0.1575,
+          "voice_ensemble_config": 2.21,
+          "voice_ornament_system": 0.65,
+          "voice_pitch_organization": 0.65,
           "voice_processing_chain": 0.045,
-          "voice_multitrack_stack": 1.04
+          "voice_multitrack_stack": 1.2349999999999999
         }
       }
     ],

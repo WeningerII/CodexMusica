@@ -1,0 +1,103 @@
+{
+  "id": "finnish_folk",
+  "name": "Finnish folk",
+  "family": "vernacular",
+  "lineage": "Finnish folk encompasses multiple vocal and instrumental practices. This default selects Kaustinen fiddle playing, an orally learned dance-music practice documented by UNESCO and its community, rather than substituting a generic guitar-songwriter setting.",
+  "recipe": "classic modern finnish folk, functional Song. fiddle, pump organ harmonium, upright bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 234,
+  "score": 7.481,
+  "config": {
+    "traditions": [
+      "finnish_folk"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 1.95,
+          "fiddle_strings": 0,
+          "fiddle_bow": 0,
+          "fiddle_mute": 0.7,
+          "fiddle_articulation": 0,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "pump_organ_harmonium",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pump_organ_construction": "pump_organ_late_19th_revival",
+          "pump_organ_stops": "pump_organ_diapason_stop"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "pump_organ_construction": 4.159999999999999,
+          "pump_organ_stops": 0.546
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_mute",
+        "fiddle_articulation"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_articulation": "arco",
+      "fiddle_mute": "no_mute",
+      "fiddle_strings": "steel_core",
+      "upright_play": "pizz_upright"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

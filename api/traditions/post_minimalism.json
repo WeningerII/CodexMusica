@@ -56,12 +56,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_off",
-          "vibe_mallets": "vibe_hard_mallets"
+          "vibe_mallets": "vibe_hard_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": 1.75,
           "vibe_motor": 1.1949999999999998,
-          "vibe_mallets": 2.04
+          "vibe_mallets": 2.04,
+          "vibe_bar_material": 0
         }
       },
       {
@@ -78,7 +80,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_short",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 7.875,
@@ -92,7 +95,8 @@
           "bridge": 0.3,
           "scale_length": 1.345,
           "finish": 0,
-          "string_tuning": 10.805
+          "string_tuning": 10.805,
+          "single_coil_pickup_construction": 0
         }
       },
       {

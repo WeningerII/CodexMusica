@@ -1,0 +1,216 @@
+{
+  "id": "brazilian_post_rock",
+  "name": "Brazilian post-rock",
+  "family": "rock_punk",
+  "lineage": "A Brazilian post-rock network including Hurtmold, ruído/mm, Labirinto and E A Terra Nunca Me Pareceu Tão Distante. This default selects Hurtmold’s rhythm-centered instrumental branch, with vibraphone and bass clarinet placed beside guitar, bass, drums and trumpet.",
+  "recipe": "classic brazilian post-rock, distorted Rock, experimental branch. vibraphone, expressive clarinet jazz bass clarinet, marshall plexi amp British rock amp single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, shallow cup lead trumpet trumpet. live tracking. large-diaphragm condenser, console-strip pre, American blackface tube, parametric EQ. 24-bit digital plate reverb.",
+  "recipe_chars": 433,
+  "score": 47.866,
+  "config": {
+    "traditions": [
+      "brazilian_post_rock"
+    ],
+    "instruments": [
+      {
+        "id": "vibraphone",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "vibe_motor": "vibe_slow",
+          "vibe_mallets": "vibe_medium_mallets",
+          "vibe_bar_material": "vibe_aluminum_alloy_bars"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "vibe_motor": -0.05,
+          "vibe_mallets": 0.363,
+          "vibe_bar_material": 0.78
+        }
+      },
+      {
+        "id": "bass_clarinet",
+        "slots": {
+          "bass_clarinet_range": "bass_clarinet_to_low_eb",
+          "bass_clarinet_style": "bass_clarinet_jazz"
+        },
+        "scores": {
+          "bass_clarinet_range": 0.363,
+          "bass_clarinet_style": 1.0315
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
+          "finish": "oil_satin",
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": -0.11850000000000002,
+          "amp_make": 4.42,
+          "body_wood": 0.39,
+          "neck_wood": 0.414,
+          "fretboard": 0.414,
+          "pickup_magnet": 0.414,
+          "string_material": 0.414,
+          "string_gauge": 0.736,
+          "bridge": 0.39,
+          "scale_length": 0.7304999999999999,
+          "finish": 0.1365,
+          "string_tuning": 4.9399999999999995,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 7.085,
+          "body_wood": 0.39,
+          "pickup_config": 0.31949999999999995,
+          "string_type": 11.375,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_clear",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "cymbal_alloy": "b20"
+        },
+        "scores": {
+          "drum_technique": 8.75,
+          "drumhead": 0.414,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.363,
+          "cymbal_alloy": -0.2
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.6499999999999999,
+          "brass_size": 0.414,
+          "trumpet_mouthpiece": 1.2229999999999999,
+          "brass_mute": 0.03599999999999999,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.504
+        }
+      }
+    ],
+    "pinned": {
+      "vibraphone": [
+        "vibe_motor",
+        "vibe_mallets",
+        "vibe_bar_material"
+      ],
+      "bass_clarinet": [
+        "bass_clarinet_range",
+        "bass_clarinet_style"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "body_wood",
+        "string_material"
+      ],
+      "electric_bass": [
+        "body_wood",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "drumhead",
+        "cymbal_alloy"
+      ],
+      "trumpet": [
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": "amp_american_blackface",
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "vibe_motor": "vibe_slow",
+      "vibe_mallets": "vibe_medium_mallets",
+      "vibe_bar_material": "vibe_aluminum_alloy_bars",
+      "bass_clarinet_range": "bass_clarinet_to_low_eb",
+      "bass_clarinet_style": "bass_clarinet_jazz",
+      "electric_technique": "electric_arpeggiated_clean",
+      "body_wood": "alder",
+      "string_material": "nickel_plated",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "drumhead": "single_clear",
+      "cymbal_alloy": "b20",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "brass_mute": "no_mute_brass",
+      "trumpet_bell_metal": "trumpet_yellow_brass"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "plate_reverb"
+    ],
+    "chain_amp": "amp_american_blackface"
+  }
+}

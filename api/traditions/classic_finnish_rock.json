@@ -25,7 +25,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "eb_standard"
+          "string_tuning": "eb_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 0.49999999999999994,
@@ -39,7 +40,8 @@
           "bridge": 0,
           "scale_length": 1.2390000000000003,
           "finish": 0.3045,
-          "string_tuning": 9.1
+          "string_tuning": 9.1,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -51,7 +53,8 @@
           "string_type": "flatwound",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 7.085,
@@ -60,7 +63,8 @@
           "string_type": -0.1,
           "scale_length_b": 0.6194999999999999,
           "fretted_or_not": 0.6,
-          "bass_technique": 11.2945
+          "bass_technique": 11.2945,
+          "electric_bass_string_configuration": 0
         }
       },
       {

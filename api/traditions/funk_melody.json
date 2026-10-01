@@ -5,7 +5,7 @@
   "lineage": "Rio de Janeiro melodic funk of the early-to-mid 1990s, codified by Latino, Copacabana Beat, Claudinho e Buchecha and the Furacão 2000 sound system — 100-115 BPM Miami-bass-derived programmed beats with long 808 sub decay, sweet major-key synth pads and bell leads, and sung romantic Portuguese hooks in duet or falsetto rather than shouted chants, arranged in verse-chorus pop form for radio.",
   "recipe": "classic Southern American 1994-1996 funk melody, functional Song, Brazilian song branch, Latin electric electronic dance, soul R&B functional song doo-wop souldies. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, melodic orchestral imitation pitched sampler, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. rio favela home baile funk. large-diaphragm condenser, console-strip pre, MCI JH-636 US 70s indie/jazz, 1176 FET, API proportional-Q EQ. vinyl master cut tape echo plate reverb.",
   "recipe_chars": 733,
-  "score": 289.278,
+  "score": 288.302,
   "config": {
     "traditions": [
       "funk_melody",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 19.904999999999994,
-          "voice_quality": 17.709000000000003,
+          "voice_quality": 17.850000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.234,
+          "voice_vibrato": 3.27,
           "voice_articulation": 19.889999999999993,
           "voice_microtone": 19.49999999999999,
-          "voice_tradition": 11.814999999999998,
+          "voice_tradition": 11.649999999999999,
           "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 12.329999999999997,
+          "voice_estill_quality": 11.999999999999996,
           "voice_speech_song": 27.819999999999993,
           "voice_ensemble_config": 18.13499999999999,
           "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 4.760000000000001,
+          "voice_pitch_organization": 4.895000000000001,
           "voice_processing_chain": 11.419999999999996,
           "voice_multitrack_stack": 4.939999999999999
         }
@@ -69,15 +69,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "juno_60",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 7.164499999999999,
-          "poly_archetypes": 0.6154999999999999,
+          "electronic_technique": 7.1,
+          "poly_archetypes": 0.585,
           "poly_voices": 0.44999999999999996,
-          "poly_maker_lineage": 2.3899999999999997
+          "poly_maker_lineage": 2.5399999999999996
         }
       },
       {
@@ -92,7 +92,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sampler_archetypes": 1.145,
-          "sampler_bit_depth": 1.2944999999999998,
+          "sampler_bit_depth": 1.2899999999999998,
           "sampler_workflow": 1.8199999999999998,
           "sampler_classic_context": 22.944999999999993
         }
@@ -106,16 +106,18 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.339499999999997,
+          "amp_make": 17.169999999999998,
           "body_wood": 1.4949999999999999,
           "pickup_config": 0.045,
-          "string_type": 15.38,
-          "scale_length_b": 1.3944999999999999,
+          "string_type": 15.260000000000002,
+          "scale_length_b": 1.39,
           "fretted_or_not": 0,
-          "bass_technique": 19.744999999999997
+          "bass_technique": 19.744999999999997,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -128,11 +130,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 7.164499999999999,
-          "fm_algorithm": 1.2894999999999999,
+          "electronic_technique": 7.1,
+          "fm_algorithm": 1.24,
           "fm_modulator_ratio": 0.39,
           "fm_polyphony": 1.4299999999999997,
-          "fm_model_lineage": 5.07
+          "fm_model_lineage": 4.635
         }
       }
     ],

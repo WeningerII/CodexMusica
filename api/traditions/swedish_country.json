@@ -1,0 +1,187 @@
+{
+  "id": "swedish_country",
+  "name": "Swedish country",
+  "family": "vernacular",
+  "lineage": "Swedish country includes local country-song performers and crossover ensembles. First Aid Kit’s country-oriented harmony singing and band records supply one contemporary branch.",
+  "recipe": "classic modern swedish country, functional Song, country branch. thick, wide pitch sway, neutral third half flat, nasal twang velar port open. singing indian rosewood rosewood acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 497,
+  "score": 159.173,
+  "config": {
+    "traditions": [
+      "swedish_country"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "speech_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 13.312999999999995,
+          "voice_quality": 0.22049999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 13.7,
+          "voice_articulation": -0.14,
+          "voice_microtone": 3.380000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.44099999999999995,
+          "voice_estill_quality": 14.017499999999998,
+          "voice_speech_song": 6.825,
+          "voice_ensemble_config": 0.063,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.19500000000000003,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 1.6465
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "open_d",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_strummed_open"
+        },
+        "scores": {
+          "string_tuning": 0.26,
+          "top_wood": 0,
+          "back_sides": 1.586,
+          "string_acoustic": 0.7575,
+          "acoustic_om_technique": -0.035
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "brass_bar",
+          "pedal_steel_brand": "mullen_d10",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 14.9575,
+          "amp_make": 13.686499999999997,
+          "pickup_steel": 0.0315,
+          "string_setup": 7.15,
+          "bar_material": 1.6360000000000001,
+          "pedal_steel_brand": 14.128,
+          "pedal_steel_neck_config": 18.029500000000002,
+          "pedal_steel_strings": 14.365
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 13.705,
+          "body_wood": 0.0315,
+          "pickup_config": 0.1995,
+          "string_type": 0.78,
+          "scale_length_b": 0.126,
+          "fretted_or_not": 1.6675,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 0.25,
+          "drumhead": 0.39,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ],
+      "pedal_steel": [
+        "electric_technique",
+        "string_setup"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "acoustic_om_technique": "om_strummed_open",
+      "electric_technique": "electric_steel_pedal_swells",
+      "string_setup": "standard_e9",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

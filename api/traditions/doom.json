@@ -5,7 +5,7 @@
   "lineage": "Doom metal as broad genre family descended from the Black Sabbath template — covering traditional doom (Pentagram, Saint Vitus, Candlemass), funeral doom (the slowest variant, 30-40 BPM, Mournful Congregation, Esoteric, Skepticism), the Electric Wizard / Cathedral UK occult-doom canon, and stoner-doom (psychedelic-sub-elements through Sleep, Electric Wizard, Bongripper) — distinct from the New Orleans sludge-and-hardcore axis covered by sludge metal and distinct from the sustained-tone minimalism covered by drone metal",
   "recipe": "classic Midwestern American mid-1970s doom metal, distorted Rock, doom branch, sludge metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
   "recipe_chars": 648,
-  "score": 670.956,
+  "score": 672.453,
   "config": {
     "traditions": [
       "doom",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 26.180499999999995,
+          "voice_register": 26.160999999999998,
           "voice_quality": 41.25450000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.1380000000000003,
           "voice_articulation": 17.094999999999995,
-          "voice_microtone": 21.924999999999997,
+          "voice_microtone": 21.9565,
           "voice_tradition": 4.16,
-          "voice_mechanism_compound": 47.202999999999996,
+          "voice_mechanism_compound": 47.32299999999999,
           "voice_estill_quality": 3.5100000000000002,
           "voice_speech_song": 17.484999999999992,
-          "voice_ensemble_config": 17.5935,
+          "voice_ensemble_config": 17.589,
           "voice_ornament_system": 1.4545,
-          "voice_pitch_organization": 3.4505,
-          "voice_processing_chain": 5.715999999999998,
+          "voice_pitch_organization": 3.4775,
+          "voice_processing_chain": 5.802999999999999,
           "voice_multitrack_stack": 4.355
         }
       },
@@ -60,7 +60,7 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -70,12 +70,12 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 36.8195,
-          "amp_make": 48.65549999999999,
+          "electric_technique": 36.989,
+          "amp_make": 48.767999999999994,
           "body_wood": 13.324999999999998,
           "neck_wood": 0.78,
-          "fretboard": 0.9165,
-          "pickup_magnet": 0.15000000000000002,
+          "fretboard": 0.975,
+          "pickup_magnet": 0.1365,
           "pickup_winding": 0.975,
           "string_material": 0.585,
           "bridge": 0.975,
@@ -94,16 +94,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 48.65549999999999,
+          "amp_make": 48.767999999999994,
           "body_wood": 0.975,
           "pickup_config": 0,
-          "string_type": 26.992,
-          "scale_length_b": 1.938,
+          "string_type": 27.110500000000002,
+          "scale_length_b": 2.0745,
           "fretted_or_not": 0.3,
-          "bass_technique": 25.65
+          "bass_technique": 25.6365,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -114,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.3795,
+          "drum_technique": 21.375,
           "drumhead": 1.17,
           "drum_kit_kick_pedal": 0
         }
@@ -132,12 +134,12 @@
         },
         "scores": {
           "electric_technique": 32.75599999999999,
-          "amp_make": 48.65549999999999,
-          "baritone_use": 0.7215,
-          "baritone_electric_tuning": 14.5925,
-          "baritone_electric_scale": 16.211999999999996,
-          "baritone_electric_strings": 32.897999999999996,
-          "baritone_electric_pickup": 28.120999999999995
+          "amp_make": 48.767999999999994,
+          "baritone_use": 0.78,
+          "baritone_electric_tuning": 14.856499999999999,
+          "baritone_electric_scale": 16.379999999999995,
+          "baritone_electric_strings": 32.878499999999995,
+          "baritone_electric_pickup": 28.116499999999995
         }
       }
     ],

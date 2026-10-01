@@ -61,7 +61,8 @@
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "slap_pop"
+          "bass_technique": "slap_pop",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 1.755,
@@ -70,7 +71,8 @@
           "string_type": 3.0999999999999996,
           "scale_length_b": 0.975,
           "fretted_or_not": 0.39,
-          "bass_technique": 2.54
+          "bass_technique": 2.54,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -135,7 +137,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "c_standard"
+          "string_tuning": "c_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 7.425000000000001,
@@ -149,7 +152,8 @@
           "bridge": 0.49499999999999994,
           "scale_length": 0.975,
           "finish": 0.045,
-          "string_tuning": 2.245
+          "string_tuning": 2.245,
+          "single_coil_pickup_construction": 0
         }
       },
       {

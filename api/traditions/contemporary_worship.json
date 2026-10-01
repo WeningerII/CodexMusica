@@ -3,14 +3,14 @@
   "name": "Contemporary Worship",
   "family": "blues_gospel",
   "lineage": "Congregational rock-band worship codified in Southern California through Calvary Chapel's Maranatha! Music in the 1970s, then internationally by Hillsong Sydney and Passion/Bethel from the 1990s — 68-80 BPM anthemic 4/4 with delay-drenched arpeggiated guitars, pad-and-piano beds, verse-chorus-bridge forms built for congregational singability in a narrow tenor range, and long unmetered spontaneous-worship sections recorded live in the auditorium",
-  "recipe": "classic mid-1970s contemporary worship, ritual Devotional, pentecostal branch, christian gospel black gospel, pop rock functional song yacht rock folk rock. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, marshall plexi amp British rock amp mahogany rosewood alnico single coil electric cedar phosphor bronze modern martin travis picked dreadnought acoustic guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth. gymnasium. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
-  "recipe_chars": 932,
-  "score": 496.807,
+  "recipe": "classic mid-1970s contemporary worship, ritual Devotional, pentecostal branch, christian gospel black gospel, pop rock functional song yacht rock skiffle. thick, declaimed, straight onset, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, marshall plexi amp British rock amp mahogany rosewood alnico single coil electric cedar flatwound thomastik strummed open chord ringing overtones dreadnought acoustic guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth. gymnasium. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 949,
+  "score": 490.35,
   "config": {
     "traditions": [
       "contemporary_worship",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 56.17500000000001,
-          "voice_quality": 13.434999999999999,
+          "voice_register": 56.30000000000001,
+          "voice_quality": 13.285,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.290000000000001,
-          "voice_articulation": 15.404999999999992,
-          "voice_microtone": 36.10000000000001,
-          "voice_tradition": 17.582499999999996,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 8.13,
-          "voice_speech_song": 18.914999999999992,
-          "voice_ensemble_config": 15.72999999999999,
+          "voice_vibrato": 14.539999999999997,
+          "voice_articulation": 16.444999999999997,
+          "voice_microtone": 38.97500000000001,
+          "voice_tradition": 14.754999999999997,
+          "voice_mechanism_compound": 3.8999999999999995,
+          "voice_estill_quality": 7.980000000000001,
+          "voice_speech_song": 19.95499999999999,
+          "voice_ensemble_config": 16.769999999999992,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 1.0349999999999997,
-          "voice_processing_chain": 11.790000000000001,
-          "voice_multitrack_stack": 12.934999999999997
+          "voice_pitch_organization": 0.9349999999999998,
+          "voice_processing_chain": 10.94,
+          "voice_multitrack_stack": 9.49
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 4.42,
+          "choir_size": 5.005,
           "choir_polyphonic_configuration": 1.4299999999999997,
-          "choir_regional_canonical_configuration": 3.185,
-          "choir_ensemble_repertoire": 1.8199999999999998
+          "choir_regional_canonical_configuration": 3.7700000000000005,
+          "choir_ensemble_repertoire": 2.275
         }
       },
       {
@@ -81,38 +81,40 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 9.42,
-          "amp_make": 12.609999999999996,
-          "body_wood": 2.275,
-          "neck_wood": 2.275,
-          "fretboard": 2.21,
+          "electric_technique": 9.92,
+          "amp_make": 13.682499999999997,
+          "body_wood": 1.625,
+          "neck_wood": 1.625,
+          "fretboard": 1.17,
           "pickup_magnet": 1,
-          "string_material": 0.585,
-          "string_gauge": 2.6649999999999996,
+          "string_material": 0.39,
+          "string_gauge": 1.625,
           "bridge": 0.585,
-          "scale_length": 2.275,
-          "finish": 0.09,
-          "string_tuning": 14.105
+          "scale_length": 1.235,
+          "finish": 0.39,
+          "string_tuning": 12.870000000000001,
+          "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
-          "string_tuning": "open_d",
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "eb_standard",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
-          "string_acoustic": "phosphor_bronze"
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 11.544999999999996,
-          "string_tuning": 0.06499999999999999,
-          "top_wood": 2.4699999999999998,
+          "acoustic_technique": 11.329999999999998,
+          "string_tuning": 0.925,
+          "top_wood": 1.4300000000000002,
           "back_sides": 0.39,
-          "string_acoustic": 2.275
+          "string_acoustic": 3.8999999999999995
         }
       },
       {
@@ -120,7 +122,7 @@
         "slots": {
           "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -129,36 +131,38 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 10.444999999999999,
-          "grand_piano_size": 2.275,
-          "grand_piano_brand": 2.4699999999999998,
-          "piano_hammer": 12.804999999999996,
-          "piano_rim": 13.194999999999997,
-          "piano_soundboard": 8.995,
+          "keyboard_technique": 10.794999999999998,
+          "grand_piano_size": 1.625,
+          "grand_piano_brand": 2.08,
+          "piano_hammer": 11.569999999999999,
+          "piano_rim": 11.959999999999997,
+          "piano_soundboard": 9.645,
           "piano_pinblock": 1.3,
           "piano_plate": 0.45499999999999996,
-          "piano_pitch_standard": 3.38
+          "piano_pitch_standard": 4.42
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 13.064999999999998,
-          "body_wood": 2.275,
-          "pickup_config": 1.045,
-          "string_type": 29.915,
-          "scale_length_b": 2.275,
+          "amp_make": 13.682499999999997,
+          "body_wood": 1.4300000000000002,
+          "pickup_config": 1.1949999999999998,
+          "string_type": 27.54,
+          "scale_length_b": 1.235,
           "fretted_or_not": 0.345,
-          "bass_technique": 24.689999999999998
+          "bass_technique": 22.165,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -169,8 +173,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.5,
-          "drumhead": 9.145,
+          "drum_technique": 22.125,
+          "drumhead": 9.795,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -183,10 +187,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 10.254999999999997,
-          "poly_archetypes": 12.739999999999998,
+          "electronic_technique": 11.054999999999998,
+          "poly_archetypes": 11.504999999999999,
           "poly_voices": 2.08,
-          "poly_maker_lineage": 2.795
+          "poly_maker_lineage": 2.4050000000000002
         }
       }
     ],

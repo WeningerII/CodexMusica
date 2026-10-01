@@ -153,6 +153,17 @@
             "china",
             "solo"
           ]
+        },
+        {
+          "id": "suona_rock_ensemble",
+          "name": "Melodic lead in amplified rock ensemble",
+          "descriptors": [
+            "rock-context",
+            "melodic",
+            "projecting"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },
@@ -353,6 +364,17 @@
             "china",
             "solo"
           ]
+        },
+        {
+          "id": "suona_rock_ensemble",
+          "name": "Melodic lead in amplified rock ensemble",
+          "descriptors": [
+            "rock-context",
+            "melodic",
+            "projecting"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     },

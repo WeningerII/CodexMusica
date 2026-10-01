@@ -3,14 +3,14 @@
   "name": "British Folk Revival",
   "family": "vernacular",
   "lineage": "The second British folk revival, formed in London and the industrial north from 1951 onward around Ewan MacColl, A.L. Lloyd and the Topic Records catalogue and spread through the folk-club circuit — repertoire drawn from Child ballads, broadsides and Cecil Sharp collections, performed largely unaccompanied or with anglo concertina, fiddle and guitar in modal Dorian and Mixolydian settings, free or loosely metered on the long ballads, with plain non-vibrato regional-accented delivery.",
-  "recipe": "classic Northern European early-1950s british folk revival, ballad Poetry, britfolk branch, Celtic balladic English broadside, pop rock folk rock traditional english folk. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning cedar coated nanoweb fingerpicked dreadnought acoustic guitar, modern Irish carroll suttner premium revival steel reeds canonical anglo straight concertina anglo, plain gut lamb gut whole lamb method drone like fiddle, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bowl back Italian redwood hard rock maple phosphor bronze bronze mandolin. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 787,
-  "score": 419.752,
+  "recipe": "classic Northern European early-1950s british folk revival, ballad Poetry, britfolk branch, Celtic balladic English broadside, pop rock folk rock traditional english folk industrial folk. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning coated nanoweb fingerpicked dreadnought acoustic guitar, modern Irish carroll suttner premium revival steel reeds canonical anglo straight concertina anglo, plain gut lamb gut whole lamb method drone like fiddle, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 818,
+  "score": 363.381,
   "config": {
     "traditions": [
       "british_folk_revival",
-      "folk_rock",
-      "english_traditional_folk"
+      "english_traditional_folk",
+      "industrial_folk"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 42.35999999999999,
-          "voice_quality": 17.224999999999994,
+          "voice_register": 20.174999999999997,
+          "voice_quality": 17.354999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.004500000000001,
-          "voice_articulation": 20.929999999999996,
-          "voice_microtone": 22.034999999999993,
-          "voice_tradition": 33.300999999999995,
-          "voice_mechanism_compound": 5.525,
-          "voice_estill_quality": 8.387125000000001,
-          "voice_speech_song": 27.56,
-          "voice_ensemble_config": 22.359999999999992,
-          "voice_ornament_system": 7.966500000000001,
-          "voice_pitch_organization": 0.39,
-          "voice_processing_chain": 3.5121250000000006,
-          "voice_multitrack_stack": 5.200000000000001
+          "voice_vibrato": 2.5349999999999997,
+          "voice_articulation": 22.035,
+          "voice_microtone": 23.985,
+          "voice_tradition": 27.750500000000002,
+          "voice_mechanism_compound": 7.475,
+          "voice_estill_quality": 6.629999999999999,
+          "voice_speech_song": 28.925,
+          "voice_ensemble_config": 23.465,
+          "voice_ornament_system": 10.504999999999997,
+          "voice_pitch_organization": 0.8314999999999999,
+          "voice_processing_chain": 3.3799999999999994,
+          "voice_multitrack_stack": 2.1449999999999996
         }
       },
       {
@@ -62,10 +62,10 @@
           "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 32.96924999999999,
-          "string_tuning": 9.597999999999999,
-          "top_wood": 1.04,
-          "back_sides": 0.24149999999999996,
+          "acoustic_technique": 24.373,
+          "string_tuning": 12.722999999999999,
+          "top_wood": 0.37499999999999994,
+          "back_sides": 0.3465,
           "string_acoustic": 1.2999999999999998
         }
       },
@@ -79,11 +79,11 @@
           "concertina_anglo_reed": "concertina_anglo_steel_reeds"
         },
         "scores": {
-          "free_reed_technique": 26.31949999999999,
+          "free_reed_technique": 15.232999999999999,
           "concertina_anglo_config": 0.39,
-          "concertina_anglo_context": 1.921,
-          "concertina_anglo_maker_school": 2.5999999999999996,
-          "concertina_anglo_reed": 3.9
+          "concertina_anglo_context": 2.4345,
+          "concertina_anglo_maker_school": 1.6249999999999993,
+          "concertina_anglo_reed": 4.0565
         }
       },
       {
@@ -92,15 +92,17 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "plain_lamb_gut_fiddle",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "sul_pont"
+          "fiddle_mute": "practice_mute",
+          "fiddle_articulation": "sul_pont",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 21.991499999999995,
+          "bowed_technique": 13.375,
           "fiddle_strings": 1.0999999999999999,
           "fiddle_bow": 0.24149999999999996,
-          "fiddle_mute": 0.195,
-          "fiddle_articulation": 0.49499999999999994
+          "fiddle_mute": 0.18,
+          "fiddle_articulation": 0.39,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -112,22 +114,22 @@
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
           "banjo_rim_wood": "banjo_walnut_rim",
-          "banjo_neck_wood": "banjo_walnut_neck",
+          "banjo_neck_wood": "banjo_mahogany_neck",
           "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
           "banjo_back": 0.24149999999999996,
-          "tone_ring": 0.0315,
-          "banjo_head": 20.93,
+          "tone_ring": 0.09,
+          "banjo_head": 22.035000000000004,
           "banjo_pot": 0.39,
-          "banjo_play": 0.49499999999999994,
-          "banjo_rim_wood": 0.195,
-          "banjo_neck_wood": 1.04,
-          "banjo_strings": 0.39,
-          "banjo_bridge": 0.195,
-          "banjo_setup_period": 20.865000000000002
+          "banjo_play": 0.39,
+          "banjo_rim_wood": 0.39,
+          "banjo_neck_wood": 0.2415,
+          "banjo_strings": 0.24,
+          "banjo_bridge": 0.045,
+          "banjo_setup_period": 21.970000000000002
         }
       },
       {
@@ -139,18 +141,18 @@
           "mandolin_back": "hard_rock_maple_mandolin",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
           "mandolin_strings": "phosphor_m",
-          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 11.218,
-          "mandolin_shape": 11.527249999999999,
-          "mandolin_top": 1.04,
-          "mandolin_back": 6.954999999999998,
-          "mandolin_bracing": 0.12999999999999998,
-          "mandolin_strings": 1.04,
-          "mandolin_fingerboard": 0.975,
-          "mandolin_pickup": 21.710000000000004
+          "acoustic_technique": 13.113000000000001,
+          "mandolin_shape": 7.215,
+          "mandolin_top": 0.32999999999999996,
+          "mandolin_back": 2.21,
+          "mandolin_bracing": -0.035,
+          "mandolin_strings": 0.32999999999999996,
+          "mandolin_fingerboard": 0.09,
+          "mandolin_pickup": 22.035000000000004
         }
       }
     ],

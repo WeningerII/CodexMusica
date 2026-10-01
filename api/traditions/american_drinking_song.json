@@ -3,53 +3,53 @@
   "name": "American drinking song (frat, sea-shanty-derived, country)",
   "family": "global",
   "lineage": "American drinking-song tradition continuous from 18th-19th century English-Irish-and-Scottish-imported drinking-song-and-sea-shanty repertoire through 19th-century American-frontier and Civil-War-era expansion through 20th-century college-fraternity drinking-song-and-country-music drinking-song lineage into modern American continuous bar-and-roadhouse practice; foundational repertoire includes \"99 Bottles of Beer,\" \"Show Me the Way to Go Home,\" \"Beer Barrel Polka,\" \"Drink to Me Only with Thine Eyes\"",
-  "recipe": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, wood fluorocarbon modern open back scruggs stelling bluegrass setup banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 593,
-  "score": 283.849,
+  "recipe": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty newfoundland outport sea-shanty and work-song german trinklieder. thick, close mic intimate, straight note core, interlocked note trading. dadgad tuning mahogany phosphor bronze modern martin travis picked dreadnought acoustic guitar, fluorocarbon modern open back scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bamboo stainless steel steel suzuki Japanese modern precision richter canonical 10 hole diatonic blues harmonica. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 667,
+  "score": 248.698,
   "config": {
     "traditions": [
       "american_drinking_song",
-      "gothic_americana",
-      "gothic_country"
+      "newfoundland_outport_shanty",
+      "german_trinklied"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 30.499999999999996,
-          "voice_quality": 8.515,
+          "voice_register": 14.549999999999994,
+          "voice_quality": 8.125000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.617499999999996,
-          "voice_articulation": 13.584999999999994,
-          "voice_microtone": 13.974999999999993,
-          "voice_tradition": 10.822500000000002,
-          "voice_mechanism_compound": 3.6331249999999997,
-          "voice_estill_quality": 22.668125,
-          "voice_speech_song": 29.509999999999998,
-          "voice_ensemble_config": 15.144999999999996,
-          "voice_ornament_system": 3.0000000000000004,
-          "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 2.2425,
-          "voice_multitrack_stack": 3.3118750000000006
+          "voice_vibrato": 9.7175,
+          "voice_articulation": 15.014999999999993,
+          "voice_microtone": 14.819999999999991,
+          "voice_tradition": 10.8875,
+          "voice_mechanism_compound": 1.883125,
+          "voice_estill_quality": 10.068124999999998,
+          "voice_speech_song": 34.84,
+          "voice_ensemble_config": 15.729999999999993,
+          "voice_ornament_system": 4.625000000000001,
+          "voice_pitch_organization": 5.915,
+          "voice_processing_chain": 3.185,
+          "voice_multitrack_stack": 1.3649999999999998
         }
       },
       {
@@ -59,60 +59,60 @@
           "string_tuning": "dadgad",
           "top_wood": "mahogany_top",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "martin_lifespan"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 23.25,
+          "acoustic_technique": 12,
           "string_tuning": 3.1,
-          "top_wood": 0.9099999999999999,
-          "back_sides": 0.9099999999999999,
-          "string_acoustic": 2.00625
+          "top_wood": 1.8199999999999998,
+          "back_sides": 1.8199999999999998,
+          "string_acoustic": 3.575
         }
       },
       {
         "id": "banjo_5_string",
         "slots": {
           "banjo_back": "open_back",
-          "tone_ring": "wood_ring",
+          "tone_ring": "tubaphone",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
-          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_rim_wood": "banjo_walnut_rim",
           "banjo_neck_wood": "banjo_walnut_neck",
           "banjo_strings": "banjo_fluorocarbon",
-          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_bridge": "banjo_compensated_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 1.105,
-          "tone_ring": 2.795,
-          "banjo_head": 14.689999999999996,
+          "banjo_back": 1.8199999999999998,
+          "tone_ring": 1.8199999999999998,
+          "banjo_head": 17.029999999999998,
           "banjo_pot": 0.045,
-          "banjo_play": 1.3,
-          "banjo_rim_wood": 0.6,
-          "banjo_neck_wood": 0.52,
-          "banjo_strings": 1.69,
-          "banjo_bridge": 0.45,
-          "banjo_setup_period": 13.714999999999996
+          "banjo_play": 0,
+          "banjo_rim_wood": 0.285,
+          "banjo_neck_wood": 0.15,
+          "banjo_strings": 3.38,
+          "banjo_bridge": 0,
+          "banjo_setup_period": 15.144999999999996
         }
       },
       {
         "id": "harmonica",
         "slots": {
           "harmonica_type": "octave_harm",
-          "harmonica_comb": "pearwood_comb",
-          "harmonica_reed": "double_brass_harm",
+          "harmonica_comb": "bamboo_comb",
+          "harmonica_reed": "stainless_harm",
           "harmonica_technique": "harm_folk_first_position",
           "harmonica_maker_school": "harmonica_suzuki_japanese",
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.845,
-          "harmonica_comb": 5.46,
-          "harmonica_reed": 3.85,
-          "harmonica_technique": 23.917499999999997,
-          "harmonica_maker_school": 1.69,
-          "harmonica_tuning": 1.8199999999999998
+          "harmonica_type": 0.195,
+          "harmonica_comb": 8.964375,
+          "harmonica_reed": 6.545,
+          "harmonica_technique": 12.0925,
+          "harmonica_maker_school": 3.38,
+          "harmonica_tuning": 3.3799999999999994
         }
       }
     ],

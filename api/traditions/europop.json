@@ -3,14 +3,14 @@
   "name": "Europop",
   "family": "pop",
   "lineage": "Continental European chart pop consolidated between the mid-1970s and the late 1990s through the Eurovision circuit, ABBA's Polar Studios records with Michael B. Tretow, Italo-disco, Stock Aitken Waterman's London hit factory and the Scandinavian and Benelux dance-pop of Ace of Base, Aqua and Dr. Alban — 118-140 BPM four-on-the-floor kick with offbeat eighth-note keyboard or hi-hat, unambiguous major-key diatonic progressions, English-as-second-language lyrics chosen for phonetic clarity, and glossy multi-tracked unison-and-thirds choruses.",
-  "recipe": "classic North American 1974-1976 europop, functional Song, europop branch, eurodance electronic dance, pop rock synthpop yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, drum machine analog, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, string machine, marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, nickel silver bright projecting continuous-airflow legato saxophone. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 761,
-  "score": 550.787,
+  "recipe": "classic North American 1974-1976 europop, functional Song, europop branch, eurodance electronic dance, pop rock synthpop yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, drum machine analog, marshall plexi amp British rock amp alder ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, string machine, marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 830,
+  "score": 564.385,
   "config": {
     "traditions": [
       "europop",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 57.529999999999994,
-          "voice_quality": 15.59999999999999,
+          "voice_register": 57.60500000000001,
+          "voice_quality": 16.63999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.087500000000002,
-          "voice_articulation": 23.984999999999992,
-          "voice_microtone": 44.6,
-          "voice_tradition": 25.804999999999996,
-          "voice_mechanism_compound": 4.355,
-          "voice_estill_quality": 7.3125,
-          "voice_speech_song": 27.36499999999999,
-          "voice_ensemble_config": 20.929999999999993,
+          "voice_vibrato": 12.3375,
+          "voice_articulation": 25.024999999999995,
+          "voice_microtone": 47.47500000000001,
+          "voice_tradition": 26.455,
+          "voice_mechanism_compound": 4.81,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 28.404999999999998,
+          "voice_ensemble_config": 21.97,
           "voice_ornament_system": 1.1049999999999995,
-          "voice_pitch_organization": 4.940000000000001,
-          "voice_processing_chain": 12.5975,
-          "voice_multitrack_stack": 14.55
+          "voice_pitch_organization": 5.135,
+          "voice_processing_chain": 11.7475,
+          "voice_multitrack_stack": 11.900000000000002
         }
       },
       {
@@ -61,10 +61,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 21.194999999999997,
-          "poly_archetypes": 11.959999999999997,
+          "electronic_technique": 21.994999999999997,
+          "poly_archetypes": 10.724999999999998,
           "poly_voices": 0.45499999999999996,
-          "poly_maker_lineage": 0.9099999999999999
+          "poly_maker_lineage": 0.7149999999999999
         }
       },
       {
@@ -79,28 +79,30 @@
           "kick_voice": 0.45499999999999996,
           "snare_voice": 0.18,
           "hat_voice": 0,
-          "shuffle_quantize": 1.4300000000000002
+          "shuffle_quantize": 3.4799999999999995
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.674999999999995,
-          "body_wood": 3.575,
+          "amp_make": 13.097499999999997,
+          "body_wood": 2.58,
           "pickup_config": 1.3,
-          "string_type": 29.837499999999995,
-          "scale_length_b": 3.14,
+          "string_type": 26.81249999999999,
+          "scale_length_b": 2.3400000000000003,
           "fretted_or_not": 0.3,
-          "bass_technique": 23.489999999999995
+          "bass_technique": 20.964999999999993,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -118,14 +120,14 @@
         },
         "scores": {
           "keyboard_technique": 20.302499999999995,
-          "grand_piano_size": 3.23,
-          "grand_piano_brand": 3.7699999999999996,
-          "piano_hammer": 21,
-          "piano_rim": 20.419999999999998,
-          "piano_soundboard": 19.37,
+          "grand_piano_size": 2.73,
+          "grand_piano_brand": 2.925,
+          "piano_hammer": 21.5,
+          "piano_rim": 20.169999999999998,
+          "piano_soundboard": 20.02,
           "piano_pinblock": 2.3000000000000007,
           "piano_plate": 0.45499999999999996,
-          "piano_pitch_standard": 2.34
+          "piano_pitch_standard": 2.925
         }
       },
       {
@@ -134,13 +136,13 @@
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
           "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_cellos"
+          "sm_voicing": "sm_violins"
         },
         "scores": {
           "electronic_technique": 0.06499999999999999,
           "sm_voice_count": 0.9099999999999999,
-          "sm_chorus": 1.56,
-          "sm_voicing": 0.3
+          "sm_chorus": 1.3649999999999998,
+          "sm_voicing": 0.48
         }
       },
       {
@@ -156,28 +158,30 @@
           "string_gauge": "g_11",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
-          "finish": "poly",
-          "string_tuning": "drop_d"
+          "finish": "nitro",
+          "string_tuning": "d_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 20.065,
-          "amp_make": 11.829999999999995,
-          "body_wood": 3.23,
-          "neck_wood": 3.23,
-          "fretboard": 3.18,
+          "electric_technique": 20.565,
+          "amp_make": 13.097499999999997,
+          "body_wood": 2.73,
+          "neck_wood": 2.73,
+          "fretboard": 2.38,
           "pickup_magnet": 0.3,
-          "string_material": 0.44999999999999996,
-          "string_gauge": 3.44,
+          "string_material": 0.3,
+          "string_gauge": 2.535,
           "bridge": 0.3,
-          "scale_length": 3.575,
-          "finish": 0.3,
-          "string_tuning": 12.934999999999997
+          "scale_length": 2.535,
+          "finish": 0.39,
+          "string_tuning": 11.959999999999997,
+          "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_cool_lyrical",
+          "wind_articulation": "wind_ska_skank_stab",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "nickel_silver_sax",
@@ -186,13 +190,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": -0.035,
-          "sax_size": 3.44,
+          "wind_articulation": 0.06499999999999999,
+          "sax_size": 2.535,
           "sax_reed": 0.3,
-          "sax_body_alloy": 3.1800000000000006,
+          "sax_body_alloy": 7.929999999999999,
           "sax_mouthpiece": 0.39,
-          "sax_technique": 2.84,
-          "sax_maker_school": 0.7000000000000002
+          "sax_technique": 7.589999999999998,
+          "sax_maker_school": 6.099999999999999
         }
       }
     ],

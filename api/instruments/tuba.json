@@ -103,6 +103,29 @@
           "canonical_tags": [
             "classical"
           ]
+        },
+        {
+          "id": "wind_punchy_ensemble",
+          "name": "Punchy ensemble",
+          "applies_to": [
+            "tuba"
+          ],
+          "descriptors": [
+            "fast-attack-transient",
+            "ensemble",
+            "horn-section"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "punchy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "r&b",
+            "afrobeat",
+            "soul"
+          ],
+          "auto": false
         }
       ],
       "_fromFamily": true
@@ -197,6 +220,21 @@
           "match_tokens": [
             "wind-driven",
             "low-register"
+          ]
+        },
+        {
+          "id": "tuba_jazz_bass",
+          "name": "Jazz bass-line and melodic lead",
+          "auto": false,
+          "descriptors": [
+            "bass-line",
+            "rhythmic",
+            "jazz-trained"
+          ],
+          "match_tokens": [
+            "jazz-improvisation",
+            "percussive-attack",
+            "bass"
           ]
         }
       ]
@@ -421,6 +459,21 @@
           "match_tokens": [
             "wind-driven",
             "low-register"
+          ]
+        },
+        {
+          "id": "tuba_jazz_bass",
+          "name": "Jazz bass-line and melodic lead",
+          "auto": false,
+          "descriptors": [
+            "bass-line",
+            "rhythmic",
+            "jazz-trained"
+          ],
+          "match_tokens": [
+            "jazz-improvisation",
+            "percussive-attack",
+            "bass"
           ]
         }
       ]

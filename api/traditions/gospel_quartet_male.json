@@ -3,14 +3,14 @@
   "name": "Gospel quartet (male)",
   "family": "global",
   "lineage": "Black-American male-quartet gospel tradition that emerged from late-19th-century Fisk Jubilee Singers university choirs and the parallel post-WWI Black Church male-quartet tradition — codified through the Golden Gate Quartet (the pre-WWII quartet, founded 1934), the Soul Stirrers (where Sam Cooke fronted before his secular pop crossover), the Dixie Hummingbirds, the Mighty Clouds of Joy, the Swan Silvertones, the Five Blind Boys of Alabama, the Pilgrim Travelers — most active 1930s-60s, with the modern continuation through the Williams Brothers and the broader gospel-quartet circuit",
-  "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel southern gospel piano-bass. thick, declaimed, straight note core, multi note runs per syllable. a cappella small 3 to 8 one per part five voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 948,
-  "score": 588.795,
+  "recipe": "classic Southern American mid-1930s gospel quartet, ritual Devotional, black gospel branch, christian gospel southern gospel bluegrass gospel family gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tambourine orch. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 945,
+  "score": 568.368,
   "config": {
     "traditions": [
       "gospel_quartet_male",
       "bluegrass_gospel",
-      "southern_gospel"
+      "family_gospel"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "melisma_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
@@ -29,42 +29,42 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 46.92662500000001,
-          "voice_quality": 46.702125000000024,
+          "voice_register": 41.626625000000004,
+          "voice_quality": 45.95212500000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.2,
-          "voice_articulation": 38.73500000000001,
-          "voice_microtone": 9.23,
-          "voice_tradition": 45.820125,
+          "voice_vibrato": 1.17,
+          "voice_articulation": 37.185,
+          "voice_microtone": 7.280000000000001,
+          "voice_tradition": 45.760125,
           "voice_mechanism_compound": 1.3,
-          "voice_estill_quality": 40.26500000000001,
-          "voice_speech_song": 13.259999999999996,
-          "voice_ensemble_config": 37.00712500000001,
+          "voice_estill_quality": 39.515,
+          "voice_speech_song": 10.659999999999997,
+          "voice_ensemble_config": 37.102125,
           "voice_ornament_system": 9.15,
-          "voice_pitch_organization": 0.689,
-          "voice_processing_chain": 2.4050000000000002,
-          "voice_multitrack_stack": 2.1124999999999994
+          "voice_pitch_organization": 0.45500000000000007,
+          "voice_processing_chain": 4.095000000000001,
+          "voice_multitrack_stack": 2.925
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_five_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
+          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 1.95,
-          "choir_polyphonic_configuration": 1.6836250000000001,
-          "choir_regional_canonical_configuration": 1.595875,
-          "choir_ensemble_repertoire": 4.9399999999999995
+          "choir_size": 3.1849999999999996,
+          "choir_polyphonic_configuration": 2.925,
+          "choir_regional_canonical_configuration": 1.6249999999999998,
+          "choir_ensemble_repertoire": 4.29
         }
       },
       {
@@ -72,7 +72,7 @@
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "fazioli",
+          "grand_piano_brand": "steinway_d",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -81,15 +81,15 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 45.177749999999996,
+          "keyboard_technique": 45.11775,
           "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.36674999999999996,
-          "piano_hammer": 5.480875,
-          "piano_rim": 11.464749999999999,
-          "piano_soundboard": 6.625,
-          "piano_pinblock": 4.725,
-          "piano_plate": 4.27,
-          "piano_pitch_standard": 5.169125
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 5.105875,
+          "piano_rim": 10.43975,
+          "piano_soundboard": 6.25,
+          "piano_pinblock": 4.3500000000000005,
+          "piano_plate": 3.895,
+          "piano_pitch_standard": 5.984125
         }
       },
       {
@@ -100,15 +100,15 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_145_smaller"
+          "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 45.177749999999996,
-          "drawbar_setting": 37.107124999999996,
-          "rotary_speed": 36.825,
-          "percussion_setting": 0.195,
-          "tonewheel_model": 40.69775,
-          "leslie_cabinet_model": 0.585
+          "keyboard_technique": 45.11775,
+          "drawbar_setting": 36.357124999999996,
+          "rotary_speed": 36.074999999999996,
+          "percussion_setting": 0.23324999999999999,
+          "tonewheel_model": 40.78774999999999,
+          "leslie_cabinet_model": 0.07912499999999999
         }
       },
       {
@@ -120,16 +120,18 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.961625000000001,
+          "amp_make": 6.0116249999999996,
           "body_wood": 0.08775000000000001,
-          "pickup_config": 0.3899999999999998,
-          "string_type": 4.367500000000001,
-          "scale_length_b": 0.1949999999999999,
-          "fretted_or_not": 0.045,
-          "bass_technique": 4.125
+          "pickup_config": 0.1949999999999999,
+          "string_type": 3.3799999999999994,
+          "scale_length_b": 0.35587499999999994,
+          "fretted_or_not": 0.845,
+          "bass_technique": 3.75,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -140,8 +142,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 9.49,
-          "drumhead": 7.7495,
+          "drum_technique": 7.54,
+          "drumhead": 7.3745,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -149,11 +151,11 @@
         "id": "tambourine_orch",
         "slots": {
           "tambourine_orch_jingle": "tambourine_orch_nickel",
-          "tambourine_orch_context": "tambourine_orch_orch"
+          "tambourine_orch_context": "tambourine_orch_film"
         },
         "scores": {
           "tambourine_orch_jingle": 0.65,
-          "tambourine_orch_context": 0.65
+          "tambourine_orch_context": 0.845
         }
       }
     ],

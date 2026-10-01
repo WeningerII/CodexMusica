@@ -109,7 +109,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "eb_standard"
+          "string_tuning": "eb_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 6.245,
@@ -123,7 +124,8 @@
           "bridge": 0.78,
           "scale_length": 0.39,
           "finish": 0,
-          "string_tuning": 2.34
+          "string_tuning": 2.34,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -135,7 +137,8 @@
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0.26,
@@ -144,7 +147,8 @@
           "string_type": 0.585,
           "scale_length_b": 0.78,
           "fretted_or_not": 0.195,
-          "bass_technique": 0.9450000000000001
+          "bass_technique": 0.9450000000000001,
+          "electric_bass_string_configuration": 0
         }
       },
       {

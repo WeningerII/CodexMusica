@@ -3,9 +3,9 @@
   "name": "Martial Industrial",
   "family": "electronic",
   "lineage": "Central and Northern Europe from the early 1990s (Cold Meat Industry in Sweden, Der Blutharsch in Austria, Les Joyaux de la Princesse in France) — slow processional 60-80 BPM marching-snare and timpani patterns, synthesized brass and orchestral samples, tolling bells, male choir pads and archival wartime speech samples, mixed dark and reverberant in DIY studios onto CD.",
-  "recipe": "classic European 1990-1993 martial industrial, experimental Elec, industrial noise branch, gothic rock distorted rock, ambient experimental electric ambient techno ambient house. marching gang, mallets timpani, rawhide mallet bells extended tubular bells, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, mixed satb canonical 4 part western antiphonal double choir alternating kakhetian three voice two soloists choral drone choir ensemble, field textural sampler, dark soft mallet gong tamtam. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 644,
-  "score": 78.573,
+  "recipe": "classic European 1990-1993 martial industrial, experimental Elec, industrial noise branch, gothic rock distorted rock, ambient experimental electric ambient techno ambient house. marching gang, mallets timpani, rawhide mallet bells extended tubular bells, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, mixed satb canonical 4 part western antiphonal double choir alternating kakhetian three voice two soloists choral drone choir ensemble, glitched textural sampler, dark soft mallet gong tamtam. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 647,
+  "score": 78.802,
   "config": {
     "traditions": [
       "martial_industrial",
@@ -20,8 +20,8 @@
           "marching_gang_footwear": "marching_gang_heavy_boots"
         },
         "scores": {
-          "marching_gang_surface": 0.195,
-          "marching_gang_footwear": 0.195
+          "marching_gang_surface": 0.345,
+          "marching_gang_footwear": 0.345
         }
       },
       {
@@ -45,7 +45,7 @@
         },
         "scores": {
           "tubular_bells_striker": 1.345,
-          "tubular_bells_range": 1.995
+          "tubular_bells_range": 2.04
         }
       },
       {
@@ -72,7 +72,7 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 1.95,
+          "choir_size": 1.89,
           "choir_polyphonic_configuration": 1.195,
           "choir_regional_canonical_configuration": 1.625,
           "choir_ensemble_repertoire": 5.915000000000001
@@ -84,14 +84,14 @@
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "roland_s750",
           "sampler_bit_depth": "sampler_twentyfour_bit",
-          "sampler_workflow": "sampler_field_recordings",
+          "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 11.240000000000002,
           "sampler_archetypes": 0.195,
           "sampler_bit_depth": 0.65,
-          "sampler_workflow": 11.055000000000001,
+          "sampler_workflow": 11.000000000000002,
           "sampler_classic_context": 23.172499999999992
         }
       },

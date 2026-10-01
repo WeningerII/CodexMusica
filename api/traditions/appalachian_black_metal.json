@@ -5,7 +5,7 @@
   "lineage": "American regional black-metal strain from the southern Appalachian mountains, emerging late 2000s through Panopticon (Austin Lunn, Kentucky, 2012), Nechochwen and Twilight Fauna — grafting tremolo-picked minor-modal riffing, blast beats at 180-240 BPM and shrieked vocals onto banjo, fiddle and mountain-dulcimer passages and old-time modal tunes, with lyrics on coal extraction, union violence and land loss, and long tracks alternating full-band assault with unaccompanied acoustic string interludes.",
   "recipe": "classic 2007-2009 appalachian black metal, distorted Rock, black branch, appalachian drone modal, folk metal metal pagan metal. thick, false fold engaged, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string, drone like fiddle, walnut canonical appalachian fingerpicked mountain dulcimer. isolated rural 2005-present isolation diy isolation cabin diy. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 814,
-  "score": 546.175,
+  "score": 545.688,
   "config": {
     "traditions": [
       "appalachian_black_metal",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 27.974999999999994,
-          "voice_quality": 8.711499999999994,
+          "voice_quality": 8.364999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.0149999999999997,
           "voice_articulation": 18.719999999999995,
           "voice_microtone": 23.984999999999992,
-          "voice_tradition": 29.706999999999997,
-          "voice_mechanism_compound": 42.4585,
+          "voice_tradition": 30.392499999999995,
+          "voice_mechanism_compound": 42.211000000000006,
           "voice_estill_quality": 5.654999999999999,
           "voice_speech_song": 18.069999999999997,
           "voice_ensemble_config": 19.889999999999993,
           "voice_ornament_system": 5.102500000000001,
           "voice_pitch_organization": 1.1699999999999995,
           "voice_processing_chain": 2.925,
-          "voice_multitrack_stack": 5.471
+          "voice_multitrack_stack": 5.3345
         }
       },
       {
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 42.599999999999994,
+          "electric_technique": 42.6675,
           "amp_make": 20.214999999999996,
           "body_wood": 20.605,
           "neck_wood": 2.0799999999999996,
@@ -94,16 +94,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 6.500000000000001,
           "body_wood": 2.0799999999999996,
           "pickup_config": 1.427125,
-          "string_type": 14.889624999999999,
+          "string_type": 14.789125,
           "scale_length_b": 2.0799999999999996,
           "fretted_or_not": 0.195,
-          "bass_technique": 13.9995
+          "bass_technique": 13.863,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -153,14 +155,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 19.778374999999997,
+          "bowed_technique": 19.746874999999996,
           "fiddle_strings": 0.1995,
           "fiddle_bow": 1.04,
           "fiddle_mute": 1.605,
-          "fiddle_articulation": 2.390625
+          "fiddle_articulation": 2.285625,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -190,7 +194,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 18.4545,
+          "acoustic_technique": 18.318,
           "string_tuning": 2.77,
           "top_wood": 2.0799999999999996,
           "back_sides": 1,

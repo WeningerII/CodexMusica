@@ -5,7 +5,7 @@
   "lineage": "French-language country music of Québec and Acadian New Brunswick, established from the late 1940s by Willie Lamothe and Paul Brunelle — American honky-tonk and cowboy-song templates with yodel, steel guitar, fiddle and 2/4 shuffle or waltz at 90-130 BPM, sung in Québécois French with a nasal front-placed delivery and strong turlutte and reel inflections.",
   "recipe": "classic tropical 1947-1949 franco-country, functional Song, honky tonk era branch, pre commercial country, anglo singer song country folk story texas country-folk storyteller string band. thick, breath veiled tone, wide pitch sway, interlocked note trading. martin lifespan sealed travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, sustaining steel upright bass, pre muffled edge muffled brushes-and-sticks drum kit, steel castagnari Italian premium folk music straight accordion. honky tonk dance hall. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 726,
-  "score": 487.332,
+  "score": 486.587,
   "config": {
     "traditions": [
       "franco_country",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 31.281499999999994,
+          "voice_register": 31.144999999999996,
           "voice_quality": 8.385000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 24.363,
+          "voice_vibrato": 24.3315,
           "voice_articulation": 20.279999999999998,
           "voice_microtone": 19.434999999999995,
           "voice_tradition": 13.52,
           "voice_mechanism_compound": 4.874999999999999,
-          "voice_estill_quality": 29.4145,
+          "voice_estill_quality": 29.5015,
           "voice_speech_song": 28.339999999999996,
           "voice_ensemble_config": 19.369999999999997,
           "voice_ornament_system": 1.7549999999999994,
@@ -77,19 +77,19 @@
           "pickup_steel": "humbucker_steel",
           "string_setup": "standard_e9",
           "bar_material": "steel_bar",
-          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_brand": "emmons_push_pull",
           "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 24.843,
-          "amp_make": 26.724999999999998,
+          "electric_technique": 24.7065,
+          "amp_make": 26.665,
           "pickup_steel": 0.195,
           "string_setup": 12.025,
           "bar_material": 1.69,
-          "pedal_steel_brand": 24.6145,
-          "pedal_steel_neck_config": 28.456,
-          "pedal_steel_strings": 24.8145
+          "pedal_steel_brand": 24.549999999999997,
+          "pedal_steel_neck_config": 28.4455,
+          "pedal_steel_strings": 24.573
         }
       },
       {
@@ -99,14 +99,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "pizz"
+          "fiddle_articulation": "pizz",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 30.925,
-          "fiddle_strings": 2.5415,
-          "fiddle_bow": 0,
+          "fiddle_strings": 2.4050000000000002,
+          "fiddle_bow": 0.045,
           "fiddle_mute": 0.39,
-          "fiddle_articulation": 0.21
+          "fiddle_articulation": 0.21,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -116,8 +118,8 @@
           "upright_play": "arco_upright"
         },
         "scores": {
-          "upright_strings": 1.69,
-          "upright_play": 0.48
+          "upright_strings": 1.6315,
+          "upright_play": 0.675
         }
       },
       {
@@ -146,9 +148,9 @@
         },
         "scores": {
           "free_reed_technique": 32.47,
-          "accordion_reed_material": 2.5415,
-          "musette_offset": 0.38999999999999996,
-          "reed_config": 2.3,
+          "accordion_reed_material": 2.4050000000000002,
+          "musette_offset": 0.285,
+          "reed_config": 2.3449999999999998,
           "bellows": 0,
           "voicing_chamber": 0.195,
           "accordion_maker_school": 5.785

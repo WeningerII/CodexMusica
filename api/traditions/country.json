@@ -3,9 +3,9 @@
   "name": "Country",
   "family": "global",
   "lineage": "The broad country-music tradition — Anglo-American vernacular song built on storytelling, descended from Appalachian folk and codified through the Nashville recording industry across the 20th century",
-  "recipe": "classic modern country, functional Song, contemp main branch. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 593,
-  "score": 200.34,
+  "recipe": "classic modern country, functional Song, contemp main branch. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 590,
+  "score": 200.973,
   "config": {
     "traditions": [
       "country"
@@ -18,7 +18,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,26 +28,26 @@
           "voice_ensemble_config": "voice_ensemble_parallel_thirds",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_5_part_cluster"
         },
         "scores": {
-          "voice_register": 13.457874999999994,
+          "voice_register": 13.397249999999994,
           "voice_quality": 4.680000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.969999999999999,
+          "voice_vibrato": 10.95,
           "voice_articulation": 2.275,
           "voice_microtone": 2.0799999999999996,
           "voice_tradition": 6.37,
-          "voice_mechanism_compound": 0.5398749999999999,
-          "voice_estill_quality": 11.432374999999999,
+          "voice_mechanism_compound": 0.525,
+          "voice_estill_quality": 11.361999999999998,
           "voice_speech_song": 5.915000000000001,
-          "voice_ensemble_config": 2.4325000000000006,
-          "voice_ornament_system": 0.17437500000000003,
-          "voice_pitch_organization": 0.32625,
-          "voice_processing_chain": 0.90775,
-          "voice_multitrack_stack": 0.39
+          "voice_ensemble_config": 2.4630000000000005,
+          "voice_ornament_system": 0.15000000000000002,
+          "voice_pitch_organization": 0.3,
+          "voice_processing_chain": 0.8429999999999997,
+          "voice_multitrack_stack": 0.6509999999999999
         }
       },
       {
@@ -57,28 +57,30 @@
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "alder",
           "neck_wood": "mahogany_neck",
-          "fretboard": "pau_ferro_fb",
+          "fretboard": "maple_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
           "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 11.342749999999999,
-          "amp_make": 11.994999999999997,
-          "body_wood": 0.31300000000000006,
-          "neck_wood": 0.11249999999999999,
-          "fretboard": 0.017499999999999998,
+          "electric_technique": 11.394499999999999,
+          "amp_make": 12.146499999999998,
+          "body_wood": 0.3045,
+          "neck_wood": 0.105,
+          "fretboard": 0,
           "pickup_magnet": 0,
           "string_material": 0.39,
-          "string_gauge": 0.34362500000000007,
-          "bridge": 0.2475,
-          "scale_length": 0.225,
+          "string_gauge": 0.3045,
+          "bridge": 0.279,
+          "scale_length": 0.21,
           "finish": 0,
-          "string_tuning": 0.8344999999999998
+          "string_tuning": 0.6944999999999999,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -94,14 +96,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 12.202249999999998,
-          "amp_make": 11.994999999999997,
-          "pickup_steel": 0.11249999999999999,
+          "electric_technique": 12.233749999999999,
+          "amp_make": 12.146499999999998,
+          "pickup_steel": 0.105,
           "string_setup": 5.719999999999999,
           "bar_material": 0.39,
-          "pedal_steel_brand": 12.97425,
+          "pedal_steel_brand": 13.11075,
           "pedal_steel_neck_config": 14.3,
-          "pedal_steel_strings": 12.839249999999998
+          "pedal_steel_strings": 12.936749999999998
         }
       },
       {
@@ -112,17 +114,19 @@
           "pickup_config": "soapbar",
           "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "fingerpicked_country_b"
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.924999999999997,
-          "body_wood": 0.225,
-          "pickup_config": 0.448,
+          "amp_make": 12.091499999999998,
+          "body_wood": 0.21,
+          "pickup_config": 0.4784999999999999,
           "string_type": 0.39,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.007499999999999999,
-          "bass_technique": 11.342749999999999
+          "fretted_or_not": 0.0315,
+          "bass_technique": 11.394499999999999,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -134,7 +138,7 @@
         },
         "scores": {
           "drum_technique": 2.34,
-          "drumhead": 0.125625,
+          "drumhead": 0.105,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -145,14 +149,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "dark_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 11.599999999999998,
           "fiddle_strings": 0.39,
-          "fiddle_bow": 0.30550000000000005,
-          "fiddle_mute": 0.32612500000000005,
-          "fiddle_articulation": 0.343625
+          "fiddle_bow": 0.3045,
+          "fiddle_mute": 0.33599999999999997,
+          "fiddle_articulation": 0.3045,
+          "fiddle_string_configuration": 0
         }
       }
     ],

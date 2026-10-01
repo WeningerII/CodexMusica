@@ -59,14 +59,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "sul_tasto"
+          "fiddle_articulation": "sul_tasto",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 29.924999999999997,
           "fiddle_strings": 2.99,
           "fiddle_bow": 0,
           "fiddle_mute": 0.65,
-          "fiddle_articulation": 0.345
+          "fiddle_articulation": 0.345,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -106,7 +108,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "open_g"
+          "string_tuning": "open_g",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 20.674999999999997,
@@ -120,7 +123,8 @@
           "bridge": 0.345,
           "scale_length": 0.195,
           "finish": 0.195,
-          "string_tuning": 5.07
+          "string_tuning": 5.07,
+          "single_coil_pickup_construction": 0
         }
       },
       {

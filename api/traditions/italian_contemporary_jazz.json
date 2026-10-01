@@ -5,7 +5,7 @@
   "lineage": "Contemporary Italian improvisation; selected Stefano Bollani solo-piano branch",
   "recipe": "classic modern italian contemporary jazz, improv On Frame, American jazz branch. grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 238,
-  "score": 1.271,
+  "score": 1.304,
   "config": {
     "traditions": [
       "italian_contemporary_jazz"
@@ -26,8 +26,8 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "grand_piano_size": 0.15449999999999997,
-          "grand_piano_brand": 0.207,
+          "grand_piano_size": 0.183,
+          "grand_piano_brand": 0.21149999999999997,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

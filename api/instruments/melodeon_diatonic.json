@@ -172,6 +172,16 @@
             "bellows-driven",
             "reed-driven"
           ]
+        },
+        {
+          "id": "melodeon_diatonic_song_accompaniment",
+          "name": "Folk-song accompaniment",
+          "descriptors": [
+            "song-accompaniment",
+            "melodic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -249,6 +259,16 @@
             "bellows-driven",
             "reed-driven"
           ]
+        },
+        {
+          "id": "melodeon_diatonic_song_accompaniment",
+          "name": "Folk-song accompaniment",
+          "descriptors": [
+            "song-accompaniment",
+            "melodic"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

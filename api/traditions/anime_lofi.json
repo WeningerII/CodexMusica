@@ -71,7 +71,8 @@
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "fingerstyle_walking",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0.9749999999999999,
@@ -80,7 +81,8 @@
           "string_type": 4.44,
           "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0,
-          "bass_technique": 3.25
+          "bass_technique": 3.25,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -103,12 +105,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_slow",
-          "vibe_mallets": "vibe_soft_mallets"
+          "vibe_mallets": "vibe_soft_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": -0.05,
           "vibe_motor": 3.25,
-          "vibe_mallets": 3.25
+          "vibe_mallets": 3.25,
+          "vibe_bar_material": 0
         }
       }
     ],

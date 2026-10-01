@@ -1,0 +1,176 @@
+{
+  "id": "traditional_bluegrass",
+  "name": "Traditional bluegrass",
+  "family": "vernacular",
+  "lineage": "Traditional bluegrass includes the acoustic string-band practice associated with Bill Monroe and his collaborators. Kenny Baker’s Bill Monroe repertoire supplies this specific instrumental branch, within a tradition also known for vocal performance.",
+  "recipe": "classic modern traditional bluegrass, improv On Frame, bluegrass branch. double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, articulated flatpicked dreadnought acoustic guitar, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 450,
+  "score": 161.519,
+  "config": {
+    "traditions": [
+      "traditional_bluegrass"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_bluegrass_double_stops",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 10.309999999999999,
+          "fiddle_strings": 0.546,
+          "fiddle_bow": 0.5145000000000001,
+          "fiddle_mute": 0.23249999999999998,
+          "fiddle_articulation": 0.108,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "mandolin",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "mandolin_shape": "f_style",
+          "mandolin_top": "adirondack_m",
+          "mandolin_back": "european_maple_loar",
+          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_strings": "eighty_twenty_m",
+          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_pickup": "mandolin_k_k_twin_internal"
+        },
+        "scores": {
+          "acoustic_technique": 10.360124999999996,
+          "mandolin_shape": 9.5315,
+          "mandolin_top": 9.9725,
+          "mandolin_back": 9.5,
+          "mandolin_bracing": 9.5315,
+          "mandolin_strings": 0.5145000000000001,
+          "mandolin_fingerboard": 0.063,
+          "mandolin_pickup": 3.38
+        }
+      },
+      {
+        "id": "banjo_5_string",
+        "slots": {
+          "banjo_back": "resonator",
+          "tone_ring": "flathead",
+          "banjo_head": "fiberskyn",
+          "banjo_pot": "pot_11",
+          "banjo_play": "three_finger",
+          "banjo_rim_wood": "banjo_block_rim_maple",
+          "banjo_neck_wood": "banjo_maple_neck",
+          "banjo_strings": "banjo_medium_bluegrass",
+          "banjo_bridge": "banjo_maple_ebony_bridge",
+          "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+        },
+        "scores": {
+          "banjo_back": 0.5145000000000001,
+          "tone_ring": 9.5,
+          "banjo_head": 2.08,
+          "banjo_pot": 2.9899999999999998,
+          "banjo_play": 5.329999999999999,
+          "banjo_rim_wood": 12.189499999999999,
+          "banjo_neck_wood": 12.221,
+          "banjo_strings": 12.2525,
+          "banjo_bridge": 12.2525,
+          "banjo_setup_period": 14.43
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka",
+          "back_sides": "maple_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 10.360124999999996,
+          "string_tuning": 0,
+          "top_wood": 0.5145000000000001,
+          "back_sides": 0.6615000000000001,
+          "string_acoustic": 0.43799999999999994
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.546,
+          "upright_play": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_mute",
+        "fiddle_articulation"
+      ],
+      "mandolin": [
+        "acoustic_technique"
+      ],
+      "banjo_5_string": [
+        "banjo_back",
+        "tone_ring",
+        "banjo_play",
+        "banjo_setup_period"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_acoustic"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "bowed_technique": "bowed_bluegrass_double_stops",
+      "fiddle_articulation": "arco",
+      "fiddle_mute": "no_mute",
+      "fiddle_strings": "steel_core",
+      "acoustic_technique": "acoustic_flatpicked",
+      "string_acoustic": "phosphor_bronze",
+      "upright_play": "pizz_upright",
+      "banjo_back": "resonator",
+      "tone_ring": "flathead",
+      "banjo_play": "three_finger",
+      "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

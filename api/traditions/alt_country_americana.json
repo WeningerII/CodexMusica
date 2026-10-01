@@ -3,14 +3,14 @@
   "name": "Americana",
   "family": "vernacular",
   "lineage": "Post-1980s amalgamation of country, folk, rock, blues, and Appalachian string-band traditions into a roots-music umbrella — codified through No Depression magazine (1995-onward), Uncle Tupelo / Wilco / Son Volt, Lucinda Williams, Steve Earle, Gillian Welch, Jason Isbell, Drive-By Truckers",
-  "recipe": "classic Southern American modern americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller indie folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, folk strummed open chord ringing overtones autoharp, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon block chord wurlitzer ep, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console.",
-  "recipe_chars": 992,
-  "score": 430.555,
+  "recipe": "classic Southern American modern americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller neofolk. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel silk travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, folk steel modern canonical 36 37 string set autoharp, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing wurlitzer ep, bowl back Italian hard rock maple ghs silk steel k and k twin internal mounted mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa.",
+  "recipe_chars": 977,
+  "score": 428.232,
   "config": {
     "traditions": [
       "alt_country_americana",
       "texas_country_folk_storyteller",
-      "indie_folk_2000s"
+      "neofolk"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 27.185,
+          "acoustic_technique": 22.56,
           "string_tuning": 1.885,
-          "top_wood": 0.32999999999999996,
-          "back_sides": 0.45499999999999996,
-          "string_acoustic": 0.78
+          "top_wood": 0.65,
+          "back_sides": 0.65,
+          "string_acoustic": 1.4300000000000002
         }
       },
       {
@@ -35,30 +35,32 @@
         "slots": {
           "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "pine",
+          "body_wood": "mahogany",
           "neck_wood": "maple",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "d_standard"
+          "string_tuning": "d_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 15.679999999999998,
-          "amp_make": 15.374999999999996,
-          "body_wood": 0.45499999999999996,
-          "neck_wood": 0.285,
-          "fretboard": 0.285,
-          "pickup_magnet": 0.285,
-          "string_material": 0.78,
-          "string_gauge": 0.95,
+          "electric_technique": 15.529999999999998,
+          "amp_make": 15.149999999999997,
+          "body_wood": 0.65,
+          "neck_wood": 0.65,
+          "fretboard": 0.65,
+          "pickup_magnet": 0.65,
+          "string_material": 2.08,
+          "string_gauge": 1.4349999999999998,
           "bridge": 0.045,
-          "scale_length": 0.5700000000000001,
+          "scale_length": 0.65,
           "finish": 0,
-          "string_tuning": 5.58
+          "string_tuning": 5.265,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -74,12 +76,12 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 15.209999999999997,
-          "amp_make": 15.374999999999996,
-          "pickup_steel": 0.285,
+          "electric_technique": 15.709999999999997,
+          "amp_make": 15.149999999999997,
+          "pickup_steel": 0.65,
           "string_setup": 5.939999999999999,
-          "bar_material": 0.78,
-          "pedal_steel_brand": 15.944999999999999,
+          "bar_material": 2.08,
+          "pedal_steel_brand": 16.445,
           "pedal_steel_neck_config": 14.444999999999999,
           "pedal_steel_strings": 15.11
         }
@@ -91,18 +93,20 @@
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerpicked_country_b"
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 15.049999999999997,
-          "body_wood": 0.5700000000000001,
+          "amp_make": 14.399999999999999,
+          "body_wood": 0.65,
           "pickup_config": 0,
-          "string_type": 9.47,
-          "scale_length_b": 0.28500000000000003,
+          "string_type": 8.719999999999999,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.135,
-          "bass_technique": 15.679999999999998
+          "bass_technique": 15.529999999999998,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -113,8 +117,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.269999999999998,
-          "drumhead": 4.26,
+          "drum_technique": 13.325,
+          "drumhead": 1.56,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -127,7 +131,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -135,26 +139,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 41.375,
-          "voice_quality": 5.460000000000001,
+          "voice_register": 32.64999999999999,
+          "voice_quality": 3.5100000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 16.375,
-          "voice_articulation": 10.204999999999998,
-          "voice_microtone": 10.779999999999998,
-          "voice_tradition": 19.044999999999998,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 17.54,
-          "voice_speech_song": 16.119999999999997,
-          "voice_ensemble_config": 10.334999999999997,
-          "voice_ornament_system": 3.2500000000000004,
-          "voice_pitch_organization": 0.7149999999999997,
-          "voice_processing_chain": 4.68,
-          "voice_multitrack_stack": 4.42
+          "voice_articulation": 13.259999999999998,
+          "voice_microtone": 13.454999999999997,
+          "voice_tradition": 14.494999999999997,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 17.589999999999996,
+          "voice_speech_song": 18.72,
+          "voice_ensemble_config": 13.194999999999999,
+          "voice_ornament_system": 3.0550000000000006,
+          "voice_pitch_organization": 0.5199999999999999,
+          "voice_processing_chain": 5.220000000000001,
+          "voice_multitrack_stack": 6.105
         }
       },
       {
@@ -167,10 +171,10 @@
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": 3.7299999999999995,
-          "autoharp_chord_bars": 6.694999999999999,
-          "autoharp_context": 6.11,
-          "autoharp_strings": 0.13000000000000012,
+          "acoustic_technique": 1.4624999999999997,
+          "autoharp_chord_bars": 4.29,
+          "autoharp_context": 5.655000000000001,
+          "autoharp_strings": 1.4300000000000002,
           "autoharp_body_wood": -1.455
         }
       },
@@ -184,11 +188,11 @@
           "wurlitzer_reed_material": "wurlitzer_steel_reed_canonical"
         },
         "scores": {
-          "keyboard_technique": 5.32,
+          "keyboard_technique": 2.095,
           "wurlitzer_use": 0.49499999999999994,
-          "wurlitzer_ep_voice": 4.1,
-          "wurlitzer_model": 4.29,
-          "wurlitzer_reed_material": 0.78
+          "wurlitzer_ep_voice": 3.8,
+          "wurlitzer_model": 3.9,
+          "wurlitzer_reed_material": 1.4300000000000002
         }
       },
       {
@@ -196,22 +200,22 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "mandolin_shape": "flat_back",
-          "mandolin_top": "italian_alpine_spruce_m",
+          "mandolin_top": "german_spruce_m",
           "mandolin_back": "hard_rock_maple_mandolin",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
           "mandolin_strings": "ghs_mandolin_silk_steel",
-          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 3.7299999999999995,
-          "mandolin_shape": 6.694999999999999,
-          "mandolin_top": 0.39,
-          "mandolin_back": 4.055,
+          "acoustic_technique": 1.4624999999999997,
+          "mandolin_shape": 5.329999999999999,
+          "mandolin_top": 0.78,
+          "mandolin_back": 3.755,
           "mandolin_bracing": -0.05,
-          "mandolin_strings": 0.78,
-          "mandolin_fingerboard": 0.09,
-          "mandolin_pickup": 12.024999999999999
+          "mandolin_strings": 1.4300000000000002,
+          "mandolin_fingerboard": 0.585,
+          "mandolin_pickup": 15.925000000000002
         }
       }
     ],

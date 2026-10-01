@@ -160,14 +160,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "dark_rosin",
           "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 7.669999999999999,
           "fiddle_strings": 0.65,
           "fiddle_bow": 1.105,
           "fiddle_mute": 1.2449999999999999,
-          "fiddle_articulation": 1.605
+          "fiddle_articulation": 1.605,
+          "fiddle_string_configuration": 0
         }
       }
     ],

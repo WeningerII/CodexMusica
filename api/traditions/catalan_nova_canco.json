@@ -3,14 +3,14 @@
   "name": "Catalan Nova Cançó",
   "family": "global",
   "lineage": "Catalan Nova Cançó (\"new song\") minority-language protest-song tradition continuous from 1959 founding by Els Setze Jutges collective through the Franco-era 1959-1975 Catalan-language-suppression-resistance period continuous into post-Franco Catalan-cultural-revival; centered on Lluís Llach, Raimon, Joan Manuel Serrat, Maria del Mar Bonet, Pi de la Serra",
-  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry catalan folk morna. thick, breath veiled tone, slow rate, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 418,
-  "score": 138.625,
+  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry catalan folk. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked acoustic guitar. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 431,
+  "score": 137.148,
   "config": {
     "traditions": [
       "catalan_nova_canco",
       "catalan_folk",
-      "morna"
+      "chanson"
     ],
     "instruments": [
       {
@@ -20,10 +20,10 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 2.490000000000001,
-          "voice_quality": 10.659999999999995,
+          "voice_register": 3.9400000000000004,
+          "voice_quality": 12.609999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9175,
-          "voice_articulation": 17.485000000000007,
-          "voice_microtone": 18.2,
-          "voice_tradition": 10.04,
-          "voice_mechanism_compound": 3.51,
-          "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 27.105000000000008,
-          "voice_ensemble_config": 17.42,
-          "voice_ornament_system": 7.075000000000001,
-          "voice_pitch_organization": 5.55,
-          "voice_processing_chain": 6.629999999999999,
-          "voice_multitrack_stack": 3.250000000000001
+          "voice_vibrato": 2.1300000000000003,
+          "voice_articulation": 17.355000000000004,
+          "voice_microtone": 17.55,
+          "voice_tradition": 8.905000000000001,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.640000000000001,
+          "voice_speech_song": 26.975000000000005,
+          "voice_ensemble_config": 17.940000000000005,
+          "voice_ornament_system": 6.2,
+          "voice_pitch_organization": 4.03,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 3.4775000000000005
         }
       },
       {
@@ -62,11 +62,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 0.895,
+          "string_tuning": 0.445,
           "top_wood": 0.43499999999999994,
           "back_sides": 0.43499999999999994,
-          "string_acoustic": 0.48,
-          "acoustic_om_technique": 8.935
+          "string_acoustic": 0.65,
+          "acoustic_om_technique": 8.31
         }
       }
     ],

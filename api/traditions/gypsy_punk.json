@@ -80,14 +80,16 @@
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 1.95,
           "fiddle_strings": 0.845,
           "fiddle_bow": 2.1125,
           "fiddle_mute": 0.45499999999999996,
-          "fiddle_articulation": 0.69
+          "fiddle_articulation": 0.69,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -132,7 +134,8 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 3.98,
@@ -141,7 +144,8 @@
           "string_type": 6.045,
           "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0.43499999999999994,
-          "bass_technique": 17
+          "bass_technique": 17,
+          "electric_bass_string_configuration": 0
         }
       },
       {

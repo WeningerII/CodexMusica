@@ -5,7 +5,7 @@
   "lineage": "Contemporary Denmark-connected improvised music, represented by Jakob Bro’s open-form electric-guitar trio on Gefion. Guitar, acoustic bass and drums develop parallel, responsive lines with spacious dynamics.",
   "recipe": "classic modern danish modern jazz, improv On Frame, bop branch. single coil electric guitar, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 320,
-  "score": 40.885,
+  "score": 41.107,
   "config": {
     "traditions": [
       "danish_modern_jazz"
@@ -25,21 +25,23 @@
           "bridge": "hardtail",
           "scale_length": "scale_fender",
           "finish": "poly",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 0.19500000000000003,
           "amp_make": 0,
-          "body_wood": 0.04127678571428571,
-          "neck_wood": 0.145875,
+          "body_wood": 0.03471428571428571,
+          "neck_wood": 0.1365,
           "fretboard": -0.035,
           "pickup_magnet": 0,
-          "string_material": 0.2154375,
+          "string_material": 0.1995,
           "string_gauge": 0.09771428571428571,
           "bridge": 0.39,
           "scale_length": 0.03471428571428571,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.03471428571428571,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -49,7 +51,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.177375,
+          "upright_strings": 0.168,
           "upright_play": 8.75
         }
       },
@@ -70,15 +72,15 @@
         },
         "scores": {
           "drum_technique": 6.890000000000001,
-          "drumhead": 0.06621428571428571,
+          "drumhead": 0.10092857142857142,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.05065178571428571,
-          "shell_thickness": 0,
-          "bearing_edges": 0.17442857142857143,
-          "snare_wires": 0.04127678571428571,
-          "cymbal_alloy": 8.606562499999997,
+          "shell_wood": 0.10414285714285713,
+          "shell_thickness": 0.03471428571428571,
+          "bearing_edges": 0.20914285714285713,
+          "snare_wires": 0.03471428571428571,
+          "cymbal_alloy": 8.715714285714284,
           "cymbal_hammering": 9.405,
-          "cymbal_lathing": 2.4314999999999998,
+          "cymbal_lathing": 2.4,
           "cymbal_finish": 0.0315
         }
       }

@@ -1,0 +1,86 @@
+{
+  "id": "electric_bass",
+  "name": "Electric bass",
+  "family": "jazz",
+  "lineage": "A performance-centered discovery category for electric-bass-led recordings rather than a single genre or synthesis-bass label. Victor Wooten’s documented solo practice provides this authored unaccompanied funk-oriented branch: thumb-and-pop articulation carries rhythm, low notes and melodic figures on one bass.",
+  "recipe": "classic modern electric bass, improv On Frame, fusion branch. electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 222,
+  "score": 6.33,
+  "config": {
+    "traditions": [
+      "electric_bass"
+    ],
+    "instruments": [
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "slap_pop",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.273,
+          "pickup_config": 0.315,
+          "string_type": 0.8294999999999999,
+          "scale_length_b": 1,
+          "fretted_or_not": 0.39,
+          "bass_technique": 2.9469999999999996,
+          "electric_bass_string_configuration": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_di_box_dedicated",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "slap_pop",
+      "amp_make": "amp_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_di_box_dedicated",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}

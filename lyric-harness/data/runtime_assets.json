@@ -325,23 +325,6 @@
           "sha256": "2e24577bcde5c2d0c8e9c097d518058dec2b966267e1fcdf424036e9a627b3a0"
         }
       ]
-    },
-    {
-      "id": "canon_index",
-      "base": "root",
-      "runtime": true,
-      "decision": "approved",
-      "reason": "The 601-entry rhyme-type canon index (quality/canon_sources.py is its one reader). The types verb reads it to name the tradition a rhyme type belongs to; without it the connector answered every such label with 'the canon index could not be loaded'. Terminology and citations only; no corpus text.",
-      "source_ids": [
-        "quality/canon_index.tsv"
-      ],
-      "files": [
-        {
-          "path": "quality/canon_index.tsv",
-          "bytes": 96430,
-          "sha256": "6b653e1a2ea148acc16aefba908fa4a52ba7b45602924b2567dc7e3420aa3130"
-        }
-      ]
     }
   ]
 }

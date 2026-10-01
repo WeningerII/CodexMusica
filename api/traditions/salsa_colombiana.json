@@ -3,14 +3,14 @@
   "name": "Salsa colombiana (Cali)",
   "family": "global",
   "lineage": "Colombian regional variant of salsa centered in Cali (Valle del Cauca, southwestern Colombia, \"world capital of salsa\"). Distinguished from New York and Puerto Rican salsa by faster-tempo, more aggressive-rhythmic-pulse, and the Cali dance-school choreographic culture emphasizing fast complex footwork. Grupo Niche (1980, Jairo Varela) and Orquesta Guayacán anchor canonical Cali sound.",
-  "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm merenrap kwaito. vocal fry, rap, slow rate, interlocked note trading. grand piano, fast-attack-transient mid rich alder electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, steady pulse cencerro. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-  "recipe_chars": 658,
-  "score": 120.39,
+  "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm hip hop galsen merenrap. rap, breath pulsed, interlocked note trading, neutral third half flat. grand piano, fast-attack-transient mid rich alder electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, steady pulse cencerro. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 684,
+  "score": 104.254,
   "config": {
     "traditions": [
       "salsa_colombiana",
-      "merenrap",
-      "kwaito"
+      "hip_hop_galsen",
+      "merenrap"
     ],
     "instruments": [
       {
@@ -20,61 +20,61 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 0.585,
-          "voice_quality": 7.0525,
+          "voice_register": 0.195,
+          "voice_quality": 8.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 12.154999999999994,
-          "voice_microtone": 11.504999999999992,
-          "voice_tradition": 6.315,
-          "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 2.7300000000000004,
-          "voice_speech_song": 12.414999999999994,
-          "voice_ensemble_config": 13.129999999999995,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 9.62,
+          "voice_microtone": 8.97,
+          "voice_tradition": 3.77,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 1.6899999999999995,
+          "voice_speech_song": 9.879999999999999,
+          "voice_ensemble_config": 11.179999999999996,
           "voice_ornament_system": 3.1200000000000014,
-          "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 3.5100000000000002,
-          "voice_multitrack_stack": 2.4002499999999998
+          "voice_pitch_organization": 1.78,
+          "voice_processing_chain": 2.745,
+          "voice_multitrack_stack": 1.885
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
+          "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "ronsen_weikert_hammer",
+          "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": -0.05,
-          "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.39,
-          "piano_hammer": 0.12999999999999998,
+          "keyboard_technique": 0.325,
+          "grand_piano_size": 0.22499999999999998,
+          "grand_piano_brand": 0.315,
+          "piano_hammer": 0.325,
           "piano_rim": 0.06499999999999999,
-          "piano_soundboard": -0.035,
-          "piano_pinblock": 0.52,
+          "piano_soundboard": -0.05,
+          "piano_pinblock": -0.05,
           "piano_plate": -0.035,
-          "piano_pitch_standard": -0.035
+          "piano_pitch_standard": 0.325
         }
       },
       {
@@ -85,24 +85,26 @@
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "sub_bass_synth_blend"
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0.12999999999999998,
-          "body_wood": 1.8249999999999997,
+          "body_wood": 1.6749999999999998,
           "pickup_config": 1.4949999999999999,
-          "string_type": 0.6499999999999999,
-          "scale_length_b": 0.195,
-          "fretted_or_not": 0,
-          "bass_technique": 0.12999999999999998
+          "string_type": 0.9099999999999999,
+          "scale_length_b": 0.26999999999999996,
+          "fretted_or_not": 0.195,
+          "bass_technique": -0.035,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "trumpet",
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "monette_unity_b1_mp",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
@@ -110,13 +112,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.0799999999999996,
-          "brass_size": 0.18525,
-          "trumpet_mouthpiece": 0.78,
+          "wind_articulation": 2.2299999999999995,
+          "brass_size": 0.195,
+          "trumpet_mouthpiece": 0.12999999999999998,
           "brass_mute": 0.045,
-          "trumpet_technique": 2.0799999999999996,
-          "trumpet_bell_metal": 2.295,
-          "trumpet_maker_school": 1.69
+          "trumpet_technique": 2.2299999999999995,
+          "trumpet_bell_metal": 2.1900000000000004,
+          "trumpet_maker_school": 1.53025
         }
       },
       {
@@ -127,35 +129,35 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 5.976500000000001,
-          "timbales_shell": 7.202999999999999,
-          "timbales_context": 0.4815
+          "percussion_technique": 5.9750000000000005,
+          "timbales_shell": 6.279,
+          "timbales_context": 0.345
         }
       },
       {
         "id": "congas",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "conga_set": "conga_proper",
+          "conga_set": "quinto",
           "conga_skin": "conga_mule_hide",
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 5.976500000000001,
-          "conga_set": 0.1365,
-          "conga_skin": 3.6399999999999997,
-          "conga_shell_wood": 3.6399999999999997
+          "percussion_technique": 5.9750000000000005,
+          "conga_set": 0.045,
+          "conga_skin": 3.01375,
+          "conga_shell_wood": 3.01375
         }
       },
       {
         "id": "cencerro",
         "slots": {
-          "cencerro_bell_type": "cencerro_bongo_bell",
+          "cencerro_bell_type": "cencerro_mambo_bell",
           "cencerro_context": "cencerro_charanga",
           "cencerro_build": "cencerro_welded_steel"
         },
         "scores": {
-          "cencerro_bell_type": 0.27299999999999996,
+          "cencerro_bell_type": 0.195,
           "cencerro_context": 1.3,
           "cencerro_build": 0.045
         }

@@ -3,14 +3,14 @@
   "name": "New Acoustic",
   "family": "vernacular",
   "lineage": "US late-1970s acoustic-string idiom formed around David Grisman's San Francisco quintet and Tony Rice's Bay Area circle, codified on Grisman's 1977 'Dawg Music' sessions — bluegrass instrumentation (mandolin lead, flatpicked dreadnought, fiddle, five-string banjo, upright bass) played over jazz-derived changes, minor and modal keys, hemiola-laced 6/8 and odd-metre heads, extended solo choruses at 100-200 BPM with no vocals and no backbeat.",
-  "recipe": "classic North American 1977-1979 new acoustic, improv On Frame, bluegrass branch, string improv improv on frame, American jazz fusion. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, sitka spruce spruce maple flatwound thomastik dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, steel double stops fiddle, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, growly gut upright bass. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 672,
-  "score": 284.417,
+  "recipe": "classic North American 1977-1979 new acoustic, improv On Frame, bluegrass branch, string improv improv on frame, American jazz fusion cuatro venezolano arpa paraguaya. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, sitka spruce spruce maple flatwound thomastik dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, steel double stops fiddle, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, growly gut upright bass. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 705,
+  "score": 239.915,
   "config": {
     "traditions": [
       "new_acoustic",
-      "jazz_fusion",
-      "fusion"
+      "cuatro_venezolano",
+      "arpa_paraguaya"
     ],
     "instruments": [
       {
@@ -27,30 +27,30 @@
         },
         "scores": {
           "acoustic_technique": 9.299999999999997,
-          "mandolin_shape": 8.35,
+          "mandolin_shape": 9.85,
           "mandolin_top": 8.245,
           "mandolin_back": 8.454999999999998,
           "mandolin_bracing": 7.749999999999999,
-          "mandolin_strings": 23.279999999999998,
-          "mandolin_fingerboard": 1.3,
-          "mandolin_pickup": 22.164999999999996
+          "mandolin_strings": 8.28,
+          "mandolin_fingerboard": 0.39,
+          "mandolin_pickup": 22.879999999999992
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_flatpicked",
-          "string_tuning": "eb_standard",
+          "string_tuning": "open_d",
           "top_wood": "sitka",
           "back_sides": "maple_bs",
           "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
           "acoustic_technique": 9.299999999999997,
-          "string_tuning": 0.22749999999999998,
-          "top_wood": 2.795,
-          "back_sides": 2.9000000000000004,
-          "string_acoustic": 9.35
+          "string_tuning": 1.17,
+          "top_wood": 2.295,
+          "back_sides": 2.75,
+          "string_acoustic": 3.1849999999999996
         }
       },
       {
@@ -59,15 +59,17 @@
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "practice_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "pizz",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 11.194999999999999,
-          "fiddle_strings": 2.8400000000000003,
-          "fiddle_bow": 2.795,
-          "fiddle_mute": 0.39,
-          "fiddle_articulation": 0.525
+          "fiddle_strings": 2.3400000000000003,
+          "fiddle_bow": 2.295,
+          "fiddle_mute": 0.45499999999999996,
+          "fiddle_articulation": 0.585,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -85,16 +87,16 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 2.8400000000000003,
+          "banjo_back": 2.3400000000000003,
           "tone_ring": 7.794999999999999,
-          "banjo_head": 18.394999999999996,
-          "banjo_pot": 2.9450000000000003,
+          "banjo_head": 19.889999999999997,
+          "banjo_pot": 2.4450000000000003,
           "banjo_play": 3.0999999999999996,
-          "banjo_rim_wood": 8.634999999999998,
+          "banjo_rim_wood": 9.934999999999999,
           "banjo_neck_wood": 7.749999999999999,
           "banjo_strings": 7.794999999999999,
           "banjo_bridge": 7.944999999999999,
-          "banjo_setup_period": 28.47
+          "banjo_setup_period": 29.57499999999999
         }
       },
       {
@@ -104,8 +106,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 21.125,
-          "upright_play": 21.125
+          "upright_strings": 6.125,
+          "upright_play": 6.125
         }
       },
       {
@@ -116,9 +118,9 @@
           "resonator_technique": "resonator_lap_steel_position"
         },
         "scores": {
-          "resonator_body": 4.029999999999999,
+          "resonator_body": 4.874999999999999,
           "resonator_strings": 3.8999999999999995,
-          "resonator_technique": 4.029999999999999
+          "resonator_technique": 4.574999999999999
         }
       }
     ],

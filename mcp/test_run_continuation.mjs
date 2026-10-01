@@ -182,7 +182,6 @@ try {
   // cap and the 12-beat line ceiling are deleted, so seed 1 at 24 lines
   // draws longer lines (fewer overflow their bars) and a denser web; the
   // door now sees seven independent briefs and admits the first four.
-  // Since 2026-10-01 it admits all seven (see the first-subset pin below).
   const originalIndependent = [1, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
@@ -261,17 +260,12 @@ try {
   const firstSubset = splitState.pending.record.records.map((r) => r.line);
   // ~~[1, 5, 6, 14, 15, 17, 19]~~ ~~[5, 6, 11, 14, 15, 17, 20]~~ (M-305)
   // [1, 5, 6, 14, 15, 17, 19] (2026-09-24, N-relation model; measured)
-  // ~~[1, 14, 15, 17]~~ (2026-09-28; measured)
-  // [1, 14, 15, 17, 19, 21, 23] (2026-10-01; measured): a batch question
-  // prints the draft and the whole-draft findings once instead of under every
-  // member, so all seven independent briefs now fit the journal bound and the
-  // door admits them all. The bounded split itself stays pinned by
-  // test_production_journal.py's oversized-prompt cases.
-  assert.deepEqual(firstSubset, [1, 14, 15, 17, 19, 21, 23]);
+  // [1, 14, 15, 17] (2026-09-28; measured)
+  assert.deepEqual(firstSubset, [1, 14, 15, 17]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
-  // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)
-  assert.deepEqual(omittedTail, []);
+  // [19, 21, 23] (2026-09-28; measured)
+  assert.deepEqual(omittedTail, [19, 21, 23]);
   for (const n of firstSubset) reached.add(n);
   const verifiedFirst = new Map();
   const tailFolded = new Set();

@@ -1,0 +1,63 @@
+{
+  "id": "macedonian_folk",
+  "name": "Macedonian folk",
+  "family": "vernacular",
+  "lineage": "Macedonian folk spans multiple vocal and instrumental traditions. The gajda dance practice associated with the Prilep and Skopje performance lineage provides this selected instrumental branch.",
+  "recipe": "classic modern macedonian folk, improv On Frame. ornamented dance accompaniment gajda. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 224,
+  "score": 3.133,
+  "config": {
+    "traditions": [
+      "macedonian_folk"
+    ],
+    "instruments": [
+      {
+        "id": "gajda",
+        "slots": {
+          "gajda_body": "gajda_single_reed_chanter_drone",
+          "gajda_tradition": "gajda_macedonian_dance"
+        },
+        "scores": {
+          "gajda_body": 0.36,
+          "gajda_tradition": 1.847625
+        }
+      }
+    ],
+    "pinned": {
+      "gajda": [
+        "gajda_body",
+        "gajda_tradition"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "parlor",
+    "parts": {
+      "gajda_body": "gajda_single_reed_chanter_drone",
+      "gajda_tradition": "gajda_macedonian_dance"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

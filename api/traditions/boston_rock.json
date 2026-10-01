@@ -5,7 +5,7 @@
   "lineage": "A regional rock discovery label for which this default selects Pixies’ Boston-rooted alternative guitar-band practice. Their contrasting single-coil and humbucker guitar setups supply a practical model alongside electric bass, drums and singing.",
   "recipe": "classic modern boston rock, distorted Rock, alternative branch. one note per syllable, single lead single track no stacking. humbucker electric single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter low-gain overdrive analog bucket-brigade delay.",
   "recipe_chars": 470,
-  "score": 52.124,
+  "score": 51.947,
   "config": {
     "traditions": [
       "boston_rock"
@@ -29,16 +29,16 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.8999999999999999,
+          "electric_technique": 0.954,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.441,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.714,
           "string_material": 0.105,
-          "bridge": 0.5775,
-          "scale_length": 1.1550000000000002,
+          "bridge": 0.441,
+          "scale_length": 0.8820000000000001,
           "string_gauge": 0.273,
           "finish": 0,
           "string_tuning": 0
@@ -52,27 +52,29 @@
           "body_wood": "alder",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb",
-          "pickup_magnet": "alnico_2",
+          "pickup_magnet": "alnico_5",
           "string_material": "nickel_plated_h",
           "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "standard_tuning"
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.8999999999999999,
+          "electric_technique": 0.954,
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
-          "neck_wood": 0.5775,
+          "neck_wood": 0.441,
           "fretboard": 0.21000000000000002,
-          "pickup_magnet": 0.1365,
+          "pickup_magnet": 0.18,
           "string_material": 0.105,
-          "string_gauge": 0.5775,
-          "bridge": 0.1365,
-          "scale_length": 1.1550000000000002,
+          "string_gauge": 0.441,
+          "bridge": 0.4965,
+          "scale_length": 0.8820000000000001,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -84,16 +86,18 @@
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
           "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.1365,
+          "scale_length_b": 0.3165,
           "fretted_or_not": 0.0735,
-          "bass_technique": 9.45
+          "bass_technique": 9.45,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -113,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 9.5,
-          "drumhead": 0.1365,
+          "drumhead": 0.3165,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.2415,
           "shell_thickness": 0,
@@ -156,7 +160,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.6465,
+          "voice_speech_song": 1.69,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,

@@ -3,9 +3,9 @@
   "name": "Stomp and Holler",
   "family": "pop_rock",
   "lineage": "Anglo-American indie-folk revival style of roughly 2008-2015 — Mumford & Sons, The Lumineers, Of Monsters and Men, Edward Sharpe and The Head and the Heart — built on strummed dreadnought guitar and clawhammer or rolled banjo at 100-140 BPM, a kick-drum-and-tambourine floor pulse played by the singers themselves, communal 'hey!' shouts and massed unison choruses, and a soft-verse-to-full-band-crescendo dynamic arc borrowed from post-rock and applied to acoustic instrumentation.",
-  "recipe": "classic mid-2010s stomp and holler, ballad Poetry, indie folk branch, americana country, bluegrass improv on frame reactionary bluegrass neo-traditional bluegrass. thick, breath veiled tone, straight note core, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, upright bass, double bass rapid double strokes bass drum, snappy to palm hand clap, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, Hammond a 100 built in Leslie home spinet fast tremolo tonewheel organ, tambourine orch. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 838,
-  "score": 428.682,
+  "recipe": "classic mid-2010s stomp and holler, ballad Poetry, indie folk branch, americana country, bluegrass improv on frame reactionary bluegrass neo-traditional bluegrass. thick, breath veiled tone, straight note core, interlocked note trading. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, upright bass, double bass rapid double strokes bass drum, snappy to palm hand clap, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, Hammond a 100 built in Leslie home spinet fast tremolo tonewheel organ, tambourine orch. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 845,
+  "score": 406.385,
   "config": {
     "traditions": [
       "stomp_and_holler",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 19.429999999999996,
-          "voice_quality": 12.479999999999995,
+          "voice_register": 19.039999999999996,
+          "voice_quality": 12.254999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.795,
-          "voice_articulation": 22.815000000000005,
-          "voice_microtone": 22.425,
-          "voice_tradition": 15.404999999999998,
+          "voice_vibrato": 7.75,
+          "voice_articulation": 22.185000000000002,
+          "voice_microtone": 22.064999999999998,
+          "voice_tradition": 14.52,
           "voice_mechanism_compound": 3.185,
-          "voice_estill_quality": 9.465,
+          "voice_estill_quality": 9.18,
           "voice_speech_song": 27.300000000000004,
-          "voice_ensemble_config": 24.440000000000005,
-          "voice_ornament_system": 1.71,
-          "voice_pitch_organization": 1.1349999999999998,
-          "voice_processing_chain": 7.475000000000001,
-          "voice_multitrack_stack": 4.355
+          "voice_ensemble_config": 23.720000000000002,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 1.0899999999999999,
+          "voice_processing_chain": 6.425000000000001,
+          "voice_multitrack_stack": 3.77
         }
       },
       {
@@ -60,23 +60,23 @@
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "three_finger",
-          "banjo_rim_wood": "banjo_block_rim_maple",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_medium_bluegrass",
           "banjo_bridge": "banjo_maple_ebony_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 1.54,
+          "banjo_back": 1.3900000000000001,
           "tone_ring": 9,
-          "banjo_head": 22.620000000000008,
-          "banjo_pot": 0.195,
-          "banjo_play": 4.68,
-          "banjo_rim_wood": 11.129999999999999,
-          "banjo_neck_wood": 11.325,
-          "banjo_strings": 11.894999999999998,
-          "banjo_bridge": 11.519999999999998,
-          "banjo_setup_period": 35.815000000000005
+          "banjo_head": 21.945000000000004,
+          "banjo_pot": 0.15,
+          "banjo_play": 3.5999999999999996,
+          "banjo_rim_wood": 10.645,
+          "banjo_neck_wood": 9.15,
+          "banjo_strings": 10.004999999999999,
+          "banjo_bridge": 9.299999999999999,
+          "banjo_setup_period": 32.050000000000004
         }
       },
       {
@@ -89,11 +89,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.915,
-          "string_tuning": 0.925,
-          "top_wood": 1.785,
+          "acoustic_technique": 13.375,
+          "string_tuning": 1.0150000000000001,
+          "top_wood": 1.74,
           "back_sides": 1.345,
-          "string_acoustic": 2.735
+          "string_acoustic": 2.54
         }
       },
       {
@@ -103,30 +103,30 @@
           "upright_play": "slap_upright"
         },
         "scores": {
-          "upright_strings": 0.65,
+          "upright_strings": 0.5,
           "upright_play": 0.39
         }
       },
       {
         "id": "bass_drum",
         "slots": {
-          "bass_drum_size": "bass_drum_22_standard",
+          "bass_drum_size": "bass_drum_concert",
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0,
-          "bass_drum_beater": 2.08
+          "bass_drum_size": 0.15,
+          "bass_drum_beater": 2.02
         }
       },
       {
         "id": "hand_clap",
         "slots": {
           "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_close_dry"
+          "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 2.795,
-          "clap_capture": 0.045
+          "clap_technique": 2.75,
+          "clap_capture": 0
         }
       },
       {
@@ -142,14 +142,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 9.19,
-          "mandolin_shape": 9.045,
-          "mandolin_top": 10.885,
+          "acoustic_technique": 8.95,
+          "mandolin_shape": 9,
+          "mandolin_top": 10.45,
           "mandolin_back": 9,
-          "mandolin_bracing": 9.195,
-          "mandolin_strings": 2.8274999999999997,
+          "mandolin_bracing": 9.15,
+          "mandolin_strings": 2.2199999999999998,
           "mandolin_fingerboard": 0.585,
-          "mandolin_pickup": 24.505000000000006
+          "mandolin_pickup": 23.725000000000005
         }
       },
       {
@@ -163,22 +163,22 @@
           "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 2.045,
-          "drawbar_setting": 5.135,
-          "rotary_speed": 5.390000000000001,
+          "keyboard_technique": 1.6999999999999997,
+          "drawbar_setting": 4.7,
+          "rotary_speed": 5.345000000000001,
           "percussion_setting": 1.69,
-          "tonewheel_model": 11.844999999999999,
+          "tonewheel_model": 11.019999999999998,
           "leslie_cabinet_model": -0.035
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.12999999999999998,
+          "tambourine_orch_jingle": 0.135,
           "tambourine_orch_context": 0.325
         }
       }

@@ -186,6 +186,15 @@
             "reed-driven",
             "drone-foundation"
           ]
+        },
+        {
+          "id": "harmonium_folk_song",
+          "name": "Folk-song accompaniment",
+          "descriptors": [
+            "song-accompaniment"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }
@@ -321,6 +330,15 @@
             "reed-driven",
             "drone-foundation"
           ]
+        },
+        {
+          "id": "harmonium_folk_song",
+          "name": "Folk-song accompaniment",
+          "descriptors": [
+            "song-accompaniment"
+          ],
+          "auto": false,
+          "default": false
         }
       ]
     }

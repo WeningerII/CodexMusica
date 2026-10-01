@@ -1,0 +1,114 @@
+{
+  "id": "vintage_country_folk",
+  "name": "Vintage country folk",
+  "family": "vernacular",
+  "lineage": "Vintage country folk overlaps older recorded country singing, vernacular ballads and folk repertoires. Tex Morton’s collection and performance of Australasian bush songs, alongside John Grenell’s early country career, provide a documented regional branch.",
+  "recipe": "classic modern vintage country folk, functional Song, country branch. thick, wide pitch sway, neutral third half flat, nasal twang velar port open. low density tonewood vintage spruce dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 350,
+  "score": 70.999,
+  "config": {
+    "traditions": [
+      "vintage_country_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_tube_saturation",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 20.862999999999996,
+          "voice_quality": 0.39,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 13.7,
+          "voice_articulation": -0.14,
+          "voice_microtone": 2.600000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.44099999999999995,
+          "voice_estill_quality": 14.017499999999998,
+          "voice_speech_song": 5.525000000000001,
+          "voice_ensemble_config": 0.6405,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0.9864999999999999,
+          "voice_processing_chain": 5.063,
+          "voice_multitrack_stack": 2.9865000000000004
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "maple_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 0.26,
+          "string_tuning": 0,
+          "top_wood": 2,
+          "back_sides": 0.22049999999999997,
+          "string_acoustic": 0.2205
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

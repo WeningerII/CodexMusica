@@ -5,7 +5,7 @@
   "lineage": "Early-to-mid 1970s reaction against the slick Nashville Sound establishment — codified through Waylon Jennings (Honky Tonk Heroes 1973, Dreaming My Dreams 1975), Willie Nelson (his return to Texas after the early-1970s Nashville disillusionment, Shotgun Willie 1973, Red Headed Stranger 1975, the Phases and Stages 1974), Kris Kristofferson, Johnny Cash (whose career outlaw turn aligned with the movement), David Allan Coe, Townes Van Zandt, the broader Austin Texas scene (Jerry Jeff Walker, Guy Clark) where outlaw country found its sympathetic recording-and-touring infrastructure outside the Nashville Music Row system",
   "recipe": "classic Southern American 1974-1976 outlaw country, functional Song, outlaw branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, breath veiled tone, straight note core, interlocked note trading. cedar phosphor bronze modern martin fingerpicked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, bass drum, pearwood marine band tradition brass traditional harmonica, folk strummed open chord ringing overtones autoharp. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 990,
-  "score": 288.654,
+  "score": 288.527,
   "config": {
     "traditions": [
       "outlaw_country",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 20.219374999999996,
-          "voice_quality": 10.703374999999996,
+          "voice_quality": 10.672624999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 11.8325,
           "voice_articulation": 5.005,
           "voice_microtone": 4.8100000000000005,
-          "voice_tradition": 9.868374999999999,
-          "voice_mechanism_compound": 2.5001249999999997,
-          "voice_estill_quality": 12.310749999999999,
+          "voice_tradition": 9.864249999999998,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 12.354999999999999,
           "voice_speech_song": 11.764999999999999,
           "voice_ensemble_config": 4.94,
-          "voice_ornament_system": 4.570250000000001,
-          "voice_pitch_organization": 3.2910000000000004,
-          "voice_processing_chain": 5.1115,
-          "voice_multitrack_stack": 3.8526250000000006
+          "voice_ornament_system": 4.559750000000001,
+          "voice_pitch_organization": 3.2865000000000006,
+          "voice_processing_chain": 5.140000000000001,
+          "voice_multitrack_stack": 3.8436250000000007
         }
       },
       {
@@ -64,9 +64,9 @@
         "scores": {
           "acoustic_technique": 19.3415,
           "string_tuning": 0.7249999999999998,
-          "top_wood": 1.028875,
+          "top_wood": 1.024375,
           "back_sides": 0.39,
-          "string_acoustic": 1.133875
+          "string_acoustic": 1.129375
         }
       },
       {
@@ -82,22 +82,24 @@
           "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "oil_satin",
-          "string_tuning": "drop_d"
+          "finish": "nitro",
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 10.116499999999998,
           "amp_make": 10.463124999999996,
-          "body_wood": 1.028875,
-          "neck_wood": 1.028875,
-          "fretboard": 0.9788749999999999,
+          "body_wood": 1.024375,
+          "neck_wood": 1.024375,
+          "fretboard": 0.974375,
           "pickup_magnet": 0.39,
           "string_material": 0.78,
-          "string_gauge": 1.010125,
+          "string_gauge": 1.005625,
           "bridge": 0,
-          "scale_length": 1.039,
-          "finish": 0.0045,
-          "string_tuning": 2.015
+          "scale_length": 1.03,
+          "finish": 0,
+          "string_tuning": 2.015,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -113,14 +115,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 10.554124999999999,
+          "electric_technique": 10.534624999999998,
           "amp_make": 10.463124999999996,
-          "pickup_steel": 1.010125,
+          "pickup_steel": 1.005625,
           "string_setup": 4.9399999999999995,
-          "bar_material": 1.028875,
-          "pedal_steel_brand": 14.732999999999997,
-          "pedal_steel_neck_config": 11.416374999999999,
-          "pedal_steel_strings": 13.544874999999998
+          "bar_material": 1.024375,
+          "pedal_steel_brand": 14.723999999999998,
+          "pedal_steel_neck_config": 11.354874999999998,
+          "pedal_steel_strings": 13.535874999999999
         }
       },
       {
@@ -132,16 +134,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerpicked_country_b"
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 9.848125,
-          "body_wood": 1.039,
+          "body_wood": 1.03,
           "pickup_config": 0,
           "string_type": 1.95,
-          "scale_length_b": 1.014625,
+          "scale_length_b": 1.005625,
           "fretted_or_not": 0.195,
-          "bass_technique": 10.116499999999998
+          "bass_technique": 10.116499999999998,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -168,7 +172,7 @@
         "scores": {
           "harmonica_type": 1.4681250000000001,
           "harmonica_comb": 1.8525,
-          "harmonica_reed": 1.7438749999999998,
+          "harmonica_reed": 1.739375,
           "harmonica_technique": 18.957499999999996,
           "harmonica_maker_school": 0.024375,
           "harmonica_tuning": 0.8749999999999999
@@ -184,7 +188,7 @@
           "autoharp_body_wood": "autoharp_spruce_maple"
         },
         "scores": {
-          "acoustic_technique": 3.4445,
+          "acoustic_technique": 3.44,
           "autoharp_chord_bars": 3.314999999999999,
           "autoharp_context": 6.955000000000001,
           "autoharp_strings": 0.39,

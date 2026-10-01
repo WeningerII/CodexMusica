@@ -59,14 +59,16 @@
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 11.71,
           "fiddle_strings": 0.845,
           "fiddle_bow": 2.1125,
           "fiddle_mute": 1.3900000000000001,
-          "fiddle_articulation": 0.845
+          "fiddle_articulation": 0.845,
+          "fiddle_string_configuration": 0
         }
       },
       {

@@ -66,7 +66,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_short",
           "finish": "nitro",
-          "string_tuning": "dadgad"
+          "string_tuning": "dadgad",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 5.65,
@@ -80,7 +81,8 @@
           "bridge": 1.53025,
           "scale_length": 0.195,
           "finish": 0,
-          "string_tuning": 7.409999999999999
+          "string_tuning": 7.409999999999999,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -92,7 +94,8 @@
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "sub_bass_synth_blend"
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 1.98525,
@@ -101,7 +104,8 @@
           "string_type": 1.2349999999999999,
           "scale_length_b": 0.09,
           "fretted_or_not": 0.65,
-          "bass_technique": 1.2999999999999998
+          "bass_technique": 1.2999999999999998,
+          "electric_bass_string_configuration": 0
         }
       },
       {

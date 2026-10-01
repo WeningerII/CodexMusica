@@ -1,0 +1,211 @@
+{
+  "id": "german_rockabilly",
+  "name": "German rockabilly",
+  "family": "rock_punk",
+  "lineage": "German rockabilly represented by The Baseballs’ three-singer revival/crossover band. Its modern-song rearrangements draw on1950s rock-and-roll practice while remaining contemporary performances, not archival recordings.",
+  "recipe": "classic german rockabilly, distorted Rock, regional branch. one note per syllable. Fender tweed amp American 50s amp tweed breakup archtop, upright bass, sticks backbeat drum kit, upright piano. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital tape echo.",
+  "recipe_chars": 296,
+  "score": 15.901,
+  "config": {
+    "traditions": [
+      "german_rockabilly"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.773625,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0
+        }
+      },
+      {
+        "id": "archtop_jazz",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "archtop_body": "archtop_full_hollow",
+          "archtop_pickup": "archtop_set_humbucker",
+          "archtop_top_wood": "archtop_pressed_spruce",
+          "archtop_strings": "pure_nickel_jazz_round",
+          "archtop_technique": "archtop_chunk_chord",
+          "archtop_string_tuning": "archtop_tuning_source_unspecified"
+        },
+        "scores": {
+          "amp_make": 5.160125000000001,
+          "archtop_body": 0.25,
+          "archtop_pickup": 0,
+          "archtop_top_wood": 0.168,
+          "archtop_strings": 0,
+          "archtop_technique": -0.035,
+          "archtop_string_tuning": 0
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "slap_upright"
+        },
+        "scores": {
+          "upright_strings": -0.05,
+          "upright_play": 2.231
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell"
+        },
+        "scores": {
+          "drum_technique": 6.25,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0
+        }
+      },
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_stride_left_hand",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_concert"
+        },
+        "scores": {
+          "keyboard_technique": 0.7,
+          "upright_use": 0,
+          "upright_piano_size": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "archtop_jazz": [
+        "archtop_body",
+        "archtop_pickup",
+        "archtop_strings",
+        "archtop_technique"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "drumhead"
+      ],
+      "upright_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "tape_echo"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "archtop_body": "archtop_full_hollow",
+      "archtop_pickup": "archtop_set_humbucker",
+      "archtop_strings": "pure_nickel_jazz_round",
+      "archtop_technique": "archtop_chunk_chord",
+      "upright_play": "slap_upright",
+      "upright_strings": "gut_wound_upright",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "drumhead": "single_coated",
+      "keyboard_technique": "keyboard_stride_left_hand"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "tape_echo"
+    ]
+  }
+}

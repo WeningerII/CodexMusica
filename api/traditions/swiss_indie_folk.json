@@ -1,0 +1,139 @@
+{
+  "id": "swiss_indie_folk",
+  "name": "Swiss indie folk",
+  "family": "vernacular",
+  "lineage": "Swiss indie folk includes independent song projects that cross acoustic, jazz-pop and electronic settings. Sophie Hunger’s documented guitar-and-keyboard writing supplies one branch without erasing the later electronic forms of her work.",
+  "recipe": "classic modern swiss indie folk, ballad Poetry, indie folk branch. thick, breath veiled tone, straight onset, equal tempered. flatwound thomastik fingerpicked acoustic guitar, block chord rhodes electric. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 342,
+  "score": 61.643,
+  "config": {
+    "traditions": [
+      "swiss_indie_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 13.517999999999999,
+          "voice_quality": 0.9099999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.849,
+          "voice_articulation": -0.14,
+          "voice_microtone": 4.905000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 1.2105,
+          "voice_estill_quality": 1.755,
+          "voice_speech_song": 7.215,
+          "voice_ensemble_config": 1.074,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 0.105,
+          "voice_processing_chain": 5.399,
+          "voice_multitrack_stack": 0.78
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "thomastik_flat_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.45149999999999996,
+          "back_sides": 0.325,
+          "string_acoustic": 1.21,
+          "acoustic_om_technique": 11.395999999999997
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_soul",
+          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_hammer_tip": "rhodes_felt_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 3.0500000000000003,
+          "rhodes_model": 2.7415,
+          "rhodes_use": 0.6719999999999999,
+          "rhodes_tine_material": 0.39,
+          "rhodes_hammer_tip": -1.2085,
+          "rhodes_pickup_position": 0.705
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ],
+      "rhodes_electric": [
+        "keyboard_technique",
+        "rhodes_model"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "acoustic_om_technique": "om_fingerpicked",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "rhodes_model": "rhodes_mark1_stage",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

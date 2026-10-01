@@ -1,0 +1,187 @@
+{
+  "id": "indie_folk_italiano",
+  "name": "Indie folk italiano",
+  "family": "vernacular",
+  "lineage": "Indie folk italiano is a contemporary discovery network encompassing several Italian songwriter and ensemble approaches. Eugenio in Via Di Gioia’s Turin street-performance roots and subsequent band records supply a documented folk-pop branch.",
+  "recipe": "classic modern indie folk italiano, ballad Poetry, indie folk branch. thick, incomplete closure resting, straight onset, neutral third half flat. acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, electric bass, pre muffled edge muffled drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 441,
+  "score": 59.557,
+  "config": {
+    "traditions": [
+      "indie_folk_italiano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 13.468,
+          "voice_quality": 1.4364999999999999,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.849,
+          "voice_articulation": -0.14,
+          "voice_microtone": 2.990000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 5.07,
+          "voice_speech_song": 5.915,
+          "voice_ensemble_config": -0.10500000000000001,
+          "voice_ornament_system": 2.4000000000000004,
+          "voice_pitch_organization": 0.105,
+          "voice_processing_chain": 1.8199999999999998,
+          "voice_multitrack_stack": 0.5985
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_strummed_open"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.45149999999999996,
+          "back_sides": 0.2415,
+          "string_acoustic": 0.5145,
+          "acoustic_om_technique": -0.035
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "japanese_1980s_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 4,
+          "grand_piano_size": 0.315,
+          "grand_piano_brand": 2.5145,
+          "piano_hammer": 2.4815,
+          "piano_rim": 2.45,
+          "piano_soundboard": 2.5235000000000003,
+          "piano_pinblock": -0.035,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 3.3149999999999995
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "tape_wound_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0.325,
+          "body_wood": 0.48299999999999993,
+          "pickup_config": 0.273,
+          "string_type": 0.47250000000000003,
+          "scale_length_b": 0.45149999999999996,
+          "fretted_or_not": 0.063,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 2.45,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "voice_ensemble_config": "voice_ensemble_parallel_thirds",
+      "acoustic_om_technique": "om_strummed_open",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

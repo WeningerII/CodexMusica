@@ -35,7 +35,8 @@
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "fingerstyle_walking",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 7.475,
@@ -44,7 +45,8 @@
           "string_type": 19.824999999999996,
           "scale_length_b": 0.78,
           "fretted_or_not": 0.45499999999999996,
-          "bass_technique": 15.294999999999998
+          "bass_technique": 15.294999999999998,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -61,7 +63,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 7.699999999999999,
@@ -75,7 +78,8 @@
           "bridge": 1.495,
           "scale_length": 0.39,
           "finish": 0,
-          "string_tuning": 3.38
+          "string_tuning": 3.38,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -117,12 +121,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_fast",
-          "vibe_mallets": "vibe_soft_mallets"
+          "vibe_mallets": "vibe_soft_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": -0.05,
           "vibe_motor": 15.249999999999998,
-          "vibe_mallets": 15.249999999999998
+          "vibe_mallets": 15.249999999999998,
+          "vibe_bar_material": 0
         }
       },
       {

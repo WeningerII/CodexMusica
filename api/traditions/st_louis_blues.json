@@ -126,7 +126,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "open_g"
+          "string_tuning": "open_g",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 4.405,
@@ -140,7 +141,8 @@
           "bridge": 0.045,
           "scale_length": 0.195,
           "finish": 0.045,
-          "string_tuning": 19.11
+          "string_tuning": 19.11,
+          "single_coil_pickup_construction": 0
         }
       }
     ],

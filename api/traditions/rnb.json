@@ -5,7 +5,7 @@
   "lineage": "The contemporary rhythm-and-blues tradition — smooth, vocal-led African-American popular music descended from soul and new jack swing",
   "recipe": "classic modern r&b, functional Song, soul R&B branch. thick, blues-shouter, wide pitch sway, narrative. drum machine analog, wavetable synth, gospel runs electric piano tine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 320,
-  "score": 82.031,
+  "score": 81.913,
   "config": {
     "traditions": [
       "rnb"
@@ -38,7 +38,7 @@
           "electronic_technique": 0.26,
           "wt_position": 0.39,
           "wt_family": 0.39,
-          "wt_polyphony": 0.363
+          "wt_polyphony": 0.39
         }
       },
       {
@@ -49,7 +49,7 @@
           "tine_effect": "overdrive_tine"
         },
         "scores": {
-          "keyboard_technique": 7.498999999999999,
+          "keyboard_technique": 7.464499999999999,
           "tine_voicing": 0.39,
           "tine_effect": 0.2415
         }
@@ -71,25 +71,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 10.784499999999998,
-          "voice_quality": 10.005999999999993,
+          "voice_register": 10.948999999999998,
+          "voice_quality": 9.953499999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3200000000000003,
+          "voice_vibrato": 3.305,
           "voice_articulation": 6.849999999999999,
           "voice_microtone": 3.7700000000000005,
-          "voice_tradition": 9.716249999999999,
+          "voice_tradition": 9.663749999999999,
           "voice_mechanism_compound": 0.39,
-          "voice_estill_quality": 7.177999999999999,
+          "voice_estill_quality": 6.904999999999999,
           "voice_speech_song": 5.915,
           "voice_ensemble_config": 3.9,
           "voice_ornament_system": 1.6899999999999997,
           "voice_pitch_organization": 0.22274999999999998,
-          "voice_processing_chain": 2.34,
+          "voice_processing_chain": 2.4585,
           "voice_multitrack_stack": 2.08
         }
       }

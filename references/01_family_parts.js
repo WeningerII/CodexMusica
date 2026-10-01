@@ -37,6 +37,7 @@ const INSTRUMENT_FAMILY_PARTS = {
       { id: 'acoustic_drone_modal', name: 'Drop-tuned drone', applies_to: ['acoustic_guitar_dread', 'acoustic_guitar_om', 'mandolin', 'mandola', 'mountain_dulcimer', 'cittern', 'autoharp'], descriptors: ['drone-like', 'modal'], match_tokens: ['acoustic-only', 'drone-foundation'], canonical_tags: ['celtic', 'britfolk'] },
       { id: 'acoustic_chord_melody', name: 'Chord-melody', applies_to: ['acoustic_guitar_dread', 'acoustic_guitar_om', 'acoustic_guitar_parlor', 'classical_nylon_string_guitar', 'mandolin', 'upright_bass'], descriptors: ['chord-melody'], match_tokens: ['acoustic-only', 'chordal', 'block-chord', 'lead-melody'], canonical_tags: ['jazz-canonical'] },
       { id: 'acoustic_clawhammer', name: 'Clawhammer / frailing', applies_to: ['acoustic_guitar_dread', 'acoustic_guitar_om', 'mountain_dulcimer'], descriptors: ['clawhammer', 'frailed'], match_tokens: ['acoustic-only'], canonical_tags: ['old-time', 'appalachian'] },
+      {"id":"acoustic_twelve_string_fingerpicked","name":"Fingerpicked twelve-string","descriptors":["fingerpicked"],"auto":false,"default":false,"applies_to":["acoustic_guitar_12_string"]},
     ] },
     // String tuning — what the open strings are tuned to. Standard tuning
     // is silent in the output (its descriptors are empty) but carries broad
@@ -85,7 +86,11 @@ const INSTRUMENT_FAMILY_PARTS = {
       { id: 'electric_bass_thumb_muted', name: 'Thumb-muted dub', applies_to: ['electric_bass', 'semi_hollow_bass'], descriptors: ['thumb-muted'], match_tokens: ['electric', 'muted', 'picked'], canonical_tags: ['reggae', 'dub'] },
       { id: 'electric_steel_pedal_swells', name: 'Pedal-steel volume swells', applies_to: ['pedal_steel'], descriptors: ['volume-swells', 'crying', 'steel'], match_tokens: ['electric', 'picked'], canonical_tags: ['country', 'pedal-steel'] },
 
-        {"id":"electric_sustained_loop","name":"Sustained guitar looping","applies_to":["electric_guitar_single_coil"],"descriptors":["sustained","looped","layered"],"auto":false}
+        {"id":"electric_sustained_loop","name":"Sustained guitar looping","applies_to":["electric_guitar_single_coil"],"descriptors":["sustained","looped","layered"],"auto":false},
+      {"id":"electric_two_hand_tapping","name":"Two-hand fretboard tapping","applies_to":["electric_guitar_single_coil","electric_guitar_humbucker"],"descriptors":["two-hand-tapped","articulated","clean"],"auto":false,"default":false},
+      {"id":"electric_bent_note_blues_lead","name":"Bent-note blues lead phrasing","applies_to":["electric_guitar_single_coil","electric_guitar_humbucker"],"descriptors":["bent-note-blues-lead","overdriven","singing"],"auto":false,"default":false},
+      {"id":"electric_electromagnetic_bow","name":"Handheld electromagnetic-bow sustain","applies_to":["electric_guitar_single_coil","electric_guitar_humbucker"],"descriptors":["electromagnetically-bowed","continuous-string-sustain","soft-onset"],"auto":false,"default":false},
+      {"id":"semi_overdriven_strum","name":"Driving overdriven strumming","descriptors":["overdriven-strum","driving","rhythmic"],"auto":false,"default":false,"applies_to":["semi_hollow"]},
       ] },
     // Amp make / archetype — which amplifier the electric instrument runs through.
     // Default is silent (amp_unspecified produces no descriptors) so the recipe
@@ -135,6 +140,7 @@ const INSTRUMENT_FAMILY_PARTS = {
       { id: 'wind_ornament_heavy', name: 'Ornament-heavy', applies_to: ['tin_whistle', 'tin_whistle_low', 'uilleann_pipes', 'biniou', 'highland_bagpipes', 'bombarde', 'recorder', 'gaida_bulgarian', 'gaita_galega', 'shawm', 'zurna', 'mizmar', 'ghaita', 'ciaramella', 'duduk', 'mey'], descriptors: ['ornamented'], match_tokens: ['wind-driven', 'heavy', 'low-end-heavy', 'articulated'], canonical_tags: ['celtic', 'irish-trad', 'baroque-leaning'] },
       { id: 'wind_circular_breathing_drone', name: 'Circular-breathing drone', applies_to: ['didgeridoo', 'didgeridoo', 'duduk', 'mey', 'launeddas'], descriptors: ['drone-like', 'circular-breathing'], match_tokens: ['wind-driven', 'drone-foundation', 'articulated'], canonical_tags: ['didgeridoo'] },
       { id: 'wind_call_blowing', default: true, name: 'Call-blowing (signal/ritual)', applies_to: ['shofar', 'kakaki', 'conch_shell_horn'], descriptors: ['call', 'ritual'], match_tokens: ['wind-driven', 'call-response', 'articulated'], canonical_tags: ['ceremonial', 'liturgical'] },
+      {"id":"wind_punchy_ensemble","name":"Punchy ensemble","applies_to":["tuba"],"descriptors":["fast-attack-transient","ensemble","horn-section"],"match_tokens":["wind-driven","punchy","articulated"],"canonical_tags":["r&b","afrobeat","soul"],"auto":false},
     ] },
   ],
 
@@ -155,6 +161,7 @@ const INSTRUMENT_FAMILY_PARTS = {
       { id: 'percussion_gated_isolation', name: 'Gated isolation', applies_to: ['drum_kit'], descriptors: ['gated', 'isolated'], match_tokens: ['percussive-attack'], canonical_tags: ['post-punk'] },
       { id: 'percussion_breakbeat_chopped', name: 'Breakbeat chopped', applies_to: ['drum_kit'], descriptors: ['chopped', 'sampled'], match_tokens: ['percussive-attack'], canonical_tags: ['hip-hop', 'jungle'] },
       { id: 'percussion_open_slap', name: 'Open / slap (hand-drum)', applies_to: ['congas', 'djembe', 'bongos', 'darbuka', 'timbales'], descriptors: ['open-slap', 'hand-drum'], match_tokens: ['open-chord-ringing-overtones', 'open-tuned', 'slappy', 'percussive-attack'], canonical_tags: ['afro', 'latin'] },
+      {"id":"vibraphone_four_mallet_chordal","name":"Four-mallet chordal jazz playing","auto":false,"applies_to":["vibraphone"],"descriptors":["four-mallet","chordal","melodic"],"match_tokens":["jazz-trained","jazz-improvisation","percussive-attack"],"canonical_tags":["jazz"]},
     ] },
   ],
 

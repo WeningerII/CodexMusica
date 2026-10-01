@@ -99,7 +99,8 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "d_standard"
+          "string_tuning": "d_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 17.25,
@@ -113,7 +114,8 @@
           "bridge": 0.195,
           "scale_length": 1.4949999999999999,
           "finish": 0,
-          "string_tuning": 10.924999999999999
+          "string_tuning": 10.924999999999999,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -125,7 +127,8 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 12.164999999999997,
@@ -134,7 +137,8 @@
           "string_type": 23.625,
           "scale_length_b": 1.39,
           "fretted_or_not": 0.15,
-          "bass_technique": 38.42
+          "bass_technique": 38.42,
+          "electric_bass_string_configuration": 0
         }
       },
       {

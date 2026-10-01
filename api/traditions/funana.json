@@ -5,7 +5,7 @@
   "lineage": "Santiago island Cape Verdean dance music, long rural and suppressed under Portuguese rule, brought into the electrified national repertoire after 1975 by Bulimundo, Finaçon and Ferro Gaita — built on a diatonic gaita accordion riff over a relentless ferrinho iron-scraper pulse at 120-160 BPM, with a two-beat bass and shouted Kriolu verses alternating strophic narrative and refrain.",
   "recipe": "classic Western European mid-1970s funaná, functional Song, tropical song branch, chanson fado morna, African pop functional song cape verdean batuko of santiago island sungura. extended whistle, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music accordion, snappy samba tradition metal construction reco reco, la bella flats Detroit soul bass canon electric bass, wenge ebony clean strummed single coil electric guitar, drum machine analog. intimate paris small studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
   "recipe_chars": 640,
-  "score": 221.085,
+  "score": 221.081,
   "config": {
     "traditions": [
       "funana",
@@ -29,7 +29,7 @@
           "accordion_reed_material": 0.34500000000000003,
           "musette_offset": 0.65,
           "reed_config": 0.7799999999999998,
-          "bellows": 0.09,
+          "bellows": 0.045,
           "voicing_chamber": 0.195,
           "accordion_maker_school": 3.185
         }
@@ -91,16 +91,18 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "slap_pop"
+          "bass_technique": "slap_pop",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.2344999999999997,
+          "amp_make": 2.2749999999999995,
           "body_wood": 0.6900000000000001,
           "pickup_config": 0.21450000000000002,
           "string_type": 2.0149999999999997,
           "scale_length_b": 0.65,
           "fretted_or_not": 1.4949999999999999,
-          "bass_technique": 1.4299999999999997
+          "bass_technique": 1.4299999999999997,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -117,7 +119,8 @@
           "bridge": "locking_trem",
           "scale_length": "scale_baritone",
           "finish": "nitro",
-          "string_tuning": "dadgad"
+          "string_tuning": "dadgad",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 8.82,
@@ -131,7 +134,8 @@
           "bridge": 1.4949999999999999,
           "scale_length": 0.845,
           "finish": 0.165,
-          "string_tuning": 1.4949999999999999
+          "string_tuning": 1.4949999999999999,
+          "single_coil_pickup_construction": 0
         }
       },
       {

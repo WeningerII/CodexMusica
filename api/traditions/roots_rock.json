@@ -66,7 +66,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_short",
           "finish": "oil_satin",
-          "string_tuning": "d_standard"
+          "string_tuning": "d_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 18.379999999999992,
@@ -80,7 +81,8 @@
           "bridge": 0.045,
           "scale_length": 0.65,
           "finish": 0.045,
-          "string_tuning": 20.345
+          "string_tuning": 20.345,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -92,7 +94,8 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 22.659999999999993,
@@ -101,7 +104,8 @@
           "string_type": 28.275,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.09,
-          "bass_technique": 26.785
+          "bass_technique": 26.785,
+          "electric_bass_string_configuration": 0
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "A Canadian psychedelic-rock network including Black Mountain, Elephant Stone, Pink Mountaintops and Tess Parks. The selected Black Mountain IV-era branch combines amplified riffs and live rhythm-section interaction with keyboard orchestration and vocal interplay.",
   "recipe": "classic modern canadian psychedelic rock, distorted Rock, experimental branch. one note per syllable, duet, live take. humbucker electric guitar, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter germanium fuzz wah / envelope filter.",
   "recipe_chars": 515,
-  "score": 39.893,
+  "score": 39.89,
   "config": {
     "traditions": [
       "canadian_psychedelic_rock"
@@ -29,14 +29,14 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.2,
+          "electric_technique": 0.26,
           "amp_make": 0,
           "body_wood": 0.063,
           "neck_wood": 0.063,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "pickup_winding": 0.33599999999999997,
-          "string_material": 0.5459999999999999,
+          "string_material": 0.5145,
           "bridge": 0.063,
           "scale_length": 0.126,
           "string_gauge": 0,
@@ -70,7 +70,8 @@
           "string_type": "roundwound_n",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
@@ -79,7 +80,8 @@
           "string_type": 0,
           "scale_length_b": 0.063,
           "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -103,7 +105,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.063,
           "shell_thickness": 0,
-          "bearing_edges": 0.9029999999999999,
+          "bearing_edges": 0.8714999999999999,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 8.744499999999999,

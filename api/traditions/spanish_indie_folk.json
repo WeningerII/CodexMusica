@@ -1,0 +1,197 @@
+{
+  "id": "spanish_indie_folk",
+  "name": "Spanish indie folk",
+  "family": "vernacular",
+  "lineage": "Spanish indie folk includes independent song projects rooted in different regions and languages. Joana Serrat’s Vic-based career and The Relief Sessions concert lineup provide one Catalan-connected folk-pop branch.",
+  "recipe": "classic modern spanish indie folk, ballad Poetry, indie folk branch. thick, breath veiled tone, continuous-phonation, neutral third half flat. acoustic clean strummed single coil electric guitar, melodic bowed song accompaniment cello, pre muffled edge muffled drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 408,
+  "score": 51.402,
+  "config": {
+    "traditions": [
+      "spanish_indie_folk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 14.218,
+          "voice_quality": 1.6899999999999997,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 1.105,
+          "voice_microtone": 3.380000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 1.755,
+          "voice_speech_song": 7.215,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 1.755,
+          "voice_pitch_organization": 0.105,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.5985
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
+          "string_acoustic": "silk_steel_om",
+          "acoustic_om_technique": "om_strummed_open"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0.45149999999999996,
+          "back_sides": 0.2415,
+          "string_acoustic": 0.5145,
+          "acoustic_om_technique": -0.035
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "hard_rock_maple_cello_back",
+          "cello_varnish": "modern_synthetic_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "brazilwood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "cello_strings": 0.273,
+          "cello_top_wood": -0.035,
+          "cello_back_wood": -0.035,
+          "cello_varnish": -0.035,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.231,
+          "cello_rosin": 0.26,
+          "cello_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck",
+          "fretboard": "ebony_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 3.5465,
+          "amp_make": 1.0679999999999998,
+          "body_wood": 0.588,
+          "neck_wood": 0.2415,
+          "fretboard": 0.21,
+          "pickup_magnet": 0.21,
+          "string_material": 0.273,
+          "string_gauge": 0.45149999999999996,
+          "bridge": 0.2415,
+          "scale_length": 0.48299999999999993,
+          "finish": 0,
+          "string_tuning": 0.9659999999999999,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 3.2,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config"
+      ],
+      "acoustic_guitar_om": [
+        "acoustic_om_technique"
+      ],
+      "cello": [
+        "bowed_technique"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "legato_voice",
+      "acoustic_om_technique": "om_strummed_open",
+      "bowed_technique": "bowed_local_song_melody",
+      "electric_technique": "electric_clean_strummed",
+      "drum_technique": "sticks_rock",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

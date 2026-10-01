@@ -1,0 +1,240 @@
+{
+  "id": "garage_psych",
+  "name": "Garage psych",
+  "family": "rock_punk",
+  "lineage": "Garage-rooted psychedelic guitar-band practice associated with the late 2000s West Coast scene including Ty Segall, Oh Sees and White Fence. This model selects the fuzzed guitar-band branch rather than later piano/orchestral experiments.",
+  "recipe": "classic 2007-2009 garage psych, distorted Rock, experimental branch. equal tempered, solo with instrumental accompaniment. fuzzed riff driven single coil electric guitar, electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 415,
+  "score": 24.836,
+  "config": {
+    "traditions": [
+      "garage_psych"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.441,
+          "voice_articulation": 0,
+          "voice_microtone": 4.791500000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.0315,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0.063,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.1365
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_3",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "vintage_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 5.281500000000001,
+          "amp_make": -0.14,
+          "body_wood": 0.063,
+          "neck_wood": 0.5459999999999999,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "string_material": 0,
+          "string_gauge": 0,
+          "bridge": 0,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0.3,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "alder",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": -0.14,
+          "body_wood": 0.063,
+          "pickup_config": 0,
+          "string_type": 0.9029999999999999,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0,
+          "bass_technique": 4.45,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 4.5,
+          "drumhead": 0.363,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_passive_program_pultec",
+      "amp": "amp_american_tweed",
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "electric_technique": "electric_fuzz_riff",
+      "pickup_magnet": "alnico_3",
+      "string_material": "pure_nickel",
+      "bridge": "vintage_trem",
+      "scale_length": "scale_fender",
+      "string_tuning": "standard_tuning",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive",
+      "drumhead": "single_coated",
+      "drum_technique": "sticks_rock",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_unison_double_take",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "amp_make": "amp_american_fender_tweed",
+      "body_wood": "alder",
+      "fretboard": "rosewood_fb",
+      "string_gauge": "g_10",
+      "finish": "nitro"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_passive_program_pultec",
+    "chain_medium": "tape_15ips",
+    "chain_console": "colored",
+    "chain_fx": [
+      "digital_delay"
+    ],
+    "chain_amp": "amp_american_tweed",
+    "chain_amp_guitar": "amp_american_fender_tweed",
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

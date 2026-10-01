@@ -3,14 +3,14 @@
   "name": "Rock Cristiano",
   "family": "rock",
   "lineage": "Spanish-language Christian rock that took shape in Argentina and Mexico from the late 1980s, with Rescate forming in Buenos Aires in 1991 and Marcos Witt's CanZion label industrialising Latin worship recording out of Durango and Houston — mid-tempo 80-130 BPM guitar-band arrangements over pop-rock and rock-nacional forms, congregational-friendly diatonic progressions with a modulated final chorus, doubled distorted and clean guitars, and Spanish devotional or evangelistic lyrics delivered in a full chest voice with a large backing-vocal crowd.",
-  "recipe": "classic 1987-1989 rock cristiano, ritual Devotional, christian gospel branch, christian gospel pentecostal, regional distorted rock, pop rock functional song yacht rock folk rock. thick, declaimed, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric cedar koa phosphor bronze modern martin strummed dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, singing lead digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 960,
-  "score": 660.138,
+  "recipe": "classic 1987-1989 rock cristiano, ritual Devotional, christian gospel branch, christian gospel pentecostal, regional distorted rock, pop rock functional song yacht rock skiffle. thick, declaimed, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood clean humbucker electric cedar koa phosphor bronze modern martin strummed dreadnought acoustic guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, singing lead digital subtractive. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 930,
+  "score": 653.33,
   "config": {
     "traditions": [
       "rock_cristiano",
       "yacht_rock",
-      "folk_rock"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
@@ -34,93 +34,95 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 70.64750000000001,
-          "voice_quality": 14.725,
+          "voice_register": 70.77250000000001,
+          "voice_quality": 14.575,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.255000000000001,
-          "voice_articulation": 19.304999999999993,
-          "voice_microtone": 53.5,
-          "voice_tradition": 19.044999999999995,
-          "voice_mechanism_compound": 5.265000000000001,
-          "voice_estill_quality": 8.117500000000001,
-          "voice_speech_song": 22.424999999999997,
-          "voice_ensemble_config": 22.229999999999993,
+          "voice_vibrato": 11.504999999999999,
+          "voice_articulation": 20.345,
+          "voice_microtone": 56.37500000000001,
+          "voice_tradition": 16.744999999999997,
+          "voice_mechanism_compound": 5.720000000000001,
+          "voice_estill_quality": 5.3900000000000015,
+          "voice_speech_song": 23.464999999999996,
+          "voice_ensemble_config": 23.269999999999996,
           "voice_ornament_system": 8.65,
           "voice_pitch_organization": 1.3649999999999998,
-          "voice_processing_chain": 12.06,
-          "voice_multitrack_stack": 7.487500000000001
+          "voice_processing_chain": 11.21,
+          "voice_multitrack_stack": 6.687500000000001
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "mahogany_maple_cap",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_4_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 12.92,
-          "amp_make": 20.5175,
-          "body_wood": 3.14,
-          "neck_wood": 2.9,
-          "fretboard": 2.85,
-          "pickup_magnet": 0.195,
+          "electric_technique": 13.42,
+          "amp_make": 20.6425,
+          "body_wood": 2.4,
+          "neck_wood": 2.4,
+          "fretboard": 2.0500000000000003,
+          "pickup_magnet": 0.3,
           "pickup_winding": 0.105,
-          "string_material": 0.5399999999999999,
-          "bridge": 2.9,
-          "scale_length": 3.05,
-          "string_gauge": 3.0949999999999998,
-          "finish": 0,
-          "string_tuning": 21.252499999999998
+          "string_material": 0.39,
+          "bridge": 2.4,
+          "scale_length": 2.25,
+          "string_gauge": 2.4225,
+          "finish": 0.3,
+          "string_tuning": 20.302499999999995
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
+          "string_tuning": "eb_standard",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.27,
-          "string_tuning": 0.04999999999999999,
-          "top_wood": 3.05,
+          "acoustic_technique": 13.544999999999998,
+          "string_tuning": 0.925,
+          "top_wood": 2.25,
           "back_sides": 1.3900000000000001,
-          "string_acoustic": 4.38
+          "string_acoustic": 3.58
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 20.734999999999996,
-          "body_wood": 3.05,
+          "amp_make": 20.6425,
+          "body_wood": 2.25,
           "pickup_config": 1.48,
-          "string_type": 43.467499999999994,
-          "scale_length_b": 2.9,
+          "string_type": 41.092499999999994,
+          "scale_length_b": 2.1,
           "fretted_or_not": 0.24,
-          "bass_technique": 40.19499999999999
+          "bass_technique": 37.669999999999995,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -131,8 +133,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 39.42499999999999,
-          "drumhead": 11.45,
+          "drum_technique": 37.04999999999999,
+          "drumhead": 12.099999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -151,14 +153,14 @@
         },
         "scores": {
           "keyboard_technique": 12.594999999999999,
-          "grand_piano_size": 2.9,
-          "grand_piano_brand": 3.1999999999999997,
-          "piano_hammer": 20.019999999999996,
-          "piano_rim": 20.514999999999997,
-          "piano_soundboard": 11.555,
+          "grand_piano_size": 2.4,
+          "grand_piano_brand": 2.55,
+          "piano_hammer": 19.069999999999997,
+          "piano_rim": 19.564999999999998,
+          "piano_soundboard": 12.204999999999998,
           "piano_pinblock": 1.045,
           "piano_plate": 1.29,
-          "piano_pitch_standard": 5.9125
+          "piano_pitch_standard": 6.7124999999999995
         }
       },
       {
@@ -170,10 +172,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 5.85,
+          "choir_size": 6.4350000000000005,
           "choir_polyphonic_configuration": 2.4825,
-          "choir_regional_canonical_configuration": 5.192499999999999,
-          "choir_ensemble_repertoire": 2
+          "choir_regional_canonical_configuration": 5.6425,
+          "choir_ensemble_repertoire": 2.3499999999999996
         }
       },
       {
@@ -184,9 +186,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 12.574999999999998,
+          "electronic_technique": 13.374999999999996,
           "va_archetypes": 1.3900000000000001,
-          "digital_subtractive_context": 19.89
+          "digital_subtractive_context": 21.125
         }
       }
     ],

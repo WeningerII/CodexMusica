@@ -1,0 +1,311 @@
+{
+  "id": "galician_rock",
+  "name": "Galician rock",
+  "family": "rock_punk",
+  "lineage": "Galician rock represented by Vigo’s Siniestro Total, using the documented2005 studio arrangement of Bésame, soy gallego. This is a regional rock-song branch rather than an assumption that every Galician group uses bagpipes or folk percussion.",
+  "recipe": "classic galician rock, distorted Rock, regional branch. group vocals, live take. marshall plexi amp British rock amp single coil electric guitar, marshall plexi amp British rock amp semi hollow, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, saxophone, soft felt lacquer voiced 17 ply hard rock maple a 440 grand piano. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 433,
+  "score": 49.749,
+  "config": {
+    "traditions": [
+      "galician_rock"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 1.77925,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.6427499999999999
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "pine",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_10",
+          "bridge": "hardtail",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": -0.1,
+          "amp_make": 5.720000000000001,
+          "body_wood": 0.87325,
+          "neck_wood": 0.273,
+          "fretboard": 0.273,
+          "pickup_magnet": 0,
+          "string_material": 0.273,
+          "string_gauge": 0.87325,
+          "bridge": 0,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0.063,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "semi_hollow",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "semi_archetypes": "semi_es335",
+          "semi_hollow_pickup": "semi_dual_humbucker",
+          "semi_hollow_strings": "semi_pure_nickel",
+          "semi_hollow_context": "semi_hollow_indie"
+        },
+        "scores": {
+          "electric_technique": -0.1,
+          "amp_make": 5.720000000000001,
+          "semi_archetypes": -0.05,
+          "semi_hollow_pickup": 0.03899999999999999,
+          "semi_hollow_strings": 0,
+          "semi_hollow_context": 1.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "pick_motown",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 6.175,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0.39,
+          "bass_technique": 0.25,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell"
+        },
+        "scores": {
+          "drum_technique": 11.25,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.03899999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "sax_size": -0.15000000000000002,
+          "sax_reed": 0.063,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0.174,
+          "sax_technique": -0.15000000000000002,
+          "sax_maker_school": 0.30449999999999994
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 5.720000000000001,
+          "piano_rim": 5.720000000000001,
+          "piano_soundboard": 0.26,
+          "piano_pinblock": -0.05,
+          "piano_plate": -0.05,
+          "piano_pitch_standard": 1.625
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "pickup_magnet",
+        "string_material",
+        "bridge",
+        "string_tuning"
+      ],
+      "semi_hollow": [
+        "electric_technique",
+        "semi_archetypes",
+        "semi_hollow_pickup",
+        "semi_hollow_strings",
+        "semi_hollow_context"
+      ],
+      "electric_bass": [
+        "pickup_config",
+        "string_type",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "drumhead"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "electric_technique": "electric_clean_strummed",
+      "pickup_magnet": "alnico_5",
+      "string_material": "nickel_plated",
+      "bridge": "hardtail",
+      "string_tuning": "standard_tuning",
+      "semi_archetypes": "semi_es335",
+      "semi_hollow_pickup": "semi_dual_humbucker",
+      "semi_hollow_strings": "semi_pure_nickel",
+      "semi_hollow_context": "semi_hollow_indie",
+      "bass_technique": "pick_motown",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "drumhead": "single_coated",
+      "sax_size": "tenor_sax",
+      "sax_technique": "sax_honking_attack",
+      "wind_articulation": "wind_punchy_ensemble",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "keyboard_technique": "keyboard_block_chord_pop"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

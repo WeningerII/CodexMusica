@@ -1,0 +1,128 @@
+{
+  "id": "israeli_folk",
+  "name": "Israeli folk",
+  "family": "vernacular",
+  "lineage": "This archival discovery label includes Bustan Abraham alongside modern instrumental and spiritual-folk performers. Bustan Abraham’s oud-led ensemble work offers a specific collaborative branch rather than a universal ethnic or religious formula.",
+  "recipe": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 421,
+  "score": 19.465,
+  "config": {
+    "traditions": [
+      "israeli_folk"
+    ],
+    "instruments": [
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_thirteen",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_mahogany_body",
+          "oud_soundboard_wood": "oud_western_red_cedar_face",
+          "oud_string_material": "oud_brass_wound_bass"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.18150000000000002,
+          "oud_school": 0.12825,
+          "oud_strings": 1.14,
+          "oud_pick": 0.17962499999999998,
+          "oud_body_wood": 1.14,
+          "oud_soundboard_wood": 1.14,
+          "oud_string_material": 1.56525
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "alto_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "flute_size": 0.0045,
+          "flute_material": 1.14,
+          "flute_technique": 1.14,
+          "flute_maker_school": 1.200375
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "synthetic_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 1.14,
+          "upright_play": -0.05
+        }
+      },
+      {
+        "id": "bendir",
+        "slots": {
+          "bendir_snares": "bendir_no_snares",
+          "bendir_context": "bendir_world",
+          "bendir_shell_wood": "bendir_juniper_canonical",
+          "bendir_head": "bendir_synthetic_modern"
+        },
+        "scores": {
+          "bendir_snares": 2.823375,
+          "bendir_context": 0.305625,
+          "bendir_shell_wood": 2.191875,
+          "bendir_head": 1.14
+        }
+      }
+    ],
+    "pinned": {
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_pick"
+      ],
+      "flute": [
+        "wind_articulation"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ],
+      "bendir": [
+        "bendir_context"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "parlor",
+    "parts": {
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "oud_pick": "risha_plastic",
+      "wind_articulation": "wind_continuous_legato",
+      "upright_play": "pizz_upright",
+      "bendir_context": "bendir_world"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

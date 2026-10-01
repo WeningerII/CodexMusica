@@ -602,17 +602,13 @@ _EMPTY_HEAD_UNSTATED = (
 
 
 def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
-                heading=True, shared=False):
+                heading=True):
     """-> str, the tier-1 prompt: rewrite ONE flagged line.
 
     `prior` (M-236) is the previous round's rejection of this line, rendered
     in the ATTEMPT block when `reasons` is empty; `heading=False` drops the
     three-line banner so `render_batch` can stack several lines' briefs
-    under one banner of its own. `shared=True` drops the whole draft and the
-    whole-draft findings, which `render_batch` prints ONCE above every
-    member (2026-09-30: a 15-line batch on a 40-line song was 265 KB,
-    because each member repeated both). All default to the prompt as it
-    was.
+    under one banner of its own. Both default to the prompt as it was.
 
     PURE and DETERMINISTIC — same inputs, byte-identical output, in any
     process (see `_ordered` for the set-iteration case doctrine 66 names).
@@ -685,10 +681,9 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
                    f"own word.")
     out.append("")
 
-    if not shared:
-        out.append(f"THE WHOLE DRAFT (context — only L{line_no} may change)")
-        out.extend(_draft_block(lines, focus=(line_no,)))
-        out.append("")
+    out.append(f"THE WHOLE DRAFT (context — only L{line_no} may change)")
+    out.extend(_draft_block(lines, focus=(line_no,)))
+    out.append("")
 
     out.append(f"WHAT THE GRADER FOUND ON L{line_no} ({len(findings)})")
     if any(f.code in {"SCHEME_UNREADABLE", "BAND_UNJUDGED", "PROMINENCE_UNDECIDED"}
@@ -705,7 +700,7 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         out.append("  (none recorded on this line)")
     out.append("")
 
-    if whole and not shared:
+    if whole:
         out.append(f"WHOLE-DRAFT FINDINGS — PRESERVE THESE CONSTRAINTS ({len(whole)})")
         out.extend(_whole_block(whole))
         out.append("")
@@ -946,13 +941,6 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     out.extend(_enforced_block(line_no, len(lines),
                                word_name=word_name, targets=targets))
     out.append("")
-
-    if shared:
-        # A BATCH MEMBER IS ANSWERED IN THE BATCH'S OWN SHAPE — one
-        # `L<n>: <line>` row per member, stated once above every brief. This
-        # block's "no line number" contradicted that shape under every member
-        # of every batch question until 2026-09-30.
-        return "\n".join(out[:-1])
 
     out.append("HOW TO ANSWER")
     out.append("  Send the line and nothing else: one line, no quotation "
@@ -1398,10 +1386,8 @@ def render_batch(briefs, lines, whole=(), priors=None):
                "them rhymes with, returns to, or")
     out.append("calls any of the others — so each can be rewritten on its "
                "own without moving the rest. Below is")
-    out.append("one brief per line: everything the grader measured on it "
-               "and the rules it will apply. The")
-    out.append("whole draft and the whole-draft findings are printed ONCE, "
-               "here, and hold for every line.")
+    out.append("one full brief per line: everything the grader measured on "
+               "it and the rules it will apply.")
     out.append("")
     out.append("ANSWER SHAPE — enforced, not advisory:")
     out.append(f"  one row per line, in this exact form, and NOTHING else "
@@ -1412,22 +1398,12 @@ def render_batch(briefs, lines, whole=(), priors=None):
                f"required; a missing, repeated or extra marker REFUSES the "
                f"whole answer and asks again.")
     out.append("")
-    out.append(f"THE WHOLE DRAFT (context — only "
-               f"{', '.join('L%d' % n for n in nos)} may change)")
-    out.extend(_draft_block(lines, focus=tuple(nos)))
-    out.append("")
-    whole = _ordered(whole or ())
-    if whole:
-        out.append(f"WHOLE-DRAFT FINDINGS — PRESERVE THESE CONSTRAINTS "
-                   f"({len(whole)})")
-        out.extend(_whole_block(whole))
-        out.append("")
     for b in briefs:
         n = getattr(b, "line_no", 0)
         out.append("═" * 8 + f" L{n} " + "═" * 8)
         out.append(render_line(b, lines, whole=whole, attempt=0,
                                reasons=None, prior=priors.get(n),
-                               heading=False, shared=True))
+                               heading=False))
         out.append("")
     return "\n".join(out)
 

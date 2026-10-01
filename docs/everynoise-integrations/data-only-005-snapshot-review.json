@@ -1,0 +1,511 @@
+{
+  "reviewed_ids": [
+    "blend_funk_jazz_fusion",
+    "blend_g_funk_west_coast",
+    "blend_uk_drill_brooklyn",
+    "boom_bap",
+    "british_invasion_rb",
+    "champeta_cartagenera",
+    "coupe_decale_ivorian",
+    "delta_blues",
+    "dubstep_140",
+    "early_rock_and_roll_50s",
+    "embolada",
+    "funk",
+    "g_funk",
+    "gangsta_rap",
+    "garage_house_paradise",
+    "gospel_quartet_male",
+    "gqom",
+    "hiplife",
+    "jackin_house",
+    "piedmont_fingerpicking",
+    "pre_sampling_hip_hop_1979_1985",
+    "sabar_drumming_wolof",
+    "salsa_colombiana",
+    "salsa_dura",
+    "tropical_bass",
+    "uk_drill",
+    "west_coast_hip_hop_classic",
+    "zouglou_ivorian",
+    "zydeco"
+  ],
+  "final_output_comparison": {
+    "old_count": 29,
+    "final_count": 29,
+    "same": [
+      "delta_blues",
+      "piedmont_fingerpicking",
+      "gospel_quartet_male",
+      "blend_funk_jazz_fusion",
+      "blend_uk_drill_brooklyn",
+      "blend_g_funk_west_coast",
+      "british_invasion_rb",
+      "g_funk",
+      "gangsta_rap",
+      "boom_bap",
+      "uk_drill",
+      "west_coast_hip_hop_classic",
+      "pre_sampling_hip_hop_1979_1985",
+      "dubstep_140",
+      "early_rock_and_roll_50s",
+      "funk",
+      "zydeco",
+      "embolada",
+      "sabar_drumming_wolof",
+      "garage_house_paradise",
+      "hiplife",
+      "gqom",
+      "tropical_bass",
+      "coupe_decale_ivorian",
+      "zouglou_ivorian",
+      "salsa_dura",
+      "salsa_colombiana",
+      "champeta_cartagenera",
+      "jackin_house"
+    ],
+    "changed": [],
+    "new": [],
+    "resolved": [],
+    "needs_review": {}
+  },
+  "scope": "29 individually reviewed differences under the unchanged optimizer; no test logic or old genre source changes. New-row physical corrections are recorded in release evidence.",
+  "reviews": {
+    "blend_funk_jazz_fusion": [
+      {
+        "id": "blend_funk_jazz_fusion",
+        "decision": "accept_tranche_delta",
+        "reason": "Both explicit funk/fusion_70s_electric sources and the full role union remain. Gospel soul is eligible under the existing soul/R&B cross-reference. Bass material, organ speed, sax articulation, piano rim and synth-detail compression are existing unpinned alternatives.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "funk",
+            "pin_parts": false
+          },
+          {
+            "id": "fusion_70s_electric",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "blend_g_funk_west_coast": [
+      {
+        "id": "blend_g_funk_west_coast",
+        "decision": "accept_tranche_delta",
+        "reason": "Both explicit blend sources remain. Deep funk replaces Cuban funk under the existing funk-percussive cross-reference. Vocal fry, slow rate and bass-string choices are pre-existing unpinned variants; sampler/808 detail is compressed.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "g_funk",
+            "pin_parts": false
+          },
+          {
+            "id": "west_coast_hip_hop_classic",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "blend_uk_drill_brooklyn": [
+      {
+        "id": "blend_uk_drill_brooklyn",
+        "decision": "accept_tranche_delta",
+        "reason": "Both explicit drill sources remain. Afrikaans hip hop replaces Brazilian hip hop under the pre-existing international-hip-hop cross-reference. The source role union remains; 808 detail is compressed without changing its instrument.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "uk_drill",
+            "pin_parts": false
+          },
+          {
+            "id": "brooklyn_drill",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "boom_bap": [
+      {
+        "id": "boom_bap",
+        "decision": "accept_tranche_delta",
+        "reason": "Gospel soul and doo-wop are eligible under the old soul/R&B cross-reference. The existing unpinned voice renders a blues-shouter/narrative choice; source voice, sample drums, bass, turntable and recording environment remain. This is acceptance of original optimization behavior, not a fresh historical claim that boom-bap is necessarily blues-shouted.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "boom_bap",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "british_invasion_rb": [
+      {
+        "id": "british_invasion_rb",
+        "decision": "accept_fixture_delta",
+        "reason": "Mexican blues is a valid member of unchanged bluesElectric cross-reference; the blues-shouter voice, laminated archtop top and brushes/sticks are pre-existing unpinned options. No instrument menu/default changed. Separate new Mexican harmonica subtype contradiction needs source correction."
+      }
+    ],
+    "champeta_cartagenera": [
+      {
+        "id": "champeta_cartagenera",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["mcRhythm.afroDiasporic"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The same old Afro-diasporic MC cross-reference now selects hip hop galsen instead of kwaito. Existing unpinned voice vibrato wording changes straight onset to straight note core. Guitar/bass/TR-808, room and signal chain are unchanged.",
+        "real_new_data_error": null
+      }
+    ],
+    "coupe_decale_ivorian": [
+      {
+        "id": "coupe_decale_ivorian",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["coupe_decale_ivorian", "merenrap", "kwaito"],
+        "new_neighbors": ["coupe_decale_ivorian", "hip_hop_galsen", "merenrap"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_pitch_organization",
+            "voice_pitch_just_intonation",
+            "voice_pitch_meantone_quarter_comma"
+          ],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_stutter_edit",
+            "voice_processing_vocoder_16_band"
+          ],
+          ["electric_bass", "body_wood", "alder_b", "mahogany_b"],
+          ["electric_bass", "pickup_config", "humbucker_mm", "soapbar"],
+          ["electric_bass", "fretted_or_not", "fretted", "fretless"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "delta_blues": [
+      {
+        "id": "delta_blues",
+        "decision": "accept_fixture_delta",
+        "reason": "Only traditional-blues neighbor changes to Belgian blues. New Belgian singer/acoustic-guitar branch is correctly in the unchanged bluesAcoustic cross-reference; instrumentation/settings text is unchanged."
+      }
+    ],
+    "dubstep_140": [
+      {
+        "id": "dubstep_140",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["mcRhythm.intlHipHop"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The old international-hip-hop cross-reference selects BC underground hip hop instead of UK grime, retaining trap funk. Existing sampler wording adds pitched. No source membership, room or instrument roster changes; BC underground hip hop is an appropriate international-hip-hop neighbor category, not a new claim of Canadian origin for dubstep.",
+        "real_new_data_error": null
+      }
+    ],
+    "early_rock_and_roll_50s": [
+      {
+        "id": "early_rock_and_roll_50s",
+        "decision": "accept_fixture_delta",
+        "reason": "Mexican blues replaces Chicago blues within the unchanged electric-blues pool. Gut upright-bass and sax legato/material choices are existing unpinned options. The already-recorded blackface/1960s amplifier caveat persists, not newly introduced. Separate Mexican source contradiction is not a wrong cross-reference."
+      }
+    ],
+    "embolada": [
+      {
+        "id": "embolada",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["embolada", "kwaito", "trinibad"],
+        "new_neighbors": ["embolada", "cameroonian_hip_hop", "hip_hop_galsen"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_tradition",
+            "yoruba_tonal_vocal_tradition",
+            "scottish_gaelic_taladh_tradition"
+          ],
+          ["voice", "voice_estill_quality", "voice_estill_nasal_twang", "voice_estill_opera"],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_melodyne_microtuned",
+            "voice_processing_plate_reverb_medium"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "funk": [
+      {
+        "id": "funk",
+        "decision": "accept_fixture_delta",
+        "reason": "Only southern soul changes to gospel soul through the existing soulRb cross-reference. Annie and the Caldwells is correctly scoped to soul/gospel band practice. The old A100 description and other details are unchanged, not repaired or newly introduced."
+      }
+    ],
+    "g_funk": [
+      {
+        "id": "g_funk",
+        "decision": "accept_tranche_delta",
+        "reason": "Deep funk joins eligible funk-percussive neighbors; source voice/drums/synth/bass/talkbox and environment remain. The original unpinned bass amp/body choices move between existing SVT/B15 and wood options.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "g_funk",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "gangsta_rap": [
+      {
+        "id": "gangsta_rap",
+        "decision": "accept_tranche_delta",
+        "reason": "Bronx and Buffalo hip hop are eligible under the unchanged East/West-Coast cross-references. Voice onset, sampler workflow, synth wording and bass material/string details change within existing unpinned options; source roles and environment remain.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "gangsta_rap",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "garage_house_paradise": [
+      {
+        "id": "garage_house_paradise",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["functionalSong.soulRb"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The old soul/R&B cross-reference selects classic soul instead of doo-wop. Unpinned pre-existing Hammond A-100 and grand-piano construction choices replace other existing options, while lead-synth wording compresses. The odd Asian era prefix was already present in expected output; it is not new geography data.",
+        "real_new_data_error": null
+      }
+    ],
+    "gospel_quartet_male": [
+      {
+        "id": "gospel_quartet_male",
+        "decision": "accept_fixture_delta",
+        "reason": "Family gospel is correctly parented in the unchanged southernGospel cross-reference. The legacy unpinned choir optimizer exchanges one unrelated regional configuration (Andean) for another (Sardinian); neither originates in the new family-gospel source, which has no choir_ensemble. Accept the data-addition fixture delta under the agreed unpinned policy, while retaining this legacy output caveat and separate family-gospel source-setting concern."
+      }
+    ],
+    "gqom": [
+      {
+        "id": "gqom",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["gqom", "merenrap", "merengue_de_calle"],
+        "new_neighbors": ["gqom", "merenrap", "ghanaian_hip_hop"],
+        "changed_slots": [
+          ["voice", "voice_quality", "aspirated_voice", "rap_voice"],
+          ["voice", "voice_estill_quality", "voice_estill_nasal_twang", "voice_estill_speech"],
+          [
+            "drum_machine_808",
+            "tr808_production_origin",
+            "tr808_tr_8s_modern",
+            "tr808_behringer_clone"
+          ],
+          ["analog_poly_synth", "poly_voices", "poly_8_voice", "poly_5_voice"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "hiplife": [
+      {
+        "id": "hiplife",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["hiplife", "kwaito", "merenrap"],
+        "new_neighbors": ["hiplife", "kwaito", "ghanaian_hip_hop"],
+        "changed_slots": [["voice", "voice_register", "vocal_fry", "chest_voice"]],
+        "unresolved": []
+      }
+    ],
+    "jackin_house": [
+      {
+        "id": "jackin_house",
+        "decision": "accept_fixture_delta",
+        "reason": "Deep funk enters the unchanged funkPercussive neighbor pool, correctly representing the rare-funk DJ/band scene. Straight-onset to slow-rate voice detail is an existing unpinned optimizer choice; drum machine, synth and chain remain unchanged."
+      }
+    ],
+    "piedmont_fingerpicking": [
+      {
+        "id": "piedmont_fingerpicking",
+        "decision": "accept_fixture_delta",
+        "reason": "Belgian blues replaces St Louis blues through the same broad acoustic-blues pool. All instrument, performance and chain text remains identical. This neighbor label does not claim Belgian ancestry for Piedmont blues."
+      }
+    ],
+    "pre_sampling_hip_hop_1979_1985": [
+      {
+        "id": "pre_sampling_hip_hop_1979_1985",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": [
+          {
+            "ref": "functionalSong.soulRb",
+            "voice_isolated": true
+          }
+        ],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The pre-existing voice-isolated soul/R&B cross-reference selects doo-wop instead of afro soul. Instrument and signal-chain strings are unchanged. The already present sampled-chopped turntable wording is inherited and is not a newly introduced sampler instrument.",
+        "real_new_data_error": null
+      }
+    ],
+    "sabar_drumming_wolof": [
+      {
+        "id": "sabar_drumming_wolof",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["sabar_drumming_wolof", "merenrap", "kwaito"],
+        "new_neighbors": ["sabar_drumming_wolof", "hip_hop_galsen", "cameroonian_hip_hop"],
+        "changed_slots": [
+          [
+            "voice",
+            "voice_multitrack_stack",
+            "voice_multitrack_2010s_melodyne_microtuned",
+            "voice_multitrack_single_lead"
+          ],
+          [
+            "talking_drum",
+            "talking_drum_head",
+            "talking_drum_antelope",
+            "talking_drum_goat_skin_canonical"
+          ]
+        ],
+        "unresolved": []
+      }
+    ],
+    "salsa_colombiana": [
+      {
+        "id": "salsa_colombiana",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["mcRhythm.afroDiasporic"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The old Afro-diasporic MC cross-reference selects hip hop galsen instead of kwaito. Existing unpinned voice alternatives change register/vibrato/microtone wording, including neutral-third text. This is not a newly added pitch option or edited salsa default; historical suitability of inherited automatic vocal language is not recertified.",
+        "real_new_data_error": null
+      }
+    ],
+    "salsa_dura": [
+      {
+        "id": "salsa_dura",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["mcRhythm.afroDiasporic"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "The existing Afro-diasporic MC cross-reference selects hip hop galsen instead of kwaito. Pre-existing piano rim/material choices change and brass-alloy descriptors no longer print. Instrument roster, percussion roles, room and chain persist. No new cultural or instrument setting was written into the source salsa row.",
+        "real_new_data_error": null
+      }
+    ],
+    "tropical_bass": [
+      {
+        "id": "tropical_bass",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["tropical_bass", "merenrap", "kwaito"],
+        "new_neighbors": ["tropical_bass", "merenrap", "ghanaian_hip_hop"],
+        "changed_slots": [
+          ["sampler_classic", "sampler_archetypes", "mpc_modern", "akai_s1000"],
+          ["digital_subtractive", "va_archetypes", "access_virus", "nord_lead"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "uk_drill": [
+      {
+        "id": "uk_drill",
+        "decision": "accept_tranche_delta",
+        "reason": "Afrikaans and Australian underground hip hop replace other eligible international-hip-hop neighbors. The instrument and environment portion remains unchanged; no new cross-reference is introduced.",
+        "source_and_extras_unchanged": true,
+        "pin_parts": [
+          {
+            "id": "uk_drill",
+            "pin_parts": false
+          }
+        ],
+        "source_roles_preserved": true,
+        "api_problems": []
+      }
+    ],
+    "west_coast_hip_hop_classic": [
+      {
+        "id": "west_coast_hip_hop_classic",
+        "source_tradition_unchanged": true,
+        "source_extras_unchanged": true,
+        "pin_parts": false,
+        "crossRefs": ["mcRhythm.usHipHop.gangsta"],
+        "classification": "permitted_existing_unpinned_optimization",
+        "reason": "Only sampler wording adds pitched; the same gangsta cross-reference and other instrument/environment text remain. This is an existing unpinned sampler variant/descriptor alternative, with no source or catalog-default change.",
+        "real_new_data_error": null
+      }
+    ],
+    "zouglou_ivorian": [
+      {
+        "id": "zouglou_ivorian",
+        "old_matches_expected": true,
+        "new_matches_actual": true,
+        "source_unchanged": true,
+        "pin_parts": false,
+        "old_neighbors": ["zouglou_ivorian", "kwaito", "merenrap"],
+        "new_neighbors": ["zouglou_ivorian", "hip_hop_galsen", "ghanaian_hip_hop"],
+        "changed_slots": [
+          ["voice", "voice_vibrato", "delayed_vibrato", "terminal_vibrato"],
+          [
+            "voice",
+            "voice_processing_chain",
+            "voice_processing_multiband_aggressive_broadcast",
+            "voice_processing_plate_reverb_medium"
+          ],
+          [
+            "voice",
+            "voice_multitrack_stack",
+            "voice_multitrack_2010s_melodyne_microtuned",
+            "voice_multitrack_pitched_sample_melodic_bed"
+          ],
+          ["electric_bass", "amp_make", "amp_modern_modeling", "amp_american_ampeg_svt"],
+          ["electric_bass", "body_wood", "alder_b", "mahogany_b"],
+          ["electric_bass", "scale_length_b", "extra_long_b", "short_scale_b"],
+          ["electric_guitar_single_coil", "body_wood", "mahogany", "pine"],
+          ["electric_guitar_single_coil", "string_gauge", "g_11", "g_10"],
+          ["electric_guitar_single_coil", "string_tuning", "dadgad", "drop_d"]
+        ],
+        "unresolved": []
+      }
+    ],
+    "zydeco": [
+      {
+        "id": "zydeco",
+        "decision": "accept_fixture_delta",
+        "reason": "Only the valid electric-blues neighbor label changes to Mexican blues. Accordion, frottoir, performance and chain are byte-identical. No newly authored false Zydeco origin or instrument choice."
+      }
+    ]
+  }
+}

@@ -3,14 +3,14 @@
   "name": "Samba Rock",
   "family": "global",
   "lineage": "Emerged in São Paulo's Black dance clubs and Rio studios in the mid-1960s, codified by Jorge Ben, Trio Mocotó and Bebeto, grafting American soul and rock backbeat guitar onto samba's 2/4 telecoteco: strummed nylon or semi-hollow guitar playing percussive rhythm-chords, electric bass on the samba surdo accent, pandeiro and cuíca alongside a drum kit, tamborim breaks, and shouted call-and-response Portuguese vocals at 100-120 BPM.",
-  "recipe": "classic Southern American 1964-1966 samba rock, groove Percussion, Brazilian branch, Brazilian song functional song, funk percussive groove percussion p-funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright dual p90 clean semi hollow, ampeg b15 amp American 60s bass amp flip top character alder ernie ball slinky electric bass, jazz-trained ride-driven brushes-and-sticks drum kit, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, nylon canonical rio carnival surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, Hammond a 100 built in Leslie home spinet ostinato fast tremolo tonewheel organ. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu.",
-  "recipe_chars": 979,
-  "score": 377.6,
+  "recipe": "classic Southern American 1964-1966 samba rock, groove Percussion, Brazilian branch, Brazilian song functional song, funk percussive groove percussion deep funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright dual p90 clean semi hollow, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, nylon canonical rio carnival surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, Hammond a 100 built in Leslie home spinet ostinato fast tremolo tonewheel organ. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ.",
+  "recipe_chars": 999,
+  "score": 353.192,
   "config": {
     "traditions": [
       "samba_rock",
       "funk",
-      "p_funk"
+      "deep_funk"
     ],
     "instruments": [
       {
@@ -20,15 +20,15 @@
           "amp_make": "amp_american_fender_blackface",
           "semi_archetypes": "semi_casino",
           "semi_hollow_pickup": "semi_dual_p90",
-          "semi_hollow_strings": "semi_flatwound_jazz",
+          "semi_hollow_strings": "semi_pure_nickel",
           "semi_hollow_context": "semi_hollow_indie"
         },
         "scores": {
           "electric_technique": 4.2,
-          "amp_make": 15.874999999999996,
-          "semi_archetypes": 4.254999999999999,
-          "semi_hollow_pickup": 19.174999999999997,
-          "semi_hollow_strings": 0.4875,
+          "amp_make": 19.499999999999996,
+          "semi_archetypes": 3.2549999999999994,
+          "semi_hollow_pickup": 16.899999999999995,
+          "semi_hollow_strings": 0,
           "semi_hollow_context": 1.2349999999999999
         }
       },
@@ -36,21 +36,23 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.014999999999999,
-          "body_wood": 1.95,
+          "amp_make": 9.139999999999999,
+          "body_wood": 2.145,
           "pickup_config": 0.195,
-          "string_type": 10.924999999999997,
-          "scale_length_b": 1.95,
+          "string_type": 8.424999999999999,
+          "scale_length_b": 2.145,
           "fretted_or_not": 3.65,
-          "bass_technique": 14.325
+          "bass_technique": 17.95,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -61,8 +63,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.889999999999993,
-          "drumhead": 1.95,
+          "drum_technique": 17.224999999999994,
+          "drumhead": 2.145,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -77,7 +79,7 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 0.4,
+          "percussion_technique": -0.1,
           "pandeiro_size": 5.459999999999999,
           "pandeiro_context": 1.69,
           "pandeiro_head": 2.8600000000000003,
@@ -95,7 +97,7 @@
           "cuica_head": "cuica_calfskin_canonical"
         },
         "scores": {
-          "percussion_technique": 0.4,
+          "percussion_technique": -0.1,
           "cuica_size": 5.459999999999999,
           "cuica_context": 1.625,
           "cuica_shell_material": 6.369999999999999,
@@ -123,8 +125,8 @@
           "tamborim_shell": "tamborim_aluminum_canonical"
         },
         "scores": {
-          "tamborim_skin": 2.33,
-          "tamborim_striker": 6.109999999999999,
+          "tamborim_skin": 1.83,
+          "tamborim_striker": 5.459999999999999,
           "tamborim_shell": 1.3
         }
       },
@@ -138,7 +140,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -146,25 +148,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 18.039999999999996,
-          "voice_quality": 25.219999999999988,
+          "voice_register": 12.064999999999998,
+          "voice_quality": 25.414999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 20.214999999999993,
-          "voice_microtone": 19.434999999999988,
-          "voice_tradition": 9.6,
-          "voice_mechanism_compound": 1.4949999999999999,
-          "voice_estill_quality": 7.045,
-          "voice_speech_song": 22.749999999999996,
-          "voice_ensemble_config": 20.669999999999995,
+          "voice_vibrato": 2.0799999999999996,
+          "voice_articulation": 17.549999999999994,
+          "voice_microtone": 16.769999999999992,
+          "voice_tradition": 7.930000000000001,
+          "voice_mechanism_compound": 1.04,
+          "voice_estill_quality": 4.495000000000001,
+          "voice_speech_song": 20.474999999999994,
+          "voice_ensemble_config": 16.89999999999999,
           "voice_ornament_system": 1.6899999999999997,
-          "voice_pitch_organization": 0.8999999999999997,
-          "voice_processing_chain": 12.369999999999997,
-          "voice_multitrack_stack": 5.98
+          "voice_pitch_organization": 0.7499999999999998,
+          "voice_processing_chain": 17.145,
+          "voice_multitrack_stack": 5.335
         }
       },
       {
@@ -175,15 +177,15 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_a100",
-          "leslie_cabinet_model": "leslie_760_solid_state"
+          "leslie_cabinet_model": "leslie_145_smaller"
         },
         "scores": {
-          "keyboard_technique": 14.375,
-          "drawbar_setting": 10.124999999999996,
-          "rotary_speed": 11.944999999999997,
-          "percussion_setting": 4.739999999999999,
-          "tonewheel_model": 10.985,
-          "leslie_cabinet_model": 0.585
+          "keyboard_technique": 18,
+          "drawbar_setting": 7.624999999999998,
+          "rotary_speed": 7.769999999999999,
+          "percussion_setting": 3.7399999999999993,
+          "tonewheel_model": 13.114999999999998,
+          "leslie_cabinet_model": 0.945
         }
       }
     ],

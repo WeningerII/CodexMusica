@@ -1,0 +1,405 @@
+{
+  "id": "cuban_funk",
+  "name": "Cuban funk",
+  "family": "blues_gospel",
+  "lineage": "Cuban funk joins funk-centered grooves with Cuban performance practices. This selected Cimafunk and La Tribu model draws on the Havana-based touring ensemble documented in 2022–2023: vocal lead, guitar, bass, drums, piano, saxophone, trombone, congas and handheld cowbell. Jazz in Marciac explicitly credits Machete on congas; Tom Ehrlich’s firsthand 2023 San Jose Jazz Festival photographs identify Miguel Piquero playing a handheld cowbell. These dated examples establish percussion roles without implying one fixed lineup or identical instrumentation on every recording.",
+  "recipe": "classic 2022-2023 cuban funk, groove Percussion, funk percussive branch. equal tempered, one note per syllable, solo with instrumental accompaniment, equal tempered 12 fixed pitch. midrange-forward clean chicken-scratch single coil electric guitar, pocket fingerstyle locked electric bass, drum kit, 17 ply hard rock maple a 440 modern pitch us standard grand piano, selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach 42 canonical American orchestral tenor trombone, oak staved canonical Cuban congas, handheld cencerro. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 761,
+  "score": 76.404,
+  "config": {
+    "traditions": [
+      "cuban_funk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 6.281499999999999,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.69,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0.063,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 0.105,
+          "voice_multitrack_stack": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_chicken_scratch",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 12.849499999999999,
+          "amp_make": 0,
+          "body_wood": 0.7454999999999999,
+          "neck_wood": 0.273,
+          "fretboard": -0.035,
+          "pickup_magnet": 0.0315,
+          "string_material": 0,
+          "string_gauge": 0,
+          "bridge": 0.063,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 0,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.7454999999999999,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 1.95,
+          "bass_technique": 12.891499999999999,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_motown",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.07,
+          "drumhead": 0.0315,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "grand_piano_size": 0.6405,
+          "grand_piano_brand": 0.0315,
+          "piano_hammer": -0.07,
+          "piano_rim": 1.56,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.625
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "sax_size": -0.035,
+          "sax_reed": 0,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0.063,
+          "sax_technique": 6.531499999999999,
+          "sax_maker_school": 5.468499999999999
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "cup_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": -0.07,
+          "trombone_type": 6.499999999999999,
+          "trombone_mouthpiece": -0.1,
+          "trombone_mute": 0,
+          "trombone_technique": 0.231,
+          "trombone_bell_metal": 0.4095,
+          "trombone_maker_school": 1.0079999999999998
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_cowhide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.07,
+          "conga_set": 0.105,
+          "conga_skin": 0.609,
+          "conga_shell_wood": 3.768
+        }
+      },
+      {
+        "id": "cencerro",
+        "slots": {
+          "cencerro_bell_type": "cencerro_bongo_bell",
+          "cencerro_context": "cencerro_timba_songo",
+          "cencerro_build": "cencerro_welded_steel"
+        },
+        "scores": {
+          "cencerro_bell_type": 2.5999999999999996,
+          "cencerro_context": 1.573,
+          "cencerro_build": 0.168
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead",
+        "drum_kit_kick_pedal"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "congas": [
+        "percussion_technique",
+        "conga_set",
+        "conga_skin",
+        "conga_shell_wood"
+      ],
+      "cencerro": [
+        "cencerro_bell_type",
+        "cencerro_context",
+        "cencerro_build"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "tempered_voice",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "electric_technique": "electric_chicken_scratch",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_motown",
+      "drumhead": "single_coated",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_7_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "cup_mute_trb",
+      "trombone_technique": "tailgate_slide",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "percussion_technique": "percussion_hands_layered",
+      "conga_set": "conga_proper",
+      "conga_skin": "conga_cowhide",
+      "conga_shell_wood": "conga_oak_staved",
+      "cencerro_bell_type": "cencerro_bongo_bell",
+      "cencerro_context": "cencerro_timba_songo",
+      "cencerro_build": "cencerro_welded_steel"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "plate_reverb"
+    ]
+  }
+}

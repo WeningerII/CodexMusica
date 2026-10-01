@@ -5,7 +5,7 @@
   "lineage": "Platform-native pop that consolidated after 2018 as TikTok became the primary discovery channel — written and produced by bedroom auteurs and topline camps around a fifteen-second hook placed in the first eight seconds, typically 110-140 BPM with programmed 808 or trap-adjacent drums, a single sticky vocal motif stacked in octaves and thirds, minimal harmonic movement, and conversational close-miked lead vocals treated with hard tuning and short slap delay",
   "recipe": "classic late-2010s social media pop, functional Song, pop rock branch, pop experimental experimental electric, anglo singer song bedroom singer song, lofi experimental electric etherpop time lord rock. thick, breath veiled tone, interlocked note trading, equal tempered. lead plus dense cluster 5 part stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, singing lead wavetable synth, sampler drum machine, TR-808, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 637,
-  "score": 344.51,
+  "score": 344.765,
   "config": {
     "traditions": [
       "social_media_pop",
@@ -40,16 +40,16 @@
           "voice_effort": 0,
           "voice_vibrato": 0.26,
           "voice_articulation": 19.629999999999995,
-          "voice_microtone": 29.799999999999997,
-          "voice_tradition": 28.605,
+          "voice_microtone": 29.949999999999996,
+          "voice_tradition": 29.085,
           "voice_mechanism_compound": 3.8349999999999995,
-          "voice_estill_quality": 5.46,
+          "voice_estill_quality": 5.235,
           "voice_speech_song": 26.455,
           "voice_ensemble_config": 19.369999999999997,
-          "voice_ornament_system": 4.42,
+          "voice_ornament_system": 4,
           "voice_pitch_organization": 3.435000000000001,
-          "voice_processing_chain": 5.324999999999999,
-          "voice_multitrack_stack": 5.92
+          "voice_processing_chain": 5.279999999999999,
+          "voice_multitrack_stack": 6.055
         }
       },
       {
@@ -60,7 +60,7 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 3.185,
+          "multitrack_stack_density": 3.23,
           "multitrack_stack_era_aesthetic": -0.07,
           "multitrack_stack_processing": 1.4299999999999997
         }
@@ -74,10 +74,10 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 26.795,
+          "electronic_technique": 26.84,
           "wt_position": 1.4949999999999999,
           "wt_family": 0.845,
-          "wt_polyphony": 2.9450000000000003
+          "wt_polyphony": 2.99
         }
       },
       {
@@ -113,7 +113,7 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "fazioli",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
@@ -124,7 +124,7 @@
         "scores": {
           "keyboard_technique": 23.849999999999998,
           "grand_piano_size": 0.39,
-          "grand_piano_brand": 0.195,
+          "grand_piano_brand": 0.24,
           "piano_hammer": 23.805,
           "piano_rim": 23.7,
           "piano_soundboard": 23.895000000000003,

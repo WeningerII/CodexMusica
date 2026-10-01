@@ -3,14 +3,14 @@
   "name": "Cool jazz vocal",
   "family": "global",
   "lineage": "Late-1950s/60s cool-school West-Coast-jazz vocal aesthetic — Chet Baker (Sings, 1954), June Christy, Anita ODay, Julie London — restrained delivery, intimate microphone presence, small-group accompaniment, contrasted against the muscular East Coast hard bop of the same period",
-  "recipe": "classic North American 1957-1959 cool jazz vocal, improv On Frame, smooth vocal branch, Latin jazz improv on frame descarga ethio-jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator a 415 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 652,
-  "score": 375.022,
+  "recipe": "classic North American 1957-1959 cool jazz vocal, improv On Frame, smooth vocal branch, Latin jazz improv on frame jazz venezolano jazz cubano. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator a 415 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow legato saxophone. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 661,
+  "score": 290.981,
   "config": {
     "traditions": [
       "cool_jazz_vocal",
-      "descarga_cubana",
-      "ethio_jazz"
+      "jazz_venezolano",
+      "jazz_cubano"
     ],
     "instruments": [
       {
@@ -25,56 +25,56 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_ensemble_config": "voice_ensemble_solo_over_choral_drone",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 24.825,
-          "voice_quality": 14.475749999999994,
+          "voice_register": 20.024999999999995,
+          "voice_quality": 11.268749999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 24.601125000000003,
-          "voice_articulation": 7.735000000000001,
-          "voice_microtone": 23.625,
-          "voice_tradition": 29.396625,
-          "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 8.905000000000001,
-          "voice_ensemble_config": 8.060000000000002,
-          "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 7.876499999999998,
-          "voice_processing_chain": 6.0125,
-          "voice_multitrack_stack": 6.4350000000000005
+          "voice_vibrato": 20.636125,
+          "voice_articulation": 2.665000000000001,
+          "voice_microtone": 20.125,
+          "voice_tradition": 26.4875,
+          "voice_mechanism_compound": 1.0608749999999998,
+          "voice_estill_quality": 0.3,
+          "voice_speech_song": 3.250000000000001,
+          "voice_ensemble_config": 5.655000000000001,
+          "voice_ornament_system": 0.195,
+          "voice_pitch_organization": 0.345,
+          "voice_processing_chain": 4.4811250000000005,
+          "voice_multitrack_stack": 4.9399999999999995
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "yamaha_cfx",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_415_baroque"
         },
         "scores": {
-          "keyboard_technique": 2.6699999999999995,
-          "grand_piano_size": 0.26249999999999996,
-          "grand_piano_brand": 0.845,
-          "piano_hammer": 2.925,
-          "piano_rim": 3.12,
-          "piano_soundboard": 0.9099999999999999,
-          "piano_pinblock": 0.06499999999999999,
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.39225,
+          "grand_piano_brand": 0.39225,
+          "piano_hammer": 2.275,
+          "piano_rim": 2.6650000000000005,
+          "piano_soundboard": 0.325,
+          "piano_pinblock": -0.05,
           "piano_plate": 0.06499999999999999,
-          "piano_pitch_standard": 4.0625
+          "piano_pitch_standard": 3.065
         }
       },
       {
@@ -84,8 +84,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 23.875,
-          "upright_play": 23.875
+          "upright_strings": 20.375,
+          "upright_play": 20.375
         }
       },
       {
@@ -96,8 +96,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.9515,
-          "drumhead": 31.977375000000002,
+          "drum_technique": 20.42,
+          "drumhead": 28.085875,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -105,7 +105,7 @@
         "id": "saxophone",
         "slots": {
           "wind_articulation": "wind_cool_lyrical",
-          "sax_size": "tenor_sax",
+          "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
@@ -113,13 +113,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 6.544999999999999,
-          "sax_size": 1.7115,
-          "sax_reed": 0.845,
-          "sax_body_alloy": 24.070000000000004,
-          "sax_mouthpiece": 0.845,
-          "sax_technique": 23.875,
-          "sax_maker_school": 34.193625
+          "wind_articulation": 6.589999999999999,
+          "sax_size": 0.218625,
+          "sax_reed": 0.28500000000000003,
+          "sax_body_alloy": 20.42,
+          "sax_mouthpiece": 0.28500000000000003,
+          "sax_technique": 20.375,
+          "sax_maker_school": 27.722500000000004
         }
       }
     ],

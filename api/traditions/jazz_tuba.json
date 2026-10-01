@@ -1,0 +1,169 @@
+{
+  "id": "jazz_tuba",
+  "name": "Jazz tuba",
+  "family": "jazz",
+  "lineage": "Tuba-led jazz; selected Theon Cross saxophone/drums/tuba trio",
+  "recipe": "classic modern jazz tuba, improv On Frame, American jazz branch. bass line jazz-trained piston valves American school tuba, saxophone, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 348,
+  "score": 35.853,
+  "config": {
+    "traditions": [
+      "jazz_tuba"
+    ],
+    "instruments": [
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "tuba_pitch": "tuba_bbb",
+          "tuba_context": "tuba_jazz_bass",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "tuba_pitch": 0.06675,
+          "tuba_context": 6.24,
+          "tuba_bell_metal": 0.105,
+          "tuba_valve_system": 2.34,
+          "tuba_maker_school": 0.78
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_bebop_runs",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "sax_size": 0.19500000000000003,
+          "sax_reed": 0.21375,
+          "sax_body_alloy": -0.07,
+          "sax_mouthpiece": 0.3,
+          "sax_technique": -0.05,
+          "sax_maker_school": 0.357
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_round",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "hand_random_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 0.3,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.39,
+          "shell_thickness": 0,
+          "bearing_edges": 0.39,
+          "snare_wires": 0.147,
+          "cymbal_alloy": 11.246999999999998,
+          "cymbal_hammering": 11.67625,
+          "cymbal_lathing": 0.19500000000000003,
+          "cymbal_finish": 0
+        }
+      }
+    ],
+    "pinned": {
+      "tuba": [
+        "wind_articulation",
+        "tuba_pitch",
+        "tuba_context",
+        "tuba_bell_metal",
+        "tuba_valve_system",
+        "tuba_maker_school"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_punchy_ensemble",
+      "tuba_pitch": "tuba_bbb",
+      "tuba_context": "tuba_jazz_bass",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_piston_american",
+      "tuba_maker_school": "tuba_besson_british",
+      "sax_size": "tenor_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_bebop_runs",
+      "sax_maker_school": "sax_yamaha_custom",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_round",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "hand_random_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

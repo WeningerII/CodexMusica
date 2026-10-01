@@ -66,7 +66,8 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "eb_standard"
+          "string_tuning": "eb_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 13.305000000000003,
@@ -80,7 +81,8 @@
           "bridge": 0.65,
           "scale_length": 2.145,
           "finish": 0.045,
-          "string_tuning": 2.145
+          "string_tuning": 2.145,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -92,7 +94,8 @@
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "fingerstyle_walking"
+          "bass_technique": "fingerstyle_walking",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.0799999999999996,
@@ -101,7 +104,8 @@
           "string_type": 6.185,
           "scale_length_b": 2.145,
           "fretted_or_not": 0.195,
-          "bass_technique": 5.65
+          "bass_technique": 5.65,
+          "electric_bass_string_configuration": 0
         }
       },
       {

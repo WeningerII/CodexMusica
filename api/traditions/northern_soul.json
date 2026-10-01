@@ -85,7 +85,8 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 23.255,
@@ -94,7 +95,8 @@
           "string_type": 22.97,
           "scale_length_b": 1.69,
           "fretted_or_not": 0.9099999999999999,
-          "bass_technique": 14.52
+          "bass_technique": 14.52,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -111,7 +113,8 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 17.499999999999996,
@@ -125,7 +128,8 @@
           "bridge": 0.9099999999999999,
           "scale_length": 1.69,
           "finish": 0.045,
-          "string_tuning": 3.3149999999999995
+          "string_tuning": 3.3149999999999995,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -200,12 +204,14 @@
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
           "vibe_motor": "vibe_off",
-          "vibe_mallets": "vibe_hard_mallets"
+          "vibe_mallets": "vibe_hard_mallets",
+          "vibe_bar_material": "vibe_bar_material_unspecified"
         },
         "scores": {
           "percussion_technique": 0.375,
           "vibe_motor": 0,
-          "vibe_mallets": 0.195
+          "vibe_mallets": 0.195,
+          "vibe_bar_material": 0
         }
       }
     ],

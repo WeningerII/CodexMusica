@@ -3,14 +3,14 @@
   "name": "Post-punk",
   "family": "rock_punk",
   "lineage": "Late-1970s through early-1980s underground rock movement extending punk's rejection of rock-tradition conventions through more harmonic-and-rhythmic experimentation, dub-and-disco bass-and-rhythm sensibility, and intellectualized lyrical content — codified through Wire (Pink Flag 1977), Joy Division (Unknown Pleasures 1979), Gang of Four (Entertainment! 1979), The Fall, Public Image Ltd (Metal Box 1979), Magazine, Talking Heads (Remain in Light 1980)",
-  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock boston rock dance rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
-  "recipe_chars": 813,
-  "score": 365.22,
+  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock boston rock christian alternative rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
+  "recipe_chars": 795,
+  "score": 361.222,
   "config": {
     "traditions": [
       "post_punk",
       "boston_rock",
-      "dance_rock"
+      "christian_alternative_rock"
     ],
     "instruments": [
       {
@@ -25,30 +25,30 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 21.204999999999995,
-          "voice_quality": 4.485000000000001,
+          "voice_register": 20.604999999999993,
+          "voice_quality": 3.8350000000000013,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0399999999999998,
-          "voice_articulation": 12.804999999999994,
-          "voice_microtone": 21.174999999999997,
-          "voice_tradition": 4.16,
+          "voice_vibrato": 0.8449999999999999,
+          "voice_articulation": 13.454999999999993,
+          "voice_microtone": 20.924999999999997,
+          "voice_tradition": 5.005,
           "voice_mechanism_compound": 7.930000000000001,
-          "voice_estill_quality": 1.6249999999999998,
-          "voice_speech_song": 13.974999999999994,
-          "voice_ensemble_config": 16.81,
+          "voice_estill_quality": 1.0399999999999998,
+          "voice_speech_song": 15.274999999999993,
+          "voice_ensemble_config": 17.679999999999993,
           "voice_ornament_system": 1.9500000000000008,
-          "voice_pitch_organization": 1.755,
-          "voice_processing_chain": 6.96,
+          "voice_pitch_organization": 1.255,
+          "voice_processing_chain": 6.245,
           "voice_multitrack_stack": 6.780000000000001
         }
       },
@@ -66,7 +66,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 17.354999999999997,
@@ -77,10 +78,11 @@
           "pickup_magnet": 0.75,
           "string_material": 0.75,
           "string_gauge": 0.825,
-          "bridge": 0.195,
+          "bridge": 0.65,
           "scale_length": 1.6500000000000004,
           "finish": 0,
-          "string_tuning": 11.83
+          "string_tuning": 11.634999999999998,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -88,32 +90,34 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.1375,
+          "amp_make": 13.2925,
           "body_wood": 1.6500000000000004,
-          "pickup_config": 0,
-          "string_type": 25.675,
+          "pickup_config": 0.5,
+          "string_type": 25.1875,
           "scale_length_b": 0.825,
-          "fretted_or_not": 1,
-          "bass_technique": 34.5
+          "fretted_or_not": 0.65,
+          "bass_technique": 34.125,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.75,
-          "drumhead": 1.27,
+          "drum_technique": 19.375,
+          "drumhead": 0.9300000000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -127,9 +131,9 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.380000000000001,
-          "oscillator": 3.575,
-          "filter_topology": 3.575,
+          "electronic_technique": 2.7300000000000004,
+          "oscillator": 2.925,
+          "filter_topology": 2.925,
           "envelope": 1.3,
           "modulation": 0.105
         }
@@ -149,10 +153,10 @@
           "electric_technique": 17.354999999999997,
           "amp_make": 29.249999999999996,
           "baritone_use": 0.195,
-          "baritone_electric_tuning": 1.69,
-          "baritone_electric_scale": 3.53,
+          "baritone_electric_tuning": 1.885,
+          "baritone_electric_scale": 2.925,
           "baritone_electric_strings": 3.28,
-          "baritone_electric_pickup": 5.005
+          "baritone_electric_pickup": 4.16
         }
       }
     ],

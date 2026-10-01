@@ -27,7 +27,8 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 20.769499999999997,
@@ -41,7 +42,8 @@
           "bridge": 0.105,
           "scale_length": 2.145,
           "finish": 0,
-          "string_tuning": 4.615
+          "string_tuning": 4.615,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -53,7 +55,8 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 26.264,
@@ -62,7 +65,8 @@
           "string_type": 30.488,
           "scale_length_b": 3.19,
           "fretted_or_not": 0.105,
-          "bass_technique": 20.074999999999996
+          "bass_technique": 20.074999999999996,
+          "electric_bass_string_configuration": 0
         }
       },
       {

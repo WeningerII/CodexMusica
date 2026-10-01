@@ -3,14 +3,14 @@
   "name": "Champeta (Cartagena Afro-Colombian)",
   "family": "global",
   "lineage": "Afro-Colombian dance-music genre of Cartagena and the Colombian Caribbean coast, emerging in 1980s from synthesis of African soukous, juju, and highlife (transmitted through cassette-and-vinyl trade with Africa via maritime sailors) with local Colombian Caribbean costeño rhythmic-vocabulary. Performed at picós large mobile sound-systems in working-class barrios. Distinguished from cumbia by champeta's African-pop-derived (vs cumbia's indigenous-Afro-Spanish-syncretic) lineage.",
-  "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm merenrap kwaito. thick, rap, straight onset, interlocked note trading. clean strummed humbucker electric guitar, electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 396,
-  "score": 123.726,
+  "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm hip hop galsen merenrap. thick, rap, straight note core, interlocked note trading. clean strummed humbucker electric guitar, electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 408,
+  "score": 108.239,
   "config": {
     "traditions": [
       "champeta_cartagenera",
-      "merenrap",
-      "kwaito"
+      "hip_hop_galsen",
+      "merenrap"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "southern_african_bantu_vocal_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.395000000000002,
-          "voice_quality": 7.0525,
+          "voice_register": 4.440000000000002,
+          "voice_quality": 8.58,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.52,
-          "voice_articulation": 12.154999999999994,
-          "voice_microtone": 11.504999999999992,
-          "voice_tradition": 13.3115,
-          "voice_mechanism_compound": 6.305,
-          "voice_estill_quality": 6.11,
-          "voice_speech_song": 16.314999999999998,
-          "voice_ensemble_config": 11.439999999999994,
+          "voice_vibrato": 0.6499999999999999,
+          "voice_articulation": 9.62,
+          "voice_microtone": 8.97,
+          "voice_tradition": 8.415249999999999,
+          "voice_mechanism_compound": 5.264999999999999,
+          "voice_estill_quality": 5.069999999999999,
+          "voice_speech_song": 13.779999999999998,
+          "voice_ensemble_config": 9.49,
           "voice_ornament_system": 3.1200000000000014,
           "voice_pitch_organization": 0.39000000000000007,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 4.095000000000001
+          "voice_processing_chain": 3.8000000000000003,
+          "voice_multitrack_stack": 2.4700000000000006
         }
       },
       {
@@ -57,53 +57,55 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_soldano_slo100",
-          "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "body_wood": "mahogany_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "bridge": "string_thru",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_c"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 10.1815,
+          "electric_technique": 10.15,
           "amp_make": 1.45,
-          "body_wood": 0.195,
-          "neck_wood": 0.402,
-          "fretboard": 0.402,
+          "body_wood": 0.41025,
+          "neck_wood": 0.41025,
+          "fretboard": 0.195,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.29025,
-          "string_material": 0.702,
-          "bridge": 0.195,
-          "scale_length": 0.82725,
-          "string_gauge": 0.195,
+          "pickup_winding": 0.23025,
+          "string_material": 0.48524999999999996,
+          "bridge": 0.65,
+          "scale_length": 0.8205,
+          "string_gauge": 0.45499999999999996,
           "finish": 0,
-          "string_tuning": 0.78225
+          "string_tuning": 0.4155
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_modern_modeling",
-          "body_wood": "alder_b",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "roundwound_s",
-          "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
-          "bass_technique": "sub_bass_synth_blend"
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "sub_bass_synth_blend",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 0.26,
-          "body_wood": 0.39,
-          "pickup_config": 0.33525,
-          "string_type": 0.8422499999999999,
-          "scale_length_b": 0.42525,
-          "fretted_or_not": 0,
-          "bass_technique": 0.12999999999999998
+          "amp_make": 0.12999999999999998,
+          "body_wood": 0.8205,
+          "pickup_config": 0.27525,
+          "string_type": 0.9099999999999999,
+          "scale_length_b": 0.45524999999999993,
+          "fretted_or_not": 0.195,
+          "bass_technique": -0.035,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -114,9 +116,9 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 0.325,
-          "drum_machine_808_context": 5.806750000000001,
-          "tr808_production_origin": 0.29025
+          "tr808_voice": 1.17,
+          "drum_machine_808_context": 4.790000000000001,
+          "tr808_production_origin": 0.27525
         }
       }
     ],

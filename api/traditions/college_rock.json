@@ -3,20 +3,20 @@
   "name": "College Rock",
   "family": "rock",
   "lineage": "Named for the US campus radio format that broke it circa 1981-1989, centered on Athens GA, Minneapolis, Hoboken and Austin — R.E.M., the dB's, Hüsker Dü and The Replacements built jangling Rickenbacker-style arpeggios, mid-tempo 110-140 BPM backbeats, melodic countrapuntal bass, close two-part harmony, and mixed-low, often unintelligible vocals, tracked on modest budgets at regional studios such as Reflection and Nickel with tape and 80s inline desks.",
-  "recipe": "classic North American mid-1980s college rock, distorted Rock, alternative branch, punk distorted rock, pop rock folk rock mod revival. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric cedar phosphor bronze modern martin travis picked dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 843,
-  "score": 514.245,
+  "recipe": "classic North American mid-1980s college rock, distorted Rock, alternative branch, punk distorted rock, pop rock folk rock mod revival queercore. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric cedar phosphor bronze modern martin strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 823,
+  "score": 455.372,
   "config": {
     "traditions": [
       "college_rock",
-      "folk_rock",
-      "mod_revival"
+      "mod_revival",
+      "queercore"
     ],
     "instruments": [
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -27,21 +27,23 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 5.700000000000001,
-          "amp_make": 24.685,
-          "body_wood": 3.685,
-          "neck_wood": 3.685,
-          "fretboard": 3.6350000000000002,
+          "electric_technique": 12.825000000000001,
+          "amp_make": 31.285,
+          "body_wood": 3.035,
+          "neck_wood": 3.035,
+          "fretboard": 2.9850000000000003,
           "pickup_magnet": 1,
-          "string_material": 1.24,
-          "string_gauge": 3.88,
+          "string_material": 1.09,
+          "string_gauge": 3.185,
           "bridge": 2.04,
-          "scale_length": 4.03,
+          "scale_length": 3.185,
           "finish": 0.195,
-          "string_tuning": 16.185000000000002
+          "string_tuning": 13.780000000000001,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -53,16 +55,18 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.705,
-          "body_wood": 4.03,
+          "amp_make": 13.910000000000002,
+          "body_wood": 3.185,
           "pickup_config": 0.845,
-          "string_type": 33.275000000000006,
-          "scale_length_b": 3.685,
-          "fretted_or_not": 0.15,
-          "bass_technique": 34.07000000000001
+          "string_type": 28.65,
+          "scale_length_b": 3.035,
+          "fretted_or_not": 0.5,
+          "bass_technique": 36.545,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -73,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 28.250000000000004,
-          "drumhead": 4.825,
+          "drum_technique": 23.625,
+          "drumhead": 5.074999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -85,53 +89,53 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 47.71500000000002,
-          "voice_quality": 13.584999999999994,
+          "voice_register": 32.315000000000005,
+          "voice_quality": 12.934999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.510000000000001,
-          "voice_articulation": 18.914999999999996,
-          "voice_microtone": 32.92500000000001,
-          "voice_tradition": 15.504999999999995,
-          "voice_mechanism_compound": 5.135,
-          "voice_estill_quality": 6.090000000000001,
-          "voice_speech_song": 21.709999999999994,
-          "voice_ensemble_config": 19.629999999999995,
-          "voice_ornament_system": 0.19500000000000003,
-          "voice_pitch_organization": 0.7799999999999998,
-          "voice_processing_chain": 4.940000000000001,
-          "voice_multitrack_stack": 5.225
+          "voice_vibrato": 3.1200000000000006,
+          "voice_articulation": 17.484999999999996,
+          "voice_microtone": 28.549999999999997,
+          "voice_tradition": 8.495,
+          "voice_mechanism_compound": 10.075000000000001,
+          "voice_estill_quality": 3.6400000000000006,
+          "voice_speech_song": 19.239999999999995,
+          "voice_ensemble_config": 18.199999999999996,
+          "voice_ornament_system": 0.325,
+          "voice_pitch_organization": 0.9749999999999999,
+          "voice_processing_chain": 3.88,
+          "voice_multitrack_stack": 3.2825000000000006
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_travis_picking",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "open_d",
           "top_wood": "cedar",
           "back_sides": "mahogany_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.069999999999997,
-          "string_tuning": 1.3649999999999998,
-          "top_wood": 3.685,
+          "acoustic_technique": 6.1,
+          "string_tuning": 1.7899999999999998,
+          "top_wood": 3.035,
           "back_sides": 0.65,
-          "string_acoustic": 3.88
+          "string_acoustic": 3.185
         }
       },
       {
@@ -142,15 +146,15 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_760_solid_state"
+          "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 5.85,
-          "drawbar_setting": 28.445000000000007,
-          "rotary_speed": 29.240000000000006,
-          "percussion_setting": 14.690000000000001,
-          "tonewheel_model": 12.934999999999999,
-          "leslie_cabinet_model": 1.4300000000000002
+          "keyboard_technique": 5.6,
+          "drawbar_setting": 23.67,
+          "rotary_speed": 24.615000000000002,
+          "percussion_setting": 12.285000000000002,
+          "tonewheel_model": 10.985,
+          "leslie_cabinet_model": 0.78
         }
       }
     ],

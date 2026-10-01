@@ -565,6 +565,7 @@ const INSTRUMENTS = [
         { id: 'voice_pitch_georgian_non_tempered', auto: false, name: 'Georgian non-tempered triadic (pure-fifth anchored, neutral thirds)', descriptors: ['pure-fifth-anchored-chords', 'neutral-third-shading', 'near-equidistant-seconds', 'non-tempered-triadic-lock'], match_tokens: ['speech-derived', 'breathing', 'microtonal-bend', 'choir-blendable'], canonical_tags: ['georgian', 'caucasus', 'polyphonic-folk-chant'] },
 
         { id: 'voice_pitch_aural_relative', name: 'Performer-relative oral intonation', auto: false, descriptors: [ 'aurally-tuned' ], match_tokens: [ 'aurally-tuned' ] },
+      {"id":"voice_pitch_source_unspecified","name":"Pitch organization not specified by source","descriptors":[],"auto":false,"default":false},
       ] },
       { id: 'voice_processing_chain', surface: false, name: 'Processing chain (ordered, recording-era constitutive)', variants: [
         { id: 'voice_processing_unprocessed', default: true, name: 'Unprocessed natural-acoustic', descriptors: ['unprocessed-natural-acoustic'], match_tokens: ['speech-derived', 'breathing'] },
@@ -623,6 +624,7 @@ const INSTRUMENTS = [
 
         { id: 'voice_multitrack_live_ensemble', name: 'Live ensemble in one take; no overdub stack', auto: false, descriptors: [ 'live-take', 'ensemble' ], match_tokens: [ 'live-take', 'ensemble' ] },
       ] },
+      {"id":"voice_tessitura","name":"Voice tessitura / repertoire range","variants":[{"id":"voice_tessitura_source_unspecified","name":"Source unspecified","descriptors":[],"default":true,"auto":false},{"id":"voice_tessitura_bass","name":"Bass singing tessitura","descriptors":["bass-vocal-tessitura","low-singing-range"],"default":false,"auto":false},{"id":"voice_tessitura_bass_baritone","name":"Bass-baritone singing tessitura","descriptors":["bass-baritone-vocal-tessitura","low-to-middle-singing-range"],"default":false,"auto":false}]},
     ]
   },
   {
@@ -791,7 +793,11 @@ const INSTRUMENTS = [
         { id: 'archtop_bebop_lines', name: 'Bebop single-line', descriptors: ['single-line'], match_tokens: ['bebop-derived', 'jazz-trained', 'electric', 'plucked'], canonical_tags: ['bebop'] },
         { id: 'archtop_bossa_finger', name: 'Bossa fingerpicked', descriptors: ['fingerpicked'], match_tokens: ['electric', 'plucked'], canonical_tags: ['bossa'] },
         { id: 'archtop_chunk_chord', name: 'Western-swing chunk', descriptors: ['chunked', 'rhythm-comping'], match_tokens: ['chordal', 'block-chord', 'electric', 'plucked'], canonical_tags: ['western-swing'] },
-      ] },
+
+      {"id":"archtop_fuzz_riff","name":"Fuzz-driven archtop riff","descriptors":["fuzz-driven","riff-led"],"auto":false,"default":false}
+    ] },
+
+      {"id":"archtop_string_tuning","name":"String tuning / altered open setup","variants":[{"id":"archtop_tuning_source_unspecified","name":"Source-unspecified string tuning","descriptors":[],"default":true},{"id":"archtop_low_open_unspecified","name":"Low altered open tuning; exact pitches unspecified","descriptors":["low-altered-open-tuning"],"auto":false,"default":false}]}
     ]
   },
   {
@@ -847,6 +853,7 @@ const INSTRUMENTS = [
         { id: 'dual_single', name: 'Dual single-coils (J-style)', descriptors: ['scooped', 'growly', 'articulate'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
         { id: 'humbucker_mm', name: 'Single humbucker (MM-style)', descriptors: ['fast-attack-transient', 'focused-narrow-output', 'snappy'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
         { id: 'soapbar', name: 'Active soapbar', descriptors: ['full', 'hi-fi', 'modern'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
+      {"id":"split_plus_single","name":"Split-coil plus bridge single-coil (P/J)","descriptors":["split-plus-single-coil","passive","P-J-blend"],"auto":false,"default":false},
       ] },
       { id: 'string_type', surface: false, name: 'Strings', variants: [
         { id: 'roundwound_n', default: true, name: 'Roundwound nickel', descriptors: ['balanced', 'growly', 'articulate', 'nickel', 'roundwound'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
@@ -879,6 +886,7 @@ const INSTRUMENTS = [
         { id: 'fingerpicked_country_b', name: 'Fingerpicked country', descriptors: ['fingerpicked', 'narrative'], match_tokens: ['electric', 'low-register', 'foundational-bass'], canonical_tags: ['country'] },
         { id: 'sub_bass_synth_blend', name: 'Sub-bass synth blend', descriptors: ['layered', 'sub-heavy'], match_tokens: ['synthesized', 'electric', 'low-register', 'foundational-bass'], canonical_tags: ['modern'] },
       ] },
+      {"id":"electric_bass_string_configuration","name":"String configuration","variants":[{"id":"electric_bass_string_configuration_unspecified","name":"Source-unspecified string count","descriptors":[],"default":true},{"id":"electric_bass_five_string","name":"Five-string electric bass","descriptors":["five-string-electric-bass"],"auto":false,"default":false},{"id":"electric_bass_two_string_ea","name":"Two-string electric bass, low E–A pair","descriptors":["two-string-electric-bass","low-E-A-pair"],"auto":false,"default":false}]},
     ]
   },
   {
@@ -990,6 +998,7 @@ const INSTRUMENTS = [
         { id: 'open_d', name: 'Open D', descriptors: ['open-string-resonance', 'slide-blues-canonical'], match_tokens: ['electric', 'plucked', 'sustained'] },
         { id: 'open_e', name: 'Open E', descriptors: ['open-string-resonance', 'slide-blues-canonical'], match_tokens: ['electric', 'plucked', 'sustained'] },
         { id: 'dadgad', name: 'DADGAD', descriptors: ['modal-open-tuning', 'celtic-modal-canonical'], match_tokens: ['electric', 'plucked', 'sustained'] },
+      {"id":"b_standard","name":"B standard (five semitones down)","descriptors":["b-standard","five-semitones-down","low-register"],"auto":false,"default":false},
       ] },
     ]
   },
@@ -1050,6 +1059,7 @@ const INSTRUMENTS = [
         { id: 'semi_es355_bb_king', name: 'Gibson ES-355 (Varitone blues canon)', descriptors: ['es-355', 'varitone-switch'], match_tokens: ['electric', 'plucked', 'warmed'], canonical_tags: ['blues-rock'] },
         { id: 'semi_es175_gibson', name: 'Gibson ES-175 (jazz-leaning)', descriptors: ['es-175', 'jazz-leaning', 'laminated-maple'], match_tokens: ['electric', 'plucked', 'warmed'], canonical_tags: ['jazz'] },
         { id: 'semi_rickenbacker_330_360', name: 'Rickenbacker 330 / 360 (chime)', descriptors: ['rickenbacker', 'chimey', 'british-invasion'], match_tokens: ['electric', 'plucked'], canonical_tags: ['british-invasion'] },
+      {"id":"semi_hofner_verythin_ct","name":"Höfner Verythin CT shallow semi-hollow","descriptors":["shallow-semi-hollow","spruce-center-block","628-mm-scale"],"auto":false,"default":false},
       ] },
       { id: 'semi_hollow_pickup', surface: false, name: 'Pickup configuration', variants: [
         { id: 'semi_dual_humbucker', default: true, name: 'Dual humbucker (PAF / 57 Classic)', descriptors: ['dual-humbucker', 'paf-style', 'warm-mid'], match_tokens: ['electric', 'plucked'] },
@@ -1211,6 +1221,8 @@ const INSTRUMENTS = [
         { id: 'open_e', name: 'Open E', descriptors: ['open-string-resonance', 'slide-blues-canonical'], match_tokens: ['electric', 'plucked', 'treble-extended'] },
         { id: 'dadgad', name: 'DADGAD', descriptors: ['modal-open-tuning', 'celtic-modal-canonical'], match_tokens: ['electric', 'plucked', 'treble-extended'] },
       ] },
+
+      {"id":"single_coil_pickup_construction","name":"Single-coil pickup construction","variants":[{"id":"single_coil_construction_unspecified","name":"Source-unspecified single-coil construction","descriptors":[],"default":true},{"id":"p90_dogear_single_coil","name":"P-90 dog-ear single-coil","descriptors":["P-90-dog-ear-single-coil"],"auto":false,"default":false}]}
     ]
   },
   {
@@ -3819,6 +3831,7 @@ const INSTRUMENTS = [
         { id: 'sul_pont', name: 'Sul ponticello', descriptors: ['glassy', 'overtone-driven'], match_tokens: ['bowed', 'folk-tradition'] },
         { id: 'sul_tasto', name: 'Sul tasto', descriptors: ['flutey', 'low-overtone-bowing', 'breathy'], match_tokens: ['bowed', 'folk-tradition'] },
       ] },
+      {"id":"fiddle_string_configuration","name":"String configuration / low-range extension","variants":[{"id":"fiddle_string_configuration_unspecified","name":"Source-unspecified string configuration","descriptors":[],"default":true},{"id":"fiddle_five_string_low_c","name":"Five strings CGDAE, added low C","descriptors":["five-string-low-C-extension"],"auto":false,"default":false}]},
     ]
   },
   {
@@ -3930,6 +3943,7 @@ const INSTRUMENTS = [
         { id: 'hurdy_french_bal_folk', default: true, name: 'French bal-folk (Pignol / Tritonik luthier canon)', descriptors: ['french-bal-folk-pignol-tritonik'], match_tokens: ['bowed', 'drone-foundation'] },
         { id: 'hurdy_medieval_reconstruction', name: 'Medieval reconstruction (vielle à roue, pre-1500 canon)', descriptors: ['medieval-reconstruction-pre-1500'], match_tokens: ['bowed', 'drone-foundation', 'period-performance'] },
         { id: 'hurdy_hungarian_tekero', name: 'Hungarian tekerő variant', descriptors: ['hungarian-tekero-variant'], match_tokens: ['bowed', 'drone-foundation'] },
+      {"id":"hurdy_modern_medieval_folk","name":"Modern medieval-folk performance","descriptors":["song-accompaniment","drone-foundation","melodic"],"auto":false,"default":false},
       ] },
     ]
   },
@@ -4823,6 +4837,7 @@ const INSTRUMENTS = [
       { id: 'dholak_use', surface: false, name: 'Use', variants: [
         { id: 'dholak_wedding', name: 'Wedding / bhajan / qawwali', descriptors: ['rural', 'foundational', 'accessible'], match_tokens: ['percussive-attack', 'hands'] },
         { id: 'dholak_classical', default: true, name: 'Semi-classical / thumri accompaniment', descriptors: ['supporting', 'versatile', 'melodic'], match_tokens: ['classical', 'classical-trained', 'percussive-attack'] },
+      {"id":"dholak_folk_song","name":"Folk-song ensemble","descriptors":["supporting","rhythmic"],"auto":false,"default":false},
       ] },
       { id: 'dholak_construction', name: 'Construction', variants: [
         { id: 'dholak_mango', default: true, name: 'Mango / sheesham wood (canonical)', descriptors: ['traditional', 'low-fundamental-tuning', 'authentic', 'sheesham', 'rosewood', 'mango'], match_tokens: ['percussive-attack', 'hands'], canonical_tags: ['cites-app-ii'] },
@@ -4906,6 +4921,7 @@ const INSTRUMENTS = [
         { id: 'rim_clicks_dub', name: 'Rim-click reggae/dub', descriptors: ['rim-clicks'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['reggae', 'dub'] },
         { id: 'gated_isolation', name: 'Gated isolation', descriptors: ['gated', 'isolated'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['post-punk', '1980s'] },
         { id: 'machine_drum_program', name: 'Drum-machine programming', descriptors: ['programmed', 'quantized'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['electronic', 'hip-hop'] },
+      {"id":"blast_beat_single_strokes","name":"Single-stroke blast beat","descriptors":["blast-beat","rapid-alternating-kick-snare","cymbal-pulsed"],"auto":false,"default":false},
       ] },
       { id: 'shell_wood', surface: false, name: 'Shell material', variants: [
         { id: 'maple_shell', auto: false, name: 'Maple', descriptors: ['balanced', 'low-fundamental-tuning', 'all-purpose', 'maple'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
@@ -5887,6 +5903,7 @@ const INSTRUMENTS = [
         { id: 'vibe_medium_mallets', default: true, name: 'Medium', descriptors: ['versatile', 'articulate-low-distortion', 'standard'], match_tokens: ['mallets', 'sustained-tone'] },
         { id: 'vibe_hard_mallets', name: 'Hard rubber', descriptors: ['treble-extended', 'articulate', 'attack-forward', 'rubber'], match_tokens: ['mallets', 'sustained-tone'] },
       ] },
+      {"id":"vibe_bar_material","name":"Tone-bar material","variants":[{"id":"vibe_bar_material_unspecified","name":"Source-unspecified bar material","descriptors":[],"default":true},{"id":"vibe_aluminum_alloy_bars","name":"Aluminum-alloy tone bars","descriptors":["aluminum-alloy-bars","metal-bar-sustain"],"auto":false,"default":false}]},
     ]
   },
   {
@@ -6117,6 +6134,7 @@ const INSTRUMENTS = [
         { id: 'harmonica_hering_brazilian', name: 'Hering (Brazilian premium — Brazilian forró canon)', descriptors: ['hering-brazilian-premium-forro-canon'], match_tokens: ['wind-driven', 'reed-driven'] },
         { id: 'harmonica_suzuki_japanese', name: 'Suzuki (Japanese modern precision)', descriptors: ['suzuki-japanese-modern-precision'], match_tokens: ['wind-driven', 'reed-driven'] },
         { id: 'harmonica_seydel_german', name: 'Seydel (German premium stainless reedplate)', descriptors: ['seydel-german-premium-stainless-reedplate'], match_tokens: ['wind-driven', 'reed-driven'] },
+      {"id":"harmonica_maker_unspecified","name":"Maker not specified by source","auto":false,"descriptors":[],"match_tokens":[]},
       ] },
       { id: 'harmonica_tuning', surface: false, name: 'Tuning system', variants: [
         { id: 'harmonica_richter_canonical', default: true, name: 'Richter tuning (canonical 10-hole diatonic blues)', descriptors: ['richter-canonical-10-hole-diatonic-blues'], match_tokens: ['blues-derived', 'blues-inflected', 'wind-driven'] },
@@ -6146,6 +6164,7 @@ const INSTRUMENTS = [
         { id: 'harmonium_kirtan', name: 'Kirtan / bhajan accompaniment', descriptors: ['devotional', 'foundational'], match_tokens: ['bellows-driven', 'reed-driven', 'drone-foundation'] },
         { id: 'harmonium_qawwali', name: 'Qawwali ensemble', descriptors: ['drone-like', 'ecstatic'], match_tokens: ['bellows-driven', 'reed-driven', 'drone-foundation'] },
         { id: 'harmonium_classical', default: true, name: 'Hindustani classical', descriptors: ['vocal-supporting', 'classical'], match_tokens: ['classical-trained', 'bellows-driven', 'reed-driven', 'drone-foundation'] },
+      {"id":"harmonium_folk_song","name":"Folk-song accompaniment","descriptors":["song-accompaniment"],"auto":false,"default":false},
       ] },
     ]
   },
@@ -6204,6 +6223,7 @@ const INSTRUMENTS = [
         { id: 'melodeon_diatonic_celtic', default: true, name: 'Irish / Scottish session', descriptors: ['celtic'], match_tokens: ['bellows-driven', 'reed-driven'] },
         { id: 'melodeon_diatonic_morris', name: 'English Morris / country dance', descriptors: ['regional-traditional', 'communal'], match_tokens: ['bellows-driven', 'reed-driven'] },
         { id: 'melodeon_diatonic_french', name: 'French folk (musette-leaning)', descriptors: ['continental', 'distinctive-tone', 'regional'], match_tokens: ['bellows-driven', 'reed-driven'] },
+      {"id":"melodeon_diatonic_song_accompaniment","name":"Folk-song accompaniment","descriptors":["song-accompaniment","melodic"],"auto":false,"default":false},
       ] },
     ]
   },
@@ -7393,6 +7413,7 @@ const INSTRUMENTS = [
         { id: 'tailgate_slide', default: true, name: 'Tailgate slides (Dixieland)', descriptors: ['glissando-heavy', 'smearing', 'traditional'], match_tokens: ['slide', 'wind-driven'] },
         { id: 'classical_trb', name: 'Classical legato', descriptors: ['sustaining', 'controlled', 'noble'], match_tokens: ['classical', 'classical-trained', 'wind-driven'] },
         { id: 'big_band_punch', name: 'Jazz-orchestra punch', descriptors: ['accented', 'rhythmic', 'section-locked'], match_tokens: ['punchy', 'wind-driven'] },
+      {"id":"trombone_jazz_single_line","name":"Modern jazz single-line phrasing","auto":false,"descriptors":["single-line","agile","legato"],"match_tokens":["jazz-trained","bebop-derived","wind-driven"],"canonical_tags":["jazz"]},
       ] },
       { id: 'trombone_bell_metal', surface: false, name: 'Bell metal', variants: [
         { id: 'trombone_yellow_brass', default: true, name: 'Yellow brass (canonical 70:30 — Bach 42 standard)', descriptors: ['yellow-brass-canonical-70-30-bach-42-standard'], match_tokens: ['wind-driven', 'classical-trained'] },
@@ -7480,6 +7501,7 @@ const INSTRUMENTS = [
         { id: 'tuba_orch', default: true, name: 'Orchestral', descriptors: ['foundation-bass', 'concert'], match_tokens: ['orchestral', 'wind-driven', 'low-register'] },
         { id: 'tuba_brass_band',name: 'Brass band', descriptors: ['British-tradition', 'ensemble-bass', 'standard', 'brass'], match_tokens: ['wind-driven', 'low-register'] },
         { id: 'tuba_concerto', name: 'Solo concerto', descriptors: ['twentieth-century', 'featured', 'modern-composed'], match_tokens: ['wind-driven', 'low-register'] },
+      {"id":"tuba_jazz_bass","name":"Jazz bass-line and melodic lead","auto":false,"descriptors":["bass-line","rhythmic","jazz-trained"],"match_tokens":["jazz-improvisation","percussive-attack","bass"]},
       ] },
       { id: 'tuba_bell_metal', surface: false, name: 'Bell metal', variants: [
         { id: 'tuba_yellow_brass', default: true, name: 'Yellow brass (canonical orchestral)', descriptors: ['yellow-brass-canonical-orchestral'], match_tokens: ['wind-driven', 'low-register'] },
@@ -7882,6 +7904,7 @@ const INSTRUMENTS = [
       { id: 'rhodes_use', surface: false, name: 'Use', variants: [
         { id: 'rhodes_jazz', default: true, name: 'Jazz chordal', descriptors: ['hammer-low-mid-emphasis', 'chordal', 'expressive'], match_tokens: ['jazz-trained', 'electric'] },
         { id: 'rhodes_soul', name: 'Soul / R&B', descriptors: ['hammer-low-mid-emphasis', 'vocal-supporting', 'foundational'], match_tokens: ['electric', 'warmed'] },
+      {"id":"rhodes_rock_texture","name":"Song-supporting rock keyboard texture","descriptors":["song-supporting","rock-context"],"auto":false,"default":false},
       ] },
       { id: 'rhodes_tine_material', surface: false, name: 'Tine material', variants: [
         { id: 'rhodes_torrington_tine', default: true, name: 'Torrington spring-steel tine (canonical Rhodes 1965-1984)', descriptors: ['torrington-spring-steel-tine-canonical-rhodes-1965-1984'], match_tokens: ['electric', 'warmed'] },
@@ -8067,6 +8090,8 @@ const INSTRUMENTS = [
       { id: 'wurlitzer_use', surface: false, name: 'Use', variants: [
         { id: 'wurlitzer_ray_charles', name: 'R&B / Soul', descriptors: ['nasal', 'barky', 'vintage'], match_tokens: ['electric', 'warmed'] },
         { id: 'wurlitzer_supertramp', default: true, name: '70s pop / rock', descriptors: ['nasal', 'character-rich', 'vintage'], match_tokens: ['electric', 'warmed'] },
+      {"id":"wurlitzer_rock_band_layer","name":"Electric-piano layer in an amplified rock band","descriptors":["reedy-electric-piano","band-layer","blended"],"auto":false,"default":false},
+      {"id":"wurlitzer_recorded_song","name":"Contemporary recorded song","descriptors":["song-accompaniment"],"auto":false,"default":false},
       ] },
       { id: 'wurlitzer_ep_voice', surface: false, name: 'Voice character', variants: [
         { id: 'wurlitzer_ep_bell', default: true, name: 'Bell-like attack', descriptors: ['characteristic', 'reed-tine'], match_tokens: ['electric', 'warmed'] },
@@ -8158,7 +8183,9 @@ const INSTRUMENTS = [
         { id: 'jupiter_8', name: 'Roland Jupiter-8', descriptors: ['overtone-rich-sustained', 'pad-suited'], match_tokens: ['electronic', 'analog', 'synthesized'] },
         { id: 'oberheim_obxa', name: 'Oberheim OB-Xa', descriptors: ['wide', 'rock-context', 'beefy'], match_tokens: ['electronic', 'analog', 'synthesized'] },
         { id: 'juno_60', name: 'Roland Juno-60/106', descriptors: ['accessible', 'classic-pad'], match_tokens: ['electronic', 'analog', 'synthesized'] },
-      ] },
+
+      {"id":"oberheim_obx","name":"Oberheim OB-X","descriptors":["OB-X","SEM-derived-analog-polyphonic"],"auto":false,"default":false}
+    ] },
       { id: 'poly_voices', surface: false, name: 'Voice count', variants: [
         { id: 'poly_5_voice', default: true, name: '5-voice', descriptors: ['vintage', 'analog-drift-character'], match_tokens: ['electronic', 'analog', 'synthesized'] },
         { id: 'poly_8_voice', surface: false, name: '8-voice', descriptors: ['overtone-rich-sustained', 'pad-suited', 'flagship'], match_tokens: ['electronic', 'analog', 'synthesized'] },
@@ -8438,12 +8465,18 @@ const INSTRUMENTS = [
         { id: 'rompler_context_pop_workstation', default: true, name: '90s workstation pop production', descriptors: ['radio-ready', 'sequenced'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['pop'] },
         { id: 'rompler_context_township_midi', name: 'Township / DIY MIDI dance production', descriptors: ['DIY-sequenced', 'preset-driven', 'high-tempo'], match_tokens: ['electronic', 'synthesized'] },
         { id: 'rompler_context_arranger_party', name: 'Arranger-keyboard party / wedding band', descriptors: ['auto-accompaniment', 'live-banquet', 'one-man-band'], match_tokens: ['electronic', 'synthesized'] },
+      {"id":"rompler_context_rock_band","name":"Rock-band keyboard layers","descriptors":["band-keyboard","textural","melodic"],"auto":false,"default":false},
+      {"id":"rompler_context_band_keyboard","name":"Keyboard voice within an ensemble","descriptors":[],"auto":false,"default":false},
       ] },
       { id: 'rompler_lineage', surface: false, name: 'Hardware lineage', variants: [
         { id: 'rompler_korg_m1_canonical', default: true, name: 'Korg M1 (canonical 1988-1995 — first mass-market workstation, 4 MB PCM ROM, universal preset canon)', descriptors: ['korg-m1-canonical-1988-1995-first-mass-market-workstation-4mb-pcm-rom-universal-preset-canon'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['vintage'] },
         { id: 'rompler_roland_jv_xp', name: 'Roland JV / XP series (1992-2000s — expandable PCM rack standard)', descriptors: ['roland-jv-xp-series-1992-2000s-expandable-pcm-rack-standard'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['vintage'] },
         { id: 'rompler_yamaha_psr_casio', name: 'Yamaha PSR / Casio home keyboard (1990s-2000s — GM auto-accompaniment, home and township studios)', descriptors: ['yamaha-psr-casio-home-keyboard-1990s-2000s-gm-auto-accompaniment-home-township-studios'], match_tokens: ['electronic', 'synthesized'] },
         { id: 'rompler_korg_pa_arranger', name: 'Korg Pa series arranger (2001-present — pro regional style banks, Balkan and Middle Eastern wedding circuits)', descriptors: ['korg-pa-series-arranger-2001-present-pro-regional-style-banks-balkan-middle-eastern-wedding-circuits'], match_tokens: ['electronic', 'synthesized'] },
+      {"id":"rompler_korg_m3_eds","name":"Korg M3 EDS sample-based workstation","descriptors":["pcm-multisample","velocity-layered","EDS-workstation"],"auto":false,"default":false},
+      {"id":"rompler_lineage_unspecified","name":"Sample-based workstation; make unspecified","descriptors":[],"auto":false,"default":false},
+      {"id":"rompler_kronos_hd1","name":"Korg Kronos HD-1 sample-playback layer","descriptors":["pcm-multisample","velocity-layered","HD-1-sample-playback"],"auto":false,"default":false},
+      {"id":"rompler_korg_triton_extreme","name":"Korg Triton Extreme (2004 PCM workstation / sampler)","descriptors":["pcm-workstation","sample-playback","multitimbral"],"auto":false,"default":false},
       ] },
     ]
   },
@@ -8515,7 +8548,9 @@ const INSTRUMENTS = [
         { id: 'pitched_kick', default: true, name: 'Pitched-and-stretched kick', descriptors: ['low-mid-thick', 'tuned'], match_tokens: ['electronic', 'sample-based', 'machine-quantized'] },
         { id: 'chopped_break', name: 'Chopped breakbeat', descriptors: ['rolling'], match_tokens: ['chopped', 'electronic', 'sample-based', 'machine-quantized'], canonical_tags: ['jungle'] },
         { id: 'one_shots_layered', name: 'Layered one-shots', descriptors: ['dense', 'hybrid', 'engineered'], match_tokens: ['layered', 'electronic', 'sample-based'] },
-      ] },
+
+      {"id":"sample_808_legato_slides","name":"808-style sample pitch slides","descriptors":["808-style","pitched","legato-glide","sub-bass","slide"],"auto":false,"default":false}
+    ] },
     ]
   },
   {
@@ -10213,11 +10248,15 @@ const INSTRUMENTS = [
     parts: [
       { id: 'cajon_peruano_construction', name: 'Construction', variants: [
         { id: 'cajon_peruano_open_back', default: true, name: 'Open-back wooden box (Afro-Peruvian original)', descriptors: ['wood', 'open-back', 'afro-peruvian-tradition', 'festejo-tradition', 'marinera-tradition'], match_tokens: ['percussive-attack', 'hands', 'afro-peruvian-tradition'] },
-      ] },
+
+      {"id":"cajon_peruano_unsnared_rear_port_box","name":"Unsnared wooden box with rear sound port","descriptors":["wood","unsnared","rear-sound-port"],"auto":false,"default":false}
+    ] },
       { id: 'cajon_peruano_role', name: 'Role', variants: [
         { id: 'cajon_peruano_festejo', default: true, name: 'Festejo accompaniment', descriptors: ['festejo-tradition', 'fast-syncopated'], match_tokens: ['percussive-attack', 'afro-peruvian-tradition'] },
         { id: 'cajon_peruano_marinera', name: 'Marinera accompaniment', descriptors: ['marinera-tradition', 'medium-paced'], match_tokens: ['percussive-attack', 'marinera-tradition'] },
-      ] },
+
+      {"id":"cajon_peruano_role_source_unspecified","name":"Recording role, regional pattern unspecified","descriptors":[],"auto":false,"default":false}
+    ] },
     ]
   },
 
@@ -11150,10 +11189,12 @@ const INSTRUMENTS = [
     parts: [
       { id: 'gajda_body', name: 'Body', variants: [
         { id: 'gajda_double_reed_chanter_drone_pipe_canonical', default: true, name: 'Bagpipe with double-reed chanter and drone-pipe (canonical Balkan herder)', descriptors: ['bagpipe-double-reed-chanter-drone-pipe-canonical-balkan'], match_tokens: ['wind', 'macedonian-tradition', 'bulgarian-tradition'] },
+      {"id":"gajda_single_reed_chanter_drone","name":"Single-reed chanter and drone","descriptors":["single-reed","drone-foundation"],"auto":false,"default":false},
       ] },
       { id: 'gajda_tradition', surface: false, name: 'Performance tradition', variants: [
         { id: 'gajda_macedonian_glasoechko_canonical', default: true, name: 'Macedonian Glasoechko and pastoral-dance accompaniment (canonical)', descriptors: ['macedonian-glasoechko-pastoral-dance-canonical'], match_tokens: ['wind', 'macedonian-tradition'] },
         { id: 'gajda_bulgarian_alt', name: 'Bulgarian pastoral-dance variant', descriptors: ['bulgarian-pastoral-dance-variant'], match_tokens: ['wind', 'bulgarian-tradition'] },
+      {"id":"gajda_macedonian_dance","name":"Macedonian instrumental dance","descriptors":["ornamented","dance-accompaniment"],"auto":false,"default":false},
       ] },
     ]
   },
@@ -13168,7 +13209,9 @@ const INSTRUMENTS = [
               "nola-context"
             ]
           }
-        ]
+        ,
+        {"id":"sousaphone_pop_funk_riff","name":"Pop/funk bass-hook accompaniment","descriptors":["riff-driven","bass-hook","pop-funk"],"auto":false,"default":false}
+      ]
       }
     ]
   },
@@ -14262,7 +14305,8 @@ const INSTRUMENTS = [
             "match_tokens": [
               "gospel-rooted"
             ]
-          }
+          },
+      {"id":"lap_steel_song_accompaniment","name":"Sliding song accompaniment","descriptors":["slide","sustained","song-accompaniment"],"auto":false,"default":false},
         ]
       }
     ]
@@ -14600,7 +14644,8 @@ const INSTRUMENTS = [
             "match_tokens": [
               "metal-context"
             ]
-          }
+          },
+      {"id":"bass_vi_melodic_counterpoint","name":"Melodic bass and chordal counterpoint","descriptors":["melodic","plucked","articulated","chordal"],"auto":false,"default":false},
         ]
       },
       {
@@ -18122,6 +18167,7 @@ const INSTRUMENTS = [
         { id: 'suona_guchui_band', default: true, name: 'Guchui / chuida wind-and-percussion band (weddings & funerals)', descriptors: ['celebratory', 'processional', 'raucous'], match_tokens: ['wind-driven', 'loud-projection', 'double-reed'], canonical_tags: ['china', 'folk-band'] },
         { id: 'suona_opera_bangzi', name: 'Northern clapper-opera accompaniment', descriptors: ['operatic', 'cutting', 'declamatory'], match_tokens: ['wind-driven', 'piercing', 'double-reed'], canonical_tags: ['china', 'opera'] },
         { id: 'suona_solo_showpiece', name: 'Virtuoso solo (circular breathing, bird-call imitation)', descriptors: ['virtuosic', 'imitative', 'flutter-tongued'], match_tokens: ['wind-driven', 'ornamented', 'double-reed'], canonical_tags: ['china', 'solo'] },
+      {"id":"suona_rock_ensemble","name":"Melodic lead in amplified rock ensemble","descriptors":["rock-context","melodic","projecting"],"auto":false,"default":false},
       ] },
       { id: 'suona_body', surface: false, name: 'Body wood / bell material', variants: [
         { id: 'suona_rosewood_copper', default: true, name: 'Hardwood (rosewood) body with flared copper bell', descriptors: ['rosewood-bodied', 'copper-belled', 'resonant'], match_tokens: ['double-reed', 'wind-driven'], canonical_tags: ['china'] },
@@ -19522,11 +19568,13 @@ const INSTRUMENTS = [
         { id: 'tammorra_grande', default: true, name: 'Tammorra (Campanian tammurriata drum)', descriptors: ['large-frame', 'deep-toned', 'campanian'], match_tokens: ['struck', 'frame-drum', 'low-boom'], canonical_tags: ['southern-italy', 'campania'] },
         { id: 'tammorra_tamburello_salentino', name: 'Tamburello (Salento pizzica)', descriptors: ['small-frame', 'bright', 'fast-whirring'], match_tokens: ['struck', 'frame-drum', 'jingle-shimmer'], canonical_tags: ['southern-italy', 'salento', 'puglia'] },
         { id: 'tammorra_tamburello_ciociaro', name: 'Central-Italian saltarello tamburello', descriptors: ['mid-frame', 'driving', 'central-italian'], match_tokens: ['struck', 'frame-drum', 'jingle-shimmer'], canonical_tags: ['central-italy', 'lazio', 'abruzzo'] },
+      {"id":"tammorra_tamburo_siciliano","name":"Sicilian hand-built frame drum","descriptors":["hand-struck","frame-drum"],"auto":false,"default":false},
       ] },
       { id: 'tammorra_context', name: 'Playing context / technique', variants: [
         { id: 'tammorra_tammurriata', default: true, name: 'Tammurriata trance-dance', descriptors: ['trance-pulse', 'thumb-rolled', 'festa'], match_tokens: ['struck', 'hand-struck', 'frame-drum'], canonical_tags: ['dance', 'ritual'] },
         { id: 'tammorra_pizzica_tarantata', name: 'Pizzica / tarantism healing rite', descriptors: ['fast-driving', 'relentless', 'healing-rite'], match_tokens: ['struck', 'hand-struck', 'frame-drum'], canonical_tags: ['dance', 'ritual'] },
         { id: 'tammorra_processione', name: 'Devotional processional (paranza)', descriptors: ['processional', 'devotional', 'steady-pulse'], match_tokens: ['struck', 'hand-struck', 'frame-drum'], canonical_tags: ['religious', 'outdoor'] },
+      {"id":"tammorra_sicilian_sung_story","name":"Sicilian sung storytelling","descriptors":["sung-narration","rhythmic"],"auto":false,"default":false},
       ] },
       { id: 'tammorra_head', surface: false, name: 'Head skin', variants: [
         { id: 'tammorra_pelle_capra', default: true, name: 'Goatskin head', descriptors: ['goatskin-head', 'warm', 'fire-tuned'], match_tokens: ['struck', 'frame-drum'], canonical_tags: ['natural-skin'] },
@@ -20477,11 +20525,13 @@ const INSTRUMENTS = [
         { id: 'quijada_burro_peruano', default: true, name: 'Donkey jawbone (quijada de burro, Peruvian coast)', descriptors: ['donkey-jawbone', 'sun-bleached', 'loose-molar-buzz', 'afro-peruvian-tradition'], match_tokens: ['struck', 'percussive-attack', 'rattle-buzz', 'afro-peruvian-tradition'] },
         { id: 'quijada_caballo', name: 'Horse jawbone (larger, deeper rattle)', descriptors: ['horse-jawbone', 'larger-frame', 'deeper-rattle'], match_tokens: ['struck', 'percussive-attack', 'rattle-buzz'] },
         { id: 'quijada_charrasca', name: 'Charrasca (Venezuelan / Mexican scraper-oriented form)', descriptors: ['charrasca', 'scraper-oriented', 'son-jarocho-tradition'], match_tokens: ['scraped', 'percussive-attack', 'rattle-buzz'] },
+      {"id":"quijada_donkey_unlocalized","name":"Donkey jawbone (unlocalized form)","descriptors":["jawbone-rattle"],"auto":false,"default":false},
       ] },
       { id: 'quijada_context', name: 'Playing context / stroke repertoire', variants: [
         { id: 'quijada_festejo_golpe', default: true, name: 'Festejo — fist strike (golpe) rattling the molars on off-beats', descriptors: ['fist-struck', 'off-beat-accents', 'festejo-tradition', 'molar-rattle'], match_tokens: ['struck', 'percussive-attack', 'rattle-buzz', 'afro-peruvian-tradition'], canonical_tags: ['festejo_afroperuano'] },
         { id: 'quijada_lando_raspado', name: 'Landó — strikes mixed with stick scrapes (raspado) along the tooth row', descriptors: ['scraped', 'stick-drawn', 'slow-groove', 'lando-tradition'], match_tokens: ['scraped', 'struck', 'percussive-attack', 'afro-peruvian-tradition'], canonical_tags: ['lando_afroperuano'] },
         { id: 'quijada_zamacueca_salon', name: 'Zamacueca / marinera limeña accompaniment (nineteenth-century roots)', descriptors: ['zamacueca-tradition', 'nineteenth-century', 'salon-roots'], match_tokens: ['struck', 'percussive-attack', 'rattle-buzz'] },
+      {"id":"quijada_mexican_rooted_americana","name":"Mexican-rooted Americana accompaniment","descriptors":["rhythmic","rattle"],"auto":false,"default":false},
       ] },
       { id: 'quijada_preparation', surface: false, name: 'Bone preparation', variants: [
         { id: 'quijada_boiled_sundried', default: true, name: 'Boiled and sun-dried, teeth loosened in their sockets (canonical)', descriptors: ['boiled-sun-dried-loose-teeth-canonical'], match_tokens: ['struck', 'percussive-attack', 'rattle-buzz', 'afro-peruvian-tradition'] },

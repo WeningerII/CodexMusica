@@ -1,0 +1,172 @@
+{
+  "id": "brass_band_pop",
+  "name": "Brass band pop",
+  "family": "pop",
+  "lineage": "Small brass-and-reed bands rework pop hooks and funk grooves into instrumental arrangements. Lucky Chops documents a New York ensemble of trumpet, trombone, saxophones, sousaphone and drums; its covers and originals place melodic hooks above a mobile wind-band rhythm section.",
+  "recipe": "classic modern brass band pop, functional Song, pop rock branch. yellow brass canonical 70 30 bach stradivarius shallow cup lead trumpet ensemble trumpet, yellow brass canonical 70 30 bach 42 standard student commercial trombone, yellow brass modern standard saxophone, riff driven bass hook pop funk sousaphone, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 509,
+  "score": 59.857,
+  "config": {
+    "traditions": [
+      "brass_band_pop"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 2.6915000000000004,
+          "brass_size": 0.0315,
+          "trumpet_mouthpiece": 1.625,
+          "brass_mute": 0.063,
+          "trumpet_technique": 2.6915000000000004,
+          "trumpet_bell_metal": 2.573,
+          "trumpet_maker_school": 0.504
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "valve_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_12c",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.6915000000000004,
+          "trombone_type": 0.294,
+          "trombone_mouthpiece": 12.590499999999999,
+          "trombone_mute": 0.063,
+          "trombone_technique": 1.5415,
+          "trombone_bell_metal": 2.573,
+          "trombone_maker_school": 0.504
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "baritone_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_honking_attack",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 2.6915000000000004,
+          "sax_size": 0.1365,
+          "sax_reed": 0,
+          "sax_body_alloy": 2.4625000000000004,
+          "sax_mouthpiece": 0.105,
+          "sax_technique": -0.15000000000000002,
+          "sax_maker_school": 0.1365
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_bb_contrabass",
+          "sousaphone_context": "sousaphone_pop_funk_riff"
+        },
+        "scores": {
+          "sousaphone_bore": 0.21,
+          "sousaphone_context": 7.93
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 3.7815,
+          "drumhead": 12.1915,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "brass_mute",
+        "trumpet_technique"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_mute",
+        "trombone_technique"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_mouthpiece",
+        "sax_technique"
+      ],
+      "sousaphone": [
+        "sousaphone_bore",
+        "sousaphone_context"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_mastering_clean_digital",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trombone_technique": "big_band_punch",
+      "sax_technique": "sax_honking_attack",
+      "brass_size": "trumpet_b_flat",
+      "brass_mute": "no_mute_brass",
+      "trombone_mute": "no_mute_trb",
+      "wind_articulation": "wind_punchy_ensemble",
+      "sax_size": "baritone_sax",
+      "sax_reed": "medium_reed",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sousaphone_bore": "sousaphone_bb_contrabass",
+      "sousaphone_context": "sousaphone_pop_funk_riff",
+      "drum_technique": "sticks_rock"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_mastering_clean_digital",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": []
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "id": "garage_rock_mexicano",
+  "name": "Garage rock mexicano",
+  "family": "rock_punk",
+  "lineage": "Mexican garage-rock discovery scope, represented by Los Dug Dug’s and Armando Nava’s guitar-band practice. Direct artist interviews connect the group to international garage/psychedelic scenes and document guitar, bass, drum and multi-instrumental branches.",
+  "recipe": "classic modern garage rock mexicano, functional Song, pop rock branch. pure, equal tempered, one note per syllable, solo with instrumental accompaniment. humbucker electric guitar, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 366,
+  "score": 43.829,
+  "config": {
+    "traditions": [
+      "garage_rock_mexicano"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.1335,
+          "voice_articulation": 0,
+          "voice_microtone": 13.088999999999997,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.0315,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 1.441,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0.0315,
+          "voice_pitch_organization": 0.231,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_4_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel",
+          "bridge": "string_thru",
+          "scale_length": "scale_fender_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 2.9255,
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "neck_wood": 0.2415,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0,
+          "bridge": 0.8365,
+          "scale_length": 0,
+          "string_gauge": 0.8995,
+          "finish": 0,
+          "string_tuning": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "pickup_config": 0,
+          "string_type": 0.29799999999999993,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 9.555,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 9.5705,
+          "drumhead": 0,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drumhead"
+      ]
+    },
+    "room": "live_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "tube_pre",
+      "console": "colored",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "electric_technique": "electric_fuzz_riff",
+      "pickup_magnet": "alnico_4_h",
+      "string_material": "pure_nickel",
+      "bridge": "string_thru",
+      "scale_length": "scale_fender_h",
+      "string_tuning": "standard_tuning",
+      "drumhead": "single_coated",
+      "drum_technique": "sticks_rock",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder",
+      "fretboard": "rosewood_fb_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "pickup_winding": "mid_wind",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_s",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "pick_aggressive"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "tube_pre",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "colored",
+    "chain_fx": [],
+    "chain_amp_guitar": "amp_unspecified",
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

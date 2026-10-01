@@ -5,7 +5,7 @@
   "lineage": "A retrospective Canadian rock discovery label, represented here by Rush’s early-1980s guitar/bass/drums and synthesizer integration. The selected model draws on the band’s account of developing Tom Sawyer and the producer’s description of Moving Pictures sessions.",
   "recipe": "classic 1980-1983 classic canadian rock, distorted Rock, progressive rock branch. solo with instrumental accompaniment. electric bass, humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, analog synth. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, marshall super lead 1959, SSL inline console, 1176 FET, SSL surgical EQ. Studer 30ips tape analog bucket-brigade delay.",
   "recipe_chars": 452,
-  "score": 47.996,
+  "score": 48.567,
   "config": {
     "traditions": [
       "classic_canadian_rock"
@@ -20,7 +20,8 @@
           "string_type": "roundwound_s",
           "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
@@ -29,7 +30,8 @@
           "string_type": 0.86175,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -50,7 +52,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.21125000000000002,
+          "electric_technique": 0.26,
           "amp_make": 0,
           "body_wood": 0.01875,
           "neck_wood": 0,
@@ -84,13 +86,13 @@
           "drum_technique": 13.25,
           "drumhead": 0.005625,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.337125,
+          "shell_wood": 0.37987499999999996,
           "shell_thickness": 0,
           "bearing_edges": 0.86175,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 13.469499999999998,
-          "cymbal_lathing": 13.16875,
+          "cymbal_hammering": 13.4545,
+          "cymbal_lathing": 13.200249999999999,
           "cymbal_finish": 0
         }
       },
@@ -104,10 +106,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 0.5678749999999999,
+          "electronic_technique": 0.6499999999999999,
           "oscillator": 0.39,
-          "filter_topology": 2.587625,
-          "envelope": 0.1995,
+          "filter_topology": 2.710625,
+          "envelope": 0.336,
           "modulation": 0
         }
       },
@@ -142,11 +144,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3735,
+          "voice_speech_song": 0.39,
           "voice_ensemble_config": 0.78,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.1365,
           "voice_multitrack_stack": 0.39
         }
       }

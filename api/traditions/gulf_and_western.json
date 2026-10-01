@@ -101,7 +101,8 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerpicked_country_b"
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 25.849999999999994,
@@ -110,7 +111,8 @@
           "string_type": 20.38,
           "scale_length_b": 2.34,
           "fretted_or_not": 0.09,
-          "bass_technique": 24.869999999999994
+          "bass_technique": 24.869999999999994,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -172,7 +174,8 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "d_standard"
+          "string_tuning": "d_standard",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 24.869999999999994,
@@ -186,7 +189,8 @@
           "bridge": 0.09,
           "scale_length": 1.8399999999999999,
           "finish": 0,
-          "string_tuning": 9.46
+          "string_tuning": 9.46,
+          "single_coil_pickup_construction": 0
         }
       }
     ],

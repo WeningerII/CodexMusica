@@ -1,0 +1,156 @@
+{
+  "id": "canadian_americana",
+  "name": "Canadian Americana",
+  "family": "vernacular",
+  "lineage": "Canadian musicians contribute to Americana’s interconnected folk, country and roots-rock practices. Great Lake Swimmers explicitly describe their live sound as intimate Americana; this default selects the country-colored part of their acoustic and electric palette.",
+  "recipe": "classic modern canadian americana, functional Song, americana branch. thick, breath veiled tone, straight note core, neutral third half flat. dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country sho bud pedal steel, upright bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 418,
+  "score": 116.002,
+  "config": {
+    "traditions": [
+      "canadian_americana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 14.162999999999995,
+          "voice_quality": 3.3800000000000017,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 9.662499999999998,
+          "voice_articulation": -0.14,
+          "voice_microtone": 3.380000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 10.418499999999998,
+          "voice_speech_song": 5.915,
+          "voice_ensemble_config": 3.5100000000000002,
+          "voice_ornament_system": 0.1365,
+          "voice_pitch_organization": 0.1365,
+          "voice_processing_chain": 1.231,
+          "voice_multitrack_stack": 1.5625
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": 0.2315,
+          "string_tuning": 0,
+          "top_wood": 0.168,
+          "back_sides": 0.0315,
+          "string_acoustic": 0.78
+        }
+      },
+      {
+        "id": "pedal_steel",
+        "slots": {
+          "electric_technique": "electric_steel_pedal_swells",
+          "amp_make": "amp_american_fender_blackface",
+          "pickup_steel": "humbucker_steel",
+          "string_setup": "standard_e9",
+          "bar_material": "steel_bar",
+          "pedal_steel_brand": "sho_bud_classic",
+          "pedal_steel_neck_config": "pedal_steel_single_neck_e9",
+          "pedal_steel_strings": "pedal_steel_george_l_e9"
+        },
+        "scores": {
+          "electric_technique": 11.374999999999998,
+          "amp_make": 9.982499999999996,
+          "pickup_steel": 0.1365,
+          "string_setup": 4.9399999999999995,
+          "bar_material": 0.78,
+          "pedal_steel_brand": 9.859499999999999,
+          "pedal_steel_neck_config": 12.35,
+          "pedal_steel_strings": 9.8675
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.78,
+          "upright_play": -0.05
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_articulation",
+        "voice_tradition"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique"
+      ],
+      "pedal_steel": [
+        "electric_technique",
+        "string_setup"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ]
+    },
+    "room": "parlor",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_500_series_modern",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "parlor",
+    "parts": {
+      "voice_articulation": "narrative_voice",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "electric_technique": "electric_steel_pedal_swells",
+      "string_setup": "standard_e9",
+      "upright_play": "pizz_upright",
+      "voice_tradition": "voice_tradition_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

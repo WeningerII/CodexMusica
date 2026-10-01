@@ -5,7 +5,7 @@
   "lineage": "Greek jazz scenes; selected Vassilis Tsabropoulos international trio",
   "recipe": "classic modern greek jazz, improv On Frame, American jazz branch. grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 306,
-  "score": 47.763,
+  "score": 47.152,
   "config": {
     "traditions": [
       "greek_jazz"
@@ -26,11 +26,11 @@
         },
         "scores": {
           "keyboard_technique": 0.26,
-          "grand_piano_size": 0.15575,
-          "grand_piano_brand": 0.7364999999999999,
+          "grand_piano_size": 0.0735,
+          "grand_piano_brand": 0.705,
           "piano_hammer": 0.9099999999999999,
           "piano_rim": 0.9099999999999999,
-          "piano_soundboard": 0.8049999999999999,
+          "piano_soundboard": 0.739,
           "piano_pinblock": 0.7,
           "piano_plate": 0.7,
           "piano_pitch_standard": -0.035
@@ -43,7 +43,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.212,
+          "upright_strings": 0.063,
           "upright_play": 11.25
         }
       },
@@ -66,12 +66,12 @@
           "drum_technique": 7.280000000000001,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.31037499999999996,
-          "shell_thickness": 0,
+          "shell_wood": 0.14962499999999998,
+          "shell_thickness": 0.03899999999999999,
           "bearing_edges": 0.1365,
-          "snare_wires": 0.15575,
-          "cymbal_alloy": 11.292874999999999,
-          "cymbal_hammering": 11.713375,
+          "snare_wires": 0.0735,
+          "cymbal_alloy": 11.249624999999998,
+          "cymbal_hammering": 11.678125,
           "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }

@@ -1,5 +1,5 @@
 {
-  "count": 2738,
+  "count": 3238,
   "items": [
     {
       "id": "honky_tonk",
@@ -16428,6 +16428,3006 @@
       "name": "Finnish modern jazz",
       "family": "jazz",
       "href": "traditions/finnish_modern_jazz.json"
+    },
+    {
+      "id": "finnish_jazz",
+      "name": "Finnish jazz",
+      "family": "jazz",
+      "href": "traditions/finnish_jazz.json"
+    },
+    {
+      "id": "jazz_accordion",
+      "name": "Jazz accordion",
+      "family": "jazz",
+      "href": "traditions/jazz_accordion.json"
+    },
+    {
+      "id": "australian_jazz",
+      "name": "Australian jazz",
+      "family": "jazz",
+      "href": "traditions/australian_jazz.json"
+    },
+    {
+      "id": "italian_jazz",
+      "name": "Italian jazz",
+      "family": "jazz",
+      "href": "traditions/italian_jazz.json"
+    },
+    {
+      "id": "french_jazz",
+      "name": "French jazz",
+      "family": "jazz",
+      "href": "traditions/french_jazz.json"
+    },
+    {
+      "id": "israeli_jazz",
+      "name": "Israeli jazz",
+      "family": "jazz",
+      "href": "traditions/israeli_jazz.json"
+    },
+    {
+      "id": "jazz_blues",
+      "name": "Jazz blues",
+      "family": "jazz",
+      "href": "traditions/jazz_blues.json"
+    },
+    {
+      "id": "canadian_modern_jazz",
+      "name": "Canadian modern jazz",
+      "family": "jazz",
+      "href": "traditions/canadian_modern_jazz.json"
+    },
+    {
+      "id": "contemporary_vocal_jazz",
+      "name": "Contemporary vocal jazz",
+      "family": "jazz",
+      "href": "traditions/contemporary_vocal_jazz.json"
+    },
+    {
+      "id": "faroese_jazz",
+      "name": "Faroese jazz",
+      "family": "jazz",
+      "href": "traditions/faroese_jazz.json"
+    },
+    {
+      "id": "jazz_guitar_trio",
+      "name": "Jazz guitar trio",
+      "family": "jazz",
+      "href": "traditions/jazz_guitar_trio.json"
+    },
+    {
+      "id": "jazz_trio",
+      "name": "Jazz trio",
+      "family": "jazz",
+      "href": "traditions/jazz_trio.json"
+    },
+    {
+      "id": "jazz_quartet",
+      "name": "Jazz quartet",
+      "family": "jazz",
+      "href": "traditions/jazz_quartet.json"
+    },
+    {
+      "id": "jazz_guitar",
+      "name": "Jazz guitar",
+      "family": "jazz",
+      "href": "traditions/jazz_guitar.json"
+    },
+    {
+      "id": "jazz_clarinet",
+      "name": "Jazz clarinet",
+      "family": "jazz",
+      "href": "traditions/jazz_clarinet.json"
+    },
+    {
+      "id": "jazz_harp",
+      "name": "Jazz harp",
+      "family": "jazz",
+      "href": "traditions/jazz_harp.json"
+    },
+    {
+      "id": "jazz_organ",
+      "name": "Jazz organ",
+      "family": "jazz",
+      "href": "traditions/jazz_organ.json"
+    },
+    {
+      "id": "jazz_drums",
+      "name": "Jazz drums",
+      "family": "jazz",
+      "href": "traditions/jazz_drums.json"
+    },
+    {
+      "id": "jazz_chileno",
+      "name": "Jazz chileno",
+      "family": "jazz",
+      "href": "traditions/jazz_chileno.json"
+    },
+    {
+      "id": "jazz_puertorriqueno",
+      "name": "Jazz puertorriqueño",
+      "family": "jazz",
+      "href": "traditions/jazz_puertorriqueno.json"
+    },
+    {
+      "id": "jazz_dominicano",
+      "name": "Jazz dominicano",
+      "family": "jazz",
+      "href": "traditions/jazz_dominicano.json"
+    },
+    {
+      "id": "jazz_venezolano",
+      "name": "Jazz venezolano",
+      "family": "jazz",
+      "href": "traditions/jazz_venezolano.json"
+    },
+    {
+      "id": "modern_jazz_piano",
+      "name": "Modern jazz piano",
+      "family": "jazz",
+      "href": "traditions/modern_jazz_piano.json"
+    },
+    {
+      "id": "modern_jazz_trio",
+      "name": "Modern jazz trio",
+      "family": "jazz",
+      "href": "traditions/modern_jazz_trio.json"
+    },
+    {
+      "id": "progressive_jazz_fusion",
+      "name": "Progressive jazz fusion",
+      "family": "jazz",
+      "href": "traditions/progressive_jazz_fusion.json"
+    },
+    {
+      "id": "norwegian_jazz",
+      "name": "Norwegian jazz",
+      "family": "jazz",
+      "href": "traditions/norwegian_jazz.json"
+    },
+    {
+      "id": "norwegian_contemporary_jazz",
+      "name": "Norwegian contemporary jazz",
+      "family": "jazz",
+      "href": "traditions/norwegian_contemporary_jazz.json"
+    },
+    {
+      "id": "jazz_violin",
+      "name": "Jazz violin",
+      "family": "jazz",
+      "href": "traditions/jazz_violin.json"
+    },
+    {
+      "id": "polish_jazz",
+      "name": "Polish jazz",
+      "family": "jazz",
+      "href": "traditions/polish_jazz.json"
+    },
+    {
+      "id": "polish_modern_jazz",
+      "name": "Polish modern jazz",
+      "family": "jazz",
+      "href": "traditions/polish_modern_jazz.json"
+    },
+    {
+      "id": "polish_free_jazz",
+      "name": "Polish free jazz",
+      "family": "jazz",
+      "href": "traditions/polish_free_jazz.json"
+    },
+    {
+      "id": "nz_jazz",
+      "name": "NZ jazz",
+      "family": "jazz",
+      "href": "traditions/nz_jazz.json"
+    },
+    {
+      "id": "portuguese_jazz",
+      "name": "Portuguese jazz",
+      "family": "jazz",
+      "href": "traditions/portuguese_jazz.json"
+    },
+    {
+      "id": "korean_jazz",
+      "name": "Korean jazz",
+      "family": "jazz",
+      "href": "traditions/korean_jazz.json"
+    },
+    {
+      "id": "scottish_jazz",
+      "name": "Scottish jazz",
+      "family": "jazz",
+      "href": "traditions/scottish_jazz.json"
+    },
+    {
+      "id": "jazz_cubano",
+      "name": "Jazz cubano",
+      "family": "jazz",
+      "href": "traditions/jazz_cubano.json"
+    },
+    {
+      "id": "jazz_catala",
+      "name": "Jazz català",
+      "family": "jazz",
+      "href": "traditions/jazz_catala.json"
+    },
+    {
+      "id": "belgian_dnb",
+      "name": "Belgian drum and bass",
+      "family": "electronic",
+      "href": "traditions/belgian_dnb.json"
+    },
+    {
+      "id": "stateside_dnb",
+      "name": "Stateside drum and bass",
+      "family": "electronic",
+      "href": "traditions/stateside_dnb.json"
+    },
+    {
+      "id": "uk_dnb",
+      "name": "UK drum and bass",
+      "family": "electronic",
+      "href": "traditions/uk_dnb.json"
+    },
+    {
+      "id": "brazilian_bass",
+      "name": "Brazilian bass",
+      "family": "electronic",
+      "href": "traditions/brazilian_bass.json"
+    },
+    {
+      "id": "classic_garage_rock",
+      "name": "Classic garage rock",
+      "family": "rock_punk",
+      "href": "traditions/classic_garage_rock.json"
+    },
+    {
+      "id": "garage_pop",
+      "name": "Garage pop",
+      "family": "rock_punk",
+      "href": "traditions/garage_pop.json"
+    },
+    {
+      "id": "indie_garage_rock",
+      "name": "Indie garage rock",
+      "family": "rock_punk",
+      "href": "traditions/indie_garage_rock.json"
+    },
+    {
+      "id": "garage_psych",
+      "name": "Garage psych",
+      "family": "rock_punk",
+      "href": "traditions/garage_psych.json"
+    },
+    {
+      "id": "trance",
+      "name": "Trance",
+      "family": "electronic",
+      "href": "traditions/trance.json"
+    },
+    {
+      "id": "russian_trance",
+      "name": "Russian trance",
+      "family": "electronic",
+      "href": "traditions/russian_trance.json"
+    },
+    {
+      "id": "jazzy_dnb",
+      "name": "Jazzy drum and bass",
+      "family": "electronic",
+      "href": "traditions/jazzy_dnb.json"
+    },
+    {
+      "id": "electric_bass",
+      "name": "Electric bass",
+      "family": "jazz",
+      "href": "traditions/electric_bass.json"
+    },
+    {
+      "id": "classic_dubstep",
+      "name": "Classic dubstep",
+      "family": "electronic",
+      "href": "traditions/classic_dubstep.json"
+    },
+    {
+      "id": "canadian_garage_rock",
+      "name": "Canadian garage rock",
+      "family": "rock_punk",
+      "href": "traditions/canadian_garage_rock.json"
+    },
+    {
+      "id": "french_garage_rock",
+      "name": "French garage rock",
+      "family": "rock_punk",
+      "href": "traditions/french_garage_rock.json"
+    },
+    {
+      "id": "breakbeat",
+      "name": "Breakbeat",
+      "family": "electronic",
+      "href": "traditions/breakbeat.json"
+    },
+    {
+      "id": "instrumental_grime",
+      "name": "Instrumental grime",
+      "family": "electronic",
+      "href": "traditions/instrumental_grime.json"
+    },
+    {
+      "id": "australian_garage_punk",
+      "name": "Australian garage punk",
+      "family": "rock_punk",
+      "href": "traditions/australian_garage_punk.json"
+    },
+    {
+      "id": "garage_punk_blues",
+      "name": "Garage punk blues",
+      "family": "rock_punk",
+      "href": "traditions/garage_punk_blues.json"
+    },
+    {
+      "id": "garage_rock_mexicano",
+      "name": "Garage rock mexicano",
+      "family": "rock_punk",
+      "href": "traditions/garage_rock_mexicano.json"
+    },
+    {
+      "id": "progressive_uplifting_trance",
+      "name": "Progressive uplifting trance",
+      "family": "electronic",
+      "href": "traditions/progressive_uplifting_trance.json"
+    },
+    {
+      "id": "atlanta_metal",
+      "name": "Atlanta metal",
+      "family": "rock_punk",
+      "href": "traditions/atlanta_metal.json"
+    },
+    {
+      "id": "brazilian_power_metal",
+      "name": "Brazilian power metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_power_metal.json"
+    },
+    {
+      "id": "brazilian_progressive_metal",
+      "name": "Brazilian progressive metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_progressive_metal.json"
+    },
+    {
+      "id": "brazilian_heavy_metal",
+      "name": "Brazilian heavy metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_heavy_metal.json"
+    },
+    {
+      "id": "birmingham_metal",
+      "name": "Birmingham metal",
+      "family": "rock_punk",
+      "href": "traditions/birmingham_metal.json"
+    },
+    {
+      "id": "austin_metal",
+      "name": "Austin metal",
+      "family": "rock_punk",
+      "href": "traditions/austin_metal.json"
+    },
+    {
+      "id": "arkansas_metal",
+      "name": "Arkansas metal",
+      "family": "rock_punk",
+      "href": "traditions/arkansas_metal.json"
+    },
+    {
+      "id": "bulgarian_metal",
+      "name": "Bulgarian metal",
+      "family": "rock_punk",
+      "href": "traditions/bulgarian_metal.json"
+    },
+    {
+      "id": "autonomous_black_metal",
+      "name": "Autonomous black metal",
+      "family": "rock_punk",
+      "href": "traditions/autonomous_black_metal.json"
+    },
+    {
+      "id": "belfast_metal",
+      "name": "Belfast metal",
+      "family": "rock_punk",
+      "href": "traditions/belfast_metal.json"
+    },
+    {
+      "id": "balkan_folk_metal",
+      "name": "Balkan folk metal",
+      "family": "rock_punk",
+      "href": "traditions/balkan_folk_metal.json"
+    },
+    {
+      "id": "protest_folk",
+      "name": "Protest folk",
+      "family": "vernacular",
+      "href": "traditions/protest_folk.json"
+    },
+    {
+      "id": "traditional_folk",
+      "name": "Traditional folk",
+      "family": "vernacular",
+      "href": "traditions/traditional_folk.json"
+    },
+    {
+      "id": "traditional_southern_folk",
+      "name": "Traditional Southern folk",
+      "family": "vernacular",
+      "href": "traditions/traditional_southern_folk.json"
+    },
+    {
+      "id": "western_americana",
+      "name": "Western Americana",
+      "family": "vernacular",
+      "href": "traditions/western_americana.json"
+    },
+    {
+      "id": "traditional_bluegrass",
+      "name": "Traditional bluegrass",
+      "family": "vernacular",
+      "href": "traditions/traditional_bluegrass.json"
+    },
+    {
+      "id": "traditional_country",
+      "name": "Traditional country",
+      "family": "vernacular",
+      "href": "traditions/traditional_country.json"
+    },
+    {
+      "id": "spanish_folk",
+      "name": "Spanish folk",
+      "family": "vernacular",
+      "href": "traditions/spanish_folk.json"
+    },
+    {
+      "id": "vintage_country_folk",
+      "name": "Vintage country folk",
+      "family": "vernacular",
+      "href": "traditions/vintage_country_folk.json"
+    },
+    {
+      "id": "scottish_folk",
+      "name": "Scottish folk",
+      "family": "vernacular",
+      "href": "traditions/scottish_folk.json"
+    },
+    {
+      "id": "scottish_indie_folk",
+      "name": "Scottish indie folk",
+      "family": "vernacular",
+      "href": "traditions/scottish_indie_folk.json"
+    },
+    {
+      "id": "scottish_singer_songwriter",
+      "name": "Scottish singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/scottish_singer_songwriter.json"
+    },
+    {
+      "id": "scottish_americana",
+      "name": "Scottish Americana",
+      "family": "vernacular",
+      "href": "traditions/scottish_americana.json"
+    },
+    {
+      "id": "swedish_americana",
+      "name": "Swedish Americana",
+      "family": "vernacular",
+      "href": "traditions/swedish_americana.json"
+    },
+    {
+      "id": "swedish_country",
+      "name": "Swedish country",
+      "family": "vernacular",
+      "href": "traditions/swedish_country.json"
+    },
+    {
+      "id": "swedish_indie_folk",
+      "name": "Swedish indie folk",
+      "family": "vernacular",
+      "href": "traditions/swedish_indie_folk.json"
+    },
+    {
+      "id": "swedish_singer_songwriter",
+      "name": "Swedish singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/swedish_singer_songwriter.json"
+    },
+    {
+      "id": "swiss_indie_folk",
+      "name": "Swiss indie folk",
+      "family": "vernacular",
+      "href": "traditions/swiss_indie_folk.json"
+    },
+    {
+      "id": "swiss_singer_songwriter",
+      "name": "Swiss singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/swiss_singer_songwriter.json"
+    },
+    {
+      "id": "texas_country",
+      "name": "Texas country",
+      "family": "vernacular",
+      "href": "traditions/texas_country.json"
+    },
+    {
+      "id": "pinoy_singer_songwriter",
+      "name": "Pinoy singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/pinoy_singer_songwriter.json"
+    },
+    {
+      "id": "singaporean_singer_songwriter",
+      "name": "Singaporean singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/singaporean_singer_songwriter.json"
+    },
+    {
+      "id": "taiwan_singer_songwriter",
+      "name": "Taiwan singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/taiwan_singer_songwriter.json"
+    },
+    {
+      "id": "turkish_singer_songwriter",
+      "name": "Turkish singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/turkish_singer_songwriter.json"
+    },
+    {
+      "id": "vietnamese_singer_songwriter",
+      "name": "Vietnamese singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/vietnamese_singer_songwriter.json"
+    },
+    {
+      "id": "spanish_indie_folk",
+      "name": "Spanish indie folk",
+      "family": "vernacular",
+      "href": "traditions/spanish_indie_folk.json"
+    },
+    {
+      "id": "queer_country",
+      "name": "Queer country",
+      "family": "vernacular",
+      "href": "traditions/queer_country.json"
+    },
+    {
+      "id": "kentucky_mountain_folk",
+      "name": "Kentucky mountain folk",
+      "family": "vernacular",
+      "href": "traditions/kentucky_mountain_folk.json"
+    },
+    {
+      "id": "german_indie_folk",
+      "name": "German indie folk",
+      "family": "vernacular",
+      "href": "traditions/german_indie_folk.json"
+    },
+    {
+      "id": "german_singer_songwriter",
+      "name": "German singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/german_singer_songwriter.json"
+    },
+    {
+      "id": "icelandic_folk",
+      "name": "Icelandic folk",
+      "family": "vernacular",
+      "href": "traditions/icelandic_folk.json"
+    },
+    {
+      "id": "icelandic_singer_songwriter",
+      "name": "Icelandic singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/icelandic_singer_songwriter.json"
+    },
+    {
+      "id": "british_math_rock",
+      "name": "British math rock",
+      "family": "rock_punk",
+      "href": "traditions/british_math_rock.json"
+    },
+    {
+      "id": "chinese_indie_rock",
+      "name": "Chinese indie rock",
+      "family": "rock_punk",
+      "href": "traditions/chinese_indie_rock.json"
+    },
+    {
+      "id": "czech_folk_rock",
+      "name": "Czech folk rock",
+      "family": "rock_punk",
+      "href": "traditions/czech_folk_rock.json"
+    },
+    {
+      "id": "christian_alternative_rock",
+      "name": "Christian alternative rock",
+      "family": "rock_punk",
+      "href": "traditions/christian_alternative_rock.json"
+    },
+    {
+      "id": "christian_hard_rock",
+      "name": "Christian hard rock",
+      "family": "rock_punk",
+      "href": "traditions/christian_hard_rock.json"
+    },
+    {
+      "id": "blues_rock_guitar",
+      "name": "Blues-rock guitar",
+      "family": "rock_punk",
+      "href": "traditions/blues_rock_guitar.json"
+    },
+    {
+      "id": "czech_rock",
+      "name": "Czech rock",
+      "family": "rock_punk",
+      "href": "traditions/czech_rock.json"
+    },
+    {
+      "id": "canadian_shoegaze",
+      "name": "Canadian shoegaze",
+      "family": "rock_punk",
+      "href": "traditions/canadian_shoegaze.json"
+    },
+    {
+      "id": "dark_rock",
+      "name": "Dark rock",
+      "family": "rock_punk",
+      "href": "traditions/dark_rock.json"
+    },
+    {
+      "id": "canadian_rockabilly",
+      "name": "Canadian rockabilly",
+      "family": "rock_punk",
+      "href": "traditions/canadian_rockabilly.json"
+    },
+    {
+      "id": "brazilian_post_rock",
+      "name": "Brazilian post-rock",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_post_rock.json"
+    },
+    {
+      "id": "danish_rock",
+      "name": "Danish rock",
+      "family": "rock_punk",
+      "href": "traditions/danish_rock.json"
+    },
+    {
+      "id": "classical_bass",
+      "name": "Classical bass",
+      "family": "classical",
+      "href": "traditions/classical_bass.json"
+    },
+    {
+      "id": "italian_bass",
+      "name": "Italian bass",
+      "family": "classical",
+      "href": "traditions/italian_bass.json"
+    },
+    {
+      "id": "brazilian_thrash_metal",
+      "name": "Brazilian thrash metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_thrash_metal.json"
+    },
+    {
+      "id": "brazilian_groove_metal",
+      "name": "Brazilian groove metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_groove_metal.json"
+    },
+    {
+      "id": "brazilian_metal",
+      "name": "Brazilian metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_metal.json"
+    },
+    {
+      "id": "australian_death_metal",
+      "name": "Australian death metal",
+      "family": "rock_punk",
+      "href": "traditions/australian_death_metal.json"
+    },
+    {
+      "id": "australian_metalcore",
+      "name": "Australian metalcore",
+      "family": "rock_punk",
+      "href": "traditions/australian_metalcore.json"
+    },
+    {
+      "id": "australian_metal",
+      "name": "Australian metal",
+      "family": "rock_punk",
+      "href": "traditions/australian_metal.json"
+    },
+    {
+      "id": "australian_black_metal",
+      "name": "Australian black metal",
+      "family": "rock_punk",
+      "href": "traditions/australian_black_metal.json"
+    },
+    {
+      "id": "australian_thrash_metal",
+      "name": "Australian thrash metal",
+      "family": "rock_punk",
+      "href": "traditions/australian_thrash_metal.json"
+    },
+    {
+      "id": "canadian_death_metal",
+      "name": "Canadian death metal",
+      "family": "rock_punk",
+      "href": "traditions/canadian_death_metal.json"
+    },
+    {
+      "id": "canadian_metal",
+      "name": "Canadian metal",
+      "family": "rock_punk",
+      "href": "traditions/canadian_metal.json"
+    },
+    {
+      "id": "austrian_black_metal",
+      "name": "Austrian black metal",
+      "family": "rock_punk",
+      "href": "traditions/austrian_black_metal.json"
+    },
+    {
+      "id": "austrian_metal",
+      "name": "Austrian metal",
+      "family": "rock_punk",
+      "href": "traditions/austrian_metal.json"
+    },
+    {
+      "id": "british_power_metal",
+      "name": "British power metal",
+      "family": "rock_punk",
+      "href": "traditions/british_power_metal.json"
+    },
+    {
+      "id": "argentine_heavy_metal",
+      "name": "Argentine heavy metal",
+      "family": "rock_punk",
+      "href": "traditions/argentine_heavy_metal.json"
+    },
+    {
+      "id": "argentine_metal",
+      "name": "Argentine metal",
+      "family": "rock_punk",
+      "href": "traditions/argentine_metal.json"
+    },
+    {
+      "id": "boston_metal",
+      "name": "Boston metal",
+      "family": "rock_punk",
+      "href": "traditions/boston_metal.json"
+    },
+    {
+      "id": "american_melodeath",
+      "name": "American melodeath",
+      "family": "rock_punk",
+      "href": "traditions/american_melodeath.json"
+    },
+    {
+      "id": "canadian_metalcore",
+      "name": "Canadian metalcore",
+      "family": "rock_punk",
+      "href": "traditions/canadian_metalcore.json"
+    },
+    {
+      "id": "belgian_death_metal",
+      "name": "Belgian death metal",
+      "family": "rock_punk",
+      "href": "traditions/belgian_death_metal.json"
+    },
+    {
+      "id": "belgian_metal",
+      "name": "Belgian metal",
+      "family": "rock_punk",
+      "href": "traditions/belgian_metal.json"
+    },
+    {
+      "id": "british_death_metal",
+      "name": "British death metal",
+      "family": "rock_punk",
+      "href": "traditions/british_death_metal.json"
+    },
+    {
+      "id": "british_grindcore",
+      "name": "British grindcore",
+      "family": "rock_punk",
+      "href": "traditions/british_grindcore.json"
+    },
+    {
+      "id": "american_grindcore",
+      "name": "American grindcore",
+      "family": "rock_punk",
+      "href": "traditions/american_grindcore.json"
+    },
+    {
+      "id": "buffalo_ny_metal",
+      "name": "Buffalo NY metal",
+      "family": "rock_punk",
+      "href": "traditions/buffalo_ny_metal.json"
+    },
+    {
+      "id": "brutal_deathcore",
+      "name": "Brutal deathcore",
+      "family": "rock_punk",
+      "href": "traditions/brutal_deathcore.json"
+    },
+    {
+      "id": "british_black_metal",
+      "name": "British black metal",
+      "family": "rock_punk",
+      "href": "traditions/british_black_metal.json"
+    },
+    {
+      "id": "brazilian_death_metal",
+      "name": "Brazilian death metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_death_metal.json"
+    },
+    {
+      "id": "arab_metal",
+      "name": "Arab metal",
+      "family": "rock_punk",
+      "href": "traditions/arab_metal.json"
+    },
+    {
+      "id": "blackened_deathcore",
+      "name": "Blackened deathcore",
+      "family": "rock_punk",
+      "href": "traditions/blackened_deathcore.json"
+    },
+    {
+      "id": "baltic_black_metal",
+      "name": "Baltic black metal",
+      "family": "rock_punk",
+      "href": "traditions/baltic_black_metal.json"
+    },
+    {
+      "id": "canadian_black_metal",
+      "name": "Canadian black metal",
+      "family": "rock_punk",
+      "href": "traditions/canadian_black_metal.json"
+    },
+    {
+      "id": "brazilian_black_metal",
+      "name": "Brazilian black metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_black_metal.json"
+    },
+    {
+      "id": "brazilian_metalcore",
+      "name": "Brazilian metalcore",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_metalcore.json"
+    },
+    {
+      "id": "bolivian_metal",
+      "name": "Bolivian metal",
+      "family": "rock_punk",
+      "href": "traditions/bolivian_metal.json"
+    },
+    {
+      "id": "belgian_black_metal",
+      "name": "Belgian black metal",
+      "family": "rock_punk",
+      "href": "traditions/belgian_black_metal.json"
+    },
+    {
+      "id": "belgian_jazz",
+      "name": "Belgian jazz",
+      "family": "jazz",
+      "href": "traditions/belgian_jazz.json"
+    },
+    {
+      "id": "harmonica_jazz",
+      "name": "Harmonica jazz",
+      "family": "jazz",
+      "href": "traditions/harmonica_jazz.json"
+    },
+    {
+      "id": "jazz_vibraphone",
+      "name": "Jazz vibraphone",
+      "family": "jazz",
+      "href": "traditions/jazz_vibraphone.json"
+    },
+    {
+      "id": "jazz_trombone",
+      "name": "Jazz trombone",
+      "family": "jazz",
+      "href": "traditions/jazz_trombone.json"
+    },
+    {
+      "id": "jazz_tuba",
+      "name": "Jazz tuba",
+      "family": "jazz",
+      "href": "traditions/jazz_tuba.json"
+    },
+    {
+      "id": "roots_americana",
+      "name": "Roots Americana",
+      "family": "vernacular",
+      "href": "traditions/roots_americana.json"
+    },
+    {
+      "id": "southern_americana",
+      "name": "Southern Americana",
+      "family": "vernacular",
+      "href": "traditions/southern_americana.json"
+    },
+    {
+      "id": "uk_americana",
+      "name": "UK Americana",
+      "family": "vernacular",
+      "href": "traditions/uk_americana.json"
+    },
+    {
+      "id": "yorkshire_folk",
+      "name": "Yorkshire folk",
+      "family": "vernacular",
+      "href": "traditions/yorkshire_folk.json"
+    },
+    {
+      "id": "medieval_folk",
+      "name": "Medieval folk",
+      "family": "vernacular",
+      "href": "traditions/medieval_folk.json"
+    },
+    {
+      "id": "italian_folk",
+      "name": "Italian folk",
+      "family": "vernacular",
+      "href": "traditions/italian_folk.json"
+    },
+    {
+      "id": "new_england_americana",
+      "name": "New England Americana",
+      "family": "vernacular",
+      "href": "traditions/new_england_americana.json"
+    },
+    {
+      "id": "macedonian_folk",
+      "name": "Macedonian folk",
+      "family": "vernacular",
+      "href": "traditions/macedonian_folk.json"
+    },
+    {
+      "id": "indie_folk_argentino",
+      "name": "Indie folk argentino",
+      "family": "vernacular",
+      "href": "traditions/indie_folk_argentino.json"
+    },
+    {
+      "id": "midwest_americana",
+      "name": "Midwest Americana",
+      "family": "vernacular",
+      "href": "traditions/midwest_americana.json"
+    },
+    {
+      "id": "bhojpuri_folk",
+      "name": "Bhojpuri folk",
+      "family": "vernacular",
+      "href": "traditions/bhojpuri_folk.json"
+    },
+    {
+      "id": "folk_siciliana",
+      "name": "Folk siciliana",
+      "family": "vernacular",
+      "href": "traditions/folk_siciliana.json"
+    },
+    {
+      "id": "indian_singer_songwriter",
+      "name": "Indian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/indian_singer_songwriter.json"
+    },
+    {
+      "id": "greek_folk",
+      "name": "Greek folk",
+      "family": "vernacular",
+      "href": "traditions/greek_folk.json"
+    },
+    {
+      "id": "irish_singer_songwriter",
+      "name": "Irish singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/irish_singer_songwriter.json"
+    },
+    {
+      "id": "nl_folk",
+      "name": "NL folk",
+      "family": "vernacular",
+      "href": "traditions/nl_folk.json"
+    },
+    {
+      "id": "kurdish_folk",
+      "name": "Kurdish folk",
+      "family": "vernacular",
+      "href": "traditions/kurdish_folk.json"
+    },
+    {
+      "id": "malagasy_folk",
+      "name": "Malagasy folk",
+      "family": "vernacular",
+      "href": "traditions/malagasy_folk.json"
+    },
+    {
+      "id": "malawian_folk",
+      "name": "Malawian folk",
+      "family": "vernacular",
+      "href": "traditions/malawian_folk.json"
+    },
+    {
+      "id": "indonesian_folk",
+      "name": "Indonesian folk",
+      "family": "vernacular",
+      "href": "traditions/indonesian_folk.json"
+    },
+    {
+      "id": "indonesian_singer_songwriter",
+      "name": "Indonesian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/indonesian_singer_songwriter.json"
+    },
+    {
+      "id": "korean_indie_folk",
+      "name": "Korean indie folk",
+      "family": "vernacular",
+      "href": "traditions/korean_indie_folk.json"
+    },
+    {
+      "id": "korean_singer_songwriter",
+      "name": "Korean singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/korean_singer_songwriter.json"
+    },
+    {
+      "id": "nz_folk",
+      "name": "NZ folk",
+      "family": "vernacular",
+      "href": "traditions/nz_folk.json"
+    },
+    {
+      "id": "nz_singer_songwriter",
+      "name": "NZ singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/nz_singer_songwriter.json"
+    },
+    {
+      "id": "japanese_indie_folk",
+      "name": "Japanese indie folk",
+      "family": "vernacular",
+      "href": "traditions/japanese_indie_folk.json"
+    },
+    {
+      "id": "japanese_singer_songwriter",
+      "name": "Japanese singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/japanese_singer_songwriter.json"
+    },
+    {
+      "id": "norwegian_americana",
+      "name": "Norwegian americana",
+      "family": "vernacular",
+      "href": "traditions/norwegian_americana.json"
+    },
+    {
+      "id": "norwegian_country",
+      "name": "Norwegian country",
+      "family": "vernacular",
+      "href": "traditions/norwegian_country.json"
+    },
+    {
+      "id": "norwegian_singer_songwriter",
+      "name": "Norwegian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/norwegian_singer_songwriter.json"
+    },
+    {
+      "id": "nashville_americana",
+      "name": "Nashville americana",
+      "family": "vernacular",
+      "href": "traditions/nashville_americana.json"
+    },
+    {
+      "id": "new_americana",
+      "name": "New americana",
+      "family": "vernacular",
+      "href": "traditions/new_americana.json"
+    },
+    {
+      "id": "michigan_folk",
+      "name": "Michigan folk",
+      "family": "vernacular",
+      "href": "traditions/michigan_folk.json"
+    },
+    {
+      "id": "new_orleans_americana",
+      "name": "New Orleans americana",
+      "family": "vernacular",
+      "href": "traditions/new_orleans_americana.json"
+    },
+    {
+      "id": "indie_anthem_folk",
+      "name": "Indie anthem-folk",
+      "family": "vernacular",
+      "href": "traditions/indie_anthem_folk.json"
+    },
+    {
+      "id": "modern_indie_folk",
+      "name": "Modern indie folk",
+      "family": "vernacular",
+      "href": "traditions/modern_indie_folk.json"
+    },
+    {
+      "id": "nashville_singer_songwriter",
+      "name": "Nashville singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/nashville_singer_songwriter.json"
+    },
+    {
+      "id": "neo_singer_songwriter",
+      "name": "Neo-singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/neo_singer_songwriter.json"
+    },
+    {
+      "id": "irish_country",
+      "name": "Irish country",
+      "family": "vernacular",
+      "href": "traditions/irish_country.json"
+    },
+    {
+      "id": "israeli_singer_songwriter",
+      "name": "Israeli singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/israeli_singer_songwriter.json"
+    },
+    {
+      "id": "memphis_americana",
+      "name": "Memphis Americana",
+      "family": "vernacular",
+      "href": "traditions/memphis_americana.json"
+    },
+    {
+      "id": "modern_psychedelic_folk",
+      "name": "Modern psychedelic folk",
+      "family": "vernacular",
+      "href": "traditions/modern_psychedelic_folk.json"
+    },
+    {
+      "id": "israeli_folk",
+      "name": "Israeli folk",
+      "family": "vernacular",
+      "href": "traditions/israeli_folk.json"
+    },
+    {
+      "id": "musica_folk_asturiana",
+      "name": "Música folk asturiana",
+      "family": "vernacular",
+      "href": "traditions/musica_folk_asturiana.json"
+    },
+    {
+      "id": "manitoba_country",
+      "name": "Manitoba country",
+      "family": "vernacular",
+      "href": "traditions/manitoba_country.json"
+    },
+    {
+      "id": "okinawan_folk",
+      "name": "Okinawan folk",
+      "family": "vernacular",
+      "href": "traditions/okinawan_folk.json"
+    },
+    {
+      "id": "oklahoma_country",
+      "name": "Oklahoma country",
+      "family": "vernacular",
+      "href": "traditions/oklahoma_country.json"
+    },
+    {
+      "id": "indie_singer_songwriter",
+      "name": "Indie singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/indie_singer_songwriter.json"
+    },
+    {
+      "id": "indie_folk_italiano",
+      "name": "Indie folk italiano",
+      "family": "vernacular",
+      "href": "traditions/indie_folk_italiano.json"
+    },
+    {
+      "id": "bluegrass_fiddle",
+      "name": "Bluegrass fiddle",
+      "family": "vernacular",
+      "href": "traditions/bluegrass_fiddle.json"
+    },
+    {
+      "id": "classic_australian_country",
+      "name": "Classic Australian country",
+      "family": "vernacular",
+      "href": "traditions/classic_australian_country.json"
+    },
+    {
+      "id": "canadian_folk",
+      "name": "Canadian folk",
+      "family": "vernacular",
+      "href": "traditions/canadian_folk.json"
+    },
+    {
+      "id": "canadian_singer_songwriter",
+      "name": "Canadian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/canadian_singer_songwriter.json"
+    },
+    {
+      "id": "british_folk",
+      "name": "British folk",
+      "family": "vernacular",
+      "href": "traditions/british_folk.json"
+    },
+    {
+      "id": "black_americana",
+      "name": "Black Americana",
+      "family": "vernacular",
+      "href": "traditions/black_americana.json"
+    },
+    {
+      "id": "danish_folk",
+      "name": "Danish folk",
+      "family": "vernacular",
+      "href": "traditions/danish_folk.json"
+    },
+    {
+      "id": "croatian_folk",
+      "name": "Croatian folk",
+      "family": "vernacular",
+      "href": "traditions/croatian_folk.json"
+    },
+    {
+      "id": "finnish_folk",
+      "name": "Finnish folk",
+      "family": "vernacular",
+      "href": "traditions/finnish_folk.json"
+    },
+    {
+      "id": "australian_americana",
+      "name": "Australian Americana",
+      "family": "vernacular",
+      "href": "traditions/australian_americana.json"
+    },
+    {
+      "id": "australian_country",
+      "name": "Australian country",
+      "family": "vernacular",
+      "href": "traditions/australian_country.json"
+    },
+    {
+      "id": "australian_indie_folk",
+      "name": "Australian indie folk",
+      "family": "vernacular",
+      "href": "traditions/australian_indie_folk.json"
+    },
+    {
+      "id": "australian_singer_songwriter",
+      "name": "Australian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/australian_singer_songwriter.json"
+    },
+    {
+      "id": "belgian_singer_songwriter",
+      "name": "Belgian singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/belgian_singer_songwriter.json"
+    },
+    {
+      "id": "danish_singer_songwriter",
+      "name": "Danish singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/danish_singer_songwriter.json"
+    },
+    {
+      "id": "canadian_indie_folk",
+      "name": "Canadian indie folk",
+      "family": "vernacular",
+      "href": "traditions/canadian_indie_folk.json"
+    },
+    {
+      "id": "canadian_americana",
+      "name": "Canadian Americana",
+      "family": "vernacular",
+      "href": "traditions/canadian_americana.json"
+    },
+    {
+      "id": "children_s_folk",
+      "name": "Children’s folk",
+      "family": "vernacular",
+      "href": "traditions/children_s_folk.json"
+    },
+    {
+      "id": "cape_verdean_folk",
+      "name": "Cape Verdean folk",
+      "family": "vernacular",
+      "href": "traditions/cape_verdean_folk.json"
+    },
+    {
+      "id": "contemporary_folk",
+      "name": "Contemporary folk",
+      "family": "vernacular",
+      "href": "traditions/contemporary_folk.json"
+    },
+    {
+      "id": "canadian_country",
+      "name": "Canadian country",
+      "family": "vernacular",
+      "href": "traditions/canadian_country.json"
+    },
+    {
+      "id": "canadian_contemporary_country",
+      "name": "Canadian contemporary country",
+      "family": "vernacular",
+      "href": "traditions/canadian_contemporary_country.json"
+    },
+    {
+      "id": "deep_contemporary_country",
+      "name": "Deep contemporary country",
+      "family": "vernacular",
+      "href": "traditions/deep_contemporary_country.json"
+    },
+    {
+      "id": "country_road",
+      "name": "Country road",
+      "family": "vernacular",
+      "href": "traditions/country_road.json"
+    },
+    {
+      "id": "baltic_folk",
+      "name": "Baltic folk",
+      "family": "vernacular",
+      "href": "traditions/baltic_folk.json"
+    },
+    {
+      "id": "czech_country",
+      "name": "Czech country",
+      "family": "vernacular",
+      "href": "traditions/czech_country.json"
+    },
+    {
+      "id": "czech_singer_songwriter",
+      "name": "Czech singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/czech_singer_songwriter.json"
+    },
+    {
+      "id": "boston_folk",
+      "name": "Boston folk",
+      "family": "vernacular",
+      "href": "traditions/boston_folk.json"
+    },
+    {
+      "id": "folk_cantabria",
+      "name": "Cantabrian folk",
+      "family": "vernacular",
+      "href": "traditions/folk_cantabria.json"
+    },
+    {
+      "id": "french_folk",
+      "name": "French folk",
+      "family": "vernacular",
+      "href": "traditions/french_folk.json"
+    },
+    {
+      "id": "french_indie_folk",
+      "name": "French indie folk",
+      "family": "vernacular",
+      "href": "traditions/french_indie_folk.json"
+    },
+    {
+      "id": "british_singer_songwriter",
+      "name": "British singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/british_singer_songwriter.json"
+    },
+    {
+      "id": "german_country",
+      "name": "German country",
+      "family": "vernacular",
+      "href": "traditions/german_country.json"
+    },
+    {
+      "id": "dutch_americana",
+      "name": "Dutch Americana",
+      "family": "vernacular",
+      "href": "traditions/dutch_americana.json"
+    },
+    {
+      "id": "dutch_singer_songwriter",
+      "name": "Dutch singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/dutch_singer_songwriter.json"
+    },
+    {
+      "id": "geek_folk",
+      "name": "Geek folk",
+      "family": "vernacular",
+      "href": "traditions/geek_folk.json"
+    },
+    {
+      "id": "gen_z_singer_songwriter",
+      "name": "Gen Z singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/gen_z_singer_songwriter.json"
+    },
+    {
+      "id": "early_american_folk",
+      "name": "Early American folk",
+      "family": "vernacular",
+      "href": "traditions/early_american_folk.json"
+    },
+    {
+      "id": "british_country",
+      "name": "British country",
+      "family": "vernacular",
+      "href": "traditions/british_country.json"
+    },
+    {
+      "id": "chinese_singer_songwriter",
+      "name": "Chinese singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/chinese_singer_songwriter.json"
+    },
+    {
+      "id": "classic_nz_country",
+      "name": "Classic NZ country",
+      "family": "vernacular",
+      "href": "traditions/classic_nz_country.json"
+    },
+    {
+      "id": "folk_brasileiro",
+      "name": "Folk brasileiro",
+      "family": "vernacular",
+      "href": "traditions/folk_brasileiro.json"
+    },
+    {
+      "id": "deep_indie_singer_songwriter",
+      "name": "Deep indie singer-songwriter",
+      "family": "vernacular",
+      "href": "traditions/deep_indie_singer_songwriter.json"
+    },
+    {
+      "id": "country_dawn",
+      "name": "Country dawn",
+      "family": "vernacular",
+      "href": "traditions/country_dawn.json"
+    },
+    {
+      "id": "country_quebecois",
+      "name": "Country québécois",
+      "family": "vernacular",
+      "href": "traditions/country_quebecois.json"
+    },
+    {
+      "id": "experimental_folk",
+      "name": "Experimental folk",
+      "family": "vernacular",
+      "href": "traditions/experimental_folk.json"
+    },
+    {
+      "id": "deep_new_americana",
+      "name": "Deep new americana",
+      "family": "vernacular",
+      "href": "traditions/deep_new_americana.json"
+    },
+    {
+      "id": "electro_pop_francais",
+      "name": "Electro-pop francais",
+      "family": "pop",
+      "href": "traditions/electro_pop_francais.json"
+    },
+    {
+      "id": "danish_indie_pop",
+      "name": "Danish indie pop",
+      "family": "pop",
+      "href": "traditions/danish_indie_pop.json"
+    },
+    {
+      "id": "canadian_pop",
+      "name": "Canadian pop",
+      "family": "pop",
+      "href": "traditions/canadian_pop.json"
+    },
+    {
+      "id": "czech_pop",
+      "name": "Czech pop",
+      "family": "pop",
+      "href": "traditions/czech_pop.json"
+    },
+    {
+      "id": "classic_swedish_pop",
+      "name": "Classic swedish pop",
+      "family": "pop",
+      "href": "traditions/classic_swedish_pop.json"
+    },
+    {
+      "id": "classic_belgian_pop",
+      "name": "Classic belgian pop",
+      "family": "pop",
+      "href": "traditions/classic_belgian_pop.json"
+    },
+    {
+      "id": "classic_israeli_pop",
+      "name": "Classic israeli pop",
+      "family": "pop",
+      "href": "traditions/classic_israeli_pop.json"
+    },
+    {
+      "id": "classic_danish_pop",
+      "name": "Classic danish pop",
+      "family": "pop",
+      "href": "traditions/classic_danish_pop.json"
+    },
+    {
+      "id": "classic_hungarian_pop",
+      "name": "Classic hungarian pop",
+      "family": "pop",
+      "href": "traditions/classic_hungarian_pop.json"
+    },
+    {
+      "id": "classic_norwegian_pop",
+      "name": "Classic norwegian pop",
+      "family": "pop",
+      "href": "traditions/classic_norwegian_pop.json"
+    },
+    {
+      "id": "classic_latvian_pop",
+      "name": "Classic latvian pop",
+      "family": "pop",
+      "href": "traditions/classic_latvian_pop.json"
+    },
+    {
+      "id": "classic_french_pop",
+      "name": "Classic french pop",
+      "family": "pop",
+      "href": "traditions/classic_french_pop.json"
+    },
+    {
+      "id": "estonian_pop",
+      "name": "Estonian pop",
+      "family": "pop",
+      "href": "traditions/estonian_pop.json"
+    },
+    {
+      "id": "dark_pop",
+      "name": "Dark pop",
+      "family": "pop",
+      "href": "traditions/dark_pop.json"
+    },
+    {
+      "id": "blues_band",
+      "name": "Blues band",
+      "family": "blues_gospel",
+      "href": "traditions/blues_band.json"
+    },
+    {
+      "id": "traditional_blues",
+      "name": "Traditional blues",
+      "family": "blues_gospel",
+      "href": "traditions/traditional_blues.json"
+    },
+    {
+      "id": "japanese_soul",
+      "name": "Japanese soul",
+      "family": "blues_gospel",
+      "href": "traditions/japanese_soul.json"
+    },
+    {
+      "id": "korean_r_and_b",
+      "name": "Korean r&b",
+      "family": "blues_gospel",
+      "href": "traditions/korean_r_and_b.json"
+    },
+    {
+      "id": "smooth_soul",
+      "name": "Smooth soul",
+      "family": "blues_gospel",
+      "href": "traditions/smooth_soul.json"
+    },
+    {
+      "id": "instrumental_funk",
+      "name": "Instrumental funk",
+      "family": "blues_gospel",
+      "href": "traditions/instrumental_funk.json"
+    },
+    {
+      "id": "african_reggae",
+      "name": "African reggae",
+      "family": "blues_gospel",
+      "href": "traditions/african_reggae.json"
+    },
+    {
+      "id": "german_r_and_b",
+      "name": "German r&b",
+      "family": "blues_gospel",
+      "href": "traditions/german_r_and_b.json"
+    },
+    {
+      "id": "cuban_funk",
+      "name": "Cuban funk",
+      "family": "blues_gospel",
+      "href": "traditions/cuban_funk.json"
+    },
+    {
+      "id": "chinese_r_and_b",
+      "name": "Chinese r&b",
+      "family": "pop",
+      "href": "traditions/chinese_r_and_b.json"
+    },
+    {
+      "id": "gospel_r_and_b",
+      "name": "Gospel r&b",
+      "family": "blues_gospel",
+      "href": "traditions/gospel_r_and_b.json"
+    },
+    {
+      "id": "finnish_soul",
+      "name": "Finnish soul",
+      "family": "blues_gospel",
+      "href": "traditions/finnish_soul.json"
+    },
+    {
+      "id": "uk_contemporary_r_and_b",
+      "name": "Uk contemporary r&b",
+      "family": "blues_gospel",
+      "href": "traditions/uk_contemporary_r_and_b.json"
+    },
+    {
+      "id": "canadian_contemporary_r_and_b",
+      "name": "Canadian contemporary r&b",
+      "family": "blues_gospel",
+      "href": "traditions/canadian_contemporary_r_and_b.json"
+    },
+    {
+      "id": "italian_blues",
+      "name": "Italian blues",
+      "family": "blues_gospel",
+      "href": "traditions/italian_blues.json"
+    },
+    {
+      "id": "polish_blues",
+      "name": "Polish blues",
+      "family": "blues_gospel",
+      "href": "traditions/polish_blues.json"
+    },
+    {
+      "id": "bulgarian_r_and_b",
+      "name": "Bulgarian r&b",
+      "family": "blues_gospel",
+      "href": "traditions/bulgarian_r_and_b.json"
+    },
+    {
+      "id": "dutch_r_and_b",
+      "name": "Dutch r&b",
+      "family": "blues_gospel",
+      "href": "traditions/dutch_r_and_b.json"
+    },
+    {
+      "id": "alberta_hip_hop",
+      "name": "Alberta hip hop",
+      "family": "hip_hop",
+      "href": "traditions/alberta_hip_hop.json"
+    },
+    {
+      "id": "brazilian_hip_hop",
+      "name": "Brazilian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/brazilian_hip_hop.json"
+    },
+    {
+      "id": "atlantic_canada_hip_hop",
+      "name": "Atlantic Canada hip hop",
+      "family": "hip_hop",
+      "href": "traditions/atlantic_canada_hip_hop.json"
+    },
+    {
+      "id": "austrian_hip_hop",
+      "name": "Austrian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/austrian_hip_hop.json"
+    },
+    {
+      "id": "japanese_garage_rock",
+      "name": "Japanese garage rock",
+      "family": "rock_punk",
+      "href": "traditions/japanese_garage_rock.json"
+    },
+    {
+      "id": "swedish_garage_rock",
+      "name": "Swedish garage rock",
+      "family": "rock_punk",
+      "href": "traditions/swedish_garage_rock.json"
+    },
+    {
+      "id": "boston_hip_hop",
+      "name": "Boston hip hop",
+      "family": "hip_hop",
+      "href": "traditions/boston_hip_hop.json"
+    },
+    {
+      "id": "australian_indigenous_hip_hop",
+      "name": "Australian Indigenous hip hop",
+      "family": "hip_hop",
+      "href": "traditions/australian_indigenous_hip_hop.json"
+    },
+    {
+      "id": "jazz_double_bass",
+      "name": "Jazz double bass",
+      "family": "jazz",
+      "href": "traditions/jazz_double_bass.json"
+    },
+    {
+      "id": "bronx_hip_hop",
+      "name": "Bronx hip hop",
+      "family": "hip_hop",
+      "href": "traditions/bronx_hip_hop.json"
+    },
+    {
+      "id": "canadian_old_school_hip_hop",
+      "name": "Canadian old school hip hop",
+      "family": "hip_hop",
+      "href": "traditions/canadian_old_school_hip_hop.json"
+    },
+    {
+      "id": "canadian_hip_hop",
+      "name": "Canadian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/canadian_hip_hop.json"
+    },
+    {
+      "id": "canadian_underground_hip_hop",
+      "name": "Canadian underground hip hop",
+      "family": "hip_hop",
+      "href": "traditions/canadian_underground_hip_hop.json"
+    },
+    {
+      "id": "canadian_indigenous_hip_hop",
+      "name": "Canadian Indigenous hip hop",
+      "family": "hip_hop",
+      "href": "traditions/canadian_indigenous_hip_hop.json"
+    },
+    {
+      "id": "canadian_trap",
+      "name": "Canadian trap",
+      "family": "hip_hop",
+      "href": "traditions/canadian_trap.json"
+    },
+    {
+      "id": "czech_hip_hop",
+      "name": "Czech hip hop",
+      "family": "hip_hop",
+      "href": "traditions/czech_hip_hop.json"
+    },
+    {
+      "id": "czsk_hip_hop",
+      "name": "CZ/SK hip hop",
+      "family": "hip_hop",
+      "href": "traditions/czsk_hip_hop.json"
+    },
+    {
+      "id": "chinese_hip_hop",
+      "name": "Chinese hip hop",
+      "family": "hip_hop",
+      "href": "traditions/chinese_hip_hop.json"
+    },
+    {
+      "id": "danish_hip_hop",
+      "name": "Danish hip hop",
+      "family": "hip_hop",
+      "href": "traditions/danish_hip_hop.json"
+    },
+    {
+      "id": "bulgarian_hip_hop",
+      "name": "Bulgarian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/bulgarian_hip_hop.json"
+    },
+    {
+      "id": "chicago_rap",
+      "name": "Chicago rap",
+      "family": "hip_hop",
+      "href": "traditions/chicago_rap.json"
+    },
+    {
+      "id": "denver_rap",
+      "name": "Denver rap",
+      "family": "hip_hop",
+      "href": "traditions/denver_rap.json"
+    },
+    {
+      "id": "dmv_rap",
+      "name": "DMV rap",
+      "family": "hip_hop",
+      "href": "traditions/dmv_rap.json"
+    },
+    {
+      "id": "classic_polish_pop",
+      "name": "Classic polish pop",
+      "family": "pop",
+      "href": "traditions/classic_polish_pop.json"
+    },
+    {
+      "id": "danish_pop",
+      "name": "Danish pop",
+      "family": "pop",
+      "href": "traditions/danish_pop.json"
+    },
+    {
+      "id": "bosnian_pop",
+      "name": "Bosnian pop",
+      "family": "pop",
+      "href": "traditions/bosnian_pop.json"
+    },
+    {
+      "id": "finnish_dance_pop",
+      "name": "Finnish dance pop",
+      "family": "pop",
+      "href": "traditions/finnish_dance_pop.json"
+    },
+    {
+      "id": "colombian_pop",
+      "name": "Colombian pop",
+      "family": "pop",
+      "href": "traditions/colombian_pop.json"
+    },
+    {
+      "id": "classic_czech_pop",
+      "name": "Classic czech pop",
+      "family": "pop",
+      "href": "traditions/classic_czech_pop.json"
+    },
+    {
+      "id": "croatian_pop",
+      "name": "Croatian pop",
+      "family": "pop",
+      "href": "traditions/croatian_pop.json"
+    },
+    {
+      "id": "spanish_blues",
+      "name": "Spanish blues",
+      "family": "blues_gospel",
+      "href": "traditions/spanish_blues.json"
+    },
+    {
+      "id": "modern_blues",
+      "name": "Modern blues",
+      "family": "blues_gospel",
+      "href": "traditions/modern_blues.json"
+    },
+    {
+      "id": "swedish_blues",
+      "name": "Swedish blues",
+      "family": "blues_gospel",
+      "href": "traditions/swedish_blues.json"
+    },
+    {
+      "id": "norwegian_blues",
+      "name": "Norwegian blues",
+      "family": "blues_gospel",
+      "href": "traditions/norwegian_blues.json"
+    },
+    {
+      "id": "arabic_hip_hop",
+      "name": "Arabic hip hop",
+      "family": "hip_hop",
+      "href": "traditions/arabic_hip_hop.json"
+    },
+    {
+      "id": "asian_american_hip_hop",
+      "name": "Asian-American hip hop",
+      "family": "hip_hop",
+      "href": "traditions/asian_american_hip_hop.json"
+    },
+    {
+      "id": "afrikaans_hip_hop",
+      "name": "Afrikaans hip hop",
+      "family": "hip_hop",
+      "href": "traditions/afrikaans_hip_hop.json"
+    },
+    {
+      "id": "atl_hip_hop",
+      "name": "ATL hip hop",
+      "family": "hip_hop",
+      "href": "traditions/atl_hip_hop.json"
+    },
+    {
+      "id": "desi_hip_hop",
+      "name": "Desi hip hop",
+      "family": "hip_hop",
+      "href": "traditions/desi_hip_hop.json"
+    },
+    {
+      "id": "central_asian_hip_hop",
+      "name": "Central Asian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/central_asian_hip_hop.json"
+    },
+    {
+      "id": "dfw_rap",
+      "name": "DFW rap",
+      "family": "hip_hop",
+      "href": "traditions/dfw_rap.json"
+    },
+    {
+      "id": "cologne_hip_hop",
+      "name": "Cologne hip hop",
+      "family": "hip_hop",
+      "href": "traditions/cologne_hip_hop.json"
+    },
+    {
+      "id": "christlicher_rap",
+      "name": "Christlicher Rap",
+      "family": "hip_hop",
+      "href": "traditions/christlicher_rap.json"
+    },
+    {
+      "id": "croatian_hip_hop",
+      "name": "Croatian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/croatian_hip_hop.json"
+    },
+    {
+      "id": "minimal_dubstep",
+      "name": "Minimal dubstep",
+      "family": "electronic",
+      "href": "traditions/minimal_dubstep.json"
+    },
+    {
+      "id": "ukg_revival",
+      "name": "UKG revival",
+      "family": "electronic",
+      "href": "traditions/ukg_revival.json"
+    },
+    {
+      "id": "aggressive_phonk",
+      "name": "Aggressive phonk",
+      "family": "hip_hop",
+      "href": "traditions/aggressive_phonk.json"
+    },
+    {
+      "id": "australian_trap",
+      "name": "Australian trap",
+      "family": "hip_hop",
+      "href": "traditions/australian_trap.json"
+    },
+    {
+      "id": "australian_underground_hip_hop",
+      "name": "Australian underground hip hop",
+      "family": "hip_hop",
+      "href": "traditions/australian_underground_hip_hop.json"
+    },
+    {
+      "id": "balkan_hip_hop",
+      "name": "Balkan hip hop",
+      "family": "hip_hop",
+      "href": "traditions/balkan_hip_hop.json"
+    },
+    {
+      "id": "baltimore_hip_hop",
+      "name": "Baltimore hip hop",
+      "family": "hip_hop",
+      "href": "traditions/baltimore_hip_hop.json"
+    },
+    {
+      "id": "bayerischer_rap",
+      "name": "Bayerischer rap",
+      "family": "hip_hop",
+      "href": "traditions/bayerischer_rap.json"
+    },
+    {
+      "id": "bc_underground_hip_hop",
+      "name": "BC underground hip hop",
+      "family": "hip_hop",
+      "href": "traditions/bc_underground_hip_hop.json"
+    },
+    {
+      "id": "birmingham_hip_hop",
+      "name": "Birmingham hip hop",
+      "family": "hip_hop",
+      "href": "traditions/birmingham_hip_hop.json"
+    },
+    {
+      "id": "buffalo_hip_hop",
+      "name": "Buffalo hip hop",
+      "family": "hip_hop",
+      "href": "traditions/buffalo_hip_hop.json"
+    },
+    {
+      "id": "cali_rap",
+      "name": "Cali rap",
+      "family": "hip_hop",
+      "href": "traditions/cali_rap.json"
+    },
+    {
+      "id": "cameroonian_hip_hop",
+      "name": "Cameroonian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/cameroonian_hip_hop.json"
+    },
+    {
+      "id": "cypriot_hip_hop",
+      "name": "Cypriot hip hop",
+      "family": "hip_hop",
+      "href": "traditions/cypriot_hip_hop.json"
+    },
+    {
+      "id": "czech_alternative_rap",
+      "name": "Czech alternative rap",
+      "family": "hip_hop",
+      "href": "traditions/czech_alternative_rap.json"
+    },
+    {
+      "id": "deep_southern_trap",
+      "name": "Deep southern trap",
+      "family": "hip_hop",
+      "href": "traditions/deep_southern_trap.json"
+    },
+    {
+      "id": "deep_underground_hip_hop",
+      "name": "Deep underground hip hop",
+      "family": "hip_hop",
+      "href": "traditions/deep_underground_hip_hop.json"
+    },
+    {
+      "id": "drill_italiana",
+      "name": "Drill italiana",
+      "family": "hip_hop",
+      "href": "traditions/drill_italiana.json"
+    },
+    {
+      "id": "finnish_hip_hop",
+      "name": "Finnish hip hop",
+      "family": "hip_hop",
+      "href": "traditions/finnish_hip_hop.json"
+    },
+    {
+      "id": "german_jazz_rap",
+      "name": "German jazz rap",
+      "family": "hip_hop",
+      "href": "traditions/german_jazz_rap.json"
+    },
+    {
+      "id": "german_underground_rap",
+      "name": "German underground rap",
+      "family": "hip_hop",
+      "href": "traditions/german_underground_rap.json"
+    },
+    {
+      "id": "ghanaian_hip_hop",
+      "name": "Ghanaian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/ghanaian_hip_hop.json"
+    },
+    {
+      "id": "hardcore_hip_hop",
+      "name": "Hardcore hip hop",
+      "family": "hip_hop",
+      "href": "traditions/hardcore_hip_hop.json"
+    },
+    {
+      "id": "hip_hop_cubano",
+      "name": "Hip hop cubano",
+      "family": "hip_hop",
+      "href": "traditions/hip_hop_cubano.json"
+    },
+    {
+      "id": "hip_hop_galsen",
+      "name": "Hip hop galsen",
+      "family": "hip_hop",
+      "href": "traditions/hip_hop_galsen.json"
+    },
+    {
+      "id": "hip_hop_quebecois",
+      "name": "Hip hop québécois",
+      "family": "hip_hop",
+      "href": "traditions/hip_hop_quebecois.json"
+    },
+    {
+      "id": "indonesian_hip_hop",
+      "name": "Indonesian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/indonesian_hip_hop.json"
+    },
+    {
+      "id": "irish_hip_hop",
+      "name": "Irish hip hop",
+      "family": "hip_hop",
+      "href": "traditions/irish_hip_hop.json"
+    },
+    {
+      "id": "j_rap",
+      "name": "J-rap",
+      "family": "hip_hop",
+      "href": "traditions/j_rap.json"
+    },
+    {
+      "id": "japanese_old_school_hip_hop",
+      "name": "Japanese old school hip hop",
+      "family": "hip_hop",
+      "href": "traditions/japanese_old_school_hip_hop.json"
+    },
+    {
+      "id": "japanese_underground_rap",
+      "name": "Japanese underground rap",
+      "family": "hip_hop",
+      "href": "traditions/japanese_underground_rap.json"
+    },
+    {
+      "id": "jewish_hip_hop",
+      "name": "Jewish hip hop",
+      "family": "hip_hop",
+      "href": "traditions/jewish_hip_hop.json"
+    },
+    {
+      "id": "josei_rap",
+      "name": "Josei rap",
+      "family": "hip_hop",
+      "href": "traditions/josei_rap.json"
+    },
+    {
+      "id": "kansas_city_hip_hop",
+      "name": "Kansas City hip hop",
+      "family": "hip_hop",
+      "href": "traditions/kansas_city_hip_hop.json"
+    },
+    {
+      "id": "kazakh_hip_hop",
+      "name": "Kazakh hip hop",
+      "family": "hip_hop",
+      "href": "traditions/kazakh_hip_hop.json"
+    },
+    {
+      "id": "kentucky_hip_hop",
+      "name": "Kentucky hip hop",
+      "family": "hip_hop",
+      "href": "traditions/kentucky_hip_hop.json"
+    },
+    {
+      "id": "kenyan_hip_hop",
+      "name": "Kenyan hip hop",
+      "family": "hip_hop",
+      "href": "traditions/kenyan_hip_hop.json"
+    },
+    {
+      "id": "cascadian_black_metal",
+      "name": "Cascadian black metal",
+      "family": "rock_punk",
+      "href": "traditions/cascadian_black_metal.json"
+    },
+    {
+      "id": "christian_metal",
+      "name": "Christian metal",
+      "family": "rock_punk",
+      "href": "traditions/christian_metal.json"
+    },
+    {
+      "id": "czech_metal",
+      "name": "Czech metal",
+      "family": "rock_punk",
+      "href": "traditions/czech_metal.json"
+    },
+    {
+      "id": "danish_black_metal",
+      "name": "Danish black metal",
+      "family": "rock_punk",
+      "href": "traditions/danish_black_metal.json"
+    },
+    {
+      "id": "danish_death_metal",
+      "name": "Danish death metal",
+      "family": "rock_punk",
+      "href": "traditions/danish_death_metal.json"
+    },
+    {
+      "id": "danish_metal",
+      "name": "Danish metal",
+      "family": "rock_punk",
+      "href": "traditions/danish_metal.json"
+    },
+    {
+      "id": "dutch_death_metal",
+      "name": "Dutch death metal",
+      "family": "rock_punk",
+      "href": "traditions/dutch_death_metal.json"
+    },
+    {
+      "id": "bow_pop",
+      "name": "Bow pop",
+      "family": "pop",
+      "href": "traditions/bow_pop.json"
+    },
+    {
+      "id": "c_pop_girl_group",
+      "name": "C-pop girl group",
+      "family": "pop",
+      "href": "traditions/c_pop_girl_group.json"
+    },
+    {
+      "id": "classic_country_pop",
+      "name": "Classic country pop",
+      "family": "pop",
+      "href": "traditions/classic_country_pop.json"
+    },
+    {
+      "id": "classic_icelandic_pop",
+      "name": "Classic icelandic pop",
+      "family": "pop",
+      "href": "traditions/classic_icelandic_pop.json"
+    },
+    {
+      "id": "classic_konkani_pop",
+      "name": "Classic konkani pop",
+      "family": "pop",
+      "href": "traditions/classic_konkani_pop.json"
+    },
+    {
+      "id": "classic_nz_pop",
+      "name": "Classic nz pop",
+      "family": "pop",
+      "href": "traditions/classic_nz_pop.json"
+    },
+    {
+      "id": "classic_persian_pop",
+      "name": "Classic persian pop",
+      "family": "pop",
+      "href": "traditions/classic_persian_pop.json"
+    },
+    {
+      "id": "classic_peruvian_pop",
+      "name": "Classic peruvian pop",
+      "family": "pop",
+      "href": "traditions/classic_peruvian_pop.json"
+    },
+    {
+      "id": "classic_uk_pop",
+      "name": "Classic uk pop",
+      "family": "pop",
+      "href": "traditions/classic_uk_pop.json"
+    },
+    {
+      "id": "classic_venezuelan_pop",
+      "name": "Classic venezuelan pop",
+      "family": "pop",
+      "href": "traditions/classic_venezuelan_pop.json"
+    },
+    {
+      "id": "dominican_pop",
+      "name": "Dominican pop",
+      "family": "pop",
+      "href": "traditions/dominican_pop.json"
+    },
+    {
+      "id": "ecuadorian_pop",
+      "name": "Ecuadorian pop",
+      "family": "pop",
+      "href": "traditions/ecuadorian_pop.json"
+    },
+    {
+      "id": "faroese_pop",
+      "name": "Faroese pop",
+      "family": "pop",
+      "href": "traditions/faroese_pop.json"
+    },
+    {
+      "id": "belgian_blues",
+      "name": "Belgian blues",
+      "family": "blues_gospel",
+      "href": "traditions/belgian_blues.json"
+    },
+    {
+      "id": "blues_mexicano",
+      "name": "Blues mexicano",
+      "family": "blues_gospel",
+      "href": "traditions/blues_mexicano.json"
+    },
+    {
+      "id": "classic_soul",
+      "name": "Classic soul",
+      "family": "blues_gospel",
+      "href": "traditions/classic_soul.json"
+    },
+    {
+      "id": "congolese_gospel",
+      "name": "Congolese gospel",
+      "family": "blues_gospel",
+      "href": "traditions/congolese_gospel.json"
+    },
+    {
+      "id": "coral_gospel",
+      "name": "Coral gospel",
+      "family": "blues_gospel",
+      "href": "traditions/coral_gospel.json"
+    },
+    {
+      "id": "deep_funk",
+      "name": "Deep funk",
+      "family": "blues_gospel",
+      "href": "traditions/deep_funk.json"
+    },
+    {
+      "id": "family_gospel",
+      "name": "Family gospel",
+      "family": "blues_gospel",
+      "href": "traditions/family_gospel.json"
+    },
+    {
+      "id": "ghanaian_gospel",
+      "name": "Ghanaian gospel",
+      "family": "blues_gospel",
+      "href": "traditions/ghanaian_gospel.json"
+    },
+    {
+      "id": "gospel_reggae",
+      "name": "Gospel reggae",
+      "family": "blues_gospel",
+      "href": "traditions/gospel_reggae.json"
+    },
+    {
+      "id": "gospel_soul",
+      "name": "Gospel soul",
+      "family": "blues_gospel",
+      "href": "traditions/gospel_soul.json"
+    },
+    {
+      "id": "haitian_gospel",
+      "name": "Haitian gospel",
+      "family": "blues_gospel",
+      "href": "traditions/haitian_gospel.json"
+    },
+    {
+      "id": "instrumental_soul",
+      "name": "Instrumental soul",
+      "family": "blues_gospel",
+      "href": "traditions/instrumental_soul.json"
+    },
+    {
+      "id": "neapolitan_funk",
+      "name": "Neapolitan funk",
+      "family": "blues_gospel",
+      "href": "traditions/neapolitan_funk.json"
+    },
+    {
+      "id": "pre_war_blues",
+      "name": "Pre-war blues",
+      "family": "blues_gospel",
+      "href": "traditions/pre_war_blues.json"
+    },
+    {
+      "id": "quarteto_gospel",
+      "name": "Quarteto gospel",
+      "family": "blues_gospel",
+      "href": "traditions/quarteto_gospel.json"
+    },
+    {
+      "id": "dutch_hip_hop",
+      "name": "Dutch hip hop",
+      "family": "hip_hop",
+      "href": "traditions/dutch_hip_hop.json"
+    },
+    {
+      "id": "harlem_hip_hop",
+      "name": "Harlem hip hop",
+      "family": "hip_hop",
+      "href": "traditions/harlem_hip_hop.json"
+    },
+    {
+      "id": "italian_hip_hop",
+      "name": "Italian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/italian_hip_hop.json"
+    },
+    {
+      "id": "korean_old_school_hip_hop",
+      "name": "Korean old school hip hop",
+      "family": "hip_hop",
+      "href": "traditions/korean_old_school_hip_hop.json"
+    },
+    {
+      "id": "flute_rock",
+      "name": "Flute rock",
+      "family": "rock_punk",
+      "href": "traditions/flute_rock.json"
+    },
+    {
+      "id": "german_hard_rock",
+      "name": "German hard rock",
+      "family": "rock_punk",
+      "href": "traditions/german_hard_rock.json"
+    },
+    {
+      "id": "brass_band_pop",
+      "name": "Brass band pop",
+      "family": "pop",
+      "href": "traditions/brass_band_pop.json"
+    },
+    {
+      "id": "egyptian_trap",
+      "name": "Egyptian trap",
+      "family": "hip_hop",
+      "href": "traditions/egyptian_trap.json"
+    },
+    {
+      "id": "estonian_hip_hop",
+      "name": "Estonian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/estonian_hip_hop.json"
+    },
+    {
+      "id": "german_cloud_rap",
+      "name": "German cloud rap",
+      "family": "hip_hop",
+      "href": "traditions/german_cloud_rap.json"
+    },
+    {
+      "id": "goa_hip_hop",
+      "name": "Goa hip hop",
+      "family": "hip_hop",
+      "href": "traditions/goa_hip_hop.json"
+    },
+    {
+      "id": "hindi_hip_hop",
+      "name": "Hindi hip hop",
+      "family": "hip_hop",
+      "href": "traditions/hindi_hip_hop.json"
+    },
+    {
+      "id": "hip_hop_experimental",
+      "name": "Hip-hop experimental",
+      "family": "hip_hop",
+      "href": "traditions/hip_hop_experimental.json"
+    },
+    {
+      "id": "hungarian_underground_rap",
+      "name": "Hungarian underground rap",
+      "family": "hip_hop",
+      "href": "traditions/hungarian_underground_rap.json"
+    },
+    {
+      "id": "igbo_rap",
+      "name": "Igbo rap",
+      "family": "hip_hop",
+      "href": "traditions/igbo_rap.json"
+    },
+    {
+      "id": "igbo_trap",
+      "name": "Igbo trap",
+      "family": "hip_hop",
+      "href": "traditions/igbo_trap.json"
+    },
+    {
+      "id": "indiana_hip_hop",
+      "name": "Indiana hip hop",
+      "family": "hip_hop",
+      "href": "traditions/indiana_hip_hop.json"
+    },
+    {
+      "id": "indie_hip_hop",
+      "name": "Indie hip hop",
+      "family": "hip_hop",
+      "href": "traditions/indie_hip_hop.json"
+    },
+    {
+      "id": "indie_pop_rap",
+      "name": "Indie pop rap",
+      "family": "hip_hop",
+      "href": "traditions/indie_pop_rap.json"
+    },
+    {
+      "id": "italian_underground_hip_hop",
+      "name": "Italian underground hip hop",
+      "family": "hip_hop",
+      "href": "traditions/italian_underground_hip_hop.json"
+    },
+    {
+      "id": "kannada_hip_hop",
+      "name": "Kannada hip hop",
+      "family": "hip_hop",
+      "href": "traditions/kannada_hip_hop.json"
+    },
+    {
+      "id": "kansas_hip_hop",
+      "name": "Kansas hip hop",
+      "family": "hip_hop",
+      "href": "traditions/kansas_hip_hop.json"
+    },
+    {
+      "id": "khmer_hip_hop",
+      "name": "Khmer hip hop",
+      "family": "hip_hop",
+      "href": "traditions/khmer_hip_hop.json"
+    },
+    {
+      "id": "korean_trap",
+      "name": "Korean trap",
+      "family": "hip_hop",
+      "href": "traditions/korean_trap.json"
+    },
+    {
+      "id": "kurdish_hip_hop",
+      "name": "Kurdish hip hop",
+      "family": "hip_hop",
+      "href": "traditions/kurdish_hip_hop.json"
+    },
+    {
+      "id": "lapland_hip_hop",
+      "name": "Lapland hip hop",
+      "family": "hip_hop",
+      "href": "traditions/lapland_hip_hop.json"
+    },
+    {
+      "id": "celtic_metal",
+      "name": "Celtic metal",
+      "family": "rock_punk",
+      "href": "traditions/celtic_metal.json"
+    },
+    {
+      "id": "chinese_metal",
+      "name": "Chinese metal",
+      "family": "rock_punk",
+      "href": "traditions/chinese_metal.json"
+    },
+    {
+      "id": "cleveland_metal",
+      "name": "Cleveland metal",
+      "family": "rock_punk",
+      "href": "traditions/cleveland_metal.json"
+    },
+    {
+      "id": "comic_metal",
+      "name": "Comic metal",
+      "family": "rock_punk",
+      "href": "traditions/comic_metal.json"
+    },
+    {
+      "id": "cosmic_death_metal",
+      "name": "Cosmic death metal",
+      "family": "rock_punk",
+      "href": "traditions/cosmic_death_metal.json"
+    },
+    {
+      "id": "denver_metal",
+      "name": "Denver metal",
+      "family": "rock_punk",
+      "href": "traditions/denver_metal.json"
+    },
+    {
+      "id": "dutch_black_metal",
+      "name": "Dutch black metal",
+      "family": "rock_punk",
+      "href": "traditions/dutch_black_metal.json"
+    },
+    {
+      "id": "dutch_metal",
+      "name": "Dutch metal",
+      "family": "rock_punk",
+      "href": "traditions/dutch_metal.json"
+    },
+    {
+      "id": "estonian_metal",
+      "name": "Estonian metal",
+      "family": "rock_punk",
+      "href": "traditions/estonian_metal.json"
+    },
+    {
+      "id": "dutch_indie_rock",
+      "name": "Dutch indie rock",
+      "family": "rock_punk",
+      "href": "traditions/dutch_indie_rock.json"
+    },
+    {
+      "id": "dutch_stoner_rock",
+      "name": "Dutch stoner rock",
+      "family": "rock_punk",
+      "href": "traditions/dutch_stoner_rock.json"
+    },
+    {
+      "id": "electronic_rock",
+      "name": "Electronic rock",
+      "family": "rock_punk",
+      "href": "traditions/electronic_rock.json"
+    },
+    {
+      "id": "faroese_rock",
+      "name": "Faroese rock",
+      "family": "rock_punk",
+      "href": "traditions/faroese_rock.json"
+    },
+    {
+      "id": "finnish_progressive_rock",
+      "name": "Finnish progressive rock",
+      "family": "rock_punk",
+      "href": "traditions/finnish_progressive_rock.json"
+    },
+    {
+      "id": "french_rockabilly",
+      "name": "French rockabilly",
+      "family": "rock_punk",
+      "href": "traditions/french_rockabilly.json"
+    },
+    {
+      "id": "german_post_rock",
+      "name": "German post-rock",
+      "family": "rock_punk",
+      "href": "traditions/german_post_rock.json"
+    },
+    {
+      "id": "german_pop_rock",
+      "name": "German pop rock",
+      "family": "rock_punk",
+      "href": "traditions/german_pop_rock.json"
+    },
+    {
+      "id": "french_rock",
+      "name": "French rock",
+      "family": "rock_punk",
+      "href": "traditions/french_rock.json"
+    },
+    {
+      "id": "japanese_drill",
+      "name": "Japanese drill",
+      "family": "hip_hop",
+      "href": "traditions/japanese_drill.json"
+    },
+    {
+      "id": "dutch_rap_pop",
+      "name": "Dutch rap pop",
+      "family": "hip_hop",
+      "href": "traditions/dutch_rap_pop.json"
+    },
+    {
+      "id": "dutch_trap",
+      "name": "Dutch trap",
+      "family": "hip_hop",
+      "href": "traditions/dutch_trap.json"
+    },
+    {
+      "id": "dutch_underground_hip_hop",
+      "name": "Dutch underground hip hop",
+      "family": "hip_hop",
+      "href": "traditions/dutch_underground_hip_hop.json"
+    },
+    {
+      "id": "emo_trap_en_espanol",
+      "name": "Emo trap en español",
+      "family": "hip_hop",
+      "href": "traditions/emo_trap_en_espanol.json"
+    },
+    {
+      "id": "florida_rap",
+      "name": "Florida rap",
+      "family": "hip_hop",
+      "href": "traditions/florida_rap.json"
+    },
+    {
+      "id": "german_alternative_rap",
+      "name": "German alternative rap",
+      "family": "hip_hop",
+      "href": "traditions/german_alternative_rap.json"
+    },
+    {
+      "id": "german_trap",
+      "name": "German trap",
+      "family": "hip_hop",
+      "href": "traditions/german_trap.json"
+    },
+    {
+      "id": "hungarian_hip_hop",
+      "name": "Hungarian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/hungarian_hip_hop.json"
+    },
+    {
+      "id": "israeli_hip_hop",
+      "name": "Israeli hip hop",
+      "family": "hip_hop",
+      "href": "traditions/israeli_hip_hop.json"
+    },
+    {
+      "id": "israeli_trap",
+      "name": "Israeli trap",
+      "family": "hip_hop",
+      "href": "traditions/israeli_trap.json"
+    },
+    {
+      "id": "jamaican_hip_hop",
+      "name": "Jamaican hip hop",
+      "family": "hip_hop",
+      "href": "traditions/jamaican_hip_hop.json"
+    },
+    {
+      "id": "japanese_trap",
+      "name": "Japanese trap",
+      "family": "hip_hop",
+      "href": "traditions/japanese_trap.json"
+    },
+    {
+      "id": "kasi_rap",
+      "name": "Kasi rap",
+      "family": "hip_hop",
+      "href": "traditions/kasi_rap.json"
+    },
+    {
+      "id": "kids_hip_hop",
+      "name": "Kids hip hop",
+      "family": "hip_hop",
+      "href": "traditions/kids_hip_hop.json"
+    },
+    {
+      "id": "chinese_black_metal",
+      "name": "Chinese black metal",
+      "family": "rock_punk",
+      "href": "traditions/chinese_black_metal.json"
+    },
+    {
+      "id": "christian_deathcore",
+      "name": "Christian deathcore",
+      "family": "rock_punk",
+      "href": "traditions/christian_deathcore.json"
+    },
+    {
+      "id": "christian_metalcore",
+      "name": "Christian metalcore",
+      "family": "rock_punk",
+      "href": "traditions/christian_metalcore.json"
+    },
+    {
+      "id": "czsk_black_metal",
+      "name": "CZSK black metal",
+      "family": "rock_punk",
+      "href": "traditions/czsk_black_metal.json"
+    },
+    {
+      "id": "dub_metal",
+      "name": "Dub metal",
+      "family": "rock_punk",
+      "href": "traditions/dub_metal.json"
+    },
+    {
+      "id": "electronic_djent",
+      "name": "Electronic djent",
+      "family": "rock_punk",
+      "href": "traditions/electronic_djent.json"
+    },
+    {
+      "id": "epic_black_metal",
+      "name": "Epic black metal",
+      "family": "rock_punk",
+      "href": "traditions/epic_black_metal.json"
+    },
+    {
+      "id": "dutch_rock",
+      "name": "Dutch rock",
+      "family": "rock_punk",
+      "href": "traditions/dutch_rock.json"
+    },
+    {
+      "id": "euskal_rock",
+      "name": "Euskal rock",
+      "family": "rock_punk",
+      "href": "traditions/euskal_rock.json"
+    },
+    {
+      "id": "finnish_psychedelic_rock",
+      "name": "Finnish psychedelic rock",
+      "family": "rock_punk",
+      "href": "traditions/finnish_psychedelic_rock.json"
+    },
+    {
+      "id": "french_post_rock",
+      "name": "French post-rock",
+      "family": "rock_punk",
+      "href": "traditions/french_post_rock.json"
+    },
+    {
+      "id": "geek_rock",
+      "name": "Geek rock",
+      "family": "rock_punk",
+      "href": "traditions/geek_rock.json"
+    },
+    {
+      "id": "german_alternative_rock",
+      "name": "German alternative rock",
+      "family": "rock_punk",
+      "href": "traditions/german_alternative_rock.json"
+    },
+    {
+      "id": "german_indie_rock",
+      "name": "German indie rock",
+      "family": "rock_punk",
+      "href": "traditions/german_indie_rock.json"
+    },
+    {
+      "id": "lgbtq_hip_hop",
+      "name": "LGBTQ+ hip hop",
+      "family": "hip_hop",
+      "href": "traditions/lgbtq_hip_hop.json"
+    },
+    {
+      "id": "lithuanian_hip_hop",
+      "name": "Lithuanian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/lithuanian_hip_hop.json"
+    },
+    {
+      "id": "malay_rap",
+      "name": "Malay rap",
+      "family": "hip_hop",
+      "href": "traditions/malay_rap.json"
+    },
+    {
+      "id": "malaysian_hip_hop",
+      "name": "Malaysian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/malaysian_hip_hop.json"
+    },
+    {
+      "id": "melbourne_hip_hop",
+      "name": "Melbourne hip hop",
+      "family": "hip_hop",
+      "href": "traditions/melbourne_hip_hop.json"
+    },
+    {
+      "id": "meme_rap",
+      "name": "Meme rap",
+      "family": "hip_hop",
+      "href": "traditions/meme_rap.json"
+    },
+    {
+      "id": "minnesota_hip_hop",
+      "name": "Minnesota hip hop",
+      "family": "hip_hop",
+      "href": "traditions/minnesota_hip_hop.json"
+    },
+    {
+      "id": "mississippi_hip_hop",
+      "name": "Mississippi hip hop",
+      "family": "hip_hop",
+      "href": "traditions/mississippi_hip_hop.json"
+    },
+    {
+      "id": "new_orleans_rap",
+      "name": "New Orleans rap",
+      "family": "hip_hop",
+      "href": "traditions/new_orleans_rap.json"
+    },
+    {
+      "id": "nordnorsk_rap",
+      "name": "Nordnorsk rap",
+      "family": "hip_hop",
+      "href": "traditions/nordnorsk_rap.json"
+    },
+    {
+      "id": "north_carolina_hip_hop",
+      "name": "North Carolina hip hop",
+      "family": "hip_hop",
+      "href": "traditions/north_carolina_hip_hop.json"
+    },
+    {
+      "id": "norwegian_hip_hop",
+      "name": "Norwegian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/norwegian_hip_hop.json"
+    },
+    {
+      "id": "ohio_hip_hop",
+      "name": "Ohio hip hop",
+      "family": "hip_hop",
+      "href": "traditions/ohio_hip_hop.json"
+    },
+    {
+      "id": "old_school_hip_hop",
+      "name": "Old school hip hop",
+      "family": "hip_hop",
+      "href": "traditions/old_school_hip_hop.json"
+    },
+    {
+      "id": "old_school_rap_francais",
+      "name": "Old school rap français",
+      "family": "hip_hop",
+      "href": "traditions/old_school_rap_francais.json"
+    },
+    {
+      "id": "palestinian_hip_hop",
+      "name": "Palestinian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/palestinian_hip_hop.json"
+    },
+    {
+      "id": "finnish_metal",
+      "name": "Finnish metal",
+      "family": "rock_punk",
+      "href": "traditions/finnish_metal.json"
+    },
+    {
+      "id": "finnish_progressive_metal",
+      "name": "Finnish progressive metal",
+      "family": "rock_punk",
+      "href": "traditions/finnish_progressive_metal.json"
+    },
+    {
+      "id": "german_metal",
+      "name": "German metal",
+      "family": "rock_punk",
+      "href": "traditions/german_metal.json"
+    },
+    {
+      "id": "german_power_metal",
+      "name": "German power metal",
+      "family": "rock_punk",
+      "href": "traditions/german_power_metal.json"
+    },
+    {
+      "id": "estonian_rock",
+      "name": "Estonian rock",
+      "family": "rock_punk",
+      "href": "traditions/estonian_rock.json"
+    },
+    {
+      "id": "finnish_alternative_rock",
+      "name": "Finnish alternative rock",
+      "family": "rock_punk",
+      "href": "traditions/finnish_alternative_rock.json"
+    },
+    {
+      "id": "galician_rock",
+      "name": "Galician rock",
+      "family": "rock_punk",
+      "href": "traditions/galician_rock.json"
+    },
+    {
+      "id": "german_rockabilly",
+      "name": "German rockabilly",
+      "family": "rock_punk",
+      "href": "traditions/german_rockabilly.json"
+    },
+    {
+      "id": "german_stoner_rock",
+      "name": "German stoner rock",
+      "family": "rock_punk",
+      "href": "traditions/german_stoner_rock.json"
+    },
+    {
+      "id": "french_stoner_rock",
+      "name": "French stoner rock",
+      "family": "rock_punk",
+      "href": "traditions/french_stoner_rock.json"
+    },
+    {
+      "id": "latin_hip_hop",
+      "name": "Latin hip hop",
+      "family": "hip_hop",
+      "href": "traditions/latin_hip_hop.json"
+    },
+    {
+      "id": "manchester_hip_hop",
+      "name": "Manchester hip hop",
+      "family": "hip_hop",
+      "href": "traditions/manchester_hip_hop.json"
+    },
+    {
+      "id": "miami_hip_hop",
+      "name": "Miami hip hop",
+      "family": "hip_hop",
+      "href": "traditions/miami_hip_hop.json"
     }
   ]
 }

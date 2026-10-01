@@ -5,7 +5,7 @@
   "lineage": "Contemporary Dutch jazz; selected Tineke Postma composition-led quintet",
   "recipe": "classic modern dutch jazz, improv On Frame, American jazz branch. saxophone, bach stradivarius 180 canonical American orchestral trumpet, grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 378,
-  "score": 47.758,
+  "score": 47.741,
   "config": {
     "traditions": [
       "dutch_jazz"
@@ -29,7 +29,7 @@
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
           "sax_technique": 0.313,
-          "sax_maker_school": 0.47450000000000003
+          "sax_maker_school": 0.4525
         }
       },
       {
@@ -47,9 +47,9 @@
           "wind_articulation": 0.313,
           "brass_size": 0.273,
           "trumpet_mouthpiece": -0.07,
-          "brass_mute": 0.18224999999999997,
+          "brass_mute": 0.147,
           "trumpet_technique": -0.05,
-          "trumpet_bell_metal": 0.142125,
+          "trumpet_bell_metal": 0.105,
           "trumpet_maker_school": 1.95
         }
       },
@@ -85,7 +85,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.16799999999999998,
+          "upright_strings": 0.246,
           "upright_play": 11.25
         }
       },

@@ -5,7 +5,7 @@
   "lineage": "Commercially recorded southern American ensemble format of the 1920s-30s in which fiddle carries melody, banjo and guitar supply the bum-ditty and bass-run rhythm, and mandolin or string bass fill out the middle — codified by the 1923-31 Okeh, Victor and Columbia field trips including Ralph Peer's 1927 Bristol sessions, with Gid Tanner's Skillet Lickers, Charlie Poole's North Carolina Ramblers and the Carter Family setting the templates of dance breakdowns, ballads and comic skits at steady 2/4 and 4/4 with heavy bass-string runs on guitar.",
   "recipe": "classic Southern American mid-1920s string band, functional Song, pre commercial branch, bluegrass improv on frame, blues narrative jug band neo-traditional bluegrass reactionary bluegrass. plain gut sheep gut double stops fiddle, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar martin lifespan sealed flatpicked dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, venice catlin high twist renaissance bass plywood laminate double bass, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 753,
-  "score": 304.246,
+  "score": 304.135,
   "config": {
     "traditions": [
       "string_band",
@@ -20,14 +20,16 @@
           "fiddle_strings": "plain_sheep_gut_fiddle",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "sul_tasto"
+          "fiddle_articulation": "sul_tasto",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 26.414999999999996,
-          "fiddle_strings": 3.6385,
+          "bowed_technique": 26.369999999999994,
+          "fiddle_strings": 3.355,
           "fiddle_bow": 0.735,
           "fiddle_mute": 0.8449999999999999,
-          "fiddle_articulation": 0.255
+          "fiddle_articulation": 0.255,
+          "fiddle_string_configuration": 0
         }
       },
       {
@@ -50,7 +52,7 @@
           "banjo_head": 20.02,
           "banjo_pot": 0.195,
           "banjo_play": 5.07,
-          "banjo_rim_wood": 12.6465,
+          "banjo_rim_wood": 12.675,
           "banjo_neck_wood": 12.675,
           "banjo_strings": 12.869999999999997,
           "banjo_bridge": 12.869999999999997,
@@ -67,11 +69,11 @@
           "string_acoustic": "martin_lifespan"
         },
         "scores": {
-          "acoustic_technique": 10.635,
+          "acoustic_technique": 10.725,
           "string_tuning": 2.05,
           "top_wood": 1.04,
           "back_sides": 0.45499999999999996,
-          "string_acoustic": 4.0835
+          "string_acoustic": 3.8
         }
       },
       {
@@ -87,11 +89,11 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 10.635,
+          "acoustic_technique": 10.725,
           "mandolin_shape": 9.795,
           "mandolin_top": 11.875,
           "mandolin_back": 9.75,
-          "mandolin_bracing": 9.945,
+          "mandolin_bracing": 9.84,
           "mandolin_strings": 4.9075,
           "mandolin_fingerboard": 0.975,
           "mandolin_pickup": 19.825
@@ -112,14 +114,14 @@
           "bass_bow_stick": "brazilwood_stick_bass"
         },
         "scores": {
-          "bowed_technique": -0.05,
-          "bass_size": 0,
+          "bowed_technique": -0.035,
+          "bass_size": 0.045,
           "bass_strings": 8.190000000000001,
           "bass_top_wood": 1.25,
           "bass_back_wood": 1.895,
           "bass_varnish": 1.25,
           "bass_setup_period": 10.725,
-          "bass_play": 0.375,
+          "bass_play": 0.46499999999999997,
           "bass_rosin": 9.815000000000001,
           "bass_bow_stick": 1.25
         }
@@ -137,10 +139,10 @@
         "scores": {
           "harmonica_type": 0.195,
           "harmonica_comb": 4.615,
-          "harmonica_reed": 3.07,
-          "harmonica_technique": 9.069999999999999,
+          "harmonica_reed": 3.2649999999999997,
+          "harmonica_technique": 9.114999999999998,
           "harmonica_maker_school": 1.8199999999999996,
-          "harmonica_tuning": 1.26
+          "harmonica_tuning": 1.2675
         }
       }
     ],

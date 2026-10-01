@@ -3,14 +3,14 @@
   "name": "DC go-go (1970s-onward)",
   "family": "hip_hop",
   "lineage": "Washington D.C.-specific funk subgenre developed in mid-1970s by Chuck Brown (1936-2012), characterized by continuous percussion-and-bass-and-vocal groove without breaks between songs (the \"go-go\" of perpetual-motion), call-and-response between bandleader and audience, and Latin-percussion (congas, timbales, cowbell) integration with funk-band horn-section. Trouble Funk, Rare Essence, Experience Unlimited, and Backyard Band extended the canonical roster.",
-  "recipe": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, bronze open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 894,
-  "score": 383.937,
+  "recipe": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion cuban funk future funk. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 998,
+  "score": 372.507,
   "config": {
     "traditions": [
       "dc_go_go",
-      "future_funk_vaporwave",
-      "funk"
+      "cuban_funk",
+      "future_funk_vaporwave"
     ],
     "instruments": [
       {
@@ -20,10 +20,10 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.514999999999999,
-          "voice_quality": 8.774999999999999,
+          "voice_register": 10.139999999999999,
+          "voice_quality": 5.525,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 21.384999999999994,
-          "voice_microtone": 20.604999999999993,
-          "voice_tradition": 9.02,
-          "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 4.890000000000001,
-          "voice_speech_song": 24.049999999999997,
-          "voice_ensemble_config": 17.354999999999997,
-          "voice_ornament_system": 2.04,
+          "voice_vibrato": 3.334999999999999,
+          "voice_articulation": 18.394999999999992,
+          "voice_microtone": 18.19999999999999,
+          "voice_tradition": 10.399999999999999,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 3.64,
+          "voice_speech_song": 20.799999999999997,
+          "voice_ensemble_config": 14.949999999999992,
+          "voice_ornament_system": 1.4949999999999999,
           "voice_pitch_organization": 2.2199999999999998,
-          "voice_processing_chain": 25.939999999999998,
-          "voice_multitrack_stack": 9.912500000000001
+          "voice_processing_chain": 27.54,
+          "voice_multitrack_stack": 7.442500000000001
         }
       },
       {
@@ -70,19 +70,19 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 25.234999999999996,
-          "amp_make": 26.594999999999995,
+          "electric_technique": 25.735,
+          "amp_make": 26.444999999999997,
           "body_wood": 5.07,
           "neck_wood": 2.535,
-          "fretboard": 3.055,
+          "fretboard": 2.8600000000000003,
           "pickup_magnet": 0.24,
           "pickup_winding": 0.045,
-          "string_material": 2.19,
+          "string_material": 1.69,
           "bridge": 2.535,
-          "scale_length": 4.875,
+          "scale_length": 4.225,
           "string_gauge": 2.535,
           "finish": 0.09,
-          "string_tuning": 6.305
+          "string_tuning": 4.225
         }
       },
       {
@@ -94,28 +94,30 @@
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "fingerstyle_locked"
+          "bass_technique": "slap_pop",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.035,
+          "amp_make": 9.815000000000001,
           "body_wood": 2.535,
-          "pickup_config": 0.195,
-          "string_type": 8.97,
+          "pickup_config": 0.24,
+          "string_type": 8.19,
           "scale_length_b": 2.535,
-          "fretted_or_not": 3.055,
-          "bass_technique": 25.294999999999995
+          "fretted_or_not": 2.8600000000000003,
+          "bass_technique": 26.544999999999995,
+          "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "double_coated",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.289999999999996,
-          "drumhead": 2.535,
+          "drum_technique": 16.769999999999992,
+          "drumhead": 4.159999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -124,14 +126,14 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
-          "conga_skin": "conga_cowhide",
-          "conga_shell_wood": "conga_siam_oak"
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 4.355,
-          "conga_set": 0.195,
-          "conga_skin": 2.535,
-          "conga_shell_wood": 2.535
+          "percussion_technique": 4.16,
+          "conga_set": 0.845,
+          "conga_skin": 3.49,
+          "conga_shell_wood": 3.49
         }
       },
       {
@@ -142,8 +144,8 @@
           "timbales_context": "timbales_son"
         },
         "scores": {
-          "percussion_technique": 4.355,
-          "timbales_shell": 1.155,
+          "percussion_technique": 4.16,
+          "timbales_shell": 1.6899999999999997,
           "timbales_context": 0.15
         }
       },
@@ -152,20 +154,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "brass_size": "trumpet_b_flat",
-          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 9.97,
-          "brass_size": 2.19,
-          "trumpet_mouthpiece": 3.0550000000000006,
+          "wind_articulation": 8.07,
+          "brass_size": 1.69,
+          "trumpet_mouthpiece": 5.374999999999999,
           "brass_mute": 0.195,
-          "trumpet_technique": 9.97,
+          "trumpet_technique": 8.07,
           "trumpet_bell_metal": 2.3850000000000002,
-          "trumpet_maker_school": 3.38
+          "trumpet_maker_school": 2.535
         }
       },
       {
@@ -176,17 +178,17 @@
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
-          "sax_technique": "sax_honking_attack",
-          "sax_maker_school": "sax_yamaha_custom"
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 9.97,
-          "sax_size": 4.9,
-          "sax_reed": 2.19,
-          "sax_body_alloy": 0.12999999999999998,
-          "sax_mouthpiece": 2.19,
-          "sax_technique": 4.9,
-          "sax_maker_school": 0.845
+          "wind_articulation": 8.07,
+          "sax_size": 3.6500000000000004,
+          "sax_reed": 1.69,
+          "sax_body_alloy": 3.3399999999999994,
+          "sax_mouthpiece": 1.69,
+          "sax_technique": 4.594999999999999,
+          "sax_maker_school": 4.094999999999999
         }
       }
     ],

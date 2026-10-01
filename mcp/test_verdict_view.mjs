@@ -133,8 +133,8 @@ test('blocking: one line per thing that stands, merged, and one per unjudged lin
     'L1/3: SLOTS_EXCEEDED — more syllables than slots (7 syllables, 6 slots)',
     "L1/3: SCHEME_VIOLATION — L1 and L3 are both in group A but do not stand in the relation it requires (NO_RELATION: no admitted relation); compared 'here' ~ 'near'",
     'L2/3: MODAL_RHYME — L2/L3 rhyme on a modal pair (the whole explanation, at length)',
-    'L2: not judged — prominence, meter, rhyme with L3 (PROMINENCE_UNDECIDED); words with more than one reading: L2 Two',
-    'L3: not judged — rhyme with L2; words with more than one reading: L2 Two',
+    'L2: not judged — prominence, meter, rhyme with L3 (PROMINENCE_UNDECIDED); words with more than one reading: Two',
+    'L3: not judged — rhyme with L2',
   ]);
   const standing = findings.filter(isStanding).map((f) => f.code);
   assert.deepEqual(
@@ -348,28 +348,4 @@ test('only a screened result is shortened, and only for lyric_screen', () => {
   const short = publicToolResult(stored, null, { tool: 'lyric_screen' });
   assert.equal(JSON.parse(short.content[0].text).report, undefined);
   assert.equal(JSON.parse(short.content[0].text).pairs.length, 3);
-});
-
-test('a stopped revise names the session continuation, not run_id or state', () => {
-  const stopped = {
-    content: [
-      {
-        type: 'text',
-        text: JSON.stringify({
-          exit_code: -1,
-          status: 'interrupted',
-          meaning:
-            'subprocess failure (-1): verb killed at the shared tool deadline Resume explicitly with run_id or state under the same declarations; completed proposals are in that journal.',
-          state: 'private-run-state',
-          run_id: 'r',
-        }),
-      },
-    ],
-  };
-  const out = JSON.parse(publicToolResult(stopped, null, { tool: 'lyric_revise' }).content[0].text);
-  assert.equal(out.state, undefined);
-  assert.equal(out.run_id, undefined);
-  assert.doesNotMatch(out.meaning, /run_id|under the same declarations/);
-  assert.match(out.meaning, /lyric_revise, the latest session_id and no answer/);
-  assert.match(out.meaning, /^subprocess failure \(-1\): verb killed at the shared tool deadline/);
 });

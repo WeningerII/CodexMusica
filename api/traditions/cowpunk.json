@@ -27,7 +27,8 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_d",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 26.699999999999996,
@@ -41,7 +42,8 @@
           "bridge": 0.3,
           "scale_length": 0.39,
           "finish": 0.173625,
-          "string_tuning": 9.75
+          "string_tuning": 9.75,
+          "single_coil_pickup_construction": 0
         }
       },
       {
@@ -53,7 +55,8 @@
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "pick_aggressive"
+          "bass_technique": "pick_aggressive",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 24.873249999999995,
@@ -62,7 +65,8 @@
           "string_type": 20.6375,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.12374999999999999,
-          "bass_technique": 25.0565
+          "bass_technique": 25.0565,
+          "electric_bass_string_configuration": 0
         }
       },
       {
@@ -164,14 +168,16 @@
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco"
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
           "bowed_technique": 26.674999999999997,
           "fiddle_strings": 2.34,
           "fiddle_bow": 0.195,
           "fiddle_mute": 0.1815,
-          "fiddle_articulation": 0.3667499999999999
+          "fiddle_articulation": 0.3667499999999999,
+          "fiddle_string_configuration": 0
         }
       }
     ],
