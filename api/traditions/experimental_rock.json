@@ -5,7 +5,7 @@
   "lineage": "Emerged internationally 1967-1980 through Captain Beefheart, Faust, This Heat, Frank Zappa and later Sonic Youth and Swans, using the rock band as raw material rather than form — polymetric interlocking parts, altered and prepared guitars, tape splicing and musique concrete inserts, non-functional harmony, extended or absent song structure, and vocals treated as timbre, usually self-produced in converted non-studio spaces on multitrack tape.",
   "recipe": "classic mid-1970s experimental rock, distorted Rock, experimental branch, noise rock distorted rock, musique concrete experimental electric polish noise rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit, prepared piano, emu modular 1971 1978 analog studio grade east coast precision textural modular synth, alto multiphonic saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 758,
-  "score": 395.595,
+  "score": 397.29,
   "config": {
     "traditions": [
       "experimental_rock",
@@ -32,18 +32,18 @@
         },
         "scores": {
           "electric_technique": 12.479999999999999,
-          "amp_make": 17.814999999999998,
+          "amp_make": 18.264999999999997,
           "body_wood": 0.39,
           "neck_wood": 1.54,
-          "fretboard": 1.69,
+          "fretboard": 1.645,
           "pickup_magnet": 0.40499999999999997,
           "pickup_winding": 0.6514285714285715,
-          "string_material": 1.69,
+          "string_material": 1.645,
           "bridge": 0.845,
           "scale_length": 1.8849999999999998,
           "string_gauge": 0.845,
-          "finish": 1.09,
-          "string_tuning": 18.935
+          "finish": 1.045,
+          "string_tuning": 19.37
         }
       },
       {
@@ -59,10 +59,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 17.509999999999998,
+          "amp_make": 17.615,
           "body_wood": 0.195,
-          "pickup_config": 0.42,
-          "string_type": 37.6,
+          "pickup_config": 0.315,
+          "string_type": 39.175,
           "scale_length_b": 0.21,
           "fretted_or_not": 0.24,
           "bass_technique": 34.57,
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 33.625,
-          "drumhead": 2.595714285714286,
+          "drumhead": 2.490714285714286,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -110,7 +110,7 @@
           "voice_vibrato": 1.69,
           "voice_articulation": 14.299999999999995,
           "voice_microtone": 33.58500000000001,
-          "voice_tradition": 15.62607142857143,
+          "voice_tradition": 15.29607142857143,
           "voice_mechanism_compound": 11.927499999999998,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 16.184999999999995,
@@ -147,7 +147,7 @@
         "scores": {
           "electronic_technique": 12.205000000000002,
           "mod_voltage_source": 0.39,
-          "mod_patch_density": 2.305714285714286,
+          "mod_patch_density": 2.1107142857142858,
           "mod_lineage": 2.21
         }
       },

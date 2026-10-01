@@ -5,7 +5,7 @@
   "lineage": "Portuguese post-rock is represented here by indignu — Odyssea. This documented branch is realized as an authored present-day recording arrangement.",
   "recipe": "classic portuguese post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, hard rock maple acer saccharum cremonese post 1740 softer varnish violin orchestral, analog synth, soft felt lacquer voiced 17 ply hard rock maple prepared grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 486,
-  "score": 65.681,
+  "score": 65.615,
   "config": {
     "traditions": [
       "portuguese_post_rock"
@@ -35,7 +35,7 @@
           "neck_wood": 0.432,
           "fretboard": 0.432,
           "pickup_magnet": 0.147,
-          "pickup_winding": 0.3435,
+          "pickup_winding": 0.3045,
           "string_material": 0.432,
           "bridge": 1.69,
           "scale_length": 1.0515,
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "swamp_ash_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 4.875,
-          "body_wood": 0.126,
+          "body_wood": 0.21,
           "pickup_config": 0.1785,
           "string_type": 12.35,
           "scale_length_b": 0.273,
@@ -101,7 +101,7 @@
           "orch_back_wood": 4.875,
           "orch_varnish": 2.925,
           "orch_setup_period": -0.07,
-          "orch_bow": 0.33699999999999997,
+          "orch_bow": 0.168,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.105,
           "orch_rosin": -0.035
@@ -114,14 +114,14 @@
           "oscillator": "saw_single",
           "filter_topology": "transistor_ladder",
           "envelope": "sustain_env",
-          "modulation": "lfo_pitch"
+          "modulation": "no_mod"
         },
         "scores": {
           "electronic_technique": -0.05,
-          "oscillator": 0.537,
-          "filter_topology": 0.29174999999999995,
+          "oscillator": 0.5685,
+          "filter_topology": 0.25275,
           "envelope": 1.69,
-          "modulation": 0
+          "modulation": 0.105
         }
       },
       {
@@ -139,7 +139,7 @@
         },
         "scores": {
           "keyboard_technique": 3.8365,
-          "grand_piano_size": 0.2385,
+          "grand_piano_size": 0.1995,
           "grand_piano_brand": 0.432,
           "piano_hammer": 4.8100000000000005,
           "piano_rim": 4.8100000000000005,

@@ -5,7 +5,7 @@
   "lineage": "Folk rock italiano is represented here by Enrico Capuano and Tammurriatarock — Spazio Rossellini performance. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic folk rock italiano, functional Song, folk rock branch. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, hard rock maple acer saccharum violin orchestral. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 403,
-  "score": 72.282,
+  "score": 72.982,
   "config": {
     "traditions": [
       "folk_rock_italiano"
@@ -60,7 +60,7 @@
           "amp_make": 7.6049999999999995,
           "body_wood": 0.46199999999999997,
           "pickup_config": 0.2415,
-          "string_type": 17.624,
+          "string_type": 18.199999999999996,
           "scale_length_b": 0.3675,
           "fretted_or_not": 0.063,
           "bass_technique": -0.15000000000000002,
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.3465,
+          "voice_ensemble_config": 0.3315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.189,
-          "voice_multitrack_stack": 0.3465
+          "voice_processing_chain": 0.2835,
+          "voice_multitrack_stack": 0.3315
         }
       },
       {
@@ -135,14 +135,14 @@
         },
         "scores": {
           "bowed_technique": 2.34,
-          "orch_strings": 0.25,
+          "orch_strings": 0.325,
           "orch_top_wood": 0.26,
           "orch_back_wood": 7.215,
           "orch_varnish": 0.325,
           "orch_setup_period": 0.26,
           "orch_bow": 0.0315,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 0.15150000000000002,
+          "orch_articulation": 0.1365,
           "orch_rosin": 0.2
         }
       }

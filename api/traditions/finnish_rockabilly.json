@@ -5,7 +5,7 @@
   "lineage": "Finnish rockabilly is represented here by The Barnshakers — Cool Enough core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic finnish rockabilly, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 344,
-  "score": 26.781,
+  "score": 27.155,
   "config": {
     "traditions": [
       "finnish_rockabilly"
@@ -30,7 +30,7 @@
         },
         "scores": {
           "electric_technique": -0.07,
-          "amp_make": 8.777624999999999,
+          "amp_make": 8.962874999999999,
           "body_wood": 0.39,
           "neck_wood": 0.39,
           "fretboard": 0.325,
@@ -52,7 +52,7 @@
         },
         "scores": {
           "upright_strings": 0.1365,
-          "upright_play": 3.1912499999999997
+          "upright_play": 3.3799999999999994
         }
       },
       {

@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-01",
-  "count": 4138,
+  "count": 4238,
   "items": [
     {
       "id": "honky_tonk",
@@ -176,8 +176,8 @@
       "id": "art_rock",
       "name": "Art rock",
       "family": "rock_punk",
-      "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock classic psychedelic rock finnish psychedelic rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key arpeggiated sustain rich overtones mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic rubber saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 988
+      "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock classic psychedelic rock spanish pop rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key arpeggiated sustain rich overtones mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic rubber saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 980
     },
     {
       "id": "glam_rock",
@@ -855,8 +855,8 @@
       "id": "industrial",
       "name": "Industrial",
       "family": "electronic",
-      "recipe": "classic European 1977-1979 industrial, experimental Elec, industrial noise branch, experimental distorted rock future rock garage psych. thick, breath veiled tone, straight onset, interlocked note trading. drum machine analog, analog synth, vocoder. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo high-gain distortion plate reverb.",
-      "recipe_chars": 390
+      "recipe": "classic European 1977-1979 industrial, experimental Elec, industrial noise branch, experimental distorted rock future rock spanish post-rock. thick, breath veiled tone, straight onset, interlocked note trading. drum machine analog, analog synth, vocoder. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo high-gain distortion plate reverb.",
+      "recipe_chars": 395
     },
     {
       "id": "noise_music",
@@ -1387,8 +1387,8 @@
       "id": "mathcore",
       "name": "Mathcore",
       "family": "rock",
-      "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock garage psych experimental indie rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 617
+      "recipe": "classic Midwestern American 1997-1999 mathcore, distorted Rock, avant branch, experimental distorted rock garage psych taiwan post-rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 610
     },
     {
       "id": "grindcore",
@@ -2738,8 +2738,8 @@
       "id": "j_rock",
       "name": "J-rock",
       "family": "global",
-      "recipe": "classic Asian mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka uchina pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-      "recipe_chars": 731
+      "recipe": "classic Asian mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka alt-idol. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation lower tension down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+      "recipe_chars": 742
     },
     {
       "id": "anadolu_rock",
@@ -5237,8 +5237,8 @@
       "id": "punk_jazz_70s_80s",
       "name": "Punk jazz / no-wave jazz",
       "family": "jazz",
-      "recipe": "classic North American 1977-1979 punk jazz / no-wave jazz, improv On Frame, avant branch, noise rock distorted rock polish noise rock. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 692
+      "recipe": "classic North American 1977-1979 punk jazz / no-wave jazz, improv On Frame, avant branch, noise rock distorted rock polish noise rock. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 695
     },
     {
       "id": "mod_60s_british",
@@ -8828,8 +8828,8 @@
       "id": "ectofolk",
       "name": "Ectofolk",
       "family": "pop_rock",
-      "recipe": "classic North American 1990-1993 ectofolk, ballad Poetry, indie folk branch, anglo singer song freak folk, pop rock functional song, Celtic balladic ballad poetry folk rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, dadgad tuning cedar walnut flatwound thomastik acoustic guitar, gut gut string strummed open chord ringing overtones celtic harp, string machine, octuple plus dense stack multi track instrument late 1980s reverb saturated bus stack multitrack vocal stack, venice catlin high twist renaissance bass hard rock maple synthetic varnish cello, mid attack plastic glockenspiel. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 887
+      "recipe": "classic North American 1990-1993 ectofolk, ballad Poetry, indie folk branch, anglo singer song freak folk, pop rock functional song, Celtic balladic ballad poetry skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, dadgad tuning cedar walnut flatwound thomastik acoustic guitar, gut gut string strummed open chord ringing overtones celtic harp, string machine, octuple plus dense stack multi track instrument late 1980s reverb saturated bus stack multitrack vocal stack, venice catlin high twist renaissance bass hard rock maple synthetic varnish cello, mid attack plastic glockenspiel. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 888
     },
     {
       "id": "gauze_pop",
@@ -9507,8 +9507,8 @@
       "id": "israeli_pop",
       "name": "Israeli Pop",
       "family": "pop",
-      "recipe": "classic mid-1970s israeli pop, functional Song, mid east n African pop branch, Jewish ritual devotional, europop functional song balkan pop laïkó. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek strummed bouzouki, walnut ribs canonical mid tier la bella Turkish school canon oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mahogany rosewood soft down tuning clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. treated studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-      "recipe_chars": 763
+      "recipe": "classic mid-1970s israeli pop, functional Song, mid east n African pop branch, Jewish ritual devotional, europop functional song balkan pop belarusian pop. thick, breath veiled tone, slow rate, interlocked note trading. dance rhythm strummed bouzouki, walnut ribs canonical mid tier oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mahogany rosewood clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. treated studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+      "recipe_chars": 708
     },
     {
       "id": "south_african_pop",
@@ -9605,8 +9605,8 @@
       "id": "irish_rock",
       "name": "Irish rock",
       "family": "rock",
-      "recipe": "classic Northern European 1980-1983 irish rock, distorted Rock, regional branch, Celtic traditional improv on frame, classic distorted rock, pop rock folk rock czech folk rock celtic folk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation nitrocellulose single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic tin whistle, goat skin canonical Irish ash pre modern traditional Irish bodhran, flat back gdad tuned droning rhythmic open chorded irish bouzouki. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
-      "recipe_chars": 977
+      "recipe": "classic Northern European 1980-1983 irish rock, distorted Rock, regional branch, Celtic traditional improv on frame, classic distorted rock, pop rock folk rock thai folk rock czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation nitrocellulose single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic tin whistle, traditional low fundamental tuning goat skin canonical Irish bodhran, flat back gdad tuned droning rhythmic open chorded irish bouzouki. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
+      "recipe_chars": 982
     },
     {
       "id": "scottish_rock",
@@ -10893,8 +10893,8 @@
       "id": "asian_underground",
       "name": "Asian Underground",
       "family": "electronic",
-      "recipe": "classic mid-1990s asian underground, bass System, uk soundsystem branch, bass descendants bass system, indian classical improv improv on frame, south Asian pop functional song tamil pop afghan pop. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, open jawari long sustain buzzing overtones maihar gharana instrumental concert lineage sitar, gut 3 main playing strings tun cedar microtonal sarangi, chopped sampler, singing lead analog poly synth, suited to female vocal bronze steel mix gourd body canonical traditional ornamented tanpura. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 797
+      "recipe": "classic mid-1990s asian underground, bass System, uk soundsystem branch, bass descendants bass system, indian classical improv improv on frame, south Asian pop functional song tarana tappa. vocal fry, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, open jawari long sustain buzzing overtones maihar gharana instrumental concert lineage sitar, gut 3 main playing strings tun cedar legato sarangi, chopped sampler, sub bass analog poly synth, suited to female vocal bronze steel mix gourd body canonical traditional tanpura. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 774
     },
     {
       "id": "bassline",
@@ -11250,8 +11250,8 @@
       "id": "progressive_folk",
       "name": "Progressive Folk",
       "family": "pop_rock",
-      "recipe": "classic British mid-1970s progressive folk, ballad Poetry, britfolk branch, pop rock folk rock, progressive rock distorted rock czech folk rock. thick, incomplete closure resting, straight onset, interlocked note trading. dadgad tuning cedar walnut fingerpicked acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled sticks backbeat drum kit, maple mid tier Baroque alternative melodic recorder, bowl back Italian redwood hard rock maple thomastik flatwound mandolin. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 754
+      "recipe": "classic British mid-1970s progressive folk, ballad Poetry, britfolk branch, pop rock folk rock, progressive rock distorted rock ukrainian folk rock czech folk rock. thick, incomplete closure resting, straight onset, interlocked note trading. dadgad tuning fingerpicked acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled sticks backbeat drum kit, melodic recorder, bowl back Italian hard rock maple thomastik flatwound jazz mandolin mandolin. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 732
     },
     {
       "id": "sung_poetry",
@@ -13868,8 +13868,8 @@
       "id": "phleng_phuea_chiwit",
       "name": "Phleng Phuea Chiwit",
       "family": "global",
-      "recipe": "classic Southeast Asian early-1970s phleng phuea chiwit, protest Song, east Asian branch, pop rock folk rock, anglo singer song country folk story czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar coated nanoweb travis picked dreadnought acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic straight khaen, phin, reed pearwood marine band tradition brass traditional harmonica. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 824
+      "recipe": "classic Southeast Asian early-1970s phleng phuea chiwit, protest Song, east Asian branch, pop rock folk rock, anglo singer song country folk story czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar coated nanoweb travis picked dreadnought acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic straight khaen, dance driving phin, reed pearwood marine band tradition brass traditional harmonica. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 838
     },
     {
       "id": "thai_folk",
@@ -14869,8 +14869,8 @@
       "id": "alpine_yodeling",
       "name": "Alpine Yodeling",
       "family": "global",
-      "recipe": "classic modern alpine yodeling, drone Modal, vocal branch, overtone drone modal, European drinking song, europop functional song yodel polish góralski. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, alpine calling 3 4m alphorn, beating tremolo straight schwyzerorgeli. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 513
+      "recipe": "classic modern alpine yodeling, drone Modal, vocal branch, overtone drone modal, European drinking song, europop functional song yodel siberian folk music. sygyt, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, alpine calling 3 4m alphorn, melodic straight schwyzerorgeli. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 509
     },
     {
       "id": "naturjodel",
@@ -15716,8 +15716,8 @@
       "id": "ostrock",
       "name": "Ostrock (GDR rock)",
       "family": "rock_punk",
-      "recipe": "classic Central European 1967-1969 ostrock, distorted Rock, classic branch, progressive rock distorted rock, European protest song classic canadian rock classic hungarian rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, string machine, rectified machine polished sitka spruce hard rock maple acer saccharum violin orchestral. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 862
+      "recipe": "classic Central European 1967-1969 ostrock, distorted Rock, classic branch, progressive rock distorted rock, European protest song classic canadian rock symphonic rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp maple pau ferro nickel plated steel humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, string machine, rectified machine polished sitka spruce hard rock maple acer saccharum violin orchestral. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 854
     },
     {
       "id": "deutschrock",
@@ -15807,7 +15807,7 @@
       "id": "paisley_underground",
       "name": "Paisley Underground",
       "family": "rock",
-      "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock czech folk rock. thick, breath veiled tone, fast rate, interlocked note trading. hi gain Rickenbacker modern clean strummed twelve string electric, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock czech folk rock. thick, breath veiled tone, slow rate, interlocked note trading. hi gain Rickenbacker modern clean strummed twelve string electric, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
       "recipe_chars": 826
     },
     {
@@ -18544,15 +18544,15 @@
       "id": "drone_psych",
       "name": "Drone psych",
       "family": "rock",
-      "recipe": "classic modern drone psych, distorted Rock, experimental branch, noise rock distorted rock, modal electric drone modal polish noise rock no wave. solo with instrumental accompaniment, drone organized harmonic series overtone selection, hall reverb long decay cinematic, single lead single track no stacking. low output no compression feedback humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay hall reverb.",
-      "recipe_chars": 673
+      "recipe": "classic modern drone psych, distorted Rock, experimental branch, noise rock distorted rock, modal electric drone modal trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, hall reverb long decay cinematic. soft down tuning feedback humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay hall reverb.",
+      "recipe_chars": 611
     },
     {
       "id": "drone_rock",
       "name": "Drone rock",
       "family": "rock",
-      "recipe": "classic late-1980s drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
-      "recipe_chars": 623
+      "recipe": "classic late-1980s drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
+      "recipe_chars": 634
     },
     {
       "id": "experimental_ambient",
@@ -22464,8 +22464,8 @@
       "id": "german_indie_rock",
       "name": "German indie rock",
       "family": "rock_punk",
-      "recipe": "classic german indie rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp arpeggiated clean single coil electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, analog poly synth. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital pitch shifter digital delay.",
-      "recipe_chars": 452
+      "recipe": "classic german indie rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp arpeggiated clean single coil electric guitar, ampeg svt amp rock bass amp mahogany electric bass, sticks backbeat drum kit, analog poly synth. live tracking. large-diaphragm condenser, console-strip pre, parametric EQ. 24-bit digital pitch shifter digital delay.",
+      "recipe_chars": 461
     },
     {
       "id": "lgbtq_hip_hop",
@@ -28085,8 +28085,8 @@
       "id": "italian_rockabilly",
       "name": "Italian rockabilly",
       "family": "rock",
-      "recipe": "classic italian rockabilly, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit basswood humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 353
+      "recipe": "classic italian rockabilly, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 344
     },
     {
       "id": "japanese_indie_rock",
@@ -28407,8 +28407,8 @@
       "id": "norwegian_alternative_rock",
       "name": "Norwegian alternative rock",
       "family": "rock",
-      "recipe": "classic norwegian alternative rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 340
+      "recipe": "classic norwegian alternative rock, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 331
     },
     {
       "id": "norwegian_folk_rock",
@@ -28911,8 +28911,8 @@
       "id": "rock_independant_francais",
       "name": "Rock independant francais",
       "family": "rock",
-      "recipe": "classic rock independant francais, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 399
+      "recipe": "classic rock independant francais, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 408
     },
     {
       "id": "rockabilly_en_espanol",
@@ -28969,6 +28969,706 @@
       "family": "rock",
       "recipe": "classic shoegaze brasileiro, distorted Rock, alternative branch. group vocals, live take. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
       "recipe_chars": 349
+    },
+    {
+      "id": "shoegaze_chileno",
+      "name": "Shoegaze chileno",
+      "family": "rock",
+      "recipe": "classic shoegaze chileno, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, sustained pad analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 354
+    },
+    {
+      "id": "sleaze_rock",
+      "name": "Sleaze rock",
+      "family": "rock",
+      "recipe": "classic mid-2020s sleaze rock, distorted Rock, classic branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 369
+    },
+    {
+      "id": "slovak_rock",
+      "name": "Slovak rock",
+      "family": "rock",
+      "recipe": "classic slovak rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 392
+    },
+    {
+      "id": "slovenian_rock",
+      "name": "Slovenian rock",
+      "family": "rock",
+      "recipe": "classic mid-2020s slovenian rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 405
+    },
+    {
+      "id": "soft_rock",
+      "name": "Soft rock",
+      "family": "rock",
+      "recipe": "classic soft rock, distorted Rock, classic branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 390
+    },
+    {
+      "id": "south_african_rock",
+      "name": "South african rock",
+      "family": "rock",
+      "recipe": "classic south african rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 399
+    },
+    {
+      "id": "southeast_asian_post_rock",
+      "name": "Southeast asian post-rock",
+      "family": "rock",
+      "recipe": "classic southeast asian post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 322
+    },
+    {
+      "id": "spanish_folk_rock",
+      "name": "Spanish folk rock",
+      "family": "rock",
+      "recipe": "classic spanish folk rock, distorted Rock, classic branch. solo with instrumental accompaniment, unprocessed natural acoustic. marshall plexi amp British rock amp basswood humbucker electric dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, classic country msa classic modernized action pedal steel. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 475
+    },
+    {
+      "id": "spanish_indie_rock",
+      "name": "Spanish indie rock",
+      "family": "rock",
+      "recipe": "classic spanish indie rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 390
+    },
+    {
+      "id": "spanish_modern_rock",
+      "name": "Spanish modern rock",
+      "family": "rock",
+      "recipe": "classic spanish modern rock, distorted Rock, alternative branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 394
+    },
+    {
+      "id": "spanish_pop_rock",
+      "name": "Spanish pop rock",
+      "family": "rock",
+      "recipe": "classic mid-2010s spanish pop rock, distorted Rock, classic branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 481
+    },
+    {
+      "id": "spanish_post_rock",
+      "name": "Spanish post-rock",
+      "family": "rock",
+      "recipe": "classic spanish post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 314
+    },
+    {
+      "id": "spanish_progressive_rock",
+      "name": "Spanish progressive rock",
+      "family": "rock",
+      "recipe": "classic spanish progressive rock, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 378
+    },
+    {
+      "id": "spanish_psychedelic_rock",
+      "name": "Spanish psychedelic rock",
+      "family": "rock",
+      "recipe": "classic spanish psychedelic rock, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp riff driven humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 371
+    },
+    {
+      "id": "spanish_rockabilly",
+      "name": "Spanish rockabilly",
+      "family": "rock",
+      "recipe": "classic spanish rockabilly, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit humbucker electric guitar, upright bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 344
+    },
+    {
+      "id": "spanish_stoner_rock",
+      "name": "Spanish stoner rock",
+      "family": "rock",
+      "recipe": "classic spanish stoner rock, distorted Rock, experimental branch. group vocals. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 330
+    },
+    {
+      "id": "swedish_alternative_rock",
+      "name": "Swedish alternative rock",
+      "family": "rock",
+      "recipe": "classic swedish alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 414
+    },
+    {
+      "id": "swedish_hard_rock",
+      "name": "Swedish hard rock",
+      "family": "rock",
+      "recipe": "classic swedish hard rock, distorted Rock, classic branch. solo with instrumental accompaniment. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 365
+    },
+    {
+      "id": "swedish_indie_rock",
+      "name": "Swedish indie rock",
+      "family": "rock",
+      "recipe": "classic swedish indie rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 311
+    },
+    {
+      "id": "swedish_melodic_rock",
+      "name": "Swedish melodic rock",
+      "family": "rock",
+      "recipe": "classic swedish melodic rock, distorted Rock, regional branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 408
+    },
+    {
+      "id": "swedish_psychedelic_rock",
+      "name": "Swedish psychedelic rock",
+      "family": "rock",
+      "recipe": "classic swedish psychedelic rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 336
+    },
+    {
+      "id": "swedish_rock_and_roll",
+      "name": "Swedish rock-and-roll",
+      "family": "rock",
+      "recipe": "classic swedish rock-and-roll, distorted Rock, regional branch. marshall plexi amp British rock amp nickel plated steel nickel nickel plated humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 355
+    },
+    {
+      "id": "swedish_rockabilly",
+      "name": "Swedish rockabilly",
+      "family": "rock",
+      "recipe": "classic swedish rockabilly, distorted Rock, regional branch. Fender champ amp low wattage studio grit humbucker electric guitar, sticks backbeat drum kit, vintage rockabilly double bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 287
+    },
+    {
+      "id": "swedish_stoner_rock",
+      "name": "Swedish stoner rock",
+      "family": "rock",
+      "recipe": "classic swedish stoner rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 369
+    },
+    {
+      "id": "swiss_alternative_rock",
+      "name": "Swiss alternative rock",
+      "family": "rock",
+      "recipe": "classic swiss alternative rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 372
+    },
+    {
+      "id": "swiss_rock",
+      "name": "Swiss rock",
+      "family": "rock",
+      "recipe": "classic swiss rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition hohner marine band 1896 canonical blues trossingen harmonica. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 485
+    },
+    {
+      "id": "symphonic_rock",
+      "name": "Symphonic rock",
+      "family": "rock",
+      "recipe": "classic symphonic rock, distorted Rock, progressive rock branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 334
+    },
+    {
+      "id": "taiwan_post_rock",
+      "name": "Taiwan post-rock",
+      "family": "rock",
+      "recipe": "classic taiwan post-rock, distorted Rock, experimental branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 351
+    },
+    {
+      "id": "taiwan_rock",
+      "name": "Taiwan rock",
+      "family": "rock",
+      "recipe": "classic mid-2010s taiwan rock, distorted Rock, regional branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 384
+    },
+    {
+      "id": "thai_folk_rock",
+      "name": "Thai folk rock",
+      "family": "rock",
+      "recipe": "classic thai folk rock, functional Song, folk rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. marshall plexi amp British rock amp humbucker electric koa coated nanoweb strummed open chord ringing overtones dreadnought acoustic guitar, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 419
+    },
+    {
+      "id": "thai_indie_rock",
+      "name": "Thai indie rock",
+      "family": "rock",
+      "recipe": "classic thai indie rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 308
+    },
+    {
+      "id": "thai_post_rock",
+      "name": "Thai post-rock",
+      "family": "rock",
+      "recipe": "classic thai post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 330
+    },
+    {
+      "id": "thai_rock",
+      "name": "Thai rock",
+      "family": "rock",
+      "recipe": "classic thai rock, distorted Rock, regional branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 378
+    },
+    {
+      "id": "thai_shoegaze",
+      "name": "Thai shoegaze",
+      "family": "rock",
+      "recipe": "classic thai shoegaze, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 394
+    },
+    {
+      "id": "traditional_rockabilly",
+      "name": "Traditional rockabilly",
+      "family": "rock",
+      "recipe": "classic traditional rockabilly, distorted Rock, regional branch. solo with instrumental accompaniment. Fender champ amp low wattage studio grit humbucker electric guitar, sticks backbeat drum kit, vintage rockabilly double bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 329
+    },
+    {
+      "id": "trash_rock",
+      "name": "Trash rock",
+      "family": "rock",
+      "recipe": "classic trash rock, distorted Rock, noise rock branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 333
+    },
+    {
+      "id": "turkish_alternative_rock",
+      "name": "Turkish alternative rock",
+      "family": "rock",
+      "recipe": "classic turkish alternative rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 405
+    },
+    {
+      "id": "turkish_rock",
+      "name": "Turkish rock",
+      "family": "rock",
+      "recipe": "classic turkish rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 305
+    },
+    {
+      "id": "uk_noise_rock",
+      "name": "Uk noise rock",
+      "family": "rock",
+      "recipe": "classic uk noise rock, distorted Rock, noise rock branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 397
+    },
+    {
+      "id": "uk_rockabilly",
+      "name": "Uk rockabilly",
+      "family": "rock",
+      "recipe": "classic uk rockabilly, distorted Rock, regional branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit humbucker electric guitar, sticks backbeat drum kit, vintage rockabilly double bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 358
+    },
+    {
+      "id": "uk_stoner_rock",
+      "name": "Uk stoner rock",
+      "family": "rock",
+      "recipe": "classic uk stoner rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 345
+    },
+    {
+      "id": "ukrainian_alternative_rock",
+      "name": "Ukrainian alternative rock",
+      "family": "rock",
+      "recipe": "classic ukrainian alternative rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 338
+    },
+    {
+      "id": "ukrainian_folk_rock",
+      "name": "Ukrainian folk rock",
+      "family": "rock",
+      "recipe": "classic ukrainian folk rock, functional Song, folk rock branch. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth, folk diatonic bandura. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 273
+    },
+    {
+      "id": "ukrainian_rock",
+      "name": "Ukrainian rock",
+      "family": "rock",
+      "recipe": "classic ukrainian rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 345
+    },
+    {
+      "id": "underground_grunge",
+      "name": "Underground grunge",
+      "family": "rock",
+      "recipe": "classic underground grunge, distorted Rock, alternative branch. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 323
+    },
+    {
+      "id": "varmland_rock",
+      "name": "Varmland rock",
+      "family": "rock",
+      "recipe": "classic varmland rock, distorted Rock, regional branch. solo with instrumental accompaniment, no specific ornament system, single lead single track no stacking. marshall plexi amp British rock amp low output no compression humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 437
+    },
+    {
+      "id": "venezuelan_rock",
+      "name": "Venezuelan rock",
+      "family": "rock",
+      "recipe": "classic venezuelan rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 346
+    },
+    {
+      "id": "vintage_rockabilly",
+      "name": "Vintage rockabilly",
+      "family": "rock",
+      "recipe": "classic vintage rockabilly, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. Fender champ amp low wattage studio grit basswood alnico low output no compression humbucker electric guitar, vintage gut upright bass, natural material resonance calfskin sticks backbeat drum kit, vintage steinway pre-war compression wired 18 ply hard rock maple grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 513
+    },
+    {
+      "id": "welsh_rock",
+      "name": "Welsh rock",
+      "family": "rock",
+      "recipe": "classic welsh rock, distorted Rock, regional branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 303
+    },
+    {
+      "id": "yugoslav_rock",
+      "name": "Yugoslav rock",
+      "family": "rock",
+      "recipe": "classic 1980-1983 yugoslav rock, distorted Rock, regional branch. solo with instrumental accompaniment. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 354
+    },
+    {
+      "id": "acoustic_pop",
+      "name": "Acoustic pop",
+      "family": "pop",
+      "recipe": "classic acoustic pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 253
+    },
+    {
+      "id": "alt_idol",
+      "name": "Alt-idol",
+      "family": "pop",
+      "recipe": "classic alt-idol, functional Song, east Asian pop branch. solo with instrumental accompaniment. humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 223
+    },
+    {
+      "id": "alternative_pop",
+      "name": "Alternative pop",
+      "family": "pop",
+      "recipe": "classic alternative pop, functional Song, pop rock branch. solo with instrumental accompaniment. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 327
+    },
+    {
+      "id": "amharic_pop",
+      "name": "Amharic pop",
+      "family": "pop",
+      "recipe": "classic amharic pop, functional Song, African pop branch. clean strummed humbucker electric guitar, la bella flats Detroit soul bass canon fingerstyle locked electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 327
+    },
+    {
+      "id": "antiviral_pop",
+      "name": "Antiviral pop",
+      "family": "pop",
+      "recipe": "classic antiviral pop, functional Song, pop rock branch. group vocals, live take. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 312
+    },
+    {
+      "id": "assamese_pop",
+      "name": "Assamese pop",
+      "family": "pop",
+      "recipe": "classic assamese pop, functional Song, south Asian pop branch. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 249
+    },
+    {
+      "id": "assyrian_pop",
+      "name": "Assyrian pop",
+      "family": "pop",
+      "recipe": "classic assyrian pop, functional Song, mid east n African pop branch. solo with instrumental accompaniment. basswood mahogany rosewood clean strummed humbucker electric guitar, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 397
+    },
+    {
+      "id": "australian_alternative_pop",
+      "name": "Australian alternative pop",
+      "family": "pop",
+      "recipe": "classic australian alternative pop, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 376
+    },
+    {
+      "id": "australian_pop",
+      "name": "Australian pop",
+      "family": "pop",
+      "recipe": "classic australian pop, functional Song, pop rock branch. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 269
+    },
+    {
+      "id": "bahamian_pop",
+      "name": "Bahamian pop",
+      "family": "pop",
+      "recipe": "classic bahamian pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 301
+    },
+    {
+      "id": "balochi_pop",
+      "name": "Balochi pop",
+      "family": "pop",
+      "recipe": "classic balochi pop, functional Song, south Asian pop branch. basswood humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 198
+    },
+    {
+      "id": "bangla_pop",
+      "name": "Bangla pop",
+      "family": "pop",
+      "recipe": "classic late-2000s bangla pop, functional Song, south Asian pop branch. basswood clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "belarusian_pop",
+      "name": "Belarusian pop",
+      "family": "pop",
+      "recipe": "classic belarusian pop, functional Song, europop branch. duet, live take. basswood humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "belgian_pop",
+      "name": "Belgian pop",
+      "family": "pop",
+      "recipe": "classic belgian pop, functional Song, europop branch. duet, live take. basswood humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 348
+    },
+    {
+      "id": "beninese_pop",
+      "name": "Beninese pop",
+      "family": "pop",
+      "recipe": "classic beninese pop, functional Song, African pop branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 380
+    },
+    {
+      "id": "bodo_pop",
+      "name": "Bodo pop",
+      "family": "pop",
+      "recipe": "classic bodo pop, functional Song, south Asian pop branch. solo with instrumental accompaniment. ukulele, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 228
+    },
+    {
+      "id": "botswana_pop",
+      "name": "Botswana pop",
+      "family": "pop",
+      "recipe": "classic botswana pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 346
+    },
+    {
+      "id": "boy_pop",
+      "name": "Boy pop",
+      "family": "pop",
+      "recipe": "classic boy pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 286
+    },
+    {
+      "id": "bruneian_pop",
+      "name": "Bruneian pop",
+      "family": "pop",
+      "recipe": "classic bruneian pop, functional Song, east Asian pop branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 297
+    },
+    {
+      "id": "bulgarian_pop",
+      "name": "Bulgarian pop",
+      "family": "pop",
+      "recipe": "classic bulgarian pop, functional Song, europop branch. solo with instrumental accompaniment. basswood clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 314
+    },
+    {
+      "id": "burkinabe_pop",
+      "name": "Burkinabe pop",
+      "family": "pop",
+      "recipe": "classic burkinabe pop, functional Song, African pop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 265
+    },
+    {
+      "id": "burundian_pop",
+      "name": "Burundian pop",
+      "family": "pop",
+      "recipe": "classic burundian pop, functional Song, African pop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 265
+    },
+    {
+      "id": "cambodian_pop",
+      "name": "Cambodian pop",
+      "family": "pop",
+      "recipe": "classic cambodian pop, functional Song, east Asian pop branch. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 274
+    },
+    {
+      "id": "candy_pop",
+      "name": "Candy pop",
+      "family": "pop",
+      "recipe": "classic candy pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "channel_pop",
+      "name": "Channel pop",
+      "family": "pop",
+      "recipe": "classic channel pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 290
+    },
+    {
+      "id": "chill_dream_pop",
+      "name": "Chill dream pop",
+      "family": "pop",
+      "recipe": "classic chill dream pop, functional Song, pop rock branch. solo with instrumental accompaniment. pristine clean transistor clean roland jc120 amp solid state stereo chorus humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 402
+    },
+    {
+      "id": "chill_pop",
+      "name": "Chill pop",
+      "family": "pop",
+      "recipe": "classic chill pop, functional Song, pop rock branch. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 385
+    },
+    {
+      "id": "chinese_indie_pop",
+      "name": "Chinese indie pop",
+      "family": "pop",
+      "recipe": "classic chinese indie pop, functional Song, east Asian pop branch. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 278
+    },
+    {
+      "id": "chinese_viral_pop",
+      "name": "Chinese viral pop",
+      "family": "pop",
+      "recipe": "classic chinese viral pop, functional Song, east Asian pop branch. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 234
+    },
+    {
+      "id": "christian_pop",
+      "name": "Christian pop",
+      "family": "pop",
+      "recipe": "classic christian pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 431
+    },
+    {
+      "id": "classic_assamese_pop",
+      "name": "Classic assamese pop",
+      "family": "pop",
+      "recipe": "classic classic assamese pop, functional Song, pop rock branch. group vocals, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 294
+    },
+    {
+      "id": "classic_azeri_pop",
+      "name": "Classic azeri pop",
+      "family": "pop",
+      "recipe": "classic classic azeri pop, functional Song, pop rock branch. solo with instrumental accompaniment. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 329
+    },
+    {
+      "id": "classic_city_pop",
+      "name": "Classic city pop",
+      "family": "pop",
+      "recipe": "classic classic city pop, functional Song, pop rock branch. mahogany maple clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 320
+    },
+    {
+      "id": "classic_colombian_pop",
+      "name": "Classic colombian pop",
+      "family": "pop",
+      "recipe": "classic classic colombian pop, functional Song, pop rock branch. duet, live take. humbucker electric guitar, ernie ball slinky electric bass, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, congas, bongos. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 349
+    },
+    {
+      "id": "classic_dutch_pop",
+      "name": "Classic dutch pop",
+      "family": "pop",
+      "recipe": "classic classic dutch pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 258
+    },
+    {
+      "id": "classic_finnish_pop",
+      "name": "Classic finnish pop",
+      "family": "pop",
+      "recipe": "classic classic finnish pop, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 350
+    },
+    {
+      "id": "classic_greek_pop",
+      "name": "Classic greek pop",
+      "family": "pop",
+      "recipe": "classic classic greek pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, double bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 400
+    },
+    {
+      "id": "classic_indo_pop",
+      "name": "Classic indo pop",
+      "family": "pop",
+      "recipe": "classic classic indo pop, functional Song, pop rock branch. strummed open chord ringing overtones dreadnought acoustic clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock block chord combo organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 413
+    },
+    {
+      "id": "classic_italian_folk_pop",
+      "name": "Classic italian folk pop",
+      "family": "pop",
+      "recipe": "classic classic italian folk pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, castagnari Italian premium folk music straight accordion, saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 401
+    },
+    {
+      "id": "classic_italian_pop",
+      "name": "Classic italian pop",
+      "family": "pop",
+      "recipe": "classic classic italian pop, functional Song, pop rock branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar, harmonica. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "classic_korean_pop",
+      "name": "Classic korean pop",
+      "family": "pop",
+      "recipe": "classic classic korean pop, functional Song, pop rock branch. humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 303
+    },
+    {
+      "id": "classic_malaysian_pop",
+      "name": "Classic malaysian pop",
+      "family": "pop",
+      "recipe": "classic classic malaysian pop, functional Song, pop rock branch. solo with instrumental accompaniment. humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 344
+    },
+    {
+      "id": "finnish_pop",
+      "name": "Finnish pop",
+      "family": "pop",
+      "recipe": "classic finnish pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 281
+    },
+    {
+      "id": "french_indie_pop",
+      "name": "French indie pop",
+      "family": "pop",
+      "recipe": "classic french indie pop, functional Song, pop rock branch. solo with instrumental accompaniment. arpeggiated clean humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 327
+    },
+    {
+      "id": "french_pop",
+      "name": "French pop",
+      "family": "pop",
+      "recipe": "classic french pop, functional Song, pop rock branch. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 265
+    },
+    {
+      "id": "german_indie_pop",
+      "name": "German indie pop",
+      "family": "pop",
+      "recipe": "classic german indie pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 286
+    },
+    {
+      "id": "german_pop",
+      "name": "German pop",
+      "family": "pop",
+      "recipe": "classic german pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 280
+    },
+    {
+      "id": "greek_pop",
+      "name": "Greek pop",
+      "family": "pop",
+      "recipe": "classic greek pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 336
+    },
+    {
+      "id": "guatemalan_pop",
+      "name": "Guatemalan pop",
+      "family": "pop",
+      "recipe": "classic guatemalan pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 295
+    },
+    {
+      "id": "hungarian_pop",
+      "name": "Hungarian pop",
+      "family": "pop",
+      "recipe": "classic hungarian pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 294
     }
   ]
 }

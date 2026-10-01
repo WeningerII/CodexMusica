@@ -3,14 +3,14 @@
   "name": "Drone psych",
   "family": "rock",
   "lineage": "Psychedelic rock extends guitar sustain and noisy texture into long ensemble improvisation. Bardo Pond’s Philadelphia recordings support a twin-guitar, bass, drums, voice and flute practice; electronics are also documented. The catalog represents the guitar role with one guitar chair, not a claim that the documented band has only one guitarist.",
-  "recipe": "classic modern drone psych, distorted Rock, experimental branch, noise rock distorted rock, modal electric drone modal polish noise rock no wave. solo with instrumental accompaniment, drone organized harmonic series overtone selection, hall reverb long decay cinematic, single lead single track no stacking. low output no compression feedback humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay hall reverb.",
-  "recipe_chars": 673,
-  "score": 83.785,
+  "recipe": "classic modern drone psych, distorted Rock, experimental branch, noise rock distorted rock, modal electric drone modal trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, hall reverb long decay cinematic. soft down tuning feedback humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay hall reverb.",
+  "recipe_chars": 611,
+  "score": 93.395,
   "config": {
     "traditions": [
       "drone_psych",
-      "polish_noise_rock",
-      "no_wave"
+      "trash_rock",
+      "uk_noise_rock"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "amp_make": "amp_unspecified",
           "body_wood": "korina",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "pau_ferro_fb_h",
+          "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
@@ -28,22 +28,22 @@
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 10.567333333333332,
+          "electric_technique": 9.579999999999998,
           "amp_make": 0,
           "body_wood": 1.3,
           "neck_wood": 0.48,
-          "fretboard": 0.4188333333333333,
+          "fretboard": 0.38999999999999996,
           "pickup_magnet": 0.195,
-          "pickup_winding": 1.04,
-          "string_material": 0.4188333333333333,
-          "bridge": 0.845,
+          "pickup_winding": 0.5249999999999999,
+          "string_material": 0.24,
+          "bridge": 1.69,
           "scale_length": 0.9600000000000002,
-          "string_gauge": 0.845,
-          "finish": 0.195,
-          "string_tuning": 12.155000000000001
+          "string_gauge": 1.69,
+          "finish": 0.045,
+          "string_tuning": 14.040000000000001
         }
       },
       {
@@ -62,10 +62,10 @@
           "amp_make": 0,
           "body_wood": 0.9600000000000002,
           "pickup_config": 0.195,
-          "string_type": 28.187666666666665,
+          "string_type": 31.89,
           "scale_length_b": 0.48,
-          "fretted_or_not": 0.39,
-          "bass_technique": -0.15000000000000002,
+          "fretted_or_not": 0.24,
+          "bass_technique": -9.714451465470119e-18,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23,
-          "drumhead": 0.195,
+          "drum_technique": 26.25,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -87,16 +87,16 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "flute_size": "concert_flute",
-          "flute_material": "silver_flute",
+          "flute_material": "gold_flute",
           "flute_technique": "classical_flute",
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
           "wind_articulation": -0.1,
           "flute_size": 0.135,
-          "flute_material": 0.5321666666666666,
+          "flute_material": 0.39,
           "flute_technique": 0,
-          "flute_maker_school": 0.45499999999999996
+          "flute_maker_school": 0.495
         }
       },
       {
@@ -131,11 +131,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.275,
+          "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 2.0149999999999997,
-          "voice_processing_chain": 1.2155,
-          "voice_multitrack_stack": 2.08
+          "voice_processing_chain": 1.15,
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

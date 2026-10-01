@@ -5,7 +5,7 @@
   "lineage": "Instrumental math rock is represented here by standards. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic instrumental math rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 22.089,
+  "score": 22.197,
   "config": {
     "traditions": [
       "instrumental_math_rock"
@@ -29,17 +29,17 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.243,
+          "electric_technique": 0.06675,
           "amp_make": 4.8100000000000005,
-          "body_wood": 0.5565,
+          "body_wood": 0.693,
           "neck_wood": 0.378,
           "fretboard": 0.378,
-          "pickup_magnet": 0.147,
-          "pickup_winding": 0.42200000000000004,
+          "pickup_magnet": 0.252,
+          "pickup_winding": 0.4535,
           "string_material": 0.378,
-          "bridge": 1.69,
-          "scale_length": 0.9975,
-          "string_gauge": 1.69,
+          "bridge": 1.675,
+          "scale_length": 1.1025,
+          "string_gauge": 1.612,
           "finish": 0.1365,
           "string_tuning": 0.372
         }

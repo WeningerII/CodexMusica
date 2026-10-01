@@ -3,20 +3,20 @@
   "name": "Alpine Yodeling",
   "family": "global",
   "lineage": "Herding and signalling vocal practice of the Swiss, Austrian and Bavarian Alps documented from the 18th century onward and codified by 19th-century Jodlerklubs and the Eidgenössischer Jodlerverband — rapid register breaks between chest voice and falsetto on nonsense syllables (holadi, jo-hu), phrases built on the natural harmonic series over a slow tonic-dominant harmonic tread, sung solo over pasture distance or in three- to four-part male and mixed clubs.",
-  "recipe": "classic modern alpine yodeling, drone Modal, vocal branch, overtone drone modal, European drinking song, europop functional song yodel polish góralski. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, alpine calling 3 4m alphorn, beating tremolo straight schwyzerorgeli. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 513,
-  "score": 236.419,
+  "recipe": "classic modern alpine yodeling, drone Modal, vocal branch, overtone drone modal, European drinking song, europop functional song yodel siberian folk music. sygyt, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, alpine calling 3 4m alphorn, melodic straight schwyzerorgeli. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 509,
+  "score": 227.411,
   "config": {
     "traditions": [
       "alpine_yodeling",
       "yodel",
-      "polish_goralski"
+      "siberian_folk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "sygyt_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -24,32 +24,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_tape_saturation",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 9.224999999999998,
-          "voice_quality": 18.264999999999993,
+          "voice_register": 11.017499999999997,
+          "voice_quality": 15.469999999999988,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.16,
-          "voice_articulation": 22.684999999999995,
-          "voice_microtone": 27.62499999999999,
-          "voice_tradition": 22.5875,
-          "voice_mechanism_compound": 6.175,
-          "voice_estill_quality": 5.135,
-          "voice_speech_song": 26.779999999999998,
-          "voice_ensemble_config": 24.959999999999994,
-          "voice_ornament_system": 2.4050000000000002,
-          "voice_pitch_organization": 15.177499999999998,
-          "voice_processing_chain": 6.305000000000001,
-          "voice_multitrack_stack": 5.07
+          "voice_vibrato": 5.005000000000001,
+          "voice_articulation": 23.724999999999994,
+          "voice_microtone": 28.794999999999995,
+          "voice_tradition": 13.2925,
+          "voice_mechanism_compound": 6.629999999999999,
+          "voice_estill_quality": 5.265000000000001,
+          "voice_speech_song": 28.144999999999992,
+          "voice_ensemble_config": 25.999999999999996,
+          "voice_ornament_system": 3.4345000000000003,
+          "voice_pitch_organization": 18.6225,
+          "voice_processing_chain": 6.5,
+          "voice_multitrack_stack": 5.2
         }
       },
       {
@@ -61,9 +61,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 5.915,
-          "choir_polyphonic_configuration": 6.630000000000001,
-          "choir_regional_canonical_configuration": 11.765,
+          "choir_size": 6.305,
+          "choir_polyphonic_configuration": 6.11,
+          "choir_regional_canonical_configuration": 11.440000000000001,
           "choir_ensemble_repertoire": 3.445
         }
       },
@@ -87,9 +87,9 @@
           "schwyzerorgeli_context": "schwyzerorgeli_laendler"
         },
         "scores": {
-          "free_reed_technique": 9.460625,
-          "schwyzerorgeli_rows": 0.65,
-          "schwyzerorgeli_tuning": 2.8699999999999997,
+          "free_reed_technique": 3.3356249999999994,
+          "schwyzerorgeli_rows": 0,
+          "schwyzerorgeli_tuning": 0.195,
           "schwyzerorgeli_context": 0.8
         }
       }
