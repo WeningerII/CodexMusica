@@ -3,14 +3,14 @@
   "name": "Worldbeat",
   "family": "pop_rock",
   "lineage": "Anglo-American pop hybrid of the mid-1980s built in flagship multitrack studios by Peter Gabriel, Paul Simon, David Byrne and Talking Heads — African and Latin percussion batteries and mbaqanga or soukous guitar figures set against gated drum sounds, Fairlight and sampled loops, fretless or high-life bass and layered guest vocalists, at mid-tempo 4/4 with tightly compressed studio polish.",
-  "recipe": "classic North American 1984-1986 worldbeat, functional Song, pop rock branch, African pop functional song, pop rock new wave, Afro-diasporic electric groove percussion rumba congolaise. thick, breath veiled tone, straight onset, interlocked note trading. iroko alternative west African talking drum, lead cowhide mid tier siam oak mid tier modern open slap hand drum congas, mbaqanga guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, singing lead analog poly synth, layered sampler, pre muffled edge muffled brushes-and-sticks drum kit, mixed satb canonical 4 part western homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu choir ensemble. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 909,
-  "score": 438.573,
+  "recipe": "classic North American 1984-1986 worldbeat, functional Song, pop rock branch, African pop functional song, pop rock new wave, Afro-diasporic electric groove percussion mbaqanga south african pop. thick, breath veiled tone, slow rate, interlocked note trading. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, lead cowhide mid tier siam oak mid tier modern open slap hand drum congas, mbaqanga guitar, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, layered sampler, pre muffled edge muffled brushes-and-sticks drum kit, mixed satb canonical 4 part western four voice polyphonic regional aka four part motangole ngue osese diyei global traditional polyphonic choir ensemble. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
+  "recipe_chars": 997,
+  "score": 378.935,
   "config": {
     "traditions": [
       "worldbeat_80s",
-      "new_wave",
-      "rumba_congolaise"
+      "mbaqanga",
+      "south_african_pop"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 1.4,
-          "talking_drum_context": 1.04,
-          "talking_drum_shell_wood": 5.525,
-          "talking_drum_head": 0.585
+          "talking_drum_origin": 1.5499999999999998,
+          "talking_drum_context": 4.225,
+          "talking_drum_shell_wood": 7.995,
+          "talking_drum_head": 1.6899999999999997
         }
       },
       {
@@ -37,10 +37,10 @@
           "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
-          "percussion_technique": 7.4399999999999995,
-          "conga_set": 1.69,
-          "conga_skin": 3.885,
-          "conga_shell_wood": 4.56
+          "percussion_technique": 7.715,
+          "conga_set": 3.2749999999999995,
+          "conga_skin": 2.4349999999999996,
+          "conga_shell_wood": 2.96
         }
       },
       {
@@ -61,21 +61,21 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
-          "string_type": "ernie_ball_slinky_bass",
+          "pickup_config": "split_coil",
+          "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 9.465,
-          "body_wood": 4.5,
+          "amp_make": 8.615,
+          "body_wood": 4.199999999999999,
           "pickup_config": 0.845,
-          "string_type": 14.649999999999999,
-          "scale_length_b": 4.125,
+          "string_type": 7.875,
+          "scale_length_b": 3.8249999999999997,
           "fretted_or_not": 0.195,
-          "bass_technique": 19.799999999999997,
+          "bass_technique": 6.900000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -88,10 +88,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 23.34,
-          "poly_archetypes": 6.129999999999999,
-          "poly_voices": 1.15,
-          "poly_maker_lineage": 0.5199999999999999
+          "electronic_technique": 23.265,
+          "poly_archetypes": 2.5300000000000002,
+          "poly_voices": 1,
+          "poly_maker_lineage": 5.004999999999999
         }
       },
       {
@@ -105,10 +105,10 @@
         },
         "scores": {
           "electronic_technique": 0.8999999999999999,
-          "sampler_archetypes": 4,
-          "sampler_bit_depth": 3.9349999999999996,
+          "sampler_archetypes": 4.375,
+          "sampler_bit_depth": 2.335,
           "sampler_workflow": 1.2,
-          "sampler_classic_context": 23.299999999999997
+          "sampler_classic_context": 21.775
         }
       },
       {
@@ -119,8 +119,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 23.53,
-          "drumhead": 23.18,
+          "drum_technique": 15.794999999999995,
+          "drumhead": 21.38,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -131,51 +131,51 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 40.84500000000002,
-          "voice_quality": 11.017499999999993,
+          "voice_register": 28.644999999999996,
+          "voice_quality": 7.735000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.265,
-          "voice_articulation": 20.799999999999997,
-          "voice_microtone": 40.635000000000005,
-          "voice_tradition": 29.31,
-          "voice_mechanism_compound": 2.6649999999999996,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 30.874999999999996,
-          "voice_ensemble_config": 21.124999999999996,
-          "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 0.8499999999999999,
-          "voice_processing_chain": 10.325000000000001,
-          "voice_multitrack_stack": 10.855
+          "voice_vibrato": 3.8,
+          "voice_articulation": 15.729999999999995,
+          "voice_microtone": 28.084999999999997,
+          "voice_tradition": 28.779999999999994,
+          "voice_mechanism_compound": 4.614999999999999,
+          "voice_estill_quality": 4.03,
+          "voice_speech_song": 23.399999999999995,
+          "voice_ensemble_config": 18.394999999999992,
+          "voice_ornament_system": 1.7874999999999996,
+          "voice_pitch_organization": 2.3399999999999994,
+          "voice_processing_chain": 11.759999999999998,
+          "voice_multitrack_stack": 9.23
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "mixed_4_part_satb",
-          "choir_polyphonic_configuration": "choir_polyphony_homophonic_chordal",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_aka_four_part",
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 5.329999999999999,
-          "choir_polyphonic_configuration": 1.69,
-          "choir_regional_canonical_configuration": 3.0549999999999997,
-          "choir_ensemble_repertoire": 1.54
+          "choir_size": 7.505,
+          "choir_polyphonic_configuration": 3.3799999999999994,
+          "choir_regional_canonical_configuration": 3.135,
+          "choir_ensemble_repertoire": 2.34
         }
       }
     ],

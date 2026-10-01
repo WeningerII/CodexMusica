@@ -5,7 +5,7 @@
   "lineage": "Central and Northern Europe from the early 1990s (Cold Meat Industry in Sweden, Der Blutharsch in Austria, Les Joyaux de la Princesse in France) — slow processional 60-80 BPM marching-snare and timpani patterns, synthesized brass and orchestral samples, tolling bells, male choir pads and archival wartime speech samples, mixed dark and reverberant in DIY studios onto CD.",
   "recipe": "classic European 1990-1993 martial industrial, experimental Elec, industrial noise branch, gothic rock distorted rock, ambient experimental electric ambient techno ambient house. marching gang, mallets timpani, rawhide mallet bells extended tubular bells, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship pad analog poly synth, mixed satb canonical 4 part western antiphonal double choir alternating kakhetian three voice two soloists choral drone choir ensemble, glitched textural sampler, dark soft mallet gong tamtam. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 647,
-  "score": 78.802,
+  "score": 77.108,
   "config": {
     "traditions": [
       "martial_industrial",
@@ -45,7 +45,7 @@
         },
         "scores": {
           "tubular_bells_striker": 1.345,
-          "tubular_bells_range": 2.04
+          "tubular_bells_range": 1.845
         }
       },
       {
@@ -57,9 +57,9 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 7.700000000000001,
+          "electronic_technique": 7.505000000000001,
           "poly_archetypes": 1.8199999999999998,
-          "poly_voices": 0.42,
+          "poly_voices": 0.18,
           "poly_maker_lineage": 1.2349999999999999
         }
       },
@@ -72,10 +72,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 1.89,
+          "choir_size": 1.95,
           "choir_polyphonic_configuration": 1.195,
-          "choir_regional_canonical_configuration": 1.625,
-          "choir_ensemble_repertoire": 5.915000000000001
+          "choir_regional_canonical_configuration": 1.535,
+          "choir_ensemble_repertoire": 5.120000000000001
         }
       },
       {
@@ -83,12 +83,12 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "roland_s750",
-          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 11.240000000000002,
+          "electronic_technique": 11.000000000000002,
           "sampler_archetypes": 0.195,
           "sampler_bit_depth": 0.65,
           "sampler_workflow": 11.000000000000002,

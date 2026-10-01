@@ -5,7 +5,7 @@
   "lineage": "Spanish hip hop represented by Zaragoza MC Kase.O’s Jazz Magnetism live-band project.",
   "recipe": "classic modern spanish hip hop, mc Rhythm, intl hip hop branch. rap. clean strummed single coil electric guitar, thomastik infeld low tension jazz warm electric bass, 60s jazz canon vintage ambassador asymmetric drum kit, phosphor bronze continuous-airflow legato saxophone. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 410,
-  "score": 28.058,
+  "score": 28,
   "config": {
     "traditions": [
       "spanish_hip_hop"
@@ -70,7 +70,7 @@
         "scores": {
           "electric_technique": 3.7,
           "amp_make": 0,
-          "body_wood": 0.160875,
+          "body_wood": 0.1365,
           "neck_wood": 0.1365,
           "fretboard": 0.1365,
           "pickup_magnet": 0.1365,
@@ -128,7 +128,7 @@
           "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
-          "sax_maker_school": "sax_yamaha_custom"
+          "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
           "wind_articulation": -0.035,
@@ -137,7 +137,7 @@
           "sax_body_alloy": 2.5,
           "sax_mouthpiece": 0.1365,
           "sax_technique": 2.5,
-          "sax_maker_school": 0.6191249999999998
+          "sax_maker_school": 0.585
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Arena rock",
   "family": "rock",
   "lineage": "1970s-1980s American stadium-rock genre crafting anthemic compositions for large-venue performance — codified through Boston (Boston 1976), Foreigner (Foreigner 1977), Journey (Escape 1981), Styx (Paradise Theatre 1981), REO Speedwagon (Hi Infidelity 1980), Kansas (Leftoverture 1976), and continuing through Bon Jovi (Slippery When Wet 1986) and Heart",
-  "recipe": "classic North American mid-1970s arena rock, distorted Rock, late analog major branch, pop rock functional song, classic distorted rock new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string machine, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay MXR phase 90 electro-harmonix deluxe memory man.",
-  "recipe_chars": 821,
-  "score": 571.608,
+  "recipe": "classic North American mid-1970s arena rock, distorted Rock, late analog major branch, pop rock functional song, classic distorted rock yacht rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood soft down tuning humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string machine, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay MXR phase 90 electro-harmonix deluxe memory man.",
+  "recipe_chars": 803,
+  "score": 504.245,
   "config": {
     "traditions": [
       "arena_rock",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "skiffle"
     ],
     "instruments": [
       {
@@ -34,61 +34,61 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 56.15000000000001,
-          "voice_quality": 8.482499999999998,
+          "voice_register": 59.65000000000001,
+          "voice_quality": 6.889999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.32,
-          "voice_articulation": 12.934999999999995,
-          "voice_microtone": 54.35000000000001,
-          "voice_tradition": 23.009999999999998,
-          "voice_mechanism_compound": 3.365000000000001,
-          "voice_estill_quality": 1.3649999999999998,
-          "voice_speech_song": 17.744999999999994,
-          "voice_ensemble_config": 13.06499999999999,
-          "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 2.6000000000000005,
-          "voice_processing_chain": 15.555000000000003,
-          "voice_multitrack_stack": 18.46
+          "voice_vibrato": 13.12,
+          "voice_articulation": 13.974999999999994,
+          "voice_microtone": 50.22500000000001,
+          "voice_tradition": 13.844999999999999,
+          "voice_mechanism_compound": 3.0150000000000006,
+          "voice_estill_quality": 1.8199999999999998,
+          "voice_speech_song": 17.09499999999999,
+          "voice_ensemble_config": 14.299999999999994,
+          "voice_ornament_system": 0.19500000000000003,
+          "voice_pitch_organization": 2.7950000000000004,
+          "voice_processing_chain": 12.330000000000002,
+          "voice_multitrack_stack": 15.059999999999999
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "basswood_h",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "mahogany_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_4_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 17.705,
-          "amp_make": 23.529999999999998,
-          "body_wood": 3.055,
-          "neck_wood": 2.6650000000000005,
-          "fretboard": 2.6000000000000005,
-          "pickup_magnet": 0.195,
+          "electric_technique": 10.055,
+          "amp_make": 22.132499999999997,
+          "body_wood": 2.015,
+          "neck_wood": 2.015,
+          "fretboard": 1.56,
+          "pickup_magnet": 0.39,
           "pickup_winding": 0.7,
-          "string_material": 0.585,
-          "bridge": 2.6650000000000005,
-          "scale_length": 2.6650000000000005,
-          "string_gauge": 3.3150000000000004,
-          "finish": 0.09,
-          "string_tuning": 20.475
+          "string_material": 0.39,
+          "bridge": 2.015,
+          "scale_length": 1.625,
+          "string_gauge": 1.625,
+          "finish": 0.39,
+          "string_tuning": 18.849999999999998
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 21.06,
-          "body_wood": 2.6650000000000005,
-          "pickup_config": 1.4949999999999999,
-          "string_type": 42.3,
-          "scale_length_b": 2.6650000000000005,
+          "amp_make": 22.132499999999997,
+          "body_wood": 1.8199999999999998,
+          "pickup_config": 1.3,
+          "string_type": 40.05,
+          "scale_length_b": 1.625,
           "fretted_or_not": 0.045,
-          "bass_technique": 39.715,
+          "bass_technique": 33.415000000000006,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 35.67,
-          "drumhead": 16.59,
+          "drum_technique": 33.42,
+          "drumhead": 9.69,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,9 +130,9 @@
           "sm_voicing": "sm_cellos"
         },
         "scores": {
-          "electronic_technique": 0.635,
+          "electronic_technique": 0.45499999999999996,
           "sm_voice_count": 0.7199999999999999,
-          "sm_chorus": 1.17,
+          "sm_chorus": 0.975,
           "sm_voicing": 0.345
         }
       },
@@ -147,18 +147,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 17.244999999999997,
-          "grand_piano_size": 2.6650000000000005,
-          "grand_piano_brand": 2.6650000000000005,
-          "piano_hammer": 19.7275,
-          "piano_rim": 20.15,
-          "piano_soundboard": 16.545,
-          "piano_pinblock": 2.0549999999999997,
-          "piano_plate": 3.0875,
-          "piano_pitch_standard": 2.405
+          "keyboard_technique": 10.469999999999999,
+          "grand_piano_size": 2.015,
+          "grand_piano_brand": 2.015,
+          "piano_hammer": 17.809999999999995,
+          "piano_rim": 18.979999999999997,
+          "piano_soundboard": 9.645,
+          "piano_pinblock": 1.63,
+          "piano_plate": 2.5349999999999997,
+          "piano_pitch_standard": 1.9499999999999997
         }
       }
     ],

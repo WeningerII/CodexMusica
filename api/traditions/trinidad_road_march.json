@@ -5,7 +5,7 @@
   "lineage": "Trinidadian Carnival road-march tradition continuous from 19th-century post-emancipation Carnival celebrations through 20th-century calypso (1930s-1960s Lord Kitchener and Mighty Sparrow era) and soca (1970s-onward Lord Shorty era) into modern Trinidad-and-Tobago Carnival continuous practice; the \"Road March\" is the canonical Carnival competition for the song most-played during Carnival processional",
   "recipe": "classic Caribbean mid-1930s trinidad calypso-soca road march, carnival Processional, Caribbean branch, Brazilian carnival processional, americas wedding, iberian Latin protest song brazilian samba-school enredo rap político. thick, breath veiled tone, straight onset, interlocked note trading. concert stage steel steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, kevlar aramid extreme tension brushes-and-sticks drum kit, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 739,
-  "score": 170.66,
+  "score": 170.562,
   "config": {
     "traditions": [
       "trinidad_road_march",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.4050000000000002,
           "voice_articulation": 14.949999999999996,
           "voice_microtone": 14.949999999999992,
-          "voice_tradition": 5.682500000000001,
+          "voice_tradition": 5.65,
           "voice_mechanism_compound": 1.2349999999999999,
           "voice_estill_quality": 1.825,
           "voice_speech_song": 20.734999999999992,
@@ -80,7 +80,7 @@
           "trumpet_mouthpiece": 4.915,
           "brass_mute": 0,
           "trumpet_technique": 0.7799999999999998,
-          "trumpet_bell_metal": 3.6849999999999996,
+          "trumpet_bell_metal": 3.619999999999999,
           "trumpet_maker_school": 3.8349999999999995
         }
       },

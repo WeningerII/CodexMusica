@@ -3,14 +3,14 @@
   "name": "British soul",
   "family": "blues_gospel",
   "lineage": "Soul and R&B made in Britain from the mid-1960s onward — Dusty Springfield's Atlantic-styled orchestral soul, the Northern Soul club circuit's uptempo four-on-the-floor imports, and the decisive 1980s London wave of Soul II Soul, Loose Ends and Mica Paris working out of Black community studios in Brent and Brixton, using swung 90-110 BPM breakbeat programming, dubwise bass weight, lush string and Rhodes pads, and a restrained, melisma-light lead vocal over stacked group harmony.",
-  "recipe": "classic Western European 1964-1966 british soul, functional Song, soul R&B branch, Afro-diasporic electric groove percussion, pop rock functional song 1960s girl group new wave. thick, blues-shouter, slow rate, narrative. lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track natural blend light common bus EQ multitrack vocal stack, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, sampler, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, tenor rose brass darker warmer ensemble honking saxophone. brent black community studio london. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 983,
-  "score": 578.68,
+  "recipe": "classic Western European 1964-1966 british soul, functional Song, soul R&B branch, Afro-diasporic electric groove percussion, pop rock functional song 1960s girl group skiffle. thick, blues-shouter, straight onset, narrative. lead plus dense cluster 5 part stack mid 1960s double tracking era 2 to 4 track natural blend light common bus EQ multitrack vocal stack, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, sampler, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone. brent black community studio london. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 966,
+  "score": 578.05,
   "config": {
     "traditions": [
       "british_soul",
       "girl_group_60s",
-      "new_wave"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "blues_shouter_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "gospel_pentecostal_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 55.655,
-          "voice_quality": 22.594999999999995,
+          "voice_register": 59.20499999999999,
+          "voice_quality": 23.394999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.055,
-          "voice_articulation": 23.325,
-          "voice_microtone": 30.84999999999999,
-          "voice_tradition": 23.945,
-          "voice_mechanism_compound": 2.145,
+          "voice_vibrato": 6.459999999999999,
+          "voice_articulation": 23.25,
+          "voice_microtone": 26.724999999999998,
+          "voice_tradition": 24.595000000000002,
+          "voice_mechanism_compound": 2.6,
           "voice_estill_quality": 23.42,
-          "voice_speech_song": 28.404999999999994,
-          "voice_ensemble_config": 23.20499999999999,
-          "voice_ornament_system": 0.8449999999999995,
-          "voice_pitch_organization": 0.9749999999999996,
-          "voice_processing_chain": 9.305,
-          "voice_multitrack_stack": 8.245
+          "voice_speech_song": 27.754999999999995,
+          "voice_ensemble_config": 24.439999999999998,
+          "voice_ornament_system": 0.78,
+          "voice_pitch_organization": 1.0399999999999998,
+          "voice_processing_chain": 5.869999999999999,
+          "voice_multitrack_stack": 6.375
         }
       },
       {
@@ -60,9 +60,9 @@
           "multitrack_stack_processing": "multitrack_processing_natural"
         },
         "scores": {
-          "multitrack_stack_density": 2.535,
-          "multitrack_stack_era_aesthetic": 7.420000000000001,
-          "multitrack_stack_processing": 1.5
+          "multitrack_stack_density": 3.135,
+          "multitrack_stack_era_aesthetic": 7.67,
+          "multitrack_stack_processing": 1
         }
       },
       {
@@ -78,26 +78,26 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 28.22,
-          "body_wood": 2.9699999999999998,
-          "pickup_config": 0.54,
-          "string_type": 27.465,
-          "scale_length_b": 2.835,
+          "amp_make": 31.569999999999997,
+          "body_wood": 2.08,
+          "pickup_config": 0.195,
+          "string_type": 28.265,
+          "scale_length_b": 2.035,
           "fretted_or_not": 0.44999999999999996,
-          "bass_technique": 23.75,
+          "bass_technique": 23.325000000000003,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "sticks_motown",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 24.5,
-          "drumhead": 17.534999999999993,
+          "drum_technique": 24.569999999999993,
+          "drumhead": 10.634999999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,10 +112,10 @@
         },
         "scores": {
           "electronic_technique": 0.9099999999999999,
-          "sampler_archetypes": 1.885,
-          "sampler_bit_depth": 2.4350000000000005,
-          "sampler_workflow": 3.0699999999999994,
-          "sampler_classic_context": 29.574999999999996
+          "sampler_archetypes": 2.275,
+          "sampler_bit_depth": 1.4849999999999999,
+          "sampler_workflow": 2.92,
+          "sampler_classic_context": 31.394999999999992
         }
       },
       {
@@ -130,11 +130,11 @@
         },
         "scores": {
           "keyboard_technique": 23.675,
-          "rhodes_model": 3.4799999999999995,
-          "rhodes_use": 7.055,
+          "rhodes_model": 7.729999999999999,
+          "rhodes_use": 6.8549999999999995,
           "rhodes_tine_material": -0.4,
-          "rhodes_hammer_tip": 2.6350000000000007,
-          "rhodes_pickup_position": 2.25
+          "rhodes_hammer_tip": 0.7800000000000001,
+          "rhodes_pickup_position": 2.1
         }
       },
       {
@@ -146,9 +146,9 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 19.509999999999994,
-          "poly_archetypes": 5.395,
-          "poly_voices": 0.195,
+          "electronic_technique": 13.184999999999999,
+          "poly_archetypes": 4.494999999999999,
+          "poly_voices": 0.18,
           "poly_maker_lineage": 1.1049999999999998
         }
       },
@@ -158,19 +158,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "rose_brass_sax",
+          "sax_body_alloy": "phosphor_bronze_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_honking_attack",
-          "sax_maker_school": "sax_yamaha_custom"
+          "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 24.92,
-          "sax_size": 22.62,
-          "sax_reed": 0.195,
-          "sax_body_alloy": 1.145,
+          "wind_articulation": 24.145000000000003,
+          "sax_size": 22.195000000000004,
+          "sax_reed": 0.345,
+          "sax_body_alloy": 5.799999999999998,
           "sax_mouthpiece": 0.39,
-          "sax_technique": 22.575000000000003,
-          "sax_maker_school": 0.195
+          "sax_technique": 22.150000000000002,
+          "sax_maker_school": 5.744999999999997
         }
       }
     ],

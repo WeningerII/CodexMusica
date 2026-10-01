@@ -3,14 +3,14 @@
   "name": "J-pop (classic mainstream)",
   "family": "global",
   "lineage": "Japanese 1980s-1990s mainstream pop tradition codified through Seiko Matsuda, Yumi Matsutoya, the agency-system idol pop infrastructure (Johnny’s Entertainment for male groups, Sun Music for solo idols), and television-tied tie-up song format — characterized by major-key brightness, English-loanword lyric inserts, and tightly-arranged session-musician production",
-  "recipe": "classic Asian mid-1980s j-pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 642,
-  "score": 503.645,
+  "recipe": "classic Asian mid-1980s j-pop, functional Song, east Asian pop branch, pop rock functional song yacht rock folk rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 643,
+  "score": 453.557,
   "config": {
     "traditions": [
       "j_pop_classic",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "folk_rock"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 57.67500000000001,
+          "voice_register": 60.77500000000001,
           "voice_quality": 2.0799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.279999999999999,
-          "voice_articulation": 15.274999999999991,
-          "voice_microtone": 55.875,
-          "voice_tradition": 40.30499999999999,
+          "voice_vibrato": 6.695,
+          "voice_articulation": 15.274999999999993,
+          "voice_microtone": 48.60000000000001,
+          "voice_tradition": 31.915,
           "voice_mechanism_compound": 2.9249999999999994,
-          "voice_estill_quality": 2.5349999999999997,
-          "voice_speech_song": 24.11499999999999,
-          "voice_ensemble_config": 14.624999999999991,
-          "voice_ornament_system": 2.285,
+          "voice_estill_quality": 5.8825,
+          "voice_speech_song": 22.42499999999999,
+          "voice_ensemble_config": 14.819999999999991,
+          "voice_ornament_system": 2.585,
           "voice_pitch_organization": 3.250000000000001,
-          "voice_processing_chain": 15.005000000000003,
-          "voice_multitrack_stack": 10.205000000000002
+          "voice_processing_chain": 12.63,
+          "voice_multitrack_stack": 6.825
         }
       },
       {
@@ -58,13 +58,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 32.035,
-          "poly_archetypes": 11.765,
-          "poly_voices": 0.78,
-          "poly_maker_lineage": 0.5849999999999994
+          "electronic_technique": 24.909999999999997,
+          "poly_archetypes": 11.83,
+          "poly_voices": 0.585,
+          "poly_maker_lineage": -0.38500000000000023
         }
       },
       {
@@ -78,25 +78,25 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 33.455,
-          "amp_make": 16.769999999999996,
+          "electric_technique": 25.305,
+          "amp_make": 11.569999999999997,
           "body_wood": 3.055,
           "neck_wood": 3.055,
           "fretboard": 2.99,
-          "pickup_magnet": 1.23,
-          "string_material": 1.32,
-          "string_gauge": 3.705,
-          "bridge": 0.65,
+          "pickup_magnet": 1.0799999999999998,
+          "string_material": 1.3199999999999998,
+          "string_gauge": 3.055,
+          "bridge": 0.24,
           "scale_length": 3.055,
           "finish": 0.09,
-          "string_tuning": 14.495000000000001,
+          "string_tuning": 13.584999999999999,
           "single_coil_pickup_construction": 0
         }
       },
@@ -113,13 +113,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.7,
+          "amp_make": 12.154999999999998,
           "body_wood": 3.055,
-          "pickup_config": 0.195,
-          "string_type": 28.4375,
+          "pickup_config": 0.375,
+          "string_type": 28.6,
           "scale_length_b": 3.055,
-          "fretted_or_not": 0.045,
-          "bass_technique": 26.264999999999997,
+          "fretted_or_not": 0.195,
+          "bass_technique": 22.489999999999995,
           "electric_bass_string_configuration": 0
         }
       },
@@ -131,8 +131,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.92,
-          "drumhead": 31.889999999999997,
+          "drum_technique": 22.045,
+          "drumhead": 24.34,
           "drum_kit_kick_pedal": 0
         }
       }

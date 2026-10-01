@@ -3,14 +3,14 @@
   "name": "Ectofolk",
   "family": "pop_rock",
   "lineage": "An ethereal, largely female-fronted art-folk strain named after the 'Ecto' internet mailing list that formed around Happy Rhodes and Kate Bush in the early 1990s, drawing on Bush's 1980s art-pop, Celtic revival modality and 4AD's dream-pop production — free-flowing or slow 4/4 songs built on grand piano or fingerpicked acoustic guitar with harp, bowed strings and string-machine pads, multi-octave stacked wordless vocal choirs, and literary, mythic or interior lyrics delivered with a wide, cathedral-scale reverb.",
-  "recipe": "classic North American 1990-1993 ectofolk, ballad Poetry, indie folk branch, anglo singer song freak folk, pop rock functional song, Celtic balladic ballad poetry new wave folk rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, dadgad tuning cedar walnut phosphor bronze bronze acoustic guitar, gut gut string strummed open chord ringing overtones celtic harp, string machine, octuple plus dense stack multi track instrument late 1980s reverb saturated bus stack multitrack vocal stack, rectified hard rock maple synthetic varnish cello, mid attack plastic glockenspiel. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 860,
-  "score": 470.077,
+  "recipe": "classic North American 1990-1993 ectofolk, ballad Poetry, indie folk branch, anglo singer song freak folk, pop rock functional song, Celtic balladic ballad poetry folk rock skiffle. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, dadgad tuning cedar walnut flatwound thomastik acoustic guitar, gut gut string strummed open chord ringing overtones celtic harp, string machine, octuple plus dense stack multi track instrument late 1980s reverb saturated bus stack multitrack vocal stack, venice catlin high twist renaissance bass hard rock maple synthetic varnish cello, mid attack plastic glockenspiel. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 887,
+  "score": 436.592,
   "config": {
     "traditions": [
       "ectofolk",
-      "new_wave",
-      "folk_rock"
+      "folk_rock",
+      "skiffle"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 61.155,
-          "voice_quality": 13.714999999999991,
+          "voice_register": 64.70500000000001,
+          "voice_quality": 12.479999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.415,
-          "voice_articulation": 16.964999999999993,
-          "voice_microtone": 39.550000000000004,
-          "voice_tradition": 34.16,
-          "voice_mechanism_compound": 4.16,
-          "voice_estill_quality": 6.9225,
-          "voice_speech_song": 25.28499999999999,
-          "voice_ensemble_config": 17.09499999999999,
-          "voice_ornament_system": 7.165000000000001,
+          "voice_vibrato": 7.089999999999998,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 35.47500000000001,
+          "voice_tradition": 41.01,
+          "voice_mechanism_compound": 4.615,
+          "voice_estill_quality": 7.3774999999999995,
+          "voice_speech_song": 24.634999999999994,
+          "voice_ensemble_config": 18.32999999999999,
+          "voice_ornament_system": 6.815000000000001,
           "voice_pitch_organization": 2.575000000000001,
-          "voice_processing_chain": 11.075000000000001,
-          "voice_multitrack_stack": 13.059999999999999
+          "voice_processing_chain": 7.115,
+          "voice_multitrack_stack": 8.125
         }
       },
       {
@@ -63,18 +63,18 @@
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 21.555,
-          "grand_piano_size": 2.08,
-          "grand_piano_brand": 2.275,
-          "piano_hammer": 20.58,
-          "piano_rim": 21.884999999999998,
-          "piano_soundboard": 20.295,
-          "piano_pinblock": 1.6549999999999998,
-          "piano_plate": 2.1125,
-          "piano_pitch_standard": 3.3150000000000004
+          "keyboard_technique": 14.780000000000001,
+          "grand_piano_size": 1.4300000000000002,
+          "grand_piano_brand": 1.625,
+          "piano_hammer": 13.530000000000003,
+          "piano_rim": 14.835,
+          "piano_soundboard": 13.395000000000001,
+          "piano_pinblock": 1.17,
+          "piano_plate": 1.56,
+          "piano_pitch_standard": 3.055
         }
       },
       {
@@ -83,15 +83,15 @@
           "string_tuning": "dadgad",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
-          "string_acoustic": "phosphor_om",
+          "string_acoustic": "thomastik_flat_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
           "string_tuning": 4.8500000000000005,
-          "top_wood": 2.08,
-          "back_sides": 2.08,
-          "string_acoustic": 2.08,
-          "acoustic_om_technique": 28.574999999999996
+          "top_wood": 1.04,
+          "back_sides": 1.04,
+          "string_acoustic": 2.4699999999999993,
+          "acoustic_om_technique": 36.65
         }
       },
       {
@@ -102,9 +102,9 @@
           "celtic_harp_strings": "celtic_gut"
         },
         "scores": {
-          "acoustic_technique": 23.429999999999996,
-          "celtic_harp_levers": 9.684999999999999,
-          "celtic_harp_strings": 3.965
+          "acoustic_technique": 17.105,
+          "celtic_harp_levers": 12.999999999999998,
+          "celtic_harp_strings": 2.925
         }
       },
       {
@@ -116,9 +116,9 @@
           "sm_voicing": "sm_choir"
         },
         "scores": {
-          "electronic_technique": 0.06499999999999999,
+          "electronic_technique": -0.07,
           "sm_voice_count": 0.7199999999999999,
-          "sm_chorus": 4.545,
+          "sm_chorus": 4.3950000000000005,
           "sm_voicing": 1.3
         }
       },
@@ -130,34 +130,34 @@
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
-          "multitrack_stack_density": 1.3699999999999999,
-          "multitrack_stack_era_aesthetic": 10.520000000000001,
-          "multitrack_stack_processing": 0.975
+          "multitrack_stack_density": 1.8199999999999998,
+          "multitrack_stack_era_aesthetic": 6.565000000000001,
+          "multitrack_stack_processing": 0.39
         }
       },
       {
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "cello_strings": "rectified_gut_cello",
-          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_strings": "venice_catlin_cello",
+          "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "modern_synthetic_varnish_cello",
-          "cello_setup_period": "modern_setup_cello",
+          "cello_setup_period": "baroque_setup_cello",
           "cello_bow_grip": "french_bow_grip",
-          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_rosin": "bernardel_rosin_cello",
           "cello_bow_stick": "brazilwood_stick_cello"
         },
         "scores": {
           "bowed_technique": -0.05,
-          "cello_strings": 2.2749999999999995,
-          "cello_top_wood": 0.375,
-          "cello_back_wood": 10.822499999999996,
-          "cello_varnish": 2.1774999999999998,
-          "cello_setup_period": 0.6174999999999999,
+          "cello_strings": 2.6500000000000004,
+          "cello_top_wood": 0.12999999999999998,
+          "cello_back_wood": 9.099999999999998,
+          "cello_varnish": 1.625,
+          "cello_setup_period": 1.4949999999999999,
           "cello_bow_grip": 0.195,
-          "cello_rosin": 0.32499999999999996,
-          "cello_bow_stick": 0.375
+          "cello_rosin": -0.05,
+          "cello_bow_stick": -0.05
         }
       },
       {
@@ -170,7 +170,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "glockenspiel_size": 0.975,
-          "glockenspiel_mallet": 2.275
+          "glockenspiel_mallet": 1.04
         }
       }
     ],

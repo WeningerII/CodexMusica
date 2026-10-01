@@ -5,7 +5,7 @@
   "lineage": "Symphonic black metal is represented here by Darkest Oath. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic symphonic black metal, distorted Rock, black branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 496,
-  "score": 38.087,
+  "score": 38.389,
   "config": {
     "traditions": [
       "symphonic_black_metal"
@@ -37,7 +37,7 @@
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.063,
           "string_material": 0.4095,
-          "bridge": 1.3,
+          "bridge": 1.29775,
           "scale_length": 4.9399999999999995,
           "string_gauge": 1.3,
           "finish": 0.16799999999999998,
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_double"
         },
         "scores": {
-          "drum_technique": 1.0815,
+          "drum_technique": 1.2914999999999999,
           "drumhead": 0.483,
           "drum_kit_kick_pedal": 0.39
         }
@@ -112,11 +112,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.21637499999999998,
+          "voice_ensemble_config": 0.24787499999999998,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.17925000000000002,
-          "voice_multitrack_stack": 0.247875
+          "voice_multitrack_stack": 0.27937500000000004
         }
       },
       {
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.44175000000000003,
+          "rompler_preset_bank": 0.47325000000000006,
           "rompler_context": 1.3,
           "rompler_lineage": 1.3
         }

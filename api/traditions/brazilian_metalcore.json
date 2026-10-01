@@ -3,14 +3,14 @@
   "name": "Brazilian metalcore",
   "family": "rock_punk",
   "lineage": "Brazilian metalcore discovery scope represented by São Paulo’s Project46. Primary accounts document band-level riff development, Portuguese-language performance and a later shift toward more melody and groove.",
-  "recipe": "classic modern brazilian metalcore, distorted Rock, metal branch, punk distorted rock dutch punk adelaide punk. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 438,
-  "score": 72.535,
+  "recipe": "classic modern brazilian metalcore, distorted Rock, metal branch, punk distorted rock dc hardcore deep punk rock. solo with instrumental accompaniment. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 440,
+  "score": 74.125,
   "config": {
     "traditions": [
       "brazilian_metalcore",
-      "dutch_punk",
-      "adelaide_punk"
+      "dc_hardcore",
+      "deep_punk_rock"
     ],
     "instruments": [
       {
@@ -31,11 +31,11 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 12.5,
+          "electric_technique": 10.875,
           "amp_make": 0,
           "body_wood": 0.39,
           "neck_wood": 0.39,
-          "fretboard": 0.585,
+          "fretboard": 0.39,
           "pickup_magnet": 0,
           "pickup_winding": 0.195,
           "string_material": 0.39,
@@ -43,7 +43,7 @@
           "scale_length": 0,
           "string_gauge": 1,
           "finish": 0,
-          "string_tuning": 5.720000000000001
+          "string_tuning": 5.915
         }
       },
       {
@@ -62,10 +62,10 @@
           "amp_make": 0,
           "body_wood": 0.39,
           "pickup_config": 0,
-          "string_type": 0.39,
+          "string_type": 0.585,
           "scale_length_b": 0.39,
           "fretted_or_not": 0,
-          "bass_technique": 18.195,
+          "bass_technique": 18.045,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,16 +85,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 8.749999999999998,
+          "drum_technique": 7.124999999999999,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0.78,
           "shell_wood": 0.39,
           "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "bearing_edges": 0.585,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 9.54,
-          "cymbal_lathing": 9.149999999999999,
+          "cymbal_hammering": 11.59,
+          "cymbal_lathing": 11.2,
           "cymbal_finish": 0
         }
       },
@@ -134,7 +134,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.15
+          "voice_multitrack_stack": 0
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Doo-wop",
   "family": "blues_gospel",
   "lineage": "Late-1940s through early-1960s African-American (originally) and Italian-American (East Coast urban) vocal-harmony group teen-pop R&B tradition built on the I-vi-IV-V chord cycle and non-lexical vocal syllables (shooby-doo-wop) — the Orioles, the Ravens, the Five Satins, the Penguins (Earth Angel, 1954), the Platters, Frankie Lymon and the Teenagers (Why Do Fools Fall in Love, 1956)",
-  "recipe": "classic North American 1947-1949 doo-wop, functional Song, doowop branch, christian gospel jubilee quartet, pop rock functional song 1960s girl group new wave. thick, breath veiled tone, straight onset, interlocked note trading. choir doo wop group, block chord upright piano, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, upright bass, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, pre muffled edge muffled brushes-and-sticks drum kit, khoisan click articulated song syllables vocal percussion solo lead vocal percussion voice. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 804,
-  "score": 451.667,
+  "recipe": "classic North American 1947-1949 doo-wop, functional Song, doowop branch, christian gospel jubilee quartet, pop rock functional song 1960s girl group skiffle. thick, breath veiled tone, straight onset, interlocked note trading. vocalized bass choir doo wop group, block chord upright piano, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, growly gut upright bass, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, pre muffled edge muffled brushes-and-sticks drum kit, khoisan click articulated song syllables vocal percussion solo lead vocal percussion voice. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 843,
+  "score": 450.831,
   "config": {
     "traditions": [
       "doo_wop",
       "girl_group_60s",
-      "new_wave"
+      "skiffle"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,32 +34,32 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 47.65000000000001,
-          "voice_quality": 35.880000000000024,
+          "voice_register": 51.199999999999996,
+          "voice_quality": 34.645000000000024,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9825000000000002,
-          "voice_articulation": 23.139999999999993,
-          "voice_microtone": 34.800000000000004,
-          "voice_tradition": 27.689999999999998,
-          "voice_mechanism_compound": 4.095,
+          "voice_vibrato": 6.987499999999997,
+          "voice_articulation": 24.179999999999993,
+          "voice_microtone": 30.724999999999987,
+          "voice_tradition": 26.64999999999999,
+          "voice_mechanism_compound": 4.549999999999999,
           "voice_estill_quality": 11.066249999999997,
-          "voice_speech_song": 30.354999999999993,
-          "voice_ensemble_config": 22.684999999999988,
+          "voice_speech_song": 29.70499999999999,
+          "voice_ensemble_config": 23.919999999999995,
           "voice_ornament_system": 2.4000000000000004,
-          "voice_pitch_organization": 2.835000000000001,
-          "voice_processing_chain": 10.931249999999999,
-          "voice_multitrack_stack": 11.850624999999997
+          "voice_pitch_organization": 2.9850000000000008,
+          "voice_processing_chain": 11.23125,
+          "voice_multitrack_stack": 11.925624999999998
         }
       },
       {
         "id": "choir_doo_wop_group",
         "slots": {
-          "voices": "doo_wop_baritone",
+          "voices": "doo_wop_bass",
           "arrangement": "doo_wop_with_band"
         },
         "scores": {
-          "voices": 1.4300000000000002,
+          "voices": 1.8199999999999998,
           "arrangement": 0.39
         }
       },
@@ -71,8 +71,8 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 24.424999999999997,
-          "upright_use": 1.4300000000000002,
+          "keyboard_technique": 17.649999999999995,
+          "upright_use": 0.78,
           "upright_piano_size": 1.2349999999999999
         }
       },
@@ -83,41 +83,41 @@
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "maple_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "bridge": "vintage_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 25.83,
-          "amp_make": 13.389374999999998,
-          "body_wood": 1.4300000000000002,
-          "neck_wood": 1.4300000000000002,
-          "fretboard": 1.365,
-          "pickup_magnet": 0.195,
-          "string_material": 0.195,
-          "string_gauge": 2.08,
-          "bridge": 0.65,
-          "scale_length": 1.4300000000000002,
-          "finish": 0.09,
-          "string_tuning": 10.009999999999998,
+          "electric_technique": 18.179999999999996,
+          "amp_make": 15.314374999999998,
+          "body_wood": 0.78,
+          "neck_wood": 0.78,
+          "fretboard": 0.975,
+          "pickup_magnet": 0.135,
+          "string_material": 0.23625,
+          "string_gauge": 0.39,
+          "bridge": 0.39,
+          "scale_length": 0.39,
+          "finish": 0.39,
+          "string_tuning": 7.864999999999998,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "steel_upright",
-          "upright_play": "slap_upright"
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 0.195,
-          "upright_play": 0.585
+          "upright_strings": 4.749999999999998,
+          "upright_play": 4.749999999999998
         }
       },
       {
@@ -126,19 +126,19 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "gold_brass_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_honking_attack",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 11.690000000000001,
-          "sax_size": 8.415,
-          "sax_reed": 0.195,
-          "sax_body_alloy": 0.8125,
-          "sax_mouthpiece": 0.195,
-          "sax_technique": 8.325,
-          "sax_maker_school": 2.8600000000000003
+          "wind_articulation": 10.915,
+          "sax_size": 7.989999999999999,
+          "sax_reed": 0.135,
+          "sax_body_alloy": 4.789999999999998,
+          "sax_mouthpiece": 0.135,
+          "sax_technique": 7.8999999999999995,
+          "sax_maker_school": 8.894999999999998
         }
       },
       {
@@ -149,8 +149,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.944999999999993,
-          "drumhead": 22.089999999999996,
+          "drum_technique": 25.34999999999999,
+          "drumhead": 15.189999999999994,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -163,10 +163,10 @@
           "vocal_percussion_context": "vocal_percussion_context_solo"
         },
         "scores": {
-          "vocal_percussion_airstream_mechanism": 0.045,
-          "vocal_percussion_beatbox_articulation": 0.585,
-          "vocal_percussion_syllabic_drum_system": 8.58,
-          "vocal_percussion_context": 11.959999999999999
+          "vocal_percussion_airstream_mechanism": 0.195,
+          "vocal_percussion_beatbox_articulation": 0.9449999999999998,
+          "vocal_percussion_syllabic_drum_system": 7.735,
+          "vocal_percussion_context": 13.584999999999997
         }
       }
     ],

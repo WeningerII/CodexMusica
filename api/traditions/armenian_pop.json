@@ -3,14 +3,14 @@
   "name": "Armenian pop",
   "family": "pop",
   "lineage": "Selected Yerevan-centered 2008-2012 folk-inflected dance pop associated with Sirusho, connecting her pop-and-folk recordings and international Qele Qele and PreGomesh singles with contemporary electronic song production. This is one crossover branch among Armenian-language and diaspora pop practices, distinct from liturgical chant, acoustic folk ensembles and the wider rabiz scene.",
-  "recipe": "classic 2008-2012 armenian pop, functional Song, europop branch, pop rock functional song, middle eastern classical art music new wave yacht rock. fast rate, multi note runs per syllable, scooped attack, modern pop training. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley canonical 20th century armenian duduk, analog poly synth, sampler drum machine, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 617,
-  "score": 130.373,
+  "recipe": "classic 2008-2012 armenian pop, functional Song, europop branch, pop rock functional song, middle eastern classical art music yacht rock 1960s girl group. multi note runs per syllable, scooped attack, modern pop training, nasal twang velar port open. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley canonical 20th century armenian duduk, analog poly synth, sampler drum machine, ampeg svt amp rock bass amp mahogany ernie ball slinky fingerstyle electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 655,
+  "score": 118.165,
   "config": {
     "traditions": [
       "armenian_pop",
-      "new_wave",
-      "yacht_rock"
+      "yacht_rock",
+      "girl_group_60s"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": -0.49000000000000005,
+          "voice_quality": -0.38499999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.585,
-          "voice_articulation": 1.51,
+          "voice_vibrato": 0.39,
+          "voice_articulation": 1.7099999999999997,
           "voice_microtone": 1.14,
-          "voice_tradition": 40.60499999999999,
-          "voice_mechanism_compound": 0.195,
-          "voice_estill_quality": 3.575000000000001,
+          "voice_tradition": 37.405,
+          "voice_mechanism_compound": 0.22499999999999998,
+          "voice_estill_quality": 3.9650000000000007,
           "voice_speech_song": 0.585,
-          "voice_ensemble_config": 4.355,
+          "voice_ensemble_config": 4.745,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0.42000000000000004,
-          "voice_processing_chain": 2.145,
-          "voice_multitrack_stack": 1.3649999999999998
+          "voice_processing_chain": 6.824999999999999,
+          "voice_multitrack_stack": 2.21
         }
       },
       {
@@ -64,7 +64,7 @@
         },
         "scores": {
           "wind_articulation": 0.15000000000000002,
-          "duduk_use": 1.2349999999999999,
+          "duduk_use": 4.289999999999998,
           "duduk_pitch": 0.045,
           "duduk_body_wood": 3.499999999999999,
           "duduk_reed": 3.499999999999999,
@@ -77,13 +77,13 @@
           "electronic_technique": "electronic_arpeggiated",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
           "electronic_technique": 0.325,
-          "poly_archetypes": 10.985,
-          "poly_voices": 2.08,
-          "poly_maker_lineage": 0.19499999999999967
+          "poly_archetypes": 7.279999999999999,
+          "poly_voices": 2.26,
+          "poly_maker_lineage": -0.5950000000000001
         }
       },
       {
@@ -96,7 +96,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "sample_bitdepth": 0.78,
+          "sample_bitdepth": 0.39,
           "sample_swing": 2.5,
           "sample_processing": 0.24
         }
@@ -109,18 +109,18 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.309999999999999,
-          "body_wood": 2.275,
+          "amp_make": 7.8,
+          "body_wood": 1.235,
           "pickup_config": 0.585,
-          "string_type": 27.4625,
-          "scale_length_b": 2.275,
-          "fretted_or_not": 0.045,
-          "bass_technique": 0.27499999999999997,
+          "string_type": 18.199999999999996,
+          "scale_length_b": 1.235,
+          "fretted_or_not": 0.195,
+          "bass_technique": 1.575,
           "electric_bass_string_configuration": 0
         }
       }

@@ -3,13 +3,13 @@
   "name": "Surf Music",
   "family": "rock_punk",
   "lineage": "Southern California style of 1961-1965 spanning Dick Dale's Rendezvous Ballroom instrumentals and the vocal surf of The Beach Boys and Jan & Dean, recorded at Western, Gold Star and United in Los Angeles — reverb-tank guitar with fast alternate picking, saxophone honks, driving tom-and-snare shuffles at 140-180 BPM, and stacked falsetto-topped close harmony over car-and-beach lyrics.",
-  "recipe": "classic Los Angeles 1961-1965 surf music, distorted Rock, surf rock branch, pop rock functional song, classic distorted rock new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, block chord upright piano, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 816,
-  "score": 485.47,
+  "recipe": "classic Los Angeles 1961-1965 surf music, distorted Rock, surf rock branch, pop rock functional song, classic distorted rock skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany ebony tremolo single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, block chord upright piano, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 783,
+  "score": 446.315,
   "config": {
     "traditions": [
       "surf_music",
-      "new_wave",
+      "skiffle",
       "yacht_rock"
     ],
     "instruments": [
@@ -23,43 +23,43 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 51.13000000000001,
-          "voice_quality": 15.892499999999991,
+          "voice_register": 54.35500000000002,
+          "voice_quality": 14.29999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.330000000000001,
-          "voice_articulation": 18.914999999999992,
-          "voice_microtone": 50.375,
-          "voice_tradition": 19.304999999999993,
-          "voice_mechanism_compound": 3.4875000000000007,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 23.72499999999999,
-          "voice_ensemble_config": 20.214999999999993,
-          "voice_ornament_system": 0.39,
+          "voice_vibrato": 9.774999999999999,
+          "voice_articulation": 19.955,
+          "voice_microtone": 45.97500000000001,
+          "voice_tradition": 14.267499999999997,
+          "voice_mechanism_compound": 3.51,
+          "voice_estill_quality": 3.1200000000000006,
+          "voice_speech_song": 23.074999999999996,
+          "voice_ensemble_config": 21.449999999999996,
+          "voice_ornament_system": 0.345,
           "voice_pitch_organization": 1.5299999999999998,
-          "voice_processing_chain": 10.677500000000002,
-          "voice_multitrack_stack": 8.060000000000002
+          "voice_processing_chain": 7.452500000000001,
+          "voice_multitrack_stack": 4.875
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
+          "electric_technique": "electric_tremolo_picking",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
-          "fretboard": "rosewood_fb",
+          "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 16.955,
-          "amp_make": 21.58,
-          "body_wood": 2.275,
-          "neck_wood": 2.275,
-          "fretboard": 2.21,
-          "pickup_magnet": 0.585,
-          "string_material": 0.585,
-          "string_gauge": 2.925,
-          "bridge": 1.045,
-          "scale_length": 2.275,
-          "finish": 0.09,
-          "string_tuning": 18.525,
+          "electric_technique": 10.499999999999998,
+          "amp_make": 17.5825,
+          "body_wood": 1.625,
+          "neck_wood": 1.625,
+          "fretboard": 1.1949999999999998,
+          "pickup_magnet": 0.39,
+          "string_material": 0.39,
+          "string_gauge": 1.235,
+          "bridge": 1.1949999999999998,
+          "scale_length": 1.235,
+          "finish": 0.39,
+          "string_tuning": 16.380000000000003,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 16.444999999999997,
-          "body_wood": 3.56,
-          "pickup_config": 1.045,
-          "string_type": 38.135,
-          "scale_length_b": 2.275,
+          "amp_make": 17.5825,
+          "body_wood": 2.73,
+          "pickup_config": 1.1949999999999998,
+          "string_type": 35.885000000000005,
+          "scale_length_b": 1.235,
           "fretted_or_not": 0.045,
-          "bass_technique": 35.214999999999996,
+          "bass_technique": 28.915000000000003,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 31.397499999999997,
-          "drumhead": 15.839999999999996,
+          "drum_technique": 29.147500000000004,
+          "drumhead": 9.04,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,13 +133,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.3074999999999997,
-          "sax_size": 2.275,
-          "sax_reed": 0.585,
-          "sax_body_alloy": 3.515,
-          "sax_mouthpiece": 0.585,
-          "sax_technique": 2.75,
-          "sax_maker_school": 3.5100000000000002
+          "wind_articulation": 1.2999999999999998,
+          "sax_size": 1.235,
+          "sax_reed": 0.39,
+          "sax_body_alloy": 7.839999999999999,
+          "sax_mouthpiece": 0.39,
+          "sax_technique": 7.499999999999998,
+          "sax_maker_school": 9.344999999999997
         }
       },
       {
@@ -150,8 +150,8 @@
           "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 16.599999999999998,
-          "upright_use": 2.275,
+          "keyboard_technique": 9.825,
+          "upright_use": 1.625,
           "upright_piano_size": 0.39
         }
       },
@@ -162,7 +162,7 @@
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.39,
+          "tambourine_orch_jingle": 1.04,
           "tambourine_orch_context": 0.6824999999999999
         }
       }

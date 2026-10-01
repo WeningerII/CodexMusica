@@ -5,7 +5,7 @@
   "lineage": "Netherlands-centered trance production network. Armin van Buuren’s theme-led work provides the representative studio branch: a recurring keyboard melody, synthesized bass and carefully arranged programmed drums, with vocal collaborations optional.",
   "recipe": "classic modern dutch trance, electronic Dance, trance branch. digital subtractive, sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 308,
-  "score": 14.611,
+  "score": 14.582,
   "config": {
     "traditions": [
       "dutch_trance"
@@ -33,7 +33,7 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": -0.07,
+          "electronic_technique": -0.1,
           "sample_bitdepth": 0,
           "sample_swing": 6.25,
           "sample_processing": 0.1365

@@ -5,7 +5,7 @@
   "lineage": "Polish black-metal discovery field represented by Mgła’s Kraków-based recorded duo and its guitar, bass, drum and vocal roles.",
   "recipe": "classic modern polish black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 453,
-  "score": 41.188,
+  "score": 41.214,
   "config": {
     "traditions": [
       "polish_black_metal"
@@ -37,7 +37,7 @@
           "pickup_magnet": 0.34275,
           "pickup_winding": 0.34275,
           "string_material": 0.4095,
-          "bridge": 0.9099999999999999,
+          "bridge": 0.8312499999999999,
           "scale_length": 4.9399999999999995,
           "string_gauge": 0.9099999999999999,
           "finish": 0.16799999999999998,
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.0605,
+          "voice_ensemble_config": 1.1655,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,

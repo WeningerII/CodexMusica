@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 3738,
+  "count": 3838,
   "items": [
     {
       "id": "honky_tonk",
@@ -143101,6 +143101,3222 @@
       "description": "Dutch punk is represented by Frontsector’s Groningen street/hardcore-adjacent branch. The 2022 artist credits specify lead voice, guitar, bass and drums. An authored electric backline centers compact riff cycles and a direct rhythmic pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
       "exemplars": [
         "Frontsector"
+      ]
+    },
+    {
+      "id": "colorado_hardcore",
+      "name": "Colorado hardcore",
+      "family": "rock_punk",
+      "lineage": "Colorado hardcore is represented here by Allout Helter. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        1,
+        1,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Colorado hardcore is represented by Allout Helter’s Denver melodic-hardcore/thrash intersection. The Notion of Control credits two guitars, bass, drums, a lead singer and additional voices. The authored model emphasizes melodic riff contour and tight ensemble accents. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Allout Helter"
+      ]
+    },
+    {
+      "id": "connecticut_hardcore",
+      "name": "Connecticut hardcore",
+      "family": "rock_punk",
+      "lineage": "Connecticut hardcore is represented here by Intercourse. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        -1,
+        1,
+        2,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Connecticut hardcore is represented by Intercourse’s hardcore/grind/noise intersection. Enablers credits voice, guitars, bass and drums and documents New Haven recording. The authored realization uses short irregular riff statements and abrupt density changes without merging it with the band’s later lineups. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Intercourse"
+      ]
+    },
+    {
+      "id": "czech_hardcore",
+      "name": "Czech hardcore",
+      "family": "rock_punk",
+      "lineage": "Czech hardcore is represented here by Backfist. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Czech hardcore is represented by Backfist’s Liberec branch. The official artist profile lists two guitars, bass, drums and lead voice. The authored ensemble emphasizes compact muted guitar figures and direct rhythmic punctuation, selecting the band core rather than the release’s separately credited guest contributions. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Backfist"
+      ]
+    },
+    {
+      "id": "czech_punk",
+      "name": "Czech punk",
+      "family": "rock_punk",
+      "lineage": "Czech punk is represented here by Just For Being. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Czech punk is represented by Just For Being’s melodic punk/pop-punk and hardcore intersection. Its official release credits two guitars, bass, drums and shared vocals, with Prague/Slapy recording. The authored guitar-led realization keeps the sung line clear while leaving track-specific brass and keyboard guests outside this core model. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Just For Being"
+      ]
+    },
+    {
+      "id": "danish_hardcore",
+      "name": "Danish hardcore",
+      "family": "rock_punk",
+      "lineage": "Danish hardcore is represented here by Deformation. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Danish hardcore is represented by Deformation’s Copenhagen raw-punk/hardcore branch. The artist credits guitar/voice, bass and drums and documents local recording. The authored trio model uses short emphatic chord cells and a closely coordinated rhythm section. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Deformation"
+      ]
+    },
+    {
+      "id": "danish_post_punk",
+      "name": "Danish post-punk",
+      "family": "rock_punk",
+      "lineage": "Danish post-punk is represented here by BÆNCH. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "acoustic_guitar_dread",
+        "analog_poly_synth"
+      ],
+      "description": "Danish post-punk is represented by BÆNCH’s post-punk-inspired rock branch. GO-GO-GO explicitly credits electric and acoustic guitars, bass, drums, synths/keyboards and voices. The authored selection contrasts a clean guitar pattern and acoustic layer with a sustained synth texture; other credited string instruments are not assumed simultaneous. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "BÆNCH"
+      ]
+    },
+    {
+      "id": "danish_punk",
+      "name": "Danish punk",
+      "family": "rock_punk",
+      "lineage": "Danish punk is represented here by Uoplagt. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Danish punk is represented by Uoplagt’s Næstved sing-along branch. The artist describes rehearsal-room recordings and explicitly credits bass/lead voice, guitar/backing voice and drums. The authored realization uses recurring chordal figures and a shared vocal response within the trio’s core functions. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Uoplagt"
+      ]
+    },
+    {
+      "id": "dark_hardcore",
+      "name": "Dark hardcore",
+      "family": "rock_punk",
+      "lineage": "Dark hardcore is represented here by Boneash. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Dark hardcore is represented by Boneash’s self-tagged crust/neocrust branch. Remnants explicitly credits guitar, bass, drums, lead voice and backing voice. The authored model emphasizes sustained riff weight and dense rhythmic entries without turning the adjective dark into a measured emotional property. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Boneash"
+      ]
+    },
+    {
+      "id": "dark_post_punk",
+      "name": "Dark post-punk",
+      "family": "rock_punk",
+      "lineage": "Dark post-punk is represented here by Weathered Statues. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.gothicRock",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Dark post-punk is represented by Weathered Statues’ explicitly self-described Denver branch. The artist roster documents guitar, bass, acoustic drums, synth and voice. The authored arrangement sets a repeating bass line against clean guitar figures and a sustained synth background. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Weathered Statues"
+      ]
+    },
+    {
+      "id": "dc_hardcore",
+      "name": "Dc hardcore",
+      "family": "rock_punk",
+      "lineage": "Dc hardcore is represented here by Minor Threat. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "DC hardcore is represented by Minor Threat’s early quartet. The official First Demo Tape credits identify voice, guitar, bass and drums, while the label documents the band’s Washington scene role. The authored modern realization uses economical chordal figures and short, direct rhythmic phrases. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Minor Threat"
+      ]
+    },
+    {
+      "id": "dutch_punk_rock",
+      "name": "Dutch punk rock",
+      "family": "rock_punk",
+      "lineage": "Dutch punk rock is represented here by Antillectual. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Dutch punk rock is represented by Antillectual’s melodic Nijmegen branch. The artist describes skate-punk, emo and orgcore connections, with guitar, bass, drums and multiple voices. This authored trio realization retains the song-centered core while leaving the album’s guest cello outside its declared scope. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Antillectual"
+      ]
+    },
+    {
+      "id": "fast_melodic_punk",
+      "name": "Fast melodic punk",
+      "family": "rock_punk",
+      "lineage": "Fast melodic punk is represented here by Acid Snot. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Fast melodic punk is represented by Acid Snot’s explicitly self-described Barcelona branch. The artist links rapid guitar, bass and drum activity with tuneful vocal writing. Two guitars, bass, kit and collective voice form the selected core; the authored arrangement retains speed and melodic contour together. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Acid Snot"
+      ]
+    },
+    {
+      "id": "finnish_hardcore",
+      "name": "Finnish hardcore",
+      "family": "rock_punk",
+      "lineage": "Finnish hardcore is represented here by Aivoproteesi. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Finnish hardcore is represented by Aivoproteesi’s self-identified Lapland 82-hardcore continuation. The Umpikuja credits document lead voice, guitar with additional voice, bass and drums. The authored arrangement keeps a compact, high-intensity electric backline and a direct kit pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Aivoproteesi"
+      ]
+    },
+    {
+      "id": "finnish_punk",
+      "name": "Finnish punk",
+      "family": "rock_punk",
+      "lineage": "Finnish punk is represented here by Ohjus. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Finnish punk is represented by Ohjus’ fast, noisy Joensuu hardcore branch. The artist’s Demo II credits explicitly identify voice, guitar, bass and drums. The authored realization uses a clipped electric riff framework and dense, energetic percussion while preserving the four distinct roles. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Ohjus"
+      ]
+    },
+    {
+      "id": "finnish_pop_punk",
+      "name": "Finnish pop punk",
+      "family": "rock_punk",
+      "lineage": "Finnish pop punk is represented here by MadCraft. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Finnish pop punk is represented by MadCraft’s Helsinki-based quartet. Its broadcaster-hosted self-description identifies upbeat pop-punk inspired by late-1990s American music; two guitars, bass and drums all include voice roles. The authored model emphasizes clear vocal melody and driving chord accompaniment. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "MadCraft"
+      ]
+    },
+    {
+      "id": "florida_hardcore",
+      "name": "Florida hardcore",
+      "family": "rock_punk",
+      "lineage": "Florida hardcore is represented here by Day By Day. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Florida hardcore is represented by Day By Day’s South Florida guitar-band branch. Its label documents two guitars, bass, drums and a three-voice attack, with groove-driven riffs and tempo changes. The authored arrangement uses shared vocal presence and a tightly coordinated backline. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Day By Day"
+      ]
+    },
+    {
+      "id": "french_punk",
+      "name": "French punk",
+      "family": "rock_punk",
+      "lineage": "French punk is represented here by Pantois. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "French punk is represented by Pantois’ Nancy trio. The artist describes concise, energetic French-language punk-rock songs with a 1990s influence. Guitar, bass, drum kit and shared voices form the documented ensemble; an authored chord-driven realization foregrounds the vocal and rhythmic parts. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Pantois"
+      ]
+    },
+    {
+      "id": "dub_punk",
+      "name": "Dub punk",
+      "family": "rock_punk",
+      "lineage": "Dub punk is represented here by Dumai Dunai. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth",
+        "trumpet",
+        "saxophone",
+        "trombone"
+      ],
+      "description": "Dub punk is represented by Dumai Dunai’s Montreal-based fusion. Artist credits support guitar, synthesizer, bass, drums, trumpet, alto saxophone, trombone and multiple voices. The authored arrangement pairs dub-oriented rhythmic space with punk energy and horn responses, using a deliberately selective ensemble rather than reproducing every guest layer. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Dumai Dunai"
+      ]
+    },
+    {
+      "id": "early_french_punk",
+      "name": "Early french punk",
+      "family": "rock_punk",
+      "lineage": "Early french punk is represented here by Stinky Toys. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Early French punk is represented by Stinky Toys’ documented 1977 guitar-band branch. Voice, two guitars, bass and drum kit form the archival lineup. The authored present-day realization keeps chord-driven ensemble energy while treating the original release and its studio account as historical context. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Stinky Toys"
+      ]
+    },
+    {
+      "id": "early_us_punk",
+      "name": "Early us punk",
+      "family": "rock_punk",
+      "lineage": "Early us punk is represented here by Ramones. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Early US punk is represented by the Ramones’ mid-1970s New York band practice. The Library of Congress essay explicitly documents rhythm guitar, bass, drums and lead/backing voice on the debut. The authored model retains a compact electric ensemble and direct rhythmic propulsion. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Ramones"
+      ]
+    },
+    {
+      "id": "emo_mexicano",
+      "name": "Emo mexicano",
+      "family": "rock_punk",
+      "lineage": "Emo mexicano is represented here by Lasitud. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Emo mexicano is represented by Lasitud’s explicitly emo-inspired shoegaze/screamo crossover on Naufragios y Rescates. The Villahermosa artist credits two guitars, bass, drums, synthesizer and voices. This authored textural arrangement selects that stated emo-facing branch rather than reclassifying the group’s entire catalog. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Lasitud"
+      ]
+    },
+    {
+      "id": "emo_punk",
+      "name": "Emo punk",
+      "family": "rock_punk",
+      "lineage": "Emo punk is represented here by Trash Rabbit. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Emo punk is represented by Trash Rabbit’s explicitly self-described Boston ensemble. Two guitars, bass, drum kit and shared vocals form the documented core. The authored model combines melodic guitar motion and sung lead with a compact punk-band rhythm section. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Trash Rabbit"
+      ]
+    },
+    {
+      "id": "finnish_post_punk",
+      "name": "Finnish post-punk",
+      "family": "rock_punk",
+      "lineage": "Finnish post-punk is represented here by Grave Pleasures. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Finnish post-punk is represented by Grave Pleasures’ Dreamcrash-era death-rock-adjacent branch. The label documents two guitar roles, bass, drums and voice, describing interlocking guitar texture and danceable rhythm. An authored clean-guitar realization preserves rhythmic bass and contrasting vocal prominence. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Grave Pleasures"
+      ]
+    },
+    {
+      "id": "french_emo",
+      "name": "French emo",
+      "family": "rock_punk",
+      "lineage": "French emo is represented here by Apart. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "French emo is represented by Apart’s Le Havre clean-electric branch on Through the Cracks. The artist credits guitar/voice, bass and drums/backing voice and explicitly describes an emo-rock direction without distorted guitars. The authored trio realization leaves room for articulated guitar figures and dynamic rhythm support. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Apart"
+      ]
+    },
+    {
+      "id": "french_hardcore",
+      "name": "French hardcore",
+      "family": "rock_punk",
+      "lineage": "French hardcore is represented here by Famille D’Accueil. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "French hardcore is represented by Famille D’Accueil’s Paris punk/crust-adjacent branch. Artist credits explicitly identify voice, guitar, bass and drum kit. The authored arrangement foregrounds terse riff cycles, a forceful kit pulse and direct lead-vocal presence. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Famille D’Accueil"
+      ]
+    },
+    {
+      "id": "french_post_punk",
+      "name": "French post-punk",
+      "family": "rock_punk",
+      "lineage": "French post-punk is represented here by One Arm. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "French post-punk is represented by One Arm’s 1992–1997 Paris trio phase. The artist’s pressbook identifies guitar, bass/voice and drums and places the trio in a post-punk/no-wave performance network. The authored arrangement emphasizes spare, interlocking electric parts and rhythmic contrast. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "One Arm"
+      ]
+    },
+    {
+      "id": "deep_hardcore_punk",
+      "name": "Deep hardcore punk",
+      "family": "rock_punk",
+      "lineage": "Deep hardcore punk is represented here by The Fix. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Deep hardcore punk is treated as the Every Noise discovery cluster, represented here by its listed artist The Fix. The releasing label documents the early Midwest hardcore quartet’s voice, guitar, bass and drums and rapid, forceful playing. The authored model retains this compact electric branch. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "The Fix"
+      ]
+    },
+    {
+      "id": "deep_pop_emo",
+      "name": "Deep pop emo",
+      "family": "rock_punk",
+      "lineage": "Deep pop emo is represented here by The Junior Varsity. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Deep pop emo is treated as the Every Noise discovery cluster, represented by its listed artist The Junior Varsity. The label documents an emo-rock ensemble with two guitars, bass/voice, drums and keyboards. The authored model combines melodic guitar figures and keyboard color with a song-led rhythm section. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "The Junior Varsity"
+      ]
+    },
+    {
+      "id": "deep_power_pop_punk",
+      "name": "Deep power-pop punk",
+      "family": "rock_punk",
+      "lineage": "Deep power-pop punk is represented here by The Prozacs. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Deep power-pop punk is treated as the Every Noise discovery cluster, represented by The Prozacs. The artist’s We Scream credits document guitar/voice, bass/backing voice and drums; its own tags place the work at the power-pop/pop-punk intersection. The authored trio model pairs chord drive with a clear vocal hook. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "The Prozacs"
+      ]
+    },
+    {
+      "id": "deep_punk_rock",
+      "name": "Deep punk rock",
+      "family": "rock_punk",
+      "lineage": "Deep punk rock is represented here by Avengers. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Deep punk rock is treated as the Every Noise discovery cluster, represented by its listed artist Avengers. Penelope Houston’s release archive documents voice, guitar, bass and drums, with 1977–1978 Bay Area performances. The authored realization selects the original quartet’s core roles and direct electric interplay. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Avengers"
+      ]
+    },
+    {
+      "id": "freeform_hardcore",
+      "name": "Freeform hardcore",
+      "family": "electronic",
+      "lineage": "Freeform hardcore is represented here by Kevin Energy with Desire. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "electronicDance.trance",
+      "axes": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "digital_subtractive",
+        "rompler_workstation",
+        "sampler_drum_machine"
+      ],
+      "description": "Freeform hardcore is represented by Kevin Energy and Desire’s documented 2022 production branch. The artist describes piano color, an arpeggio, breakbeat programming and kick/bass design. The authored instrumental model realizes these roles with a piano-preset workstation, digital synthesizer and sample-based rhythm instrument. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Kevin Energy with Desire"
+      ]
+    },
+    {
+      "id": "german_hardcore",
+      "name": "German hardcore",
+      "family": "rock_punk",
+      "lineage": "German hardcore is represented here by 47 Million Dollars. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "German hardcore is represented by 47 Million Dollars’ self-identified Darmstadt guitar-band practice. Voice, guitar, bass and drums are explicitly documented. The authored realization uses a compact distorted riff structure and forceful kit propulsion. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "47 Million Dollars"
+      ]
+    },
+    {
+      "id": "german_post_hardcore",
+      "name": "German post-hardcore",
+      "family": "rock_punk",
+      "lineage": "German post-hardcore is represented here by Give Me Rain. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "German post-hardcore is represented by Give Me Rain’s Bremen branch. Two guitar roles, bass, drums and lead voice anchor the documented ensemble. The authored core emphasizes contrasting riff densities and coordinated rhythmic changes while acknowledging the artist’s wider electronic influences. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Give Me Rain"
+      ]
+    },
+    {
+      "id": "german_post_punk",
+      "name": "German post-punk",
+      "family": "rock_punk",
+      "lineage": "German post-punk is represented here by No Love Lost. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "German post-punk is represented by No Love Lost’s documented full-band Oberhausen practice. Guitar, bass, drums, keyboards and voices form the credited roles. The authored model couples recurring guitar figures with keyboard sustain and an articulated rhythmic foundation. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "No Love Lost"
+      ]
+    },
+    {
+      "id": "german_punk",
+      "name": "German punk",
+      "family": "rock_punk",
+      "lineage": "German punk is represented here by SHITSHOW. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "German punk is represented by SHITSHOW’s Hamburg quartet on its 2022 self-titled release. Lead voice, guitar, bass and drums establish the selected core. The authored arrangement favors short electric riff phrases and a direct ensemble pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "SHITSHOW"
+      ]
+    },
+    {
+      "id": "german_punk_rock",
+      "name": "German punk rock",
+      "family": "rock_punk",
+      "lineage": "German punk rock is represented here by LAUTSTÆRKE. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "German punk rock is represented by LAUTSTÆRKE’s Euskirchen band practice. Two guitar roles, electric bass and drums support lead and backing voices. This authored song-led realization uses chordal guitar drive with collective vocal support. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "LAUTSTÆRKE"
+      ]
+    },
+    {
+      "id": "german_street_punk",
+      "name": "German street punk",
+      "family": "rock_punk",
+      "lineage": "German street punk is represented here by Pillhuhn Polka. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "German street punk is represented by Pillhuhn Polka’s Darmstadt Oi!/street-punk branch. Guitar, bass and drums support a lead singer and ensemble voices. The authored arrangement foregrounds recurring chord blocks and group vocal responses. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Pillhuhn Polka"
+      ]
+    },
+    {
+      "id": "glam_punk",
+      "name": "Glam punk",
+      "family": "rock_punk",
+      "lineage": "Glam punk is represented here by Neon Animal. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Glam punk is represented by Neon Animal’s self-described London glam-punk/hard-rock branch. Guitar, bass, drums and lead/backing voices form the credited ensemble. This authored realization combines chordal rock-and-roll drive with a prominent sung lead. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Neon Animal"
+      ]
+    },
+    {
+      "id": "gothic_post_punk",
+      "name": "Gothic post-punk",
+      "family": "rock_punk",
+      "lineage": "Gothic post-punk is represented here by Cold in Berlin. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.gothicRock",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Gothic post-punk is represented by Cold in Berlin’s Give Me Walls guitar-band branch. Lead voice, guitar, bass and drums are explicitly credited. The authored arrangement emphasizes sustained guitar color and cyclic bass-and-drum motion around the singer. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Cold in Berlin"
+      ]
+    },
+    {
+      "id": "greek_punk",
+      "name": "Greek punk",
+      "family": "rock_punk",
+      "lineage": "Greek punk is represented here by ANFO. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Greek punk is represented by ANFO’s Athens punk-rock branch on Black Sheep. Lead and rhythm guitars, bass and drums support lead/backing voice. The authored arrangement centers concise riff gestures and coordinated ensemble accents. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "ANFO"
+      ]
+    },
+    {
+      "id": "hardcore_punk_espanol",
+      "name": "Hardcore punk espanol",
+      "family": "rock_punk",
+      "lineage": "Hardcore punk espanol is represented here by ANTÍDOTO. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Hardcore punk español is represented by ANTÍDOTO’s Spanish-language Madrid branch. Two guitars, bass, drums and lead/backing voice form the documented ensemble. The authored realization uses compressed riff cycles and tightly articulated kit drive. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "ANTÍDOTO"
+      ]
+    },
+    {
+      "id": "hawaiian_punk",
+      "name": "Hawaiian punk",
+      "family": "rock_punk",
+      "lineage": "Hawaiian punk is represented here by CONNIPTION_FIT. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Hawaiian punk is represented by CONNIPTION_FIT’s self-described Honolulu punk-rock-and-roll practice. Lead and rhythm guitars, bass, drum kit and voice form the documented ensemble. The authored realization uses chord-driven guitar motion and an unadorned rhythmic foundation. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "CONNIPTION_FIT"
+      ]
+    },
+    {
+      "id": "horror_punk_brasileiro",
+      "name": "Horror punk brasileiro",
+      "family": "rock_punk",
+      "lineage": "Horror punk brasileiro is represented here by Zumbis do Espaço. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Horror punk brasileiro is represented by Zumbis do Espaço’s documented guitar-band branch. Its 2011 artist biography identifies guitar, bass, drums and lead voice; the institution’s later program explicitly situates the repertoire in Brazilian horror punk. The authored model selects compact electric-band drive. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Zumbis do Espaço"
+      ]
+    },
+    {
+      "id": "hungarian_punk",
+      "name": "Hungarian punk",
+      "family": "rock_punk",
+      "lineage": "Hungarian punk is represented here by A-Punk zenekar. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Hungarian punk is represented by A-Punk zenekar’s explicitly self-identified Budapest branch. Guitar, bass, drum kit, lead voice and backing voice establish the documented roles. The authored arrangement emphasizes compact chord motion and a direct ensemble pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "A-Punk zenekar"
+      ]
+    },
+    {
+      "id": "icelandic_post_punk",
+      "name": "Icelandic post-punk",
+      "family": "rock_punk",
+      "lineage": "Icelandic post-punk is represented here by BKPM. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth",
+        "upright_piano",
+        "saxophone"
+      ],
+      "description": "Icelandic post-punk is represented by BKPM’s self-described experimental Reykjavík branch. Two guitars, bass, drums, synthesizer, piano, saxophone and several voices are credited. The authored arrangement keeps those named melodic roles with contrasting textures; unspecified auxiliary percussion is outside this selective model. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "BKPM"
+      ]
+    },
+    {
+      "id": "icelandic_punk",
+      "name": "Icelandic punk",
+      "family": "rock_punk",
+      "lineage": "Icelandic punk is represented here by Vonbrigði. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Icelandic punk is represented by Vonbrigði’s documented early-1980s Reykjavík branch. Guitar, bass, drums and lead voice anchor the credited sessions. The authored current recording model emphasizes sharply articulated electric riffs and rhythmic drive while retaining the label’s documented post-punk/hardcore connections. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Vonbrigði"
+      ]
+    },
+    {
+      "id": "indie_emo",
+      "name": "Indie emo",
+      "family": "rock_punk",
+      "lineage": "Indie emo is represented here by Shotmaker. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indie emo is represented by the discovery cluster’s Shotmaker branch. The band-curated historical release credits guitar, bass, drums and vocal contributions from all three members, with Ottawa practice from 1994. The authored model balances articulated guitar figures and abrupt ensemble density changes. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Shotmaker"
+      ]
+    },
+    {
+      "id": "indie_emo_rock",
+      "name": "Indie emo rock",
+      "family": "rock_punk",
+      "lineage": "Indie emo rock is represented here by Speedwell. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Indie emo rock is represented by the exact discovery cluster’s Speedwell branch. The 2002 EP credits two guitar roles, bass, keyboards, drums and shared voices. The authored model layers melodic guitar motion with sustained keyboard accompaniment and a stable rhythm section. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Speedwell"
+      ]
+    },
+    {
+      "id": "indie_punk",
+      "name": "Indie punk",
+      "family": "rock_punk",
+      "lineage": "Indie punk is represented here by goo. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indie punk is represented by goo’s Keighley branch on Chomp. Two guitars, bass, drums and multiple voices form the documented ensemble. The authored model joins melodic guitar figures and a sung vocal foreground to punk-band rhythmic drive. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "goo"
+      ]
+    },
+    {
+      "id": "indonesian_emo",
+      "name": "Indonesian emo",
+      "family": "rock_punk",
+      "lineage": "Indonesian emo is represented here by Beeswax. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian emo is represented by Beeswax’s self-described Malang alternative/emo branch. The 2026 self-titled release explicitly credits guitar, bass, drums and shared vocals. The authored realization balances melodic guitar figures with sung lead and recurring full-band accents. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Beeswax"
+      ]
+    },
+    {
+      "id": "indonesian_hardcore",
+      "name": "Indonesian hardcore",
+      "family": "rock_punk",
+      "lineage": "Indonesian hardcore is represented here by Deliverance. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian hardcore is represented by Deliverance’s Bandung metallic-hardcore branch. Voice, guitar, bass and drums form the explicitly documented quartet. The authored model uses clipped heavy guitar figures and tightly aligned bass-and-drum accents. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Deliverance"
+      ]
+    },
+    {
+      "id": "indonesian_pop_punk",
+      "name": "Indonesian pop punk",
+      "family": "rock_punk",
+      "lineage": "Indonesian pop punk is represented here by SUMAR. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian pop punk is represented by SUMAR’s documented Palembang/Jakarta trio practice. Guitar and bass both carry vocals, supported by drums. The authored arrangement keeps melodic song contours and chord-driven propulsion at its center. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "SUMAR"
+      ]
+    },
+    {
+      "id": "indonesian_post_hardcore",
+      "name": "Indonesian post-hardcore",
+      "family": "rock_punk",
+      "lineage": "Indonesian post-hardcore is represented here by Rekah. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Indonesian post-hardcore is represented by Rekah’s Jakarta skramz/blackgaze-adjacent branch on KIAMAT. Two guitars, bass, drums, voices and credited synthesizer/sound design form the selected arrangement. The authored model combines moving guitar figures with sustained electronic texture and ensemble density changes. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Rekah"
+      ]
+    },
+    {
+      "id": "indonesian_punk",
+      "name": "Indonesian punk",
+      "family": "rock_punk",
+      "lineage": "Indonesian punk is represented here by GAMELANOiNK. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian punk is represented by GAMELANOiNK’s explicitly documented Bekasi street-punk branch. Guitar, bass, drums and lead/backing voice form the selected core. The authored arrangement favors direct chordal movement and collective vocal accents. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "GAMELANOiNK"
+      ]
+    },
+    {
+      "id": "irish_hardcore",
+      "name": "Irish hardcore",
+      "family": "rock_punk",
+      "lineage": "Irish hardcore is represented here by Only Fumes & Corpses. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Irish hardcore is represented by Only Fumes & Corpses’ self-identified Galway hardcore-punk branch. Two guitars, bass, drums and multiple voices are explicitly listed. The authored recording model emphasizes compact electric riffs and a dense, direct ensemble pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Only Fumes & Corpses"
+      ]
+    },
+    {
+      "id": "irish_post_punk",
+      "name": "Irish post-punk",
+      "family": "rock_punk",
+      "lineage": "Irish post-punk is represented here by Basht.. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Irish post-punk is represented by Basht.’s Dublin branch on Bitter and Twisted. The artist’s release text explicitly describes electric-guitar riffs, grounding bass, punching drums and lead vocals, with clean/modulated and distorted guitar contrasts. This authored core follows those roles. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Basht."
+      ]
+    },
+    {
+      "id": "irish_punk",
+      "name": "Irish punk",
+      "family": "rock_punk",
+      "lineage": "Irish punk is represented here by Podracer. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Irish punk is represented by Podracer’s Dundalk trio, combining punk with post-punk and grunge references. Guitar, bass and drums support shared vocals. The authored arrangement selects the concise electric-band core of this regional practice. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Podracer"
+      ]
+    },
+    {
+      "id": "israeli_punk",
+      "name": "Israeli punk",
+      "family": "rock_punk",
+      "lineage": "Israeli punk is represented here by Kav Layla. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Israeli punk is represented by Kav Layla’s Tel Aviv band practice. The Good Years credits document guitar, bass, drums and lead voice. The authored arrangement uses a melodic chord-driven backline and a distinct vocal lead. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Kav Layla"
+      ]
+    },
+    {
+      "id": "italian_hardcore",
+      "name": "Italian hardcore",
+      "family": "rock_punk",
+      "lineage": "Italian hardcore is represented here by Santa Sangre. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Italian hardcore is represented by Santa Sangre’s Grosseto hardcore/thrash trio. Guitar and bass with voices sit over acoustic drums. The authored riff-centered model acknowledges the band’s crossover context and selects the primary backline. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Santa Sangre"
+      ]
+    },
+    {
+      "id": "italian_pop_punk",
+      "name": "Italian pop punk",
+      "family": "rock_punk",
+      "lineage": "Italian pop punk is represented here by Feelbacks. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Italian pop punk is represented by Feelbacks’ Rome-based quartet. Two guitar/voice roles, bass and drums form the documented lineup. The authored model favors a sung hook and compact guitar-led propulsion. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Feelbacks"
+      ]
+    },
+    {
+      "id": "italian_post_hardcore",
+      "name": "Italian post-hardcore",
+      "family": "rock_punk",
+      "lineage": "Italian post-hardcore is represented here by Morningviews. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Italian post-hardcore is represented by Morningviews’ layered Castiglione del Lago ensemble. Three guitar roles, bass and drums accompany lead and backing voices. The authored arrangement contrasts melodic guitar figures with forceful ensemble sections. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Morningviews"
+      ]
+    },
+    {
+      "id": "italian_post_punk",
+      "name": "Italian post-punk",
+      "family": "rock_punk",
+      "lineage": "Italian post-punk is represented here by We Are Waves. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock.newWave",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Italian post-punk is represented by We Are Waves’ guitar-and-synth band branch. Voice, guitar, bass, drums and synthesizer are the stated roles. The authored arrangement combines repeating bass motion with guitar detail and electronic color; Aosta denotes the documented recording center. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "We Are Waves"
+      ]
+    },
+    {
+      "id": "italian_punk",
+      "name": "Italian punk",
+      "family": "rock_punk",
+      "lineage": "Italian punk is represented here by Alldways. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Italian punk is represented by Alldways’ Turin-based hardcore trio. Guitar with lead voice, bass with backing voice and drum kit are explicitly documented. The authored recording model keeps a compact, direct electric interplay. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Alldways"
+      ]
+    },
+    {
+      "id": "italian_screamo",
+      "name": "Italian screamo",
+      "family": "rock_punk",
+      "lineage": "Italian screamo is represented here by dagerman.. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Italian screamo is represented by dagerman.’s Milan quintet. Two guitars, bass, drums and voice are credited on its 2026 release. The authored model emphasizes changing guitar density and coordinated rhythmic surges around the vocal role. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "dagerman."
+      ]
+    },
+    {
+      "id": "italian_emo",
+      "name": "Italian emo",
+      "family": "rock_punk",
+      "lineage": "Italian emo is represented here by Stegosauro. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        2,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Italian emo is represented by Stegosauro’s Vicenza math-rock/emo-revival quartet. Two guitars, bass, drums and shared voices form the documented ensemble. The authored model emphasizes interlocking melodic guitar figures and dynamic ensemble shifts. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Stegosauro"
+      ]
+    },
+    {
+      "id": "japanese_emo",
+      "name": "Japanese emo",
+      "family": "rock_punk",
+      "lineage": "Japanese emo is represented here by Catalina. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese emo is represented by Catalina’s Tokyo trio, which explicitly cites 1990s emo alongside emotive post-hardcore and melodic punk. Guitar, bass, drums and lead voice anchor this authored song-led realization. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Catalina"
+      ]
+    },
+    {
+      "id": "japanese_girl_punk",
+      "name": "Japanese girl punk",
+      "family": "rock_punk",
+      "lineage": "Japanese girl punk is represented here by Otoboke Beaver. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese girl punk is retained as the discovery-cluster label, represented by Otoboke Beaver’s Kyoto punk/garage ensemble. Guitar, bass and drums accompany lead and group vocals. The authored realization uses sharp ensemble changes and compact riff motion. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Otoboke Beaver"
+      ]
+    },
+    {
+      "id": "japanese_melodic_hardcore",
+      "name": "Japanese melodic hardcore",
+      "family": "rock_punk",
+      "lineage": "Japanese melodic hardcore is represented here by waterweed. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese melodic hardcore is represented by waterweed’s documented 2017 trio period. Guitar, bass, drums and lead/backing voices combine urgent riffs with melodic and shouted passages. The authored arrangement follows that ensemble scale without claiming the original album’s equipment. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "waterweed"
+      ]
+    },
+    {
+      "id": "japanese_melodic_punk",
+      "name": "Japanese melodic punk",
+      "family": "rock_punk",
+      "lineage": "Japanese melodic punk is represented here by SHAMES. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese melodic punk is represented by SHAMES’ Kofu guitar-band practice. Two guitar roles, bass and drum kit support lead and backing voices. The authored model joins recurring sung melody to brisk electric-band motion. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "SHAMES"
+      ]
+    },
+    {
+      "id": "japanese_pop_punk",
+      "name": "Japanese pop punk",
+      "family": "rock_punk",
+      "lineage": "Japanese pop punk is represented here by SHARKK. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese pop punk is represented by SHARKK’s Tokyo-based solo-recording branch. Sean McGee’s credited guitar, bass, drums and vocals create a full-band arrangement, with additional guitar on selected tracks. The authored model preserves those performed roles and a melodic guitar-driven song focus. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "SHARKK"
+      ]
+    },
+    {
+      "id": "japanese_post_hardcore",
+      "name": "Japanese post-hardcore",
+      "family": "rock_punk",
+      "lineage": "Japanese post-hardcore is represented here by envy. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese post-hardcore is represented by envy’s layered Tokyo ensemble. Multiple guitars, bass, drums and lead voice form the documented core. The authored realization balances forceful rhythmic sections against sustained guitar space. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "envy"
+      ]
+    },
+    {
+      "id": "japanese_post_punk",
+      "name": "Japanese post-punk",
+      "family": "rock_punk",
+      "lineage": "Japanese post-punk is represented here by HOT TOASTERS. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock.newWave",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese post-punk is represented by HOT TOASTERS’ Tokyo song-oriented fusion. The Delish credits identify guitars, bass, drums, vocals and programming. This authored arrangement deliberately selects the four-role band core and uses syncopated bass motion with guitar texture. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "HOT TOASTERS"
+      ]
+    },
+    {
+      "id": "japanese_punk_rock",
+      "name": "Japanese punk rock",
+      "family": "rock_punk",
+      "lineage": "Japanese punk rock is represented here by Punk Rocker Labor Union. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese punk rock is represented by Punk Rocker Labor Union’s documented Tokyo-recorded quartet. Two guitars, bass and drums all have vocal roles. The authored arrangement places shared singing above compact chord-based rhythmic drive. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Punk Rocker Labor Union"
+      ]
+    },
+    {
+      "id": "japanese_screamo",
+      "name": "Japanese screamo",
+      "family": "rock_punk",
+      "lineage": "Japanese screamo is represented here by Heaven In Her Arms. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese screamo is represented by Heaven In Her Arms’ documented layered-guitar branch. Guitar, bass, drums and voice support expansive density contrasts. The authored arrangement follows these roles and the artist’s stated need for a multi-guitar texture. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Heaven In Her Arms"
+      ]
+    },
+    {
+      "id": "kentucky_punk",
+      "name": "Kentucky punk",
+      "family": "rock_punk",
+      "lineage": "Kentucky punk is represented here by Sean. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Kentucky punk is represented by Sean’s Lexington pop-punk trio. Guitar and bass both carry vocals alongside drum kit. The authored model favors concise melodic singing, chord accompaniment and a steady full-band pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Sean"
+      ]
+    },
+    {
+      "id": "korean_hardcore",
+      "name": "Korean hardcore",
+      "family": "rock_punk",
+      "lineage": "Korean hardcore is represented here by BANRAN. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Korean hardcore is represented by BANRAN’s Seoul fast-hardcore branch. The Stop Kor release explicitly credits voice, guitar, bass and drums. The authored arrangement uses short riff cycles and concentrated percussion, selecting the played band core. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "BANRAN"
+      ]
+    },
+    {
+      "id": "korean_punk",
+      "name": "Korean punk",
+      "family": "rock_punk",
+      "lineage": "Korean punk is represented here by Gumiho. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Korean punk is represented by Gumiho’s Seoul quartet. Its final EP documents a punk-rock practice with voice, guitar, bass and drums. The authored arrangement retains the direct electric-band core and a separate vocal lead. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Gumiho"
+      ]
+    },
+    {
+      "id": "lion_city_hardcore",
+      "name": "Lion city hardcore",
+      "family": "rock_punk",
+      "lineage": "Lion city hardcore is represented here by Destiny. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Lion City hardcore is represented by Destiny’s Singapore melodic-hardcore branch. The band’s firsthand account identifies two guitars, bass, drums and voice. The authored model keeps the compact band core and alternates melodic contour with rhythmic drive. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Destiny"
+      ]
+    },
+    {
+      "id": "lo_fi_emo",
+      "name": "Lo-fi emo",
+      "family": "rock_punk",
+      "lineage": "Lo-fi emo is represented here by Pill Friends. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Lo-fi emo is retained as a discovery grouping, represented by its listed artist Pill Friends. Child Sacrifice credits guitar, bass, drums, keyboards and voices. The authored model pairs a melodic band arrangement with deliberately cassette-colored capture; that production choice is not attributed to the original sessions. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Pill Friends"
+      ]
+    },
+    {
+      "id": "long_island_punk",
+      "name": "Long island punk",
+      "family": "rock_punk",
+      "lineage": "Long island punk is represented here by Mad Planets. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Long Island punk is represented by Mad Planets’ 1990s Stony Brook pop-punk trio. Guitar, bass, drum kit and shared voices are explicitly credited. The authored arrangement selects the core trio’s melodic songwriting and electric interplay. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Mad Planets"
+      ]
+    },
+    {
+      "id": "lowlands_hardcore",
+      "name": "Lowlands hardcore",
+      "family": "rock_punk",
+      "lineage": "Lowlands hardcore is represented here by Pressure Pact. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Lowlands hardcore is retained as the regional discovery grouping, represented by Pressure Pact’s Tilburg hardcore-punk branch. The label explicitly credits voice, guitar, bass and drums, with Oi! and D-beat connections. The authored model centers clipped riffs and a direct kit pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Pressure Pact"
+      ]
+    },
+    {
+      "id": "malang_punk",
+      "name": "Malang punk",
+      "family": "rock_punk",
+      "lineage": "Malang punk is represented here by DC Threat. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Malang punk is represented by DC Threat’s compact hardcore branch. The releasing label documents guitar, bass, drums and voice, describing rapid, dense playing in local DIY circles. The authored recording arrangement keeps that small electric ensemble and direct rhythmic attack. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "DC Threat"
+      ]
+    },
+    {
+      "id": "malaysian_hardcore",
+      "name": "Malaysian hardcore",
+      "family": "rock_punk",
+      "lineage": "Malaysian hardcore is represented here by VictoryMY. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Malaysian hardcore is represented by VictoryMY’s Kuala Lumpur hardcore/metal branch. The artist explicitly identifies two guitar roles, bass, drums and lead voice. The authored arrangement foregrounds weighty electric riffing and coordinated kit/bass rhythm. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "VictoryMY"
+      ]
+    },
+    {
+      "id": "malaysian_punk",
+      "name": "Malaysian punk",
+      "family": "rock_punk",
+      "lineage": "Malaysian punk is represented here by Pasca Sini. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Malaysian punk is represented by Pasca Sini’s self-described pop-punk branch. Its Kuala Lumpur profile credits voice, guitar, bass and drums. The authored arrangement favors melodic singing over electric chord motion and a compact drum-kit pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Pasca Sini"
+      ]
+    },
+    {
+      "id": "melbourne_punk",
+      "name": "Melbourne punk",
+      "family": "rock_punk",
+      "lineage": "Melbourne punk is represented here by Dead Already. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Melbourne punk is represented by Dead Already’s hardcore-influenced electric ensemble on On a Hook. Artist credits support two guitars, bass, drums and shared voice. The authored realization selects the core backline and direct rhythmic drive, leaving a single track’s guest organ outside its scope. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Dead Already"
+      ]
+    },
+    {
+      "id": "melodic_hardcore",
+      "name": "Melodic hardcore",
+      "family": "rock_punk",
+      "lineage": "Melodic hardcore is represented here by Turn of Phrase. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Melodic hardcore is represented by Turn of Phrase’s London–Brighton branch. The artist explicitly connects melodic writing, 1990s post-hardcore/emo and fast, intense hardcore. Two guitars, bass, drums and lead voice provide the documented roles in the authored realization. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Turn of Phrase"
+      ]
+    },
+    {
+      "id": "metallic_hardcore",
+      "name": "Metallic hardcore",
+      "family": "rock_punk",
+      "lineage": "Metallic hardcore is represented here by Deliverance. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Metallic hardcore is represented by Deliverance’s self-identified Bandung branch. Voice, guitar, bass and drums form the explicit artist roster. The authored production model uses dense distorted riffing, a firm low-register foundation and closely coordinated percussion. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Deliverance"
+      ]
+    },
+    {
+      "id": "mexican_pop_punk",
+      "name": "Mexican pop punk",
+      "family": "rock_punk",
+      "lineage": "Mexican pop punk is represented here by Fonte. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Mexican pop punk is represented by Fonte’s Matamoros branch on A Falta De Todo. The artist credits two guitars, bass, drums and lead voice and tags the release pop punk and easycore. The authored arrangement emphasizes a clear vocal line and electric chord drive. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Fonte"
+      ]
+    },
+    {
+      "id": "minneapolis_punk",
+      "name": "Minneapolis punk",
+      "family": "rock_punk",
+      "lineage": "Minneapolis punk is represented here by The Manix. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Minneapolis punk is represented by The Manix’s Neighborhood Wildlife quartet. Artist credits support two guitars, bass, drums and singing by all members. The releasing-label account reproduced by the artist links basement-scene group hooks with pop-punk melody; the authored model centers that shared-voice electric core. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "The Manix"
+      ]
+    },
+    {
+      "id": "modern_hardcore",
+      "name": "Modern hardcore",
+      "family": "rock_punk",
+      "lineage": "Modern hardcore is represented here by Civilized. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Modern hardcore is represented by Civilized’s Chopping Block, which its releasing label explicitly places in that category. Voice, guitar, bass and drums carry compact hooks and abrupt compositional shifts. The authored electric-band arrangement selects that 2017 US-hardcore continuation. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Civilized"
+      ]
+    },
+    {
+      "id": "modern_melodic_hardcore",
+      "name": "Modern melodic hardcore",
+      "family": "rock_punk",
+      "lineage": "Modern melodic hardcore is represented here by First Flame. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Modern melodic hardcore is represented by First Flame’s Beneath the Surface. The artist explicitly describes melodic-hardcore/metal with dynamic contrasts, and credits two guitars, bass, drums, lead and backing voice. The authored model combines melodic guitar motion with a forceful ensemble. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "First Flame"
+      ]
+    },
+    {
+      "id": "mexican_hardcore",
+      "name": "Mexican hardcore",
+      "family": "rock_punk",
+      "lineage": "Mexican hardcore is represented here by Con Saña. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Mexican hardcore is represented by Con Saña’s Mexico City hardcore/thrash branch. The artist documents lead voice, guitar, bass and drums. This authored realization uses a concise distorted backline with tightly coordinated low-register riffing and percussion. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Con Saña"
+      ]
+    },
+    {
+      "id": "new_england_emo",
+      "name": "New england emo",
+      "family": "rock_punk",
+      "lineage": "New england emo is represented here by mapleway. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "New England emo is represented by mapleway’s Boston-area branch. The artist explicitly identifies emo and documents several guitar parts, bass/lead voice, an additional singing guitarist and drums. The authored arrangement emphasizes interlocking melodic guitar figures and paired vocal presence. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "mapleway"
+      ]
+    },
+    {
+      "id": "new_england_hardcore",
+      "name": "New england hardcore",
+      "family": "rock_punk",
+      "lineage": "New england hardcore is represented here by Chaöscillate. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "New England hardcore is represented by Chaöscillate’s Boston hardcore-punk quartet. The artist lists lead voice, guitar, bass and drums. The authored arrangement centers compact electric riffs and an urgent, direct kit pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Chaöscillate"
+      ]
+    },
+    {
+      "id": "new_jersey_hardcore",
+      "name": "New jersey hardcore",
+      "family": "rock_punk",
+      "lineage": "New jersey hardcore is represented here by Headstrong. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "New Jersey hardcore is represented by Headstrong’s New Brunswick continuation. The artist identifies a 1990s hardcore-punk band back in activity and explicitly lists two guitars, bass, drums and voice. The authored model retains the present roster’s electric ensemble roles. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Headstrong"
+      ]
+    },
+    {
+      "id": "new_jersey_punk",
+      "name": "New jersey punk",
+      "family": "rock_punk",
+      "lineage": "New jersey punk is represented here by Anticitizen. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "New Jersey punk is represented by Anticitizen’s Washington-based trio on Take To The Streets. The artist credits guitar/voice, bass and drums and places the work among street, anarcho and hardcore-punk tags. The authored realization keeps that direct electric trio. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Anticitizen"
+      ]
+    },
+    {
+      "id": "noise_punk",
+      "name": "Noise punk",
+      "family": "rock_punk",
+      "lineage": "Noise punk is represented here by Help. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        -1,
+        1,
+        2,
+        2,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Noise punk is represented by Help’s self-described Portland trio. The artist profile documents guitar/voice, bass and drums; the releasing-label page locates the project and its noise-punk practice. The authored arrangement emphasizes abrasive electric interaction and irregular density against a physical kit pulse. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Help"
+      ]
+    },
+    {
+      "id": "north_carolina_emo",
+      "name": "North carolina emo",
+      "family": "rock_punk",
+      "lineage": "North carolina emo is represented here by Contact Comfort. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "North Carolina emo is represented by Contact Comfort’s Raleigh–Durham emo/pop-punk trio. All three musicians carry voice roles alongside guitar, bass and drums. The authored arrangement combines melodic guitar detail, a prominent vocal line and energetic ensemble rhythm. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Contact Comfort"
+      ]
+    },
+    {
+      "id": "northern_irish_punk",
+      "name": "Northern irish punk",
+      "family": "rock_punk",
+      "lineage": "Northern irish punk is represented here by RANT. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Northern Irish punk is represented by RANT’s Belfast Debut EP. The artist release credits guitar/voice, bass/voice and drums with additional falsetto, and documents local self-recording. The authored realization chooses this trio-period core with shared vocals and direct electric accompaniment. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "RANT"
+      ]
+    },
+    {
+      "id": "norwegian_hardcore",
+      "name": "Norwegian hardcore",
+      "family": "rock_punk",
+      "lineage": "Norwegian hardcore is represented here by SIBIIR. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Norwegian hardcore is represented by SIBIIR’s black-metal-influenced branch documented at its 2016 label signing. The label specifies two guitars, bass, drums and voice, with forceful rhythms and harsh singing. The authored model selects this electric core and its metal/hardcore intersection. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "SIBIIR"
       ]
     }
   ]

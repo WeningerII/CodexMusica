@@ -3,14 +3,14 @@
   "name": "Progressive deathcore",
   "family": "rock_punk",
   "lineage": "Progressive-deathcore field represented by the internationally produced Slice the Cake concept album Odyssey to the West, whose contributors span England, Sweden and Australia.",
-  "recipe": "classic modern progressive deathcore, distorted Rock, prog branch, death metal, punk distorted rock alternative hardcore chicago hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, analog poly synth, sampler drum machine, djembe. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 563,
-  "score": 75.371,
+  "recipe": "classic modern progressive deathcore, distorted Rock, prog branch, death metal, punk distorted rock japanese post-hardcore norwegian hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, analog poly synth, sampler drum machine, djembe. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 567,
+  "score": 78.746,
   "config": {
     "traditions": [
       "progressive_deathcore",
-      "alternative_hardcore",
-      "chicago_hardcore"
+      "japanese_post_hardcore",
+      "norwegian_hardcore"
     ],
     "instruments": [
       {
@@ -31,16 +31,16 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 11.69,
+          "electric_technique": 12.44,
           "amp_make": 15.567500000000003,
-          "body_wood": 2.8600000000000003,
+          "body_wood": 3.25,
           "neck_wood": 1.3012499999999998,
           "fretboard": 0.76125,
           "pickup_magnet": 0.53625,
           "pickup_winding": 0.52125,
           "string_material": 0.6224999999999999,
           "bridge": 2.21,
-          "scale_length": 3.055,
+          "scale_length": 3.25,
           "string_gauge": 2.04125,
           "finish": 0.045,
           "string_tuning": 0.39
@@ -101,7 +101,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.69,
+          "voice_ensemble_config": 1.8850000000000002,
           "voice_ornament_system": 0.056249999999999994,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
@@ -117,7 +117,7 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": -0.1,
+          "electronic_technique": 0.04999999999999999,
           "poly_archetypes": 6.11,
           "poly_voices": 0.3,
           "poly_maker_lineage": -1.4799999999999998
@@ -146,7 +146,7 @@
           "djembe_play": "djembe_traditional_3"
         },
         "scores": {
-          "djembe_wood": 0.39,
+          "djembe_wood": 0.585,
           "djembe_skin": 0.09,
           "djembe_play": 0
         }

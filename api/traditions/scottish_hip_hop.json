@@ -5,7 +5,7 @@
   "lineage": "Scottish hip hop represented by Stanley Odd’s live-band and electronic production practice across the Glasgow–Edinburgh Central Belt.",
   "recipe": "classic modern scottish hip hop, mc Rhythm, intl hip hop branch. rap. electric bass, drum kit, clean strummed single coil electric guitar, sub bass analog poly synth, sampled chopped sampler drum machine. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 340,
-  "score": 40.593,
+  "score": 40.52,
   "config": {
     "traditions": [
       "scottish_hip_hop"
@@ -115,7 +115,7 @@
           "bridge": 0.105,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.73125,
+          "string_tuning": 0.6825,
           "single_coil_pickup_construction": 0
         }
       },
@@ -130,7 +130,7 @@
         "scores": {
           "electronic_technique": 6.2067499999999995,
           "poly_archetypes": 0,
-          "poly_voices": 0.32887500000000003,
+          "poly_voices": 0.3045,
           "poly_maker_lineage": -0.035
         }
       },

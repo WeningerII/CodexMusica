@@ -5,7 +5,7 @@
   "lineage": "South asian metal is represented here by Kryptos. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic south asian metal, distorted Rock, metal branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 436,
-  "score": 49.219,
+  "score": 49.355,
   "config": {
     "traditions": [
       "south_asian_metal"
@@ -62,7 +62,7 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.168,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5775,
+          "drumhead": 0.651,
           "drum_kit_kick_pedal": 0.39
         }
       },
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0315,
+          "voice_processing_chain": 0.063,
           "voice_multitrack_stack": 0.78
         }
       }

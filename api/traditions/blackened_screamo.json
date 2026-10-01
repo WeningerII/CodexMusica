@@ -3,9 +3,9 @@
   "name": "Blackened screamo",
   "family": "rock_punk",
   "lineage": "Blackened screamo is represented here by Demersal and its blackened screamo/emoviolence with post-rock contrasts. This is one documented branch with an authored present-day studio realization.",
-  "recipe": "classic blackened screamo, distorted Rock, emo branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, hard rock maple cremonese post 1740 softer varnish cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 537,
-  "score": 58.108,
+  "recipe": "classic blackened screamo, distorted Rock, emo branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, hard rock maple cremonese post 1740 softer varnish cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 528,
+  "score": 56.382,
   "config": {
     "traditions": [
       "blackened_screamo"
@@ -23,7 +23,7 @@
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_gibson_h",
+          "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "standard_tuning"
@@ -31,16 +31,16 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 3.1200000000000006,
-          "body_wood": 1.764,
-          "neck_wood": 0.5459999999999999,
+          "body_wood": 1.5225,
+          "neck_wood": 0.3045,
           "fretboard": 0.42,
-          "pickup_magnet": 0.7244999999999999,
-          "pickup_winding": 0.672,
+          "pickup_magnet": 0.693,
+          "pickup_winding": 0.5355000000000001,
           "string_material": 0.168,
           "bridge": 1.3,
-          "scale_length": 1.0919999999999999,
+          "scale_length": 0.9660000000000002,
           "string_gauge": 1.3,
-          "finish": 0.063,
+          "finish": 0.0315,
           "string_tuning": 0.39
         }
       },
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -58,11 +58,11 @@
         },
         "scores": {
           "amp_make": 3.575,
-          "body_wood": 1.0919999999999999,
-          "pickup_config": 0.5565,
+          "body_wood": 0.8294999999999999,
+          "pickup_config": 0.525,
           "string_type": 8.125,
-          "scale_length_b": 0.5459999999999999,
-          "fretted_or_not": 0.1365,
+          "scale_length_b": 0.3045,
+          "fretted_or_not": 0.105,
           "bass_technique": 6.2,
           "electric_bass_string_configuration": 0
         }
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.5459999999999999,
+          "drumhead": 0.378,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -84,8 +84,8 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "steinway_original_hammer",
           "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -94,9 +94,9 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.25,
-          "grand_piano_size": 0.5459999999999999,
-          "grand_piano_brand": 0.5775,
+          "keyboard_technique": 0.325,
+          "grand_piano_size": 0.3675,
+          "grand_piano_brand": 0.39,
           "piano_hammer": 3.1200000000000006,
           "piano_rim": 4.8100000000000005,
           "piano_soundboard": -0.035,
@@ -120,7 +120,7 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 0.25,
+          "cello_strings": 0.325,
           "cello_top_wood": -0.035,
           "cello_back_wood": 3.185,
           "cello_varnish": 1.2349999999999999,
@@ -162,7 +162,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.567,
+          "voice_ensemble_config": 2.6,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,

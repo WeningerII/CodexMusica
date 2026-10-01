@@ -5,7 +5,7 @@
   "lineage": "Christian punk is represented here by Left Out. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic christian punk, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 398,
-  "score": 61.685,
+  "score": 59.367,
   "config": {
     "traditions": [
       "christian_punk"
@@ -18,7 +18,7 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 1.8199999999999998,
           "amp_make": 15.729999999999997,
-          "body_wood": 1.7954999999999999,
-          "neck_wood": 0.40950000000000003,
-          "fretboard": 0.273,
-          "pickup_magnet": 0.40950000000000003,
+          "body_wood": 1.029,
+          "neck_wood": 0.273,
+          "fretboard": 0.063,
+          "pickup_magnet": 0.1365,
           "pickup_winding": 0.147,
           "string_material": 0.063,
           "bridge": 1.3,
-          "scale_length": 1.4174999999999998,
-          "string_gauge": 1.234,
+          "scale_length": 0.7875,
+          "string_gauge": 1.3,
           "finish": 0.1365,
-          "string_tuning": 0.354
+          "string_tuning": 0.39
         }
       },
       {
@@ -49,7 +49,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.8190000000000002,
-          "pickup_config": 0.273,
+          "body_wood": 0.546,
+          "pickup_config": 0.1905,
           "string_type": 4.875,
-          "scale_length_b": 0.40950000000000003,
+          "scale_length_b": 0.273,
           "fretted_or_not": 0.0315,
           "bass_technique": 14.0315,
           "electric_bass_string_configuration": 0
@@ -71,12 +71,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_punk",
-          "drumhead": "double_coated",
+          "drumhead": "single_coated",
           "drum_kit_kick_pedal": "dk_kick_single_wood"
         },
         "scores": {
-          "drum_technique": 10.25,
-          "drumhead": 0.40950000000000003,
+          "drum_technique": 10.304,
+          "drumhead": 0.39,
           "drum_kit_kick_pedal": 0.231
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0
+          "voice_multitrack_stack": 0.054
         }
       }
     ],
