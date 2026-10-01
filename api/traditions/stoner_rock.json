@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-1990s heavy-metal-and-rock subgenre developed primarily in California (Palm Desert \"desert rock\" scene) and northern Europe, characterized by down-tuned-distorted guitar tone, slow-to-mid-tempo grooves, vintage-1970s-Sabbath-Hendrix sonic reference, and improvisational-jam-oriented composition. Kyuss (Palm Desert, 1987-1995) and Sleep (San Jose, 1990-1998) inaugurated the canonical American sound; Queens of the Stone Age (1996-onward, Kyuss successor) extended the genre commercially.",
   "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
   "recipe_chars": 586,
-  "score": 438.072,
+  "score": 438.727,
   "config": {
     "traditions": [
       "stoner_rock",
@@ -42,14 +42,14 @@
           "voice_articulation": 17.354999999999997,
           "voice_microtone": 26.9065,
           "voice_tradition": 3.380000000000001,
-          "voice_mechanism_compound": 34.036,
+          "voice_mechanism_compound": 34.1935,
           "voice_estill_quality": 2.34,
           "voice_speech_song": 17.354999999999997,
           "voice_ensemble_config": 17.744999999999994,
           "voice_ornament_system": 1.4709999999999999,
           "voice_pitch_organization": 1.6899999999999997,
-          "voice_processing_chain": 9.531749999999999,
-          "voice_multitrack_stack": 8.215750000000002
+          "voice_processing_chain": 9.56325,
+          "voice_multitrack_stack": 8.272
         }
       },
       {
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 28.683500000000002,
+          "electric_technique": 28.841,
           "amp_make": 25.264499999999995,
           "body_wood": 12.415000000000001,
           "neck_wood": 1.8895,
@@ -80,7 +80,7 @@
           "string_material": 1.621,
           "bridge": 1.921,
           "scale_length": 13,
-          "string_gauge": 5.05,
+          "string_gauge": 5.0815,
           "finish": 0,
           "string_tuning": 27.755000000000006
         }
@@ -101,9 +101,9 @@
           "amp_make": 25.264499999999995,
           "body_wood": 2.275,
           "pickup_config": 0,
-          "string_type": 31.938500000000005,
+          "string_type": 32.096000000000004,
           "scale_length_b": 2.221,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.063,
           "bass_technique": 30.685250000000007,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 27.125000000000004,
-          "drumhead": 3.8945000000000003,
+          "drumhead": 3.926,
           "drum_kit_kick_pedal": 0
         }
       }

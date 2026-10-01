@@ -3,14 +3,14 @@
   "name": "Drone metal",
   "family": "rock",
   "lineage": "extreme-minimalist sustained-tone metal — guitar-as-feedback-and-pure-overtone genre established by Earth (Earth 2 1993, Pentastar 1996) and Sunn O))) (the Earth-tribute project become canon through ØØ Void 2000, Black One 2005, Monoliths and Dimensions 2009), with Boris (drone-era), Khanate, and Nadja in the broader continuum — distinct from doom metal by abandonment of riff-progression-as-song-form in favor of sustained-distorted-chord-as-event compositional approach",
-  "recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 556,
-  "score": 363.75,
+  "recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom brazilian doom metal. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 586,
+  "score": 299.97,
   "config": {
     "traditions": [
       "drone_metal",
       "funeral_doom",
-      "doom"
+      "brazilian_doom_metal"
     ],
     "instruments": [
       {
@@ -19,31 +19,31 @@
           "electric_technique": "electric_power_chord",
           "amp_make": "amp_british_orange",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 40.085,
-          "amp_make": 27.894999999999996,
-          "body_wood": 15.47,
-          "neck_wood": 0.195,
-          "fretboard": 0.195,
+          "electric_technique": 35.93,
+          "amp_make": 19.795,
+          "body_wood": 13.195,
+          "neck_wood": 0.525,
+          "fretboard": 0.375,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.195,
-          "string_material": 0.195,
-          "bridge": 0.39,
-          "scale_length": 15.86,
-          "string_gauge": 1.4299999999999997,
+          "pickup_winding": 0.525,
+          "string_material": 0.375,
+          "bridge": 0.65,
+          "scale_length": 13.195,
+          "string_gauge": 1.04,
           "finish": 0,
-          "string_tuning": 25.935
+          "string_tuning": 21.775
         }
       },
       {
@@ -53,19 +53,19 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 27.894999999999996,
-          "body_wood": 0.195,
-          "pickup_config": 0.39,
-          "string_type": 20.475,
-          "scale_length_b": 0.585,
+          "amp_make": 19.795,
+          "body_wood": 1.095,
+          "pickup_config": 0.3,
+          "string_type": 16.575,
+          "scale_length_b": 0.7950000000000002,
           "fretted_or_not": 0.195,
-          "bass_technique": 14.82,
+          "bass_technique": 11.895,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.014999999999997,
-          "drumhead": 2.815,
+          "drum_technique": 13.194999999999997,
+          "drumhead": 2.515,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -94,13 +94,13 @@
           "baritone_electric_pickup": "baritone_dual_humbucker"
         },
         "scores": {
-          "electric_technique": 30.83,
-          "amp_make": 27.894999999999996,
-          "baritone_use": 0.195,
-          "baritone_electric_tuning": 16.25,
-          "baritone_electric_scale": 16.965,
-          "baritone_electric_strings": 32.845,
-          "baritone_electric_pickup": 29.72
+          "electric_technique": 26.404999999999998,
+          "amp_make": 19.795,
+          "baritone_use": 0.33,
+          "baritone_electric_tuning": 13.975,
+          "baritone_electric_scale": 14.040000000000001,
+          "baritone_electric_strings": 27.795,
+          "baritone_electric_pickup": 25.72
         }
       }
     ],

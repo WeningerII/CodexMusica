@@ -5,7 +5,7 @@
   "lineage": "An Atlanta metal discovery scene represented by Mastodon’s progressive guitar-band work. Their direct accounts document complementary guitar roles, variable riff structures, melodic singing and expanded electric-guitar textures alongside the heavy rhythm section.",
   "recipe": "classic modern atlanta metal, distorted Rock, prog branch. equal tempered, one note per syllable, solo with instrumental accompaniment. modern metal basswood humbucker electric guitar, twelve string electric, electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 394,
-  "score": 29.483,
+  "score": 29.838,
   "config": {
     "traditions": [
       "atlanta_metal"
@@ -38,10 +38,10 @@
           "pickup_winding": 0.063,
           "string_material": 0.1995,
           "bridge": 0.0315,
-          "scale_length": 0,
-          "string_gauge": 0.7629999999999999,
+          "scale_length": 0.005625,
+          "string_gauge": 0.78175,
           "finish": 0,
-          "string_tuning": 0.009
+          "string_tuning": 0.037125
         }
       },
       {
@@ -57,7 +57,7 @@
         "scores": {
           "electric_technique": 0.585,
           "amp_make": 0,
-          "twelve_string_electric_model": 0.0045,
+          "twelve_string_electric_model": 0.21562499999999998,
           "twelve_string_electric_context": 2.47,
           "twelve_string_electric_strings": 0,
           "twelve_string_electric_pickup": 0
@@ -80,9 +80,9 @@
           "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 0.1995,
-          "scale_length_b": 0.0315,
-          "fretted_or_not": 0,
-          "bass_technique": 3.736,
+          "scale_length_b": 0.037125,
+          "fretted_or_not": 0.005625,
+          "bass_technique": 3.7315,
           "electric_bass_string_configuration": 0
         }
       },
@@ -131,11 +131,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 2.9899999999999998,
-          "voice_ensemble_config": 0.6134999999999999,
+          "voice_ensemble_config": 0.65925,
           "voice_ornament_system": 0.088125,
           "voice_pitch_organization": 0.063,
-          "voice_processing_chain": 0.377625,
-          "voice_multitrack_stack": 0.19949999999999998
+          "voice_processing_chain": 0.37875,
+          "voice_multitrack_stack": 0.23662499999999997
         }
       }
     ],

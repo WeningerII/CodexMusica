@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-1990s American hardcore subgenre characterized by extreme tempo contrasts (alternating blast-beat-fast-sections with sludge-slow-sections), brief song durations (often under one minute), and explicit anti-musical aggression. Bay Area scene centered on Spazz, Crossed Out, Infest, and Man Is the Bastard. Distinguished from broader grindcore by powerviolence's slower-section-emphasis (vs grindcore's relentless-blast-beat) structural framework.",
   "recipe": "classic 1987-1989 powerviolence, distorted Rock, punk branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT.",
   "recipe_chars": 595,
-  "score": 273.081,
+  "score": 272.278,
   "config": {
     "traditions": [
       "powerviolence",
@@ -42,14 +42,14 @@
           "voice_articulation": 9.944999999999999,
           "voice_microtone": 10.95,
           "voice_tradition": 1.4949999999999999,
-          "voice_mechanism_compound": 28.4435,
+          "voice_mechanism_compound": 28.2135,
           "voice_estill_quality": 1.4949999999999999,
           "voice_speech_song": 9.944999999999999,
-          "voice_ensemble_config": 11.454999999999998,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 11.499999999999998,
+          "voice_ornament_system": 0.09,
           "voice_pitch_organization": 2.3399999999999994,
           "voice_processing_chain": 4.970000000000001,
-          "voice_multitrack_stack": 9.908999999999999
+          "voice_multitrack_stack": 9.784999999999998
         }
       },
       {
@@ -70,8 +70,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 26.813499999999998,
-          "amp_make": 17.95875,
+          "electric_technique": 26.583499999999997,
+          "amp_make": 17.728749999999998,
           "body_wood": 13.064999999999998,
           "neck_wood": 1.69,
           "fretboard": 2.535,
@@ -104,7 +104,7 @@
           "string_type": 13.162500000000001,
           "scale_length_b": 1.69,
           "fretted_or_not": 0.845,
-          "bass_technique": 13.920000000000002,
+          "bass_technique": 13.965000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 10.125000000000002,
-          "drumhead": 3.779,
+          "drumhead": 3.61,
           "drum_kit_kick_pedal": 0
         }
       }

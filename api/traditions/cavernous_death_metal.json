@@ -3,14 +3,14 @@
   "name": "Cavernous death metal",
   "family": "rock_punk",
   "lineage": "Spatially dense death-metal production and composition aesthetic represented here by Finnish Krypts’ Cadaver Circulation (2019). Dark Descent describes reverberant atmosphere, unsettling chords and deep harsh vocals, and gives guitar, drums, bass/vocal and in-house recording credits. The selected down-tuned chordal model pairs heavy decay with slow weight while retaining the death-metal band frame.",
-  "recipe": "classic late-2010s cavernous death metal, distorted Rock, death branch, doom metal doom blues. interlocked note trading, equal tempered, solo with instrumental accompaniment, hall reverb long decay cinematic. orange amp British heavy crunch mahogany ebony low output no compression humbucker electric guitar, orange amp British heavy crunch mahogany electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 531,
-  "score": 180.451,
+  "recipe": "classic late-2010s cavernous death metal, distorted Rock, death branch, doom metal brazilian doom metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, hall reverb long decay cinematic. orange amp British heavy crunch mahogany ebony low output no compression humbucker electric guitar, orange amp British heavy crunch mahogany electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe_chars": 541,
+  "score": 175.361,
   "config": {
     "traditions": [
       "cavernous_death_metal",
-      "doom",
-      "doom_blues"
+      "brazilian_doom_metal",
+      "doom"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "c_standard"
         },
         "scores": {
-          "electric_technique": 37.46543749999999,
-          "amp_make": 28.783875,
+          "electric_technique": 36.628437500000004,
+          "amp_make": 29.536875000000002,
           "body_wood": 1.3649999999999998,
           "neck_wood": 1.3649999999999998,
-          "fretboard": 2.7323125,
+          "fretboard": 2.6828125,
           "pickup_magnet": 0,
           "pickup_winding": 1.3649999999999998,
           "string_material": 0.195,
           "bridge": 1.3649999999999998,
           "scale_length": 1.3649999999999998,
-          "string_gauge": 6.175,
+          "string_gauge": 5.329999999999999,
           "finish": 0,
-          "string_tuning": 10.269999999999998
+          "string_tuning": 12.025
         }
       },
       {
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 28.783875,
+          "amp_make": 29.536875000000002,
           "body_wood": 1.3649999999999998,
           "pickup_config": 0,
           "string_type": 0.195,
-          "scale_length_b": 3.2044374999999996,
-          "fretted_or_not": 0.195,
-          "bass_technique": 16.026500000000002,
+          "scale_length_b": 3.3184375,
+          "fretted_or_not": 0.39,
+          "bass_technique": 12.620000000000001,
           "electric_bass_string_configuration": 0
         }
       },
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 0.375,
-          "drumhead": 2.2749999999999995,
+          "drumhead": 2.7299999999999995,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -108,17 +108,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 14.169999999999996,
-          "voice_microtone": 15.644999999999998,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 12.269999999999998,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 2.4699999999999998,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0.0765,
-          "voice_processing_chain": 1.9328125,
-          "voice_multitrack_stack": 0.5399999999999999
+          "voice_pitch_organization": 0.045,
+          "voice_processing_chain": 2.1278125,
+          "voice_multitrack_stack": 0.195
         }
       }
     ],

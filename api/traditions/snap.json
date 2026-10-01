@@ -3,66 +3,66 @@
   "name": "Snap",
   "family": "hip_hop",
   "lineage": "Atlanta club-rap style of 2004-2008 built by D4L, Dem Franchize Boyz, Fabo and producers Mr. Collipark and K-Rab, stripping crunk down to a finger-snap on the backbeat, a long 808 kick, sparse marimba or bell melody and wide silences, at 70-80 BPM half-time, with chanted, nursery-simple hooks and dance-instruction lyrics.",
-  "recipe": "classic Southern American 2004-2008 snap, mc Rhythm, southern branch, us hip hop modern, house electronic dance detroit trap dark trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, chopped sampler, low sub bass digital subtractive, bata Yoruba bell syllables vocal percussion melody paired dissociated airflow affricated bilabial ejective punchy kick vocal percussion voice. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 629,
-  "score": 255.915,
+  "recipe": "classic Southern American 2004-2008 snap, mc Rhythm, southern branch, us hip hop modern, house electronic dance latin house freestyle house. vocal fry, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, sub bass digital subtractive, cuica tamborim imitation vocable mouth percussion vocal percussion melody paired dissociated airflow humming melody simultaneous percussion dissociated airflow vocal percussion voice. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 683,
+  "score": 239.15,
   "config": {
     "traditions": [
       "snap",
-      "detroit_trap",
-      "dark_trap"
+      "latin_house_percussion",
+      "freestyle_house"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.66,
-          "voice_quality": 20.91,
+          "voice_register": 1.625,
+          "voice_quality": 10.4,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9250000000000007,
-          "voice_articulation": 16.89999999999999,
-          "voice_microtone": 16.70499999999999,
-          "voice_tradition": 9.814999999999998,
-          "voice_mechanism_compound": 3.77,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 18.654999999999994,
+          "voice_microtone": 18.654999999999994,
+          "voice_tradition": 7.91,
+          "voice_mechanism_compound": 3.1200000000000006,
           "voice_estill_quality": 5.005000000000001,
-          "voice_speech_song": 21.18,
-          "voice_ensemble_config": 15.729999999999993,
-          "voice_ornament_system": 6.630000000000002,
-          "voice_pitch_organization": 2.2750000000000004,
-          "voice_processing_chain": 10.865,
-          "voice_multitrack_stack": 5.135000000000002
+          "voice_speech_song": 18.849999999999994,
+          "voice_ensemble_config": 18.71999999999999,
+          "voice_ornament_system": 2.6650000000000014,
+          "voice_pitch_organization": 1.9450000000000003,
+          "voice_processing_chain": 9.895,
+          "voice_multitrack_stack": 5.265000000000001
         }
       },
       {
         "id": "drum_machine_808",
         "slots": {
           "tr808_voice": "tr808_kick_long",
-          "drum_machine_808_context": "drum_machine_808_trap",
+          "drum_machine_808_context": "drum_machine_808_miami",
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 8.645000000000001,
-          "drum_machine_808_context": 4.095000000000001,
-          "tr808_production_origin": 3.055
+          "tr808_voice": 4.58,
+          "drum_machine_808_context": 3.4849999999999994,
+          "tr808_production_origin": 1.56
         }
       },
       {
@@ -71,15 +71,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "ensoniq_asr10",
           "sampler_bit_depth": "sampler_sixteen_bit",
-          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.575000000000001,
-          "sampler_archetypes": 11.180000000000001,
-          "sampler_bit_depth": 3.9,
-          "sampler_workflow": 7.375000000000002,
-          "sampler_classic_context": 26.259999999999994
+          "electronic_technique": 3.4450000000000003,
+          "sampler_archetypes": 5.07,
+          "sampler_bit_depth": 0.9099999999999999,
+          "sampler_workflow": 4.08,
+          "sampler_classic_context": 47.74249999999999
         }
       },
       {
@@ -90,24 +90,24 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 13.33,
-          "va_archetypes": 0.195,
-          "digital_subtractive_context": 17.029999999999998
+          "electronic_technique": 5.76,
+          "va_archetypes": 0.045,
+          "digital_subtractive_context": 18.199999999999996
         }
       },
       {
         "id": "vocal_percussion_voice",
         "slots": {
           "vocal_percussion_airstream_mechanism": "vocal_percussion_glottalic_ejective",
-          "vocal_percussion_beatbox_articulation": "beatbox_punchy_kick_pf_affricate",
-          "vocal_percussion_syllabic_drum_system": "syllabic_bata_yoruba_bell",
+          "vocal_percussion_beatbox_articulation": "beatbox_humming_melody_dissociated",
+          "vocal_percussion_syllabic_drum_system": "syllabic_samba_vocable",
           "vocal_percussion_context": "vocal_percussion_context_lead_melody_pair"
         },
         "scores": {
           "vocal_percussion_airstream_mechanism": 0.09,
-          "vocal_percussion_beatbox_articulation": 2.795,
-          "vocal_percussion_syllabic_drum_system": 1.9499999999999997,
-          "vocal_percussion_context": 2.535
+          "vocal_percussion_beatbox_articulation": 3.0999999999999996,
+          "vocal_percussion_syllabic_drum_system": 2.05,
+          "vocal_percussion_context": 4.92
         }
       }
     ],

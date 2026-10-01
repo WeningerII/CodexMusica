@@ -3,14 +3,14 @@
   "name": "Trap soul",
   "family": "hip_hop",
   "lineage": "Mid-2010s intersection of trap-influenced programmed production and R&B song delivery. Bryson Tiller’s Louisville-linked T R A P S O U L (2015) anchors this selected model, alternating melodic singing and speech-derived rhythmic phrasing over spare bass-heavy accompaniment. The genre is a musical intersection rather than every rapper’s use of a melodic hook.",
-  "recipe": "classic 2014-2016 trap soul, functional Song, soul R&B branch, us hip hop modern, us hip hop southern dark trap cloud rap. balanced, breath admixed, minimal subglottal pressure, single source phonation. roland tr 8s modern aira digital recreation TR-808, pad like pad analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 427,
-  "score": 54.27,
+  "recipe": "classic 2014-2016 trap soul, functional Song, soul R&B branch, us hip hop modern, us hip hop southern dark trap christian trap. balanced, breath admixed, minimal subglottal pressure, single source phonation. roland tr 8s modern aira digital recreation TR-808, analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 419,
+  "score": 49.867,
   "config": {
     "traditions": [
       "trap_soul",
       "dark_trap",
-      "cloud_rap"
+      "christian_trap"
     ],
     "instruments": [
       {
@@ -40,15 +40,15 @@
           "voice_effort": 1.625,
           "voice_vibrato": 0,
           "voice_articulation": 0,
-          "voice_microtone": -0.14,
+          "voice_microtone": 0.39000000000000007,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 1.04,
+          "voice_mechanism_compound": 0.65,
           "voice_estill_quality": 1.935,
-          "voice_speech_song": 1.225,
-          "voice_ensemble_config": 5.2,
-          "voice_ornament_system": 0.4545,
+          "voice_speech_song": 1.09,
+          "voice_ensemble_config": 3.5100000000000002,
+          "voice_ornament_system": 0.845,
           "voice_pitch_organization": 0.045,
-          "voice_processing_chain": 1.04,
+          "voice_processing_chain": 1.2349999999999999,
           "voice_multitrack_stack": 1.04
         }
       },
@@ -60,9 +60,9 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 10.95,
-          "drum_machine_808_context": 2.0799999999999996,
-          "tr808_production_origin": 3.055
+          "tr808_voice": 11.535,
+          "drum_machine_808_context": 3.1039999999999996,
+          "tr808_production_origin": 2.5349999999999997
         }
       },
       {
@@ -75,10 +75,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 5.58,
-          "oscillator": 3.5100000000000002,
-          "filter_topology": 5.745,
-          "envelope": 2.34,
+          "electronic_technique": 2.5024999999999995,
+          "oscillator": 3.435,
+          "filter_topology": 5.37,
+          "envelope": 0.65,
           "modulation": 0
         }
       }

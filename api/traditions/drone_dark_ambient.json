@@ -3,14 +3,12 @@
   "name": "Drone and dark ambient",
   "family": "electronic",
   "lineage": "Long-form sustained-tone genre family descending from early-20th-century minimalist composition (La Monte Young, Tony Conrad, Charlemagne Palestine), Brian Eno post-Roxy ambient canon (Ambient 1: Music for Airports 1978), the Eno-and-Lanois ambient-textural canon (Apollo: Atmospheres and Soundtracks 1983), and the 1990s-onward dark ambient extension into ritualistic-occult mood (Lustmord, Coil, Raison dÊtre, the Cold Meat Industry label catalog)",
-  "recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal doom blues. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 557,
-  "score": 126.304,
+  "recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 546,
+  "score": 113.605,
   "config": {
     "traditions": [
-      "drone_dark_ambient",
-      "doom",
-      "doom_blues"
+      "drone_dark_ambient"
     ],
     "instruments": [
       {
@@ -23,11 +21,11 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 22.19942857142857,
-          "oscillator": 3.6994285714285717,
-          "filter_topology": 1.4299999999999997,
-          "envelope": 8.602571428571428,
-          "modulation": 0.1397142857142857
+          "electronic_technique": 20.815,
+          "oscillator": 2.015,
+          "filter_topology": 0.78,
+          "envelope": 7.744999999999999,
+          "modulation": 0.21
         }
       },
       {
@@ -39,23 +37,23 @@
           "mod_lineage": "mod_emu_modular"
         },
         "scores": {
-          "electronic_technique": 22.19942857142857,
-          "mod_voltage_source": 1.235,
-          "mod_patch_density": 9.007571428571428,
+          "electronic_technique": 20.815,
+          "mod_voltage_source": 0.7649999999999999,
+          "mod_patch_density": 8.104999999999999,
           "mod_lineage": 1.2349999999999999
         }
       },
       {
         "id": "tape_replay_keyboard",
         "slots": {
-          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "keyboard_technique": "keyboard_block_chord_pop",
           "tape_voice": "brass_tape",
-          "tape_state": "aged_tape"
+          "tape_state": "fresh_tape"
         },
         "scores": {
-          "keyboard_technique": 0.8049999999999999,
-          "tape_voice": 3.7494285714285716,
-          "tape_state": 0.03471428571428571
+          "keyboard_technique": -0.07,
+          "tape_voice": 2.08,
+          "tape_state": 0
         }
       },
       {
@@ -67,24 +65,24 @@
           "sm_voicing": "sm_violins"
         },
         "scores": {
-          "electronic_technique": 22.19942857142857,
-          "sm_voice_count": 2.08,
-          "sm_chorus": 0.45499999999999996,
-          "sm_voicing": 3.944428571428572
+          "electronic_technique": 20.815,
+          "sm_voice_count": 1.7950000000000002,
+          "sm_chorus": 0.15,
+          "sm_voicing": 2.08
         }
       },
       {
         "id": "waterphone",
         "slots": {
           "waterphone_model": "waterphone_megabass",
-          "waterphone_excitation": "waterphone_bowed_rods",
+          "waterphone_excitation": "waterphone_struck_rods",
           "waterphone_context": "waterphone_dark_ambient_ritual",
           "waterphone_construction": "waterphone_bronze_stainless"
         },
         "scores": {
-          "waterphone_model": 11.58,
-          "waterphone_excitation": 0.65,
-          "waterphone_context": 11.925,
+          "waterphone_model": 9.955,
+          "waterphone_excitation": 0.345,
+          "waterphone_context": 10.3,
           "waterphone_construction": 0.195
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Developed in North Nashville from the late 1990s onward through Young Buck's move into G-Unit and the independent Cashville circuit of Starlito, Don Trip and All Star — 70-90 BPM half-time Southern beats with 808 sub kicks, rolling triplet hats, sparse guitar and organ interpolations drawn from the city's session infrastructure, and dry, plainspoken conversational delivery.",
   "recipe": "classic 1997-1999 nashville hip-hop, mc Rhythm, southern branch, us hip hop gangsta, us hip hop modern dark plugg. thick, rap, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sampled chopped sampler drum machine, Fender blackface amp American 60s amp spring reverb bright mahogany roasted maple single coil electric guitar, mark 7 modern tine post 2007 reissue wide pickup gap more bell less bark rhodes electric, late 1980s reverb saturated bus stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 784,
-  "score": 261.453,
+  "score": 260.675,
   "config": {
     "traditions": [
       "nashville_hip_hop",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.5674999999999994,
-          "voice_quality": 25.913750000000004,
+          "voice_register": 2.5599999999999996,
+          "voice_quality": 25.700000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.492500000000001,
@@ -44,10 +44,10 @@
           "voice_tradition": 12.030000000000001,
           "voice_mechanism_compound": 4.3549999999999995,
           "voice_estill_quality": 5.395,
-          "voice_speech_song": 25.005750000000003,
+          "voice_speech_song": 24.720000000000002,
           "voice_ensemble_config": 16.769999999999992,
           "voice_ornament_system": 6.890000000000003,
-          "voice_pitch_organization": 2.0799999999999996,
+          "voice_pitch_organization": 2.0349999999999997,
           "voice_processing_chain": 14.935,
           "voice_multitrack_stack": 5.200000000000001
         }
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 13.078000000000001,
+          "tr808_voice": 12.850000000000001,
           "drum_machine_808_context": 5.2,
           "tr808_production_origin": 3.3799999999999994
         }
@@ -74,7 +74,7 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": 10.71775,
+          "electronic_technique": 10.675,
           "sample_bitdepth": 2.925,
           "sample_swing": 18.330000000000002,
           "sample_processing": 1.4949999999999999
@@ -140,7 +140,7 @@
           "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
         },
         "scores": {
-          "multitrack_stack_density": 0.39,
+          "multitrack_stack_density": 0.435,
           "multitrack_stack_era_aesthetic": 2.535,
           "multitrack_stack_processing": 1.4299999999999997
         }

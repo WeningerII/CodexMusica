@@ -5,7 +5,7 @@
   "lineage": "Christian deathcore combines deathcore musical practice with explicitly Christian themes. This selected Impending Doom branch follows The Serpent Servant-era ensemble: distorted electric-guitar parts, bass, acoustic drums and harsh lead voice, with blast-beat passages alternating with half-time breakdowns. Brook Reeves directly establishes the band’s Christian intent and explains its development from earlier grinding death metal toward more spacious, groove-based writing. The authored model focuses on the later deathcore contrast rather than conflating all Christian extreme metal.",
   "recipe": "classic modern christian deathcore, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. palm muted humbucker electric guitar, electric bass, double bass rapid double strokes bronze bell bronze machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 435,
-  "score": 53.815,
+  "score": 54.055,
   "config": {
     "traditions": [
       "christian_deathcore"
@@ -39,9 +39,9 @@
           "string_material": 0.105,
           "bridge": 0.5775,
           "scale_length": 0,
-          "string_gauge": 0.252,
+          "string_gauge": 0.321,
           "finish": 0,
-          "string_tuning": 6.336499999999999
+          "string_tuning": 6.379249999999999
         }
       },
       {
@@ -84,7 +84,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.7245,
+          "drumhead": 0.651,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0.42,
           "shell_thickness": 0.1365,
@@ -92,8 +92,8 @@
           "snare_wires": 0,
           "cymbal_alloy": 1.0999999999999999,
           "cymbal_hammering": 3.7865,
-          "cymbal_lathing": 4.0280000000000005,
-          "cymbal_finish": 0.0315
+          "cymbal_lathing": 4.07075,
+          "cymbal_finish": 0
         }
       },
       {
@@ -127,7 +127,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.05,
+          "voice_speech_song": 1.2405,
           "voice_ensemble_config": 5.069999999999999,
           "voice_ornament_system": 0.18525,
           "voice_pitch_organization": 0.5145,

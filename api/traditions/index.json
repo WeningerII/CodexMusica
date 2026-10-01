@@ -1,5 +1,5 @@
 {
-  "count": 3338,
+  "count": 3438,
   "items": [
     {
       "id": "honky_tonk",
@@ -20028,6 +20028,606 @@
       "name": "Syrian hip hop",
       "family": "hip_hop",
       "href": "traditions/syrian_hip_hop.json"
+    },
+    {
+      "id": "rap_francais_nouvelle_vague",
+      "name": "Rap français nouvelle vague",
+      "family": "hip_hop",
+      "href": "traditions/rap_francais_nouvelle_vague.json"
+    },
+    {
+      "id": "rap_kreyol",
+      "name": "Rap kreyòl",
+      "family": "hip_hop",
+      "href": "traditions/rap_kreyol.json"
+    },
+    {
+      "id": "rap_latina",
+      "name": "Rap latina",
+      "family": "hip_hop",
+      "href": "traditions/rap_latina.json"
+    },
+    {
+      "id": "rap_maromba",
+      "name": "Rap maromba",
+      "family": "hip_hop",
+      "href": "traditions/rap_maromba.json"
+    },
+    {
+      "id": "rap_metalcore",
+      "name": "Rap metalcore",
+      "family": "hip_hop",
+      "href": "traditions/rap_metalcore.json"
+    },
+    {
+      "id": "rap_motywacja",
+      "name": "Rap motywacja",
+      "family": "hip_hop",
+      "href": "traditions/rap_motywacja.json"
+    },
+    {
+      "id": "rap_nacional_antigo",
+      "name": "Rap nacional antigo",
+      "family": "hip_hop",
+      "href": "traditions/rap_nacional_antigo.json"
+    },
+    {
+      "id": "rap_norteno_chileno",
+      "name": "Rap norteño chileno",
+      "family": "hip_hop",
+      "href": "traditions/rap_norteno_chileno.json"
+    },
+    {
+      "id": "rap_paraguayo",
+      "name": "Rap paraguayo",
+      "family": "hip_hop",
+      "href": "traditions/rap_paraguayo.json"
+    },
+    {
+      "id": "rap_paranaense",
+      "name": "Rap paranaense",
+      "family": "hip_hop",
+      "href": "traditions/rap_paranaense.json"
+    },
+    {
+      "id": "rap_romantico",
+      "name": "Rap romántico",
+      "family": "hip_hop",
+      "href": "traditions/rap_romantico.json"
+    },
+    {
+      "id": "swedish_gangsta_rap",
+      "name": "Swedish gangsta rap",
+      "family": "hip_hop",
+      "href": "traditions/swedish_gangsta_rap.json"
+    },
+    {
+      "id": "swedish_trap",
+      "name": "Swedish trap",
+      "family": "hip_hop",
+      "href": "traditions/swedish_trap.json"
+    },
+    {
+      "id": "taiwan_hip_hop",
+      "name": "Taiwan hip hop",
+      "family": "hip_hop",
+      "href": "traditions/taiwan_hip_hop.json"
+    },
+    {
+      "id": "tamil_hip_hop",
+      "name": "Tamil hip hop",
+      "family": "hip_hop",
+      "href": "traditions/tamil_hip_hop.json"
+    },
+    {
+      "id": "tanzanian_hip_hop",
+      "name": "Tanzanian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/tanzanian_hip_hop.json"
+    },
+    {
+      "id": "telugu_hip_hop",
+      "name": "Telugu hip hop",
+      "family": "hip_hop",
+      "href": "traditions/telugu_hip_hop.json"
+    },
+    {
+      "id": "texas_latin_rap",
+      "name": "Texas latin rap",
+      "family": "hip_hop",
+      "href": "traditions/texas_latin_rap.json"
+    },
+    {
+      "id": "thai_hip_hop",
+      "name": "Thai hip hop",
+      "family": "hip_hop",
+      "href": "traditions/thai_hip_hop.json"
+    },
+    {
+      "id": "thai_pop_rap",
+      "name": "Thai pop rap",
+      "family": "hip_hop",
+      "href": "traditions/thai_pop_rap.json"
+    },
+    {
+      "id": "tibetan_hip_hop",
+      "name": "Tibetan hip hop",
+      "family": "hip_hop",
+      "href": "traditions/tibetan_hip_hop.json"
+    },
+    {
+      "id": "toronto_rap",
+      "name": "Toronto rap",
+      "family": "hip_hop",
+      "href": "traditions/toronto_rap.json"
+    },
+    {
+      "id": "trap_angolano",
+      "name": "Trap angolano",
+      "family": "hip_hop",
+      "href": "traditions/trap_angolano.json"
+    },
+    {
+      "id": "trap_antillais",
+      "name": "Trap antillais",
+      "family": "hip_hop",
+      "href": "traditions/trap_antillais.json"
+    },
+    {
+      "id": "trap_baiano",
+      "name": "Trap baiano",
+      "family": "hip_hop",
+      "href": "traditions/trap_baiano.json"
+    },
+    {
+      "id": "trap_beats",
+      "name": "Trap beats",
+      "family": "hip_hop",
+      "href": "traditions/trap_beats.json"
+    },
+    {
+      "id": "trap_carioca",
+      "name": "Trap carioca",
+      "family": "hip_hop",
+      "href": "traditions/trap_carioca.json"
+    },
+    {
+      "id": "trap_catala",
+      "name": "Trap catala",
+      "family": "hip_hop",
+      "href": "traditions/trap_catala.json"
+    },
+    {
+      "id": "trap_cristao",
+      "name": "Trap cristao",
+      "family": "hip_hop",
+      "href": "traditions/trap_cristao.json"
+    },
+    {
+      "id": "trap_cristiano",
+      "name": "Trap cristiano",
+      "family": "hip_hop",
+      "href": "traditions/trap_cristiano.json"
+    },
+    {
+      "id": "trap_dominicano",
+      "name": "Trap dominicano",
+      "family": "hip_hop",
+      "href": "traditions/trap_dominicano.json"
+    },
+    {
+      "id": "trap_maroc",
+      "name": "Trap maroc",
+      "family": "hip_hop",
+      "href": "traditions/trap_maroc.json"
+    },
+    {
+      "id": "trap_metal_italiana",
+      "name": "Trap metal italiana",
+      "family": "hip_hop",
+      "href": "traditions/trap_metal_italiana.json"
+    },
+    {
+      "id": "trap_peruano",
+      "name": "Trap peruano",
+      "family": "hip_hop",
+      "href": "traditions/trap_peruano.json"
+    },
+    {
+      "id": "trap_pesado",
+      "name": "Trap pesado",
+      "family": "hip_hop",
+      "href": "traditions/trap_pesado.json"
+    },
+    {
+      "id": "trap_tuga",
+      "name": "Trap tuga",
+      "family": "hip_hop",
+      "href": "traditions/trap_tuga.json"
+    },
+    {
+      "id": "trap_venezolano",
+      "name": "Trap venezolano",
+      "family": "hip_hop",
+      "href": "traditions/trap_venezolano.json"
+    },
+    {
+      "id": "turkce_kadin_rap",
+      "name": "Turkce kadin rap",
+      "family": "hip_hop",
+      "href": "traditions/turkce_kadin_rap.json"
+    },
+    {
+      "id": "ugandan_hip_hop",
+      "name": "Ugandan hip hop",
+      "family": "hip_hop",
+      "href": "traditions/ugandan_hip_hop.json"
+    },
+    {
+      "id": "uk_christian_rap",
+      "name": "Uk christian rap",
+      "family": "hip_hop",
+      "href": "traditions/uk_christian_rap.json"
+    },
+    {
+      "id": "uk_desi_rap",
+      "name": "Uk desi rap",
+      "family": "hip_hop",
+      "href": "traditions/uk_desi_rap.json"
+    },
+    {
+      "id": "belarusian_metal",
+      "name": "Belarusian metal",
+      "family": "rock_punk",
+      "href": "traditions/belarusian_metal.json"
+    },
+    {
+      "id": "black_metal_argentino",
+      "name": "Black metal argentino",
+      "family": "rock_punk",
+      "href": "traditions/black_metal_argentino.json"
+    },
+    {
+      "id": "uk_hip_hop",
+      "name": "UK hip hop",
+      "family": "hip_hop",
+      "href": "traditions/uk_hip_hop.json"
+    },
+    {
+      "id": "uk_melodic_rap",
+      "name": "UK melodic rap",
+      "family": "hip_hop",
+      "href": "traditions/uk_melodic_rap.json"
+    },
+    {
+      "id": "ukrainian_hip_hop",
+      "name": "Ukrainian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/ukrainian_hip_hop.json"
+    },
+    {
+      "id": "ukrainian_phonk",
+      "name": "Ukrainian phonk",
+      "family": "hip_hop",
+      "href": "traditions/ukrainian_phonk.json"
+    },
+    {
+      "id": "upstate_ny_rap",
+      "name": "Upstate NY rap",
+      "family": "hip_hop",
+      "href": "traditions/upstate_ny_rap.json"
+    },
+    {
+      "id": "urdu_hip_hop",
+      "name": "Urdu hip hop",
+      "family": "hip_hop",
+      "href": "traditions/urdu_hip_hop.json"
+    },
+    {
+      "id": "uzbek_hip_hop",
+      "name": "Uzbek hip hop",
+      "family": "hip_hop",
+      "href": "traditions/uzbek_hip_hop.json"
+    },
+    {
+      "id": "venda_rap",
+      "name": "Venda rap",
+      "family": "hip_hop",
+      "href": "traditions/venda_rap.json"
+    },
+    {
+      "id": "viet_chill_rap",
+      "name": "Viet chill rap",
+      "family": "hip_hop",
+      "href": "traditions/viet_chill_rap.json"
+    },
+    {
+      "id": "vietnamese_hip_hop",
+      "name": "Vietnamese hip hop",
+      "family": "hip_hop",
+      "href": "traditions/vietnamese_hip_hop.json"
+    },
+    {
+      "id": "vietnamese_trap",
+      "name": "Vietnamese trap",
+      "family": "hip_hop",
+      "href": "traditions/vietnamese_trap.json"
+    },
+    {
+      "id": "viral_rap",
+      "name": "Viral rap",
+      "family": "hip_hop",
+      "href": "traditions/viral_rap.json"
+    },
+    {
+      "id": "viral_trap",
+      "name": "Viral trap",
+      "family": "hip_hop",
+      "href": "traditions/viral_trap.json"
+    },
+    {
+      "id": "virginia_hip_hop",
+      "name": "Virginia hip hop",
+      "family": "hip_hop",
+      "href": "traditions/virginia_hip_hop.json"
+    },
+    {
+      "id": "vlaamse_rap",
+      "name": "Vlaamse rap",
+      "family": "hip_hop",
+      "href": "traditions/vlaamse_rap.json"
+    },
+    {
+      "id": "welsh_hip_hop",
+      "name": "Welsh hip hop",
+      "family": "hip_hop",
+      "href": "traditions/welsh_hip_hop.json"
+    },
+    {
+      "id": "west_australian_hip_hop",
+      "name": "West Australian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/west_australian_hip_hop.json"
+    },
+    {
+      "id": "west_coast_trap",
+      "name": "West Coast trap",
+      "family": "hip_hop",
+      "href": "traditions/west_coast_trap.json"
+    },
+    {
+      "id": "west_vlaamse_hip_hop",
+      "name": "West-Vlaamse hip hop",
+      "family": "hip_hop",
+      "href": "traditions/west_vlaamse_hip_hop.json"
+    },
+    {
+      "id": "winnipeg_hip_hop",
+      "name": "Winnipeg hip hop",
+      "family": "hip_hop",
+      "href": "traditions/winnipeg_hip_hop.json"
+    },
+    {
+      "id": "xhosa_hip_hop",
+      "name": "Xhosa hip hop",
+      "family": "hip_hop",
+      "href": "traditions/xhosa_hip_hop.json"
+    },
+    {
+      "id": "zambian_hip_hop",
+      "name": "Zambian hip hop",
+      "family": "hip_hop",
+      "href": "traditions/zambian_hip_hop.json"
+    },
+    {
+      "id": "zim_hip_hop",
+      "name": "Zim hip hop",
+      "family": "hip_hop",
+      "href": "traditions/zim_hip_hop.json"
+    },
+    {
+      "id": "alabama_metal",
+      "name": "Alabama metal",
+      "family": "rock",
+      "href": "traditions/alabama_metal.json"
+    },
+    {
+      "id": "brazilian_doom_metal",
+      "name": "Brazilian doom metal",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_doom_metal.json"
+    },
+    {
+      "id": "brazilian_grindcore",
+      "name": "Brazilian grindcore",
+      "family": "rock_punk",
+      "href": "traditions/brazilian_grindcore.json"
+    },
+    {
+      "id": "caribbean_metal",
+      "name": "Caribbean metal",
+      "family": "rock_punk",
+      "href": "traditions/caribbean_metal.json"
+    },
+    {
+      "id": "central_american_metal",
+      "name": "Central american metal",
+      "family": "rock_punk",
+      "href": "traditions/central_american_metal.json"
+    },
+    {
+      "id": "chaotic_black_metal",
+      "name": "Chaotic black metal",
+      "family": "rock_punk",
+      "href": "traditions/chaotic_black_metal.json"
+    },
+    {
+      "id": "chilean_black_metal",
+      "name": "Chilean black metal",
+      "family": "rock_punk",
+      "href": "traditions/chilean_black_metal.json"
+    },
+    {
+      "id": "chilean_metal",
+      "name": "Chilean metal",
+      "family": "rock_punk",
+      "href": "traditions/chilean_metal.json"
+    },
+    {
+      "id": "chinese_metalcore",
+      "name": "Chinese metalcore",
+      "family": "rock_punk",
+      "href": "traditions/chinese_metalcore.json"
+    },
+    {
+      "id": "christian_death_metal",
+      "name": "Christian death metal",
+      "family": "rock_punk",
+      "href": "traditions/christian_death_metal.json"
+    },
+    {
+      "id": "christian_doom_metal",
+      "name": "Christian doom metal",
+      "family": "rock_punk",
+      "href": "traditions/christian_doom_metal.json"
+    },
+    {
+      "id": "christian_power_metal",
+      "name": "Christian power metal",
+      "family": "rock_punk",
+      "href": "traditions/christian_power_metal.json"
+    },
+    {
+      "id": "christian_symphonic_metal",
+      "name": "Christian symphonic metal",
+      "family": "rock_punk",
+      "href": "traditions/christian_symphonic_metal.json"
+    },
+    {
+      "id": "christian_thrash_metal",
+      "name": "Christian thrash metal",
+      "family": "rock_punk",
+      "href": "traditions/christian_thrash_metal.json"
+    },
+    {
+      "id": "colombian_black_metal",
+      "name": "Colombian black metal",
+      "family": "rock_punk",
+      "href": "traditions/colombian_black_metal.json"
+    },
+    {
+      "id": "colombian_death_metal",
+      "name": "Colombian death metal",
+      "family": "rock_punk",
+      "href": "traditions/colombian_death_metal.json"
+    },
+    {
+      "id": "croatian_metal",
+      "name": "Croatian metal",
+      "family": "rock_punk",
+      "href": "traditions/croatian_metal.json"
+    },
+    {
+      "id": "euskal_metal",
+      "name": "Euskal metal",
+      "family": "rock_punk",
+      "href": "traditions/euskal_metal.json"
+    },
+    {
+      "id": "finnish_death_metal",
+      "name": "Finnish death metal",
+      "family": "rock_punk",
+      "href": "traditions/finnish_death_metal.json"
+    },
+    {
+      "id": "finnish_heavy_metal",
+      "name": "Finnish heavy metal",
+      "family": "rock_punk",
+      "href": "traditions/finnish_heavy_metal.json"
+    },
+    {
+      "id": "finnish_melodeath",
+      "name": "Finnish melodeath",
+      "family": "rock_punk",
+      "href": "traditions/finnish_melodeath.json"
+    },
+    {
+      "id": "finnish_metalcore",
+      "name": "Finnish metalcore",
+      "family": "rock_punk",
+      "href": "traditions/finnish_metalcore.json"
+    },
+    {
+      "id": "florida_death_metal",
+      "name": "Florida death metal",
+      "family": "rock_punk",
+      "href": "traditions/florida_death_metal.json"
+    },
+    {
+      "id": "german_black_metal",
+      "name": "German black metal",
+      "family": "rock_punk",
+      "href": "traditions/german_black_metal.json"
+    },
+    {
+      "id": "german_heavy_metal",
+      "name": "German heavy metal",
+      "family": "rock_punk",
+      "href": "traditions/german_heavy_metal.json"
+    },
+    {
+      "id": "finnish_doom_metal",
+      "name": "Finnish doom metal",
+      "family": "rock_punk",
+      "href": "traditions/finnish_doom_metal.json"
+    },
+    {
+      "id": "finnish_power_metal",
+      "name": "Finnish power metal",
+      "family": "rock_punk",
+      "href": "traditions/finnish_power_metal.json"
+    },
+    {
+      "id": "fantasy_metal",
+      "name": "Fantasy metal",
+      "family": "rock_punk",
+      "href": "traditions/fantasy_metal.json"
+    },
+    {
+      "id": "french_black_metal",
+      "name": "French black metal",
+      "family": "rock_punk",
+      "href": "traditions/french_black_metal.json"
+    },
+    {
+      "id": "french_death_metal",
+      "name": "French death metal",
+      "family": "rock_punk",
+      "href": "traditions/french_death_metal.json"
+    },
+    {
+      "id": "french_metal",
+      "name": "French metal",
+      "family": "rock_punk",
+      "href": "traditions/french_metal.json"
+    },
+    {
+      "id": "german_death_metal",
+      "name": "German death metal",
+      "family": "rock_punk",
+      "href": "traditions/german_death_metal.json"
+    },
+    {
+      "id": "german_melodeath",
+      "name": "German melodeath",
+      "family": "rock_punk",
+      "href": "traditions/german_melodeath.json"
+    },
+    {
+      "id": "german_metalcore",
+      "name": "German metalcore",
+      "family": "rock_punk",
+      "href": "traditions/german_metalcore.json"
     }
   ]
 }

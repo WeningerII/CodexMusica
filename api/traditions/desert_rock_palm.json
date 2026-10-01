@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-1990s Palm Desert California scene that birthed stoner rock through generator-party performances in the high desert outside Palm Springs and Joshua Tree. The \"generator parties\" allowed local bands (Kyuss, Yawning Man, Across the River, Fatso Jetson) to perform with the band powered by gasoline generators in remote desert locations free of police interference. The 1988-1992 generator-party period mythologized the geographic-cultural specificity of the desert-rock scene.",
   "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal. thick, larynx lowered, straight note core, interlocked note trading. orange amp British heavy crunch basswood alnico power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
   "recipe_chars": 536,
-  "score": 368.63,
+  "score": 369.23,
   "config": {
     "traditions": [
       "desert_rock_palm",
@@ -42,14 +42,14 @@
           "voice_articulation": 12.284999999999997,
           "voice_microtone": 26.9065,
           "voice_tradition": 3.380000000000001,
-          "voice_mechanism_compound": 29.671249999999997,
-          "voice_estill_quality": 4.022500000000001,
+          "voice_mechanism_compound": 29.82875,
+          "voice_estill_quality": 4.030000000000001,
           "voice_speech_song": 12.284999999999997,
-          "voice_ensemble_config": 13.3805,
+          "voice_ensemble_config": 13.36925,
           "voice_ornament_system": 0.9999999999999998,
           "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 7.3465,
-          "voice_multitrack_stack": 8.167000000000002
+          "voice_processing_chain": 7.378,
+          "voice_multitrack_stack": 8.272
         }
       },
       {
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 22.31875,
+          "electric_technique": 22.47625,
           "amp_make": 23.484999999999996,
           "body_wood": 5.395,
           "neck_wood": 0.39,
@@ -101,9 +101,9 @@
           "amp_make": 23.484999999999996,
           "body_wood": 0.585,
           "pickup_config": 0,
-          "string_type": 31.976000000000003,
+          "string_type": 32.096000000000004,
           "scale_length_b": 0.975,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.063,
           "bass_technique": 31.800000000000004,
           "electric_bass_string_configuration": 0
         }
