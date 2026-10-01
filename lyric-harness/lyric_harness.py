@@ -12131,23 +12131,22 @@ def main():
                       f"polysyllable's front span cannot answer a rime "
                       f"family (a monosyllable's can). Check the words at "
                       f"the front spans, or respell the locus (M-114).")
-            # THE ADJACENCY ROLLUP (M-115). The prominence band is a COUNT,
-            # and both of its evasions are audible: pad function words down
-            # into the band, or clot the stresses inside it — a blind
-            # prosody judge quoted both back on lines the band had cleared.
-            # The extremes are printed, never per line (noise) and never
-            # charged (whether a run is a defect needs its own corpus
-            # measurement, stated as an FPR — doctrine 22).
+            # THE ADJACENCY ROLLUP (M-115). Written for the prominence band,
+            # a COUNT whose two evasions were audible (padding function words
+            # down into it, clotting the stresses inside it). The band was
+            # deleted 2026-10-01 (owner ruling); the runs are still read off
+            # the draft and printed as a disclosure. The extremes are
+            # printed, never per line (noise) and never charged (whether a
+            # run is a defect needs its own corpus measurement, stated as an
+            # FPR — doctrine 22).
             _runs = found.get("prominence_runs") or {}
             if _runs:
                 _lp = max(_runs, key=lambda l: _runs[l][0])
                 _lw = max(_runs, key=lambda l: _runs[l][1])
                 print(f"  ADJACENCY: longest stress run "
                       f"{_runs[_lp][0]} (L{_lp}), longest weak run "
-                      f"{_runs[_lw][1]} (L{_lw}) — the prominence band "
-                      f"counts and cannot hear a clot inside it or padding "
-                      f"down into it; disclosed, uncalibrated, never "
-                      f"charged (M-115).")
+                      f"{_runs[_lw][1]} (L{_lw}) — disclosed, uncalibrated, "
+                      f"never charged (M-115).")
             # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
             # BACKLOG 1.2's acceptance names `brief` as well as
             # `check_scheme`, and a brief is where the misattribution
