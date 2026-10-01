@@ -5,7 +5,7 @@
   "lineage": "Southern metal is represented here by Death Denied. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic southern metal, distorted Rock, metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 530,
-  "score": 51.645,
+  "score": 51.648,
   "config": {
     "traditions": [
       "southern_metal"
@@ -62,7 +62,7 @@
           "pickup_config": 0.21,
           "string_type": 4.875,
           "scale_length_b": 0.5775,
-          "fretted_or_not": 0.1365,
+          "fretted_or_not": 0.105,
           "bass_technique": 3.7,
           "electric_bass_string_configuration": 0
         }
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0.042749999999999996,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.2955
+          "voice_multitrack_stack": 0.34950000000000003
         }
       },
       {
@@ -129,7 +129,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.36974999999999997,
+          "rompler_preset_bank": 0.35025,
           "rompler_context": 1.69,
           "rompler_lineage": 1.3
         }

@@ -5,7 +5,7 @@
   "lineage": "Bosnia and Herzegovina’s commercial pop songwriting includes Sarajevo’s band-to-solo pop-rock lineage exemplified by Dino Merlin. This authored arrangement uses a singing lead, electric guitar, bass, keyboard and drum kit, following the documented Merlin ensemble rather than assuming folk instruments from nationality.",
   "recipe": "classic modern bosnian pop, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, singing lead analog poly synth, pre muffled edge muffled sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 530,
-  "score": 89.523,
+  "score": 89.415,
   "config": {
     "traditions": [
       "bosnian_pop"
@@ -42,12 +42,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
+          "voice_speech_song": 1.643,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.231,
-          "voice_processing_chain": 0.22799999999999998,
-          "voice_multitrack_stack": 1.68425
+          "voice_processing_chain": 0.25949999999999995,
+          "voice_multitrack_stack": 1.5542500000000001
         }
       },
       {
@@ -75,8 +75,8 @@
           "fretboard": 0.0315,
           "pickup_magnet": 0.0315,
           "string_material": 0.0315,
-          "string_gauge": 0.126,
-          "bridge": 0.105,
+          "string_gauge": 0.1995,
+          "bridge": 0.1365,
           "scale_length": 0.168,
           "finish": 0,
           "string_tuning": 3.6399999999999997,
@@ -98,9 +98,9 @@
         "scores": {
           "amp_make": 5.265,
           "body_wood": 0.063,
-          "pickup_config": 0.27299999999999996,
+          "pickup_config": 0.3045,
           "string_type": 9.099999999999998,
-          "scale_length_b": 0.1365,
+          "scale_length_b": 0.168,
           "fretted_or_not": 1.6115,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -130,7 +130,7 @@
         },
         "scores": {
           "drum_technique": 7.031499999999999,
-          "drumhead": 15.3615,
+          "drumhead": 15.231499999999999,
           "drum_kit_kick_pedal": 0
         }
       }

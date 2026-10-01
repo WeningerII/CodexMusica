@@ -5,7 +5,7 @@
   "lineage": "Edinburgh metal is a city-scene umbrella, represented by DVNE’s progressive post-metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern edinburgh metal, distorted Rock, post metal branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 426,
-  "score": 67.346,
+  "score": 67.808,
   "config": {
     "traditions": [
       "edinburgh_metal"
@@ -70,7 +70,7 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 19.621375,
+          "electric_technique": 19.778875,
           "amp_make": 8.775,
           "body_wood": 8.969999999999999,
           "neck_wood": 0.168,
@@ -78,9 +78,9 @@
           "pickup_magnet": 0.016875,
           "pickup_winding": 0.39,
           "string_material": 0.168,
-          "bridge": 0.23474999999999996,
+          "bridge": 0.37124999999999997,
           "scale_length": 8.969999999999999,
-          "string_gauge": 0.260625,
+          "string_gauge": 0.397125,
           "finish": 0,
           "string_tuning": 0.39
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.35025,
+          "drumhead": 0.38175,
           "drum_kit_kick_pedal": 0
         }
       },

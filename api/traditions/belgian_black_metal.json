@@ -5,7 +5,7 @@
   "lineage": "Belgian geographic black-metal field represented by Enthroned. A heavy mid-tempo branch is selected from a repertoire whose primary label also documents ferocious blast passages and progressive structures.",
   "recipe": "classic modern belgian black metal, distorted Rock, black branch. mahogany soft down tuning power chord humbucker electric guitar, low mid rich spectrum woody mahogany electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 418,
-  "score": 42.31,
+  "score": 42.265,
   "config": {
     "traditions": [
       "belgian_black_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 13.8915,
+          "electric_technique": 13.854000000000001,
           "amp_make": 0,
           "body_wood": 1.69,
           "neck_wood": 0.4095,
@@ -63,7 +63,7 @@
           "string_type": 0.4095,
           "scale_length_b": 0.0315,
           "fretted_or_not": 0,
-          "bass_technique": 4.2115,
+          "bass_technique": 4.1725,
           "electric_bass_string_configuration": 0
         }
       },
@@ -92,7 +92,7 @@
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 3.6500000000000004,
-          "cymbal_lathing": 3.8915,
+          "cymbal_lathing": 3.9230000000000005,
           "cymbal_finish": 0
         }
       },

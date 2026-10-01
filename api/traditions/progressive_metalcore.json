@@ -3,14 +3,14 @@
   "name": "Progressive metalcore",
   "family": "rock_punk",
   "lineage": "Progressive-metalcore field represented by ERRA’s Birmingham-rooted, technically articulated guitar-band practice and CURE repertoire.",
-  "recipe": "classic modern progressive metalcore, distorted Rock, prog branch, punk distorted rock afro-punk celtic punk. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky fingerstyle electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 523,
-  "score": 83.252,
+  "recipe": "classic modern progressive metalcore, distorted Rock, prog branch, punk distorted rock alternative hardcore chicago hardcore. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 527,
+  "score": 58.328,
   "config": {
     "traditions": [
       "progressive_metalcore",
-      "afro_punk",
-      "celtic_punk"
+      "alternative_hardcore",
+      "chicago_hardcore"
     ],
     "instruments": [
       {
@@ -31,19 +31,19 @@
           "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 0.21999999999999997,
-          "amp_make": 23.757499999999997,
-          "body_wood": 2.535,
-          "neck_wood": 0.45499999999999996,
-          "fretboard": 0.65,
-          "pickup_magnet": 1.04,
+          "electric_technique": -0.07,
+          "amp_make": 14.657500000000002,
+          "body_wood": 1.95,
+          "neck_wood": 0.585,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.585,
           "pickup_winding": 0.21,
           "string_material": 0.09,
-          "bridge": 1.56,
+          "bridge": 2.09,
           "scale_length": 2.145,
-          "string_gauge": 0.7,
-          "finish": 0.45499999999999996,
-          "string_tuning": 5.135
+          "string_gauge": 1.7,
+          "finish": 0.195,
+          "string_tuning": 4.9399999999999995
         }
       },
       {
@@ -59,13 +59,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.8325000000000005,
+          "amp_make": 5.525,
           "body_wood": 1.1700000000000002,
-          "pickup_config": 1.04,
-          "string_type": 16.7375,
+          "pickup_config": 0.39,
+          "string_type": 12.025,
           "scale_length_b": 0.585,
           "fretted_or_not": 0.045,
-          "bass_technique": 1.9,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.375,
-          "drumhead": 1.3649999999999998,
+          "drum_technique": 9.25,
+          "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -114,8 +114,8 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 2.08,
-          "voice_ornament_system": 0.35,
+          "voice_ensemble_config": 1.69,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.195,
           "voice_multitrack_stack": 0.44999999999999996

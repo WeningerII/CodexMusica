@@ -5,7 +5,7 @@
   "lineage": "North American queer punk movement launched by the Toronto zine J.D.s (G.B. Jones and Bruce LaBruce, 1985) and realized musically by Fifth Column, Team Dresch, Pansy Division and Limp Wrist from the late 1980s through the 1990s — standard punk instrumentation at 150-200 BPM with explicitly gay, lesbian and trans lyrics, ranging from Pansy Division's melodic pop-punk to Limp Wrist's thrash-speed hardcore.",
   "recipe": "classic Pacific Northwest 1987-1989 queercore, distorted Rock, punk branch, pop punk distorted rock, noise rock distorted rock skate punk oshare kei. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 632,
-  "score": 404.035,
+  "score": 401.447,
   "config": {
     "traditions": [
       "queercore",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 31.458999999999996,
+          "voice_register": 31.419999999999998,
           "voice_quality": 9.295,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.1449999999999996,
           "voice_articulation": 17.029999999999994,
           "voice_microtone": 30.869999999999997,
-          "voice_tradition": 15.383999999999997,
+          "voice_tradition": 15.729999999999997,
           "voice_mechanism_compound": 17.9725,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 17.614999999999995,
-          "voice_ensemble_config": 34.480000000000004,
+          "voice_ensemble_config": 34.33,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 3.770000000000001,
           "voice_processing_chain": 4.419999999999999,
-          "voice_multitrack_stack": 5.9
+          "voice_multitrack_stack": 5.890000000000001
         }
       },
       {
@@ -70,8 +70,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 25.495,
-          "amp_make": 41.562,
+          "electric_technique": 25.3,
+          "amp_make": 40.485,
           "body_wood": 1.4300000000000002,
           "neck_wood": 0.975,
           "fretboard": 0.9099999999999999,
@@ -81,7 +81,7 @@
           "bridge": 0.975,
           "scale_length": 0.975,
           "string_gauge": 0.975,
-          "finish": 0.345,
+          "finish": 0.3,
           "string_tuning": 11.310000000000002
         }
       },
@@ -101,9 +101,9 @@
           "amp_make": 11.245000000000001,
           "body_wood": 1.17,
           "pickup_config": 0.39,
-          "string_type": 24.5375,
-          "scale_length_b": 1.4799999999999998,
-          "fretted_or_not": 1.2850000000000001,
+          "string_type": 23.69,
+          "scale_length_b": 1.4349999999999998,
+          "fretted_or_not": 1.045,
           "bass_technique": 42.89000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 23.125,
-          "drumhead": 12.235,
+          "drumhead": 11.95,
           "drum_kit_kick_pedal": 0
         }
       }

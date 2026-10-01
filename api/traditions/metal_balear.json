@@ -5,7 +5,7 @@
   "lineage": "Metal balear is represented here by Helevorn. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic metal balear, distorted Rock, doom branch. solo with instrumental accompaniment. orange amp British heavy crunch basswood power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 575,
-  "score": 65.401,
+  "score": 65.34,
   "config": {
     "traditions": [
       "metal_balear"
@@ -29,14 +29,14 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 13.658999999999999,
+          "electric_technique": 13.687125,
           "amp_make": 5.655000000000001,
           "body_wood": 4.9399999999999995,
           "neck_wood": 0.336,
-          "fretboard": 0.2625,
+          "fretboard": 0.299625,
           "pickup_magnet": 0.1365,
           "pickup_winding": 0.336,
-          "string_material": 0.2625,
+          "string_material": 0.299625,
           "bridge": 1.3,
           "scale_length": 4.9399999999999995,
           "string_gauge": 1.3,
@@ -62,7 +62,7 @@
           "pickup_config": 0,
           "string_type": 4.875,
           "scale_length_b": 0.49350000000000005,
-          "fretted_or_not": 0.063,
+          "fretted_or_not": 0.0315,
           "bass_technique": 3.8365,
           "electric_bass_string_configuration": 0
         }
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.5145,
+          "drumhead": 0.441,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.4095
+          "voice_multitrack_stack": 0.378
         }
       },
       {
@@ -133,7 +133,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 0.3205,
+          "keyboard_technique": 0.325,
           "grand_piano_size": 0.36750000000000005,
           "grand_piano_brand": 0.39,
           "piano_hammer": 1.8199999999999998,
@@ -154,7 +154,7 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "rompler_preset_bank": 0.5355,
+          "rompler_preset_bank": 0.504,
           "rompler_context": 1.3,
           "rompler_lineage": 1.3
         }

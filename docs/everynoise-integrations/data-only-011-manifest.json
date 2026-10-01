@@ -1,0 +1,1657 @@
+{
+  "required_predecessor": "ed7982242536ec3642b656a6bf34ce5bc645ac97",
+  "expected_additions": 100,
+  "expected_traditions": 3738,
+  "expected_instruments": 1467,
+  "ids": [
+    "swedish_black_metal",
+    "swedish_death_metal",
+    "swedish_doom_metal",
+    "swedish_grindcore",
+    "swedish_heavy_metal",
+    "swedish_melodeath",
+    "swedish_metal",
+    "swedish_metalcore",
+    "swedish_power_metal",
+    "swedish_progressive_metal",
+    "swiss_black_metal",
+    "swiss_metal",
+    "symphonic_black_metal",
+    "symphonic_death_metal",
+    "symphonic_deathcore",
+    "symphonic_melodic_death_metal",
+    "symphonic_power_metal",
+    "taiwan_metal",
+    "technical_black_metal",
+    "technical_brutal_death_metal",
+    "technical_deathcore",
+    "technical_grindcore",
+    "technical_groove_metal",
+    "technical_melodic_death_metal",
+    "tennessee_metal",
+    "texas_death_metal",
+    "texas_metal",
+    "thai_metal",
+    "thrash_groove_metal",
+    "tolkien_metal",
+    "turkish_black_metal",
+    "turkish_death_metal",
+    "turkish_metal",
+    "uk_doom_metal",
+    "uk_post_metal",
+    "ukrainian_black_metal",
+    "ukrainian_metal",
+    "ukrainian_metalcore",
+    "unblack_metal",
+    "us_power_metal",
+    "venezuelan_metal",
+    "viking_black_metal",
+    "virginia_metal",
+    "war_metal",
+    "welsh_metal",
+    "west_virginia_metal",
+    "western_ny_metal",
+    "wisconsin_metal",
+    "5th_wave_emo",
+    "acoustic_punk",
+    "adelaide_punk",
+    "alabama_hardcore",
+    "alternative_emo",
+    "alternative_hardcore",
+    "american_post_punk",
+    "argentine_hardcore",
+    "argentine_punk",
+    "arizona_punk",
+    "atlanta_punk",
+    "aussie_emo",
+    "australian_hardcore",
+    "australian_post_hardcore",
+    "australian_post_punk",
+    "austrian_punk",
+    "balkan_post_punk",
+    "balkan_punk",
+    "baltic_post_punk",
+    "belarusian_punk",
+    "belgian_hardcore",
+    "belgian_punk",
+    "blackened_hardcore",
+    "blackened_screamo",
+    "boston_hardcore",
+    "boston_punk",
+    "brazilian_emo",
+    "brazilian_hardcore",
+    "brazilian_post_hardcore",
+    "brazilian_punk",
+    "brazilian_punk_rock",
+    "brisbane_punk",
+    "california_hardcore",
+    "canadian_hardcore",
+    "canadian_pop_punk",
+    "canadian_post_hardcore",
+    "canadian_post_punk",
+    "canadian_punk",
+    "chain_punk",
+    "chicago_hardcore",
+    "chicago_pop_punk",
+    "chicago_punk",
+    "chicano_punk",
+    "chilean_hardcore",
+    "chinese_post_punk",
+    "chinese_punk",
+    "christian_hardcore",
+    "christian_punk",
+    "colombian_hardcore",
+    "diy_emo",
+    "diy_pop_punk",
+    "dutch_punk"
+  ],
+  "baseline_sha256": {
+    "references/05_traditions.js": "1d8423bc8350e21cef9ef67078759aba4bf35a0a7d91a555cdb98c38d9cd4a76",
+    "references/06_extras.js": "be4c6952686dbacb5e952ff930204478d9eb3be0d90c558adba7bd35e1c78231",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "f6723eab6220b6fb0847713079dd017ad412e61651d56e47424d6e4b6dddc3fc",
+    "references/_image_manifest.json": "7fbcd4b09ec68d3aed91dad928a92b3d7253ba1a742584d7cfb9d883d6b493a1",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "ca7924992de39671a22ec8ba03f6b80e6d73c380ccd3f0ab6d24e686f5f6983d",
+    "tests/regression_snapshot.json": "a2698eda136aa67a6999ef7f4896efff62071c51a998b7ea52d07e6010bfbd53"
+  },
+  "source_sha256": {
+    "references/05_traditions.js": "c1f0769c32d9c18ce16e712779daf62f9989cd05cf36588f8cb09db4230a124e",
+    "references/06_extras.js": "71b76a42a5798b1a51a464e91bb12f2fb97c25d83fdd138501ca442a2f953678",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "168a08ad10883f56bdd04531adbcb6f80a8df7a9ad91aa8d0d75ea15aaf766e0",
+    "references/_image_manifest.json": "aba74bb99ebacc4d59416c0ebb14690eb35cc0620f181f6e95d65f14b4b5a08a",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "dff6ebc3510aab90344757e5add961ba77177fa954eaf7913916975c64cd3d91",
+    "tests/regression_snapshot.json": "ced73fd8b19c1cb03ed894d0bd1c381747d7938dd59cc10bb601f6696f48fd3c"
+  },
+  "scope": "Existing-schema genre data and generated artifacts only. Original engine, compiler, pipeline, UI behavior, test logic and workflows unchanged.",
+  "validation_status": "DRAFT: all requested available local source/build checks passed, including primary full3738 API and final1149/1149 recipe regression after16 individually reviewed expectations. Required exact-head CI independent artifact freshness and browser checks remain pending; this is not merge approval.",
+  "candidate_entry_sha256": {
+    "swedish_black_metal": "b5ce9ef5a5e640a424a1d933b2d5b3e4fdd1027c5ca79fc5c9d15548eafca4e5",
+    "swedish_death_metal": "a6407dbe00f81e597d092b7287890cc13f04ac47148e56fce1c1607b8dc05e2b",
+    "swedish_doom_metal": "95732e3b64d33c7beb9e8d07009d26c24411448ada2f00a081cb854021453e43",
+    "swedish_grindcore": "bb2e973bdf6ec79614ab063bd734f2608ab09020c693a058a6be249b705c8e47",
+    "swedish_heavy_metal": "67503b23d0422229be6c9c0a3def0a571efc30eb4b12db6ebef0a28c9daf857b",
+    "swedish_melodeath": "f0933885e8047a0a5902114be77304815aa13cb08342757af891fbcf81ad2887",
+    "swedish_metal": "d45cab711ef18ffaef338dff55a9293483aa7c20c3819a6825bb737ded6b38d8",
+    "swedish_metalcore": "ca7b469db8c4458c1cddb4720fd6c29d092348361b8709e2aa61369ea2c83400",
+    "swedish_power_metal": "5ffecf9e598f943ecaf6a374abb5ac46e98741758ae2d1a6189e06acd84eecbf",
+    "swedish_progressive_metal": "35c120e1efed97e819085c5910aba2e13b8e9de9403f8b3f40e5c82ae60780b2",
+    "swiss_black_metal": "df4bdebddcea3230c964694cc96d3933ee85ae18a54a01ae343facb3a07c3496",
+    "swiss_metal": "4393f7564742b960c33a78302e453fb457e793961e89d462f7e01b4504e885ec",
+    "symphonic_black_metal": "572281958f3de36adfdf01864f2e26919f616f8f53d059e9a271807fca459bd3",
+    "symphonic_death_metal": "6c369b950cbc7b0bb24f64dbc8473cc6030fc25b9704b3b94560eaee210e7333",
+    "symphonic_deathcore": "56f36a4ca68a194097401828c4624178fc9fc0a68f31672d65cb332a6ac11494",
+    "symphonic_melodic_death_metal": "e94b0f5a0ecada9a3a654267b9be8078adc3273cabb190add5db27c5ae135be1",
+    "symphonic_power_metal": "d6c3903777802454ea3ea919003e10792b5d8ce5c56331ee4f9f527bc0ead76e",
+    "taiwan_metal": "fdcdea69b42835af492fe468adf45cb6122a3a8cb02b06ed1ab368335369939c",
+    "technical_black_metal": "986933062f48af6fab9156be85ea262586a3c8e31902e88b78c508305dbadc9c",
+    "technical_brutal_death_metal": "8831ef0a63e64b1393a380dc3841eba558ad9299ca0918ad5c86d12e738b1c03",
+    "technical_deathcore": "17ff179c052bf9f2fe494b968899c7c3a7bd7974dd11ec844c4f53c093e6d0a9",
+    "technical_grindcore": "d0a916a025cf58fff85502eccf6645f8a35b40adfb5d7856bb2b40d1107f0290",
+    "technical_groove_metal": "ecde642e831077b8e81be5dc9acb3fac2b4b53736787418487538c10b49a9891",
+    "technical_melodic_death_metal": "845fed8dc60886e246ac34354da2f375e568077361b95c0c16125fd6a7708a31",
+    "tennessee_metal": "7a7cf2a6d7b00e32fa38a39d6c946153ccf8d1f58769e8de5e0a5257e3511bea",
+    "texas_death_metal": "b70b87d8f06c4c1372e14cf558422a5fe71a0631a2127f54b740a23c9055056f",
+    "texas_metal": "bba7ff29df7bad5467821c5b22f13fc94a67bf46b4dde3ddba5efb97318686a4",
+    "thai_metal": "396867ce4be285499dbb54ef786be8e747700dc557cb9d66d11f8e9321bb6734",
+    "thrash_groove_metal": "e25237e6b111c43bbdb871a3a5a87824c93b16be22e18843a8c56183d1f73028",
+    "tolkien_metal": "e8802a877bfadd8cfb234c85e7612bca0c4e8f490983523cb6ecebe5359b6b42",
+    "turkish_black_metal": "eb859a1adb0c66960b5f56b8563551efecd51cc59456d25ec82d7ae4e2fa2213",
+    "turkish_death_metal": "09a24914901610d42c10bd6dd4fed424b6a5b6561245c65169351a86a16cb233",
+    "turkish_metal": "e5a087d60c6fb3e39453fef76d4beed9185f6989421c9b5eacde08276ae04dbc",
+    "uk_doom_metal": "d98aee924f8b613e68a4328c41a76c512118a790b44be1141ca82c0b4a580bd1",
+    "uk_post_metal": "a8f314ea8e63ad80c8799d7b5870ffd257a5d9bdc8b67f2c752c8d2352a3623a",
+    "ukrainian_black_metal": "9409a75618630ed3ed878e995644a7df5ba0bafbc37e9dd26cece6d37f50ab56",
+    "ukrainian_metal": "8f2f5baaf022e44458baa4bf434581254c9e62483c170dbee156dcb1585980ee",
+    "ukrainian_metalcore": "99b5ed6d958eefef198d3b3e4412ec487c0d308bfa65462455cf1f4062d09447",
+    "unblack_metal": "c8f4f46f0b31098067090cc50d8507bbc3bb1d08b9ca3563c5330f12fa76a4a8",
+    "us_power_metal": "8751ab4e70cf67be6047f6f81dca6b2043189b6e9dcb7a4036c30e2110594f35",
+    "venezuelan_metal": "2a8690ff745bd6b6f0a7fa6afa0e678d2666cd968674eb19ae849350dd47e878",
+    "viking_black_metal": "d0bd1863b98fe7c92ee2318374fee54a4f65745633199175882dfc93425bfce4",
+    "virginia_metal": "9a56d29dbffa6e2f11713535cb40f0369ecf0461fa3e4da803e3fb5d980d5ffa",
+    "war_metal": "c3666e225bc5b69030aa525c16f2420420b9c95d60fb2663a8ea7105b5d9c581",
+    "welsh_metal": "2764a0cdd496450fe2b58da199fecc0584022fa5664d5a1655138b4dad94da7d",
+    "west_virginia_metal": "6c9d85bcd2aa68bb99378481575bb3825fdee7213abad615fc5317f0e2f6a63e",
+    "western_ny_metal": "17c2bb02c7efe6b207b93d3fce635492c111484df8b9169bf4c1fe34a6372274",
+    "wisconsin_metal": "051af5b6a523ad24e8d6561917b32ffff43a11044d75e3c2f0cd3f9dd55f3241",
+    "5th_wave_emo": "d8e32aff9ccb50e87a1b15d48a0a1a1d76bbfd9781ab3834baacce7c5b4f2495",
+    "acoustic_punk": "215605050b8ea34d90ab06fe0dee1ca54ae3dea1a15f16c1b0f3c38f13db3da1",
+    "adelaide_punk": "e747552d3f7f54cde508a4a9aac0c43d6cd0a954b56b83603b6fc595720fc6dd",
+    "alabama_hardcore": "fd3833b282890522f063e89bd79ffcd4129cb35c330a0477caa6f465616c152e",
+    "alternative_emo": "73da5f2ea998a0436d9594cc43db4f0b158f1dabd5be35a46d4ea6fa7afc8b1d",
+    "alternative_hardcore": "ddbb930be0a8129b42be7251c714196a011c76eaf25aa63e967b093dc948244d",
+    "american_post_punk": "7fb1a75c60737a7eb517d7d183fa8b0dd32efe1f34734ca24e01b870aadfb9bd",
+    "argentine_hardcore": "6bfb26761bc95dd87fb67aeff3b629d818184e52e2f39743103f1339e0be6553",
+    "argentine_punk": "fb0d5ff9da6c200d38dbd94f24a4ca5d1a6ba0fe57bf2a3934083c88a0a3bbfd",
+    "arizona_punk": "7ea968b46cbeefba0e8abba01c28c7f88a99136fbd6bff97480099d1ae035852",
+    "atlanta_punk": "8bb3732a235a8e74609fb77a878694a80cd69b90ecc7614ad8cbd44fe1afb0a6",
+    "aussie_emo": "2051b60ea3dbaed85ef780039dc6905c0164c0f185cfee701ff98461c7827d0a",
+    "australian_hardcore": "a4bf22f1acc9274fab380e0ed8457c5506670651ed26d4f49fa331e633016798",
+    "australian_post_hardcore": "60f847cc8e12099d36922a40c5631b5ebc2761e056fa789f11226c8fc6b6c4ad",
+    "australian_post_punk": "820eb0557220ec0ca5a16b13e275605faf06da8921f77b11c5708ee3e40097d3",
+    "austrian_punk": "519a23004021a1d8da0b7c204821a97a088d2804b7245cf87e2b1b95621a868e",
+    "balkan_post_punk": "6029c28288c14171049b1f151b165fd7aecc65b3d4a875d87862ab6a60fbfaff",
+    "balkan_punk": "47fc75e444d9e485bbdc0f3e3acac084e6877b70c6fdbec29b80093ff5f27e8b",
+    "baltic_post_punk": "9903d957634b3ed1c74262699936cbcfa3a9846ad09e912757cd5c768198da32",
+    "belarusian_punk": "853ba4c5184073eae68995be8a55500c837c0423031339cae652e817c9296160",
+    "belgian_hardcore": "e8503fd5e179d8573119f38d3faafe7619d39d8e9ce8117c4c0793f667382980",
+    "belgian_punk": "4debbb3a92f0041fe4ca0310e60bd7667bbbddec9b6db0a06317e4fe9d45e4da",
+    "blackened_hardcore": "7220741681f17407a2627c5d8b05d07876ea9f72c9ad6c29c5107dea2367a526",
+    "blackened_screamo": "485c60c9737140b9691613e8fc9f97c928fae9cc8b4447ecea06708f499c5e16",
+    "boston_hardcore": "05ef5944250c908bf8907563d47783071add03a548f067c0dca9b288ba7f210c",
+    "boston_punk": "618cb26c38e26277f055b80bcfdb20fe507959565d0419d0710d3b3c40311bd7",
+    "brazilian_emo": "c2186eb2e905215c7be13f83580812d6bdc79e76b2b484c4b1a217cb547c3949",
+    "brazilian_hardcore": "0070935b5e2255d284fedb16d7f8d20df8b9d647fbb7bf4c5fcde21c11602c0d",
+    "brazilian_post_hardcore": "e79cb3393919431495705d8fcb7adf7a0b353cc07ee3de30a455a1c3c80e3464",
+    "brazilian_punk": "8b6f01de2d465e4401f2dfbb54ce04a81d1fd61f2750bf918599a5b21ca28519",
+    "brazilian_punk_rock": "8e1997b823e6b229ca4fc72949076a02b95fb0aea8315eaa50c9805bfed71e5e",
+    "brisbane_punk": "c1cfe3f526b54da1f10f7698b9f8b711abf1dcd749bd20dcfbb245b18a38b79a",
+    "california_hardcore": "efec9cc5cef6e84f7d131eed98d1ab529ccf5baf7575792edb0974ae693c6e48",
+    "canadian_hardcore": "c04e92e581cf6ab7e3827606fbf302e9840ef7ac373a33cf765b5ee54ecfec2a",
+    "canadian_pop_punk": "c2ce71b8a554b7b2163a3d4532165eb7d230f638f5eae0c4598a91daac58d605",
+    "canadian_post_hardcore": "c21dfcd40ec1ed587050891cdb5ad8ca200e51cd2a9620d5ba3ba1f883019879",
+    "canadian_post_punk": "e97803eb37744e9ff1d0b673fb7c49cd1073f6f2a741577f1c8f7386e3604e42",
+    "canadian_punk": "88c9e164e4a4fe1e66bfba2faecad6099bc2317c854ca2b42174c33178bf8123",
+    "chain_punk": "368d2411af90b962db57ebdbc53b6e6327090b703e8524695a9d35ecfc991d8e",
+    "chicago_hardcore": "ebbef1868a1510d59139e6ab8385ef7ec7096c3d79efed75592d56bca0832062",
+    "chicago_pop_punk": "1ee5c01ce93743fc74e0423fdbbe75f57fe2ed47028c488043d05b18cea48d40",
+    "chicago_punk": "78e47560addba2690e46a24b02c61f78595469a8832f96a7c5d150178295b132",
+    "chicano_punk": "240ecfebf65f332182ae0f19b4d298be7004e5a3b774a5e113cf2ccf7d0d2968",
+    "chilean_hardcore": "e9d6ea7a3313f477cf98b8e4249f3780bde72ef6c7fb0a33b097e2941711418a",
+    "chinese_post_punk": "8375c1dc37c4b06c8132b52a4f955c4ff12223f63221cf7422dcae016c4d1d33",
+    "chinese_punk": "59fd635f80f1bda0a12ea3eb09fb41308841ecdf2dca137833e8e66907f3a757",
+    "christian_hardcore": "a4d13788025e524728f50425e98aa0c6ee732e0c2e086dbb20a50bd9c9e4fff5",
+    "christian_punk": "ac002a6be77df165ce16f5d3bd5ef1ebf89802be771d635ad86700fca60eee54",
+    "colombian_hardcore": "112cca647e8b33589626d64a1928b55d99d72764eb78213a0799242a070e16ee",
+    "diy_emo": "3ee99dc8712fbdfa440790b5f22f75160e300df1e78fc082cdc39e98a665d3d4",
+    "diy_pop_punk": "060ee9e45bbc6ba9e399d46ec21d7e2ee1e972f6170391967f5948a0b636aa6a",
+    "dutch_punk": "e88ebec39bdefce6e87da84d2417925225799495b64a79b608fe21b9730cdf23"
+  },
+  "local_checks": {
+    "canonical_refs": "PASS 3738 traditions / 1467 instruments",
+    "primary_full_api": "PASS 3738 compiled / 0 failed / all recipes <=1000 characters / all IDs resolve",
+    "api_contract": "PASS",
+    "atlas": "PASS 3738 placed / 0 unplaced",
+    "descriptor_df": "PASS 97.14%, frozen table unchanged",
+    "signatures": "PASS",
+    "duplicate_gate": "PASS 0 unruled collisions; 1 pre-existing unresolved; 328 advisory pairs",
+    "prefaces": "PASS 79/79",
+    "slots": "PASS 4/4",
+    "app_recipes": "PASS 56/56",
+    "equivalence": "PASS 8/8",
+    "docs": "PASS 13 executable commands and 8 behaviors",
+    "lint": "PASS",
+    "format": "PASS",
+    "structural_ui": "PASS geometry/workbench/chat counter",
+    "initial_recipe_regression": "1133/1149 matched; all16 changed expectations individually reviewed and updated; one blend independently rebuilt on prior source tree",
+    "final_full_local_regression": "PASS 1149/1149 using unchanged default parallel pool with no concurrent API compiler",
+    "independent_freshness": "PENDING required exact-head CI; no second local full compile was run",
+    "browser_checks": "PENDING required exact-head CI; local Chromium unavailable; no install or bypass"
+  },
+  "scope_audit": {
+    "sourceCounts": {
+      "baseline": 3638,
+      "current": 3738,
+      "additions": 100,
+      "instruments": 1467
+    },
+    "prior_tradition_and_extras_records_unchanged": true,
+    "prior_instrument_room_tree_vocabulary_bytes_unchanged": true,
+    "app_logic_unchanged_outside_generated_signature_data": true,
+    "prohibited_changed_paths": [],
+    "issues": []
+  },
+  "full_api_config_audit": {
+    "changed_existing_api_tradition_files": 99,
+    "recipes_changed": 38,
+    "slot_maps_changed": 42,
+    "changed_slot_values": 175,
+    "all_sources_roles_environment_preserved": true,
+    "all_explicit_pinned_parts_preserved": true,
+    "issues": [],
+    "entries": [
+      {
+        "id": "action_rock",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "alternative_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "american_grindcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "australian_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "baile_funk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "belgian_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "black_speed_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "bosnian_pop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "boston_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_grindcore",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_metalcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "british_grindcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brutal_death_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "brutal_deathcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "buffalo_ny_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "canadian_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "canadian_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "canadian_metalcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "christian_symphonic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "colombian_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "dance_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "deep_melodic_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "deep_symphonic_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "desert_rock_palm",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "digital_hardcore",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "doom",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "doom_blues",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "drone_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "edinburgh_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "emo",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "emo_rap",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "finnish_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "finnish_heavy_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "finnish_progressive_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "french_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "french_garage_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "garage_rock_revival_2000s",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "german_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_grindcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_heavy_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_metalcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_stoner_rock",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "goth",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "gothic_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "gothic_symphonic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "grindcore",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "grunge",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hamburger_schule",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "icelandic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "indonesian_deathcore",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "indonesian_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "instrumental_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "j_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "j_ska",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "lithuanian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "louisiana_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "melodic_death_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "melodic_groove_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "melodic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "metal_baiano",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "metal_balear",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "metal_colombiano",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "nintendocore",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "oi_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "opera_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "polish_metalcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "portland_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "post_doom_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "post_punk",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "power_metal_european",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "progressive_deathcore",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "progressive_metalcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "psychobilly",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "punkabilly",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "quebec_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "queercore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "rage_rap",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "rasin",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "raw_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "russian_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "russian_heavy_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "russian_thrash_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "saxony_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "sci_fi_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "seattle_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "serbian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "ska_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "ska_revival_2tone",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "south_asian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "south_carolina_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "southern_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "spanish_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "spanish_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "stoner_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "stoner_rock",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "thrash_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "trallpunk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "utah_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "vancouver_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      }
+    ]
+  },
+  "review_artifact": "docs/everynoise-integrations/data-only-011-snapshot-review.json",
+  "predecessor_note": "Verified remote batch010 commit ed7982242536ec3642b656a6bf34ce5bc645ac97 is the predecessor. This is a manifest-only normalization from the identical locally verified010 tree; validated source, artifacts and inherited earlier receipts are unchanged.",
+  "publication_schedule": "Draft publication proceeds with all available local checks passed and required exact-head CI still pending. No independent second full local API compile was run. Merge requires all existing required CI checks. Any later outcome should be an external receipt rather than an unnecessary documentation-only CI restart.",
+  "local_resource_measurements": {
+    "primary_api": {
+      "command": ["node", "scripts/build_static_api.js", "--jobs=4"],
+      "returncode": 0,
+      "wall_seconds": 364.438,
+      "peak_rss": 2021228,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 1395.069759,
+      "system_cpu_seconds": 6.334612,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    },
+    "initial_serial_regression": {
+      "command": ["node", "scripts/regression_recipes.js"],
+      "returncode": 1,
+      "wall_seconds": 480.217,
+      "peak_rss": 555556,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 474.613695,
+      "system_cpu_seconds": 0.854556,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    },
+    "final_parallel_regression": {
+      "command": ["node", "scripts/regression_recipes.js"],
+      "returncode": 0,
+      "wall_seconds": 74.115,
+      "peak_rss": 3455860,
+      "peak_rss_unit": "KiB",
+      "user_cpu_seconds": 503.641625,
+      "system_cpu_seconds": 8.08489,
+      "platform": "Linux",
+      "scope": "Task-local timing wrapper over unchanged repository command"
+    }
+  },
+  "publisher_normalization": {
+    "photo_observation": {
+      "reason": "Narrow correction of the earlier unsupported covered-humbucker adjective, carried forward into75 candidate photo observations. Image identity, rights, attribution, runtime manifests and musical fields are unchanged; original before/after canonical hashes retained. Published008/009 receipts remain exact; documentary erratum is recorded in batch010.",
+      "changes": [
+        {
+          "id": "swedish_black_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "543699fbcedd72e75ba2c31d553f87e72372cbda89373f7269fe4635af98f5ca",
+          "after_entry_sha256": "41dad4e8809934fceaad554507cdff9f0fc931a22da31b02ac1efc822d5f9558"
+        },
+        {
+          "id": "swedish_death_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "aeea472b1c733dfb03a80fd43aa642b821a1ce66f9b4fd2b7bc4e30106354c78",
+          "after_entry_sha256": "1227f6cd1110567d84165a2fa11211caa2de2a6e7e580f841bff576723c0ebe8"
+        },
+        {
+          "id": "swedish_doom_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "f0d93c7d515df7570f7421979102e0c9cf22daa1c3a4322adb9d8b4274e6a424",
+          "after_entry_sha256": "dc15c8ac6c0d295ef522035f43b18eb8998b040dce6234d737e22db8959e046d"
+        },
+        {
+          "id": "swedish_grindcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "c0872b23490d7d5f4d4eab8912dded736f9cbbff04bbfc0163af0d3434f1b249",
+          "after_entry_sha256": "b102a60f71a2f336c8d424e136ac0f2bbef0c587b7834f06adbe4c815c827615"
+        },
+        {
+          "id": "swedish_heavy_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "822169305313d74e1da9cc2ff69f62f9745a01fa5c8fabe3adb2f5cacdd11b8b",
+          "after_entry_sha256": "c7e77dd8eb5953e6c9240be15556cd6a281e2e1e39851d4b5dc7b3deac59e58f"
+        },
+        {
+          "id": "swedish_melodeath",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "5a06bfd4daaef41bbaace668a208440f5213edc9dd4efa922748edb6dc08f85a",
+          "after_entry_sha256": "99aff8344c046d0cc0175c106192851c1b10d1fa429c29da3ffd20530f52d21d"
+        },
+        {
+          "id": "swedish_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "939226583b8163d638f0aff1199e3039c83a1cdd7174353072349cb94036f0c7",
+          "after_entry_sha256": "b848d0f26c53f4c7491543590e322a701a179caac1c5901facd42cf2031f7836"
+        },
+        {
+          "id": "swedish_metalcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "8ab99ebc35df8f65c21dac7e4251c66f05450a3313a392650b5dbe76cbc7f394",
+          "after_entry_sha256": "d42e1f26069a0ce941437da4ccfce132909a2349c1dcea8aa4fbbd7c9ed3a42d"
+        },
+        {
+          "id": "swedish_power_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "4ad9bdd029c1de05d7c96aa47748528fc0cd9876b568c8bd222d0539cfb2d78a",
+          "after_entry_sha256": "2a0909530a42edcad1d1ed6b41eae8571e1f7635abae74c83577ec576554eac0"
+        },
+        {
+          "id": "swedish_progressive_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "69ccbdf6c3a88e05bfbd710a002732b75debe219a94c5e0a9eda8c137db92484",
+          "after_entry_sha256": "43205218e137d0900636e2d4b26c8b3d491ff8aaa4031e479758358d34e693ba"
+        },
+        {
+          "id": "swiss_black_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "3f2649e45346fd81f7c4b9e9975b2ddbeeb71ad3ceaaa27a1cd5176786220f43",
+          "after_entry_sha256": "00239bf996feb731fe35a370caf4f8408f2c3a8292e9062089702bf8df17c0ad"
+        },
+        {
+          "id": "swiss_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "da81aeddae63a4094fc8071de71a53aa0416f92b1618ea3797b3360e981c0a33",
+          "after_entry_sha256": "85ff4a95c3bbc0feca2731bdc526a990f264b7d3d575a4c86c9e87db610ecf05"
+        },
+        {
+          "id": "symphonic_black_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "92159f860192803e47b5d0296dbb4177e2b37a49430b872f17c5e5475a12675c",
+          "after_entry_sha256": "39dc04ea970010625a0302de3363f97656fd702df5502f39015df45097d401d9"
+        },
+        {
+          "id": "symphonic_death_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "940722a37506f96a14c33a1edf291cec2dcfc250c42f790a3b52fc43cf7dbf66",
+          "after_entry_sha256": "ea19e66ccdf25b321369bc8031d8087b57695094725d44fe7daeeeb17fc24d3d"
+        },
+        {
+          "id": "symphonic_deathcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "95e2a47613c75cc2ee3a81fee10553aaa62508cb23971fe0556cf839416ea5c5",
+          "after_entry_sha256": "abf8c822fc509bad1153071d6b8e6d401fb451dd5dd5aa01728ab1d5ee252495"
+        },
+        {
+          "id": "symphonic_melodic_death_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "7cad6c97b1fa00c80fc7038ee471596f66c0620b707b55d4d573aa765ab31447",
+          "after_entry_sha256": "633f899d05446832daa3554dfab526f341efb68273ee5f19f210c4bbe086ae69"
+        },
+        {
+          "id": "symphonic_power_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "08c27419dfe8c9e8faf70f1c45ca1fe11da6a9664b5cd4d2b55a67085a27659c",
+          "after_entry_sha256": "57ff3370c0064e528bebc5e7ad1425eb4282b83b0439ab61fdaa002b894f3d77"
+        },
+        {
+          "id": "taiwan_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "b3f78e505c5f35e1180226c1470f94f084abc657a973e75ee10d3bd6b7a8a489",
+          "after_entry_sha256": "773af0448f157806ac524989c7c7476ef1bffd8e128010c1a38cbc4b2caa895e"
+        },
+        {
+          "id": "technical_black_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "faa3c92fcf35ecda33865d212c5c722f70405ade7930fe3f1a5c2ef2d3dfbed9",
+          "after_entry_sha256": "138afb9ce61d27610df7401b96dd79d09e57a1f5551b52a8f36f52288467583f"
+        },
+        {
+          "id": "technical_brutal_death_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "2f1f6b7fc2461488602dd79aab18f9dfd025310d59bc69a8cab429f582d6f8fc",
+          "after_entry_sha256": "c4136d36815c7041c8c06342878303e9bbcc9c1534f9fde2c6e88f3da2851b2a"
+        },
+        {
+          "id": "technical_deathcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "0efa3365a405298e6947f2756bf7d0e73fe316d255ceb632c873e953c50510b9",
+          "after_entry_sha256": "286e417906c048546f9c57551614653e4eb6f682fd587a6241c603049c4f6366"
+        },
+        {
+          "id": "technical_grindcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "06ba4eefb4369d778bfe69bbcecce9ca295a0c754073e25503850572110bdd42",
+          "after_entry_sha256": "f211418c19f6ce0fa51d25f7e9bdaede50b9c639ae42b63944fd725876cd2be3"
+        },
+        {
+          "id": "technical_groove_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "e2684804b514762ac024e2613cdcad8760bdb3eeef4f609358ca900a7eb93d58",
+          "after_entry_sha256": "3318e1f067bc2ae604351e45eb0ce462815cf1bac69e76ef5733801652f62151"
+        },
+        {
+          "id": "technical_melodic_death_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "70a01848610199bb5422c6415f4fc5b29f8238a1c447d8902e8d391aeb2fb528",
+          "after_entry_sha256": "2c693c9b09fbfc79d88a282a5e0eda6c2122aab2bfebaeeaeadc770348e58d8d"
+        },
+        {
+          "id": "tennessee_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "2e2b63124d8bc9f4f7f37e93e590279129d8f45844bcb0191133ef3bada61cd7",
+          "after_entry_sha256": "7cfa92b9b78752afce51047c4ba0e4f6ae68644862727cba0b05f5fb7301bd96"
+        },
+        {
+          "id": "texas_death_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "055de9180c3a6ee665acff96d34521b398f0475d4476b4006160dfa91e468b44",
+          "after_entry_sha256": "e549c6c1c442ac0f52f70682176ee1c903a7059c1be831df55775d57f7f395ae"
+        },
+        {
+          "id": "texas_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "af5d96d7cc7f4a259293c8537ee43b0273fa3acb061459edd8289e216b983a39",
+          "after_entry_sha256": "79802d5295b585304dd6f9a08434053d39697eb1eecc641dcfd6c44115007213"
+        },
+        {
+          "id": "thai_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "b21451c3fdae53b69e2b179dcf18b4b1e1e16b3a3711d3be80e9254f427a922f",
+          "after_entry_sha256": "c113318a4f8b82fd93a92aa36b812bd9713b4c7fd02c744b9435e893bfa6a7cf"
+        },
+        {
+          "id": "thrash_groove_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "31df7c59d047dab8746beeceea3cb10cbc224c60d024b3eed5276993268c792e",
+          "after_entry_sha256": "a0c501bc5a79e6aa2eba5369c714d05a9e4a7010fe7632287fdefdb031a59e0c"
+        },
+        {
+          "id": "tolkien_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "23d0a071e0f9aa40835a07de01cd6f971e30edfb44d1e0d88a3ac1de89521bc3",
+          "after_entry_sha256": "0b37d8ebf212ac13b4d52df9be8fff02fae84f426ac5a45d30a29b2a9be98ea5"
+        },
+        {
+          "id": "turkish_black_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "434b8509a706c87ba966cee37f6328cd30a11cbfd686ed708319f6796555e88e",
+          "after_entry_sha256": "e9fb7db0404e2e890b6791d5d103bf7d93eecfee87bfaea29e46661ad82f103f"
+        },
+        {
+          "id": "turkish_death_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "88958423e0f3b3b1a8e9e6d7857aaaa7871669c3363bfee1a083a6c73f63d819",
+          "after_entry_sha256": "b1cc3bfc7c133cfb0546bfcf73c5737e75f2f0bf070ff75fc38a9c57aa20caf9"
+        },
+        {
+          "id": "turkish_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "076f356f730c51f66a25fedd26c9db1c39d3d58c3dfb7011258afe379b41febc",
+          "after_entry_sha256": "cd7fa88574d7b133571f61aa82875978e423635b1040e0c6e0c68574103ef222"
+        },
+        {
+          "id": "uk_doom_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "32223a1fe66080ceef9c7de983188aaf2b4cfd2be6954a219a08221cc6448237",
+          "after_entry_sha256": "4cfb27fdac250e0944827c14772395333191e5f0607b4c9b024be9c7ab2c3a2a"
+        },
+        {
+          "id": "uk_post_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "879a3883b07dda9f0706377ca6250e1ff71d4dedd912c61049356efff008646b",
+          "after_entry_sha256": "f923708f0e2c6980e093612f65c539ce943ee689cc616eaea2913f64c9c46acb"
+        },
+        {
+          "id": "ukrainian_black_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "4269f8876073bc92fbea3965a6f6a83370a1406fe1c836a0ac9e334c28af66bf",
+          "after_entry_sha256": "26c8b7d57d5d6bb32b2379522738e8c9403609a8a7241148e8d7a402c7338149"
+        },
+        {
+          "id": "ukrainian_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "a5f47c701bfcb0a2fa504cec19079f8bb840ee57de648af3ba7373266c37055a",
+          "after_entry_sha256": "54deb6fdd1753fc3e010d53b01dce452dac149d507d430da36ba764c50a36534"
+        },
+        {
+          "id": "ukrainian_metalcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "7722884f98e4d8584816aec633a9418459e00955b3db6f150b454eff275ad3ee",
+          "after_entry_sha256": "2d92503c5eee67af2f1bd27a6eabd789773977a798d5dc0e6cc33aa81990af85"
+        },
+        {
+          "id": "unblack_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "232db14b6a6b3e7e44079b3d790936602fd0ef772329025f13cb42da34296816",
+          "after_entry_sha256": "2ce962b3fff75bf067c07fcba1ab468596b086d7f6a6caadf1625ce7729a07c7"
+        },
+        {
+          "id": "us_power_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "1768178c4455dac2e578b2f8cfe8ffdc3a209fbcaa7bd2a9a588122d9f5e5748",
+          "after_entry_sha256": "c944b97f02ba60547b515789a6eadaeef95181000f276274ae50baee7349c1a3"
+        },
+        {
+          "id": "venezuelan_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "fdbded62f93a1812bd61e2efe321d58362fa82b6316c1633d96d4f811c4c754b",
+          "after_entry_sha256": "6b5ed2771e2ce8c74bd20de602c7163b28be611f7ca5ef14d7ac96c069365995"
+        },
+        {
+          "id": "viking_black_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "a1939dff9c5ed06a9f6e7fcffbe7a2a7414e781ae096b52bd1a451aa737458bd",
+          "after_entry_sha256": "ee09b949d3fc2a5be314122c320b0f308e1dd33a0ae90d39365a3a0fedec1d57"
+        },
+        {
+          "id": "virginia_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "9995f6109aaf68f4d5f6d66854c1d897ab2a870cfbd62bfafab15d48b998da4e",
+          "after_entry_sha256": "065eb4cb3f1e6f7d8611ffceb6deba31f1531680e51d851bfbfe02cfad912354"
+        },
+        {
+          "id": "war_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "5eef46c9aa369071b7fa8d223565610b80ca01f1f076a3029f07769f4ec9bf35",
+          "after_entry_sha256": "f29ea673cd63004efa4cef87b966b42daf8985e32ff82583d09322c6345dbbfb"
+        },
+        {
+          "id": "welsh_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "2901c21e37d3c37281040ba9f1c4182d82d7aafb7d4ccff43cb18864fd298f43",
+          "after_entry_sha256": "1b18fbe540f4dcf8311749a8ed7f276a192b904848ffd53510dabf28c1e2e405"
+        },
+        {
+          "id": "west_virginia_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "d73f1d68296318b1fdb789d3a430cad64c773efcb91d69b790be8ad2719915e3",
+          "after_entry_sha256": "a4aac08980cbd54ef3970f73b444837b69c0c989743fcf672d92aae4d400f6c3"
+        },
+        {
+          "id": "western_ny_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "8653d9ed1580e82d377b037c25d0b7c4860c65a9e727cc56f7c18a1862c27c01",
+          "after_entry_sha256": "f28a62ed14b555a876477bb32aac48f17a6ca95d8e17e792dadc7ca14ad36f92"
+        },
+        {
+          "id": "wisconsin_metal",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "26745b2ef5727e1ad7b84eada1959439b2fe4e6ee43d9d7e6fd87259a8a433ba",
+          "after_entry_sha256": "f98598cb7e0a4d60ba22c64bab53f710128d5258f6a4c4d6b81f65912f21086d"
+        },
+        {
+          "id": "5th_wave_emo",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "343e29719b04665b96784b825e7dbcdfa2607b57926d8a83667b3eae303171b1",
+          "after_entry_sha256": "8d89066bbfdc86cd99055240da7e948cfaf5bd712e2ea00f0c67e09c7d1255f7"
+        },
+        {
+          "id": "adelaide_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "260723b54f79d86e7d109cc7e94f598f3cc22b70a73a556426a99fe147646ffc",
+          "after_entry_sha256": "25e2f40ffc50a964c60367294e39fea045cdda621ff9e23f79b205b10c61fbfc"
+        },
+        {
+          "id": "alabama_hardcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "9b4db22acdb8137b3c43965ababaa43f40c13070ab2e288e34f3f6eb44745d08",
+          "after_entry_sha256": "246f2d9a95b40c8f3779be0993155fbf3dc209a9996716d39034f2d581f4fca2"
+        },
+        {
+          "id": "alternative_emo",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "d9670d75cdb2d3894aad5eee0d9574f0908b768723adfac143dcacfaaef08ec7",
+          "after_entry_sha256": "2dec13014801dd212188cd86ac5759d1369afb2d287e2ec36da820414d3c549b"
+        },
+        {
+          "id": "alternative_hardcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "fb3028348a195dc151ad50c459fc177d3de3d563a274113d0061be0ec2b96b84",
+          "after_entry_sha256": "e7fa8bfd3a8661c91e6fda3c5d3b392545600f4232d9ef1c1af269f6e1bcbbef"
+        },
+        {
+          "id": "american_post_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "7264f51b21ec65c947ff205f02fe09dee574dbaac3512b7ca0550ba12c11a9ac",
+          "after_entry_sha256": "3aaf9fd06728dbf9f30b740f6f2bf63ed9a05f7e582eb452467305db5d145413"
+        },
+        {
+          "id": "argentine_hardcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "2c4183516d7f1952a53cbde1350821ad71508ac1081a65f97dd80976ba894b37",
+          "after_entry_sha256": "becf68008412a8b2aafac15b2551d53eb8147cd6b6dd252892d4764eb9cdd919"
+        },
+        {
+          "id": "argentine_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "89a13477e5ea542b33797b431e6b61a7e97c514cf9b9e142baf8611e6d4cc46a",
+          "after_entry_sha256": "c6231e923ca45fc3cfa7c84aae610a41bc50ec1ef2e16566a5d6145e3cb25fb7"
+        },
+        {
+          "id": "arizona_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "af30138e33e6433d5394551ac178ac9d2da34f8e489b08d3e3fba69cd71affb5",
+          "after_entry_sha256": "ba098489f6287a14ff8be99a6b8a0e8611b1d26c490654a35b6489ec56965212"
+        },
+        {
+          "id": "atlanta_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "9a0857d7135e97b6ac03fa4a74ef194ff4f0a3c67994f724e7e2c3a6418f7ecf",
+          "after_entry_sha256": "6ffb39e5bccfafc766dbf0a76b81ba396416905afbddc2e3510c3c847ba23bc5"
+        },
+        {
+          "id": "aussie_emo",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "457ade188ca8581eaae763354aec396aea1c3330056cb8ddd449b8910613c54c",
+          "after_entry_sha256": "b3ab10e0de9654c66b637d173f6a3461f317c594e94717fbbc9af08bdfbe23a6"
+        },
+        {
+          "id": "australian_hardcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "e4c09c2f69d51cd46d98d143692d9f568465f4ea28e91dd557985f4bf7442db8",
+          "after_entry_sha256": "5e992b9b7d13f694bfecf4a1ad16928cdbbb1ba6c7390b7e5dc36e4808f0f9fa"
+        },
+        {
+          "id": "canadian_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "ccefd60a64d5a2f77990535dfff3c1f8c64a3f235b3810e9327a73cebd8b65bc",
+          "after_entry_sha256": "4419ca87273348e120a693ee38e00a8cb6bcb77d928fe5a785eae2d3dacad402"
+        },
+        {
+          "id": "chain_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "23f33735187b53f4d361d9cb8715a5a18633f3b7f9d2e2e3573fe9ff642815bf",
+          "after_entry_sha256": "ca6506ae7fa1551e61146ed81a4878c14d0d9b7d40fb3d78ab6a8f1ea94e39f1"
+        },
+        {
+          "id": "chicago_hardcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "69b4ecb92c34650b07127cd53c05b79caaa31783ca33e44d81611ce14259c014",
+          "after_entry_sha256": "ac5b28ab3ae8aabcb6938c38f03eb661de0897172d13d01c291ed53276611e23"
+        },
+        {
+          "id": "chicago_pop_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "7b55ac29b5afc8c1e6c10aafa859b02feaae08aee4c84a03b9035e15c1052aff",
+          "after_entry_sha256": "930dfc9687ff02fc08f7f97e1fc2e3c38f110673baac97edfd4a774cae0edd4a"
+        },
+        {
+          "id": "chicago_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "a8379834f9eeb2a03e834432dbcc85700e1fbbf40b108293fe56d808476bca23",
+          "after_entry_sha256": "1d60897ae5ced70945e3e990c8aab989286da39de903a8ac40377ffb7367de73"
+        },
+        {
+          "id": "chicano_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "e3584987252f44ff3a804bbbda1589acfd528bc0fa9d231e2fbc86926b4273f5",
+          "after_entry_sha256": "c85c955449c4eeba418bd4629215e50a498c693fd3cdc98fe127a727644195a2"
+        },
+        {
+          "id": "chilean_hardcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "cdc9b0a5d8a10cb5ada5d21bbfb17f5f04ab59290a3ea6888bc4838768d5b72b",
+          "after_entry_sha256": "85cf3dee142db2361af0188f7bcb9298750b990094ac21e15060b7c4fce078f2"
+        },
+        {
+          "id": "chinese_post_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "57183cde15ada01c39ab56ed5f4d9f6c4dc28316914ef6329ee9c3bcf2f68dfe",
+          "after_entry_sha256": "e23a48b374276d0003fb2170d3ab114a26af2a46f6cd16664782ae07faf3d9e4"
+        },
+        {
+          "id": "chinese_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "e30769631eb9d24deb5ede5251b0a41441aec95f2d981bd3a6a69e4eb90f3ad3",
+          "after_entry_sha256": "3a7ff4bb00322ae75ab181ff8a8063dcdd3200ea38dbf3b07d98f2c31fc2fffb"
+        },
+        {
+          "id": "christian_hardcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "451f022ea39b83a0974184ae3aea247269146c22454d10f3819bc5f8c488ab13",
+          "after_entry_sha256": "8b061c5d7015643c866fb7beb4e96794d2ffb0c82417f60e63e66c4c2528f692"
+        },
+        {
+          "id": "christian_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "580f03f685d0df4049034890cde2056e1bfada93e9b383a8166de816781e2824",
+          "after_entry_sha256": "20fe050ce2b2687b6dd565b5c1dbda5661dc70883a76aaee7f1ded0bc66073df"
+        },
+        {
+          "id": "colombian_hardcore",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "444ebb888a9c0240dd3d7ec3cd8e8dfab475e0ab8f21055a9370a8603e958261",
+          "after_entry_sha256": "027824a9b92d5a3dc07ee899ee6b278c22970382c1f29602b4813abc705264cc"
+        },
+        {
+          "id": "diy_emo",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "8b23fa29b2aa737be4e007c12f31107099b67609eff4d343a106ec1a61fed2ca",
+          "after_entry_sha256": "63cec6027189c98966a014ce815673597d1c19be0887d418f9db7fdc97ed4d90"
+        },
+        {
+          "id": "diy_pop_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "a8a1016f54f9936a9e2555cddcaf942db453a47f460b99c1fafa1871efdc7ca4",
+          "after_entry_sha256": "9926b865af48cb1d52103d7ca63a3526f291867a6699ce5dd9b5af192b929c14"
+        },
+        {
+          "id": "dutch_punk",
+          "field": "photo.visual.observation",
+          "before": "Sunburst solid-body guitar, two covered humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "after": "Sunburst solid-body guitar, two humbucker pickups, pickguard, bridge and fretboard clearly visible. Appropriate instrument-context photo; no performer or national scene identity claimed.",
+          "before_entry_sha256": "79da591bb4df13544e3d5ff1b61d3e7dbfa9833555c2128a741d1a7b46a69527",
+          "after_entry_sha256": "e5222cf2043ca8ee5fd953ba66363e4a6565eb8bbf8f572567fa58aa9e882769"
+        }
+      ]
+    }
+  },
+  "final_entry_sha256_canonical": {
+    "swedish_black_metal": "41dad4e8809934fceaad554507cdff9f0fc931a22da31b02ac1efc822d5f9558",
+    "swedish_death_metal": "1227f6cd1110567d84165a2fa11211caa2de2a6e7e580f841bff576723c0ebe8",
+    "swedish_doom_metal": "dc15c8ac6c0d295ef522035f43b18eb8998b040dce6234d737e22db8959e046d",
+    "swedish_grindcore": "b102a60f71a2f336c8d424e136ac0f2bbef0c587b7834f06adbe4c815c827615",
+    "swedish_heavy_metal": "c7e77dd8eb5953e6c9240be15556cd6a281e2e1e39851d4b5dc7b3deac59e58f",
+    "swedish_melodeath": "99aff8344c046d0cc0175c106192851c1b10d1fa429c29da3ffd20530f52d21d",
+    "swedish_metal": "b848d0f26c53f4c7491543590e322a701a179caac1c5901facd42cf2031f7836",
+    "swedish_metalcore": "d42e1f26069a0ce941437da4ccfce132909a2349c1dcea8aa4fbbd7c9ed3a42d",
+    "swedish_power_metal": "2a0909530a42edcad1d1ed6b41eae8571e1f7635abae74c83577ec576554eac0",
+    "swedish_progressive_metal": "43205218e137d0900636e2d4b26c8b3d491ff8aaa4031e479758358d34e693ba",
+    "swiss_black_metal": "00239bf996feb731fe35a370caf4f8408f2c3a8292e9062089702bf8df17c0ad",
+    "swiss_metal": "85ff4a95c3bbc0feca2731bdc526a990f264b7d3d575a4c86c9e87db610ecf05",
+    "symphonic_black_metal": "39dc04ea970010625a0302de3363f97656fd702df5502f39015df45097d401d9",
+    "symphonic_death_metal": "ea19e66ccdf25b321369bc8031d8087b57695094725d44fe7daeeeb17fc24d3d",
+    "symphonic_deathcore": "abf8c822fc509bad1153071d6b8e6d401fb451dd5dd5aa01728ab1d5ee252495",
+    "symphonic_melodic_death_metal": "633f899d05446832daa3554dfab526f341efb68273ee5f19f210c4bbe086ae69",
+    "symphonic_power_metal": "57ff3370c0064e528bebc5e7ad1425eb4282b83b0439ab61fdaa002b894f3d77",
+    "taiwan_metal": "773af0448f157806ac524989c7c7476ef1bffd8e128010c1a38cbc4b2caa895e",
+    "technical_black_metal": "138afb9ce61d27610df7401b96dd79d09e57a1f5551b52a8f36f52288467583f",
+    "technical_brutal_death_metal": "c4136d36815c7041c8c06342878303e9bbcc9c1534f9fde2c6e88f3da2851b2a",
+    "technical_deathcore": "286e417906c048546f9c57551614653e4eb6f682fd587a6241c603049c4f6366",
+    "technical_grindcore": "f211418c19f6ce0fa51d25f7e9bdaede50b9c639ae42b63944fd725876cd2be3",
+    "technical_groove_metal": "3318e1f067bc2ae604351e45eb0ce462815cf1bac69e76ef5733801652f62151",
+    "technical_melodic_death_metal": "2c693c9b09fbfc79d88a282a5e0eda6c2122aab2bfebaeeaeadc770348e58d8d",
+    "tennessee_metal": "7cfa92b9b78752afce51047c4ba0e4f6ae68644862727cba0b05f5fb7301bd96",
+    "texas_death_metal": "e549c6c1c442ac0f52f70682176ee1c903a7059c1be831df55775d57f7f395ae",
+    "texas_metal": "79802d5295b585304dd6f9a08434053d39697eb1eecc641dcfd6c44115007213",
+    "thai_metal": "c113318a4f8b82fd93a92aa36b812bd9713b4c7fd02c744b9435e893bfa6a7cf",
+    "thrash_groove_metal": "a0c501bc5a79e6aa2eba5369c714d05a9e4a7010fe7632287fdefdb031a59e0c",
+    "tolkien_metal": "0b37d8ebf212ac13b4d52df9be8fff02fae84f426ac5a45d30a29b2a9be98ea5",
+    "turkish_black_metal": "e9fb7db0404e2e890b6791d5d103bf7d93eecfee87bfaea29e46661ad82f103f",
+    "turkish_death_metal": "b1cc3bfc7c133cfb0546bfcf73c5737e75f2f0bf070ff75fc38a9c57aa20caf9",
+    "turkish_metal": "cd7fa88574d7b133571f61aa82875978e423635b1040e0c6e0c68574103ef222",
+    "uk_doom_metal": "4cfb27fdac250e0944827c14772395333191e5f0607b4c9b024be9c7ab2c3a2a",
+    "uk_post_metal": "f923708f0e2c6980e093612f65c539ce943ee689cc616eaea2913f64c9c46acb",
+    "ukrainian_black_metal": "26c8b7d57d5d6bb32b2379522738e8c9403609a8a7241148e8d7a402c7338149",
+    "ukrainian_metal": "54deb6fdd1753fc3e010d53b01dce452dac149d507d430da36ba764c50a36534",
+    "ukrainian_metalcore": "2d92503c5eee67af2f1bd27a6eabd789773977a798d5dc0e6cc33aa81990af85",
+    "unblack_metal": "2ce962b3fff75bf067c07fcba1ab468596b086d7f6a6caadf1625ce7729a07c7",
+    "us_power_metal": "c944b97f02ba60547b515789a6eadaeef95181000f276274ae50baee7349c1a3",
+    "venezuelan_metal": "6b5ed2771e2ce8c74bd20de602c7163b28be611f7ca5ef14d7ac96c069365995",
+    "viking_black_metal": "ee09b949d3fc2a5be314122c320b0f308e1dd33a0ae90d39365a3a0fedec1d57",
+    "virginia_metal": "065eb4cb3f1e6f7d8611ffceb6deba31f1531680e51d851bfbfe02cfad912354",
+    "war_metal": "f29ea673cd63004efa4cef87b966b42daf8985e32ff82583d09322c6345dbbfb",
+    "welsh_metal": "1b18fbe540f4dcf8311749a8ed7f276a192b904848ffd53510dabf28c1e2e405",
+    "west_virginia_metal": "a4aac08980cbd54ef3970f73b444837b69c0c989743fcf672d92aae4d400f6c3",
+    "western_ny_metal": "f28a62ed14b555a876477bb32aac48f17a6ca95d8e17e792dadc7ca14ad36f92",
+    "wisconsin_metal": "f98598cb7e0a4d60ba22c64bab53f710128d5258f6a4c4d6b81f65912f21086d",
+    "5th_wave_emo": "8d89066bbfdc86cd99055240da7e948cfaf5bd712e2ea00f0c67e09c7d1255f7",
+    "acoustic_punk": "f682d96a0fbe0978e9f3e8ed27abeb2aea3156b2e2a2f6d0676f65afda5c52cb",
+    "adelaide_punk": "25e2f40ffc50a964c60367294e39fea045cdda621ff9e23f79b205b10c61fbfc",
+    "alabama_hardcore": "246f2d9a95b40c8f3779be0993155fbf3dc209a9996716d39034f2d581f4fca2",
+    "alternative_emo": "2dec13014801dd212188cd86ac5759d1369afb2d287e2ec36da820414d3c549b",
+    "alternative_hardcore": "e7fa8bfd3a8661c91e6fda3c5d3b392545600f4232d9ef1c1af269f6e1bcbbef",
+    "american_post_punk": "3aaf9fd06728dbf9f30b740f6f2bf63ed9a05f7e582eb452467305db5d145413",
+    "argentine_hardcore": "becf68008412a8b2aafac15b2551d53eb8147cd6b6dd252892d4764eb9cdd919",
+    "argentine_punk": "c6231e923ca45fc3cfa7c84aae610a41bc50ec1ef2e16566a5d6145e3cb25fb7",
+    "arizona_punk": "ba098489f6287a14ff8be99a6b8a0e8611b1d26c490654a35b6489ec56965212",
+    "atlanta_punk": "6ffb39e5bccfafc766dbf0a76b81ba396416905afbddc2e3510c3c847ba23bc5",
+    "aussie_emo": "b3ab10e0de9654c66b637d173f6a3461f317c594e94717fbbc9af08bdfbe23a6",
+    "australian_hardcore": "5e992b9b7d13f694bfecf4a1ad16928cdbbb1ba6c7390b7e5dc36e4808f0f9fa",
+    "australian_post_hardcore": "5feb1b3e6c13ff2a14a89837d882f09e6eccf9ce1c114b0260ac81d8e63e82a1",
+    "australian_post_punk": "61146fb83fdbcea62f821ba32e39565e394878989ac2120e5fc1e211a749adc1",
+    "austrian_punk": "3ede7d2324918976f7543d7ee5505627266a4d163ebe5b1f25d988c7cd8751f5",
+    "balkan_post_punk": "1ba7ae71968d2dec4d448b2a00267fc7f1f56ee766b3e51cbbc5c5df88263f45",
+    "balkan_punk": "8a1f8b7f25b1d87f93fc25bc9f137ec68138fcac50f49145dcfa65a474a908ab",
+    "baltic_post_punk": "3a66a0e2f88fa393f737b1a20656cbeafa0e2e001dec3d762f54ad6669fe2d72",
+    "belarusian_punk": "8d2969dce2e75acc24437efdf8a6ad77b28be8146a52fa0659a817634f0ad07a",
+    "belgian_hardcore": "06975f9294e562fa9288568b082738e351f6621b9144bb48c62327967b7ab3b4",
+    "belgian_punk": "2bc87b5d54e21f356dfa44e8301030ef6528f6ad3b3986f1b8c7256705264a7f",
+    "blackened_hardcore": "11985a769817de5564fa6b75be936f005c431b54a78048c6a86a7e8e7cfe4c98",
+    "blackened_screamo": "2f2972ab33e58bfff0f35cae434582cc85b7a68e785248d6261753d76901d9e8",
+    "boston_hardcore": "9a76205c3a4ddcec17f2f2d47435c8386c6b906d586d05b6ddfd522b36bdf494",
+    "boston_punk": "9fdba6ee3651685d9c4c674b2cfb0da67431b11448e6f2f788fcd0f3da311896",
+    "brazilian_emo": "c6e9254b1b1eb57d303dffc952790dc629cbde6f442e3bfdb6ce11bed8af12bb",
+    "brazilian_hardcore": "17c5acec303cf611b9cfa0ac341d6be593f40de718ffd3bc769522c6c3d18862",
+    "brazilian_post_hardcore": "262fdd3d38c7a90ff3f4f9c03ffc2cef4f0d2506c4817a70939b8305344903c7",
+    "brazilian_punk": "e57ba6ceaf603e9fc1229369de1f39589223040ce030b19b3cb4bc410cc7e07f",
+    "brazilian_punk_rock": "7c0509cdd698902230a2ff5e538b065f1e09df76fc01f219a0514fe3fb8d235f",
+    "brisbane_punk": "60054808b299fe9360f324dc2e037f6589371c31ca271f7319b6a48b1f09ac32",
+    "california_hardcore": "523ac8a4a018eed64f90ebbf94fe0c05657be32966014d5a77f83a8fe300b559",
+    "canadian_hardcore": "715553758c8f99d2856632c780d57d37be537a2ae6389523b4ed561c7162e896",
+    "canadian_pop_punk": "c99de60f9a94ea71794608546d64ccc34ca3772f1261e29a17c06f429e98c640",
+    "canadian_post_hardcore": "71cb43de8ee77b7f34c991bbe90677df65122270995c4d6ca6839bf2e34297e7",
+    "canadian_post_punk": "c5404584ffcb48c82449f354a7817400ba249fbde6eb152fd07166fe17839b15",
+    "canadian_punk": "4419ca87273348e120a693ee38e00a8cb6bcb77d928fe5a785eae2d3dacad402",
+    "chain_punk": "ca6506ae7fa1551e61146ed81a4878c14d0d9b7d40fb3d78ab6a8f1ea94e39f1",
+    "chicago_hardcore": "ac5b28ab3ae8aabcb6938c38f03eb661de0897172d13d01c291ed53276611e23",
+    "chicago_pop_punk": "930dfc9687ff02fc08f7f97e1fc2e3c38f110673baac97edfd4a774cae0edd4a",
+    "chicago_punk": "1d60897ae5ced70945e3e990c8aab989286da39de903a8ac40377ffb7367de73",
+    "chicano_punk": "c85c955449c4eeba418bd4629215e50a498c693fd3cdc98fe127a727644195a2",
+    "chilean_hardcore": "85cf3dee142db2361af0188f7bcb9298750b990094ac21e15060b7c4fce078f2",
+    "chinese_post_punk": "e23a48b374276d0003fb2170d3ab114a26af2a46f6cd16664782ae07faf3d9e4",
+    "chinese_punk": "3a7ff4bb00322ae75ab181ff8a8063dcdd3200ea38dbf3b07d98f2c31fc2fffb",
+    "christian_hardcore": "8b061c5d7015643c866fb7beb4e96794d2ffb0c82417f60e63e66c4c2528f692",
+    "christian_punk": "20fe050ce2b2687b6dd565b5c1dbda5661dc70883a76aaee7f1ded0bc66073df",
+    "colombian_hardcore": "027824a9b92d5a3dc07ee899ee6b278c22970382c1f29602b4813abc705264cc",
+    "diy_emo": "63cec6027189c98966a014ce815673597d1c19be0887d418f9db7fdc97ed4d90",
+    "diy_pop_punk": "9926b865af48cb1d52103d7ca63a3526f291867a6699ce5dd9b5af192b929c14",
+    "dutch_punk": "e5222cf2043ca8ee5fd953ba66363e4a6565eb8bbf8f572567fa58aa9e882769"
+  },
+  "final_entry_hash_method": "SHA256 exact entry sorted keys compact separators ensure_ascii=false UTF-8",
+  "verification_log_sha256": {
+    "batch011-check-api.log": "ca84463378a2473100fde0b2d6116f2753239af92d92d9655d4d2c6d8104a31b",
+    "batch011-equivalence.log": "e3de3a68c4f37bddb383d2284270769da90bf14b8c11fbc1d7fba29a5e07e930",
+    "batch011-slots.log": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+    "batch011-preflight.log": "5c772f33f2a3dddd1a5df00025748092cee3f08dc5d437c07165ea746bf6d9b3",
+    "batch011-lint.log": "d91fa2ab8f5fe2530065db17cade8c940bb9c7a88c35f49ce9583fe342541462",
+    "batch011-check-docs.log": "a55029206e695995f43a810bc7c8c44286b0e5f786f1e091366a0630e208c631",
+    "batch011-html.log": "f6e78aa1df855c1d57087a1ef8ddaf66b11c5e6c4d045e6864f0e3d6c30c4b18",
+    "batch011-chat-counter.log": "371bc8d84b4340e8fc002f7349933718bd4af734f6305183544e2dcd8a709961",
+    "batch011-integration.log": "657da5037cd8293fd4dd42c1fa2884487f4dd6e9d69fd8d72c3215cba8526bd3",
+    "batch011-regression-final-serial-interrupted.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "batch011-discovery.log": "1b03fe41b1dc2ccbbee4754d09287825932e919681ecdd213e217b5061f50a83",
+    "batch011-regression.log": "af6fc21a65b0537d74c820682da3247a4c117ba1e33b1bcfaaf6af028c616b01",
+    "batch011-static-api.log": "c36e6f8fa08d505ff2a9653bba2809395cd31715e164c8db93389934df112f04",
+    "batch011-df.log": "a8a6e53e2279c9b9f427633d8df08fcbb535c04e1b9edef9e8af5124a047b2f2",
+    "batch011-docs-fix.log": "de2744aa12b03ff7178a3fbf915c1e2654be172d0192b36d3c07e6ed52c7a08a",
+    "batch011-app-recipes.log": "1795be1f67d2c69900a81005587e969fbcacee30d3b0f14298152e1a6457ea1f",
+    "batch011-preface-lexicon.log": "5c5257fd3122987b1eb4637fb6b437ebfb4527f09849c5989ffc4a7b631cf1cf",
+    "batch011-workbench.log": "ec0df439dfe8a5eba683055731140d29f4fd77162d6e229b1e0f35bfe883a00c",
+    "batch011-docs-counts.log": "392d4353ee8b0183dd8218ffde00fc51d3d19d8ccaa6dbf0c14095612d4c0ab6",
+    "batch011-duplicates.log": "8fb625b0354bbab3ab7b0335e8cf75aee7068364d1d8e7553143da867c572592",
+    "batch011-regression-final.log": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+    "batch011-layout-geometry.log": "9a5aca9c6359cfc1ac045712cad002564872dbe1445c012d5e9c1cb4fa7375b5",
+    "batch011-atlas.log": "6e5ea6c1d09fcc7544309d7daf86b4bac55f657d355d4df02b1f2442bce62038",
+    "batch011-atlas-final.log": "276e1fca7352519c6e0b14f68578b43887c5be5b3aefb4834813707852c95c7c",
+    "batch011-additional-review.log": "a496bd6f33fb6bb2ede9d2ac274105ac38edc119ceacd156e8032d03f9134055",
+    "batch011-prefaces.log": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+    "batch011-format-check.log": "fd5f9628308185fba37f5cf22c3d3b0d41bb15bee2252aa4f9d2b2519152bd5e",
+    "batch011-signatures.log": "b63dd8ffdf8d11a4f657e09ce2ad4ceecffbb1d2f0fa10e4fd52fb8bd172895d"
+  }
+}

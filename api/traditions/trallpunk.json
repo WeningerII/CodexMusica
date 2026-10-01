@@ -5,7 +5,7 @@
   "lineage": "Swedish melodic hardcore subgenre named for its 'tralla' singalong melodies, formed in the mid-1980s around Uppsala and Stockholm and codified by Asta Kask, Strebers, Charta 77 and later Coca Carola and De Lyckliga Kompisarna — fast 180-220 BPM d-beat and straight-eight punk drumming, major-key twin-guitar lines drawn from Swedish visa and folk tunes, chanted gang-vocal choruses, and blunt Swedish-language social lyrics.",
   "recipe": "classic North American 1984-1986 trallpunk, distorted Rock, punk branch, pop punk distorted rock, European protest song skate punk oshare kei. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 633,
-  "score": 370.96,
+  "score": 373.045,
   "config": {
     "traditions": [
       "trallpunk",
@@ -42,14 +42,14 @@
           "voice_articulation": 21.709999999999994,
           "voice_microtone": 24.914999999999996,
           "voice_tradition": 12.479999999999997,
-          "voice_mechanism_compound": 13.13,
+          "voice_mechanism_compound": 13.805000000000001,
           "voice_estill_quality": 1.69,
           "voice_speech_song": 22.814999999999998,
-          "voice_ensemble_config": 30.834999999999997,
+          "voice_ensemble_config": 30.924999999999997,
           "voice_ornament_system": 0.9099999999999997,
-          "voice_pitch_organization": 6.145000000000001,
+          "voice_pitch_organization": 6.100000000000001,
           "voice_processing_chain": 3.8199999999999994,
-          "voice_multitrack_stack": 4.785
+          "voice_multitrack_stack": 4.800000000000001
         }
       },
       {
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 21.05,
-          "amp_make": 31.384999999999998,
+          "amp_make": 32.06,
           "body_wood": 3.1200000000000006,
           "neck_wood": 2.3800000000000003,
           "fretboard": 2.3300000000000005,
@@ -101,7 +101,7 @@
           "amp_make": 9.425,
           "body_wood": 4.4,
           "pickup_config": 2.0799999999999996,
-          "string_type": 17.64,
+          "string_type": 18.315,
           "scale_length_b": 2.3800000000000003,
           "fretted_or_not": 0.045,
           "bass_technique": 35.095000000000006,

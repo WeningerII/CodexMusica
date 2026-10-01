@@ -5,7 +5,7 @@
   "lineage": "Portland metal is a city-scene discovery field represented by Red Fang’s riff-centered heavy-rock/metal branch and the locally recorded Arrows repertoire.",
   "recipe": "classic modern portland metal, distorted Rock, sludge branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 457,
-  "score": 70.129,
+  "score": 70.543,
   "config": {
     "traditions": [
       "portland_metal"
@@ -29,8 +29,8 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 13.87075,
-          "amp_make": 6.603000000000001,
+          "electric_technique": 14.02825,
+          "amp_make": 6.695,
           "body_wood": 6.24,
           "neck_wood": 0.078,
           "fretboard": 0.1095,
@@ -39,7 +39,7 @@
           "string_material": 0.0315,
           "bridge": 0.9099999999999999,
           "scale_length": 6.24,
-          "string_gauge": 0.902125,
+          "string_gauge": 0.9099999999999999,
           "finish": 0,
           "string_tuning": 2.34
         }
@@ -60,7 +60,7 @@
           "amp_make": 5.22125,
           "body_wood": 0.18749999999999997,
           "pickup_config": 0.305625,
-          "string_type": 8.4355,
+          "string_type": 8.593,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.3225,
           "bass_technique": 6.949999999999999,

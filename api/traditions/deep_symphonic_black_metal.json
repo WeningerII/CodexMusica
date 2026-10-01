@@ -5,7 +5,7 @@
   "lineage": "Deep symphonic black metal is treated as a discovery cohort, represented by Suffering Souls. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern deep symphonic black metal, distorted Rock, symphonic branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, drum kit, rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 460,
-  "score": 31.112,
+  "score": 31.592,
   "config": {
     "traditions": [
       "deep_symphonic_black_metal"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.21975000000000003,
+          "voice_multitrack_stack": 0.19537500000000002,
           "voice_tessitura": 0
         }
       },
@@ -78,9 +78,9 @@
           "pickup_magnet": 0.0735,
           "pickup_winding": 0.0735,
           "string_material": 0.0735,
-          "bridge": 0.09974999999999999,
+          "bridge": 0.35400000000000004,
           "scale_length": 5.329999999999999,
-          "string_gauge": 0.40724999999999995,
+          "string_gauge": 0.667125,
           "finish": 0,
           "string_tuning": 0.39
         }
@@ -92,18 +92,18 @@
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.09224999999999998,
-          "pickup_config": 0.28425,
+          "body_wood": 0.08099999999999999,
+          "pickup_config": 0.278625,
           "string_type": 4.875,
-          "scale_length_b": 0.037125,
-          "fretted_or_not": 0.044625,
+          "scale_length_b": 0.0315,
+          "fretted_or_not": 0.0315,
           "bass_technique": 3.7131250000000002,
           "electric_bass_string_configuration": 0
         }
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.305625,
+          "drum_technique": 0.337125,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0
         }
@@ -130,7 +130,7 @@
           "rompler_lineage": "rompler_yamaha_psr_casio"
         },
         "scores": {
-          "electronic_technique": -0.094375,
+          "electronic_technique": -0.1,
           "rompler_preset_bank": 0.1335,
           "rompler_context": 0.78,
           "rompler_lineage": 0.39

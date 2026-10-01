@@ -5,7 +5,7 @@
   "lineage": "An international dance/rock crossover label joining band playing with dancefloor-oriented rhythm. The selected early Franz Ferdinand branch uses interlocking guitar/bass figures, an emphatic acoustic kick and lead/backing singing.",
   "recipe": "classic dance rock, distorted Rock, alternative branch. one note per syllable, unprocessed natural acoustic. single coil electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. large-diaphragm condenser, console-strip pre, vox AC30 top boost, parametric EQ. 24-bit digital.",
   "recipe_chars": 355,
-  "score": 26.098,
+  "score": 25.557,
   "config": {
     "traditions": [
       "dance_rock"
@@ -37,7 +37,7 @@
           "pickup_magnet": 0,
           "string_material": 0.105,
           "string_gauge": 0.273,
-          "bridge": 0.39649999999999996,
+          "bridge": 0.1365,
           "scale_length": 0,
           "finish": 0,
           "string_tuning": 0,
@@ -61,8 +61,8 @@
           "body_wood": 0.40950000000000003,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 0.26649999999999996,
-          "fretted_or_not": 0,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.0735,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -127,12 +127,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.69,
-          "voice_ensemble_config": 0.39,
+          "voice_speech_song": 1.6465,
+          "voice_ensemble_config": 0.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.168,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 0.3
         }
       }
     ],

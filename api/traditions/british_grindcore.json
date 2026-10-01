@@ -3,14 +3,14 @@
   "name": "British grindcore",
   "family": "rock_punk",
   "lineage": "British grindcore represented by Napalm Death’s Birmingham scene and a primary retrospective of its early BBC Peel session. Short high-intensity songs, live basic tracking and blast drumming provide the branch.",
-  "recipe": "classic modern british grindcore, distorted Rock, metal branch, punk distorted rock afro-punk d-beat. solo with instrumental accompaniment. fast decay low resonance ebony humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter electro-harmonix big muff pi.",
-  "recipe_chars": 476,
-  "score": 62.27,
+  "recipe": "classic modern british grindcore, distorted Rock, metal branch, punk distorted rock alternative hardcore alabama hardcore. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter electro-harmonix big muff pi.",
+  "recipe_chars": 466,
+  "score": 42.895,
   "config": {
     "traditions": [
       "british_grindcore",
-      "afro_punk",
-      "d_beat_swedish"
+      "alternative_hardcore",
+      "alabama_hardcore"
     ],
     "instruments": [
       {
@@ -35,15 +35,15 @@
           "amp_make": 0,
           "body_wood": 0.585,
           "neck_wood": 0.09,
-          "fretboard": 1.04,
+          "fretboard": 0.39,
           "pickup_magnet": 0,
           "pickup_winding": 0.195,
           "string_material": 0.09,
           "bridge": 0.585,
           "scale_length": 0,
-          "string_gauge": 0.7,
+          "string_gauge": 1.7,
           "finish": 0,
-          "string_tuning": 0
+          "string_tuning": 0.3
         }
       },
       {
@@ -65,7 +65,7 @@
           "string_type": 0.28500000000000003,
           "scale_length_b": 0,
           "fretted_or_not": 0,
-          "bass_technique": 23.17,
+          "bass_technique": 15.795,
           "electric_bass_string_configuration": 0
         }
       },
@@ -85,16 +85,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": 6.955000000000001,
+          "drum_technique": 1.69,
           "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.195,
+          "shell_wood": 0.135,
           "shell_thickness": 0,
           "bearing_edges": 0.28500000000000003,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 14.515,
-          "cymbal_lathing": 12.525,
+          "cymbal_hammering": 9.84,
+          "cymbal_lathing": 9.149999999999999,
           "cymbal_finish": 0
         }
       },
@@ -130,11 +130,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4300000000000002,
-          "voice_ornament_system": 0.35,
+          "voice_ensemble_config": 2.08,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.195,
-          "voice_multitrack_stack": 0.15
+          "voice_multitrack_stack": 0
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Japanese punk lineage running from Tokyo's 1978-1983 first wave — the Stalin, INU, Gauze, the Star Club — through the 1987-1995 melodic era of the Blue Hearts and Hi-Standard, characterized by fast downstroke barre-chord guitar at 180-240 BPM, driving eighth-note bass, hardcore d-beat or straight-eight drumming, Japanese-language shouted or strained-melodic vocals, and abrasive fast tracking in small Tokyo and Osaka studios and live houses.",
   "recipe": "classic East Asian mid-1980s j-punk, distorted Rock, punk branch, pop punk distorted rock, noise rock distorted rock skate punk oshare kei. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 714,
-  "score": 502.762,
+  "score": 497.315,
   "config": {
     "traditions": [
       "j_punk",
@@ -31,15 +31,15 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 23.77,
-          "amp_make": 40.196000000000005,
+          "electric_technique": 23.575,
+          "amp_make": 39.230000000000004,
           "body_wood": 1.4300000000000002,
           "neck_wood": 0.585,
-          "fretboard": 3.1096249999999994,
-          "pickup_magnet": 3.7508749999999997,
+          "fretboard": 2.8774999999999995,
+          "pickup_magnet": 3.6687499999999993,
           "pickup_winding": 0.3,
           "string_material": 0.24,
-          "bridge": 2.9146249999999996,
+          "bridge": 3.1849999999999996,
           "scale_length": 0.8449999999999999,
           "string_gauge": 0.975,
           "finish": 0.195,
@@ -61,10 +61,10 @@
         "scores": {
           "amp_make": 12.545,
           "body_wood": 3.769999999999999,
-          "pickup_config": 3.3799999999999994,
-          "string_type": 24.5375,
-          "scale_length_b": 1.4837499999999997,
-          "fretted_or_not": 1.2850000000000001,
+          "pickup_config": 3.3687499999999995,
+          "string_type": 23.735,
+          "scale_length_b": 1.4387499999999998,
+          "fretted_or_not": 1.045,
           "bass_technique": 41.14000000000001,
           "electric_bass_string_configuration": 0
         }
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.49875,
-          "drumhead": 9.108749999999999,
+          "drum_technique": 22.375,
+          "drumhead": 8.7,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -107,14 +107,14 @@
           "voice_quality": 13.454999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.40125,
+          "voice_vibrato": 6.13875,
           "voice_articulation": 20.279999999999994,
           "voice_microtone": 28.22,
-          "voice_tradition": 14.506249999999998,
+          "voice_tradition": 14.067499999999997,
           "voice_mechanism_compound": 19.3375,
           "voice_estill_quality": 1.69,
           "voice_speech_song": 18.784999999999993,
-          "voice_ensemble_config": 33.802125000000004,
+          "voice_ensemble_config": 33.3675,
           "voice_ornament_system": 2.2099999999999995,
           "voice_pitch_organization": 5.330000000000001,
           "voice_processing_chain": 4.8100000000000005,
@@ -139,15 +139,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 23.77,
-          "amp_make": 40.196000000000005,
+          "electric_technique": 23.575,
+          "amp_make": 39.230000000000004,
           "body_wood": 0.6975,
           "neck_wood": 0.585,
-          "fretboard": 3.1096249999999994,
-          "pickup_magnet": 0.285,
+          "fretboard": 2.8774999999999995,
+          "pickup_magnet": 0.24,
           "string_material": 0.24,
           "string_gauge": 0.975,
-          "bridge": 2.9146249999999996,
+          "bridge": 2.8774999999999995,
           "scale_length": 0.585,
           "finish": 0.195,
           "string_tuning": 12.155000000000001,

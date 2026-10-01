@@ -5,7 +5,7 @@
   "lineage": "Canadian metal scope represented by Montreal’s Cryptopsy, whose official artist profiles document a technical death-metal quartet and purposeful alternation of intensity, melodic material and groove.",
   "recipe": "classic modern canadian death metal, distorted Rock, death branch. solo with instrumental accompaniment. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 382,
-  "score": 22.371,
+  "score": 23.304,
   "config": {
     "traditions": [
       "canadian_death_metal"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 0,
-          "body_wood": 0.8160000000000001,
+          "body_wood": 0.9105000000000001,
           "neck_wood": 0.34349999999999997,
-          "fretboard": 0.3015,
+          "fretboard": 0.5325,
           "pickup_magnet": 0,
           "pickup_winding": 0.39,
           "string_material": 0.34349999999999997,
-          "bridge": 0.8160000000000001,
+          "bridge": 0.9105000000000001,
           "scale_length": 0,
-          "string_gauge": 0.11249999999999999,
+          "string_gauge": 0.186,
           "finish": 0,
-          "string_tuning": 0.855
+          "string_tuning": 1.086
         }
       },
       {
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.8160000000000001,
+          "body_wood": 0.9105000000000001,
           "pickup_config": 0,
           "string_type": 0.39,
-          "scale_length_b": 0.43799999999999994,
+          "scale_length_b": 0.6689999999999999,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -86,12 +86,12 @@
           "drum_technique": 3.75,
           "drumhead": 0.39,
           "drum_kit_kick_pedal": 0.78,
-          "shell_wood": 0.48,
+          "shell_wood": 0.5115,
           "shell_thickness": 0.0315,
           "bearing_edges": 0.39,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
-          "cymbal_hammering": 4.95425,
+          "cymbal_hammering": 4.88,
           "cymbal_lathing": 4.5205,
           "cymbal_finish": 0
         }
@@ -132,7 +132,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.03899999999999999,
-          "voice_multitrack_stack": 0.13724999999999998
+          "voice_multitrack_stack": 0.063
         }
       }
     ],

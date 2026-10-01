@@ -5,7 +5,7 @@
   "lineage": "Colombian death metal is represented by Masacre’s Medellín practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern colombian death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 439,
-  "score": 54.351,
+  "score": 52.945,
   "config": {
     "traditions": [
       "colombian_death_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.0187499999999998,
+          "voice_ensemble_config": 1.1159999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.10575,
+          "voice_multitrack_stack": 0.07425,
           "voice_tessitura": 0
         }
       },
@@ -60,27 +60,27 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_4_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 12.982999999999995,
+          "electric_technique": 12.659999999999997,
           "amp_make": 6.305,
           "body_wood": 6.499999999999999,
-          "neck_wood": 0.8997499999999998,
-          "fretboard": 0.363,
-          "pickup_magnet": 0.34724999999999995,
-          "pickup_winding": 0.28875,
-          "string_material": 0.312,
-          "bridge": 0.8997499999999998,
+          "neck_wood": 0.81975,
+          "fretboard": 0.3165,
+          "pickup_magnet": 0.3,
+          "pickup_winding": 0.27375,
+          "string_material": 0.1995,
+          "bridge": 0.81975,
           "scale_length": 6.499999999999999,
-          "string_gauge": 1.0677499999999998,
+          "string_gauge": 0.81975,
           "finish": 0.0315,
           "string_tuning": 0.39
         }
@@ -90,7 +90,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -99,12 +99,12 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.7994999999999999,
-          "pickup_config": 0.17925000000000002,
+          "body_wood": 1.6395,
+          "pickup_config": 0.105,
           "string_type": 4.875,
-          "scale_length_b": 0.8997499999999998,
-          "fretted_or_not": 0.03899999999999999,
-          "bass_technique": 3.8335000000000004,
+          "scale_length_b": 0.81975,
+          "fretted_or_not": 0.0315,
+          "bass_technique": 3.826,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 1.4644999999999997,
-          "drumhead": 0.97325,
+          "drum_technique": 1.3544999999999998,
+          "drumhead": 0.8932500000000001,
           "drum_kit_kick_pedal": 0
         }
       }

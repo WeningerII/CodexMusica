@@ -5,7 +5,7 @@
   "lineage": "Finnish progressive metal includes keyboard-rich rock/metal combinations. This selected Amorphis Circle-era arrangement expands the electric guitar, five-string bass, drum and vocal core with grand piano, Hammond-style tonewheel organ and monophonic synth lead. The primary studio interview documents these distinct keyboard colors; they are not compressed into an invented generic orchestral patch. This model emphasizes the band’s contrasting keyboard and guitar parts rather than requiring odd meter in every passage.",
   "recipe": "classic modern finnish progressive metal, distorted Rock, metal branch. equal tempered, one note per syllable, solo with instrumental accompaniment, aurally tuned. low mid rich spectrum woody mahogany humbucker electric guitar, mahogany five string electric bass electric bass, double bass rapid double strokes bronze bell bronze machine hammered drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched full spectrum fast tremolo tonewheel organ, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 740,
-  "score": 89.136,
+  "score": 88.297,
   "config": {
     "traditions": [
       "finnish_progressive_metal"
@@ -39,9 +39,9 @@
           "string_material": 0.105,
           "bridge": 1.69,
           "scale_length": 0,
-          "string_gauge": 0.252,
+          "string_gauge": 0.421,
           "finish": 0,
-          "string_tuning": 0.3045
+          "string_tuning": 0.3435
         }
       },
       {
@@ -64,7 +64,7 @@
           "scale_length_b": 0.3045,
           "fretted_or_not": 0.1365,
           "bass_technique": 6.949999999999999,
-          "electric_bass_string_configuration": 5.87875
+          "electric_bass_string_configuration": 5.635
         }
       },
       {
@@ -127,12 +127,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 1.210875,
+          "voice_speech_song": 1.128,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.5145,
-          "voice_processing_chain": 4.91625,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 4.6335,
+          "voice_multitrack_stack": 1.573
         }
       },
       {
@@ -151,7 +151,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 1.573,
-          "grand_piano_brand": 0.3603749999999999,
+          "grand_piano_brand": 0.1995,
           "piano_hammer": 3.5100000000000002,
           "piano_rim": 3.5100000000000002,
           "piano_soundboard": -0.07,
@@ -189,7 +189,7 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 1.56,
+          "electronic_technique": 1.3995,
           "mono_oscillator": 0.1365,
           "mono_filter": 0.6825,
           "mono_archetypes": 1.69,

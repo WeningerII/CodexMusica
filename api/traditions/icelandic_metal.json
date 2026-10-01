@@ -5,7 +5,7 @@
   "lineage": "Icelandic metal is a geographic discovery field represented by Sólstafir’s Reykjavík-rooted evolution from black metal into a dark, psychedelic and rock-inflected metal practice.",
   "recipe": "classic modern icelandic metal, distorted Rock, metal branch, post metal metal atmospheric post-metal post-metal. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 565,
-  "score": 132.049,
+  "score": 131.92,
   "config": {
     "traditions": [
       "icelandic_metal",
@@ -41,9 +41,9 @@
           "string_material": 1.4300000000000002,
           "bridge": 1.3649999999999998,
           "scale_length": 19.435000000000002,
-          "string_gauge": 1.4999999999999998,
+          "string_gauge": 1.5599999999999996,
           "finish": 0.105,
-          "string_tuning": 0.753
+          "string_tuning": 0.78
         }
       },
       {
@@ -62,7 +62,7 @@
           "amp_make": 11.049999999999997,
           "body_wood": 1.155,
           "pickup_config": 0.49499999999999994,
-          "string_type": 23.682000000000002,
+          "string_type": 23.466,
           "scale_length_b": 0.5775,
           "fretted_or_not": 0.3,
           "bass_technique": -0.11850000000000002,
