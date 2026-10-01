@@ -1,0 +1,132 @@
+{
+  "id": "instrumental_post_rock",
+  "name": "Instrumental post-rock",
+  "family": "rock_punk",
+  "lineage": "Instrumental post-rock is represented here by Russian Circles. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic instrumental post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 319,
+  "score": 39.752,
+  "config": {
+    "traditions": [
+      "instrumental_post_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.10500000000000001,
+          "amp_make": 4.8100000000000005,
+          "body_wood": 0.693,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.252,
+          "pickup_winding": 0.37875000000000003,
+          "string_material": 0.39,
+          "bridge": 1.69,
+          "scale_length": 0.39,
+          "string_gauge": 1.69,
+          "finish": 0.1365,
+          "string_tuning": 0.38175
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 5.265,
+          "body_wood": 0.21,
+          "pickup_config": 0.2835,
+          "string_type": 12.35,
+          "scale_length_b": 0.378,
+          "fretted_or_not": 0.03899999999999999,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 9.5,
+          "drumhead": 0.39,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drum_kit_kick_pedal"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_arpeggiated_clean",
+      "string_tuning": "standard_tuning",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "drum_kit_kick_pedal": "dk_kick_single_felt"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_amp_guitar": "amp_modern_modeling",
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

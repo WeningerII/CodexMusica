@@ -5,7 +5,7 @@
   "lineage": "British and American folk of roughly 1965-1975 that extended revival repertoire into long-form, harmonically ambitious arrangement — Pentangle, the Incredible String Band, Roy Harper, Bert Jansch and Tim Buckley — using open and altered guitar tunings, jazz-derived double bass and brushed kit, modal and chromatic harmony, extended instrumental sections, and free-metred introductions before settling into a sung strophic body.",
   "recipe": "classic British mid-1970s progressive folk, ballad Poetry, britfolk branch, pop rock folk rock, progressive rock distorted rock czech folk rock. thick, incomplete closure resting, straight onset, interlocked note trading. dadgad tuning cedar walnut fingerpicked acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, pre muffled edge muffled sticks backbeat drum kit, maple mid tier Baroque alternative melodic recorder, bowl back Italian redwood hard rock maple thomastik flatwound mandolin. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 754,
-  "score": 386.447,
+  "score": 386.582,
   "config": {
     "traditions": [
       "progressive_folk",
@@ -41,14 +41,14 @@
           "voice_vibrato": 3.6400000000000006,
           "voice_articulation": 18.069999999999993,
           "voice_microtone": 31.524999999999995,
-          "voice_tradition": 28.48999999999999,
+          "voice_tradition": 28.159999999999993,
           "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 5.830000000000001,
+          "voice_estill_quality": 5.98,
           "voice_speech_song": 24.764999999999993,
           "voice_ensemble_config": 18.199999999999992,
           "voice_ornament_system": 2.7950000000000004,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 5.215000000000001,
+          "voice_pitch_organization": 1.54,
+          "voice_processing_chain": 5.0200000000000005,
           "voice_multitrack_stack": 6.2725
         }
       },
@@ -62,7 +62,7 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 3.9000000000000004,
+          "string_tuning": 3.9450000000000003,
           "top_wood": 1.235,
           "back_sides": 1.235,
           "string_acoustic": 3.1849999999999996,
@@ -91,7 +91,7 @@
           "bass_back_wood": 0.8949999999999999,
           "bass_varnish": 0.75,
           "bass_setup_period": 1.9499999999999997,
-          "bass_play": 3.34,
+          "bass_play": 3.295,
           "bass_rosin": 6.305,
           "bass_bow_stick": 0.8449999999999999
         }
@@ -138,7 +138,7 @@
         },
         "scores": {
           "acoustic_technique": 9.995,
-          "mandolin_shape": 10.719999999999999,
+          "mandolin_shape": 11.184999999999999,
           "mandolin_top": 1.235,
           "mandolin_back": 11.569999999999999,
           "mandolin_bracing": 0.12999999999999998,

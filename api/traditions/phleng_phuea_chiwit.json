@@ -3,9 +3,9 @@
   "name": "Phleng Phuea Chiwit",
   "family": "global",
   "lineage": "Thai \"songs for life\" protest rock formed among Bangkok student activists around the 1973-76 uprisings and codified by Caravan and later Carabao, welding mid-tempo 4/4 folk-rock strumming and country-rock backbeats to Isan reed timbres (khaen, phin), plainspoken baritone lead vocals in unison group choruses, and lyrics on rural poverty, labor and dictatorship.",
-  "recipe": "classic Southeast Asian early-1970s phleng phuea chiwit, protest Song, east Asian branch, pop rock folk rock, anglo singer song country folk story czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar coated nanoweb travis picked dreadnought acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic straight khaen, dance driving phin, reed pearwood marine band tradition brass traditional harmonica. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 838,
-  "score": 513.716,
+  "recipe": "classic Southeast Asian early-1970s phleng phuea chiwit, protest Song, east Asian branch, pop rock folk rock, anglo singer song country folk story czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. cedar coated nanoweb travis picked dreadnought acoustic marshall plexi amp British rock amp mahogany rosewood clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic straight khaen, phin, reed pearwood marine band tradition brass traditional harmonica. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 824,
+  "score": 516.506,
   "config": {
     "traditions": [
       "phleng_phuea_chiwit",
@@ -38,17 +38,17 @@
           "voice_quality": 9.36,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.373,
+          "voice_vibrato": 7.418,
           "voice_articulation": 15.989999999999995,
           "voice_microtone": 32.48300000000001,
-          "voice_tradition": 28.554249999999993,
+          "voice_tradition": 29.37549999999999,
           "voice_mechanism_compound": 1.2349999999999999,
-          "voice_estill_quality": 8.548,
+          "voice_estill_quality": 8.72425,
           "voice_speech_song": 23.984999999999992,
           "voice_ensemble_config": 15.729999999999993,
           "voice_ornament_system": 3.6390000000000002,
-          "voice_pitch_organization": 3.5705000000000005,
-          "voice_processing_chain": 4.96875,
+          "voice_pitch_organization": 3.6155000000000004,
+          "voice_processing_chain": 4.995,
           "voice_multitrack_stack": 4.387500000000001
         }
       },
@@ -64,9 +64,9 @@
         "scores": {
           "acoustic_technique": 25.364999999999995,
           "string_tuning": 0.06499999999999999,
-          "top_wood": 2.67625,
+          "top_wood": 2.665,
           "back_sides": 0.105,
-          "string_acoustic": 1.3375000000000001
+          "string_acoustic": 1.3
         }
       },
       {
@@ -88,17 +88,17 @@
         },
         "scores": {
           "electric_technique": 7.5325,
-          "amp_make": 13.704999999999998,
-          "body_wood": 2.63125,
-          "neck_wood": 2.63125,
-          "fretboard": 2.5812500000000003,
+          "amp_make": 14.169999999999998,
+          "body_wood": 2.62,
+          "neck_wood": 2.62,
+          "fretboard": 2.5700000000000003,
           "pickup_magnet": 0.195,
           "string_material": 0.39,
-          "string_gauge": 2.66375,
+          "string_gauge": 2.6525,
           "bridge": 0.195,
           "scale_length": 2.925,
           "finish": 0,
-          "string_tuning": 13.711125,
+          "string_tuning": 13.845,
           "single_coil_pickup_construction": 0
         }
       },
@@ -115,11 +115,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.608125,
+          "amp_make": 14.82,
           "body_wood": 2.925,
           "pickup_config": 0,
-          "string_type": 29.04,
-          "scale_length_b": 2.63125,
+          "string_type": 29.73,
+          "scale_length_b": 2.62,
           "fretted_or_not": 0.195,
           "bass_technique": 26.464999999999996,
           "electric_bass_string_configuration": 0
@@ -155,12 +155,12 @@
         "id": "phin",
         "slots": {
           "phin_form": "phin_song_sai",
-          "phin_repertoire": "phin_prayuk",
+          "phin_repertoire": "phin_lam_accompaniment",
           "phin_construction": "phin_jackfruit_carved"
         },
         "scores": {
-          "phin_form": 20.3755,
-          "phin_repertoire": 3.224375,
+          "phin_form": 20.677374999999998,
+          "phin_repertoire": 3.2140000000000004,
           "phin_construction": 3.418
         }
       },
@@ -177,7 +177,7 @@
         "scores": {
           "harmonica_type": 1.3840000000000001,
           "harmonica_comb": 2.4699999999999998,
-          "harmonica_reed": 2.639625,
+          "harmonica_reed": 2.628375,
           "harmonica_technique": 26.502999999999997,
           "harmonica_maker_school": 0,
           "harmonica_tuning": 0.218

@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s UK classical-and-jazz-influenced rock genre featuring extended composition, complex meter, virtuosic instrumental performance — codified through King Crimson (In the Court of the Crimson King 1969, the prog founding album), Yes (Fragile 1971, Close to the Edge 1972), Genesis (Selling England by the Pound 1973, the Peter Gabriel era), Pink Floyd (the post-Syd-Barrett expansion through Dark Side of the Moon 1973 and Wish You Were Here 1975), Emerson Lake and Palmer, Jethro Tull, Gentle Giant",
   "recipe": "classic Northern European 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock classic psychedelic rock action rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, silver legato flute, string machine, five string extended low range warm low c prog rock magnetic pickup electric violin.",
   "recipe_chars": 942,
-  "score": 763,
+  "score": 761.976,
   "config": {
     "traditions": [
       "progressive_rock",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 42.370000000000026,
+          "voice_register": 42.22000000000003,
           "voice_quality": 19.825000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,12 +43,12 @@
           "voice_microtone": 41.475000000000016,
           "voice_tradition": 6.425,
           "voice_mechanism_compound": 7.995,
-          "voice_estill_quality": 6.970000000000001,
+          "voice_estill_quality": 6.880000000000001,
           "voice_speech_song": 15.599999999999998,
           "voice_ensemble_config": 15.729999999999997,
-          "voice_ornament_system": 7.330000000000001,
-          "voice_pitch_organization": 4.800000000000001,
-          "voice_processing_chain": 12.775,
+          "voice_ornament_system": 7.285000000000001,
+          "voice_pitch_organization": 4.65,
+          "voice_processing_chain": 12.598749999999999,
           "voice_multitrack_stack": 8.170000000000002
         }
       },
@@ -63,7 +63,7 @@
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
@@ -73,14 +73,14 @@
           "electric_technique": 8.45,
           "amp_make": 23.302500000000002,
           "body_wood": 0.885,
-          "neck_wood": 2.68,
-          "fretboard": 2.68,
+          "neck_wood": 2.635,
+          "fretboard": 2.635,
           "pickup_magnet": 0.785,
           "pickup_winding": 3.8999999999999995,
-          "string_material": 2.68,
-          "bridge": 0.885,
+          "string_material": 2.635,
+          "bridge": 1.06125,
           "scale_length": 2.08,
-          "string_gauge": 0.895,
+          "string_gauge": 1.105,
           "finish": 0.435,
           "string_tuning": 23.855
         }
@@ -101,7 +101,7 @@
           "amp_make": 20.410000000000004,
           "body_wood": 1.7700000000000002,
           "pickup_config": 0.65,
-          "string_type": 43.43000000000001,
+          "string_type": 43.22250000000001,
           "scale_length_b": 0.885,
           "fretted_or_not": 0,
           "bass_technique": 40.535000000000004,
@@ -137,7 +137,7 @@
           "rotary_speed": 36.07500000000001,
           "percussion_setting": 18.785000000000004,
           "tonewheel_model": 24.310000000000002,
-          "leslie_cabinet_model": 2.0500000000000003
+          "leslie_cabinet_model": 1.855
         }
       },
       {
@@ -170,7 +170,7 @@
           "electronic_technique": 1.1949999999999998,
           "oscillator": 3.8999999999999995,
           "filter_topology": 4.744999999999999,
-          "envelope": 1.84,
+          "envelope": 1.8562500000000002,
           "modulation": 1
         }
       },
@@ -190,13 +190,13 @@
         "scores": {
           "keyboard_technique": 4.795,
           "grand_piano_size": 0.9300000000000002,
-          "grand_piano_brand": 2.68,
+          "grand_piano_brand": 2.635,
           "piano_hammer": 25.870000000000005,
           "piano_rim": 27.300000000000004,
           "piano_soundboard": 6.050000000000001,
-          "piano_pinblock": 5.15,
+          "piano_pinblock": 5.19875,
           "piano_plate": 4.745,
-          "piano_pitch_standard": 6.79
+          "piano_pitch_standard": 6.68875
         }
       },
       {
@@ -210,8 +210,8 @@
         },
         "scores": {
           "wind_articulation": 5.1,
-          "flute_size": 2.68,
-          "flute_material": 1.18,
+          "flute_size": 2.635,
+          "flute_material": 1.135,
           "flute_technique": 0.35,
           "flute_maker_school": 0.39
         }
@@ -228,7 +228,7 @@
           "electronic_technique": -0.07,
           "sm_voice_count": 0.195,
           "sm_chorus": 3.8999999999999995,
-          "sm_voicing": 0.785
+          "sm_voicing": 0.74
         }
       },
       {
@@ -239,7 +239,7 @@
           "electric_violin_pickup": "electric_violin_pickup_magnetic"
         },
         "scores": {
-          "electric_violin_form": 2.975,
+          "electric_violin_form": 2.93,
           "electric_violin_context": 38.057500000000005,
           "electric_violin_pickup": 2.0149999999999997
         }

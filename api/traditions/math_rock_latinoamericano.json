@@ -1,0 +1,132 @@
+{
+  "id": "math_rock_latinoamericano",
+  "name": "Math rock latinoamericano",
+  "family": "rock",
+  "lineage": "Math rock latinoamericano is represented here by tortuganónima — Corrientes (Instrumental). This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic math rock latinoamericano, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 322,
+  "score": 54.459,
+  "config": {
+    "traditions": [
+      "math_rock_latinoamericano"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.11850000000000002,
+          "amp_make": 6.89,
+          "body_wood": 0.7979999999999999,
+          "neck_wood": 0.5145,
+          "fretboard": 0.5145,
+          "pickup_magnet": 0.357,
+          "pickup_winding": 0.357,
+          "string_material": 0.5145,
+          "bridge": 1.5190000000000001,
+          "scale_length": 1.344,
+          "string_gauge": 1.456,
+          "finish": 0.1365,
+          "string_tuning": 0.33599999999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 7.344999999999999,
+          "body_wood": 0.21,
+          "pickup_config": 0.38849999999999996,
+          "string_type": 17.55,
+          "scale_length_b": 0.483,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_clear",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 13.5,
+          "drumhead": 0.5145,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drum_kit_kick_pedal"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_arpeggiated_clean",
+      "string_tuning": "standard_tuning",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "drum_kit_kick_pedal": "dk_kick_single_felt"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_amp_guitar": "amp_modern_modeling",
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

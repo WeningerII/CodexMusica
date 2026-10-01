@@ -5,7 +5,7 @@
   "lineage": "Saharan Tamasheq ishumar / tishoumaren electric-guitar tradition codified through Tinariwen (formed 1979 in Algerian refugee camps among Tuareg exiles) — characterized by hypnotic modal pentatonic guitar figures, call-and-response Tamasheq vocals, and dry desert-room production aesthetic; Bombino, Mdou Moctar, and Etran Finatawa extending the lineage post-2000s",
   "recipe": "classic North African mid-2000s tuareg desert blues, drone Modal, modal electric branch, west African groove percussion palm-wine guitar jùjú. thick, breath veiled tone, wide pitch sway, interlocked note trading. dry roasted maple maple single coil electric guitar, rock canon ernie ball slinky electric bass, foundational low fundamental tuning deep calabash inverted calabash, horsehair bow canonical tuareg tuareg women canonical solo imzad, call-and-response xalam. cement block broadcast booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 629,
-  "score": 254.366,
+  "score": 254.347,
   "config": {
     "traditions": [
       "desert_blues",
@@ -42,13 +42,13 @@
           "voice_articulation": 16.57499999999999,
           "voice_microtone": 22.55499999999999,
           "voice_tradition": 48.1,
-          "voice_mechanism_compound": 8.76625,
+          "voice_mechanism_compound": 8.754999999999999,
           "voice_estill_quality": 5.289999999999999,
           "voice_speech_song": 20.409999999999993,
           "voice_ensemble_config": 16.769999999999992,
           "voice_ornament_system": 7.312499999999999,
-          "voice_pitch_organization": 7.968749999999998,
-          "voice_processing_chain": 7.27875,
+          "voice_pitch_organization": 7.964999999999999,
+          "voice_processing_chain": 7.2749999999999995,
           "voice_multitrack_stack": 6.825000000000001
         }
       },

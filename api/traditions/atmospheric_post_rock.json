@@ -5,7 +5,7 @@
   "lineage": "Atmospheric post-rock is represented here by The Day We Left Earth. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic atmospheric post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 318,
-  "score": 43.041,
+  "score": 42.574,
   "config": {
     "traditions": [
       "atmospheric_post_rock"
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": -0.11850000000000002,
           "amp_make": 5.2,
-          "body_wood": 0.693,
+          "body_wood": 0.5565,
           "neck_wood": 0.378,
           "fretboard": 0.378,
-          "pickup_magnet": 0.252,
-          "pickup_winding": 0.37124999999999997,
+          "pickup_magnet": 0.147,
+          "pickup_winding": 0.3435,
           "string_material": 0.378,
-          "bridge": 1.6725,
-          "scale_length": 1.2224999999999997,
-          "string_gauge": 1.6095000000000002,
+          "bridge": 1.69,
+          "scale_length": 1.1174999999999997,
+          "string_gauge": 1.69,
           "finish": 0.1365,
-          "string_tuning": 0.37124999999999997
+          "string_tuning": 0.39
         }
       },
       {
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 5.654999999999999,
           "body_wood": 0.21,
-          "pickup_config": 0.2835,
+          "pickup_config": 0.1785,
           "string_type": 13.325,
-          "scale_length_b": 0.49799999999999994,
+          "scale_length_b": 0.39299999999999996,
           "fretted_or_not": 0.03599999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

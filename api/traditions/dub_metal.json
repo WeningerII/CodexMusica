@@ -5,7 +5,7 @@
   "lineage": "Dub metal is a crossover label for heavy riff-based music that incorporates dub/reggae bass, vocal and electronic-production practices. This selected Skindred branch retains guitar, electric bass, acoustic drums, a toasting-led vocal part and sampler/electronics. Dan Pugsley directly describes bringing Dan Sturgess into the live ensemble to handle samples and spontaneous transitions. Skindred’s broader repertoire also includes melodic singing and other dance-music influences; the label does not describe every song.",
   "recipe": "classic modern dub metal, distorted Rock, metal branch. equal tempered, pitched rhythmic chat, solo with instrumental accompaniment, aurally tuned. palm muted humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter spring reverb.",
   "recipe_chars": 469,
-  "score": 47.655,
+  "score": 47.479,
   "config": {
     "traditions": [
       "dub_metal"
@@ -35,11 +35,11 @@
           "neck_wood": 0.105,
           "fretboard": 0.35325,
           "pickup_magnet": 0,
-          "pickup_winding": 0.03899999999999999,
+          "pickup_winding": 0,
           "string_material": 0.105,
           "bridge": 0.76275,
           "scale_length": 0,
-          "string_gauge": 0.1785,
+          "string_gauge": 0.252,
           "finish": 0,
           "string_tuning": 4.9399999999999995
         }
@@ -60,7 +60,7 @@
           "amp_make": 1.4299999999999997,
           "body_wood": 0.76275,
           "pickup_config": 0,
-          "string_type": 0.144,
+          "string_type": 0.105,
           "scale_length_b": 0.5325,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.10500000000000001,
@@ -84,16 +84,16 @@
         },
         "scores": {
           "drum_technique": 3.75,
-          "drumhead": 0.83625,
+          "drumhead": 0.9097500000000001,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.42,
           "shell_thickness": 0.1365,
-          "bearing_edges": 0.144,
+          "bearing_edges": 0.105,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 3.7865,
           "cymbal_lathing": 4.0280000000000005,
-          "cymbal_finish": 0
+          "cymbal_finish": 0.0315
         }
       },
       {
@@ -128,10 +128,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 4.030000000000001,
-          "voice_ensemble_config": 1.0402500000000001,
+          "voice_ensemble_config": 1.0717500000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0.6997499999999999,
-          "voice_processing_chain": 1.4020000000000001,
+          "voice_processing_chain": 1.3945,
           "voice_multitrack_stack": 0.273
         }
       },
@@ -146,10 +146,10 @@
         },
         "scores": {
           "electronic_technique": -0.07,
-          "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.7845,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.7065,
           "sampler_workflow": -0.07,
-          "sampler_classic_context": 0.27399999999999997
+          "sampler_classic_context": 0.105
         }
       }
     ],

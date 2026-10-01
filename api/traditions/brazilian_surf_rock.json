@@ -5,7 +5,7 @@
   "lineage": "Brazilian surf rock is represented here by Terremotor. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic brazilian surf rock, distorted Rock, surf rock branch. Fender blackface amp American 60s amp spring reverb bright tremolo humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, tzouras. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 353,
-  "score": 63.618,
+  "score": 64.233,
   "config": {
     "traditions": [
       "brazilian_surf_rock"
@@ -30,18 +30,18 @@
         },
         "scores": {
           "electric_technique": 9.70975,
-          "amp_make": 11.255999999999997,
+          "amp_make": 11.212249999999996,
           "body_wood": 0.19774999999999998,
           "neck_wood": 0.15000000000000002,
-          "fretboard": 0.28275,
+          "fretboard": 0.274,
           "pickup_magnet": 0.317,
           "pickup_winding": 0.22924999999999998,
-          "string_material": 0.02,
-          "bridge": 1.6715,
+          "string_material": 0.01625,
+          "bridge": 1.69,
           "scale_length": 0.3,
-          "string_gauge": 1.40875,
+          "string_gauge": 1.56475,
           "finish": 0,
-          "string_tuning": 0.3315
+          "string_tuning": 0.3675
         }
       },
       {
@@ -60,10 +60,10 @@
           "amp_make": 7.215,
           "body_wood": 0.42299999999999993,
           "pickup_config": 0.2855,
-          "string_type": 16.0045,
+          "string_type": 16.463,
           "scale_length_b": 0.16250000000000003,
-          "fretted_or_not": 0.016249999999999997,
-          "bass_technique": -0.1375,
+          "fretted_or_not": 0.007499999999999999,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },
@@ -75,8 +75,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 13.3675,
-          "drumhead": 0.344,
+          "drum_technique": 13.355,
+          "drumhead": 0.38,
           "drum_kit_kick_pedal": 0
         }
       },

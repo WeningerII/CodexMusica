@@ -3,14 +3,14 @@
   "name": "Drone psych",
   "family": "rock",
   "lineage": "Psychedelic rock extends guitar sustain and noisy texture into long ensemble improvisation. Bardo Pond’s Philadelphia recordings support a twin-guitar, bass, drums, voice and flute practice; electronics are also documented. The catalog represents the guitar role with one guitar chair, not a claim that the documented band has only one guitarist.",
-  "recipe": "classic modern drone psych, distorted Rock, experimental branch, noise rock distorted rock, modal electric drone modal no wave. solo with instrumental accompaniment, drone organized harmonic series overtone selection, hall reverb long decay cinematic, single lead single track no stacking. low output no compression feedback humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay hall reverb.",
-  "recipe_chars": 655,
-  "score": 95.865,
+  "recipe": "classic modern drone psych, distorted Rock, experimental branch, noise rock distorted rock, modal electric drone modal polish noise rock no wave. solo with instrumental accompaniment, drone organized harmonic series overtone selection, hall reverb long decay cinematic, single lead single track no stacking. low output no compression feedback humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay hall reverb.",
+  "recipe_chars": 673,
+  "score": 83.785,
   "config": {
     "traditions": [
       "drone_psych",
-      "no_wave",
-      "noise_rock"
+      "polish_noise_rock",
+      "no_wave"
     ],
     "instruments": [
       {
@@ -19,51 +19,51 @@
           "electric_technique": "electric_feedback_drone",
           "amp_make": "amp_unspecified",
           "body_wood": "korina",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "bridge": "string_thru",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 12.517333333333331,
+          "electric_technique": 10.567333333333332,
           "amp_make": 0,
-          "body_wood": 1.4949999999999999,
-          "neck_wood": 0.39,
-          "fretboard": 0.39,
+          "body_wood": 1.3,
+          "neck_wood": 0.48,
+          "fretboard": 0.4188333333333333,
           "pickup_magnet": 0.195,
           "pickup_winding": 1.04,
-          "string_material": 0.39,
-          "bridge": 0.195,
-          "scale_length": 0.585,
-          "string_gauge": 0.39,
+          "string_material": 0.4188333333333333,
+          "bridge": 0.845,
+          "scale_length": 0.9600000000000002,
+          "string_gauge": 0.845,
           "finish": 0.195,
-          "string_tuning": 15.014999999999999
+          "string_tuning": 12.155000000000001
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_unspecified",
-          "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "body_wood": "mahogany_b",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.39,
-          "pickup_config": 0.21833333333333332,
-          "string_type": 32.21166666666666,
-          "scale_length_b": 0.32183333333333336,
+          "body_wood": 0.9600000000000002,
+          "pickup_config": 0.195,
+          "string_type": 28.187666666666665,
+          "scale_length_b": 0.48,
           "fretted_or_not": 0.39,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.374999999999996,
+          "drum_technique": 23,
           "drumhead": 0.195,
           "drum_kit_kick_pedal": 0
         }
@@ -89,14 +89,14 @@
           "flute_size": "concert_flute",
           "flute_material": "silver_flute",
           "flute_technique": "classical_flute",
-          "flute_maker_school": "flute_yamaha"
+          "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
           "wind_articulation": -0.1,
-          "flute_size": 0.195,
-          "flute_material": 0.39,
+          "flute_size": 0.135,
+          "flute_material": 0.5321666666666666,
           "flute_technique": 0,
-          "flute_maker_school": 0.975
+          "flute_maker_school": 0.45499999999999996
         }
       },
       {
@@ -131,9 +131,9 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 3.25,
+          "voice_ensemble_config": 2.275,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 2.2099999999999995,
+          "voice_pitch_organization": 2.0149999999999997,
           "voice_processing_chain": 1.2155,
           "voice_multitrack_stack": 2.08
         }

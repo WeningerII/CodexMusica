@@ -1,0 +1,149 @@
+{
+  "id": "chinese_post_rock",
+  "name": "Chinese post-rock",
+  "family": "rock_punk",
+  "lineage": "Chinese post-rock is represented here by Zhaoze — 1911. This is one documented branch, with an authored present-day studio realization.",
+  "recipe": "classic early-1910s chinese post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, guqin. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 333,
+  "score": 44.706,
+  "config": {
+    "traditions": [
+      "chinese_post_rock"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_arpeggiated_clean",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
+          "body_wood": "basswood_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.11850000000000002,
+          "amp_make": 5.2,
+          "body_wood": 0.8674285714285713,
+          "neck_wood": 0.39,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.357,
+          "pickup_winding": 0.37071428571428566,
+          "string_material": 0.39,
+          "bridge": 1.4787142857142856,
+          "scale_length": 0.39,
+          "string_gauge": 1.381,
+          "finish": 0.1365,
+          "string_tuning": 0.3
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 5.654999999999999,
+          "body_wood": 0.21,
+          "pickup_config": 0.38849999999999996,
+          "string_type": 13.325,
+          "scale_length_b": 0.5524285714285714,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_clear",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 10.25,
+          "drumhead": 0.78,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "guqin",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "guqin_strings": "guqin_metal_silk",
+          "guqin_context": "guqin_qin_xiao",
+          "guqin_body_wood": "guqin_tongmu_aged",
+          "guqin_lacquer": "guqin_lacquer_modern_plain"
+        },
+        "scores": {
+          "plucked_traditional_technique": 0.325,
+          "guqin_strings": 0.357,
+          "guqin_context": 0.651,
+          "guqin_body_wood": 0.4724999999999999,
+          "guqin_lacquer": 0.357
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drum_kit_kick_pedal"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_arpeggiated_clean",
+      "string_tuning": "standard_tuning",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "drum_kit_kick_pedal": "dk_kick_single_felt"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_amp_guitar": "amp_modern_modeling",
+    "chain_amp_bass": "amp_american_ampeg_svt"
+  }
+}

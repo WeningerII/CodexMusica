@@ -3,14 +3,14 @@
   "name": "Afghan pop",
   "family": "pop",
   "lineage": "Selected 2010s Dari-language commercial pop shared between Kabul television and Afghan diaspora circuits, represented by Aryana Sayeed and the keyboard-and-tabla pop practice documented in European Afghan communities. This is a vocal song-and-dance branch, not a national summary or a replacement for Kabuli klasik, regional folk repertoires, Pashto pop or every diaspora production.",
-  "recipe": "classic mid-2010s afghan pop, functional Song, south Asian pop branch, mid east n African pop functional song, pop rock functional song yacht rock uzbek pop. straight note core, multi note runs per syllable, note connecting slide, modern pop training. regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, sustaining copper tabla, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 810,
-  "score": 264.978,
+  "recipe": "classic mid-2010s afghan pop, functional Song, south Asian pop branch, mid east n African pop functional song, pop rock functional song yacht rock 1960s girl group. straight note core, multi note runs per syllable, note connecting slide, modern pop training. regional style kit party arranger korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits lead rompler workstation, sustaining copper tabla, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky fingerstyle electric bass, pre muffled edge muffled sticks pocket drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 843,
+  "score": 260.15,
   "config": {
     "traditions": [
       "afghan_pop",
       "yacht_rock",
-      "uzbek_pop"
+      "girl_group_60s"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "portamento_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_single_source",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_neumatic_singing",
           "voice_ensemble_config": "voice_ensemble_solo_accompanied",
           "voice_ornament_system": "voice_ornament_none",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": -0.45999999999999996,
+          "voice_quality": -0.30999999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.585,
-          "voice_articulation": 1.15,
-          "voice_microtone": 2.2950000000000004,
-          "voice_tradition": 44.000000000000014,
+          "voice_articulation": 1.5749999999999997,
+          "voice_microtone": 2.595,
+          "voice_tradition": 42.00000000000001,
           "voice_mechanism_compound": 0.3,
-          "voice_estill_quality": 2.4699999999999998,
-          "voice_speech_song": 0,
-          "voice_ensemble_config": 3.0549999999999997,
-          "voice_ornament_system": 0.195,
+          "voice_estill_quality": 1.775,
+          "voice_speech_song": 0.9500000000000001,
+          "voice_ensemble_config": 2.535,
+          "voice_ornament_system": 0.14250000000000002,
           "voice_pitch_organization": 0.3,
-          "voice_processing_chain": 3.6324999999999994,
+          "voice_processing_chain": 7.0825,
           "voice_multitrack_stack": 0.15
         }
       },
@@ -61,10 +61,10 @@
           "rompler_lineage": "rompler_korg_pa_arranger"
         },
         "scores": {
-          "electronic_technique": 34.70250000000001,
+          "electronic_technique": 33.852500000000006,
           "rompler_preset_bank": 3.12,
-          "rompler_context": 34.29500000000001,
-          "rompler_lineage": 3.445
+          "rompler_context": 32.94500000000001,
+          "rompler_lineage": 3.1849999999999996
         }
       },
       {
@@ -98,18 +98,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 35.37500000000001,
-          "amp_make": 6.990000000000001,
-          "body_wood": 2.795,
-          "neck_wood": 2.795,
-          "fretboard": 2.73,
+          "electric_technique": 33.875,
+          "amp_make": 6.490000000000001,
+          "body_wood": 2.145,
+          "neck_wood": 2.145,
+          "fretboard": 2.0799999999999996,
           "pickup_magnet": 0.3,
           "string_material": 0.3,
-          "string_gauge": 2.795,
+          "string_gauge": 2.145,
           "bridge": 0.345,
-          "scale_length": 2.795,
+          "scale_length": 2.145,
           "finish": 0,
-          "string_tuning": 7.79,
+          "string_tuning": 7.14,
           "single_coil_pickup_construction": 0
         }
       },
@@ -121,18 +121,18 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.0875,
-          "body_wood": 2.795,
-          "pickup_config": 0.345,
-          "string_type": 16.265,
-          "scale_length_b": 2.795,
-          "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
+          "amp_make": 6.4375,
+          "body_wood": 2.145,
+          "pickup_config": 0.195,
+          "string_type": 14.639999999999999,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 0.15,
+          "bass_technique": 1.575,
           "electric_bass_string_configuration": 0
         }
       },
@@ -144,8 +144,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": -0.1,
-          "drumhead": 34.2,
+          "drum_technique": 3.5,
+          "drumhead": 32.7,
           "drum_kit_kick_pedal": 0
         }
       }
