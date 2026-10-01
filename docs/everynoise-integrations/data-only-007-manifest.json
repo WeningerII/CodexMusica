@@ -1,0 +1,203 @@
+{
+  "required_predecessor": "5c17b7ea522ad8dc2da9574ad0678e75b4ef6203",
+  "expected_additions": 100,
+  "expected_traditions": 3338,
+  "expected_instruments": 1467,
+  "ids": [
+    "polish_viral_rap",
+    "polynesian_hip_hop",
+    "pop_rap",
+    "pop_rap_brasileiro",
+    "portland_hip_hop",
+    "psychedelic_hip_hop",
+    "queens_hip_hop",
+    "rap_abc_paulista",
+    "rap_baiano",
+    "rap_baixada_fluminense",
+    "rap_burkinabe",
+    "rap_capixaba",
+    "rap_catala",
+    "rap_catarinense",
+    "rap_cearense",
+    "rap_chileno",
+    "rap_chretien",
+    "rap_cristao",
+    "rap_dominicano",
+    "rap_ecuatoguineano",
+    "rap_ecuatoriano",
+    "rap_euskera",
+    "rap_femenino_mexicano",
+    "rap_feminino_chileno",
+    "rap_feminino_nacional",
+    "rap_gabonais",
+    "rap_galego",
+    "rap_gasy",
+    "rap_gaucho",
+    "rap_guarulhense",
+    "rap_guineen",
+    "rap_inde",
+    "rap_italiano_old_school",
+    "rap_ivoire",
+    "rap_liegeois",
+    "rap_lyonnais",
+    "rap_malien",
+    "rap_metal_espanol",
+    "rap_mineiro",
+    "rap_mocambicana",
+    "rap_moldovenesc",
+    "rap_montrealais",
+    "rap_nortista",
+    "rap_paraense",
+    "rap_pernambucano",
+    "rap_portuense",
+    "rap_rock",
+    "rap_sardegna",
+    "rap_sergipano",
+    "rap_siciliano",
+    "rap_sureno_chileno",
+    "rap_tico",
+    "rap_toscana",
+    "rap_tuga_underground",
+    "rap_tunisien",
+    "rap_uliczny",
+    "rap_underground_argentino",
+    "rap_underground_colombiano",
+    "rap_underground_espanol",
+    "rap_underground_mexicano",
+    "rap_uruguayo",
+    "rhode_island_rap",
+    "romanian_rap",
+    "romanian_trap",
+    "russian_drill",
+    "russian_gangster_rap",
+    "russian_hip_hop",
+    "russian_old_school_hip_hop",
+    "russian_trap",
+    "russian_underground_rap",
+    "rva_drill",
+    "rwandan_hip_hop",
+    "sacramento_hip_hop",
+    "san_antonio_rap",
+    "san_diego_rap",
+    "schweizer_rap",
+    "scottish_drill",
+    "scottish_hip_hop",
+    "scouse_rap",
+    "scream_rap",
+    "serbian_hip_hop",
+    "sesotho_hip_hop",
+    "singaporean_hip_hop",
+    "sinhala_rap",
+    "slovak_hip_hop",
+    "slovak_trap",
+    "slovenian_hip_hop",
+    "smutny_rap",
+    "south_african_hip_hop",
+    "south_african_trap",
+    "south_african_underground_rap",
+    "south_carolina_hip_hop",
+    "spanish_hip_hop",
+    "spiritual_hip_hop",
+    "st_louis_drill",
+    "st_louis_rap",
+    "sudanese_hip_hop",
+    "swazi_hip_hop",
+    "swedish_hip_hop",
+    "syrian_hip_hop"
+  ],
+  "baseline_sha256": {
+    "references/05_traditions.js": "72d4fc03d284af61513b5c2a617a14c7a372ae8923bbc09334136b7b348720a2",
+    "references/06_extras.js": "be30e12a4eb4499f9abb1835331530428e36b15af956b2b6f948e8efe4264fd4",
+    "references/_tradition_signatures.json": "80ca92f3181c6c870323cc38913529077473f12260bfbf7e8751c085eb8705d9",
+    "references/_image_manifest.json": "8bac62521f6bf0fb7679646ef710f8336d81f79dfe49fe0c1f3cc3e3dbd6e4e9",
+    "data/geo.json": "56781ac779bc85f5bf57b760527f55f3df0b239603bead47ab2319b1d3299d54"
+  },
+  "source_sha256": {
+    "references/05_traditions.js": "14436db5e400af9d67e7f97e3df47067d9843f1958a78a098401b0e5025d2c6b",
+    "references/06_extras.js": "85ff2b0e1dd7f6029d0f4947d5b6d5008cdcadec884c56dac03d11044d671ed9",
+    "references/_tradition_signatures.json": "04d38de2dc9a554aae84af6b1c2a7d00e480486921034dabefefb1f9434beef1",
+    "references/_image_manifest.json": "8b1697837785d156e92a095a0113171fbe727328c7c050eda81f25f4783d631c",
+    "data/geo.json": "39eac8466f479e3cd6599635d33fe3fc0744201a873631466bd081ce082657ea"
+  },
+  "reviewed_snapshot_ids": ["blend_kpop_big_room", "dubstep_140", "kapuka_kenyan", "k_pop_modern"],
+  "scope": "Existing-schema genre data and generated artifacts only. Original engine, compiler, pipeline, UI behavior, test logic and workflows unchanged.",
+  "validation_status": "Original full static API build and1149-fixture regression passed. Native artifact checks recorded in evidence; successful exact-head required CI remains the merge gate.",
+  "reviewed_snapshot_rationale": {
+    "scope": "Four individually inspected optimizer-adjacency expectations; original test logic unchanged. All3238 prior tradition/extras records and1467 instruments verified unchanged. New neighbor labels and scored variant picks explain these diffs.",
+    "reviews": [
+      {
+        "id": "blend_kpop_big_room",
+        "reason": "New schweizer_rap neighbor replaces uk_grime; scored voice timbre, sampler pitch and vocal stack shift under unchanged engine."
+      },
+      {
+        "id": "dubstep_140",
+        "reason": "New schweizer_rap and slovenian_hip_hop neighbors replace prior international hip-hop neighbors; scored bass string selection changes."
+      },
+      {
+        "id": "kapuka_kenyan",
+        "reason": "New san_antonio_rap neighbor replaces uk_grime in adjacency label; instrument and chain descriptors unchanged."
+      },
+      {
+        "id": "k_pop_modern",
+        "reason": "New Swiss/Slovenian adjacency replaces prior neighbors; sampler, bass string and vocal-stack picks shift under unchanged scoring."
+      }
+    ]
+  },
+  "publisher_normalization": {
+    "licenses": "Canonical license families preserve source-specific license_raw and license_url.",
+    "photos": "Thirteen originally tool-inaccessible URLs replaced by Commons-offered same-file originals/previews; browser opened without error. No HTTP/byte/pixel measurements claimed.",
+    "geo_labels": [
+      {
+        "id": "queens_hip_hop",
+        "before": "Hollis, Queens",
+        "after": "Hollis",
+        "reason": "Existing atlas label policy: place only; surrounding geographic detail remains in source evidence; coordinates and region unchanged."
+      },
+      {
+        "id": "rap_galego",
+        "before": "Ordes, Galicia",
+        "after": "Ordes",
+        "reason": "Existing atlas label policy: place only; surrounding geographic detail remains in source evidence; coordinates and region unchanged."
+      },
+      {
+        "id": "rap_gasy",
+        "before": "Antanimena, Antananarivo",
+        "after": "Antanimena",
+        "reason": "Existing atlas label policy: place only; surrounding geographic detail remains in source evidence; coordinates and region unchanged."
+      },
+      {
+        "id": "rap_guineen",
+        "before": "Boulbinet, Conakry",
+        "after": "Boulbinet",
+        "reason": "Existing atlas label policy: place only; surrounding geographic detail remains in source evidence; coordinates and region unchanged."
+      },
+      {
+        "id": "rap_rock",
+        "before": "Lower Manhattan, New York",
+        "after": "Lower Manhattan",
+        "reason": "Existing atlas label policy: place only; surrounding geographic detail remains in source evidence; coordinates and region unchanged."
+      },
+      {
+        "id": "rap_sardegna",
+        "before": "Iglesias, Sardinia",
+        "after": "Iglesias",
+        "reason": "Existing atlas label policy: place only; surrounding geographic detail remains in source evidence; coordinates and region unchanged."
+      },
+      {
+        "id": "rap_siciliano",
+        "before": "Alcamo, Sicily",
+        "after": "Alcamo",
+        "reason": "Existing atlas label policy: place only; surrounding geographic detail remains in source evidence; coordinates and region unchanged."
+      },
+      {
+        "id": "scottish_hip_hop",
+        "before": "Central Belt, Edinburgh–Glasgow (approximate regional anchor)",
+        "after": "Central Belt (approximate regional anchor)",
+        "reason": "Existing atlas label policy: place only; surrounding geographic detail remains in source evidence; coordinates and region unchanged."
+      }
+    ]
+  },
+  "regression_snapshot_sha256": "a0ceec76d256926afcd4e221ab4a35dc11a63266244789f2724c65833110e7b7",
+  "root_html_sha256": "b81576f29bd649b232cf10d0ee35048e45090c6c7f10bf92f6663720afa817d1",
+  "patch_sha256": "c4975faaf0b0cf7b6673a7ae42579ba032b162ddc019d73361c35a57ccedda05"
+}
