@@ -5,7 +5,7 @@
   "lineage": "Chinese punk is represented here by Demerit. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic chinese punk, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 375,
-  "score": 66.393,
+  "score": 66.79,
   "config": {
     "traditions": [
       "chinese_punk"
@@ -20,7 +20,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
@@ -33,15 +33,15 @@
           "amp_make": 15.079999999999997,
           "body_wood": 0.441,
           "neck_wood": 0.40950000000000003,
-          "fretboard": 0.273,
-          "pickup_magnet": 0.40950000000000003,
-          "pickup_winding": 0.147,
+          "fretboard": 0.1365,
+          "pickup_magnet": 0.45825,
+          "pickup_winding": 0.32175,
           "string_material": 0.063,
-          "bridge": 1.2730000000000001,
+          "bridge": 1.3,
           "scale_length": 0.8190000000000002,
-          "string_gauge": 1,
+          "string_gauge": 1.285,
           "finish": 0.1365,
-          "string_tuning": 0.3
+          "string_tuning": 0.38549999999999995
         }
       },
       {
@@ -49,7 +49,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -59,7 +59,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0.8190000000000002,
-          "pickup_config": 0.273,
+          "pickup_config": 0.32175,
           "string_type": 4.875,
           "scale_length_b": 0.40950000000000003,
           "fretted_or_not": 0.0315,
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 1.3,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.1365,
+          "voice_processing_chain": 0,
           "voice_multitrack_stack": 0
         }
       }

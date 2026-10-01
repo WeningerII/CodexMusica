@@ -1,6 +1,6 @@
 # Codex Musica
 
-> A static, server-free catalog of recording "recipes" for 3838 recorded-music
+> A static, server-free catalog of recording "recipes" for 3938 recorded-music
 > traditions and 1467 instruments. Each tradition resolves to a compressed
 > descriptor-stack recipe (how to record a song in that style) plus a structured
 > arrangement (ensemble, room, signal chain, tuning). All data is plain JSON served as
@@ -49,7 +49,7 @@ cheaply or to work offline; use the connector above to change anything.
 NOT a snapshot of what start_recipe returns. These recipes come from a search over the
 axis space, the connector's from seeding a workspace and rendering it, so the two describe
 the same tradition in different words. If you need the string a user would see in the app,
-call the connector; if you need 3838 recipes in one fetch, this is the only thing that
+call the connector; if you need 3938 recipes in one fetch, this is the only thing that
 does that.
 - ALL default recipes in one fetch: https://codexmusica.com/api/all.json
 - List of traditions: https://codexmusica.com/api/traditions/index.json

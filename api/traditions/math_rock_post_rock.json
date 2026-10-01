@@ -3,14 +3,14 @@
   "name": "Math rock and post-rock",
   "family": "rock_punk",
   "lineage": "Late-1980s onward underground rock movement deploying odd time signatures, polymetric and angular guitar interplay, instrumental-or-near-instrumental song form, and crescendo-based arrangement — codified through Slint (Spiderland 1991), Tortoise (Millions Now Living Will Never Die 1996), Mogwai (Mogwai Young Team 1997), Godspeed You Black Emperor (F♯ A♯ ∞ 1997), Don Caballero (American Don 2000), Battles (Mirrored 2007)",
-  "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock british post-rock cinematic post-rock. marshall plexi amp British rock amp power chord single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 454,
-  "score": 144.94,
+  "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock american post-rock british post-rock. marshall plexi amp British rock amp power chord single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 453,
+  "score": 146.132,
   "config": {
     "traditions": [
       "math_rock_post_rock",
-      "british_post_rock",
-      "cinematic_post_rock"
+      "american_post_rock",
+      "british_post_rock"
     ],
     "instruments": [
       {
@@ -32,17 +32,17 @@
         },
         "scores": {
           "electric_technique": 5.07,
-          "amp_make": 14.624999999999998,
+          "amp_make": 14.819999999999999,
           "body_wood": 0.7,
           "neck_wood": 0.39,
           "fretboard": 0.325,
           "pickup_magnet": 0.24,
           "string_material": 0.195,
-          "string_gauge": 1,
+          "string_gauge": 2.07,
           "bridge": 0.6,
           "scale_length": 0.39,
           "finish": 0.195,
-          "string_tuning": 14.95,
+          "string_tuning": 14.495000000000001,
           "single_coil_pickup_construction": 0
         }
       },
@@ -54,18 +54,18 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 15.534999999999998,
+          "amp_make": 15.08,
           "body_wood": 0.39,
           "pickup_config": 0.555,
-          "string_type": 33.515,
-          "scale_length_b": 0.65,
-          "fretted_or_not": 0,
-          "bass_technique": 27.075,
+          "string_type": 33.9425,
+          "scale_length_b": 0.6900000000000001,
+          "fretted_or_not": 0.195,
+          "bass_technique": 27.45,
           "electric_bass_string_configuration": 0
         }
       },
@@ -77,7 +77,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.125,
+          "drum_technique": 27.5,
           "drumhead": 1.09,
           "drum_kit_kick_pedal": 0
         }

@@ -5,7 +5,7 @@
   "lineage": "Irish hardcore is represented here by Only Fumes & Corpses. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic irish hardcore, distorted Rock, punk branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 346,
-  "score": 44.651,
+  "score": 44.558,
   "config": {
     "traditions": [
       "irish_hardcore"
@@ -31,10 +31,10 @@
         "scores": {
           "electric_technique": 4.45,
           "amp_make": 11.180000000000001,
-          "body_wood": 1.69125,
+          "body_wood": 1.6485,
           "neck_wood": 0.40950000000000003,
           "fretboard": 0.1365,
-          "pickup_magnet": 0.31575000000000003,
+          "pickup_magnet": 0.273,
           "pickup_winding": 0.1905,
           "string_material": 0.063,
           "bridge": 1.3,
@@ -59,7 +59,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0.8190000000000002,
-          "pickup_config": 0.17925000000000002,
+          "pickup_config": 0.1365,
           "string_type": 4.875,
           "scale_length_b": 0.40950000000000003,
           "fretted_or_not": 0.0315,
@@ -116,7 +116,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.354
+          "voice_multitrack_stack": 0.39
         }
       }
     ],

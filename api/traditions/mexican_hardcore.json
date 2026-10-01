@@ -5,7 +5,7 @@
   "lineage": "Mexican hardcore is represented here by Con Saña. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic mexican hardcore, distorted Rock, punk branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 388,
-  "score": 41.2,
+  "score": 41.154,
   "config": {
     "traditions": [
       "mexican_hardcore"
@@ -18,8 +18,8 @@
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
@@ -33,9 +33,9 @@
           "amp_make": 9.620000000000001,
           "body_wood": 0.39,
           "neck_wood": 0.39,
-          "fretboard": 0.325,
-          "pickup_magnet": 0.21675,
-          "pickup_winding": 0.3,
+          "fretboard": 0.354,
+          "pickup_magnet": 0.1365,
+          "pickup_winding": 0.354,
           "string_material": 0.063,
           "bridge": 1.69,
           "scale_length": 0.39,
@@ -49,9 +49,9 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "long_scale_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
@@ -59,7 +59,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0.39,
-          "pickup_config": 0.18525,
+          "pickup_config": 0.1365,
           "string_type": 4.875,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.0315,

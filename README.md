@@ -3,7 +3,7 @@
 A structured catalog of recorded-music traditions in 13-dimensional parameter space,
 and an engine that turns a song specification into a tightly compressed structural
 **recipe** — a descriptor stack that tells you how to record it. The catalog spans
-**3,838 traditions** and **1467 instruments** (with per-part variant decomposition),
+**3,938 traditions** and **1467 instruments** (with per-part variant decomposition),
 **256 rooms**, **84 chain archetypes**, and **122 tunings**.
 
 The headline operation is recipe generation; the same catalog also supports tradition

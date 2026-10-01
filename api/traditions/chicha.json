@@ -5,7 +5,7 @@
   "lineage": "Peruvian working-class cumbia hybrid formed circa 1968-1980 between Lima's Andean migrant barrios and the oil-boom Amazon towns of Pucallpa and Moyobamba, codified by Los Destellos, Juaneco y su Combo and Los Mirlos, joining Colombian cumbia's 4/4 güiro pattern to surf-fuzz Farfisa-and-guitar timbres and huayno-derived pentatonic melodies.",
   "recipe": "classic mid-1970s chicha, functional Song, tropical song branch, andean field work, surf rock distorted rock rautalanka surf music. thick, breath veiled tone, pure, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright ebony soft down tuning single coil electric guitar, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, timbales, congas, guiro, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 691,
-  "score": 293.774,
+  "score": 294.547,
   "config": {
     "traditions": [
       "chicha",
@@ -32,13 +32,13 @@
         },
         "scores": {
           "electric_technique": 12.100000000000001,
-          "amp_make": 16.784999999999997,
+          "amp_make": 16.874999999999996,
           "body_wood": 0.7,
           "neck_wood": 0.195,
           "fretboard": 1.3,
           "pickup_magnet": 0.045,
           "string_material": 0,
-          "string_gauge": 0.7,
+          "string_gauge": 0.9099999999999999,
           "bridge": 1.3,
           "scale_length": 0.39,
           "finish": 0.045,
@@ -56,8 +56,8 @@
           "amp_make": "amp_british_60s_selmer"
         },
         "scores": {
-          "keyboard_technique": 2.126,
-          "combo_organ_model": 2.7624999999999997,
+          "keyboard_technique": 2.09,
+          "combo_organ_model": 2.5749999999999997,
           "combo_organ_voicing": 2.1399999999999997,
           "combo_organ_context": 10.464999999999998,
           "amp_make": 1.755
@@ -79,7 +79,7 @@
           "amp_make": 9.75,
           "body_wood": 1.3,
           "pickup_config": 1.3,
-          "string_type": 19.935,
+          "string_type": 21.03,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.3,
           "bass_technique": 16.884999999999998,
@@ -90,13 +90,13 @@
         "id": "timbales",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "timbales_shell": "timbales_steel",
+          "timbales_shell": "timbales_bronze",
           "timbales_context": "timbales_son"
         },
         "scores": {
           "percussion_technique": -0.07,
-          "timbales_shell": 0.045,
-          "timbales_context": 1.3
+          "timbales_shell": 0.135,
+          "timbales_context": 1
         }
       },
       {
@@ -111,7 +111,7 @@
           "percussion_technique": -0.07,
           "conga_set": 0.195,
           "conga_skin": 0.195,
-          "conga_shell_wood": 0.0315
+          "conga_shell_wood": 0
         }
       },
       {
@@ -159,7 +159,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 20.929999999999996,
+          "voice_register": 20.809999999999995,
           "voice_quality": 9.685000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -168,7 +168,7 @@
           "voice_microtone": 22.099999999999994,
           "voice_tradition": 10.075,
           "voice_mechanism_compound": 3.575000000000001,
-          "voice_estill_quality": 6.271,
+          "voice_estill_quality": 6.234999999999999,
           "voice_speech_song": 26.779999999999998,
           "voice_ensemble_config": 20.344999999999995,
           "voice_ornament_system": 7.41,

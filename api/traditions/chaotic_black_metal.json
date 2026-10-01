@@ -5,7 +5,7 @@
   "lineage": "Chaotic black metal is represented by Czernina’s self-described experimental chaotic black-metal trio from Szczecin. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern chaotic black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 439,
-  "score": 43.192,
+  "score": 43.27,
   "config": {
     "traditions": [
       "chaotic_black_metal"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.283,
+          "voice_ensemble_config": 1.3335,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.17175,
+          "voice_processing_chain": 0.168,
           "voice_multitrack_stack": 0.0945,
           "voice_tessitura": 0
         }
@@ -103,7 +103,7 @@
           "pickup_config": 0.40950000000000003,
           "string_type": 4.875,
           "scale_length_b": 0.483,
-          "fretted_or_not": 0.0315,
+          "fretted_or_not": 0.063,
           "bass_technique": 4.4725,
           "electric_bass_string_configuration": 0
         }

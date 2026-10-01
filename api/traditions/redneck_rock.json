@@ -5,7 +5,7 @@
   "lineage": "Austin, Texas hybrid of 1972-1979 documented by Jan Reid's 'The Improbable Rise of Redneck Rock' and centred on the Armadillo World Headquarters — codified by Willie Nelson, Jerry Jeff Walker, Michael Martin Murphey and Doug Sahm, it plays honky-tonk and western-swing forms at rock volume with electric guitar and pedal steel trading leads, fiddle over a shuffle or train beat, loose live-in-the-room drumming, and a laconic drawled vocal that keeps country phrasing but rock attitude",
   "recipe": "classic Southern American mid-1970s redneck rock, functional Song, outlaw branch, country rock country, western swing country, southern rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup nickel plated steel nickel humbucker electric steel silk travis picked dreadnought acoustic guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, steel double stops fiddle, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 975,
-  "score": 920.847,
+  "score": 921.606,
   "config": {
     "traditions": [
       "redneck_rock",
@@ -43,7 +43,7 @@
           "voice_microtone": 36.88000000000001,
           "voice_tradition": 9.489999999999998,
           "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 38.145,
+          "voice_estill_quality": 38.2625,
           "voice_speech_song": 24.83,
           "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 1.2349999999999997,
@@ -66,7 +66,7 @@
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
@@ -81,7 +81,7 @@
           "bridge": 0.65,
           "scale_length": 0.65,
           "string_gauge": 0.65,
-          "finish": 0.024999999999999998,
+          "finish": 0,
           "string_tuning": 16.25
         }
       },
@@ -103,8 +103,8 @@
           "pickup_steel": 0.65,
           "string_setup": 18.33,
           "bar_material": 4.095,
-          "pedal_steel_brand": 37.5055,
-          "pedal_steel_neck_config": 40.7975,
+          "pedal_steel_brand": 37.473,
+          "pedal_steel_neck_config": 40.7725,
           "pedal_steel_strings": 36.51299999999999
         }
       },
@@ -114,7 +114,7 @@
           "bowed_technique": "bowed_bluegrass_double_stops",
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
@@ -122,7 +122,7 @@
           "bowed_technique": 45.599999999999994,
           "fiddle_strings": 4.55,
           "fiddle_bow": 0.39,
-          "fiddle_mute": 0.15,
+          "fiddle_mute": 0.2265,
           "fiddle_articulation": 0.195,
           "fiddle_string_configuration": 0
         }
@@ -135,7 +135,7 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerpicked_country_b",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -143,9 +143,9 @@
           "amp_make": 36.765,
           "body_wood": 0.65,
           "pickup_config": 0,
-          "string_type": 34.509499999999996,
+          "string_type": 35.1995,
           "scale_length_b": 1.4949999999999999,
-          "fretted_or_not": 0.017499999999999998,
+          "fretted_or_not": 0.007499999999999999,
           "bass_technique": 35.4315,
           "electric_bass_string_configuration": 0
         }
@@ -158,7 +158,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 30.622499999999995,
+          "drum_technique": 30.589999999999996,
           "drumhead": 1.3324999999999998,
           "drum_kit_kick_pedal": 0
         }
@@ -174,7 +174,7 @@
         },
         "scores": {
           "acoustic_technique": 37.25,
-          "string_tuning": 0.8699999999999999,
+          "string_tuning": 0.8775,
           "top_wood": 0.65,
           "back_sides": 0.39,
           "string_acoustic": 4.355
@@ -191,7 +191,7 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 0.9224999999999999,
+          "keyboard_technique": 0.9149999999999998,
           "drawbar_setting": 30.8325,
           "rotary_speed": 30.644999999999996,
           "percussion_setting": 15.86,

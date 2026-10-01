@@ -5,7 +5,7 @@
   "lineage": "Canadian punk is represented here by YOU BIG IDIOT. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic canadian punk, distorted Rock, punk branch. one note per syllable, solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 397,
-  "score": 60.908,
+  "score": 60.985,
   "config": {
     "traditions": [
       "canadian_punk"
@@ -33,8 +33,8 @@
           "amp_make": 15.079999999999997,
           "body_wood": 1.6485,
           "neck_wood": 0.40950000000000003,
-          "fretboard": 0.1365,
-          "pickup_magnet": 0.273,
+          "fretboard": 0.1905,
+          "pickup_magnet": 0.327,
           "pickup_winding": 0.147,
           "string_material": 0.063,
           "bridge": 1.3,
@@ -49,7 +49,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -59,7 +59,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0.8190000000000002,
-          "pickup_config": 0.17925000000000002,
+          "pickup_config": 0.1905,
           "string_type": 4.875,
           "scale_length_b": 0.40950000000000003,
           "fretted_or_not": 0.0315,
@@ -75,7 +75,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_wood"
         },
         "scores": {
-          "drum_technique": 10.29275,
+          "drum_technique": 10.25,
           "drumhead": 0.40950000000000003,
           "drum_kit_kick_pedal": 0.231
         }
