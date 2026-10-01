@@ -5,7 +5,7 @@
   "lineage": "Colombian death metal is represented by Masacre’s Medellín practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern colombian death metal, distorted Rock, death branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, blast beat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 439,
-  "score": 54.676,
+  "score": 54.351,
   "config": {
     "traditions": [
       "colombian_death_metal"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.9152499999999999,
+          "voice_ensemble_config": 1.0187499999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.18375,
+          "voice_multitrack_stack": 0.10575,
           "voice_tessitura": 0
         }
       },
@@ -73,14 +73,14 @@
           "electric_technique": 12.982999999999995,
           "amp_make": 6.305,
           "body_wood": 6.499999999999999,
-          "neck_wood": 0.93875,
-          "fretboard": 0.4019999999999999,
+          "neck_wood": 0.8997499999999998,
+          "fretboard": 0.363,
           "pickup_magnet": 0.34724999999999995,
-          "pickup_winding": 0.32775,
+          "pickup_winding": 0.28875,
           "string_material": 0.312,
-          "bridge": 0.93875,
+          "bridge": 0.8997499999999998,
           "scale_length": 6.499999999999999,
-          "string_gauge": 1.10675,
+          "string_gauge": 1.0677499999999998,
           "finish": 0.0315,
           "string_tuning": 0.39
         }
@@ -99,10 +99,10 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 1.8775,
+          "body_wood": 1.7994999999999999,
           "pickup_config": 0.17925000000000002,
           "string_type": 4.875,
-          "scale_length_b": 0.93875,
+          "scale_length_b": 0.8997499999999998,
           "fretted_or_not": 0.03899999999999999,
           "bass_technique": 3.8335000000000004,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 1.4644999999999997,
-          "drumhead": 1.0122499999999999,
+          "drumhead": 0.97325,
           "drum_kit_kick_pedal": 0
         }
       }

@@ -1,0 +1,1619 @@
+{
+  "scope": "Six expectation-only updates independently recomputed and individually reviewed against unchanged source/extras, resolving existing choices, preserved roles/environment. Original optimizer/rendering untouched. No blanket snapshot update or historical endorsement of unpinned choices.",
+  "changed_fixtures": 6,
+  "entries": [
+    {
+      "id": "hardcore_punk",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "hardcore_punk",
+        "name": "Hardcore punk",
+        "family": "rock_punk",
+        "lineage": "Early-1980s American underground extension of punk into faster tempos, shorter song lengths, screamed vocals, and a developed touring-and-DIY-record-label network — codified through the Washington DC scene (Bad Brains Bad Brains 1982, Minor Threat — Out of Step 1983), the Boston scene (SS Decontrol, DYS), the Los Angeles scene (Black Flag — Damaged 1981, Circle Jerks, Suicidal Tendencies), and the New York hardcore scene (Agnostic Front, Cro-Mags, Sick of It All)",
+        "instruments": ["electric_guitar_single_coil", "electric_bass", "drum_kit", "voice"],
+        "room": "concrete_basement",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "transformerless",
+        "chain_medium": "cassette_medium",
+        "chain_console": "broken",
+        "tuning": "twelve_tet",
+        "chain_amp": "amp_british_high_gain",
+        "chain_fx": ["fx_proco_rat", "fx_boss_ds1"],
+        "chain_amp_guitar": "amp_british_marshall_jcm800",
+        "chain_amp_bass": "amp_american_ampeg_svt",
+        "chain_status": "researched_studio",
+        "parts": {
+          "body_wood": "mahogany",
+          "pickup_magnet": "alnico_5",
+          "string_material": "nickel_plated",
+          "bridge": "vintage_trem",
+          "scale_length": "scale_gibson",
+          "electric_technique": "electric_palm_muted_chug",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "drumhead": "single_coated",
+          "drum_technique": "sticks_punk",
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_vibrato": "slow_vibrato",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "string_tuning": "standard_tuning"
+        },
+        "chain_archetype": "arch_80s_indie_commercial_us"
+      },
+      "extras": {
+        "parent": "distortedRock.punk",
+        "axes": {
+          "harm": 1,
+          "pitch": -1,
+          "ornament": -1,
+          "meter": 2,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Hardcore punk (codified 1979-1985 American suburban-and-urban punk-evolution scenes — Black Flag's Los Angeles, Minor Threat's Washington DC, Bad Brains's DC-and-NYC, Dead Kennedys's San Francisco), the faster-and-angrier-than-punk underground subgenre. Defined by tempos pushed to 180-220 BPM (faster than first-wave punk's 140-180 BPM), shouted-vocal delivery without melodic singing, song-lengths often under 2 minutes with extreme economy of structure, breakdowns mid-song where the rhythm halves and the riff opens (the breakdown that fed forward into metalcore), DIY-zine-and-fanzine distribution and small-club tour circuit, and lyric content addressing political-radical-anarchist themes, suburban-malaise, and confrontational-social-commentary. Distinguished from first-wave punk by speed and tighter performance economy; distinguished from later metalcore by absence of metal-derived guitar-tone; distinguished from grindcore by retention of punk-rock structural conventions over extreme-short-form fusion.",
+        "exemplars": ["Black Flag", "Minor Threat", "Bad Brains"],
+        "crossRefs": ["distortedRock.metal.thrash"],
+        "status": "documented"
+      },
+      "pin_parts": false,
+      "old_neighbors": ["hardcore_punk", "thrash_metal", "black_speed_metal"],
+      "new_neighbors": ["hardcore_punk", "thrash_metal", "native_american_metal"],
+      "old_instruments": ["electric_guitar_single_coil", "electric_bass", "drum_kit", "voice"],
+      "new_instruments": ["electric_guitar_single_coil", "electric_bass", "drum_kit", "voice"],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "fretboard",
+          "before": "maple_fb",
+          "after": "ebony_fb",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_12",
+          "after": "g_11",
+          "existing_variant": true
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "kevlar_drumhead",
+          "after": "double_coated",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_vocoder_8_band",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic North American 1980-1983 hardcore punk, distorted Rock, punk branch, thrash metal black speed metal. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT boss DS-1.",
+      "new_recipe": "classic North American 1980-1983 hardcore punk, distorted Rock, punk branch, thrash metal native american metal. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT boss DS-1.",
+      "old_api_matches_snapshot": true,
+      "new_matches_regression": true,
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "New Native American metal representative I Dont Konform is explicitly a guitar/bass/drum rock-and-roll/thrash band; its documented scene is not projected onto hardcore origins. It replaces the old black-speed neighbor under the existing thrash cross-reference. Original quartet/basement environment remain. Fretboard, gauge, drumhead and suppressed voice-processing selections are valid existing unpinned options, not source claims."
+    },
+    {
+      "id": "stoner_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "stoner_metal",
+        "name": "Stoner metal",
+        "family": "rock",
+        "lineage": "Southern California desert-rock-derived heavy-blues-revival genre that emerged in early-1990s Palm Desert and Los Angeles — codified through Kyuss (the founding band from Palm Desert, Welcome to Sky Valley 1994), Queens of the Stone Age (Josh Hommes post-Kyuss continuation, Songs for the Deaf 2002), Sleep (the Bay Area parallel canon, Sleeps Holy Mountain 1992 and the legendary 60-minute single-track Dopesmoker 2003), Fu Manchu, Monster Magnet; built on Sabbath chord vocabulary plus blues-rock pentatonic vocabulary plus down-tuned heavy-fuzz amplifier worship",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+        "room": "stoner_doom_garage_amplifier_room",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "tube_pre",
+        "chain_medium": "tape_15ips",
+        "chain_console": "colored",
+        "tuning": "doom_sabbath_tritone_diminished",
+        "chain_amp": "amp_british_high_gain",
+        "chain_fx": ["fx_big_muff_pi", "fx_proco_rat"],
+        "chain_amp_guitar": "amp_british_orange",
+        "chain_amp_bass": "amp_american_ampeg_svt",
+        "chain_status": "researched_studio",
+        "chain_comp": "comp_la2a_optical",
+        "chain_eq": "eq_passive_program_pultec",
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "alnico_5_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_power_chord",
+          "pickup_config": "humbucker_mm",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "drumhead": "double_coated",
+          "drum_technique": "sticks_rock",
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_vibrato": "slow_vibrato",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "string_tuning": "d_standard"
+        },
+        "chain_archetype": "arch_late60s_us_multitrack"
+      },
+      "extras": {
+        "parent": "distortedRock.metal.doom",
+        "axes": {
+          "harm": 1,
+          "pitch": 0,
+          "ornament": 0,
+          "meter": 1,
+          "density": 0,
+          "transmission": 0,
+          "improv": 1,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "description": "Stoner metal / stoner rock (codified 1990s onward through Kyuss, Sleep, and Fu Manchu establishing the California-desert sound, with continuous tradition through to present and parallel doom-stoner-and-stoner-rock subgenres), the early-1970s English heavy-blues-rock-derived psychedelic riff music subgenre. Defined by downtuned guitars (drop-C, drop-B, or further detunings) producing thick low-end heaviness, bluesy modal-pentatonic riff vocabulary drawn from Sabbath-and-early-70s heavy-blues-rock heritage, fuzz-and-wah pedal-effected guitar tone with extended sustain, vocal performance often clean-melodic with light-distortion or psychedelic-effected processing, song-form built on extended riff-progression with extended jam-improvisation sections (the Kyuss desert-jam-aesthetic), tempos around 90-120 BPM, and lyric and visual themes addressing cannabis-culture, desert-and-southwest landscape, and psychedelic-mystical experience. Distinguished from straight doom by faster tempo and retention of clean-melodic vocal; distinguished from drone-doom by song-form structure; distinguished from psychedelic-rock by post-1990 timestamp and metal-derived guitar-tone weight.",
+        "exemplars": ["Kyuss", "Sleep", "Electric Wizard"],
+        "crossRefs": ["distortedRock.metal.sludge"],
+        "status": "documented"
+      },
+      "pin_parts": false,
+      "old_neighbors": ["stoner_metal", "sludge_metal", "louisiana_metal"],
+      "new_neighbors": ["stoner_metal", "sludge_metal", "portland_metal"],
+      "old_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "new_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "changed_slots": [
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "single_clear",
+          "after": "double_coated",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "mande_jeli_vocal_tradition",
+          "after": "baroque_ornamental_tradition",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+      "new_recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal portland metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+      "old_api_matches_snapshot": true,
+      "new_matches_regression": true,
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "Portland metal selects the sourced Red Fang guitar-band branch under the existing sludge relationship instead of Louisiana metal. Quartet and Orange/fuzz environment remain; existing unpinned drumhead and non-rendered vocal-tradition options change. No new record introduces a Mande or baroque affiliation; the one operatic new row is supported by Therion primary opera evidence."
+    },
+    {
+      "id": "hard_rock",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "hard_rock",
+        "name": "Hard rock",
+        "family": "rock_punk",
+        "lineage": "Late-1960s through 1980s UK and US hard rock canon codified through Led Zeppelin (Led Zeppelin II 1969 anchoring the heavy-blues-derived foundation), Deep Purple (Machine Head 1972), Black Sabbath (the heavier sludge-pioneering wing), Aerosmith (the US blues-rock crossover), Van Halen (Eddie Van Halens technical-guitar virtuoso revolution from 1978 onward), AC/DC (the Australian-Scottish stripped-down hard rock canon, Back in Black 1980)",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "room": "uk_70s_hard_rock_arena_studio",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_helios_uk_70s",
+        "chain_medium": "tape_30ips",
+        "chain_console": "console_helios_uk_70s",
+        "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+        "chain_amp": "amp_british_high_gain",
+        "chain_fx": ["fx_fuzz_face_silicon", "fx_mxr_phase_90", "fx_tube_screamer"],
+        "chain_amp_guitar": "amp_british_late_60s_marshall_plexi",
+        "chain_amp_bass": "amp_american_ampeg_svt",
+        "chain_status": "researched_studio",
+        "chain_comp": "comp_adr_compex",
+        "chain_eq": "eq_inductor_iron",
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "alnico_5_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_overdriven_lead",
+          "pickup_config": "split_coil",
+          "string_type": "flatwound",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "drumhead": "single_coated",
+          "drum_technique": "sticks_rock",
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_vibrato": "slow_vibrato",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "string_tuning": "eb_standard"
+        },
+        "chain_archetype": "arch_70s_uk_class_a_rock"
+      },
+      "extras": {
+        "parent": "distortedRock.classic",
+        "axes": {
+          "harm": 1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 1,
+          "transmission": -1,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "Hard rock (codified late-1968 through 1973 in the UK and US, descending from blues-rock and psychedelic-rock and crystallizing through Cream-Hendrix-Led-Zeppelin-Deep-Purple-Black-Sabbath-Mountain-Grand-Funk lineage), the amplified blues-rock subgenre. Defined by fifth-interval riff vocabulary (the I-V power-chord shape replacing earlier blues-rock's full triadic chord-voicings), shouted-and-wailed high-projection vocal delivery often with blues-rock-derived melismatic ornamentation, concussive bass-drum-and-snare backbeat with prominent fills and tom-foreground percussion, distorted Marshall-stack guitar tone (Big Muff and pre-amp gain-stage saturation), song-forms built on extended verse-chorus with riff-based bridge sections, and tempos around 100-130 BPM. Distinguished from psychedelic-rock by absence of mind-expansion lyrical apparatus and tighter song-form; distinguished from heavy metal (which descends from it) by retention of blues-rock vocabulary and absence of tritone occult-and-dissonant material; distinguished from punk by virtuosic-not-amateur instrumental aesthetic.",
+        "exemplars": ["Led Zeppelin", "Deep Purple", "AC/DC"],
+        "crossRefs": ["distortedRock.metal.nwobhm"],
+        "status": "documented"
+      },
+      "pin_parts": false,
+      "old_neighbors": ["hard_rock", "metal_paranaense", "mexican_metal"],
+      "new_neighbors": ["hard_rock", "new_wave_of_speed_metal", "metal_paranaense"],
+      "old_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+      "new_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_dhrupad_meend_andolan",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_slendro_5",
+          "after": "voice_pitch_meantone_quarter_comma",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_retune_0ms_hard_correction",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "before": "string_thru",
+          "after": "stoptail",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic Northern European 1967-1969 hard rock, distorted Rock, classic branch, nwobhm metal metal paranaense mexican metal. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb dallas arbiter fuzz face MXR phase 90 ibanez tube screamer TS9 / TS808.",
+      "new_recipe": "classic Northern European 1967-1969 hard rock, distorted Rock, classic branch, nwobhm metal new wave of speed metal metal paranaense. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb dallas arbiter fuzz face MXR phase 90 ibanez tube screamer TS9 / TS808.",
+      "old_api_matches_snapshot": true,
+      "new_matches_regression": true,
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "The sourced Enforcer speed/heavy-metal revival branch enters the existing NWOBHM relation. Quartet and London recording environment remain. Existing bridge and non-rendered ornament/pitch/processing options change; no new record asserts Dhrupad, slendro or meantone for hard rock. All100 new vocal-pitch choices remain source-unspecified."
+    },
+    {
+      "id": "grunge",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "grunge",
+        "name": "Grunge",
+        "family": "rock_punk",
+        "lineage": "Seattle Pacific Northwest alternative-rock genre that emerged in the late 1980s and went global in 1991 — codified through Nirvana (Nevermind 1991, the commercial breakthrough produced by Butch Vig), Pearl Jam (Ten 1991), Soundgarden (Badmotorfinger 1991, then Superunknown 1994), Alice in Chains (Facelift 1990, Dirt 1992), Mudhoney (the Sub Pop founding band), Screaming Trees, Tad — built on a fusion of hardcore punk aggression and Sabbath-style heavy-blues-derived guitar tone",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "room": "seattle_reciprocal_grunge_studio",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_neve_1073_input",
+        "chain_medium": "tape_15ips",
+        "chain_console": "console_british_transformer_70s",
+        "tuning": "hard_rock_metal_blues_pentatonic_power_chords",
+        "chain_fx": ["fx_big_muff_pi", "fx_boss_ds1"],
+        "chain_amp": "amp_marshall_plexi_1959",
+        "chain_status": "researched_studio",
+        "chain_comp": "comp_dbx_160_vca",
+        "chain_eq": "eq_inductor_iron",
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "alnico_5_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_overdriven_lead",
+          "pickup_config": "split_coil",
+          "string_type": "flatwound",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "drumhead": "single_coated",
+          "drum_technique": "sticks_rock",
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_vibrato": "slow_vibrato",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "string_tuning": "drop_d"
+        },
+        "chain_amp_guitar": "amp_british_late_60s_marshall_plexi",
+        "chain_amp_bass": "amp_american_ampeg_b15",
+        "chain_archetype": "arch_late60s_us_multitrack"
+      },
+      "extras": {
+        "parent": "distortedRock.alternative",
+        "axes": {
+          "harm": 1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 1,
+          "cyclicity": 2
+        },
+        "description": "Grunge (codified 1985-1995 Seattle and broader Pacific Northwest, with first-wave Sub Pop label era and second-wave major-label commercial breakthrough through Nirvana, Pearl Jam, Soundgarden, and Alice in Chains), the late-1980s/early-1990s hybrid of punk, hardcore, and metal. Defined by Sabbath-derived heavy-blues-rock riff vocabulary translated through hardcore-punk-and-college-rock sensibility, alternation between quiet verse and loud chorus dynamic structure (the soft-loud signature established by the Pixies and adapted), distorted-fuzz-pedal electric-guitar tone (Big Muff fuzz, MXR Distortion+), apathetic-or-distressed vocal delivery, lyric content of generational disaffection, depression, and Pacific-Northwest-suburban-malaise, and college-rock-and-indie-label production aesthetic transitioning into major-label commercial sound 1991 onward. Distinguished from straight metal by punk-and-college-rock lineage; distinguished from hardcore punk by retention of heavy-blues-rock guitar; distinguished from Britpop by US-not-UK origin and darker-and-grungier aesthetic.",
+        "exemplars": ["Nirvana — Nevermind", "Pearl Jam — Ten", "Soundgarden"],
+        "crossRefs": ["distortedRock.metal.sludge"],
+        "status": "documented"
+      },
+      "pin_parts": false,
+      "old_neighbors": ["grunge", "louisiana_metal", "sludge_metal"],
+      "new_neighbors": ["grunge", "louisiana_metal", "portland_metal"],
+      "old_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+      "new_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "lowered_larynx_voice",
+          "after": "aspirated_voice",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_retune_10_50ms_natural",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_gauge",
+          "before": "g_12_hum",
+          "after": "g_10_hum",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "long_scale_b",
+          "after": "short_scale_b",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal louisiana metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
+      "new_recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal louisiana metal portland metal. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
+      "old_api_matches_snapshot": true,
+      "new_matches_regression": true,
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "Portland/Red Fang replaces the prior generic sludge neighbor alongside Louisiana metal. The original Seattle-source quartet and recording environment remain. Existing vocal quality/processing, guitar gauge and bass-scale options move without adding/removing roles or rewriting sourced locality."
+    },
+    {
+      "id": "death_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "death_metal",
+        "name": "Death metal",
+        "family": "rock_punk",
+        "lineage": "Mid-1980s onward extreme metal subgenre characterized by down-tuned humbucker guitar, palm-muted chug riffs, blast-beat drumming, growl-vocal delivery, and morbid thematic content — codified through Florida-tampa-bay (Death — Scream Bloody Gore 1987, Morbid Angel — Altars of Madness 1989, Obituary, Deicide), and Stockholm (Entombed — Left Hand Path 1990, Dismember, Grave) with the genre splitting into technical, brutal, and melodic substreams by the mid-1990s",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+        "room": "concrete_basement",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_neve_1073_input",
+        "chain_medium": "tape_30ips",
+        "chain_console": "console_british_inline_80s",
+        "tuning": "twelve_tet",
+        "chain_amp": "amp_california_modern",
+        "chain_fx": ["fx_tube_screamer"],
+        "chain_amp_guitar": "amp_british_marshall_jcm800",
+        "chain_amp_bass": "amp_american_ampeg_svt",
+        "chain_status": "researched_studio",
+        "chain_comp": "comp_smart_c1_bus",
+        "chain_eq": "eq_console_surgical",
+        "parts": {
+          "pickup_magnet": "ceramic_h",
+          "string_material": "stainless_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_fender_h",
+          "electric_technique": "electric_palm_muted_chug",
+          "pickup_config": "humbucker_mm",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "drumhead": "double_coated",
+          "drum_technique": "sticks_rock",
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_vibrato": "slow_vibrato",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "string_tuning": "eb_standard",
+          "body_wood": "basswood_h"
+        },
+        "chain_archetype": "arch_80s_late_analog_majorrock"
+      },
+      "extras": {
+        "parent": "distortedRock.metal.death",
+        "axes": {
+          "harm": 0,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 2,
+          "density": 2,
+          "transmission": -1,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Death metal (1985 onward, codified 1989-1993 through Florida (Tampa-Death-Obituary) and Stockholm (Entombed-Dismember-Grave) regional scenes), the downtuned blast-beat-driven extreme metal subgenre. Defined by guitars tuned down (D, C, B, A standard or further), tremolo-picked dissonant riffs in mid-low register exploiting half-step and tritone intervals, blast-beat percussion alternating bass-drum-and-snare at 200+ BPM, growled or guttural-grunted vocal delivery far below conversational pitch (the death-growl that names the genre), song-form built on riff-juxtaposition rather than verse-chorus and frequent metric-modulation, and lyrical content treating mortality, gore, occult, and existential-philosophical material. Distinguished from black metal by mid-low-not-treble emphasis and growled-not-shrieked vocal; distinguished from doom by blast-beat tempo; distinguished from grindcore by song-length and progressive-metal structural ambition; distinguished from thrash by absence of major-key punk-derived vocabulary.",
+        "exemplars": ["Death — Symbolic", "Cannibal Corpse", "Morbid Angel"],
+        "crossRefs": ["distortedRock.metal.thrash"],
+        "status": "documented"
+      },
+      "pin_parts": false,
+      "old_neighbors": ["death_metal", "black_speed_metal", "thrash_metal"],
+      "new_neighbors": ["death_metal", "native_american_metal", "black_speed_metal"],
+      "old_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "new_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "electric_technique",
+          "before": "electric_palm_muted_chug",
+          "after": "electric_power_chord",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_winding",
+          "before": "high_wind",
+          "after": "low_wind",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_dhrupad_meend_andolan",
+          "after": "voice_ornament_none",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_melodyne_microtuned",
+          "existing_variant": true
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "after": "voice_multitrack_2010s_melodyne_microtuned",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "new_recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal native american metal black speed metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+      "old_api_matches_snapshot": true,
+      "new_matches_regression": true,
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "The explicit I Dont Konform thrash branch enters the existing thrash cross-reference. Original quartet and full environment remain; guitar technique/winding and suppressed voice-ornament/processing/stack options are existing unpinned choices. No ceremonial instrument, ancestral tuning or cultural performance mandate is introduced by the new Native American metal record."
+    },
+    {
+      "id": "stoner_rock",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "stoner_rock",
+        "name": "Stoner rock",
+        "family": "rock_punk",
+        "lineage": "Late-1980s-and-1990s heavy-metal-and-rock subgenre developed primarily in California (Palm Desert \"desert rock\" scene) and northern Europe, characterized by down-tuned-distorted guitar tone, slow-to-mid-tempo grooves, vintage-1970s-Sabbath-Hendrix sonic reference, and improvisational-jam-oriented composition. Kyuss (Palm Desert, 1987-1995) and Sleep (San Jose, 1990-1998) inaugurated the canonical American sound; Queens of the Stone Age (1996-onward, Kyuss successor) extended the genre commercially.",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "room": "stoner_doom_garage_amplifier_room",
+        "chain_mic": "mic_sm57_dynamic_shure",
+        "chain_pre": "pre_neve_1073_input",
+        "chain_medium": "tape_30ips",
+        "chain_console": "colored",
+        "tuning": "doom_sabbath_tritone_diminished",
+        "chain_status": "researched_studio",
+        "chain_amp_guitar": "amp_british_orange",
+        "chain_amp_bass": "amp_american_ampeg_svt",
+        "chain_fx": ["fx_big_muff_pi"],
+        "chain_comp": "comp_dbx_160_vca",
+        "chain_eq": "eq_inductor_iron",
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "alnico_5_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "electric_technique": "electric_power_chord",
+          "pickup_config": "humbucker_mm",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "pick_aggressive",
+          "drumhead": "double_coated",
+          "drum_technique": "sticks_rock",
+          "voice_register": "chest_voice",
+          "voice_quality": "full_chest_belt_voice",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_tradition": "modern_pop_vocal_training",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_vibrato": "slow_vibrato",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "string_tuning": "standard_tuning"
+        },
+        "chain_archetype": "arch_80s_late_analog_majorrock",
+        "chain_amp": "amp_british_orange_dirty"
+      },
+      "extras": {
+        "parent": "distortedRock.metal.doom",
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": 1,
+          "meter": 1,
+          "density": 2,
+          "transmission": 1,
+          "improv": 2,
+          "soundTech": -1,
+          "intensity": 1,
+          "voice": 2,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Late-1980s-and-1990s heavy-metal-and-rock subgenre developed primarily in California (Palm Desert \"desert rock\" scene) and northern Europe, characterized by down-tuned-distorted guitar tone, slow-to-mid-tempo grooves, vintage-1970s-Sabbath-Hendrix sonic reference, and improvisational-jam-oriented composition. Kyuss (Palm Desert, 1987-1995) and Sleep (San Jose, 1990-1998) inaugurated the canonical American sound; Queens of the Stone Age (1996-onward, Kyuss successor) extended the genre commercially.",
+        "exemplars": [
+          "Kyuss",
+          "Sleep",
+          "Queens of the Stone Age",
+          "Fu Manchu",
+          "Monster Magnet",
+          "Brant Bjork"
+        ],
+        "status": "documented",
+        "crossRefs": ["distortedRock.metal.sludge"]
+      },
+      "pin_parts": false,
+      "old_neighbors": ["stoner_rock", "sludge_metal", "louisiana_metal"],
+      "new_neighbors": ["stoner_rock", "sludge_metal", "louisiana_metal"],
+      "old_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+      "new_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "neck_wood",
+          "before": "mahogany_neck_h",
+          "after": "maple_neck_h",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "fretboard",
+          "before": "rosewood_fb_h",
+          "after": "pau_ferro_fb_h",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "before": "split_coil",
+          "after": "soapbar",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
+      "new_recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal louisiana metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
+      "old_api_matches_snapshot": true,
+      "new_matches_regression": true,
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "Neighbor set, quartet and Orange/fuzz recording environment remain unchanged. Only existing unpinned guitar neck/fretboard and bass pickup options change; the rendered guitar material words change while riff-based roles and all source settings stay intact."
+    }
+  ],
+  "new_entry_causal_screen": {
+    "entries": 100,
+    "all_pin_parts": true,
+    "voice_tradition_values": ["voice_tradition_source_unspecified", "operatic_tradition"],
+    "voice_pitch_values": ["voice_pitch_source_unspecified"],
+    "tunings": ["twelve_tet"]
+  },
+  "operatic_exception_evidence": {
+    "id": "opera_metal",
+    "url": "https://www.nuclearblast.com/pages/album/beloved-antichrist",
+    "review": "Primary label/Johnsson account explicitly describes metal/rock with opera, choir, character soloists and opera-star contributors. The sole operatic tradition pin is supported; source preserves authored compact arrangement caveats."
+  },
+  "before_snapshot_sha256": "32df6e02b72bf246f1aa495e7e1d5cf17382a8d0c102d42872bd90cd1c419fb9",
+  "after_snapshot_sha256": "a2698eda136aa67a6999ef7f4896efff62071c51a998b7ea52d07e6010bfbd53",
+  "additional_api_changes": [
+    {
+      "id": "folk_black_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "folk_black_metal",
+        "name": "Folk black metal",
+        "family": "rock_punk",
+        "room": "treated_studio",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "condenser_ldc",
+        "chain_pre": "ultra_clean",
+        "chain_console": "clean",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_none",
+        "chain_medium": "digital_std",
+        "tuning": "twelve_tet",
+        "chain_amp": "amp_modeling",
+        "chain_status": "authored_contemporary_studio_model",
+        "pin_parts": true,
+        "lineage": "Folk-inflected black-metal practice represented by Windir’s Sogn-centered repertoire. Season of Mist describes their black/heavy-metal music with old Norwegian folk elements and documents the four 1997-2003 albums and the shift to a full band on 1184. The compact authored seed carries folk-facing melodic continuity through guitar and voice rather than inferring a compulsory folk-instrument ensemble.",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+        "chain_fx": ["plate_reverb"],
+        "parts": {
+          "body_wood": "mahogany_h",
+          "pickup_magnet": "alnico_5_h",
+          "string_material": "nickel_plated_h",
+          "bridge": "stoptail",
+          "scale_length": "scale_gibson_h",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_s",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_microtone": "tempered_voice",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "drumhead": "double_coated",
+          "drum_technique": "sticks_punk",
+          "electric_technique": "electric_tremolo_picking",
+          "string_tuning": "standard_tuning"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.metal.black",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 1,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": -2,
+          "soundTech": 1,
+          "intensity": 1,
+          "voice": 0,
+          "timbre": 1,
+          "percussion": 1,
+          "cyclicity": 1
+        },
+        "description": "Folk black metal applies folk-derived melodic and narrative orientation inside a black-metal ensemble. Windir is the selected anchor: the label documents old Norwegian folk elements, regional Sogn identity and the full-band 1184 milestone. The default authors ringing tremolo melody, steady bass, sticks and a rough sung voice. It does not claim a collected traditional tune, ethnic vocal technique or compulsory accordion, pipes or bowed lyres. Unlike pagan_metal’s expansive folk-instrument and chorus roster, this is a compact black-metal band model; unlike atmospheric_black_metal, melodic and regional repertoire identity leads rather than a long diffuse soundfield. The Sogn marker describes this exemplar network, not the location of every folk-black-metal scene.",
+        "exemplars": ["Windir — Arntor (1999)", "Windir — 1184 (2001)"],
+        "crossRefs": ["distortedRock.metal.folkMetal", "droneModal.modalElectric"],
+        "status": "documented"
+      },
+      "pin_parts": true,
+      "old_neighbors": ["folk_black_metal", "italian_folk_metal", "german_pagan_metal"],
+      "new_neighbors": ["folk_black_metal", "peruvian_metal", "polish_folk_metal"],
+      "old_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "new_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_winding",
+          "before": "low_wind",
+          "after": "high_wind",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic mid-2000s folk black metal, distorted Rock, black branch, folk metal metal, modal electric drone modal italian folk metal german pagan metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, plate reverb medium decay vocal classic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, ampeg svt amp rock bass amp electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_recipe": "classic mid-2000s folk black metal, distorted Rock, black branch, folk metal metal, modal electric drone modal peruvian metal polish folk metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, ampeg svt amp rock bass amp electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "All explicit pinned parts, quartet and environment remain. Sourced Peruvian/Polish folk-metal neighbors replace prior Italian/German folk/pagan representatives under unchanged cross-references. One existing unpinned guitar-winding option changes; voice-stack versus reverb wording is compression over unchanged vocal settings."
+    },
+    {
+      "id": "french_black_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "french_black_metal",
+        "name": "French black metal",
+        "family": "rock_punk",
+        "lineage": "French black metal is represented here by Merrimack. This is one documented branch, with an authored present-day studio realization.",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+        "room": "treated_studio",
+        "tuning": "twelve_tet",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_amp_guitar": "amp_modern_modeling",
+        "chain_amp_bass": "amp_american_ampeg_svt",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "electric_technique": "electric_tremolo_picking",
+          "string_tuning": "standard_tuning",
+          "bass_technique": "pick_aggressive",
+          "drum_technique": "sticks_rock",
+          "drum_kit_kick_pedal": "dk_kick_double"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.metal.black",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 1,
+          "meter": 1,
+          "density": 2,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "French black metal represented by Merrimack’s two-guitar, bass, drums and vocal ensemble. The authored model uses repeated distorted guitar figures, a dense acoustic-kit drive and exposed lead voice; theological themes do not prescribe any vocal physiology. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+        "exemplars": ["Merrimack"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "pin_parts": true,
+      "old_neighbors": ["french_black_metal"],
+      "new_neighbors": ["french_black_metal"],
+      "old_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "new_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "changed_slots": [],
+      "environment_differences": [],
+      "old_recipe": "classic french black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "new_recipe": "classic french black metal, distorted Rock, black branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "Source, slots, neighbor set, quartet and environment identical. Compression now favors existing rock-bass wording instead of mahogany; no source/default change."
+    },
+    {
+      "id": "indonesian_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "indonesian_metal",
+        "name": "Indonesian metal",
+        "family": "rock_punk",
+        "lineage": "Indonesian metal is a broad national discovery field represented by Burgerkill’s Bandung underground-metal practice and the core ensemble documented in the band’s Adamantine release account.",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+        "room": "live_room",
+        "tuning": "twelve_tet",
+        "chain_archetype": "arch_modern_pro_daw_studio",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_fx": [],
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "electric_technique": "electric_power_chord",
+          "string_tuning": "drop_c",
+          "bass_technique": "pick_aggressive",
+          "drum_technique": "sticks_rock"
+        },
+        "chain_amp_guitar": "amp_mesa_dual_rectifier",
+        "chain_amp_bass": "amp_american_ampeg_svt"
+      },
+      "extras": {
+        "parent": "distortedRock.metal",
+        "axes": {
+          "harm": -1,
+          "pitch": -1,
+          "ornament": 0,
+          "meter": 1,
+          "density": 1,
+          "transmission": 0,
+          "improv": -1,
+          "soundTech": 2,
+          "intensity": 2,
+          "voice": 1,
+          "timbre": 2,
+          "percussion": 2,
+          "cyclicity": 1
+        },
+        "description": "Guitar and bass riffing, strong drum accents and an upfront vocal line form a tightly coordinated amplified band. The authored arrangement selects the album’s documented core recording roles and lets recurring heavy grooves lead. It does not claim to cover every sound installation, guest voice or percussion layer on Adamantine. Drop-C guitar tuning, exact amplifier and modern studio chain are design choices, not original-session claims.",
+        "exemplars": ["Burgerkill"],
+        "status": "documented",
+        "crossRefs": ["distortedRock.punk"]
+      },
+      "pin_parts": true,
+      "old_neighbors": ["indonesian_metal", "hardcore_punk", "afro_punk"],
+      "new_neighbors": ["indonesian_metal", "hardcore_punk", "afro_punk"],
+      "old_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "new_instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice"],
+      "changed_slots": [],
+      "environment_differences": [],
+      "old_recipe": "classic modern indonesian metal, distorted Rock, metal branch, punk distorted rock hardcore punk afro-punk. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_recipe": "classic modern indonesian metal, distorted Rock, metal branch, punk distorted rock hardcore punk afro-punk. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "Source, slots, neighbor set, quartet and environment identical. Compression adds an already selected single-lead/no-stacking descriptor; no new voice or instrument role."
+    },
+    {
+      "id": "latvian_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "latvian_metal",
+        "name": "Latvian metal",
+        "family": "rock_punk",
+        "lineage": "Latvian metal is represented here by Skyforger. This is one documented branch, with an authored present-day studio realization.",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit", "voice", "kokle"],
+        "room": "treated_studio",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_amp_guitar": "amp_modern_modeling",
+        "chain_amp_bass": "amp_american_ampeg_svt",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "electric_technique": "electric_power_chord",
+          "string_tuning": "standard_tuning",
+          "bass_technique": "pick_aggressive",
+          "drum_technique": "sticks_rock",
+          "drum_kit_kick_pedal": "dk_kick_double"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.metal.folkMetal",
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": 2,
+          "meter": 1,
+          "density": 2,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 2,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Latvian metal is represented by a selective Skyforger folk/metal arrangement: guitar, bass, acoustic drums and vocals with kokle color. The recorded catalog also includes other folk instruments and a wholly acoustic release; this recipe deliberately selects the kokle-bearing metal branch rather than reproducing every album layer. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+        "exemplars": ["Skyforger"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "pin_parts": true,
+      "old_neighbors": ["latvian_metal"],
+      "new_neighbors": ["latvian_metal"],
+      "old_instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "kokle"
+      ],
+      "new_instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "kokle"
+      ],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_winding",
+          "before": "low_wind",
+          "after": "high_wind",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "before": "humbucker_mm",
+          "after": "soapbar",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic latvian metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, maple lime canonical latvian kokle. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "new_recipe": "classic latvian metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, unprocessed natural acoustic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, maple lime canonical latvian kokle. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "Every applicable explicit pinned part remains selected. Quartet plus kokle, neighbor set and environment unchanged. Existing unpinned guitar winding/bass pickup choices vary; vocal single-lead descriptor is still selected but omitted by compression."
+    },
+    {
+      "id": "macedonian_metal",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "source": {
+        "id": "macedonian_metal",
+        "name": "Macedonian metal",
+        "family": "rock_punk",
+        "lineage": "Macedonian metal is represented here by Verka. This is one documented branch, with an authored present-day studio realization.",
+        "instruments": [
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "voice",
+          "tapan",
+          "darbuka",
+          "kaval"
+        ],
+        "room": "treated_studio",
+        "tuning": "aural_relative",
+        "chain_mic": "dynamic_mic",
+        "chain_pre": "transformerless",
+        "chain_console": "console_in_the_box",
+        "chain_comp": "comp_none",
+        "chain_eq": "eq_active_parametric",
+        "chain_medium": "digital_high",
+        "chain_amp_guitar": "amp_modern_modeling",
+        "chain_amp_bass": "amp_american_ampeg_svt",
+        "chain_status": "authored_representative_production_model",
+        "pin_parts": true,
+        "parts": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "electric_technique": "electric_power_chord",
+          "string_tuning": "standard_tuning",
+          "bass_technique": "pick_aggressive",
+          "drum_technique": "sticks_rock",
+          "drum_kit_kick_pedal": "dk_kick_double"
+        }
+      },
+      "extras": {
+        "parent": "distortedRock.metal.folkMetal",
+        "axes": {
+          "harm": 1,
+          "pitch": 1,
+          "ornament": 2,
+          "meter": 1,
+          "density": 2,
+          "transmission": 0,
+          "improv": 0,
+          "soundTech": 1,
+          "intensity": 2,
+          "voice": 2,
+          "timbre": 1,
+          "percussion": 2,
+          "cyclicity": 2
+        },
+        "description": "Macedonian metal is represented by Verka’s documented folk-inflected metal branch. Guitar, bass, drums and voice are joined by tapan, tarabuka and kaval roles, realized here with existing tapan, darbuka and kaval catalog instruments. The mixture retains distinct percussion and flute functions. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+        "exemplars": ["Verka"],
+        "status": "documented",
+        "crossRefs": []
+      },
+      "pin_parts": true,
+      "old_neighbors": ["macedonian_metal"],
+      "new_neighbors": ["macedonian_metal"],
+      "old_instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "tapan",
+        "darbuka",
+        "kaval"
+      ],
+      "new_instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "tapan",
+        "darbuka",
+        "kaval"
+      ],
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_winding",
+          "before": "low_wind",
+          "after": "high_wind",
+          "existing_variant": true
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "pickup_config",
+          "before": "humbucker_mm",
+          "after": "soapbar",
+          "existing_variant": true
+        },
+        {
+          "instrument": "darbuka",
+          "part": "darbuka_skin",
+          "before": "darbuka_goat_skin",
+          "after": "darbuka_fish_skin",
+          "existing_variant": true
+        },
+        {
+          "instrument": "kaval",
+          "part": "kaval_region",
+          "before": "kaval_romanian",
+          "after": "kaval_bulgarian",
+          "existing_variant": true
+        }
+      ],
+      "environment_differences": [],
+      "old_recipe": "classic macedonian metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, tapan, darbuka, melodic kaval. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "new_recipe": "classic macedonian metal, distorted Rock, folk metal branch. solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit, tapan, darbuka, melodic kaval. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "decision": "accept_individually_reviewed_reproducible_original_optimizer_output",
+      "reason": "All applicable explicit pinned parts remain selected, including the authored vocal baseline. Seven original roles including tapan/darbuka/kaval and shared environment remain. Existing unpinned guitar/bass construction, darbuka skin and kaval-region options change; source does not attest Romanian/Bulgarian kaval origin or skin material, and no source geography or historical equipment statement is rewritten. Rendered change is omission of an already selected vocal-stack descriptor."
+    }
+  ],
+  "total_existing_api_recipe_changes_reviewed": 11,
+  "full_api_config_audit": {
+    "changed_existing_api_tradition_files": 64,
+    "recipes_changed": 11,
+    "slot_maps_changed": 29,
+    "changed_slot_values": 71,
+    "all_sources_roles_environment_preserved": true,
+    "all_explicit_pinned_parts_preserved": true,
+    "issues": [],
+    "entries": [
+      {
+        "id": "alabama_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "australian_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "autonomous_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "black_speed_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "blackened_deathcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "chilean_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "chilean_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "christian_symphonic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "colombian_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "cyber_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "death_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "deep_folk_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "deep_melodic_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "deep_symphonic_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "depressive_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "desert_rock_palm",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "doom",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "doom_blues",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "experimental_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "fantasy_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "finnish_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "finnish_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "finnish_doom_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "finnish_heavy_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "finnish_metalcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "finnish_power_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "folk_black_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "folk_metal_latinoamericano",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "french_black_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "french_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "french_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_heavy_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_metalcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_thrash_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "glam_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "gothic_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "gothic_symphonic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "grunge",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "guatemalan_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "hair_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hard_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hardcore_punk",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "indian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "indonesian_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "indonesian_thrash_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "instrumental_djent",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "latin_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "latvian_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "lithuanian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "louisiana_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "lovecraftian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "macedonian_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "melodic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "melodic_power_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "melodic_progressive_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "metal_paranaense",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "mexican_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "power_metal_european",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "psychedelic_soul",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "sacramento_hip_hop",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "stoner_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "stoner_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "traditional_doom",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      }
+    ]
+  }
+}

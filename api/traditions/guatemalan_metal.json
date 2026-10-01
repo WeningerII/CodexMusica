@@ -5,7 +5,7 @@
   "lineage": "Guatemalan metal is a broad geographic discovery field represented by Metal Requiem’s Guatemala City thrash/death practice and Central American performance network.",
   "recipe": "classic modern guatemalan metal, distorted Rock, metal branch, thrash metal, death metal german thrash metal indonesian thrash metal. solo with instrumental accompaniment, single lead single track no stacking. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 548,
-  "score": 122.37,
+  "score": 122.415,
   "config": {
     "traditions": [
       "guatemalan_metal",
@@ -31,7 +31,7 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 24.674999999999997,
+          "electric_technique": 24.7425,
           "amp_make": 16.412499999999998,
           "body_wood": 12.675,
           "neck_wood": 0.39,
@@ -63,7 +63,7 @@
           "body_wood": 0.975,
           "pickup_config": 0.975,
           "string_type": 14.3,
-          "scale_length_b": 0.975,
+          "scale_length_b": 0.9524999999999999,
           "fretted_or_not": 0.585,
           "bass_technique": 11.592500000000003,
           "electric_bass_string_configuration": 0

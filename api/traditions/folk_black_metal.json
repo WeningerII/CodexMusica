@@ -3,14 +3,14 @@
   "name": "Folk black metal",
   "family": "rock_punk",
   "lineage": "Folk-inflected black-metal practice represented by Windir’s Sogn-centered repertoire. Season of Mist describes their black/heavy-metal music with old Norwegian folk elements and documents the four 1997-2003 albums and the shift to a full band on 1184. The compact authored seed carries folk-facing melodic continuity through guitar and voice rather than inferring a compulsory folk-instrument ensemble.",
-  "recipe": "classic mid-2000s folk black metal, distorted Rock, black branch, folk metal metal, modal electric drone modal italian folk metal german pagan metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, plate reverb medium decay vocal classic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, ampeg svt amp rock bass amp electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 595,
-  "score": 57.197,
+  "recipe": "classic mid-2000s folk black metal, distorted Rock, black branch, folk metal metal, modal electric drone modal peruvian metal polish folk metal. interlocked note trading, equal tempered, solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier humbucker electric guitar, ampeg svt amp rock bass amp electric bass, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 587,
+  "score": 58.145,
   "config": {
     "traditions": [
       "folk_black_metal",
-      "italian_folk_metal",
-      "german_pagan_metal"
+      "peruvian_metal",
+      "polish_folk_metal"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_5_h",
-          "pickup_winding": "low_wind",
+          "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
@@ -31,19 +31,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.45499999999999996,
-          "amp_make": 17.679999999999996,
+          "electric_technique": 0.26,
+          "amp_make": 16.509999999999998,
           "body_wood": 0.8249999999999998,
           "neck_wood": 0.8249999999999998,
           "fretboard": 0.24,
           "pickup_magnet": 0.15,
-          "pickup_winding": 0.135,
-          "string_material": 0,
+          "pickup_winding": 0.39,
+          "string_material": 0.15,
           "bridge": 0.8249999999999998,
           "scale_length": 1.6499999999999997,
-          "string_gauge": 2.145,
+          "string_gauge": 2.8787499999999997,
           "finish": 0,
-          "string_tuning": 0.585
+          "string_tuning": 0.39
         }
       },
       {
@@ -59,10 +59,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.4350000000000005,
+          "amp_make": 5.720000000000001,
           "body_wood": 0.8249999999999998,
           "pickup_config": 0,
-          "string_type": 0.045,
+          "string_type": 0.54375,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.195,
           "bass_technique": -0.15000000000000002,
@@ -77,8 +77,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 0.44499999999999995,
-          "drumhead": 0.45499999999999996,
+          "drum_technique": 0.295,
+          "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -108,17 +108,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 9.035,
-          "voice_microtone": 11.154999999999998,
+          "voice_articulation": 8.905,
+          "voice_microtone": 10.677499999999998,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.6899999999999997,
           "voice_ornament_system": 0.09,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.2025,
-          "voice_multitrack_stack": 0.39
+          "voice_pitch_organization": 0.39,
+          "voice_processing_chain": 0.45499999999999996,
+          "voice_multitrack_stack": 0.66
         }
       }
     ],

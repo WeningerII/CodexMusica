@@ -5,7 +5,7 @@
   "lineage": "Christian symphonic metal is represented here by Renascent’s symphonic extreme-metal branch rather than a universal clean-soprano template. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
   "recipe": "classic modern christian symphonic metal, distorted Rock, symphonic branch. solo with instrumental accompaniment, single lead single track no stacking. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, kevlar aramid extreme tension drum kit, korg m1 canonical 1988 1995 first mass market workstation 4mb pcm rom universal preset canon rompler workstation. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 620,
-  "score": 38.612,
+  "score": 38.802,
   "config": {
     "traditions": [
       "christian_symphonic_metal"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.68025,
+          "voice_multitrack_stack": 0.71175,
           "voice_tessitura": 0
         }
       },
@@ -80,7 +80,7 @@
           "string_material": 0.0735,
           "bridge": 0.09974999999999999,
           "scale_length": 7.02,
-          "string_gauge": 0.37575,
+          "string_gauge": 0.40724999999999995,
           "finish": 0,
           "string_tuning": 0.39
         }
@@ -100,7 +100,7 @@
         "scores": {
           "amp_make": 2.275,
           "body_wood": 0.09224999999999998,
-          "pickup_config": 0.25275,
+          "pickup_config": 0.28425,
           "string_type": 4.875,
           "scale_length_b": 0.037125,
           "fretted_or_not": 0.044625,
@@ -131,9 +131,9 @@
         },
         "scores": {
           "electronic_technique": -0.094375,
-          "rompler_preset_bank": 0.102,
+          "rompler_preset_bank": 0.1335,
           "rompler_context": 0.78,
-          "rompler_lineage": 1.8035
+          "rompler_lineage": 1.8665
         }
       }
     ],

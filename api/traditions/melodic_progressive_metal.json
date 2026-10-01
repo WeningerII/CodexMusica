@@ -5,7 +5,7 @@
   "lineage": "Melodic progressive metal is represented here by Circus Maximus. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic melodic progressive metal, distorted Rock, prog branch. one note per syllable, solo with instrumental accompaniment. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 565,
-  "score": 41.945,
+  "score": 41.917,
   "config": {
     "traditions": [
       "melodic_progressive_metal"
@@ -32,11 +32,11 @@
           "electric_technique": -0.1,
           "amp_make": 4.745,
           "body_wood": 4.9399999999999995,
-          "neck_wood": 0.34162499999999996,
-          "fretboard": 0.34162499999999996,
+          "neck_wood": 0.33599999999999997,
+          "fretboard": 0.33599999999999997,
           "pickup_magnet": 0.0315,
-          "pickup_winding": 0.257625,
-          "string_material": 0.34162499999999996,
+          "pickup_winding": 0.252,
+          "string_material": 0.33599999999999997,
           "bridge": 1.3,
           "scale_length": 4.9399999999999995,
           "string_gauge": 1.3,
@@ -113,7 +113,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 1.3,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.163125,
+          "voice_ornament_system": 0.1575,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
           "voice_multitrack_stack": 0.39
