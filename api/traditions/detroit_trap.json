@@ -5,7 +5,7 @@
   "lineage": "Emerged on Detroit's east and west sides circa 2015-2019 through Sada Baby, Tee Grizzley, 42 Dugg, Babyface Ray and producers Helluva and Antt Beatz, using 95-110 BPM double-time-feel beats with a swung shuffled hi-hat, dry punchy kick and clap rather than long 808 slides, chopped soul or eerie synth loops, and a conversational, off-kilter, punchline-dense flow that lands deliberately behind and around the grid.",
   "recipe": "classic 2015-2019 detroit trap, mc Rhythm, modern branch, us hip hop southern, drill MC rhythm türkçe drill atl trap. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, low sub bass analog poly synth, close dry hand clap, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 568,
-  "score": 297.297,
+  "score": 295.562,
   "config": {
     "traditions": [
       "detroit_trap",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.050000000000001,
-          "voice_quality": 18.112000000000002,
+          "voice_register": 4.245000000000001,
+          "voice_quality": 17.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.1200000000000006,
           "voice_articulation": 20.735,
           "voice_microtone": 30.322499999999994,
-          "voice_tradition": 9.235500000000002,
+          "voice_tradition": 9.510000000000002,
           "voice_mechanism_compound": 4.16,
           "voice_estill_quality": 3.380000000000001,
           "voice_speech_song": 21.189999999999998,
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 9.104000000000001,
+          "tr808_voice": 8.510000000000002,
           "drum_machine_808_context": 4.55,
           "tr808_production_origin": 2.8600000000000003
         }
@@ -75,7 +75,7 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 8.530000000000001,
+          "electronic_technique": 8.725000000000001,
           "sampler_archetypes": 10.530000000000001,
           "sampler_bit_depth": 3.705,
           "sampler_workflow": 8.575000000000001,
@@ -91,7 +91,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 14.498999999999999,
+          "electronic_technique": 13.905,
           "poly_archetypes": 0.195,
           "poly_voices": 0.195,
           "poly_maker_lineage": -1.435
@@ -123,11 +123,11 @@
         "scores": {
           "amp_make": 6.110000000000001,
           "body_wood": 1.105,
-          "pickup_config": 5.8845,
-          "string_type": 8.2095,
+          "pickup_config": 5.67,
+          "string_type": 7.83,
           "scale_length_b": 3.9800000000000004,
           "fretted_or_not": 1.19,
-          "bass_technique": 6.4545,
+          "bass_technique": 6.24,
           "electric_bass_string_configuration": 0
         }
       }

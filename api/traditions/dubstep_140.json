@@ -3,14 +3,14 @@
   "name": "Dubstep (140 bass-music)",
   "family": "global",
   "lineage": "Mid-2000s south London electronic-dance genre evolved from UK garage through tempo deceleration to 140 bpm and the introduction of the dubstep half-step rhythmic feel — codified through Skream (Skream! 2006), Benga, Burial (Burial 2006, Untrue 2007), Mala, Coki, Loefah, Plastician, and the FWD>> club and DMZ night which served as the genre's incubator",
-  "recipe": "classic British 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm bc underground hip hop german trap. pitched chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass. treated studio. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3 high-gain distortion hall reverb.",
-  "recipe_chars": 399,
-  "score": 75.915,
+  "recipe": "classic British 2004-2006 dubstep, bass System, uk soundsystem branch, intl hip hop MC rhythm schweizer rap slovenian hip hop. pitched chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass. treated studio. shure SM58, console-strip pre, brick-wall limiter, graphic EQ. lossy MP3 high-gain distortion hall reverb.",
+  "recipe_chars": 403,
+  "score": 77.87,
   "config": {
     "traditions": [
       "dubstep_140",
-      "bc_underground_hip_hop",
-      "german_trap"
+      "schweizer_rap",
+      "slovenian_hip_hop"
     ],
     "instruments": [
       {
@@ -25,9 +25,9 @@
         "scores": {
           "electronic_technique": 4.000000000000001,
           "sampler_archetypes": 7.0200000000000005,
-          "sampler_bit_depth": 1.4999999999999998,
-          "sampler_workflow": 4.635000000000001,
-          "sampler_classic_context": 14.689999999999996
+          "sampler_bit_depth": 1.3499999999999999,
+          "sampler_workflow": 4.485000000000001,
+          "sampler_classic_context": 15.599999999999994
         }
       },
       {
@@ -35,25 +35,25 @@
         "slots": {
           "tr909_voice": "tr909_hat",
           "drum_machine_909_context": "drum_machine_909_techno",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "tr909_production_origin": "tr909_behringer_rd_9"
         },
         "scores": {
           "tr909_voice": 0,
           "drum_machine_909_context": 2.535,
-          "tr909_production_origin": 0.39
+          "tr909_production_origin": 0.255
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 15.905,
-          "va_archetypes": 0.195,
-          "digital_subtractive_context": 8.969999999999999
+          "electronic_technique": 14.905,
+          "va_archetypes": 0.5,
+          "digital_subtractive_context": 9.684999999999999
         }
       },
       {
@@ -62,20 +62,20 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
-          "string_type": "pyramid_pure_nickel",
+          "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
-          "bass_technique": "sub_bass_synth_blend",
+          "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.045,
+          "amp_make": 6.645,
           "body_wood": 1.3,
-          "pickup_config": 0.585,
-          "string_type": 6.044999999999999,
+          "pickup_config": 1.04,
+          "string_type": 6.1,
           "scale_length_b": 2.6,
           "fretted_or_not": 0,
-          "bass_technique": 1.625,
+          "bass_technique": 1.15,
           "electric_bass_string_configuration": 0
         }
       }

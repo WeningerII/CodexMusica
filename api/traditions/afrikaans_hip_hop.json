@@ -5,7 +5,7 @@
   "lineage": "Afrikaans-language hip-hop; selected Jack Parow live-instrument-backed verse",
   "recipe": "classic modern afrikaans hip hop, mc Rhythm, intl hip hop branch. rap, rhythmic, rhythmic spoken flow no pitch. acoustic guitar, drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 284,
-  "score": 26.171,
+  "score": 26.275,
   "config": {
     "traditions": [
       "afrikaans_hip_hop"
@@ -37,17 +37,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0,
-          "voice_articulation": 0.6779999999999999,
+          "voice_articulation": 0.715125,
           "voice_microtone": 0,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 11.3425,
-          "voice_ensemble_config": 0.23850000000000002,
+          "voice_speech_song": 11.334999999999999,
+          "voice_ensemble_config": 0.275625,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.33899999999999997,
-          "voice_multitrack_stack": 0.07799999999999999
+          "voice_multitrack_stack": 0.11512499999999998
         }
       },
       {

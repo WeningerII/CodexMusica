@@ -1,0 +1,74 @@
+{
+  "id": "rap_mocambicana",
+  "name": "Rap moçambicana",
+  "family": "hip_hop",
+  "lineage": "Mozambican rap encompasses Maputo MC/DJ networks and their instrumental beatmaking branch. Nandele’s Argolas Deliciosas supplies the selected production model.",
+  "recipe": "classic modern rap moçambicana, mc Rhythm, intl hip hop branch. chopped sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 216,
+  "score": 13.96,
+  "config": {
+    "traditions": [
+      "rap_mocambicana"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_chopped_breaks",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": 3.1000000000000005,
+          "sampler_archetypes": 0.855,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 3.0500000000000007,
+          "sampler_classic_context": 6.565000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "studio_auteur_home_pro",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "pre_500_series_modern",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "aural_relative",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "aural_relative",
+    "room": "studio_auteur_home_pro",
+    "parts": {
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_chopped_breaks",
+      "sampler_classic_context": "sampler_classic_hiphop",
+      "electronic_technique": "electronic_sample_chopped"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "pre_500_series_modern",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

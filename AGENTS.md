@@ -1,7 +1,7 @@
 # Codex Musica — guide for AI agents
 
 This repository publishes a **static, server-free "API"**: pre-compiled recording
-**recipes** for **3238 recorded-music traditions** and data for **1467 instruments**.
+**recipes** for **3338 recorded-music traditions** and data for **1467 instruments**.
 There is no server to call, no API key, and no rate limit — every "endpoint" is just a
 plain JSON file you fetch and read.
 
@@ -19,7 +19,7 @@ For any tradition, you get:
 
 Base URL: `https://codexmusica.com`
 
-**Fastest path — one fetch for everything:** `…/api/all.json` returns all 3238
+**Fastest path — one fetch for everything:** `…/api/all.json` returns all 3338
 traditions with their `recipe` strings in a single file (~1.9 MB). Fetch it once and you
 have the whole catalog; no per-id requests needed. <!-- @promise: all-traditions-one-fetch -->
 
