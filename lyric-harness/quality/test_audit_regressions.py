@@ -54,7 +54,7 @@ class AuditRegressions(unittest.TestCase):
             return {'per_line': {2: fs}, 'whole': [],
                     'grade': {'pairs_mandated': 1, 'pairs_judged': 1,
                               'pairs_refused': 0, 'refused_obligations': []}}
-        repair = Finding('PROMINENCE_OUT_OF_BAND', 'flag', '', '', [2])
+        repair = Finding('SLOTS_EXCEEDED', 'flag', '', '', [2])
         for old, new in [
             (Finding('SCHEME_VIOLATION', 'flag', '', '', [1, 2], ('A',)),
              Finding('SCHEME_VIOLATION', 'flag', '', '', [1, 2], ('B',))),
@@ -78,7 +78,7 @@ class AuditRegressions(unittest.TestCase):
                               'pairs_judged': 0 if refused else 1,
                               'pairs_refused': int(refused),
                               'refused_obligations': [(1, 2, 0)] if refused else []}}
-        repair = Finding('PROMINENCE_OUT_OF_BAND', 'flag', '', '', [2])
+        repair = Finding('SLOTS_EXCEEDED', 'flag', '', '', [2])
         for severity, refused, accepted in (
                 ('note', False, True), ('flag', False, False),
                 ('note', True, False)):
@@ -234,13 +234,13 @@ class AuditRegressions(unittest.TestCase):
             self.assertEqual(len(called), 1)
 
     def test_interrupted_real_loop_preserves_accepted_edit_before_next_request(self):
-        # A real prominence-band violation (eight prominent syllables) has
-        # one deterministic legal repair and does not depend on ambiguous CMU
-        # pronunciations at own/gone. (It was a syllable-band violation until
-        # the owner deleted that band 2026-09-28.)
-        initial = ['The elephant elephant elephant elephant elephant elephant '
-                   'elephant stove',
-                   'Your fingers brush my heavy coat']
+        # A real mandated-assonance violation (door/coat share no nucleus)
+        # with one deterministic legal repair; neither end word has a second
+        # dictionary reading. (It was a syllable-band violation until the
+        # owner deleted that band 2026-09-28, and a prominence-band one until
+        # the owner deleted that band 2026-10-01.)
+        initial = ['Your fingers brush my heavy coat',
+                   'My kettle whistles by the door']
         m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
         rv = Reviser(rdecl=ReviseDeclaration(max_rounds=1, attempts_per_line=1,
                                             backtrack_width=0))
@@ -262,7 +262,7 @@ class AuditRegressions(unittest.TestCase):
                 revise_loop(rv, initial, m, propose=one)
             cp = json.loads((Path(tmp)/'cp.json').read_text())
             self.assertEqual(cp['status'], 'accepted')
-            self.assertEqual(cp['accepted_lines'][0], 'My kettle whistles by the stove')
+            self.assertEqual(cp['accepted_lines'][1], 'My kettle whistles by the stove')
             one, _ = LH._checkpoint_proposer(writer, None, initial, 'config', 'fake')
             result = revise_loop(rv, initial, m, propose=one)
             self.assertEqual(result.lines, cp['accepted_lines'])
@@ -287,13 +287,13 @@ class AuditRegressions(unittest.TestCase):
 
     def test_seedless_cli_renders_and_resumes_exact_accepted_draft(self):
         root = Path(__file__).resolve().parents[1]
-        # A real prominence-band violation (eight prominent syllables) has
-        # one deterministic legal repair and does not depend on ambiguous CMU
-        # pronunciations at own/gone. (It was a syllable-band violation until
-        # the owner deleted that band 2026-09-28.)
-        initial = ['The elephant elephant elephant elephant elephant elephant '
-                   'elephant stove',
-                   'Your fingers brush my heavy coat']
+        # A real mandated-assonance violation (door/coat share no nucleus)
+        # with one deterministic legal repair; neither end word has a second
+        # dictionary reading. (It was a syllable-band violation until the
+        # owner deleted that band 2026-09-28, and a prominence-band one until
+        # the owner deleted that band 2026-10-01.)
+        initial = ['Your fingers brush my heavy coat',
+                   'My kettle whistles by the door']
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp)
             (p/'draft.txt').write_text('\n'.join(initial) + '\n')

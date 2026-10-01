@@ -8863,54 +8863,19 @@ def _stream_lexicon(stream):
         else None
 
 
-def _norm_word(w):
-    import lyric_harness as _lh
-    return _lh.fold_apostrophes(str(w)).lower().strip("'\".,;:!?()[]")
-
-
-def _line_token_index(stream, li, ti, lex):
-    """Stream token -> 1-based `line_tokens` index (the coordinate occurrence
-    readings are declared in), matched by text and occurrence.  None when the
-    two tokenisers do not agree on the word."""
-    import lyric_harness as _lh
-    words = stream.lexical_tokens[li] if stream.lexical_tokens else ()
-    if not (0 <= li < len(stream.text_lines)) or ti >= len(words):
-        return None
-    target = _norm_word(words[ti])
-    k = sum(1 for w in words[:ti] if _norm_word(w) == target)
-    lt = _lh.line_tokens(stream.text_lines[li], strip_parens=lex.strip_parens)
-    hits = [j for j, w in enumerate(lt) if _norm_word(w) == target]
-    return hits[k] + 1 if k < len(hits) else None
-
-
-def _token_readings(stream, li, ti, lex):
-    """-> (line_token_index, word, [distinct whole readings]) or None when
-    the token cannot be located or the dictionary has no reading of it."""
-    import lyric_harness as _lh
-    tok = _line_token_index(stream, li, ti, lex)
-    if tok is None:
-        return None
-    word = _lh.line_tokens(stream.text_lines[li],
-                           strip_parens=lex.strip_parens)[tok - 1]
-    for row in getattr(lex, "pronunciations", ()) or ():
-        if row["line"] == stream.text_lines[li] and row["token"] == tok:
-            return tok, word, [list(row["phones"])]   # the writer chose
-    uniq = []
-    for p in lex.pronunciation_variants(word):
-        if list(p) not in uniq:
-            uniq.append(list(p))
-    return (tok, word, uniq) if uniq else None
-
-
 def reading_combos(stream, tokens, cap=READING_COMBO_CAP):
     """-> ([{(line, token): (tok, word, phones)}], complete), or (None, False)
     when a cause token cannot be varied (unlocatable, or no reading at all)."""
     lex = _stream_lexicon(stream)
     if lex is None or not tokens:
         return None, False
+    from quality.pronunciation import occurrence_readings
     per = []
     for li, ti in sorted(tokens):
-        got = _token_readings(stream, li, ti, lex)
+        if not (0 <= li < len(stream.text_lines)) or not stream.lexical_tokens:
+            return None, False
+        got = occurrence_readings(lex, stream.text_lines[li],
+                                  stream.lexical_tokens[li], ti)
         if got is None:
             return None, False
         tok, word, readings = got
@@ -8929,34 +8894,14 @@ def pinned_phonology(stream, combo):
     """The stream's English phonology with `combo`'s readings declared as
     occurrence readings, or None when it cannot be built."""
     from quality.phonology.eng import English
-    from quality.pronunciation import validate_choices
-    import lyric_harness as _lh
-    import copy as _copy
+    from quality.pronunciation import pin_readings
     ph, lex = stream.phon, _stream_lexicon(stream)
     if lex is None or not isinstance(ph, English):
         return None
-    rows = [dict(r) for r in (getattr(lex, "pronunciations", ()) or ())]
-    taken = {(r["line"], r["token"]) for r in rows}
-    for (li, _ti), (tok, word, phones) in sorted(combo.items()):
-        text = stream.text_lines[li]
-        if (text, tok) in taken:
-            continue
-        key = _lh.fold_apostrophes(word).lower()
-        rows.append({"line": text, "token": tok, "word": word,
-                     "phones": list(phones),
-                     "basis": ("dictionary" if list(phones) in
-                               [list(e) for e in lex.entries.get(key, ())]
-                               else "declared"),
-                     "source": _READING_SOURCE})
-        taken.add((text, tok))
-    pinned = _copy.copy(lex)
-    for attr in ("_pronunciation_line", "_pronunciation_tokens",
-                 "_pronunciation_choice"):
-        if attr in pinned.__dict__:
-            del pinned.__dict__[attr]
-    try:
-        pinned.pronunciations = validate_choices(rows, lex)
-    except ValueError:
+    pinned = pin_readings(lex, [(stream.text_lines[li], tok, word, phones)
+                                for (li, _ti), (tok, word, phones)
+                                in sorted(combo.items())], _READING_SOURCE)
+    if pinned is None:
         return None
     return English(fallback=ph.fallback, readings=ph.readings,
                    lexicon=pinned)
@@ -9024,16 +8969,10 @@ def resolve_line_pair(schema, stream, pair, build, cap=READING_COMBO_CAP):
 
 def _remap_token(stream, other, li, t):
     """A stream token ordinal -> the same word's ordinal in `other`."""
+    from quality.pronunciation import occurrence_position
     words = stream.lexical_tokens[li] if stream.lexical_tokens else ()
-    if t < 0:
-        t = len(words) + t
-    if not (0 <= t < len(words)):
-        return None
-    target = _norm_word(words[t])
-    k = sum(1 for w in words[:t] if _norm_word(w) == target)
     theirs = other.lexical_tokens[li] if other.lexical_tokens else ()
-    hits = [j for j, w in enumerate(theirs) if _norm_word(w) == target]
-    return hits[k] if k < len(hits) else None
+    return occurrence_position(words, t, theirs)
 
 
 def pair_satisfies_any(schema, stream, at_a, at_b, build,

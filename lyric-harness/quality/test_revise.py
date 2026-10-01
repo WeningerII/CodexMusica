@@ -3377,10 +3377,14 @@ def test_substituted_end_word_reaches_the_loop():
     # BAND_UNJUDGED is a different layer speaking about the same token for
     # its own reason, and pinning it in the set is what keeps a THIRD
     # arrival on this line from passing silently.
+    # 2026-10-01: the prominence band is DELETED (owner ruling, CLAUDE.md
+    # standing rule 5), so its BAND_UNJUDGED note no longer arrives here.
+    # superseded: codes == {SUBSTITUTED_END_WORD, BAND_UNJUDGED,
+    # UNREADABLE_END_WORD}.
     check("the literal unreadable endpoint is disclosed alongside the "
-          "substituted anchor and unjudged band",
-          codes == {"SUBSTITUTED_END_WORD", "BAND_UNJUDGED",
-                    "UNREADABLE_END_WORD"}, sorted(codes))
+          "substituted anchor, and no band speaks about the token",
+          codes == {"SUBSTITUTED_END_WORD", "UNREADABLE_END_WORD"},
+          sorted(codes))
 
     from quality.loop import revise_loop
     lr = revise_loop(R, draft, m12)

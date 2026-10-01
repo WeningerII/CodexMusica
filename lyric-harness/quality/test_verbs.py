@@ -5903,18 +5903,22 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # for a question the harness could not answer at all. The three counts
     # ride out separately (doctrine 79): what was fixed, what new FLAG
     # rejected it, and what new NOTE did not.
-    # "a king" (re-measured 2026-09-28): one stress, so the prominence band
-    # rejects it, and its end word newly collides with the free L11/L12
-    # ('wing', 'thing') — a new NOTE beside the new FLAG. The bare "a" used
-    # here added a note only while the deleted syllable band stood.
-    rc, out, _ = run("tryline", draft, "1", "a king", "--seed=7", "--lines=12",
-                     expect_rc=3)
+    # One hundred syllables ("area" x33, then "king") in a bar of 99/8 with
+    # a one-beat pickup: more syllables than slots, so the meter layer's
+    # SLOTS_EXCEEDED rejects it, and the end word newly collides with the
+    # free L11/L12 ('wing', 'thing') — a new NOTE beside the new FLAG.
+    # (Re-measured 2026-10-01: "a king" was rejected only by the prominence
+    # band, which the owner deleted that day; before that, "a" by the
+    # syllable band, deleted 2026-09-28.)
+    long_line = " ".join(["area"] * 33 + ["king"])
+    rc, out, _ = run("tryline", draft, "1", long_line, "--seed=7",
+                     "--lines=12", expect_rc=3)
     row = _machine_result(out)
     check("a candidate that trades one defect for another is REJECTED at "
           "exit 3", rc == 3 and row.get("accepted") is False, out[-300:])
     check("...naming the new FLAGS that rejected it",
           {tuple(x) for x in (row.get("new_flags") or ())}
-          >= {(1, "PROMINENCE_OUT_OF_BAND")},
+          >= {(1, "SLOTS_EXCEEDED")},
           str(row.get("new_flags")))
     check("...while still reporting what it DID fix — a rejection is not a "
           "verdict that nothing happened", len(row.get("fixed") or ()) > 0,

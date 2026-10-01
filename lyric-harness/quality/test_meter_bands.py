@@ -392,80 +392,39 @@ def test_the_adoption_check():
 
 
 def test_the_enforcement():
-    print("\n10. THE ENFORCEMENT — the adopted bands are per-line FLAGS in "
-          "the grader (the second sitting's deliverable)")
+    """10. THE ENFORCEMENT IS DELETED. The syllable band went 2026-09-28 and
+    the prominence band [2, 7] on 2026-10-01, both by owner ruling and
+    neither replaced (*"yes, cut the 2-7 rule too"*, CLAUDE.md standing
+    rule 5). The measured figures stay in `meter_bands.ADOPTED` and the
+    drift checks above still re-derive them; nothing in the grader charges
+    a line for its count. superseded: the PROMINENCE_OUT_OF_BAND flag, the
+    BAND_UNJUDGED note and their lower-bound asymmetry."""
+    print("\n10. THE ENFORCEMENT IS DELETED — no band charges a line, at "
+          "either end, readable or not")
     from quality.revise import Reviser
     R = Reviser()
     lines = [
-        # 1: in band both ways (8 syllables) — must carry NO band finding.
         "the bells ring out across the empty town",
-        # 2: 3 syllables — under the old density floor, which is deleted.
         "burn it down",
-        # 3: long — over the prominence ceiling.
         "dark stone cold black night falls dark stone cold black night falls tonight",
-        # 4: in band, rhymes with 2 in the mandate so the rhyme layer has
-        # its say too — the band layer must not disturb it.
         "the river carries golden crowns",
+        "dance 66",
+        "dark stone cold black night falls dark stone cold black night falls tonight 66",
     ]
-    found = R.inspect(lines, mandate="AXXA")
+    found = R.inspect(lines, mandate="AXXAXX")
     per = found["per_line"]
-
-    def band_codes(ln):
-        return sorted(f.code for f in per.get(ln, [])
-                      if f.code in ("PROMINENCE_OUT_OF_BAND",
-                                    "BAND_UNJUDGED")
-                      or "DENSITY" in f.code)
-    check("an in-band line carries NO band finding — silence means clean, "
-          "because the check runs unconditionally",
-          band_codes(1) == [] and band_codes(4) == [], band_codes(1))
-    # THE SYLLABLE BAND IS DELETED (owner ruling 2026-09-28): a sung line
-    # may be one syllable or a hundred, so neither end of the old [5, 12]
-    # count charges anything, and nothing replaced it.
-    check("a three-syllable line carries NO band finding — the 5-12 "
-          "syllable rule is deleted, not moved",
-          band_codes(2) == [], band_codes(2))
-    check("too many prominents is still a FLAG on the long line, and it is "
-          "the ONLY band finding there — the syllable count charges nothing",
-          band_codes(3) == ["PROMINENCE_OUT_OF_BAND"], band_codes(3))
-    check("...and every band violation is severity FLAG — the loop holds "
-          "the line open until it is fixed, nothing to opt into",
-          all(f.severity == "flag" for ln in (2, 3) for f in per[ln]
-              if f.code.endswith("OUT_OF_BAND")))
-
-    # The lower-bound asymmetry (doctrine 79). A numeral has no declared
-    # sung reading even at fallback-low: a short line gets a BAND_UNJUDGED
-    # note and no flag; a line already over the prominence ceiling on
-    # readable tokens alone flags DESPITE the refusal.
-    found = R.inspect(
-        ["dance 66", "dark stone cold black night falls dark stone cold "
-         "black night falls tonight 66"], mandate="AA")
-    per = found["per_line"]
-    c1 = sorted(f.code for f in per.get(1, []) if "BAND" in f.code
-                or "OUT_OF" in f.code)
-    c2 = sorted(f.code for f in per.get(2, []) if "BAND" in f.code
-                or "OUT_OF" in f.code)
-    check("a refused token makes UNDER-the-floor unjudgeable: no flag, a "
-          "BAND_UNJUDGED note names the token instead",
-          c1 == ["BAND_UNJUDGED"], c1)
-    check("...but OVER-the-ceiling flags anyway — a prominence lower bound "
-          "above 7 is a violation no missing token can undo",
-          "PROMINENCE_OUT_OF_BAND" in c2 and "BAND_UNJUDGED" in c2
-          and not any("DENSITY" in c for c in c2), c2)
-
-    # THE INSTRUMENT MATCH, FALSIFIABLE. This dialect line reads COMPLETE
-    # and in-band only under the calibration's own reader (section 8 proved
-    # the default refuses it) — so an enforcement quietly reading with the
-    # default reader would stamp BAND_UNJUDGED here, and this check is what
-    # goes red. The registered adoption condition, as a regression rather
-    # than prose.
-    found = R.inspect(["gie me a canty kiss at hame",
-                       "the bells ring out across the empty town"],
-                      mandate="AA")
-    c1 = sorted(f.code for f in found["per_line"].get(1, [])
-                if "BAND" in f.code or "OUT_OF" in f.code)
-    check("a dialect line the fallback reads clean carries NO band finding "
-          "— enforcement reads with the CALIBRATION'S reader (the "
-          "registered instrument-match condition)", c1 == [], c1)
+    banded = {ln: sorted(f.code for f in fs
+                         if "BAND" in f.code or "OUT_OF_BAND" in f.code)
+              for ln, fs in per.items()}
+    banded = {ln: c for ln, c in banded.items() if c}
+    check("no line carries a band finding — not the three-syllable line, "
+          "not the line with fourteen stressed beats, not a line with an "
+          "unreadable token", banded == {}, banded)
+    check("...and the codes are gone from the census vocabulary too, so "
+          "nothing downstream can wait on them",
+          not any(code in ("PROMINENCE_OUT_OF_BAND", "BAND_UNJUDGED",
+                           "DENSITY_OUT_OF_BAND")
+                  for fs in per.values() for code in (f.code for f in fs)))
 
 
 def test_the_adjacency_is_disclosed():

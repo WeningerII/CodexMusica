@@ -246,13 +246,6 @@ class LineUnits:
     prominence_rule: str = ""
     language: str = ""
     prominence_refusal: object = None    # FitRefusal, or None
-    #: THE ANY-READING RULE (owner ruling 2026-10-01): every prominent-
-    #: syllable total the line can have when each word takes any of its own
-    #: whole dictionary readings and each small word (`WEAK_*`) is sung
-    #: stressed or unstressed. None where some word has no reading at all.
-    #: `units` stay the canonical single reading the bands were calibrated
-    #: on; this is what the band is JUDGED against.
-    prominence_options: object = None
 
     @property
     def syllables(self):
@@ -489,7 +482,6 @@ def read_line(text, phon=None, strip_parens=True):
                 "raises no refusal. The count without it is a LOWER BOUND."))
 
     units = []
-    totals = None
     if hasattr(phon, "analyse_line"):
         analysis = phon.analyse_line(sung_text)
         chunks = list(analysis.tokens)
@@ -516,7 +508,6 @@ def read_line(text, phon=None, strip_parens=True):
         undecided_stresses = {}
         chunk_indices = {}
         cursor = 0
-        totals = {0}
         for wi, word in enumerate(words):
             key = _lh.fold_apostrophes(word).lower()
             for ci in range(cursor, len(chunks)):
@@ -528,26 +519,6 @@ def read_line(text, phon=None, strip_parens=True):
             piece_readings = [token_phon.parses(piece) if hasattr(token_phon, "parses") else
                               [token_phon.syllabify(piece)]
                               for piece in lex.for_token(wi).word_pieces(word) if piece]
-            # The line's achievable prominent totals (`prominence_options`):
-            # each piece may take any of its readings, and a small word may
-            # also be sung with no stress at all.
-            _small = _lh.weak_token(lex.for_token(wi), word,
-                                    phrase_final=wi == len(words) - 1) \
-                or _lh.fold_apostrophes(word).lower().strip("'\".,;:!?()[]") \
-                in (_lh.WEAK_ALWAYS | _lh.WEAK_NONFINAL)
-            word_opts = {0}
-            for readings in piece_readings:
-                piece_opts = {sum(1 for x in r
-                                  if _resolve_prominence(x.prominence) == 1)
-                              for r in readings if r}
-                if not piece_opts:
-                    totals = None
-                    break
-                if _small:
-                    piece_opts.add(0)
-                word_opts = {a + b for a in word_opts for b in piece_opts}
-            if totals is not None:
-                totals = {a + b for a in totals for b in word_opts}
             if any(len({len(r) for r in readings}) > 1 for readings in piece_readings):
                 uncertain_words.add(wi)
                 refused.append(RefusedToken(word, "UNRESOLVED_READING",
@@ -621,11 +592,6 @@ def read_line(text, phon=None, strip_parens=True):
     if prom_refusal is not None:
         units = [Unit(u.index, u.text, u.word, u.widx, None, u.moras)
                  for u in units]
-    options = None
-    if getattr(phon, "language", "") == "eng" and prom_refusal is None \
-            and totals is not None \
-            and not any(r.cause != "UNRESOLVED_READING" for r in refused):
-        options = frozenset(totals)
 
     return LineUnits(
         text=str(text), units=tuple(units), refused=tuple(refused),
@@ -633,8 +599,7 @@ def read_line(text, phon=None, strip_parens=True):
         unit_name=unit_name,
         prominence_rule=str(getattr(phon, "prominence_rule", "")),
         language=str(getattr(phon, "language", "")),
-        prominence_refusal=prom_refusal,
-        prominence_options=options)
+        prominence_refusal=prom_refusal)
 
 
 _LEX = {}

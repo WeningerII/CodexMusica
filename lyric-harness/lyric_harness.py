@@ -971,8 +971,6 @@ class _DictionaryOnlyLexicon:
 #: M IH1 K ("mick"); its everyday reading is filed under `mike`.
 SPELLING_ALIASES = {
     "mic": "mike",
-    "mics": "mikes",
-    "mic's": "mike's",
 }
 
 
@@ -1036,9 +1034,11 @@ class Lexicon:
         # files under another spelling gains that headword's own readings,
         # APPENDED, so its existing first reading -- and every number read
         # off it -- stays put. No phone is written by hand: the readings are
-        # the dictionary's, copied from the headword named.
+        # the dictionary's, copied from the headword named. An alias must
+        # already be a CMUdict word: a NEW key would join the end of the
+        # word list and move every draw taken from it (`chance_rate.py`).
         for alias, headword in SPELLING_ALIASES.items():
-            have = self.entries.setdefault(alias, [])
+            have = self.entries[alias]
             for phones in self.entries.get(headword, ()):
                 if phones not in have:
                     have.append(list(phones))
@@ -1093,7 +1093,8 @@ class Lexicon:
         """Keep explicit -in' elision separate from a bare-name homograph.
 
         Bare spellings retain both readings where the dictionary and the
-        existing -ing reduction disagree, so consensus graders can refuse.
+        existing -ing reduction disagree, so a grader can try each: under
+        CLAUDE.md standing rule 5 a check passes when any one holds it.
         """
         raw = fold_apostrophes(word).lower().strip('"“”.,;:!?()[]')
         key = raw.strip("'")

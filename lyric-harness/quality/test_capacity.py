@@ -73,7 +73,14 @@ def test_certification_uses_the_named_relation():
     bad, drift = CAP._grade_group(R, ['bone', 'bin'])
     check("default consonance rescue cannot certify a RHYME witness", drift == {0, 1})
     bad, drift = CAP._grade_group(R, ['wind', 'find'])
-    check("unresolved pronunciations cannot certify a RHYME witness", drift == {0, 1})
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): `wind`
+    # read W AY1 N D rhymes with `find`, so the pair is no longer left
+    # undecided — and once it rhymes, the same-spelled ban (-ind) refuses it.
+    # superseded: "unresolved pronunciations cannot certify a RHYME
+    # witness", drift == {0, 1}.
+    check("wind/find cannot certify a RHYME witness: it rhymes under one of "
+          "wind's readings, and the same-spelled ban then refuses the edge",
+          bad == {frozenset({0, 1})} and not drift, (bad, drift))
     bad, drift = CAP._grade_group(R, ['hair', 'chair'])
     check("a satisfied relation cannot hide a same-spelling ban", bad == {frozenset((0, 1))} and not drift)
 
@@ -218,9 +225,18 @@ def test_the_anchor():
     unresolved = R.inspect(["we carry the evening to the hair",
                             "and no one had to tell us about hire"],
                            SC.mandate([[1, 2]], n_lines=2))["grade"]
-    check("unresolved hire readings refuse the default obligation instead of selecting a convenient verdict",
-          unresolved["pairs_refused"] == 1 and unresolved["pairs_judged"] == 0
-          and "pronunciation" in unresolved["refusals"][0]["reason"])
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the
+    # obligation holds if ANY of hire's own readings holds it, and HH AY1 R
+    # stands in CONSONANCE with hair, which the default door admits.
+    # superseded: "unresolved hire readings refuse the default obligation"
+    # (refused 1, judged 0).
+    _vh = (unresolved["verdicts"] or [None])[0]
+    check("hire's two readings no longer refuse the default obligation: one "
+          "of them stands in CONSONANCE with hair, and that is enough",
+          unresolved["pairs_refused"] == 0 and unresolved["pairs_judged"] == 1
+          and _vh is not None and _vh["why"] is None
+          and "CONSONANCE" in (_vh.get("satisfied_by") or []),
+          str(_vh and (_vh["why"], _vh.get("satisfied_by"))))
     lex = Lexicon(pronunciations=[{
         "line": "and no one had to tell us about hire", "token": 9, "word": "hire",
         "phones": ["HH", "AY1", "R"], "basis": "dictionary",

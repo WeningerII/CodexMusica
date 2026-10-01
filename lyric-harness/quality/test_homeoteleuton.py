@@ -131,9 +131,17 @@ def test_pair_verdicts():
           codes.get((1, 3)) == "HOMEOTELEUTON", codes)
     check("cove/wove is HOMEOTELEUTON — the -ove class the old cliff let "
           "through at rank 7", codes.get((4, 5)) == "HOMEOTELEUTON")
-    check("hair/prayer remains unjudged when permitted pronunciations disagree",
-          (1, 2) not in codes and any(tuple(r['lines']) == (1, 2)
-              for r in found['grade']['refusals']))
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5):
+    # `prayer` has a one-syllable reading (P R EH1 R) that rhymes with
+    # `hair`, so the pair is JUDGED and satisfied rather than refused, and
+    # the ban then reaches it: hair/prayer is a tier-2 modal pair.
+    # superseded: "hair/prayer remains unjudged when permitted
+    # pronunciations disagree" (a refusal, and no code).
+    check("hair/prayer is judged under one of prayer's own readings, and "
+          "is MODAL_RHYME — the differently-spelled tier catches it",
+          codes.get((1, 2)) == "MODAL_RHYME"
+          and not any(tuple(r['lines']) == (1, 2)
+                      for r in found['grade']['refusals']), codes)
     modal = R.inspect(["we bend our will and then obey",
                        "and watch the silent night away"], mandate=[[1, 2]])
     check("obey/away is MODAL_RHYME — a determinate differently-spelled tier2 contrast",
