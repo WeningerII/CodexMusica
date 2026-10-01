@@ -5,7 +5,7 @@
   "lineage": "Death-metal strand prioritizing abrasive harmonic friction and fractured rhythmic composition, represented by Gorguts’ Obscura (1998) and Colored Sands (2013). Season of Mist’s release accounts document dissonant guitar writing and unconventional rhythm/harmony, plus the guitar-vocal, second-guitar, bass and drum roster. The available palm-muted technique pin is an authored riff-attack reduction, not a transcription of the extended guitar vocabulary.",
   "recipe": "classic late-1990s dissonant death metal, distorted Rock, death branch, avant metal, prog metal cybergrind mathcore. interlocked note trading, equal tempered, solo with instrumental accompaniment, no specific ornament system. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier maple humbucker electric guitar, ampeg svt amp rock bass amp stainless steel roundwound electric bass, sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion.",
   "recipe_chars": 611,
-  "score": 99.88,
+  "score": 99.52,
   "config": {
     "traditions": [
       "dissonant_death_metal",
@@ -31,19 +31,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 24.07,
+          "electric_technique": 24.025000000000002,
           "amp_make": 12.869999999999997,
-          "body_wood": 0.09,
-          "neck_wood": 1.3,
+          "body_wood": 0.045,
+          "neck_wood": 1.285,
           "fretboard": 1.3,
           "pickup_magnet": 0,
           "pickup_winding": 0.9500000000000001,
-          "string_material": 1.3,
-          "bridge": 0.09,
-          "scale_length": 0.18,
+          "string_material": 1.285,
+          "bridge": 0.045,
+          "scale_length": 0.09,
           "string_gauge": 1.6900000000000002,
-          "finish": 0.195,
-          "string_tuning": 1.19
+          "finish": 0.24,
+          "string_tuning": 1.2349999999999999
         }
       },
       {
@@ -60,10 +60,10 @@
         },
         "scores": {
           "amp_make": 10.79,
-          "body_wood": 0.09,
+          "body_wood": 0.045,
           "pickup_config": 0,
-          "string_type": 2.34,
-          "scale_length_b": 0.585,
+          "string_type": 2.235,
+          "scale_length_b": 0.5399999999999999,
           "fretted_or_not": 0.195,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -78,7 +78,7 @@
         },
         "scores": {
           "drum_technique": 1.125,
-          "drumhead": 0.09,
+          "drumhead": 0.045,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -117,7 +117,7 @@
           "voice_ensemble_config": 2.21,
           "voice_ornament_system": 0.65,
           "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 0.045,
+          "voice_processing_chain": 0.09,
           "voice_multitrack_stack": 1.2349999999999999
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Extreme-aggressive death-metal sub-style codified through Suffocation (Effigy of the Forgotten 1991), Cannibal Corpse (Tomb of the Mutilated 1992), Cryptopsy (None So Vile 1996), Disgorge — characterized by guttural-pig-squeal vocals, sub-200-BPM blast-beat drums, and downtuned-baritone-guitar low-end",
   "recipe": "classic North American early-1990s brutal death metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 575,
-  "score": 288.17,
+  "score": 287.75,
   "config": {
     "traditions": [
       "brutal_death_metal",
@@ -29,12 +29,12 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 11.080999999999996,
+          "voice_register": 11.044999999999996,
           "voice_quality": 7.280000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,12 +42,12 @@
           "voice_articulation": 7.344999999999999,
           "voice_microtone": 10.95,
           "voice_tradition": 2.4050000000000002,
-          "voice_mechanism_compound": 31.863999999999997,
+          "voice_mechanism_compound": 31.825,
           "voice_estill_quality": 2.0149999999999997,
           "voice_speech_song": 7.344999999999999,
           "voice_ensemble_config": 7.279999999999999,
-          "voice_ornament_system": 2.3060000000000005,
-          "voice_pitch_organization": 2.456,
+          "voice_ornament_system": 2.1500000000000004,
+          "voice_pitch_organization": 2.3399999999999994,
           "voice_processing_chain": 3.185,
           "voice_multitrack_stack": 4.062500000000001
         }
@@ -70,14 +70,14 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 36.07,
+          "electric_technique": 35.995,
           "amp_make": 19.467499999999998,
           "body_wood": 19.304999999999996,
           "neck_wood": 2.9899999999999998,
           "fretboard": 2.925,
           "pickup_magnet": 1.3,
-          "pickup_winding": 1,
-          "string_material": 0.23099999999999998,
+          "pickup_winding": 1.045,
+          "string_material": 0.195,
           "bridge": 2.9899999999999998,
           "scale_length": 18.069999999999997,
           "string_gauge": 3.8349999999999995,
@@ -101,7 +101,7 @@
           "amp_make": 5.200000000000001,
           "body_wood": 2.9899999999999998,
           "pickup_config": 0.845,
-          "string_type": 13.162500000000001,
+          "string_type": 13.155000000000003,
           "scale_length_b": 2.9899999999999998,
           "fretted_or_not": 0.845,
           "bass_technique": 10.165000000000001,

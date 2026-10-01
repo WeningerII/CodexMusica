@@ -5,7 +5,7 @@
   "lineage": "Cosmic death metal is used here for the documented psychedelic/progressive death-metal field, with Blood Incantation’s Absolute Elsewhere as a selected branch. The record juxtaposes heavy guitar, fretless bass and drums with synthesizer textures. The band and producer describe extended ensemble preparation, drums tracked to tape then transferred to a DAW, and a Moog synthesizer beneath heavy sections. This authored five-role model emphasizes that metal/electronic contrast rather than treating the band’s wholly ambient Timewave Zero as death metal.",
   "recipe": "classic modern cosmic death metal, distorted Rock, death branch. unrestrained, solo with instrumental accompaniment, delay throw phrase end send. maple stainless steel steel palm muted humbucker electric guitar, treble-extended stainless steel roundwound electric bass, birch double bass rapid double strokes machine hammered symmetric pattern drum kit, analog mono synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 539,
-  "score": 58.559,
+  "score": 58.691,
   "config": {
     "traditions": [
       "cosmic_death_metal"
@@ -29,19 +29,19 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 19.608,
+          "electric_technique": 19.843875,
           "amp_make": 0,
-          "body_wood": 0.937875,
-          "neck_wood": 1.62325,
-          "fretboard": 0.5898749999999999,
+          "body_wood": 0.9007499999999999,
+          "neck_wood": 1.6045,
+          "fretboard": 0.5471249999999999,
           "pickup_magnet": 0,
-          "pickup_winding": 0.2415,
-          "string_material": 1.62325,
-          "bridge": 0.937875,
+          "pickup_winding": 0.273,
+          "string_material": 1.6045,
+          "bridge": 0.9007499999999999,
           "scale_length": 0,
-          "string_gauge": 0.8106249999999999,
+          "string_gauge": 0.7735,
           "finish": 0,
-          "string_tuning": 0.261
+          "string_tuning": 0.2925
         }
       },
       {
@@ -58,10 +58,10 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.937875,
+          "body_wood": 0.9007499999999999,
           "pickup_config": 0,
           "string_type": 1.69,
-          "scale_length_b": 0.5654999999999999,
+          "scale_length_b": 0.5598749999999999,
           "fretted_or_not": 0.0315,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -85,8 +85,8 @@
         "scores": {
           "drum_technique": 3.75,
           "drumhead": 0.9099999999999999,
-          "drum_kit_kick_pedal": 1.678,
-          "shell_wood": 1.62325,
+          "drum_kit_kick_pedal": 1.69,
+          "shell_wood": 1.69,
           "shell_thickness": 0.06862499999999999,
           "bearing_edges": 1.69,
           "snare_wires": 0,
@@ -132,7 +132,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.3599999999999999,
-          "voice_multitrack_stack": 0.10574999999999998
+          "voice_multitrack_stack": 0.13724999999999998
         }
       },
       {
@@ -147,8 +147,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "mono_oscillator": 0,
-          "mono_filter": 0.937875,
-          "mono_archetypes": 0.969375,
+          "mono_filter": 0.9007499999999999,
+          "mono_archetypes": 0.9637499999999999,
           "mono_maker_lineage": -0.525
         }
       }

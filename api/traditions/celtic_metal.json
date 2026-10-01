@@ -5,7 +5,7 @@
   "lineage": "Celtic metal combines metal-band practice with selected Celtic musical material and instruments rather than one standardized ethnic sound. Cruachan’s Irish branch supplies the model here: electric guitars, bass and drums interact with tin-whistle and fiddle lines, with a harsh vocal layer. Keith Fay describes sustained folk/metal integration, while recording interviews document studio expansion with folk instruments and strings. This authored six-role reduction retains both acoustic melody instruments instead of substituting a generic synthesizer for them.",
   "recipe": "classic modern celtic metal, distorted Rock, folk metal branch. solo with instrumental accompaniment, plate reverb medium decay vocal classic. modern metal basswood humbucker electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, double bass rapid double strokes bronze bell bronze machine hammered drum kit, melodic tin whistle, fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 505,
-  "score": 77.506,
+  "score": 78.999,
   "config": {
     "traditions": [
       "celtic_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 1.3765,
+          "electric_technique": 1.3679999999999999,
           "amp_make": 0,
           "body_wood": 10.27,
           "neck_wood": 0,
@@ -37,11 +37,11 @@
           "pickup_magnet": 0,
           "pickup_winding": 0.0315,
           "string_material": 0,
-          "bridge": 0.6262499999999999,
+          "bridge": 0.5774999999999999,
           "scale_length": 0,
-          "string_gauge": 0.2045,
+          "string_gauge": 0.5355,
           "finish": 0,
-          "string_tuning": 0.0315
+          "string_tuning": 0.2835
         }
       },
       {
@@ -58,12 +58,12 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 1.2037499999999999,
+          "body_wood": 1.1549999999999998,
           "pickup_config": 0,
           "string_type": 0.0315,
-          "scale_length_b": 0.063,
-          "fretted_or_not": 0.0315,
-          "bass_technique": 3.845,
+          "scale_length_b": 0.0945,
+          "fretted_or_not": 0.063,
+          "bass_technique": 3.805,
           "electric_bass_string_configuration": 0
         }
       },
@@ -84,15 +84,15 @@
         },
         "scores": {
           "drum_technique": 3.7815,
-          "drumhead": 0.7244999999999999,
+          "drumhead": 0.7979999999999999,
           "drum_kit_kick_pedal": 1.69,
           "shell_wood": 0,
-          "shell_thickness": 0.0315,
+          "shell_thickness": 0.063,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
-          "cymbal_alloy": 1.14875,
-          "cymbal_hammering": 3.6575,
-          "cymbal_lathing": 5.039000000000001,
+          "cymbal_alloy": 1.0999999999999999,
+          "cymbal_hammering": 3.6500000000000004,
+          "cymbal_lathing": 5.0445,
           "cymbal_finish": 0
         }
       },
@@ -128,11 +128,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.590999999999999,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 6.0714999999999995,
+          "voice_ornament_system": 0.063,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 4.54,
-          "voice_multitrack_stack": 0.313
+          "voice_processing_chain": 4.563,
+          "voice_multitrack_stack": 0.46199999999999997
         }
       },
       {
@@ -144,8 +144,8 @@
           "whistle_body_material": "whistle_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 19.5535,
-          "whistle_key": 3.2815,
+          "wind_articulation": 19.5125,
+          "whistle_key": 3.313,
           "whistle_ornament": 0.105,
           "whistle_body_material": 0
         }
@@ -164,8 +164,8 @@
           "bowed_technique": 8.95,
           "fiddle_strings": 0,
           "fiddle_bow": 0.1995,
-          "fiddle_mute": 0.2045,
-          "fiddle_articulation": 0.361,
+          "fiddle_mute": 0.5355,
+          "fiddle_articulation": 0.2625,
           "fiddle_string_configuration": 0
         }
       }

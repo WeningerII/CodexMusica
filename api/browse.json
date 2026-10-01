@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 3438,
+  "count": 3538,
   "items": [
     {
       "id": "honky_tonk",
@@ -133319,6 +133319,3291 @@
       "description": "German metalcore represented by Caliban’s breakdown-centered band practice. Palm-muted guitar figures and bass align with acoustic-kit accents beneath lead and clean supporting vocals. The authored model emphasizes strong stop/start contrast rather than a single fixed tempo. Exact studio chain, tuning and part selections are contemporary authored production choices.",
       "exemplars": [
         "Caliban"
+      ]
+    },
+    {
+      "id": "trap_boliviano",
+      "name": "Trap boliviano",
+      "family": "hip_hop",
+      "lineage": "Santa Cruz trap represented by Cruz Santa’s Modo Percy, released through Never Ponys Records.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "digital_subtractive"
+      ],
+      "description": "Cruz Santa’s Modo Percy represents a Santa Cruz trap branch. The label-delivered release establishes Cruz Santa and Never Ponys Records, and a festival video caption places the project in Santa Cruz de la Sierra. Local music reporting describes rap, sampled public speech and electronic bass; those timbral observations are secondary evidence, not artist gear credits. The 808-style drum and digital synth bed is an authored realization, with no exact session equipment asserted.",
+      "exemplars": [
+        "Cruz Santa",
+        "Cs Corona"
+      ]
+    },
+    {
+      "id": "turkish_trap_pop",
+      "name": "Turkish trap pop",
+      "family": "hip_hop",
+      "lineage": "Istanbul melodic trap-pop crossover represented by Reynmen’s Ela and its credited composition and arrangement collaborators.",
+      "parent": "mcRhythm.intlHipHop",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "drum_machine_808",
+        "digital_subtractive"
+      ],
+      "description": "The Turkish trap-pop discovery playlist includes Reynmen; his Ela supplies the selected melodic crossover reference. Label-delivered credits identify Reynmen as performer, Taner Yıldırım as composer and Can Volkan as arranger. The promoter biography documents Istanbul and the song’s pop-facing direction. A melodic vocal over 808-style drums and short synth figures is the authored production realization, without a claim about actual session devices or Reynmen’s entire repertoire.",
+      "exemplars": [
+        "Reynmen",
+        "Taner Yıldırım",
+        "Can Volkan"
+      ]
+    },
+    {
+      "id": "cyber_metal",
+      "name": "Cyber metal",
+      "family": "rock_punk",
+      "lineage": "Cyber metal is represented by Subliminal Fear’s explicitly self-described cyber-metal practice on Escape from Leviathan. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        -1,
+        0,
+        2,
+        2,
+        -1,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "digital_subtractive"
+      ],
+      "description": "Cyber metal is represented by Subliminal Fear’s explicitly self-described cyber-metal practice on Escape from Leviathan. The artist describes electronic synths, heavy rhythm-guitar figures and mixed extreme/melodic vocals; its singer explains that guitar, bass and drums form a unified groove foundation. This authored realization adds precise synthesizer texture to sharply articulated guitar riffs and contrasting vocals. The electronic rhythmic/synth layer and futuristic concept distinguish this selected industrial-metal branch; cyber does not identify a standardized tuning, a specific computer or merely any metal about science fiction. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "Subliminal Fear — Escape from Leviathan"
+      ]
+    },
+    {
+      "id": "cypriot_metal",
+      "name": "Cypriot metal",
+      "family": "rock_punk",
+      "lineage": "Cypriot metal is a national-scene umbrella, represented by Arrayan Path’s epic heavy/power-metal branch. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal.power",
+      "axes": [
+        2,
+        1,
+        1,
+        2,
+        2,
+        -1,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Cypriot metal is a national-scene umbrella, represented by Arrayan Path’s epic heavy/power-metal branch. The label credits guitars, bass, drums, vocals and session keyboards, and emphasizes melodic choruses, galloping sections and vocal projection. The authored arrangement centers those core-band roles with keyboard support. The country identifies the scene, not a compulsory ethnic instrument or a single musical grammar. Arrayan Path’s album-specific oud and bowed-tambur additions are not treated as universal to Cypriot metal, and this core model does not reconstruct those tracks. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "Arrayan Path"
+      ]
+    },
+    {
+      "id": "deep_folk_metal",
+      "name": "Deep folk metal",
+      "family": "rock_punk",
+      "lineage": "Deep folk metal is treated here as a discovery-metadata cohort, represented by the explicitly credited folk-metal ensemble of Svartby. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal.folkMetal",
+      "axes": [
+        1,
+        0,
+        1,
+        2,
+        2,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Deep folk metal is treated here as a discovery-metadata cohort, represented by the explicitly credited folk-metal ensemble of Svartby. Its own release notes identify guitars, bass, drums, vocals and keyboards, with Swedish/English fantasy storytelling. The authored realization gives keyboard-led folk-like melody an energetic distorted-guitar and drum foundation. Deep is retained as the allocation’s discovery qualifier, with no invented acoustic definition or claim of a separate historical folk tradition. The selected practice is playful, rhythmically active folk metal, not an unsupported rule that deep folk metal must be slow, meditative or use live folk instruments. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "Svartby — Swamp, My Neighbour"
+      ]
+    },
+    {
+      "id": "deep_melodic_death_metal",
+      "name": "Deep melodic death metal",
+      "family": "rock_punk",
+      "lineage": "Deep melodic death metal is treated as a discovery cohort, represented by Bloodshot Dawn’s Demons. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        1,
+        -1,
+        2,
+        0,
+        2,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Deep melodic death metal is treated as a discovery cohort, represented by Bloodshot Dawn’s Demons. The primary release credits guitar, bass, vocal, live-drum and keyboard/orchestral-arrangement recording roles and labels its practice melodic and technical death metal. The authored arrangement places melodic lead figures and brief keyboard support over rapid riffing and a dense rhythm section. Deep identifies the catalog cohort rather than a new meter, regional school or uniform level of fame. This exemplar’s melodic/technical death-metal balance distinguishes the chosen model from breakdown-led melodic metalcore while allowing overlap at the category edges. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "Bloodshot Dawn — Demons"
+      ]
+    },
+    {
+      "id": "deep_symphonic_black_metal",
+      "name": "Deep symphonic black metal",
+      "family": "rock_punk",
+      "lineage": "Deep symphonic black metal is treated as a discovery cohort, represented by Suffering Souls. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal.symphonic",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        2,
+        -1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Deep symphonic black metal is treated as a discovery cohort, represented by Suffering Souls. Label credits establish guitar, bass, voice and orchestral arrangements by Tobias Micko, with live drums by Michiel van der Plicht. The authored realization couples rapid guitar textures and harsh voice with a keyboard-workstation realization of the orchestral layer. Deep marks the discovery category, not an independently documented historical school. Symphonic refers to the compositional orchestral layer, not proof that every string or choir is a live ensemble; this model stays within the documented black-metal/symphonic overlap. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "Suffering Souls — An Iconic Taste of Demise"
+      ]
+    },
+    {
+      "id": "depressive_black_metal",
+      "name": "Depressive black metal",
+      "family": "rock_punk",
+      "lineage": "Depressive black metal is represented by Austere’s long-form, emotionally bleak black-metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        -1,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Depressive black metal is represented by Austere’s long-form, emotionally bleak black-metal practice. The label describes layered guitars, expressive drums, keyboards and voices; the duo’s own interview stresses dark emotional expression while resisting rigid genre boundaries. The authored arrangement uses repeated melodic guitar figures, spacious keyboard support and restrained-to-intense percussion. Depressive identifies expressive and thematic emphasis; it is neither a diagnosis of musicians or listeners nor a mandatory self-harm theme. It overlaps atmospheric and emotional black metal rather than creating a hard technical boundary. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "Austere — Corrosion of Hearts"
+      ]
+    },
+    {
+      "id": "downtempo_deathcore",
+      "name": "Downtempo deathcore",
+      "family": "rock_punk",
+      "lineage": "Downtempo deathcore is represented by Bound in Fear, identified as a Farnham downtempo/deathcore group in its label’s official announcement. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        -1,
+        -2,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Downtempo deathcore is represented by Bound in Fear, identified as a Farnham downtempo/deathcore group in its label’s official announcement. The artist profile credits vocals, guitar, bass and drums. The authored realization emphasizes low clipped guitar attacks, widely spaced half-time accents and harsh lead voice, with silence between attacks contributing to weight. The central distinction from fast deathcore is the slow, breakdown-centered rhythmic emphasis, not a claim that every passage is slow or a particular extreme tuning is mandatory. The selected Drop B is an authored playable baseline rather than a transcription of the band’s actual tuning. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "Bound in Fear"
+      ]
+    },
+    {
+      "id": "edinburgh_metal",
+      "name": "Edinburgh metal",
+      "family": "rock_punk",
+      "lineage": "Edinburgh metal is a city-scene umbrella, represented by DVNE’s progressive post-metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal.postMetal",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Edinburgh metal is a city-scene umbrella, represented by DVNE’s progressive post-metal practice. The label credits guitars, bass, drums, keyboards and voices, and quotes the band’s wish for distinct guitar parts, defined bass/drums and clear synths. This authored arrangement uses dynamic heavy/light contrast and evolving melodic riffs with keyboard atmosphere. The city defines the discovery cohort, not a uniquely Edinburgh guitar tone. DVNE’s progressive post-metal branch is one local realization and does not stand in for every Edinburgh heavy-music style. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "DVNE — Voidkind"
+      ]
+    },
+    {
+      "id": "emotional_black_metal",
+      "name": "Emotional black metal",
+      "family": "rock_punk",
+      "lineage": "Emotional black metal is represented by Waldgeflüster’s self-described emotional, nature-connected black-metal practice. Exact defaults are an authored contemporary studio realization, not historical session reconstruction.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Emotional black metal is represented by Waldgeflüster’s self-described emotional, nature-connected black-metal practice. Dahoam credits guitar/voice, further guitars, bass, drums, keys and samples, and explores belonging and home through personal reflection. The authored realization balances repeated melodic guitar textures and harsh vocal urgency with quieter space and subtle keyboard layers. Emotional is an explicitly artist-used expressive description, overlapping atmospheric and depressive black metal. It does not mean that other black metal is emotionless, and this nature/home-centered example does not require depressive or self-harm subject matter. The prescribed pickup family, string tuning, studio chain and numeric axes are authored choices for a new recording, not equipment facts about the exemplar.",
+      "exemplars": [
+        "Waldgeflüster — Dahoam"
+      ]
+    },
+    {
+      "id": "experimental_black_metal",
+      "name": "Experimental black metal",
+      "family": "rock_punk",
+      "lineage": "Experimental black metal is represented here by Decline Of The I. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.avant",
+      "axes": [
+        -1,
+        -1,
+        2,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Experimental black metal represented by Decline Of The I’s post-black and electronically colored branch. The authored arrangement combines guitar, bass, acoustic drums, lead voice and a synthesizer keyboard role, allowing contrasting slow and rapid sections rather than a fixed raw-black-metal pattern. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Decline Of The I"
+      ]
+    },
+    {
+      "id": "finnish_black_metal",
+      "name": "Finnish black metal",
+      "family": "rock_punk",
+      "lineage": "Finnish black metal is represented here by Archgoat. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Finnish black metal represented by Archgoat’s early guitar, bass/vocals and acoustic-drum trio. The authored model favors a blunt repeated riff and heavy percussive attack, retaining the documented black/death crossover rather than assuming treble-only guitar or one shriek technique. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Archgoat"
+      ]
+    },
+    {
+      "id": "folk_metal_latinoamericano",
+      "name": "Folk metal latinoamericano",
+      "family": "rock_punk",
+      "lineage": "Folk metal latinoamericano is represented here by Skiltron. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.folkMetal",
+      "axes": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "highland_bagpipes"
+      ],
+      "description": "Latin American folk metal is represented by Skiltron’s Argentine-origin Celtic/power-metal branch: bagpipe melody over electric guitar, bass and acoustic drums with sung lead and chorus support. The authored bagpipe implementation is a Highland-pipe context choice; it is not a reconstruction of every release. Exact studio chain, tuning and part selections are contemporary authored production choices. Performer-relative intonation is chosen for the mixed bagpipe/metal realization; no measured historical pipe scale or tuning ratio is asserted.",
+      "exemplars": [
+        "Skiltron"
+      ]
+    },
+    {
+      "id": "forest_black_metal",
+      "name": "Forest black metal",
+      "family": "rock_punk",
+      "lineage": "Forest black metal is represented here by Saor. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "tin_whistle",
+        "uilleann_pipes",
+        "cello"
+      ],
+      "description": "Forest black metal is treated as a landscape/atmosphere discovery tag, represented by Saor’s Scottish nature-centered branch. Guitar, bass, acoustic drums and voice combine with real tin whistle, uilleann pipes and cello; the authored model does not replace these documented acoustic roles with a generic synthesizer pad. Exact studio chain, tuning and part selections are contemporary authored production choices. Performer-relative intonation is an authored mixed-ensemble choice, not a measured traditional scale.",
+      "exemplars": [
+        "Saor"
+      ]
+    },
+    {
+      "id": "german_grindcore",
+      "name": "German grindcore",
+      "family": "rock_punk",
+      "lineage": "German grindcore is represented here by Japanische Kampfhörspiele. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "German grindcore represented by Japanische Kampfhörspiele’s self-described grindpunk branch. Short-form songs put guitar, bass, acoustic drums and lead vocals into abrupt, densely packed contrasts. The present-day authored blast-pattern model is a recording proposal rather than a claim that every bar or release uses that technique. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Japanische Kampfhörspiele"
+      ]
+    },
+    {
+      "id": "german_pagan_metal",
+      "name": "German pagan metal",
+      "family": "rock_punk",
+      "lineage": "German pagan-metal discovery field represented by Finsterforst’s Black Forest post/black/pagan-metal branch and its Zerfall-era ensemble.",
+      "parent": "distortedRock.metal.folkMetal",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Heavy guitar riffs, bass and drums support main voice, collective vocal passages and keyboard-borne orchestral atmosphere. The authored workstation realizes the documented keyboard/orchestral role without asserting a physical orchestra. Longer contrasting sections and sustained textures are selected over a constant galloping folk-dance model. Pagan is a repertoire and scene descriptor here, not a claim about performers’ personal religion. D-standard guitar tuning and all production settings are authored.",
+      "exemplars": [
+        "Finsterforst"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.black",
+        "distortedRock.metal.postMetal"
+      ]
+    },
+    {
+      "id": "german_thrash_metal",
+      "name": "German thrash metal",
+      "family": "rock_punk",
+      "lineage": "German thrash-metal discovery field represented by Kreator’s Essen-rooted guitar, bass, drum and vocal practice, with the band’s different eras acknowledged rather than collapsed into a single historical session.",
+      "parent": "distortedRock.metal.thrash",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An attack-led electric-guitar figure and electric-bass reinforcement interlock with fast stick drumming and a direct lead voice. The authored palm-muted option alternates with open riff accents; no precise tempo or original amplifier is claimed. This selected thrash branch puts rhythmic riff articulation ahead of the keyboard-led atmosphere of the pagan and gothic entries. E-flat guitar tuning and the digital chain are present-day design choices.",
+      "exemplars": [
+        "Kreator"
+      ]
+    },
+    {
+      "id": "gothenburg_metal",
+      "name": "Gothenburg metal",
+      "family": "rock_punk",
+      "lineage": "Gothenburg metal is a place-linked discovery category represented by Dark Tranquillity’s melodic-death-metal practice and Endtime Signals-era guitar, keyboard, bass, drum and vocal roles.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Melodic electric-guitar lines sit within a weighty rhythm-guitar and bass foundation; drums articulate the phrases while voice and keyboard/electronic layers supply contrasting foreground and atmosphere. The authored pad workstation represents the credited keyboards, not a claimed synthesizer make. D-standard guitar tuning and the modern studio chain are authored. This is one contemporary melodic-death branch of the Gothenburg field, not every metal band from the city.",
+      "exemplars": [
+        "Dark Tranquillity"
+      ]
+    },
+    {
+      "id": "gothic_black_metal",
+      "name": "Gothic black metal",
+      "family": "rock_punk",
+      "lineage": "Gothic black metal is a crossover discovery label represented by Cradle of Filth’s Suffolk-origin extreme-metal practice, combining blackened intensity, gothic theatricality and symphonic keyboard color.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Rapid guitar movement and drums frame bass, contrasting vocal deliveries and dramatic keyboard punctuation. The authored workstation renders the documented symphonic keyboard role; its hardware, E-flat tuning, amplifier and studio choices are not the band’s historical setup. The model retains a blackened rhythmic core while letting dark theatrical contrasts interrupt it. It does not declare all of Cradle of Filth’s repertoire orthodox black metal.",
+      "exemplars": [
+        "Cradle of Filth"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.symphonic"
+      ]
+    },
+    {
+      "id": "gothic_symphonic_metal",
+      "name": "Gothic symphonic metal",
+      "family": "rock_punk",
+      "lineage": "Gothic symphonic metal is represented by Sirenia’s Stavanger-linked mixture of gothic metal, classical orchestration, contrasting voices and amplified rhythm instruments.",
+      "parent": "distortedRock.metal.symphonic",
+      "axes": [
+        1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation",
+        "violin_orchestral",
+        "choir_ensemble"
+      ],
+      "description": "Rhythm guitar, bass and drums ground melodic vocal contrast, a small choir layer, orchestral-keyboard sustain and violin lines. These roles are documented in Sirenia’s own description; the selected modern orchestral violin and sample-workstation are authored realizations. The choir uses a contemporary small-ensemble option without claiming a specific language, church tradition or historical voicing. D-standard tuning and studio settings are authored. This preserves gothic dramatic contrast rather than making orchestral color alone the genre’s definition.",
+      "exemplars": [
+        "Sirenia"
+      ]
+    },
+    {
+      "id": "greek_black_metal",
+      "name": "Greek black metal",
+      "family": "rock_punk",
+      "lineage": "Greek black-metal discovery field represented by Rotting Christ’s Athens-rooted melodic Hellenic black-metal practice; the group’s grindcore beginnings and later gothic turns are acknowledged as historical variation.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Electric-guitar figures and bass support a direct vocal line and deliberate drums, with repeated accented phrases chosen for a melodic yet severe arrangement. This authored riff-based realization uses power chords and measured stick attack rather than assigning perpetual blasting to the entire national field. D-standard tuning and exact amplification are design choices. No ancient instrument, ritual practice or scale is inferred from Greek identity or lyrical subject matter.",
+      "exemplars": [
+        "Rotting Christ"
+      ]
+    },
+    {
+      "id": "greek_metal",
+      "name": "Greek metal",
+      "family": "rock_punk",
+      "lineage": "Greek metal is a broad geographic discovery field represented here by Firewind’s Thessaloniki-centered melodic heavy/power-metal branch, rather than by the entire national metal scene.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        2,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Melodic lead guitar, bass and a steady drum foundation frame strong sung hooks and a supportive keyboard layer. The rhythm/lead guitar role is realized with the existing humbucker type; the sampled keyboard is an authored interpretation of credited keys. The selected model favors concise anthem shapes and guitar solo space. Standard guitar tuning and the present-day studio chain are authored rather than a reconstruction of Burning Earth or the anniversary concert.",
+      "exemplars": [
+        "Firewind"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.power"
+      ]
+    },
+    {
+      "id": "guatemalan_metal",
+      "name": "Guatemalan metal",
+      "family": "rock_punk",
+      "lineage": "Guatemalan metal is a broad geographic discovery field represented by Metal Requiem’s Guatemala City thrash/death practice and Central American performance network.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An amplified guitar/bass foundation and drums carry forceful vocal phrases. Palm-muted riff articulation and accented rhythmic turns are authored to realize the band’s documented thrash/death overlap. The model is a present-day studio arrangement, with D-standard guitar tuning and modern amplification chosen for controlled low-register attack. It does not claim that this branch encompasses all Guatemalan metal or that a national identity supplies an indigenous instrument part.",
+      "exemplars": [
+        "Metal Requiem"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.thrash",
+        "distortedRock.metal.death"
+      ]
+    },
+    {
+      "id": "hungarian_black_metal",
+      "name": "Hungarian black metal",
+      "family": "rock_punk",
+      "lineage": "Hungarian black-metal discovery field represented by Sear Bliss, formed in Szombathely in 1993, with a documented atmospheric branch featuring amplified metal instruments, synthesizer and brass.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        2,
+        2,
+        0,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth",
+        "trombone"
+      ],
+      "description": "Sustained electric-guitar movement, bass, voice and drums form the black-metal foundation; synthesizer atmosphere and a trombone line broaden the register and phrase lengths. The trombone is a documented Sear Bliss role, not an instrument attributed to Hungarian metal generally. The authored tenor/legato brass option and keyboard pad are representative choices, not performer-specific settings. E-flat guitar tuning and the recording chain are authored.",
+      "exemplars": [
+        "Sear Bliss"
+      ]
+    },
+    {
+      "id": "hungarian_metal",
+      "name": "Hungarian metal",
+      "family": "rock_punk",
+      "lineage": "Hungarian metal is a broad geographic discovery category represented here by Ektomorf’s Mezőkovácsháza-origin groove/neo-thrash branch, not an exhaustive account of the country’s metal styles.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        2,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A low-register palm-muted guitar figure locks to bass and forceful drums beneath direct vocal delivery. The authored arrangement makes repetitive groove and displaced accents more prominent than continuous fast picking. Lowered guitar register is supported by the label’s description; choosing drop C specifically remains an authored setting. Modern studio processing and exact instrumental hardware are likewise authored. The branch does not imply any compulsory Hungarian or Romani folk instrumentation.",
+      "exemplars": [
+        "Ektomorf"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.thrash"
+      ]
+    },
+    {
+      "id": "icelandic_black_metal",
+      "name": "Icelandic black metal",
+      "family": "rock_punk",
+      "lineage": "Icelandic black-metal discovery field represented by Auðn’s Hveragerði-centered atmospheric and melodic branch, formed in 2010 and documented as distinct from some of the island’s more dissonant approaches.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        2,
+        2,
+        0,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Interlaced electric-guitar lines and bass carry sustained melodic shapes over forceful drums and voice. The authored tremolo option and restrained keyboard-free ensemble follow the documented guitar-led lineup; the single guitar catalog type represents several played parts, not one performer. E-flat guitar tuning and all exact production choices are authored. Melodic layering is the selected emphasis, not a claim that all Icelandic black metal sounds alike or evokes a particular landscape.",
+      "exemplars": [
+        "Auðn"
+      ]
+    },
+    {
+      "id": "icelandic_metal",
+      "name": "Icelandic metal",
+      "family": "rock_punk",
+      "lineage": "Icelandic metal is a geographic discovery field represented by Sólstafir’s Reykjavík-rooted evolution from black metal into a dark, psychedelic and rock-inflected metal practice.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Sustained and ringing electric-guitar phrases, bass, drums and an expressive lead vocal drive an extended dynamic arc. The authored overdriven-lead option keeps melodic line and texture in front while allowing recurring rock pulse. Standard guitar tuning and the modern digital chain are design choices. This guitar-band realization selects the documented core ensemble without asserting that every later recording omits additional instruments.",
+      "exemplars": [
+        "Sólstafir"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.postMetal"
+      ]
+    },
+    {
+      "id": "indian_metal",
+      "name": "Indian metal",
+      "family": "rock_punk",
+      "lineage": "Indian metal is a broad national discovery field represented here by Mumbai’s Demonic Resurrection and the core symphonic-death ensemble credited on Dashavatar.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Guitar and bass riffing, drums and voice interlock with a keyboard orchestration layer. The authored workstation realizes the credited keys without assigning the band a particular hardware model. D-standard guitar tuning, blast-beat option and modern studio chain are representative choices. The core arrangement is selected from the album’s credited palette; guest sitar, tabla and flute on particular tracks are not generalized to all Indian metal, and no raga or religious performance system is inferred.",
+      "exemplars": [
+        "Demonic Resurrection"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.death",
+        "distortedRock.metal.symphonic"
+      ]
+    },
+    {
+      "id": "indonesian_black_metal",
+      "name": "Indonesian black metal",
+      "family": "rock_punk",
+      "lineage": "Indonesian black-metal discovery field represented by Vallendusk’s Jakarta melodic/atmospheric black-metal practice, using the named roles on Heralds Of Strife.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        2,
+        2,
+        0,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Lead and rhythm guitar parts carry long melodic spans over drums and voice, with a supportive keyboard layer. The guitar and pad choices are authored realizations of the album’s credited roles; no separate bassist is invented where the credits do not identify one. The label describes an extended atmospheric/melodic black-metal branch rather than a uniformly raw national sound. E-flat guitar tuning, analog-synth hardware and exact studio chain are authored.",
+      "exemplars": [
+        "Vallendusk"
+      ]
+    },
+    {
+      "id": "indonesian_death_metal",
+      "name": "Indonesian death metal",
+      "family": "rock_punk",
+      "lineage": "Indonesian death-metal discovery field represented by Jasad’s Bandung brutal-death practice and the voice/guitar/bass/drum ensemble credited on Rebirth Of Jatisunda.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An electric-guitar riff and bass reinforcement alternate fast attack with weighty rhythmic accents under voice and drums. The blast-beat option and D-standard guitar tuning are authored choices within the documented brutal-death branch, not a transcription. The recording chain is a present-day realization. Album titles and local lyrical references are not used to invent ritual instruments, scales or an exclusively regional musical grammar.",
+      "exemplars": [
+        "Jasad"
+      ]
+    },
+    {
+      "id": "indonesian_deathcore",
+      "name": "Indonesian deathcore",
+      "family": "rock_punk",
+      "lineage": "Indonesian deathcore is a regional discovery scope represented by Revenge The Fate’s Bandung symphonic-deathcore branch and documented guitar, bass, drum and vocal roles.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Palm-muted low-register guitar and bass lock to drums, alternating fast passages with slower punctuated breakdown sections beneath lead and supporting voices. This is an authored guitar-band realization of the documented deathcore ensemble. The band’s symphonic identity is retained in the contextual description without inventing a separately credited orchestral player. Drop-C tuning, bass attack and exact studio processing are authored rather than attributed to the named recordings.",
+      "exemplars": [
+        "Revenge The Fate"
+      ],
+      "crossRefs": [
+        "distortedRock.punk",
+        "distortedRock.metal.symphonic"
+      ]
+    },
+    {
+      "id": "indonesian_metal",
+      "name": "Indonesian metal",
+      "family": "rock_punk",
+      "lineage": "Indonesian metal is a broad national discovery field represented by Burgerkill’s Bandung underground-metal practice and the core ensemble documented in the band’s Adamantine release account.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Guitar and bass riffing, strong drum accents and an upfront vocal line form a tightly coordinated amplified band. The authored arrangement selects the album’s documented core recording roles and lets recurring heavy grooves lead. It does not claim to cover every sound installation, guest voice or percussion layer on Adamantine. Drop-C guitar tuning, exact amplifier and modern studio chain are design choices, not original-session claims.",
+      "exemplars": [
+        "Burgerkill"
+      ],
+      "crossRefs": [
+        "distortedRock.punk"
+      ]
+    },
+    {
+      "id": "indonesian_thrash_metal",
+      "name": "Indonesian thrash metal",
+      "family": "rock_punk",
+      "lineage": "Indonesian thrash-metal discovery field represented by Nattmaran’s Bogor–Bekasi recording network on the label compilation Faster Than the Devil 4, an explicitly international collaboration in an Indonesian thrash program.",
+      "parent": "distortedRock.metal.thrash",
+      "axes": [
+        -1,
+        -1,
+        0,
+        2,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Fast guitar riffs, bass and drums propel direct voice with a rocking pulse and concise sectional turns. The authored picked-bass and punk-stick options realize the label’s speed/thrash-and-roll characterization; standard guitar tuning and all exact studio choices are authored. Multiple credited guitar roles share one catalog type. The network’s musicians and sessions span locations, so no single local studio is presented as the genre’s birthplace.",
+      "exemplars": [
+        "Nattmaran"
+      ]
+    },
+    {
+      "id": "industrial_black_metal",
+      "name": "Industrial black metal",
+      "family": "rock_punk",
+      "lineage": "Industrial black metal is represented by Mysticum’s Norwegian, Asker-linked practice, combining black-metal guitars and voices with computer-programmed percussion, bass and synthesizer.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        2,
+        1,
+        0,
+        -2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "sampler_drum_machine",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Electric-guitar motion, bass and contrasting voices are locked to intentionally programmed percussion, with a synthesized atmospheric layer. The sampler/drum-machine role realizes the explicitly documented computer drum patterns; no live drummer is silently substituted. The authored pad synth and standard guitar tuning specify a contemporary realization rather than original equipment. Mechanized repetition and electronic texture provide the boundary with a conventional live-drum black-metal setup.",
+      "exemplars": [
+        "Mysticum"
+      ]
+    },
+    {
+      "id": "instrumental_black_metal",
+      "name": "Instrumental black metal",
+      "family": "rock_punk",
+      "lineage": "Instrumental black metal is a voice-omitted discovery/repertoire scope represented here by Der Weg einer Freiheit’s officially remixed Innern (Instrumental), grounded in the group’s Würzburg black/post-metal practice.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        -1,
+        -1,
+        2,
+        2,
+        -2,
+        2,
+        2,
+        -1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Two guitar parts, bass, drums and synthesizer atmosphere carry the musical narrative without a vocal instrument. The source explicitly describes an instrumental remix that rebalances instruments and foregrounds atmospheric layers; this authored realization therefore does not merely mute a stock vocal recipe. Tremolo-picked guitar, pad synthesis, D-standard tuning and the generic digital chain are present-day choices, not a transcription or reconstruction of the release.",
+      "exemplars": [
+        "Der Weg einer Freiheit — Innern (Instrumental)"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.postMetal"
+      ]
+    },
+    {
+      "id": "instrumental_death_metal",
+      "name": "Instrumental death metal",
+      "family": "rock_punk",
+      "lineage": "Instrumental death metal is represented by Blotted Science’s technical, death-rooted instrumental trio and distributed recording practice coordinated by Ron Jarzombek from San Antonio.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        -1,
+        2,
+        0,
+        1,
+        -1,
+        -2,
+        2,
+        2,
+        -2,
+        2,
+        2,
+        -2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Electric guitar, articulated bass and drums carry the entire arrangement without a vocalist. Closely composed sectional changes and rhythmic detail are foregrounded rather than a recurring sung hook. The core instrumental roles and death-metal roots are primary-source supported; exact guitar technique, D-standard tuning and chain are authored. Twelve-tone equal temperament is only the pitch-reference baseline and must not be confused with Jarzombek’s separately documented twelve-tone compositional method.",
+      "exemplars": [
+        "Blotted Science"
+      ],
+      "crossRefs": [
+        "distortedRock.metal.prog"
+      ]
+    },
+    {
+      "id": "instrumental_djent",
+      "name": "Instrumental djent",
+      "family": "rock_punk",
+      "lineage": "Instrumental djent is represented by Animals As Leaders’ Washington-origin instrumental progressive-metal practice: extended-range guitar parts, intricate drum interaction and electronic texture without lead vocals.",
+      "parent": "distortedRock.metal.prog",
+      "axes": [
+        0,
+        -1,
+        2,
+        0,
+        1,
+        -1,
+        -1,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "eight_string_electric",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Eight-string guitar parts span low percussive attacks and higher melodic figures while drums articulate shifting accents and a synth layer supplies color. The one catalog guitar type represents two guitar roles, not one player; no separately credited bass player or vocalist is invented. The low-F-sharp tuning option and exact production settings are authored choices. The source supports eight-string guitar, voice-free performance and rhythmic instrumental interaction without making every composition a chug pattern.",
+      "exemplars": [
+        "Animals As Leaders"
+      ]
+    },
+    {
+      "id": "instrumental_progressive_metal",
+      "name": "Instrumental progressive metal",
+      "family": "rock_punk",
+      "lineage": "Instrumental progressive metal represented by Animals as Leaders’ two-guitar-and-drums practice, with synthesizer color. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.prog",
+      "axes": [
+        1,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        -2,
+        2,
+        1,
+        -1
+      ],
+      "instruments": [
+        "eight_string_electric",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Instrumental progressive metal represented by Animals as Leaders’ two-guitar-and-drums practice, with synthesizer color. Give extended-range guitars the bass-register riff, interlocking melody and solo functions; use a drum kit for displaced accents and changing phrase groupings, with a restrained synth pad behind contrasting sections. There is no singer and no separate bass-guitar role in this selected trio realization. Instrumental identifies the absence of a lead vocal, while progressive describes the composed sectional and rhythmic development. It overlaps djent but is neither restricted to one palm-muted timbre nor equivalent to all instrumental rock. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Animals as Leaders — Parrhesia"
+      ]
+    },
+    {
+      "id": "iranian_metal",
+      "name": "Iranian metal",
+      "family": "rock_punk",
+      "lineage": "Iranian metal is a regional scene category, represented here by Arsames’ death-metal practice around Immortal Identity. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Iranian metal is a regional scene category, represented here by Arsames’ death-metal practice around Immortal Identity. The authored core is harsh lead voice, tightly picked distorted guitar riffs and melodic lead passages, supportive electric bass and a drum kit alternating driving beats with rapid single-stroke blasts. Persian historical subject matter is a lyrical dimension; no traditional instrument has been inserted by assumption. This national umbrella includes more than death metal. The selected death/thrash-leaning example distinguishes the realization from Iranian art-music arrangements without treating nationality as a tuning system. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Arsames — Immortal Identity"
+      ]
+    },
+    {
+      "id": "irish_black_metal",
+      "name": "Irish black metal",
+      "family": "rock_punk",
+      "lineage": "Irish black metal represented by Altar of Plagues’ atmospheric, post-rock-adjacent Mammal-era practice. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        -1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Irish black metal represented by Altar of Plagues’ atmospheric, post-rock-adjacent Mammal-era practice. Layer tremolo-picked guitars over bass and sustained keyboard color, move the drum kit between intense repeated strokes and spacious pauses, and use a harsh vocal line as one texture within long composed arcs. The analog synth is an authored way to supply the documented keyboard role. The black-metal branch is narrower than Irish metal as a whole; this example allows post-rock expansion rather than defining all Irish black metal as folk metal or assigning Irish traditional instruments. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Altar of Plagues — Mammal"
+      ]
+    },
+    {
+      "id": "irish_death_metal",
+      "name": "Irish death metal",
+      "family": "rock_punk",
+      "lineage": "Irish death metal represented by Abaddon Incarnate’s grinding death-metal ensemble. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Irish death metal represented by Abaddon Incarnate’s grinding death-metal ensemble. Use two electric-guitar passes for compact abrasive riffs, a closely locked bass line, harsh vocal attacks and single-stroke blast drumming; let brief slower sections expose the riff shapes rather than sustaining one uninterrupted speed. Death-grind is the selected substyle, with compact grindcore intensity inside an Irish death-metal scene label. It is not a synonym for all Irish metal or for purely hardcore grindcore. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Abaddon Incarnate — The Wretched Sermon"
+      ]
+    },
+    {
+      "id": "irish_metal",
+      "name": "Irish metal",
+      "family": "rock_punk",
+      "lineage": "Irish metal as a broad discovery category, represented by Primordial’s epic, black-metal-rooted electric ensemble. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Irish metal as a broad discovery category, represented by Primordial’s epic, black-metal-rooted electric ensemble. Set declamatory sung lead phrases above ringing distorted guitar chords, a mobile bass foundation and rolling drum-kit patterns. Allow extended melodic build-ups and less compressed space between vocal lines than in the neighboring death-grind realization. The national umbrella spans multiple styles. Primordial supplies one epic and folk-inflected branch; Irish nationality alone neither requires traditional folk instruments nor makes every band black metal. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Primordial — How It Ends"
+      ]
+    },
+    {
+      "id": "israeli_metal",
+      "name": "Israeli metal",
+      "family": "rock_punk",
+      "lineage": "Israeli metal as a scene umbrella, represented by Orphaned Land’s metal and Middle Eastern melodic synthesis. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "bouzouki",
+        "violin_orchestral"
+      ],
+      "description": "Israeli metal as a scene umbrella, represented by Orphaned Land’s metal and Middle Eastern melodic synthesis. The authored chamber-sized reduction uses a sung lead, electric guitar, bass and drums, with bouzouki responses and a bowed violin melody. The selected album credits a much larger choir and string ensemble; the present arrangement intentionally selects a smaller set of documented roles. Twelve-tone equal temperament is this fretted/studio baseline, not a claim about every regional modal inflection. This representative overlaps folk and progressive metal, but Israeli metal also includes bands without these acoustic timbres. It is not interchangeable with a claim that all Middle Eastern metal is Israeli or shares one religious identity. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Orphaned Land — All Is One"
+      ]
+    },
+    {
+      "id": "italian_black_metal",
+      "name": "Italian black metal",
+      "family": "rock_punk",
+      "lineage": "Italian black metal represented by Mortuary Drape’s occult, classic-metal-rooted Black Mirror practice. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Italian black metal represented by Mortuary Drape’s occult, classic-metal-rooted Black Mirror practice. Build interlocking distorted lead and rhythm guitars over active bass and an acoustic drum kit, with a harsh vocal lead. Retain melodic turns and deliberate riff changes; this realization avoids treating black metal as only a continuous blast-and-tremolo texture. Mortuary Drape’s classic-heavy-metal and doom inheritance differentiates this example from symphonic or post-black models. Italian black metal remains a regional branch, not a single production school. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Mortuary Drape — Black Mirror"
+      ]
+    },
+    {
+      "id": "italian_death_metal",
+      "name": "Italian death metal",
+      "family": "rock_punk",
+      "lineage": "Italian death metal represented by Hour of Penance’s precise, blackened technical-death practice. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Italian death metal represented by Hour of Penance’s precise, blackened technical-death practice. Place two coordinated distorted guitar passes over a sharply articulated bass line, with harsh vocals and rapid single-stroke drum figures. Use tightly composed riff transitions and occasional broader melodic spans rather than improvisational development. Technical and blackened death metal is the selected realization, not a definition of every Italian death-metal act. Vocal attack, riff articulation and composed precision distinguish this model from the neighboring classic-heavy and doom entries. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Hour of Penance — Devotion"
+      ]
+    },
+    {
+      "id": "italian_doom_metal",
+      "name": "Italian doom metal",
+      "family": "rock_punk",
+      "lineage": "Italian doom metal represented by Doomraiser’s heavy, psychedelic-tinged electric ensemble. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.doom",
+      "axes": [
+        -1,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Italian doom metal represented by Doomraiser’s heavy, psychedelic-tinged electric ensemble. Use broad distorted guitar riffs with sustained low notes, an audible electric-bass foundation, slow drum-kit weight and a declamatory voice, plus a low synth backdrop. Let faster passages interrupt the slow cycle, following the band’s own account of contrasting tempos rather than prescribing unbroken slowness. This riff-led doom branch differs from both blast-driven death metal and the near-static sound of drone metal. The Italian qualifier marks scene participation; it does not require occult subject matter or one vintage amplifier. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Doomraiser — The Dark Side of Old Europa"
+      ]
+    },
+    {
+      "id": "italian_folk_metal",
+      "name": "Italian folk metal",
+      "family": "rock_punk",
+      "lineage": "Italian folk metal represented by Elvenking’s violin-centered folk/power-metal synthesis. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.folkMetal",
+      "axes": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "violin_orchestral"
+      ],
+      "description": "Italian folk metal represented by Elvenking’s violin-centered folk/power-metal synthesis. Set a bowed violin melody against electric-guitar rhythm and lead passes, moving bass and driving drums, with clear sung refrains and contrasting harsh accents. The single vocal card leaves phonation mechanism unspecified; the violin card carries the melodic acoustic role without asserting a particular regional fiddle school. The folk component here is a compositional and instrumental blend within power metal, not a claim of archival Italian folk-song performance. It differs from purely symphonic keyboard metal and from acoustic folk recordings. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Elvenking — Reader of the Runes: Rapture"
+      ]
+    },
+    {
+      "id": "italian_gothic_metal",
+      "name": "Italian gothic metal",
+      "family": "rock_punk",
+      "lineage": "Italian gothic metal represented by Lacuna Coil’s In a Reverie-era melodic dual-vocal approach. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Italian gothic metal represented by Lacuna Coil’s In a Reverie-era melodic dual-vocal approach. Arrange contrasting duet voices over sustained electric-guitar chords, bass and drums, leaving space for the vocal melodies and a restrained midtempo pulse. The authored duet setting does not force a particular male/female interval arrangement or assume all low voices are death growls. The selected gothic-metal model is heavier than guitar-led gothic rock while retaining vocal melody and atmosphere. It is not defined merely by a female vocalist, and it does not represent every later alternative-metal direction of the band. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Lacuna Coil — In a Reverie"
+      ]
+    },
+    {
+      "id": "italian_heavy_metal",
+      "name": "Italian heavy metal",
+      "family": "rock_punk",
+      "lineage": "Italian heavy metal represented by Strana Officina’s classic riff-and-song ensemble. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Italian heavy metal represented by Strana Officina’s classic riff-and-song ensemble. Use power-chord rhythm guitar with a separate melodic lead pass, a driving picked bass, a firm acoustic drum-kit backbeat and a projected sung lead. The authored Marshall-style part variant and E-standard tuning are contemporary choices for this traditional-heavy-metal model. Heavy metal here means the classic song-centered branch, narrower than the Italian metal umbrella. It lacks the obligatory blast textures of the death-metal example and the sustained slow pacing of the doom example. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Strana Officina — The Faith"
+      ]
+    },
+    {
+      "id": "italian_metal",
+      "name": "Italian metal",
+      "family": "rock_punk",
+      "lineage": "Italian metal as a national scene umbrella, represented by Fleshgod Apocalypse’s symphonic death-metal practice. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano",
+        "rompler_workstation"
+      ],
+      "description": "Italian metal as a national scene umbrella, represented by Fleshgod Apocalypse’s symphonic death-metal practice. Combine precise distorted guitar figures, bass and blast-capable drums with contrasting harsh and clean singers, acoustic piano and workstation-rendered orchestral parts. The workstation is an explicitly authored reduction of the documented orchestration role; it does not turn a historical live orchestra into a claimed sampled session. The umbrella covers classic, extreme, folk and progressive branches. This symphonic-death realization is intentionally different from the separate classic Italian heavy-metal model, and it does not make operatic singing a requirement of Italian metal. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Fleshgod Apocalypse — Labyrinth"
+      ]
+    },
+    {
+      "id": "italian_metalcore",
+      "name": "Italian metalcore",
+      "family": "rock_punk",
+      "lineage": "Italian metalcore represented by Destrage’s rhythmically intricate, progressive hybrid. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        1,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        -1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "saxophone"
+      ],
+      "description": "Italian metalcore represented by Destrage’s rhythmically intricate, progressive hybrid. Use a core of abrasive vocals, tightly articulated electric guitars, bass and drums, with a synth doubling some guitar riffs and a baritone saxophone adding brief unison reinforcement and a contrasting lead passage. Build sharply differentiated sections instead of assuming that every piece repeats the same breakdown form. This is the progressive edge of Italian metalcore, overlapping experimental metal. Metal Blade stresses the band’s resistance to a single genre box; its selected practice should not be generalized to every Italian metalcore act. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Destrage — The Chosen One"
+      ]
+    },
+    {
+      "id": "italian_power_metal",
+      "name": "Italian power metal",
+      "family": "rock_punk",
+      "lineage": "Italian power metal represented by Rhapsody of Fire’s symphonic, fantasy-narrative branch. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.power",
+      "axes": [
+        2,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Italian power metal represented by Rhapsody of Fire’s symphonic, fantasy-narrative branch. Use a melodic sung lead, fast electric-guitar lead and rhythm layers, bass, forceful drum-kit time and orchestral workstation colors. Favor recurring themes and clear cadential arrivals within expansive sections; keep the orchestral workstation as an authored keyboard realization rather than a claim about the album’s exact sample library. Power metal emphasizes projected melody and driving song structure here. Its symphonic overlap does not turn the category into all orchestral metal, and the Italian scene also includes less cinematic power-metal bands. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Rhapsody of Fire — Challenge the Wind"
+      ]
+    },
+    {
+      "id": "italian_progressive_metal",
+      "name": "Italian progressive metal",
+      "family": "rock_punk",
+      "lineage": "Italian progressive metal represented by DGM’s guitar-and-keyboard-led The Passage. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.prog",
+      "axes": [
+        2,
+        -1,
+        1,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        -1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Italian progressive metal represented by DGM’s guitar-and-keyboard-led The Passage. Compose a returning melodic theme that changes key and metric grouping across sections. Put a sung lead over coordinated electric-guitar and keyboard lines, active bass and precise drums, using contrasting choruses and instrumental developments. The chosen workstation supplies both melodic and orchestral keyboard color. Progressive describes structural transformation and coordinated instrumental development, while power-metal melody remains an overlap. It is not a synonym for all Italian metal or for Italian progressive rock without metal instrumentation. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "DGM — The Passage"
+      ]
+    },
+    {
+      "id": "j_metal",
+      "name": "J-metal",
+      "family": "rock_punk",
+      "lineage": "J-metal is a broad Japanese metal discovery label, represented by Maximum the Hormone’s heavy, rhythmically vocal and pop-hooked hybrid. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "J-metal is a broad Japanese metal discovery label, represented by Maximum the Hormone’s heavy, rhythmically vocal and pop-hooked hybrid. Alternate tightly muted guitar and bass riffs with more open chordal hooks, let the drum kit shift between abrupt attacks and a clear backbeat, and give several singers contrasting shouted, rhythmically articulated and melodic passages. The group-vocal card represents those changing leads without forcing one phonation mechanism on all of them. The label covers more than classic Japanese heavy metal and is not synonymous with visual kei or anime theme music. This modern crossover representative differs from the separate Loudness-based traditional-heavy-metal realization. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Maximum the Hormone — Bu-ikikaesu"
+      ]
+    },
+    {
+      "id": "japanese_black_metal",
+      "name": "Japanese black metal",
+      "family": "rock_punk",
+      "lineage": "Japanese black metal represented by the experimental, black-metal-rooted practice of Sigh on Shiki. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        -1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "flute",
+        "shakuhachi",
+        "tonewheel_organ"
+      ],
+      "description": "Japanese black metal represented by the experimental, black-metal-rooted practice of Sigh on Shiki. Alternate harsh vocal-led electric-guitar, bass and drum passages with flute, shakuhachi and tonewheel-organ features. The composer specifically identifies these solo roles in Mayonaka No Kaii. Use a concert flute and restrained organ registration as authored choices; the shakuhachi may inflect melodic notes against the equal-tempered electric/keyboard foundation. This is an avant-garde branch with black-metal roots, not a requirement that Japanese black metal use Japanese acoustic instruments. The entry differs from a purely symphonic keyboard model by preserving explicitly documented wind and organ roles. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Sigh — Shiki (Mayonaka No Kaii)"
+      ]
+    },
+    {
+      "id": "japanese_death_metal",
+      "name": "Japanese death metal",
+      "family": "rock_punk",
+      "lineage": "Japanese death metal represented by Defiled’s raw, old-school-rooted and technically shifting ensemble. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Japanese death metal represented by Defiled’s raw, old-school-rooted and technically shifting ensemble. Use distorted guitar riffs and lead interruptions, a distinct electric-bass line, harsh lead vocals and a drum kit moving between rapid attacks and forceful grooves. Keep riff changes compact and deliberate; technicality serves the composition rather than a continuous display of solos. This death-metal model has technical-thrash and progressive overlaps but is not Japanese power metal or every extreme Japanese style. Regional affiliation does not imply a fixed language, tuning or folk instrument. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Defiled — Horror Beyond Horror"
+      ]
+    },
+    {
+      "id": "japanese_heavy_metal",
+      "name": "Japanese heavy metal",
+      "family": "rock_punk",
+      "lineage": "Japanese heavy metal represented by Loudness’ classic melodic, guitar-led ensemble. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        1,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Japanese heavy metal represented by Loudness’ classic melodic, guitar-led ensemble. Build a projected sung lead over power-chord rhythm, a separate overdriven melodic guitar lead, electric bass and a solid drum-kit backbeat. Use E-standard and a Marshall-style part variant for the authored present-day arrangement, without attributing those defaults to the 1985 session. This is the classic heavy-metal branch within the broader J-metal discovery field. Its song-centered melodic approach differs from the neighboring death, black and contemporary metalcore realizations. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Loudness — Thunder in the East"
+      ]
+    },
+    {
+      "id": "japanese_metalcore",
+      "name": "Japanese metalcore",
+      "family": "rock_punk",
+      "lineage": "Japanese metalcore represented by Crystal Lake’s True North-era hardcore, metalcore and melodic heavy-rock combination. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Japanese metalcore represented by Crystal Lake’s True North-era hardcore, metalcore and melodic heavy-rock combination. Place a harsh vocal lead over coordinated muted guitar and bass attacks, driving drum-kit sections and heavier half-time drops. Leave contrasting melodic guitar space between concentrated riff blocks; the authored core omits optional guest and sampled interludes rather than presenting itself as a complete album reconstruction. Metalcore names the metal/hardcore compositional crossover here, a narrower branch than J-metal. It is not defined by the band’s nationality alone or by the presence of a particular current singer. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Crystal Lake — True North"
+      ]
+    },
+    {
+      "id": "japanese_power_metal",
+      "name": "Japanese power metal",
+      "family": "rock_punk",
+      "lineage": "Japanese power metal represented by Galneryus’ melodic guitar-and-keyboard ensemble. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal.power",
+      "axes": [
+        2,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Japanese power metal represented by Galneryus’ melodic guitar-and-keyboard ensemble. Let a clear sung lead carry broad melodic refrains while overdriven guitar and keyboard lines exchange agile figures above bass and driving drums. Maintain a stable pulse and strong harmonic arrivals, with extended composed development around the refrain. Workstation piano/orchestral patches are an authored way to supply the keyboard role. Power metal identifies melodic projection and driving instrumental writing within Japanese metal, not a nationality-wide sound. Its extended forms can overlap progressive metal, but the category is not reducible to odd-meter composition. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Galneryus — Angel of Salvation"
+      ]
+    },
+    {
+      "id": "kentucky_metal",
+      "name": "Kentucky metal",
+      "family": "rock_punk",
+      "lineage": "Kentucky metal as a regional discovery category, represented by Knocked Loose’s death-metal-inflected metallic hardcore. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Kentucky metal as a regional discovery category, represented by Knocked Loose’s death-metal-inflected metallic hardcore. Use shouted lead voice, tightly muted low guitar riffs, picked electric bass and hard drum-kit attacks, with severe half-time breakdowns and brief sustained or droning transitions. Keep the chosen drop-C tuning and high-gain amplification explicitly within the new arrangement. The representative self-identifies as hardcore and openly draws on death metal. Kentucky metal is a geographic umbrella, not a synonym for bluegrass, southern-rock swing or a uniquely Kentucky riff structure. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Knocked Loose — A Tear in the Fabric of Life"
+      ]
+    },
+    {
+      "id": "korean_metal",
+      "name": "Korean metal",
+      "family": "rock_punk",
+      "lineage": "Korean metal as a scene umbrella, represented by Remnants of the Fallen’s melodic death-metal and metalcore practice. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Korean metal as a scene umbrella, represented by Remnants of the Fallen’s melodic death-metal and metalcore practice. Combine a harsh vocal lead with coordinated electric-guitar melody and rhythm passes, supportive bass and forceful drum-kit playing. Give melodic figures room above the tightly muted rhythm bed, with compact transitions and emphatic breaks. The authored realization uses no folk instrument by nationality-based inference. This example sits between melodic death metal and metalcore. Korean metal is broader than that blend and is not a claim that K-pop, traditional Korean percussion or every Korean-language rock act belongs to the same sound. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Remnants of the Fallen — Shadow Walk"
+      ]
+    },
+    {
+      "id": "lapland_metal",
+      "name": "Lapland metal",
+      "family": "rock_punk",
+      "lineage": "Lapland metal is treated as a regional umbrella, represented by Lordi’s theatrical, keyboard-colored heavy metal and hard rock. Exact defaults are an authored contemporary realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        -1,
+        0,
+        1,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation"
+      ],
+      "description": "Lapland metal is treated as a regional umbrella, represented by Lordi’s theatrical, keyboard-colored heavy metal and hard rock. Build hook-based sung phrases over electric-guitar riffs and lead fills, bass, a firm drum-kit pulse and keyboard layers. Use the workstation as an authored practical keyboard choice. The visual horror presentation contextualizes the representative but is not encoded as an acoustic property. Lapland identifies locality rather than one metal subgenre. This example neither requires black-metal textures nor asserts Sámi identity, joik, shamanic practice or indigenous instruments merely because the band comes from the north. The exact pinned construction, tuning, studio chain and numeric axes describe this new realization rather than the exemplar’s session equipment.",
+      "exemplars": [
+        "Lordi — Limited Deadition"
+      ]
+    },
+    {
+      "id": "metal_ecuatoriano",
+      "name": "Metal ecuatoriano",
+      "family": "rock_punk",
+      "lineage": "Ecuadorian metal discovery category represented by Goro’s Quito-recorded stoner/thrash crossover. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Ecuadorian metal discovery category represented by Goro’s Quito-recorded stoner/thrash crossover. Ecuadorian identifies this selected practice and recording network; no single national rhythm or indigenous instrument requirement is inferred. Author a compact riff-driven arrangement with rough-edged singing, fuzz guitar, active bass and a punchy acoustic kit; retain space for alternating heavy groove and faster sections. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Goro — Last Wave Of Summer"
+      ]
+    },
+    {
+      "id": "metal_galego",
+      "name": "Metal galego",
+      "family": "rock_punk",
+      "lineage": "Galician-language extreme metal represented by the Vigo duo Dioivo and its expanded recorded ensemble. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Galician-language extreme metal represented by the Vigo duo Dioivo and its expanded recorded ensemble. This chosen example foregrounds Galician-language metal. The broader label can include other Galician bands and is not a claim that all regional metal shares this language or style. Author tremolo-picked electric riffs, bass reinforcement, rapid kit patterns and an exposed extreme vocal line, retaining melodic guitar phrases between forceful sections. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Dioivo — Que Soe o Trono"
+      ]
+    },
+    {
+      "id": "metal_gaucho",
+      "name": "Metal gaúcho",
+      "family": "rock_punk",
+      "lineage": "Rio Grande do Sul metal represented by Carcinosi’s Porto Alegre death-metal practice. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Rio Grande do Sul metal represented by Carcinosi’s Porto Alegre death-metal practice. Gaúcho here is a regional scene locator, not a requirement for traditional gaúcho folk instrumentation or a single metal subgenre. Author clipped low-register guitar attacks against picked bass and short blast-beat passages, with one lead vocal role and tightly coordinated stops. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Carcinosi — Multiclimatic Incident"
+      ]
+    },
+    {
+      "id": "metal_mineiro",
+      "name": "Metal mineiro",
+      "family": "rock_punk",
+      "lineage": "Minas Gerais metal represented by Pesta’s Belo Horizonte stoner-doom branch. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.doom",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Minas Gerais metal represented by Pesta’s Belo Horizonte stoner-doom branch. This is a bounded doom-oriented example within metal mineiro, not a replacement for the region’s thrash and death-metal histories. Author slow, sustained fuzz riffs with a firmly articulated bass foundation, spacious kit accents and a lead vocal that remains audible above the guitar sustain. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Pesta — Faith Bathed in Blood"
+      ]
+    },
+    {
+      "id": "metal_nortista",
+      "name": "Metal nortista",
+      "family": "rock_punk",
+      "lineage": "Northern Brazilian metal represented by A Red Nightmare’s Belém modern extreme-metal ensemble. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Northern Brazilian metal represented by A Red Nightmare’s Belém modern extreme-metal ensemble. Nortista identifies the selected northern Brazilian scene; this model neither exhausts Amazonian metal nor prescribes indigenous or regional folk sounds. Author tightly damped distorted guitar, picked bass and an acoustic kit with alternating groove-led and double-time sections beneath a foreground lead voice. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "A Red Nightmare — A Red Nightmare"
+      ]
+    },
+    {
+      "id": "metal_paraguayo",
+      "name": "Metal paraguayo",
+      "family": "rock_punk",
+      "lineage": "Paraguayan metal represented by Patriarca’s Asunción heavy/thrash trio. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.thrash",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Paraguayan metal represented by Patriarca’s Asunción heavy/thrash trio. This selected electric-band practice is regional metal; Paraguayan harp or polka meter is not automatically implied by its nationality. Author forceful power-chord riffs, picked bass in rhythmic unison and a driving kit, leaving concise breaks for vocal phrases and lead-guitar replies. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Patriarca — Cargado de Acero"
+      ]
+    },
+    {
+      "id": "metal_paranaense",
+      "name": "Metal paranaense",
+      "family": "rock_punk",
+      "lineage": "Paraná metal represented by Hell Gun’s Curitiba-area traditional heavy/speed-metal practice. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.nwobhm",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Paraná metal represented by Hell Gun’s Curitiba-area traditional heavy/speed-metal practice. A selected traditional-metal branch of a diverse state scene; the two-guitar writing is a repertoire choice, not a unique Paraná acoustic signature. Author a bright distorted power-chord rhythm bed, separately overdubbed melodic leads, picked bass and driving kit with a clearly projecting lead vocal. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Hell Gun — Kings of Beyond"
+      ]
+    },
+    {
+      "id": "metal_pernambucano",
+      "name": "Metal pernambucano",
+      "family": "rock_punk",
+      "lineage": "Pernambuco metal represented by Dune Hill’s Recife heavy-metal songcraft. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Pernambuco metal represented by Dune Hill’s Recife heavy-metal songcraft. The chosen full electric-band passages do not imply maracatu percussion or represent every Pernambuco metal practice; track-specific guests are not mandatory default roles. Author melodic lead singing with electric riff-and-solo interplay, a moving bass line and measured kit fills, allowing a spacious chorus rather than continuous extreme-metal density. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Dune Hill — Song of Seikilos"
+      ]
+    },
+    {
+      "id": "metal_piauiense",
+      "name": "Metal piauiense",
+      "family": "rock_punk",
+      "lineage": "Piauí metal represented by Headwolf’s Teresina melodic-death ensemble. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Piauí metal represented by Headwolf’s Teresina melodic-death ensemble. A regional locator with one melodic-death representative; the artist’s Norse-themed repertoire does not establish a shared Piauí folklore or a mandatory folk-instrument layer. Author melodic tremolo-guitar contours over bass and an acoustic kit, contrasting rapid attacks with held chords beneath a single lead vocal. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Headwolf — The Lost Warriors EP"
+      ]
+    },
+    {
+      "id": "metal_salvadoreno",
+      "name": "Metal salvadoreño",
+      "family": "rock_punk",
+      "lineage": "Salvadoran metal represented by Conflicto’s San Salvador deathgrind trio. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Salvadoran metal represented by Conflicto’s San Salvador deathgrind trio. This extreme-metal/punk crossing is one Salvadoran branch; a nationality label does not make all Salvadoran metal grindcore. Author short distorted riff cells, tight bass reinforcement and rapidly alternating blast-beat and blunt stop-start sections under one forceful vocal role. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Conflicto — World of Misery"
+      ]
+    },
+    {
+      "id": "metal_tico",
+      "name": "Metal tico",
+      "family": "rock_punk",
+      "lineage": "Costa Rican metal represented by Thunderborne’s San José classic-heavy-metal practice. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Costa Rican metal represented by Thunderborne’s San José classic-heavy-metal practice. Tico is the Costa Rican regional label; this Sabbath-influenced selection is not asserted to define the country’s power, thrash or extreme-metal scenes. Author weighty power-chord figures and answering guitar leads with fingerstyle bass, a steady kit pulse and sung lead lines, preserving clear spaces between accents. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Thunderborne — Out of Order"
+      ]
+    },
+    {
+      "id": "metal_noir_quebecois",
+      "name": "Métal noir québécois",
+      "family": "rock_punk",
+      "lineage": "Québec black metal represented by Janvier’s Montréal atmospheric-black-metal practice. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Québec black metal represented by Janvier’s Montréal atmospheric-black-metal practice. This francophone Québec discovery label is represented through Janvier’s winter-themed atmospheric branch; it does not imply that all Québec black metal has identical themes or politics. Author sustained tremolo-guitar layers above bass, alternating spacious percussion and rapid kit passages, with one exposed vocal line; reserve long transitions for changing guitar density. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Janvier — L’Hiver n’est jamais fini"
+      ]
+    },
+    {
+      "id": "metal_uruguayo",
+      "name": "Metal uruguayo",
+      "family": "rock_punk",
+      "lineage": "Uruguayan metal represented by Source of Mysteries’ Montevideo metalcore recording Trauma. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Uruguayan metal represented by Source of Mysteries’ Montevideo metalcore recording Trauma. The national discovery category contains multiple styles; this model chooses a documented metalcore branch rather than prescribing candombe, tango or one national metal sound. Author interlocking low guitar-and-bass accents, a kit alternating forward drive with spacious half-time sections and a prominent vocal line; contrast compact riff cells with broader sustained chords. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Source of Mysteries — Trauma"
+      ]
+    },
+    {
+      "id": "mexican_black_metal",
+      "name": "Mexican black metal",
+      "family": "rock_punk",
+      "lineage": "Mexican black metal represented by Hierophany’s Mexico City ritual-themed black-metal practice. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Mexican black metal represented by Hierophany’s Mexico City ritual-themed black-metal practice. A specific mystical black-metal repertoire, not a claim that every Mexican black-metal band shares its religious imagery or adds pre-Hispanic instruments. Author rapid tremolo guitar over sharply articulated bass and blast-beat kit, with sustained dissonant transitions and one lead vocal; additional choral guests remain optional. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Hierophany — Vía Purgativa"
+      ]
+    },
+    {
+      "id": "mexican_death_metal",
+      "name": "Mexican death metal",
+      "family": "rock_punk",
+      "lineage": "Mexican death metal represented by Introtyl’s early Mexico City quartet recording. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Mexican death metal represented by Introtyl’s early Mexico City quartet recording. This raw quartet-based death-metal selection is one branch of a diverse national scene, distinct from the black, thrash and melodic-power representatives selected elsewhere. Author terse distorted guitar figures reinforced by bass, an acoustic kit with rapid single-stroke bursts and a forceful lead vocal, keeping the arrangement compact instead of adding unsourced orchestration. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Introtyl — Inside of Violence"
+      ]
+    },
+    {
+      "id": "mexican_metal",
+      "name": "Mexican metal",
+      "family": "rock_punk",
+      "lineage": "Mexican metal umbrella represented by Tritton’s Mexico City traditional-heavy-metal/thrash crossover. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.nwobhm",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Mexican metal umbrella represented by Tritton’s Mexico City traditional-heavy-metal/thrash crossover. This broader national category selects a classic-heavy-metal branch; it does not replace the separately modeled Mexican black, death, power or thrash categories. Author a projecting sung line above power-chord rhythm guitar and answering overdriven leads, with picked bass and a driving kit that leaves room for the song’s vocal phrases. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Tritton — Face of Madness"
+      ]
+    },
+    {
+      "id": "mexican_power_metal",
+      "name": "Mexican power metal",
+      "family": "rock_punk",
+      "lineage": "Mexican power metal represented by Sky Wanderer’s Guadalajara melodic power-metal EP. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.power",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Mexican power metal represented by Sky Wanderer’s Guadalajara melodic power-metal EP. This Spanish-language guitar-and-keyboard selection does not imply that all Mexican power metal uses the same language, folkloric content or keyboard sound. Author melodic guitar lead phrases over driving power chords, steady bass and an energetic kit, with sung hooks and sustained keyboard color. The analog-poly keyboard realization is an authored timbral option, not sourced hardware. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Sky Wanderer — Sol y Luna"
+      ]
+    },
+    {
+      "id": "mexican_thrash_metal",
+      "name": "Mexican thrash metal",
+      "family": "rock_punk",
+      "lineage": "Mexican thrash metal represented by Spinne’s Mexico City old/new-thrash blend. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.thrash",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Mexican thrash metal represented by Spinne’s Mexico City old/new-thrash blend. The label fixes a national scene plus a thrash lineage; this selection uses the band’s stated Bay Area influence without presenting that influence as exclusive to Mexican thrash. Author short palm-muted riff cycles, picked bass doubling key accents, fast kit drive and clipped lead-vocal phrases; contrast full-speed passages with clearly punctuated stops. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Spinne — Rotten Society"
+      ]
+    },
+    {
+      "id": "miami_metal",
+      "name": "Miami metal",
+      "family": "rock_punk",
+      "lineage": "Miami metal represented through Inferion’s Miami-origin black/death-metal practice. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Miami metal represented through Inferion’s Miami-origin black/death-metal practice. Miami is the documented formation and historical scene anchor; current North Carolina profile locality is not conflated with that origin, and no 2012 studio city is asserted. Author an electric-band reduction of this recorded practice: tremolo guitar, bass, rapid acoustic kit and lead voice. The record also credits sampling, which this selected guitar-led realization does not reproduce. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Inferion — The Desolate"
+      ]
+    },
+    {
+      "id": "minneapolis_metal",
+      "name": "Minneapolis metal",
+      "family": "rock_punk",
+      "lineage": "Minneapolis metal represented by Ideology’s Twin Cities progressive-metal ensemble. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.prog",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Minneapolis metal represented by Ideology’s Twin Cities progressive-metal ensemble. A metropolitan discovery label with one progressive/djent-facing example; Minneapolis metal also includes other styles, and the city itself does not prescribe these technical patterns. Author tightly coordinated low-register guitar/bass patterns, shifting phrase lengths and a clearly articulated kit, leaving harmonic space around the lead voice and guitar fills. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Ideology — Ideology"
+      ]
+    },
+    {
+      "id": "metalcore_espanol",
+      "name": "Metalcore español",
+      "family": "rock_punk",
+      "lineage": "Spanish metalcore represented by Become Wrath’s Madrid demo-era ensemble. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Spanish metalcore represented by Become Wrath’s Madrid demo-era ensemble. Español here identifies the Spanish scene, not a guarantee of Spanish-language lyrics; this source publishes English lyrics. It selects a compact metallic-hardcore branch rather than melodic-pop metalcore as a universal default. Author down-tuned palm-muted guitar and picked-bass unisons, quick kit drive alternating with half-time breakdowns, and a single urgent vocal line. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Become Wrath — Skirmish"
+      ]
+    },
+    {
+      "id": "metal_cristao",
+      "name": "Metal cristão",
+      "family": "rock_punk",
+      "lineage": "Brazilian Christian metal represented by Antidemon’s São Paulo death/grind branch around Apocalypsenow. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Brazilian Christian metal represented by Antidemon’s São Paulo death/grind branch around Apocalypsenow. Metal cristão is a lyrical/community discovery category crossing multiple metal styles. This Brazilian extreme-metal selection differs from the catalog’s Stryper-centered Christian-metal model; the 2012 trio is not asserted as the current lineup. Author compact guitar-and-bass riff unisons, rapid acoustic drum bursts and one lead vocal, keeping the declared Christian lyrical focus independent of a supposedly religious acoustic signature. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Antidemon — Apocalypsenow-era trio (2012)"
+      ]
+    },
+    {
+      "id": "metal_gotico",
+      "name": "Metal gótico",
+      "family": "rock_punk",
+      "lineage": "The metal gótico discovery grouping represented by the Duan Marie-fronted Mexican Anabanta practice documented in 2018–2019. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The metal gótico discovery grouping represented by the Duan Marie-fronted Mexican Anabanta practice documented in 2018–2019. This playlist-defined discovery label is represented here by a Mexican gothic-metal branch alongside the broader Gothic metal category. It does not reclassify all Spanish-language metal, conflate rock-goth and metal, or combine the different Anabanta/Anabantha lineups. Author a melodic lead vocal against sustained electric power chords, bass and a spacious acoustic kit, with dark dynamic contrasts and ringing guitar replies; no unsourced orchestral or operatic layer is compulsory. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "Anabanta — Duan Marie-fronted 2018–2019 practice"
+      ]
+    },
+    {
+      "id": "metal_guitar",
+      "name": "Metal guitar",
+      "family": "rock_punk",
+      "lineage": "Guitar-focused instrumental metal represented by James Norbert Ivanyi’s Sydney home-studio Denalavis. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal.prog",
+      "axes": [
+        1,
+        0,
+        2,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Guitar-focused instrumental metal represented by James Norbert Ivanyi’s Sydney home-studio Denalavis. A performer/instrument-oriented discovery label, not a single geographic tradition or a synonym for all heavy metal. This instrumental progressive branch excludes a required vocalist while retaining documented bass, drums and keyboard roles. Author an exposed overdriven melodic guitar lead with detailed articulation over rhythm overdubs, bass and changing kit accents, using a restrained sustained synth layer for the credited keyboards. Analog-poly synthesis is an authored option, not an equipment claim. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "James Norbert Ivanyi — Denalavis"
+      ]
+    },
+    {
+      "id": "metalcore",
+      "name": "Metalcore",
+      "family": "rock_punk",
+      "lineage": "International metalcore umbrella represented by LANDMVRKS’ Marseille heavy/melodic ensemble. Exact defaults are an authored present-day recording model.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "International metalcore umbrella represented by LANDMVRKS’ Marseille heavy/melodic ensemble. The umbrella is broader than the catalog’s national metalcore entries. This contemporary French representative avoids treating American melodic metalcore as the complete category; harsh/melodic contrast and breakdown-oriented arranging are chosen features, not requirements for every metalcore band. Author palm-muted guitar/bass attacks, fast kit drive separated by half-time breakdowns, and a vocal arrangement that contrasts forceful verses with more open melodic phrases; exact voice mechanisms remain unspecified. Pickup construction, tuning, playing variants, room, signal chain and numeric axes are authored choices, not claims about the exemplar’s session.",
+      "exemplars": [
+        "LANDMVRKS — modern heavy/melodic metalcore"
+      ]
+    },
+    {
+      "id": "latin_metal",
+      "name": "Latin metal",
+      "family": "rock_punk",
+      "lineage": "Latin metal is represented here by Ill Niño. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "congas"
+      ],
+      "description": "Latin metal is represented by Ill Niño’s heavy-riff and Latin-percussion fusion. The authored realization places conga hand percussion alongside electric guitar, bass, drum kit and contrasting lead vocals. Congas implement the documented additional-percussion role rather than asserting one exact tour rig. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Ill Niño"
+      ]
+    },
+    {
+      "id": "latvian_metal",
+      "name": "Latvian metal",
+      "family": "rock_punk",
+      "lineage": "Latvian metal is represented here by Skyforger. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.folkMetal",
+      "axes": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "kokle"
+      ],
+      "description": "Latvian metal is represented by a selective Skyforger folk/metal arrangement: guitar, bass, acoustic drums and vocals with kokle color. The recorded catalog also includes other folk instruments and a wholly acoustic release; this recipe deliberately selects the kokle-bearing metal branch rather than reproducing every album layer. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Skyforger"
+      ]
+    },
+    {
+      "id": "lithuanian_metal",
+      "name": "Lithuanian metal",
+      "family": "rock_punk",
+      "lineage": "Lithuanian metal is represented here by Au-Dessus. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.postMetal",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Lithuanian metal is represented by Au-Dessus’s post-black/sludge-adjacent branch. Two guitar roles, electric bass, acoustic drums and voice form the documented core; the authored arrangement pairs repeated guitar motion with broad density contrasts. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Au-Dessus"
+      ]
+    },
+    {
+      "id": "louisiana_metal",
+      "name": "Louisiana metal",
+      "family": "rock_punk",
+      "lineage": "Louisiana metal is represented here by Crowbar. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.sludge",
+      "axes": [
+        -1,
+        -1,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Louisiana metal is represented by Crowbar’s doom-weighted sludge branch. Distorted guitar layers and electric bass support slow, forceful acoustic drums and a gritty lead. This authored present-day arrangement emphasizes riff sustain and weight without reconstructing the Zero and Below session. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Crowbar"
+      ]
+    },
+    {
+      "id": "macedonian_metal",
+      "name": "Macedonian metal",
+      "family": "rock_punk",
+      "lineage": "Macedonian metal is represented here by Verka. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.folkMetal",
+      "axes": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "tapan",
+        "darbuka",
+        "kaval"
+      ],
+      "description": "Macedonian metal is represented by Verka’s documented folk-inflected metal branch. Guitar, bass, drums and voice are joined by tapan, tarabuka and kaval roles, realized here with existing tapan, darbuka and kaval catalog instruments. The mixture retains distinct percussion and flute functions. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Verka"
+      ]
+    },
+    {
+      "id": "melodic_metal",
+      "name": "Melodic metal",
+      "family": "rock_punk",
+      "lineage": "Melodic metal is represented here by Dynazty. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Melodic metal is represented by Dynazty’s modern, hook-centered branch. Lead and rhythm guitar parts, bass and drums support a prominent sung vocal; a workstation supplies an authored rendition of the documented orchestral background rather than implying a touring orchestra. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Dynazty"
+      ]
+    },
+    {
+      "id": "melodic_power_metal",
+      "name": "Melodic power metal",
+      "family": "rock_punk",
+      "lineage": "Melodic power metal is represented here by Sonata Arctica. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.power",
+      "axes": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Melodic power metal is represented by Sonata Arctica’s early keyboard-forward band practice. Fast guitar figures and bass support acoustic drums, melodic keyboard lines and a clean sung lead. The authored realization favors singable contour and coordinated ensemble drive. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Sonata Arctica"
+      ]
+    },
+    {
+      "id": "melodic_progressive_metal",
+      "name": "Melodic progressive metal",
+      "family": "rock_punk",
+      "lineage": "Melodic progressive metal is represented here by Circus Maximus. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.prog",
+      "axes": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "rompler_workstation"
+      ],
+      "description": "Melodic progressive metal is represented by Circus Maximus’s song-led progressive ensemble: guitar, bass, acoustic drums, keyboards and sung lead. The authored model balances recurring melodic phrases with metric and arrangement contrast, avoiding a false assertion that every song uses odd meter. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Circus Maximus"
+      ]
+    },
+    {
+      "id": "lovecraftian_metal",
+      "name": "Lovecraftian metal",
+      "family": "rock_punk",
+      "lineage": "Lovecraftian metal is represented here by The Great Old Ones. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Lovecraftian metal is represented by The Great Old Ones, whose atmospheric black-metal writing explicitly develops H. P. Lovecraft narratives. Interlocking electric-guitar layers, bass, acoustic drums and voice create the selected ensemble; the authored realization emphasizes sustained melodic motion and density contrasts. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "The Great Old Ones"
+      ]
+    },
+    {
+      "id": "luxembourgian_metal",
+      "name": "Luxembourgian metal",
+      "family": "rock_punk",
+      "lineage": "Luxembourgian metal is represented here by Scarred. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.prog",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        2,
+        2,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Luxembourgian metal is represented by Scarred’s expanded death-metal branch, combining distorted riffing with melodic, atmospheric and psychedelic passages. Guitar, bass, acoustic drums and voice form the selected core; the authored arrangement does not conflate the later intimate Patience EP with the 2021 heavy album. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Scarred"
+      ]
+    },
+    {
+      "id": "mainland_se_asia_metal",
+      "name": "Mainland se asia metal",
+      "family": "rock_punk",
+      "lineage": "Mainland se asia metal is represented here by WINDRUNNER. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Mainland Southeast Asian metal is represented by WINDRUNNER’s Hanoi-based progressive metalcore branch. Rhythmic guitar figures and bass support acoustic drums, alternating clean and screamed vocal passages, and an authored synthesizer realization of the documented ambient electronic texture. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "WINDRUNNER"
+      ]
+    },
+    {
+      "id": "malaysian_metal",
+      "name": "Malaysian metal",
+      "family": "rock_punk",
+      "lineage": "Malaysian metal is represented here by Miseri Silentium. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.metal.black",
+      "axes": [
+        -1,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Malaysian metal is represented by Miseri Silentium’s melodic black/death branch. A guitar, electric bass and acoustic drum kit support lead voice; the authored realization uses rapid picked guitar motion and dense percussion while retaining distinct melodic contour. Exact studio chain, tuning and part selections are contemporary authored production choices.",
+      "exemplars": [
+        "Miseri Silentium"
       ]
     }
   ]

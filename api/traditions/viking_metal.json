@@ -5,7 +5,7 @@
   "lineage": "Swedish-Norwegian offshoot of black metal defined by Bathory's Hammerheart and Twilight of the Gods (1990-91) and extended by Enslaved, Einherjer and Amon Amarth — slow-to-mid tempo tremolo and power-chord riffs in minor modes, martial toms and mid-paced double-kick rather than constant blasting, wide reverberant multitracked male chant choruses over Norse-mythological lyrics, keyboard horn and choir pads, and epic six-to-ten minute forms with long instrumental build sections.",
   "recipe": "classic Northern European early-1990s viking metal, distorted Rock, black branch, folk metal metal, doom metal, symphonic metal pagan metal. thick, false fold engaged, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit, analog poly synth, lur, finnish karelian drone under melody birch carved regional drone like tagelharpa, ash pre modern traditional Irish bodhran. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 849,
-  "score": 556.875,
+  "score": 551.43,
   "config": {
     "traditions": [
       "viking_metal",
@@ -31,17 +31,17 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 52.654999999999994,
+          "electric_technique": 52.294999999999995,
           "amp_make": 25.024999999999995,
           "body_wood": 25.414999999999996,
-          "neck_wood": 4.68,
-          "fretboard": 4.615,
+          "neck_wood": 4.4975,
+          "fretboard": 4.4475,
           "pickup_magnet": 0.24,
           "pickup_winding": 0.195,
-          "string_material": 1.3,
-          "bridge": 4.68,
+          "string_material": 1,
+          "bridge": 4.4975,
           "scale_length": 22.229999999999997,
-          "string_gauge": 5.9799999999999995,
+          "string_gauge": 5.5424999999999995,
           "finish": 0,
           "string_tuning": 35.1
         }
@@ -62,8 +62,8 @@
           "amp_make": 9.620000000000001,
           "body_wood": 4.68,
           "pickup_config": 0.195,
-          "string_type": 23.725,
-          "scale_length_b": 4.68,
+          "string_type": 21.9175,
+          "scale_length_b": 4.4975,
           "fretted_or_not": 0.195,
           "bass_technique": 18.349999999999998,
           "electric_bass_string_configuration": 0
@@ -103,21 +103,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 33.6,
-          "voice_quality": 6.730000000000002,
+          "voice_register": 33.225,
+          "voice_quality": 6.145000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.915,
           "voice_articulation": 19.5,
           "voice_microtone": 22.554999999999996,
-          "voice_tradition": 23.644999999999996,
-          "voice_mechanism_compound": 49.37500000000001,
+          "voice_tradition": 24.019999999999996,
+          "voice_mechanism_compound": 49.06000000000001,
           "voice_estill_quality": 3.4450000000000003,
           "voice_speech_song": 20.150000000000002,
           "voice_ensemble_config": 22.750000000000004,
-          "voice_ornament_system": 2.775000000000001,
-          "voice_pitch_organization": 1.5199999999999996,
-          "voice_processing_chain": 7.605,
+          "voice_ornament_system": 2.8200000000000007,
+          "voice_pitch_organization": 1.4749999999999996,
+          "voice_processing_chain": 7.595000000000001,
           "voice_multitrack_stack": 3.5100000000000002
         }
       },
@@ -126,13 +126,13 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 0.9099999999999999,
           "poly_archetypes": 10.790000000000001,
-          "poly_voices": 0.675,
+          "poly_voices": 0.38999999999999996,
           "poly_maker_lineage": -0.035
         }
       },
@@ -145,7 +145,7 @@
         },
         "scores": {
           "lur_form": 14.899999999999999,
-          "lur_repertoire": 2.1175,
+          "lur_repertoire": 2.0725000000000002,
           "lur_mouthpiece": -0.05
         }
       },
@@ -155,12 +155,12 @@
           "bowed_technique": "bowed_rough_drone",
           "tagelharpa_form": "tagelharpa_jouhikko",
           "tagelharpa_context": "tagelharpa_drone_melody",
-          "tagelharpa_string_material": "tagelharpa_horsehair",
+          "tagelharpa_string_material": "tagelharpa_gut",
           "tagelharpa_body_wood": "tagelharpa_birch_carved"
         },
         "scores": {
-          "bowed_technique": 17.152499999999996,
-          "tagelharpa_form": 3.3200000000000003,
+          "bowed_technique": 16.717499999999998,
+          "tagelharpa_form": 3.17,
           "tagelharpa_context": 2.795,
           "tagelharpa_string_material": 0.195,
           "tagelharpa_body_wood": 1.7750000000000001

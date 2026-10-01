@@ -1,0 +1,994 @@
+{
+  "required_predecessor": "38a813a304b7bd340855e8270c2fff34e7dae7d7",
+  "expected_additions": 100,
+  "expected_traditions": 3538,
+  "expected_instruments": 1467,
+  "ids": [
+    "trap_boliviano",
+    "turkish_trap_pop",
+    "cyber_metal",
+    "cypriot_metal",
+    "deep_folk_metal",
+    "deep_melodic_death_metal",
+    "deep_symphonic_black_metal",
+    "depressive_black_metal",
+    "downtempo_deathcore",
+    "edinburgh_metal",
+    "emotional_black_metal",
+    "experimental_black_metal",
+    "finnish_black_metal",
+    "folk_metal_latinoamericano",
+    "forest_black_metal",
+    "german_grindcore",
+    "german_pagan_metal",
+    "german_thrash_metal",
+    "gothenburg_metal",
+    "gothic_black_metal",
+    "gothic_symphonic_metal",
+    "greek_black_metal",
+    "greek_metal",
+    "guatemalan_metal",
+    "hungarian_black_metal",
+    "hungarian_metal",
+    "icelandic_black_metal",
+    "icelandic_metal",
+    "indian_metal",
+    "indonesian_black_metal",
+    "indonesian_death_metal",
+    "indonesian_deathcore",
+    "indonesian_metal",
+    "indonesian_thrash_metal",
+    "industrial_black_metal",
+    "instrumental_black_metal",
+    "instrumental_death_metal",
+    "instrumental_djent",
+    "instrumental_progressive_metal",
+    "iranian_metal",
+    "irish_black_metal",
+    "irish_death_metal",
+    "irish_metal",
+    "israeli_metal",
+    "italian_black_metal",
+    "italian_death_metal",
+    "italian_doom_metal",
+    "italian_folk_metal",
+    "italian_gothic_metal",
+    "italian_heavy_metal",
+    "italian_metal",
+    "italian_metalcore",
+    "italian_power_metal",
+    "italian_progressive_metal",
+    "j_metal",
+    "japanese_black_metal",
+    "japanese_death_metal",
+    "japanese_heavy_metal",
+    "japanese_metalcore",
+    "japanese_power_metal",
+    "kentucky_metal",
+    "korean_metal",
+    "lapland_metal",
+    "metal_ecuatoriano",
+    "metal_galego",
+    "metal_gaucho",
+    "metal_mineiro",
+    "metal_nortista",
+    "metal_paraguayo",
+    "metal_paranaense",
+    "metal_pernambucano",
+    "metal_piauiense",
+    "metal_salvadoreno",
+    "metal_tico",
+    "metal_noir_quebecois",
+    "metal_uruguayo",
+    "mexican_black_metal",
+    "mexican_death_metal",
+    "mexican_metal",
+    "mexican_power_metal",
+    "mexican_thrash_metal",
+    "miami_metal",
+    "minneapolis_metal",
+    "metalcore_espanol",
+    "metal_cristao",
+    "metal_gotico",
+    "metal_guitar",
+    "metalcore",
+    "latin_metal",
+    "latvian_metal",
+    "lithuanian_metal",
+    "louisiana_metal",
+    "macedonian_metal",
+    "melodic_metal",
+    "melodic_power_metal",
+    "melodic_progressive_metal",
+    "lovecraftian_metal",
+    "luxembourgian_metal",
+    "mainland_se_asia_metal",
+    "malaysian_metal"
+  ],
+  "baseline_sha256": {
+    "references/05_traditions.js": "e970039edeb2da29540b469b2c988258ffc6d41127993226778eaa9213b228a9",
+    "references/06_extras.js": "b1f11883d71eefe401bbcb00435b53d85097bb18622c0f38ff0bf312f4da84d8",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "28622c6370b781e39acd792bae0434b72352fa4972e57cdd967fe64e90198f55",
+    "references/_image_manifest.json": "f8fb2ec1e537688c176254e52646cf333e28256df04bb70262c364475b5941e2",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "c4876be5a1a97c25137f5bbe853dc33c861088a91b2760ec163f43c65b0aef11",
+    "tests/regression_snapshot.json": "8a869fa595c9a9a7b3a00979eb655ef1f78921ea4c75438dd4be85d6035007a3"
+  },
+  "source_sha256": {
+    "references/05_traditions.js": "f766feef5470c8c7d0a2d7e68947fe6df567214d52fa944256c5c312a85342d3",
+    "references/06_extras.js": "66b16a9d95df6e5317caec48dd18e574d7acadf876bf7b1a8001b52432b0cc34",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "91e79df3b90cc2fcb0de1c10866e0fbd8ccab5dad987137a0a470196c23e6db8",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "b7eb7b770cf74269e53a24764b9f8bed2642908b13a600f43ca7d47ea1485844",
+    "references/_image_manifest.json": "fc967a90f0e05da6ba4b754fc1a407dd975f447d815358d16a7815befd4343c7",
+    "references/_soundword_vocab.json": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48",
+    "references/_signature_rulings.json": "b3500c3e6f237a8576fb05cc9aef9d08b9b17f415596bd7a219904618e1579cc",
+    "data/geo.json": "c194d59f1019aec57d7e29c224c004ee2edd5115aee5f7c104eabc1190b8c3cc",
+    "tests/regression_snapshot.json": "32df6e02b72bf246f1aa495e7e1d5cf17382a8d0c102d42872bd90cd1c419fb9"
+  },
+  "scope": "Existing-schema genre data and generated artifacts only. Original engine, compiler, pipeline, UI behavior, test logic and workflows unchanged.",
+  "validation_status": "Local data integration and requested data/build verification passed.1149/1149 recipe fixtures after16 individually reviewed expectation-only updates; independent full API/HTML/discovery byte-reproducibility passed. Browser-dependent exact-head CI remains pending.",
+  "candidate_entry_sha256": {
+    "trap_boliviano": "6695b0f591b569bce2b3c6cbeb1c981c607a4126b65cdc21df7be18aade7d018",
+    "turkish_trap_pop": "47ee1f984204a59d3d0dde476d8d82ee68432580854b53d0a95187503088583f",
+    "cyber_metal": "c3c3ea838f8d670a3ca1eb5379a462a7579cf722dbfa454d72ea5f297d4aacdb",
+    "cypriot_metal": "a90c3742865411dde52c03ac2a7b7e943e9368f29aa83952cc536cae6dba7b6e",
+    "deep_folk_metal": "6b5fce3d5de558b19523b81021bbfcc060536359bfb4dfa3fc0803430b9f14cc",
+    "deep_melodic_death_metal": "799f81d825a6a3f76c814c13c7feea8e3afdfd7a779e9216ee0f3012df6e520b",
+    "deep_symphonic_black_metal": "a6a96a4df421143df8f546b19203ea1eda71b6a049fb756f3fa82220f2054840",
+    "depressive_black_metal": "d95f17ba096aad080377b3e5ccb3f0ed99c8c4fc629f153bb31a71d09a7f547f",
+    "downtempo_deathcore": "de8b128f69cad8f1148fc6f070af2a9162b3430b33ea1152fa3aab331faaf6b4",
+    "edinburgh_metal": "18102cdc65c0c602544d350c8da9ac7ffa9ad39f6f854f402ada66d88d54c5c5",
+    "emotional_black_metal": "35aebd6fc0e943f286db8626de4d270f63415ce6e3bd09d70a765dac8bc3141a",
+    "experimental_black_metal": "8a284df0abf67f55848cce2816eb395eb0dc1bb53ae2d05ee708123dfe363828",
+    "finnish_black_metal": "37cdc87a28162cf156db9013fd9fddb528dc8ef7357ff5649168ca028b86abed",
+    "folk_metal_latinoamericano": "751309ed9eeb9e73be2a275b360bceb3e65b423d172183ce611d86cf43e3c0c9",
+    "forest_black_metal": "e031658914596da2b8d650260f04c50a5326f29825380c21da9e54bde38929ad",
+    "german_grindcore": "0aee2b34617dfcafbd259739e2d06472891cb21857738ee72b0ed28760a900ec",
+    "german_pagan_metal": "f5c67f728de1015a56e986812735605a5df8fa22fdda9174e4beb90134816ce2",
+    "german_thrash_metal": "a5266b716fdfd621287596cad9dbb197ae6f155f219237a52e78e1e368cd8f32",
+    "gothenburg_metal": "0fbdde26031537d91fd2c9231c5f17163013a2343de700754e642387e639b0c6",
+    "gothic_black_metal": "41a578a8964c6785227998bae477b712d18d228a9886c7f4ce2e4daa16062680",
+    "gothic_symphonic_metal": "774eae710e21f2617a6164c222abd80f9eb8503bf48366ab0398220f0163a843",
+    "greek_black_metal": "599981bdbb33f6eda75948ecc0581dc8b02074cb37fccdac676719b2e0c64c7e",
+    "greek_metal": "1e78176f2e74481d19f95a5fdc763c0a20cd6d330da6359d2e45b0e210dfdc8d",
+    "guatemalan_metal": "1d62bd3f9ae3eaa3ce8ea588629c853e0a950315b32c8d2e79242bc90d2dda3b",
+    "hungarian_black_metal": "a2c0bf101d7815e327c8c8db01b6a3a864137b79270b0a9a744578297df3750c",
+    "hungarian_metal": "cf0bca7def5aa711aa08707c649589894794c34a96ebc57a7e5557dc45fb8fac",
+    "icelandic_black_metal": "29d10d2670bf015f0e79edc6e8ada07b8e70688cab2d51d967af598ac68e16c1",
+    "icelandic_metal": "44f1a1b202addbefe4d50637a907d9fb10d9e8be48f53eac28d979d7ad26e1b5",
+    "indian_metal": "5a2b0d6ad794387656495cfa30c00f5e4d98fe7b3274aab380fc1b05c7385027",
+    "indonesian_black_metal": "eb10aafdd6a1d571224cbd49b8e52a76438f590c17278b55d091c97b8e0b1070",
+    "indonesian_death_metal": "ff08d05c612f22e9eca5caf4d29527744dc10130ce0fca50bbf2205f2a9906c6",
+    "indonesian_deathcore": "129fcb9370fedf45d7d7dd0f9ef38e6afd007006c45ae13f719d3da6f1f58804",
+    "indonesian_metal": "5137914d32ae5f1df13e1f8dc941d371d616612ebae207e774cfc4615f1fe2e1",
+    "indonesian_thrash_metal": "5d65110395dce891461573f32e52ea6afb310caeb6475f6bfb2adbd01bcf9834",
+    "industrial_black_metal": "966f99866ed8a182b113eb9e11a06149b5f64adac290d066d9a1e5e9af375b44",
+    "instrumental_black_metal": "9b2a9924fa3bb06fb2ca889e60a1ae2066d1c0cef67e4ad5c2129a70773c85e8",
+    "instrumental_death_metal": "e0aae6c7f4a7d06d5ce30028e4cc8165d130b39234b805104c4d0dd69d1a8f6d",
+    "instrumental_djent": "742cf33a66f59a966329236bcca9cf421c325e6aefcac1cb0f788d19daea7750",
+    "instrumental_progressive_metal": "8f3a3e0bba77eddcf3856cbe66d01d604a15fa205f741835219a5abf99b92d0c",
+    "iranian_metal": "2079eaeb3168426bf6e733e23e78491882724fa6acd02f2bfeaeb86bbf6657da",
+    "irish_black_metal": "0e3e7739f4c6e895c7520b8fead3ee8d56782b98e81754c2f61eacd2d8efdda8",
+    "irish_death_metal": "fe800c356f386a919ae3138429e5be0deb9d9694ac100c05c7ee62118b1be906",
+    "irish_metal": "db0ba5bd2cc480e6e845652c46b16816f73e69b698f786dc82fea8918654f898",
+    "israeli_metal": "8acb62cb8d4d1572cab49e4fa82fe90b6b7c1f4cb526e52046eeb3b9ab38c5f0",
+    "italian_black_metal": "3899530968ed2a6a4ddabd85a83d2c900816b2990e0b28d48a47e655a9a45722",
+    "italian_death_metal": "3fbec3350af1c8380725361475d34f7b393bff7a3bb78ebea53bc1c771838131",
+    "italian_doom_metal": "d242753a8d29d9e14438f4cd6123b1c012eb9cfe68be51118b821b2ef9f8f96f",
+    "italian_folk_metal": "ab75e54c9aecfc1a1cdc1a470be83125ddd241ae39cca53bca3e24e720153fdf",
+    "italian_gothic_metal": "ee380932f1628c05b5b892960032405cb0a69dbbe9b695d898528fb6dcfec6f1",
+    "italian_heavy_metal": "62a573acfe6fecabe420c7d75f69cd594eab3915643d6ea442793f23fccbd2ed",
+    "italian_metal": "caca90efe98959af182e63db9390b6f715c52a47a59195e00b49c8f7316b995e",
+    "italian_metalcore": "7677d6289504f098445b657fd0541dde723b52e72244536caa3dfb61163fb301",
+    "italian_power_metal": "ade49323ead1eb22bc41efe2fea688c3cce749039aa3f42a09c551dddd9f41c5",
+    "italian_progressive_metal": "57708ebac51369005af18c233a1ea704620f6c91da0c7af3b42f9b9738672c19",
+    "j_metal": "7c56d9367bbd43d1fc9512fae57f0f8ec12810ac3cf2d0953367d71eddb15df4",
+    "japanese_black_metal": "bedfda9b5a2e69570022a1f65868cc12f8428b045797657fe575eb97e71c3823",
+    "japanese_death_metal": "b154c55dc5d751955f2132861e2f07db0358e08e76a7df48f03ab7b08f6b829a",
+    "japanese_heavy_metal": "3455c066cc6f6f4100985233845c0f5d1c751b29e3eee410c3faa494c40ded50",
+    "japanese_metalcore": "1de4520c92cc3a06b7f20c92b035f918f87aebb02ef5b5ef7a14c752d452c6a2",
+    "japanese_power_metal": "6745ec93d6ccf7ca9d72988729cef6821c92393b911ebcabf27a21f89ee31fa9",
+    "kentucky_metal": "f80376e8106df6f59053887af5073ef1306a64dfcb48a9d131daef1329b13fff",
+    "korean_metal": "0fb9f548dfac33db607e28f85c68dc746406f34459139abb86ac8c6d66356367",
+    "lapland_metal": "8d6f5e4c6c69fc2ab08ab2ab0f901cbfb13d06e0d11c0aead107fad0eb6bb15c",
+    "metal_ecuatoriano": "30559815a17aa5f330f8b240eb3b125cbc33ca372eb58133af42de95b14dc2fa",
+    "metal_galego": "5d6babaf989c36c2595807b59be3909afe6b8d983b9015cc066078158cb71238",
+    "metal_gaucho": "cde7a870aaddaffa200ac3768d615cf4521086af5736aef1a8ceed7598efb72d",
+    "metal_mineiro": "ebcad1dc8ddeb130954c83d8dfd5104204e6c6440aae3c097658f1d1792358d9",
+    "metal_nortista": "0a5113ce9035c5985518ce670a340e1d263587a063ad700895aa8ad033fc6b01",
+    "metal_paraguayo": "a11c798351e39dd26e7f315c1bda0040baf1b70aecb5ad3399f21fa5466640d2",
+    "metal_paranaense": "13b8590046d819b9ff239829551084476ec138f50e6682297ec5c7eb60315411",
+    "metal_pernambucano": "ab79797dd51859095b4505fe30dd2c83ec1d22dc29d49e177f030944045a4ac8",
+    "metal_piauiense": "1abf1c52e99769835cc133bd1ea7a6d06c5233833ef539912aec1aa17b590c7c",
+    "metal_salvadoreno": "648860580b3bf0d3a2526759bcda56db431092a851e3afdb1f0496449dd41869",
+    "metal_tico": "a2d823260d094c32cfebf469749989d65fadfcf24dcada1dbf575737a1a53553",
+    "metal_noir_quebecois": "48e9e734a015b0623eff87963b84ebda3549cd1ed804f715217046c1eb6ae707",
+    "metal_uruguayo": "72595746868fc319b256f17b04901f977fd2fb2928d517e33ef7c7b80a9f54dc",
+    "mexican_black_metal": "2da091eb30dbf35857b42a2e41ffd982f393da7ff022f21c82ac97b8f1f15a32",
+    "mexican_death_metal": "f75c7a1e124a720b361393611079d7fd41e883952b5147b5b08a040794dfd8a2",
+    "mexican_metal": "271c30721d8a153d1796dbfe568c204185824111dd6aa6570ec0b851d8a0e80b",
+    "mexican_power_metal": "1e71b91b19ca8a25dc113afcc6a82b61a73a3646fc36f6e63858e8203310cc7f",
+    "mexican_thrash_metal": "02b131447e7266f7af500de7a3da9532870c97d704e92326cbfbecdc4c721dd9",
+    "miami_metal": "29eff6681b83e68b392b3bafd024e4bce6c4acf472904037c71e1fc7764210f4",
+    "minneapolis_metal": "bd0bbaa9ef38edeef6107f532ee93031920d233b155166f7968d49e3ca8e0a1c",
+    "metalcore_espanol": "7588c09d52bb077ad6415850ef7987a615b9406c03d6b96a44c720934f4bb8b9",
+    "metal_cristao": "e872db9d4c9d789657000c0dc38ddd3d4b7a1c1189bacd18b4acc59586eba8e0",
+    "metal_gotico": "5242becb28f6e8fe8c3422b998e18cea3db6c00ebd50a86346da6bb039a6a3a6",
+    "metal_guitar": "61d5d1e57c83e6bf84e8bdf97c4ba0ca6463e6bef811ea40cdc7423b7ff71438",
+    "metalcore": "26a03aab3862fdcdb93fa482a29bda1a0680caaba26b188fb4e5cbe9d305361b",
+    "latin_metal": "9516b10cd8405989c729b25da80aa320cebaa6936cd18782105a975eac887c3f",
+    "latvian_metal": "7eb1ba1e6fdcdb2d6054243c009a24b91a6f6837b53312760b6213761c978bd8",
+    "lithuanian_metal": "4c0d23d55fc697bc34686030f1246b0e7110cb0f9bb061b83b68701577a0ac44",
+    "louisiana_metal": "26dc6a1514771635b4498bb400d925ba78d69cc4eb96bbce29ec9a4e09b7e44d",
+    "macedonian_metal": "f028397e4a7598d492e1faba11e41521a4011493df9df275adb8160b574eaaea",
+    "melodic_metal": "67a2c94529cbd7748460a20741c2f856ee4f2447da487591ba76c919649ed340",
+    "melodic_power_metal": "9e8350ef379ad88d5a61b375ae8320df5cb99c8607623b0ee04600823c55ff06",
+    "melodic_progressive_metal": "bd4d4e192dab3b06819e09f5e66e34ce65200a677ce794a2264a368b6dcc54df",
+    "lovecraftian_metal": "02ee8037c1238ea4962a3f66684efbb51d4690e2d44361850e5ce887f569ff14",
+    "luxembourgian_metal": "b97f8f5b0dafb91d9ca265464b2897ccd007a79491791cda0a1f3e4175cedb93",
+    "mainland_se_asia_metal": "76b09978c216c342a7b4cb64ffa4ad666c25c9f922b9c0d7e50c5f5321266763",
+    "malaysian_metal": "f932678c271cfa0731c3bf69d6498d041f870cb4f0de2b38d6e799d085d7949d"
+  },
+  "publisher_normalization": {
+    "atlas": [
+      {
+        "id": "depressive_black_metal",
+        "before": [-34.3768, 150.906, "East Corrimal", "Oceania"],
+        "after": [-34.3768, 150.906, "East Corrimal", "Oceania & Pacific"],
+        "reason": "Canonical atlas region vocabulary and established place-only Washington DC spelling; coordinates, sourced locality and musical data unchanged."
+      },
+      {
+        "id": "folk_metal_latinoamericano",
+        "before": [-34.604, -58.382, "Buenos Aires", "South America"],
+        "after": [-34.604, -58.382, "Buenos Aires", "Latin America & Caribbean"],
+        "reason": "Canonical atlas region vocabulary and established place-only Washington DC spelling; coordinates, sourced locality and musical data unchanged."
+      },
+      {
+        "id": "instrumental_djent",
+        "before": [38.9072, -77.0369, "Washington, D.C.", "North America"],
+        "after": [38.9072, -77.0369, "Washington DC", "North America"],
+        "reason": "Canonical atlas region vocabulary and established place-only Washington DC spelling; coordinates, sourced locality and musical data unchanged."
+      }
+    ]
+  },
+  "scope_audit": {
+    "sourceCounts": {
+      "baseline": 3438,
+      "current": 3538,
+      "additions": 100,
+      "instruments": 1467
+    },
+    "prior_tradition_and_extras_records_unchanged": true,
+    "prior_instrument_room_tree_vocabulary_bytes_unchanged": true,
+    "app_logic_unchanged_outside_generated_signature_data": true,
+    "prohibited_changed_paths": [],
+    "issues": []
+  },
+  "preservation_audit": {
+    "prior_geo_signature_image_entries_unchanged": true,
+    "only_three_new_geo_normalizations": true,
+    "errors": []
+  },
+  "local_checks": {
+    "canonical_refs": "PASS 3538 traditions,1467 instruments",
+    "full_api": "PASS 3538 compiled,0 failed,recipes <=1000 chars,all IDs resolve",
+    "api_contract": "PASS",
+    "atlas": "PASS 3538 placed,0 unplaced",
+    "signature": "PASS",
+    "descriptor_df": "PASS frozen table unchanged,97.14% token coverage",
+    "duplicate_gate": "PASS 0 unruled identity collisions;1 pre-existing known unresolved;328 advisory pairs",
+    "prefaces": "PASS 79/79",
+    "slots": "PASS 4/4",
+    "app_recipes": "PASS 56/56",
+    "equivalence": "PASS 8/8",
+    "docs": "PASS 13 concrete commands,8 behaviors",
+    "lint": "PASS",
+    "format": "PASS",
+    "recipe_regression": "PASS 1149/1149 after16 individually reviewed expectation-only updates",
+    "independent_artifact_freshness": "PASS independent second full3538 compile;5011 API files + codex.html + sitemap/llms/robots/server byte-identical modulo timestamps",
+    "browser_layout_lyrics": "BLOCKED missing Playwright Chromium executable; no install or bypass; exact-head CI required"
+  },
+  "execution_note": "Initial default parallel API and regression processes exited137. Unchanged supported APIs resumed with build_static_api --jobs=2 and REGRESSION_SERIAL=1.",
+  "predecessor_note": "Verified remote batch008 commit38a813a304b7bd340855e8270c2fff34e7dae7d7 has the exact local batch008 baseline tree. Manifest-only predecessor normalization; source data, compiled artifacts and prior verification remain unchanged.",
+  "final_entry_sha256_canonical": {
+    "trap_boliviano": "019fda5d71d9bc3929563c570b83db1f0932a42c59bc7782822d21b7499609ff",
+    "turkish_trap_pop": "a58228a6a892527222118f976cecbe0376a3f421ad01fa15bfa038961971d4f8",
+    "cyber_metal": "f8e5f6ffaddb5c0e4190e1c92d6a3ca7fffe2c80a5660766882d40c3f5361134",
+    "cypriot_metal": "29c2173c29f286c682010d2793f4388f4ceae551406a2d5ee68ce72be0c01b03",
+    "deep_folk_metal": "aa9a33796ac825d25f21ff4d67c1889c52fc69d43f0da9ebc74611625d5b0444",
+    "deep_melodic_death_metal": "9aaf5aa281fcc2e53665df706f2836198492fac50e9bd61e20c0ee5b454f56ce",
+    "deep_symphonic_black_metal": "df97e7b0259c7949ecfadd046baa7592e5e02f82d1bc5659ce476de2102d8ee3",
+    "depressive_black_metal": "86820d34f36e9d391296b93d505eee14206a350a23ddafabe65cc8392b7bd4ee",
+    "downtempo_deathcore": "6ad1febf1382300f75034a7f892e7dd854aae0802f24dd21a41d0f5143cf944c",
+    "edinburgh_metal": "c66dca0e34a82f6239ecde342711facbb2526c3d4b66c1257030616fd13fb0a5",
+    "emotional_black_metal": "5569398d044c60fb1c3c6eb44a8e1518ef73ad010edb101e79ef6091afac9a48",
+    "experimental_black_metal": "79cdde06124e8abdd2bf8719deb30da07e93ecacd30430441eea7fd6a17be867",
+    "finnish_black_metal": "cda1ffb1073d8c0a718ca9eace891428efc0291cca45c75264239576a97d3476",
+    "folk_metal_latinoamericano": "72f552ca146fae1b11615f132fa9505c2ad637ce521f355409f3ab07aa9e7b1e",
+    "forest_black_metal": "5b82908fe1f58a041b22259361c0cadfa460221ddc2768ec9482bcc03c610b1a",
+    "german_grindcore": "c7e5bb38bc076f5b8b445ca2dfc2581f9bb1920e4263bdcbf78ec29e33af1c6a",
+    "german_pagan_metal": "7a2e61eec7a0dd1ece64a7eb477d430d789a2ffd5afd4cdcdd34f3176805b1d9",
+    "german_thrash_metal": "9c4294293a1e73230f608e3520b6fb6224aa0634db0175a8359dbb26e014c332",
+    "gothenburg_metal": "9ec3aae4a3dcf64be3bdea0ba2564a56269a232bd1b30439aca4821e784b83bd",
+    "gothic_black_metal": "77553b6a82326f7499f0321cb141828468a9f53827c81bc9cbae2aa470a51045",
+    "gothic_symphonic_metal": "a81968c284004ac7fc15457a0e7af68448fe7dc3146f3da3b5cecb8ff5a46428",
+    "greek_black_metal": "101fde15a1826f80d2f9e8047072d29ab24649aa34ec4fbdf83e8c7dca176af6",
+    "greek_metal": "6714fc682755f0f348bfc026dcac2af2bcc6765c0bccea58b44b207f05fff7dc",
+    "guatemalan_metal": "dc3dbf5712670b6d4b330177241a0e69368dd66908f5b29de402f196b5be63a5",
+    "hungarian_black_metal": "c6cbbd1df8b4844680b312034b9a722306ea0e0ef89c6eb3bc395beff5ba08b3",
+    "hungarian_metal": "a3e6683232f488d1128662627bec2e63595fd8e03996bfc3785ccdd7a1c87291",
+    "icelandic_black_metal": "0154e5b9c28279656f301101bc2f20c41d6be914d37084138471b1e6628b4949",
+    "icelandic_metal": "3102e4ac1066882b1c5b9cac354cd8e881fa81ea39acd3536925591b9aeae3c8",
+    "indian_metal": "d949ab9f08ec01c15c82949efd7ed5bfe80cc0079f99392fe8312cb0c9efa9da",
+    "indonesian_black_metal": "e86e9ab0e1f0cf536ddfdd2b909f5933c35eda6eb119b93926aa669521e02306",
+    "indonesian_death_metal": "bc8ca92168450188f05903dec79a61c9c91441697fa46be37e3bf1deeee7d34c",
+    "indonesian_deathcore": "19aa81c4dd619a3b3f81b528938f6eb61b10b1e6aaa5e80decad5971b3f6f6d5",
+    "indonesian_metal": "2451d01c7bebaefd124479fc7948f468b8b55210458bc83ff523465aebcdd143",
+    "indonesian_thrash_metal": "72bbfd9efa3a4d7acaa41cbeb60b5c4897a8bf9da6576554ab3f5b1aa7b4f3f2",
+    "industrial_black_metal": "f7dfac5d52d3f989cfe493381d0691877411b4da6b4fbd6ca38abf95944ddd44",
+    "instrumental_black_metal": "51722bf749a7c05c2b610349030fadb50effd4ea7cba79c3caf3a2829737596c",
+    "instrumental_death_metal": "9f36c4088e8f8b86be0b02b9fe9c73f7b038baabf028baf32cebe177ea30bd4d",
+    "instrumental_djent": "767d4bd174860b8ef16d4b2ac3383dad886ebca5692d54793a48838676ce1eea",
+    "instrumental_progressive_metal": "3c1b8852d1198ce6729c20a872493c6a91b90ad0df2a9beeb1fab73c0264961e",
+    "iranian_metal": "0c8500ca5e90a582098ab5ba2bbf82992a040cfcc639c4f1501a0d04b1549697",
+    "irish_black_metal": "4294d3ff327ef02c538a739d07cfdf8b4d59e7571f3f5c9eda5c42cc62cfb7ae",
+    "irish_death_metal": "add0ae13609026bcc78a4bc23ef306210531288102f29f550c1e7bbec6def83d",
+    "irish_metal": "f7ebc140bdc9d8c8a5ad7f6b49d2ed19c1b47aee9431f52d5fcfe85f9369f80c",
+    "israeli_metal": "3387bed851649ff9f7f1b3ff7c72b7049a4297fe2e6a3ca1446a8818dd282dbe",
+    "italian_black_metal": "6e33feea526d4368e57802c3da371655ed6defb9a50e2ace44e9d040c9d2206c",
+    "italian_death_metal": "397a9b9642b2cff09a02cdedcc399160a8915c539c50331157992570d117d08e",
+    "italian_doom_metal": "9d9c72db831d5e0cd8363ee1272aa1197adb1d86c01d5982305df553f7944999",
+    "italian_folk_metal": "89ceda9b0f8f08b2613dc5f4c7a1b206da315b4aa939ec970cb8e3b1c38c42bd",
+    "italian_gothic_metal": "80498dfd968bd219b753cdb9986e87b9734ec646250dd366d4840a18b2792a46",
+    "italian_heavy_metal": "ee5e50176f853a957fd72dff63f1cd54a78d79d13b7e87546abf038648b399af",
+    "italian_metal": "82dbe6a8750987286b8dbf325f16562d4c5615bfc15589e612852e816f6ca77a",
+    "italian_metalcore": "0a396a102e219c8ebad6c752cce91a702fe632e95771443cd217dff7826be68c",
+    "italian_power_metal": "4b68fbec3a0728ff09e7b01cb2dce955002f2a88b3d9d3a98cc6313ad98a95d0",
+    "italian_progressive_metal": "87e0624f131a78b24f29f3cddf4ec2b26c48a54585cef71b4def79395398ffa2",
+    "j_metal": "385f89d91dc09649a064dd7a6650cae2b065efddbe4f07768031f869dedb33b4",
+    "japanese_black_metal": "221ab7810d12f09d26757c8bf1961cf31cbf99d73c1e3d297c18693c70c8fd0f",
+    "japanese_death_metal": "8c3925d7f5a71d5e007da7c5b2b1d0858e0413319ea9ac46fc05f1fab0d0b339",
+    "japanese_heavy_metal": "44766edb8dd9149458eb73ca3c3197e52af94aedc7300ae99c9d91cc9c4cb9ac",
+    "japanese_metalcore": "1c14e723d375a3831b3d3e0c0f06b82d4f80bd6e9a53967455de6ca7760a8e20",
+    "japanese_power_metal": "f9b6ab49eace37b1148d880cf6e26d4d37b3ece4da8ca09ba005bc0cf9e95ea1",
+    "kentucky_metal": "42add979ec88d3c5bcbf9ec1ad6d06d8dd0a2d32aeaee8320a2517237e472439",
+    "korean_metal": "0250b78d487c829acb4e4a2ef9736fc4337cdc012c9e3281309df3a87286a1b2",
+    "lapland_metal": "ceebbf9edeee47dc9fc7390314e8133000ab0e58f16709f10b9379608d1e20a0",
+    "metal_ecuatoriano": "8183d70ee706a19580992fbdb09a31b75200f6ca2e9eeece3433fc8ecef4c510",
+    "metal_galego": "7b1d2a8e9413b3da8a2f5bbc9258dce804c6e1b67f1d7fddbcccd766c9eaead8",
+    "metal_gaucho": "89ce696cd4b94b34580fcef610fe57ef827a7ebe59f7a011c25d8ac3edbf407e",
+    "metal_mineiro": "0e8a2c056462776f5ddc132f8ac9e292a1fc1f498d706d97d9f071e416f70879",
+    "metal_nortista": "d60f701a5bc147634ae7da8bb71bdab35c393d4b3463adc75be480822ffd1035",
+    "metal_paraguayo": "023d0ca36a3d1ab3cf93f25a43adcc068ead991778cf82b0e89a5bd86c9e803b",
+    "metal_paranaense": "7f1abbfc2858724fa00c72fbbc917f4b2222b24bd3210a6a14268b7696bb4c89",
+    "metal_pernambucano": "8c1c147997f2865059ac6212ea8c451dab112561f5798a18b7657f3c3c040296",
+    "metal_piauiense": "e64e768f2a6204fd1dbcb02a0d0bb949f268d41d8d5e9b73a9f9aae46fd507a4",
+    "metal_salvadoreno": "f62adf2f8ce80bb103a69d35b9af030a6f1a3eeda966480e9f6111d8a45b1752",
+    "metal_tico": "b8293a2c5dd72fdb0e49f3edb1e329645061e53c60d58cbdb27fa07f3e3b1756",
+    "metal_noir_quebecois": "e51e492adf8f17a6da8002955c7005852dfb537808144c8d846e4d280a6d7010",
+    "metal_uruguayo": "e82973b19a611daadf67d7fe357d5c89cde0b42b68c2f3a7738633839f141b31",
+    "mexican_black_metal": "77145e3a2703239950d34ad3e6f8d774d1b327a47a1fb2671168e6a20a0cac3f",
+    "mexican_death_metal": "d059bbbf0fbb9a6d7994a026bb05ed133c0e7d5fb0e45ab203862a8f5e546ab2",
+    "mexican_metal": "cf36685ee37e81c0ff080b2c7d8711cd6e138822d1910555ef046da7ca3a35b6",
+    "mexican_power_metal": "cb435893fd64d53cfd3b3d363f07a38983c92d0be54e47699ff5274b654dd9a2",
+    "mexican_thrash_metal": "fc6b41dabc9104b8f7a4addb2a2fb5391068a06d000676ea8912aacbfb1ef325",
+    "miami_metal": "87011ee2df955cf0b9bba1f9f37d4a45593eb6698d417e90e877b026847ae23f",
+    "minneapolis_metal": "628d7393c1a9636da97e1987f14d6a9efc4c651aab436dd41277986472167586",
+    "metalcore_espanol": "f53b3aeddc944e43650fc739a4be1a4b0e64b36820c98285de2f120f9c0afa80",
+    "metal_cristao": "bc5645123dbb3e6a38d4d6209b605062079274fcaed786de9c1318227995bd74",
+    "metal_gotico": "93a843c2508a72278280322ec06a63566835caeed11d2fe6d86d5e923550b809",
+    "metal_guitar": "9b750722cc3d48dc32dddcda75c2dbf9859e63eb0e5ba62de97573b2abfd399f",
+    "metalcore": "950a5eb22088695bfe69c077b9787b151be075c501ca4922a95ca5c925ed5ae3",
+    "latin_metal": "eeca511419bf8bbdbb448c8d46c1b7b328bb7d5f43b04c1bf22ed2ccbcda24c3",
+    "latvian_metal": "292bd0bfe8d8296b21dc114850ef86e84099be328b70a7f50909a2060165665a",
+    "lithuanian_metal": "ed1ba7e980c8c34ee54e0231ae19098d2ce9ea5d0ef8852ff6fc9ab2946e69de",
+    "louisiana_metal": "ec51016fab51b2068e090aff2ebf77d07aa7263370e8bb370d61218da12412d9",
+    "macedonian_metal": "4b439fcedd0f891829883fb52b38d457cc9fd5a54dfb7d3ea866c47fd3830195",
+    "melodic_metal": "86f29441b902df02f1b2c115cc36ec52a6a319c8d34ee4e4a911157f777af68b",
+    "melodic_power_metal": "34a7adf1afd9deda25a97f75d1c871b18eecf4fd4e01b52759e5fada060af0ef",
+    "melodic_progressive_metal": "507df679b82b8082cd76602f3ff30c7125bf24395141f5d7982a07361cbbecc8",
+    "lovecraftian_metal": "9771c2fa18321c17d54757466715b52c2d862e5bce7c97527a27a3795bdbdf39",
+    "luxembourgian_metal": "d50aea57fe58847ac3c77f401505c96f21b8d469c6cdf25776f4d1164a4228ae",
+    "mainland_se_asia_metal": "879ecf0e94c47490d2db9684f2718aa3ab266b02e3f3a883d8d6021085cda1c0",
+    "malaysian_metal": "d6f6829d60d67b12ca80bc92925881b0e16b101a47a28bd2a5c7a7a9591ad33f"
+  },
+  "final_entry_hash_method": "SHA256 of exact integrated evidence entry, sorted keys, compact separators, UTF-8, ensure_ascii=false; distinct from original candidate_entry_sha256 before three atlas normalizations.",
+  "full_api_recipe_drift": {
+    "existing_changed_recipe_count": 30,
+    "regression_fixture_changes": 16,
+    "additional_nonfixture_changes": 14,
+    "all30_source_and_extras_unchanged": true,
+    "all30_instrument_roles_and_shared_environment_unchanged": true,
+    "note": "Reviewed all30 existing recipe-string changes individually;90 changed existing API files audited for source/role/environment integrity,55 slot maps changed among136 existing valid values. New100 rows introduce no flagged cultural/pitch settings; all applicable explicit pinned parts remain selected."
+  },
+  "verification_log_sha256": {
+    "batch009-preflight.log": "dc7043c3e256f7d9b5b69b0a72dd21b7ae3b5a9121b76ee24ef1cd970559fe1d",
+    "batch009-regression-final.log": "ade0080a448a59635acc827c675aee6e90b31a0209062ebe426ee4fae6f93c18",
+    "batch009-check-docs.log": "a55029206e695995f43a810bc7c8c44286b0e5f786f1e091366a0630e208c631",
+    "batch009-layout-usability.log": "aea6244d9e0c8caf68ba317c9d0f6e7915ee7712e22db3342a7429374c468ab3",
+    "batch009-html.log": "6598b14f4844e5aa0174e27f4c5fc1693783c33d23b85892b15be71191735761",
+    "batch009-preface-lexicon.log": "5c5257fd3122987b1eb4637fb6b437ebfb4527f09849c5989ffc4a7b631cf1cf",
+    "batch009-signatures.log": "1a2d6903ac2a8bf355874f2ba8bdc2a5c30e5d7ac5134f35bc0c81703c76d48b",
+    "batch009-discovery.log": "6997385c4f0974a33c08c323a863aaae4417f52cea508e01f05d6c4af1d9aea9",
+    "batch009-app-recipes.log": "0dd52123a5e774ea69d08497b5d9380b7e1e9d5cc8b40a31bee1f52fab8ced07",
+    "batch009-static-api.log": "b83ac3e7e8d0595c20115bbcb0a7aa33a42ce0ed02a990ad7be4339e8594429a",
+    "batch009-check-api.log": "d62815a90257b923c5d218b98edf1e3e775ecbcecf0746e578f180beb12cc51d",
+    "batch009-slots.log": "6570dd30896da8ff0c4db50e91b7094c2cd80a242cb68a844513c869c6a6fb56",
+    "batch009-ui-foundation.log": "0a4661c16f77ad568e8ec67663be016e6a0c521fb1cea9e29530cebb7f6170eb",
+    "batch009-lyrics-page.log": "56f24a51491aa9054b632724210775a18de2c26832461c5a9979bb83e48a3ad1",
+    "batch009-regression.log": "d81aadca3965bb8a1fa3e36b2fc6afe979b58f7f58057d118d26fb9849ca5afc",
+    "batch009-atlas-final.log": "3773340a4e3902e0370eb2b8ea1588952b1ac30fe7944949ec9e6feca0075ac1",
+    "batch009-fresh-html.log": "c6129f59d195eb3c18bc15aacfedab2a7442182f9028232e6666a68885b26a62",
+    "batch009-docs-counts.log": "392d4353ee8b0183dd8218ffde00fc51d3d19d8ccaa6dbf0c14095612d4c0ab6",
+    "batch009-freshness.log": "27ab9649f6b46b73a7cf83901f197bdc871b265dad4cf389b8f2f36304536f55",
+    "batch009-integration.log": "35bb0687d0ed6e48f7d82fba50c7b2c158a45a6755c67d0d1c07744394a89181",
+    "batch009-fresh-api.log": "73b554ebcad65681571940243da4a3d0666a8f13996da4cc4c2fa3600f0dbd17",
+    "batch009-atlas.log": "53340cd4afc80751af3ce35708099787f972b5ed1da4197e39df352c6affe0b9",
+    "batch009-df.log": "a8a6e53e2279c9b9f427633d8df08fcbb535c04e1b9edef9e8af5124a047b2f2",
+    "batch009-format-check.log": "fd5f9628308185fba37f5cf22c3d3b0d41bb15bee2252aa4f9d2b2519152bd5e",
+    "batch009-prefaces.log": "bb2fd5f400746b2bb98b82b2a0cd298ab40c156aa8a1e9d6685158fe2c8617cc",
+    "batch009-duplicates.log": "a091a4015fd9ecf53a80103ddf7e8f65959f3c1dc5e2860dc4d541d9d6f49ca9",
+    "batch009-lint.log": "d91fa2ab8f5fe2530065db17cade8c940bb9c7a88c35f49ce9583fe342541462",
+    "batch009-equivalence.log": "348d52016b307982b361f257bd9f8338619e00b47d2b831e0547ebd452622566"
+  },
+  "full_api_config_audit": {
+    "changed_existing_api_tradition_files": 90,
+    "recipes_changed": 30,
+    "slot_maps_changed": 55,
+    "changed_slot_values": 136,
+    "all_sources_roles_environment_preserved": true,
+    "all_explicit_pinned_parts_preserved": true,
+    "issues": [],
+    "entries": [
+      {
+        "id": "acid_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "action_rock",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "african_heavy_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "afro_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "alabama_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "alternative_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "american_melodeath",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "appalachian_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "arab_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "atlanta_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "australian_thrash_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "austrian_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "avant_garde_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "big_room_house",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "blackened_deathcore",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_doom_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_power_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_progressive_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brazilian_thrash_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "breakcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "british_power_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "brutal_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "canadian_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "caribbean_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "cavernous_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "celtic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "chaotic_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "christian_power_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "christian_symphonic_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "christian_thrash_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "cosmic_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "croatian_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "crust_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "d_beat",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "d_beat_swedish",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "dangdut_koplo",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "dark_electro_aggrotech",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "darksynth",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "deathcore",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "desert_rock_palm",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "dissonant_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "doom",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "doom_blues",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "ebm_european_body",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "electro_house_2000s",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "emoviolence",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "experimental_hip_hop",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "fantasy_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "finnish_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "finnish_metalcore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "finnish_power_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "florida_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "folk_black_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "french_black_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "french_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "french_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "german_black_metal",
+        "recipe_changed": true,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "german_death_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": true
+      },
+      {
+        "id": "german_metalcore",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": true
+      },
+      {
+        "id": "glam_metal",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "grunge",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "grunk",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hair_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hard_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "hardcore_punk",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "jazz_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "math_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "math_rock_classic",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "melodic_death_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "neoclassical_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "nintendocore",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "nu_metal_korn_limp",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "power_metal_european",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "powerviolence",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "rap_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "riddim_dubstep",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "schranz_hard_techno",
+        "recipe_changed": false,
+        "config_slots_changed": false,
+        "pinned": false
+      },
+      {
+        "id": "screamo",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "screamo_skramz",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "sludge_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "speed_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "stoner_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "stoner_rock",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "street_punk",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "technical_death_metal",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "traditional_doom",
+        "recipe_changed": true,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "uk82",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      },
+      {
+        "id": "viking_metal",
+        "recipe_changed": false,
+        "config_slots_changed": true,
+        "pinned": false
+      }
+    ]
+  },
+  "review_artifact": "docs/everynoise-integrations/data-only-009-snapshot-review.json"
+}

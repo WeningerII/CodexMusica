@@ -5,7 +5,7 @@
   "lineage": "American regional black-metal strain from the southern Appalachian mountains, emerging late 2000s through Panopticon (Austin Lunn, Kentucky, 2012), Nechochwen and Twilight Fauna — grafting tremolo-picked minor-modal riffing, blast beats at 180-240 BPM and shrieked vocals onto banjo, fiddle and mountain-dulcimer passages and old-time modal tunes, with lyrics on coal extraction, union violence and land loss, and long tracks alternating full-band assault with unaccompanied acoustic string interludes.",
   "recipe": "classic 2007-2009 appalachian black metal, distorted Rock, black branch, appalachian drone modal, folk metal metal pagan metal. thick, false fold engaged, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric cedar koa phosphor bronze modern martin travis picked dreadnought acoustic guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string, drone like fiddle, walnut canonical appalachian fingerpicked mountain dulcimer. isolated rural 2005-present isolation diy isolation cabin diy. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 814,
-  "score": 545.688,
+  "score": 544.099,
   "config": {
     "traditions": [
       "appalachian_black_metal",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 27.974999999999994,
-          "voice_quality": 8.364999999999993,
+          "voice_quality": 8.049999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.0149999999999997,
           "voice_articulation": 18.719999999999995,
           "voice_microtone": 23.984999999999992,
-          "voice_tradition": 30.392499999999995,
-          "voice_mechanism_compound": 42.211000000000006,
+          "voice_tradition": 30.354999999999997,
+          "voice_mechanism_compound": 41.935,
           "voice_estill_quality": 5.654999999999999,
           "voice_speech_song": 18.069999999999997,
           "voice_ensemble_config": 19.889999999999993,
           "voice_ornament_system": 5.102500000000001,
           "voice_pitch_organization": 1.1699999999999995,
           "voice_processing_chain": 2.925,
-          "voice_multitrack_stack": 5.3345
+          "voice_multitrack_stack": 5.135000000000001
         }
       },
       {
@@ -66,22 +66,22 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 42.6675,
+          "electric_technique": 42.675,
           "amp_make": 20.214999999999996,
           "body_wood": 20.605,
           "neck_wood": 2.0799999999999996,
           "fretboard": 2.0149999999999997,
-          "pickup_magnet": 0.37649999999999995,
+          "pickup_magnet": 0.345,
           "pickup_winding": 0.09,
-          "string_material": 0.1995,
+          "string_material": 0,
           "bridge": 2.0799999999999996,
           "scale_length": 18.72,
           "string_gauge": 2.0799999999999996,
-          "finish": 0.378,
+          "finish": 0.315,
           "string_tuning": 25.48
         }
       },
@@ -100,11 +100,11 @@
         "scores": {
           "amp_make": 6.500000000000001,
           "body_wood": 2.0799999999999996,
-          "pickup_config": 1.427125,
-          "string_type": 14.789125,
+          "pickup_config": 1.290625,
+          "string_type": 14.783125,
           "scale_length_b": 2.0799999999999996,
           "fretted_or_not": 0.195,
-          "bass_technique": 13.863,
+          "bass_technique": 13.695,
           "electric_bass_string_configuration": 0
         }
       },
@@ -124,7 +124,7 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "banjo_back": "resonator",
+          "banjo_back": "open_back",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
@@ -136,8 +136,8 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "banjo_back": 0.2445,
-          "tone_ring": 3.3271249999999997,
+          "banjo_back": 0.195,
+          "tone_ring": 3.295625,
           "banjo_head": 17.419999999999998,
           "banjo_pot": 0.195,
           "banjo_play": 3.065,
@@ -152,15 +152,15 @@
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_rough_drone",
-          "fiddle_strings": "steel_core",
+          "fiddle_strings": "synthetic_core",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 19.746874999999996,
-          "fiddle_strings": 0.1995,
+          "bowed_technique": 19.791874999999997,
+          "fiddle_strings": 0.195,
           "fiddle_bow": 1.04,
           "fiddle_mute": 1.605,
           "fiddle_articulation": 2.285625,
@@ -194,8 +194,8 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 18.318,
-          "string_tuning": 2.77,
+          "acoustic_technique": 18.15,
+          "string_tuning": 2.815,
           "top_wood": 2.0799999999999996,
           "back_sides": 1,
           "string_acoustic": 3.3799999999999994

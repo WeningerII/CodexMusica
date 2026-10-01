@@ -5,7 +5,7 @@
   "lineage": "Black American hardcore and alternative-rock current running from Washington DC's Bad Brains (1977 onward) and Los Angeles' Fishbone and Living Colour through the 2003 Afro-Punk documentary and the Brooklyn festival scene it created — fast downstroked power chords and hardcore backbeats interleaved with reggae dub breaks, funk syncopation and gospel-shouted vocal delivery.",
   "recipe": "classic North American late-1970s afro-punk, distorted Rock, punk branch, alternative distorted rock, reggae diaspora bass system ska mexicano indie garage rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation ebony single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, saxophone. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 765,
-  "score": 348.962,
+  "score": 350.748,
   "config": {
     "traditions": [
       "afro_punk",
@@ -42,10 +42,10 @@
           "voice_articulation": 18.46,
           "voice_microtone": 18.849999999999994,
           "voice_tradition": 7.085,
-          "voice_mechanism_compound": 15.275,
+          "voice_mechanism_compound": 15.245000000000001,
           "voice_estill_quality": 2.3000000000000007,
           "voice_speech_song": 19.499999999999996,
-          "voice_ensemble_config": 20.98825,
+          "voice_ensemble_config": 21.01,
           "voice_ornament_system": 1.8399999999999999,
           "voice_pitch_organization": 0.26,
           "voice_processing_chain": 4.82,
@@ -73,15 +73,15 @@
           "electric_technique": 11.855,
           "amp_make": 28.535000000000004,
           "body_wood": 0.975,
-          "neck_wood": 0.6345000000000001,
+          "neck_wood": 0.825,
           "fretboard": 1.3,
-          "pickup_magnet": 1.695625,
+          "pickup_magnet": 1.645,
           "pickup_winding": 1.02,
           "string_material": 0.15,
-          "bridge": 1.7550000000000001,
-          "scale_length": 1.2690000000000001,
-          "string_gauge": 0.6345000000000001,
-          "finish": 0.195,
+          "bridge": 1.7400000000000002,
+          "scale_length": 1.6500000000000004,
+          "string_gauge": 0.825,
+          "finish": 0.15,
           "string_tuning": 9.945
         }
       },
@@ -102,7 +102,7 @@
           "body_wood": 1.69,
           "pickup_config": 1.3,
           "string_type": 19.6625,
-          "scale_length_b": 0.6345000000000001,
+          "scale_length_b": 0.825,
           "fretted_or_not": 0.195,
           "bass_technique": 26.125,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 17.485,
-          "drumhead": 2.020625,
+          "drumhead": 1.97,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -141,15 +141,15 @@
         "scores": {
           "electric_technique": 11.855,
           "amp_make": 28.535000000000004,
-          "body_wood": 0.6345000000000001,
-          "neck_wood": 0.6345000000000001,
+          "body_wood": 0.825,
+          "neck_wood": 0.825,
           "fretboard": 1.3,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
-          "string_gauge": 0.6345000000000001,
+          "string_gauge": 0.825,
           "bridge": 1.195,
-          "scale_length": 1.2690000000000001,
-          "finish": 0.195,
+          "scale_length": 1.6500000000000004,
+          "finish": 0.15,
           "string_tuning": 9.555,
           "single_coil_pickup_construction": 0
         }
@@ -166,13 +166,13 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 2.6506250000000007,
-          "sax_size": 0.6345000000000001,
+          "wind_articulation": 2.6000000000000005,
+          "sax_size": 0.825,
           "sax_reed": 0.15,
           "sax_body_alloy": 0.8125,
           "sax_mouthpiece": 0.39,
           "sax_technique": 0.325,
-          "sax_maker_school": 0.195
+          "sax_maker_school": 0.15
         }
       }
     ],
