@@ -6335,8 +6335,19 @@ def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
               # pair whose endpoint readings disagree on a relation is
               # refused rather than judged (the battery moved 28 -> 39 the
               # same way).
-              and coverage.get("pairs_judged") == 3
-              and coverage.get("pairs_refused") == 7,
+              # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md
+              # standing rule 5), MEASURED by this run: ~~3/7~~ -> 10/0.
+              # Every mandated pair is judged now (a pair holds if one whole
+              # reading of its words holds it), and the deleted prominence
+              # band takes `prominence:L2` with it. The song still cannot
+              # certify: the meter layer's two refusals, present before the
+              # ruling too, are what stand. superseded: judged 3, refused 7
+              # (rhyme:2:3:0/1, 8:9:4/5/6, 10:11:7/9) plus prominence:L2.
+              and coverage.get("pairs_judged") == 10
+              and coverage.get("pairs_refused") == 0
+              and coverage.get("refused_obligations")
+              == ["meter:COUNT_IS_A_LOWER_BOUND:L2",
+                  "meter:COUNT_IS_A_LOWER_BOUND:L6"],
               f"final lines={len(completed.get('final_draft', []))}; "
               f"judged/refused={coverage.get('pairs_judged')}/"
               f"{coverage.get('pairs_refused')}")

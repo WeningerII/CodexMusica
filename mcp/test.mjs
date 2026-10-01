@@ -7887,7 +7887,13 @@ try {
     // M-309's N-relation model: the plan no longer draws a relation per group,
     // so L1 is no longer a joint-conflict pivot and the batch
     // [1,5,6,14,15,17,19] is again the FIRST question, on continuation 0
-    // (314780 state bytes; measured). The walk below answers every question with the
+    // (314780 state bytes; measured). ~~That walk too~~ — REPINNED 2026-10-01
+    // for the any-reading rule (CLAUDE.md standing rule 5): small words now
+    // anchor at declared slots, so the groups bound to `we`/`the`/`to` are
+    // judged instead of refused. MEASURED at the connector's own budget
+    // (attempts 1, backtrack 1): group [1,5,6,7,8,13], then L1, then the batch
+    // [2,14,15,17,19,21,23] on continuation 2 (133050 state bytes).
+    // The walk below answers every question with the
     // draft's own unchanged line(s) — exactly as test_run_continuation.mjs
     // does, so no accepted edit can close an obligation — until the first
     // propose_batch appears, and the claim is measured on THAT state. A run

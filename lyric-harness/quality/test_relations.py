@@ -3385,6 +3385,67 @@ def test_a_settled_question_has_the_full_answer():
     RT._WVP_MEMO.clear()
 
 
+def test_a_remembered_reading_answer_is_the_computed_one():
+    """X9d. `VocabularyPairResults.resolve_readings` remembers each
+    (stream, pair, schema) answer in `_RESOLVE_MEMO` (2026-10-01): a `verify`
+    on the 16-line fixture song spent 97.5% of its time resolving the same
+    undecided pairs again for every grade of the same draft. The claims: a
+    remembered answer is the computed one, a second grade of the same draft
+    computes nothing, and a different draft is not answered from the memo.
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ("i read the letter by the window",
+             "the wind will read it back to me",
+             "we live where the rivers wind",
+             "and live the way the readers do")
+    every = {(i, j) for i in range(1, 5) for j in range(i + 1, 5)}
+    RT._WVP_MEMO.clear()
+    RT._RESOLVE_MEMO.clear()
+    w = RT.whole_vocabulary_pairs(lines, phon, requested_pairs=every)
+    asked = {p: list(n) for p, n in w.undecided.items() if n}
+    calls, real = [], RT.resolve_line_pair
+
+    def spy(*a, **k):
+        calls.append(a[2])
+        return real(*a, **k)
+    RT.resolve_line_pair = spy
+    try:
+        first = {p: w.resolve_readings(p, n) for p, n in asked.items()}
+        n_first = len(calls)
+        RT._WVP_MEMO.clear()
+        w2 = RT.whole_vocabulary_pairs(lines, phon, requested_pairs=every)
+        second = {p: w2.resolve_readings(p, n) for p, n in asked.items()}
+        n_second = len(calls) - n_first
+        RT._RESOLVE_MEMO.clear()
+        fresh = {p: w2.resolve_readings(p, n) for p, n in asked.items()}
+        other = list(lines)
+        other[0] = "i read the letter by the door"
+        RT._WVP_MEMO.clear()
+        before = len(calls)
+        w3 = RT.whole_vocabulary_pairs(other, phon, requested_pairs=every)
+        for p, n in w3.undecided.items():
+            if n:
+                w3.resolve_readings(p, n)
+        n_other = len(calls) - before
+    finally:
+        RT.resolve_line_pair = real
+    check("the comparison examines real undecided pairs",
+          bool(asked) and n_first > 0,
+          f"{len(asked)} pair(s) undecided, {n_first} resolution(s)")
+    check("a second grade of the same draft resolves nothing again, and its "
+          "answers are the first grade's",
+          n_second == 0 and second == first, f"{n_second} recomputed")
+    check("a remembered answer is the one a cold memo computes",
+          fresh == first, f"{fresh} against {first}")
+    check("a different draft is not answered from the memo",
+          n_other > 0 or not any(w3.undecided.values()),
+          f"{n_other} resolution(s) on the changed draft")
+    RT._WVP_MEMO.clear()
+    RT._RESOLVE_MEMO.clear()
+
+
 # ---------------------------------------------------------------------------
 # X10. The pair guard fires BEFORE `evaluate()` — M-244's cost, closed
 # ---------------------------------------------------------------------------
@@ -3778,6 +3839,7 @@ if __name__ == "__main__":
     test_the_judge_memo_answers_identical_calls_only()
     test_a_schema_subset_is_the_full_answer_restricted()
     test_a_settled_question_has_the_full_answer()
+    test_a_remembered_reading_answer_is_the_computed_one()
     test_the_pair_guard_refuses_before_it_evaluates()
     test_every_schema_judges_and_no_differ_only_excludes()
     print("=" * 66)

@@ -7056,6 +7056,13 @@ def stanzas_from_sections(sections):
 _WVP_MEMO = {}
 _WVP_MEMO_CAP = 32
 
+#: THE ANY-READING RULE's answers, (stream key, pair, schema) -> (verdict,
+#: witness). The stream key is `_wvp_key` with no pair restriction: the
+#: resolution stream is built from exactly those coordinates, so a hit is the
+#: answer the same call would compute. Bounded FIFO, like `_WVP_MEMO`.
+_RESOLVE_MEMO = {}
+_RESOLVE_MEMO_CAP = 20000
+
 
 def _wvp_key(text_lines, phon, sections, bearing, requested_pairs=None,
              line_status=None):
@@ -7085,25 +7092,45 @@ class VocabularyPairResults(dict):
         self.refused = dict(refused or {})
         self.lines = {k: list(v) for k, v in dict(lines or {}).items()}
         self._resolve_ctx = None
+        self._resolve_key = None
 
-    def resolve_readings(self, pair, names):
+    def resolve_readings(self, pair, names, first_only=False):
         """THE ANY-READING RULE over this call's undecided schemas for one
         pair -> (satisfied {name: witness}, still undecided [names]).
 
         A name absent from both was decided False under every combination of
         its cause tokens' readings.  `relations.resolve_line_pair` documents
         the rule; this only supplies the stream the call itself judged.
+
+        Each (stream, pair, schema) answer is remembered in `_RESOLVE_MEMO`
+        under the same declared coordinates `_WVP_MEMO` keys on, so a draft
+        graded again in one process (`verify`'s before and after,
+        `group_merges`) is not resolved again. `first_only` (a pass/fail
+        caller) stops at the first schema that holds; the names after it are
+        neither satisfied nor undecided in the answer, only unasked.
         """
         pair = tuple(sorted(pair))
         if self._resolve_ctx is None:
             return {}, list(names)
-        stream, build = self._resolve_ctx()
         satisfied, still = {}, []
         for name in names:
-            verdict, witness = resolve_line_pair(REGISTRY[name], stream, pair,
-                                                 build)
+            key = ((self._resolve_key, pair, name)
+                   if self._resolve_key is not None else None)
+            hit = _RESOLVE_MEMO.get(key) if key is not None else None
+            if hit is None:
+                stream, build = self._resolve_ctx()
+                verdict, witness = resolve_line_pair(REGISTRY[name], stream,
+                                                     pair, build)
+                hit = (verdict, tuple(witness or ()))
+                if key is not None:
+                    if len(_RESOLVE_MEMO) >= _RESOLVE_MEMO_CAP:
+                        _RESOLVE_MEMO.pop(next(iter(_RESOLVE_MEMO)))
+                    _RESOLVE_MEMO[key] = hit
+            verdict, witness = hit
             if verdict is True:
-                satisfied[name] = witness or []
+                satisfied[name] = list(witness)
+                if first_only:
+                    break
             elif verdict is None:
                 still.append(name)
         return satisfied, still
@@ -7196,6 +7223,8 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
             mark_refrain_tail(st, lines=sorted(bearing))
         return st
     _ctx_box = {}
+    resolve_key = _wvp_key(text_lines, phon, sections, bearing, None,
+                           line_status)
 
     def _resolve_ctx():
         # Built on first use: a call whose undecided pairs nobody resolves
@@ -7208,6 +7237,7 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
         c = _WVP_MEMO[memo_key]
         hit = VocabularyPairResults(c, c.undecided, c.refused, c.lines)
         hit._resolve_ctx = _resolve_ctx
+        hit._resolve_key = resolve_key
         return hit
     stream = _build(phon)
     _ctx_box["stream"] = stream
@@ -7238,6 +7268,7 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
         _WVP_MEMO[memo_key] = res
     out = VocabularyPairResults(res, res.undecided, res.refused, res.lines)
     out._resolve_ctx = _resolve_ctx
+    out._resolve_key = resolve_key
     return out
 
 

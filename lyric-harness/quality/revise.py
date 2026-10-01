@@ -2329,7 +2329,8 @@ class Reviser:
                         # recorded. What stays open is open for a reason
                         # that is not a reading.
                         _rsat, _undecided = _wvp.resolve_readings(
-                            v["lines"], _undecided)
+                            v["lines"], _undecided,
+                            first_only=_verdicts_only)
                         if _rsat:
                             v["schemas"] = sorted(set(v["schemas"]) | set(_rsat))
                             v["relations"] = sorted(set(v["relations"])
