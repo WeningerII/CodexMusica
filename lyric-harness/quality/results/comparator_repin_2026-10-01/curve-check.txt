@@ -1,0 +1,100 @@
+RECEIPT — comparator re-pin for the owner's any-reading ruling, 2026-10-01
+(CLAUDE.md standing rule 5: "the checker is going to look for whether or not a
+pronunciation works, not which pronunciation works"). One fingerprint move, one
+cold memo, and every calibration HOLDS.
+
+WHAT MOVED THE COMPARATOR.  Edits inside `lyric_harness.py`'s comparator closure
+(CLAUDE.md standing rule 4), all on claude/practical-curie-n66u8c:
+  1. `SPELLING_ALIASES = {"mic": "mike"}` and the `Lexicon` loop that APPENDS the
+     headword's dictionary readings to the alias ("add mic"). `mic` keeps its
+     first reading (M IH1 K); `mike`'s M AY1 K follows it.
+  2. `line_anchors` gains `small_end`: a small end word's demoted readings come
+     first, so `anchors[0]` does not move, and its dictionary-stressed readings
+     follow as further hypotheses ("small words may be sung stressed or not").
+  3. A docstring in `Lexicon` (the -in' homograph note) reworded for rule 5.
+`check_comparator_pin.py` reported "MOVED — 1 of 7 inputs": `lyric_harness.py
+closure`. `features.py`, `cmudict.dict`, `opensubtitles_en_50k.tsv`,
+`Declaration()`, `predictability_frac` and `_couplet_pairs` are byte-identical to
+the 2026-09-26 pin. Fingerprint
+  6a0dd9c1004ebf2a02d618479687b6198a6cbb1fba6c9d39fb485e7c8f408d94  (2026-09-26 pin,
+      quality/results/comparator_repin_2026-09-26/curve-check.txt)
+  -> d8f5a5b15e172aa574eb4a1f5b830ec61b22771a6cfdf9c8bf691103de4aba8f
+confirmed unchanged by every later edit on the branch (`word_syllable_map`,
+`end_pair_relations`, `screen_pairs`, `anchor_disclosure_lines`, `check_scheme`,
+`quality/slots.py`, `quality/revise.py`, the tests and the documents are outside
+the closure) before the pin was written.
+
+HOW THE MEMO WAS REBUILT — FROM NOTHING, the moved fingerprint having discarded
+it.  `quality/length_curve_calibration.py compute --shard I/12`, each shard to its
+own memo, at commit f9967b70 (fingerprint already d8f5a5b15e17). No prior memo was
+read or merged. Every shard carries the same provenance, which `check --rows`
+re-verifies: comparator d8f5a5b15e17, corpus_sha256 294831223fff, population
+08584341b359, question d53e59446e1a, tagger 0189b5b3824b, nltk 3.10.3. Rows,
+sidecars and COMPUTE logs are banked beside this file in shards/.
+
+   1/12   1153 items  row_sha256 19c5a8c797aeb811   3098 CPU-s  cloud worker, branch claude/repin-shards-1001-a
+   2/12   1012 items  row_sha256 9669437d1bedb632   3940 CPU-s  cloud worker, branch claude/repin-shards-1001-a
+   3/12    514 items  row_sha256 9b9a845ba591716f   2346 CPU-s  cloud worker, branch claude/repin-shards-1001-a
+   4/12    934 items  row_sha256 7f0eb00ddc951d94   3077 CPU-s  cloud worker, branch claude/repin-shards-1001-a
+   5/12    556 items  row_sha256 61c27a91d4d0f5c9   2968 CPU-s  cloud worker, branch claude/repin-shards-1001-b
+   6/12   1306 items  row_sha256 9e122efd76c2e3d7   3647 CPU-s  cloud worker, branch claude/repin-shards-1001-b
+   7/12    409 items  row_sha256 664c81d14cf7b7c7   2674 CPU-s  cloud worker, branch claude/repin-shards-1001-b
+   8/12    556 items  row_sha256 f209e5846b9b09af   2774 CPU-s  cloud worker, branch claude/repin-shards-1001-b
+   9/12    396 items  row_sha256 40b6c83725970105   2243 CPU-s  cloud worker, branch claude/repin-shards-1001-c
+  10/12    512 items  row_sha256 89c02f01a1f7d2be   2723 CPU-s  cloud worker, branch claude/repin-shards-1001-c
+  11/12    530 items  row_sha256 d1066684e8c01885   2298 CPU-s  cloud worker, branch claude/repin-shards-1001-c
+  12/12    658 items  row_sha256 77509febc6834c2f    442 CPU-s  cloud worker, branch claude/repin-shards-1001-c
+  total  8536 items  = the lyric profile's n_human (8536).
+Shard 12's COMPUTE line reads "cache hits 600 misses 58": its worker was restarted
+and resumed from its OWN partial memo, whose header reads fingerprint
+d8f5a5b15e17, written 2026-10-01T22:00:49, 600 entries. Those 600 were computed
+cold under this same fingerprint by the killed run, whose CPU is not in any log;
+the 32,230 CPU-s summed above therefore undercounts the rebuild by that run.
+
+THE CHECK THE PIN NAMES, VERBATIM:
+    python3 quality/length_curve_calibration.py check --rows shards/rows-{1..12}-of-12.tsv
+    ROWS  from 12 file(s): 8536 items
+    MATTR/TTR  532 of 8536 items degenerate at calibration window 50 -> HOLDS
+      mattr          C1  shipped [0.49968978828344063, 0.03751889880962087]  re-derived [0.49968978828344063, 0.03751889880962087]  -> HOLDS
+      fwr            C1  shipped [0.5604841642384619, -0.014308228025864213]  re-derived [0.5604841642384619, -0.014308228025864213]  -> HOLDS
+      anaphora       C2  shipped [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  re-derived [1.1413067296229165, -0.24203952493270758, 0.01609986645877518]  -> HOLDS
+      cv             CK  shipped 21 knots, re-derived 21  -> HOLDS
+      predictability CK  shipped 21 knots, re-derived 21  -> HOLDS
+    RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
+    exit=0
+
+ITEM BY ITEM, AGAINST THE ROWS BANKED AT THE OLD PIN
+(quality/results/comparator_repin_2026-09-26/shards/, comparator 6a0dd9c1004e):
+every one of the twelve row files is byte-identical to its 2026-09-26 counterpart
+(`diff` of the data lines: 0 lines differ in each; every row_sha256 above equals
+the one that receipt records). 0 of 8,536 items changed on any of file, author,
+title, n_lines, n_tokens, mattr, fwr, anaphora, cv or predictability.
+
+WHY NOTHING MOVED.  The alias appends readings after `mic`'s first, and
+`line_anchors` keeps every small end word's demoted reading at `anchors[0]`, the
+reading the calibrated statistics take. MATTR, FWR, the token count, CV and
+anaphora read no pronunciation at all. The shards measured this; the paragraph
+only explains it.
+
+THE OTHER CALIBRATIONS THIS COMPARATOR FEEDS, warm on a memo merged from the
+twelve shard memos with the module's own `merge-cache` (8,536 entries, every one
+carrying d8f5a5b15e17):
+  * `song_profile_calibration.py --check` (profile `song`): "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces." 8,536 hits, 0 misses,
+    117.3 CPU-s, exit 0.
+  * `song_profile_calibration.py --check --profile short`: "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces." 5,442 hits, 0 misses,
+    exit 0.
+  * `expected_drift.py song_profile_calibration-fast`: "observed 0 drifted
+    value(s), declared 0" -> PASS.
+
+REPRODUCE, from the banked rows (~55 CPU-s):
+    python3 quality/length_curve_calibration.py check --rows \
+        quality/results/comparator_repin_2026-10-01/shards/rows-{1,2,3,4,5,6,7,8,9,10,11,12}-of-12.tsv
+
+VERDICT.  HOLDS: every coefficient, every knot count and every one of the 8,536
+items' five statistics re-derives exactly under the new comparator, and both band
+rows reproduce every shipped constant. Nothing moved, so nothing is re-adopted and
+nothing was tuned (doctrine 16/58); only the fingerprint the pin records advances.
+Still open and not touched here: held-out E2 on `short` (+2.95, firing since
+2026-09-08, RESULTS_LENGTH_CURVE.md §9).
