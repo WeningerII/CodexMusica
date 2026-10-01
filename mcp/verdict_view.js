@@ -119,14 +119,23 @@ export function blockingOf(verdict) {
           .map((f) => f.code)
       ),
     ];
-    const words = [
-      ...new Set(options.filter((o) => o.matching_lines?.includes(n)).map((o) => o.word)),
+    // The words with more than one reading on THIS line and on the lines it
+    // could not be judged with, each named with its line: a rhyme between
+    // L9 and L11 goes unjudged because of a word on either, and naming only
+    // L11's (`the`, `a`) while `wire` on L9 was the cause sent a writer to
+    // the wrong line (song run A, 2026-09-30).
+    const wordsAt = (ln) => [
+      ...new Set(options.filter((o) => o.matching_lines?.includes(ln)).map((o) => o.word)),
     ];
+    const words = [n, ...[...e.partners].sort((a, b) => a - b)]
+      .map((ln) => [ln, wordsAt(ln)])
+      .filter(([, ws]) => ws.length)
+      .map(([ln, ws]) => `L${ln} ${ws.join(', ')}`);
     out.push(
       `L${n}: not judged — ${[...e.kinds].join(', ')}` +
         (e.partners.size ? ` with ${lineList([...e.partners])}` : '') +
         (why.length ? ` (${why.join(', ')})` : '') +
-        (words.length ? `; words with more than one reading: ${words.join(', ')}` : '')
+        (words.length ? `; words with more than one reading: ${words.join('; ')}` : '')
     );
   }
   if (unplaced.length) out.push(`whole draft: not judged — ${unplaced.join(', ')}`);

@@ -5187,6 +5187,38 @@ def test_the_verdict_carries_the_judging_spans():
           blk[:200])
 
 
+def test_a_slot_offer_names_only_words_the_slot_can_anchor():
+    print("\n— a token-slot offer names only words the grade can anchor "
+          "there (song run A, 2026-09-30)")
+    # THE DEFECT: a 20-line run bound L16's end word to L17's third word,
+    # and the revise brief offered `on` FIRST for that place. `on` carries no
+    # stress at T3, so `slots.resolve` finds no anchor, the grade REFUSES the
+    # pair, and the writer who took the first offered word was rejected for
+    # turning a judged pair into a refused one. The default-relation offer is
+    # not screened through the grade (M-315), so the slot's own anchor test
+    # has to be asked of it: the SAME predicate `grade()` applies.
+    from quality import slots as _SL
+    draft = ["Keep the lamp until the dawn", "Leave it gone, the dark is long"]
+    m = SC.mandate([["1.endword", "2.T3"]], n_lines=2)
+    b = {x.line_no: x for x in R.brief(draft, m)}.get(2)
+    f = b.fields_by_slot.get("2.T3") if b else None
+    check("the fixture: L2 is briefed at its T3 word with a non-empty "
+          "dawn-family offer (the pursued modal pair dawn/gone)",
+          f is not None and len(f.offered) > 0,
+          (list(f.offered)[:6], f.grader_refused) if f else b)
+    if f is None:
+        return
+    bad = [w for w in f.offered if not R._anchors_at(draft[1], f.slot, w)]
+    check("every offered word anchors at T3 when spliced in — the grade "
+          "could judge each of them", bad == [], bad)
+    check("`on`, the word the run was offered first, is named as one the "
+          "grader could not judge there, not offered",
+          "on" not in f.offered and "on" in f.grader_refused,
+          (list(f.offered)[:6], f.grader_refused))
+    check("control: a content word the slot does anchor is still offered",
+          "swan" in f.offered, list(f.offered)[:12])
+
+
 if __name__ == "__main__":
     # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
     # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_REVISE_SHARD=k/n`
@@ -5254,6 +5286,7 @@ if __name__ == "__main__":
                test_a_differ_coda_relation_is_offered_from_the_vowel_band,
                test_the_hook_is_read_from_the_slot_not_the_snapshot,
                test_an_offer_the_ban_emptied_points_at_the_group_backtrack,
-               test_the_verdict_carries_the_judging_spans)
+               test_the_verdict_carries_the_judging_spans,
+               test_a_slot_offer_names_only_words_the_slot_can_anchor)
     sys.exit(run_sections(_SECTIONS, "TEST_REVISE_SHARD", FAILURES,
                           footer="all revision-loop regressions pass"))
