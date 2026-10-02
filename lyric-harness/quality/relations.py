@@ -2963,7 +2963,7 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
 
 def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
             keep=("true", "none"), tally=None, skip_line_pairs=None,
-            requested_line_pairs=None):
+            requested_line_pairs=None, bind=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
 
     THE ALGORITHM
@@ -3006,7 +3006,18 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
     cross-line pairs. It is permitted ONLY for pair-local schemas: their
     verdict depends on these members in the full stream. Global figures and
     quantifiers must be evaluated and assembled in full before projection.
+
+    `bind(a, b)`, when given, is asked of each candidate span pair before it
+    is evaluated, and a pair it refuses is never evaluated. `line_pairs_for`
+    passes its bound-word test (M-317) for a pair-local schema: an instance
+    whose spans miss a bound word is discarded there anyway, so this only
+    saves the evaluation -- 455 per realise on a 24-line pair query, about
+    95% of the any-reading resolver's time. Same rule as `requested_line_
+    pairs`: pair-local schemas only, since a figure is assembled from every
+    edge.
     """
+    if bind is not None and not pair_scope_representable(schema):
+        raise ValueError("a bind predicate requires a pair-local schema")
     if requested_line_pairs is not None and not pair_scope_representable(schema):
         raise ValueError("candidate projection requires a pair-local schema")
     if "stub_resolution" in schema.capabilities() \
@@ -3087,6 +3098,16 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
         # so a consumer separating the gates does not have to infer it from an
         # empty `missing`.
         return Refusal(schema.name, "span", str(e), kind="span")
+    if requested_line_pairs is not None:
+        # Only a span on a requested line can enter a candidate below (the
+        # loop asks each span's line for its requested partners), so the
+        # rest are dropped BEFORE they are bucketed. Every line is still
+        # enumerated above, so a span refusal anywhere refuses as before.
+        want = {ln for pr in requested_line_pairs for ln in pr
+                if ln is not None}
+        A = [sp for sp in A if _span_line(sp, stream) in want]
+        B = A if schema.spans[0] == schema.spans[1] else [
+            sp for sp in B if _span_line(sp, stream) in want]
     a_keys = {s.idx for s in A}
     b_keys = a_keys if B is A else {s.idx for s in B}
 
@@ -3145,6 +3166,8 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
             schema, layout, stream, a_keys, b_keys, skip_line_pairs,
             tally=tally, requested_line_pairs=requested_line_pairs,
             prune=True):
+        if bind is not None and not bind(a, b):
+            continue
         inst = evaluate(schema, a, b, stream, chans)
         if inst is None:
             continue
@@ -8708,10 +8731,27 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
                     edges.move_to_end(k)
                     reuse[(i, j)] = edges[k]
         _EDGE_MEMO_TALLY["hit"] += len(reuse)
+    def span_bind(sa, sb):
+        # `binds` on two candidate SPANS, before they are evaluated: a
+        # cross-line candidate whose spans miss a bound word could only
+        # produce an instance the loop below discards.
+        la, lb = _origin_line(sa), _origin_line(sb)
+        if la is None or lb is None or la == lb:
+            return True
+        a, b = min(la, lb), max(la, lb)
+        if (a, b) not in bound:
+            return True
+        ta, tb = bound[(a, b)]
+        if whole_line and not (ta is None and tb is None):
+            return False
+        s1, s2 = (sa, sb) if la == a else (sb, sa)
+        return (_span_binds(stream, s1, a - 1, ta, last)
+                and _span_binds(stream, s2, b - 1, tb, last))
     out = realise(schema, stream,
                   skip_line_pairs=(set(skip) | set(reuse)) or None,
                   requested_line_pairs=(set(measured)
-                      if pair_local and requested_pairs is not None else None))
+                      if pair_local and requested_pairs is not None else None),
+                  bind=(span_bind if pair_local and bound else None))
     if isinstance(out, Refusal):
         return out if keep_refusal else frozenset()
     if edge_slot is not None:
