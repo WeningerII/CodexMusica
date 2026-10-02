@@ -1,0 +1,70 @@
+{
+  "id": "autoharp",
+  "name": "Autoharp",
+  "family": "vernacular",
+  "lineage": "Autoharp: Kenneth Benfield — Way Down in the Country (Mountain Music: Played on the Autoharp). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic autoharp, ballad Poetry, anglo singer song branch. folk steel modern canonical 36 37 string set autoharp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 212,
+  "score": 3.605,
+  "config": {
+    "traditions": [
+      "autoharp"
+    ],
+    "instruments": [
+      {
+        "id": "autoharp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "autoharp_chord_bars": "autoharp_15_chord",
+          "autoharp_context": "autoharp_appalachian",
+          "autoharp_strings": "autoharp_steel_modern",
+          "autoharp_body_wood": "autoharp_spruce_maple"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "autoharp_chord_bars": 1.6064999999999998,
+          "autoharp_context": 0.7454999999999998,
+          "autoharp_strings": 1.2914999999999999,
+          "autoharp_body_wood": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "autoharp": [
+        "acoustic_technique",
+        "autoharp_chord_bars",
+        "autoharp_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "autoharp_context": "autoharp_appalachian",
+      "autoharp_chord_bars": "autoharp_15_chord",
+      "acoustic_technique": "acoustic_strummed_ringing"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

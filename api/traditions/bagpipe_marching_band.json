@@ -1,0 +1,119 @@
+{
+  "id": "bagpipe_marching_band",
+  "name": "Bagpipe marching band",
+  "family": "vernacular",
+  "lineage": "Bagpipe marching band: U.S. Coast Guard Pipe Band — pipes-and-drums practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic bagpipe marching band, drone Modal, wind pipe branch. synthetic drone reeds ezeedrone selbie highland bagpipes, rudimental pipe band pipe band snare, pipe band flourishing kevlar aramid extreme tension tenor bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 325,
+  "score": 38.433,
+  "config": {
+    "traditions": [
+      "bagpipe_marching_band"
+    ],
+    "instruments": [
+      {
+        "id": "highland_bagpipes",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "highland_drones": "highland_3_drones",
+          "highland_chanter": "highland_blackwood",
+          "highland_drone_reeds": "highland_synthetic_drone_reeds",
+          "highland_chanter_reed": "highland_cane_chanter_reed",
+          "highland_bag": "highland_hide_bag"
+        },
+        "scores": {
+          "wind_articulation": 0.18150000000000002,
+          "highland_drones": 0.6509999999999999,
+          "highland_chanter": 0.325,
+          "highland_drone_reeds": 1.95,
+          "highland_chanter_reed": 0.3045,
+          "highland_bag": 0.45149999999999996
+        }
+      },
+      {
+        "id": "pipe_band_snare",
+        "slots": {
+          "pipe_snare_head": "pipe_snare_kevlar",
+          "pipe_snare_play": "pipe_snare_rudimental_ensemble"
+        },
+        "scores": {
+          "pipe_snare_head": 0.325,
+          "pipe_snare_play": 7.865
+        }
+      },
+      {
+        "id": "tenor_drum",
+        "slots": {
+          "tenor_drum_form": "tenor_drum_pipe_band",
+          "tenor_drum_head": "tenor_drum_kevlar",
+          "tenor_drum_beater": "tenor_drum_wood_sticks",
+          "tenor_drum_shell": "tenor_drum_corps_shell"
+        },
+        "scores": {
+          "tenor_drum_form": 8.84,
+          "tenor_drum_head": 5.699999999999999,
+          "tenor_drum_beater": 5.75,
+          "tenor_drum_shell": 5.699999999999999
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0,
+          "bass_drum_beater": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "highland_bagpipes": [
+        "wind_articulation"
+      ],
+      "pipe_band_snare": [
+        "pipe_snare_head",
+        "pipe_snare_play"
+      ],
+      "tenor_drum": [
+        "tenor_drum_form"
+      ],
+      "bass_drum": [
+        "bass_drum_size"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_ornament_heavy",
+      "pipe_snare_head": "pipe_snare_kevlar",
+      "tenor_drum_form": "tenor_drum_pipe_band",
+      "bass_drum_size": "bass_drum_concert",
+      "pipe_snare_play": "pipe_snare_rudimental_ensemble"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

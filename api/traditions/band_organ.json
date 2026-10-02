@@ -1,0 +1,68 @@
+{
+  "id": "band_organ",
+  "name": "Band organ music",
+  "family": "vernacular",
+  "lineage": "Band organ music: Glen Echo Park — Wurlitzer 165 band-organ roll repertoire. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic band organ music, art Music, western common practice branch. fairground organ carousel march brassy dance mixed ranks glockenspiel rank barrel organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 256,
+  "score": 9.329,
+  "config": {
+    "traditions": [
+      "band_organ"
+    ],
+    "instruments": [
+      {
+        "id": "barrel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "barrel_organ_form": "barrel_organ_form_fairground",
+          "barrel_organ_programme": "barrel_organ_programme_fair",
+          "barrel_organ_pipework": "barrel_organ_pipework_mixed"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "barrel_organ_form": 4.544499999999999,
+          "barrel_organ_programme": 1.15,
+          "barrel_organ_pipework": 3.705
+        }
+      }
+    ],
+    "pinned": {
+      "barrel_organ": [
+        "barrel_organ_form",
+        "barrel_organ_programme",
+        "barrel_organ_pipework"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "barrel_organ_form": "barrel_organ_form_fairground",
+      "barrel_organ_programme": "barrel_organ_programme_fair",
+      "barrel_organ_pipework": "barrel_organ_pipework_mixed"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

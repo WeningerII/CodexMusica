@@ -3,14 +3,14 @@
   "name": "Nyckelharpa (keyed-fiddle tradition)",
   "family": "global",
   "lineage": "Uppland-centred Swedish keyed-fiddle tradition attested since the 14th century and rebuilt in the 20th by Eric Sahlström, who standardized the chromatic three-row instrument in the 1930s-40s — bowed melody strings stopped by wooden key tangents over twelve sympathetic strings, playing polska, schottis and gånglåt in moderate 3/4 and 2/4, with legato bowing across drone strings and a soft, reverberant, organ-like sustain.",
-  "recipe": "classic North American mid-1930s nyckelharpa, drone Modal, string branch, string improv improv on frame, heterophonic drone modal swedish fiddle tradition armenian folk music. traditional spruce maple canonical Swedish gut pre modern Swedish 3 row chromatic modernized 1925 nyckelharpa, moraharpa, dance rhythm deep drone silverbasharpa, sustained drone heavy kontrabasharpa, double stops fiddle. hexham head studio pa chamber folk. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-  "recipe_chars": 540,
-  "score": 57.513,
+  "recipe": "classic North American mid-1930s nyckelharpa, drone Modal, string branch, string improv improv on frame, heterophonic drone modal armenian folk music aka / baka forest forager polyphony. traditional spruce maple canonical Swedish steel melody sympathetics 3 row chromatic modernized 1925 nyckelharpa, moraharpa, dance rhythm deep drone silverbasharpa, sustained drone heavy kontrabasharpa, double stops fiddle. hexham head studio pa chamber folk. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 554,
+  "score": 50.816,
   "config": {
     "traditions": [
       "nyckelharpa_tradition",
-      "swedish_fiddle",
-      "armenian_folk"
+      "armenian_folk",
+      "aka_baka_polyphony"
     ],
     "instruments": [
       {
@@ -20,16 +20,16 @@
           "nyckel_keys": "traditional_silverbas",
           "nyckel_strings": "nyckel_12_sympathetic",
           "nyckel_body_wood": "nyckel_spruce_maple",
-          "nyckel_string_material": "nyckel_gut_historical",
+          "nyckel_string_material": "nyckel_steel_modern",
           "nyckel_mechanism": "nyckel_3_row_chromatic"
         },
         "scores": {
-          "bowed_technique": 1.4449999999999998,
-          "nyckel_keys": 2.6089285714285713,
+          "bowed_technique": 1.595,
+          "nyckel_keys": 1.9589285714285714,
           "nyckel_strings": 0.6749999999999999,
-          "nyckel_body_wood": 2.6089285714285713,
-          "nyckel_string_material": 2.8589285714285717,
-          "nyckel_mechanism": 2.34
+          "nyckel_body_wood": 3.558928571428571,
+          "nyckel_string_material": 3.0349999999999997,
+          "nyckel_mechanism": 1.6899999999999997
         }
       },
       {
@@ -41,9 +41,9 @@
           "moraharpa_bow": "moraharpa_shortbow"
         },
         "scores": {
-          "bowed_technique": 1.4449999999999998,
+          "bowed_technique": 1.595,
           "moraharpa_build": 0.8,
-          "moraharpa_tuning": 5.557499999999999,
+          "moraharpa_tuning": 5.9575,
           "moraharpa_bow": 0.37499999999999994
         }
       },
@@ -56,10 +56,10 @@
           "silverbas_drone": "silverbas_bassdrone"
         },
         "scores": {
-          "bowed_technique": 1.4449999999999998,
-          "silverbas_form": 0.195,
-          "silverbas_style": 3.092142857142857,
-          "silverbas_drone": 5.676428571428572
+          "bowed_technique": 1.595,
+          "silverbas_form": 0.04821428571428571,
+          "silverbas_style": 2.08,
+          "silverbas_drone": 5.576428571428572
         }
       },
       {
@@ -71,9 +71,9 @@
           "kbharpa_strings": "kbharpa_gut"
         },
         "scores": {
-          "bowed_technique": 1.4449999999999998,
+          "bowed_technique": 1.595,
           "kbharpa_form": 0.8,
-          "kbharpa_role": 6.787142857142857,
+          "kbharpa_role": 6.337142857142857,
           "kbharpa_strings": 1.045
         }
       },
@@ -88,11 +88,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 12.36285714285714,
+          "bowed_technique": 7.812857142857142,
           "fiddle_strings": 0.38999999999999996,
           "fiddle_bow": 0.345,
           "fiddle_mute": 0.345,
-          "fiddle_articulation": 1.4949999999999999,
+          "fiddle_articulation": 1.8057142857142858,
           "fiddle_string_configuration": 0
         }
       }

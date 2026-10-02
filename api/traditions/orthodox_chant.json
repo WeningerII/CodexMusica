@@ -5,7 +5,7 @@
   "lineage": "Church Slavonic liturgical singing of the Russian, Ukrainian and Serbian Orthodox churches, from eleventh-century znamenny neumes through the seventeenth-century shift to staff notation and the nineteenth-century Obikhod harmonizations of Bortniansky, Lvov and Bakhmetev — unaccompanied mixed or male choir in four parts with the melody in the tenor, deep octavist basses, unmetered text-driven declamation in the eight-tone system, and no instruments of any kind.",
   "recipe": "classic Eastern European early-1940s orthodox chant, ritual Devotional, Russian orthodox branch, christian gospel anglican choral, western early art music english renaissance anglican choral evensong. thick, declaimed, slow rate, interlocked note trading. choir russian orthodox, choir cathedral satb. parish church. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 450,
-  "score": 169.125,
+  "score": 169.05,
   "config": {
     "traditions": [
       "orthodox_chant",
@@ -35,7 +35,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -46,32 +46,32 @@
         },
         "scores": {
           "voice_register": 10.335,
-          "voice_quality": 17.189999999999998,
+          "voice_quality": 16.994999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.265,
           "voice_articulation": 19.564999999999998,
           "voice_microtone": 17.87499999999999,
-          "voice_tradition": 9.899999999999999,
-          "voice_mechanism_compound": 3.7700000000000005,
+          "voice_tradition": 10.125,
+          "voice_mechanism_compound": 3.8,
           "voice_estill_quality": 8.049999999999999,
           "voice_speech_song": 21.709999999999994,
           "voice_ensemble_config": 24.374999999999996,
           "voice_ornament_system": 8.15,
           "voice_pitch_organization": 4.994999999999999,
           "voice_processing_chain": 8.905000000000001,
-          "voice_multitrack_stack": 3.4300000000000015
+          "voice_multitrack_stack": 3.4450000000000016
         }
       },
       {
         "id": "choir_cathedral_satb",
         "slots": {
           "voicing": "satb_with_boys",
-          "repertoire": "baroque_choral"
+          "repertoire": "renaissance_polyphony"
         },
         "scores": {
-          "voicing": 4.374999999999999,
-          "repertoire": 0.39
+          "voicing": 4.419999999999999,
+          "repertoire": 0.195
         }
       }
     ],

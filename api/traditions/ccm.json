@@ -5,7 +5,7 @@
   "lineage": "American evangelical pop-rock formed out of the late-1960s California Jesus Movement and Maranatha! Music, professionalized in Nashville through the 1980s by Amy Grant, Michael W. Smith and Steven Curtis Chapman, and re-founded in the 2000s as congregational 'modern worship' by Hillsong, Chris Tomlin and Bethel — 68-80 or 130-140 BPM, delay-drenched arpeggiated electric guitar over piano pads and four-on-the-floor kit, diatonic I-V-vi-IV loops in singable narrow-range keys, and a build-to-anthemic-bridge form designed for a congregation to join.",
   "recipe": "classic 1967-1969 contemporary christian music, ritual Devotional, christian gospel branch, christian gospel pentecostal, christian gospel southern gospel, pop rock functional song yacht rock skiffle. thick, declaimed, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood alnico single coil electric cedar maple flatwound thomastik strummed dreadnought acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 949,
-  "score": 547.035,
+  "score": 547.785,
   "config": {
     "traditions": [
       "ccm",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 62.71500000000001,
-          "voice_quality": 19.469999999999995,
+          "voice_quality": 19.424999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 13.405,
           "voice_articulation": 19.955,
-          "voice_microtone": 43.025000000000006,
-          "voice_tradition": 17.0475,
+          "voice_microtone": 43.715,
+          "voice_tradition": 16.9425,
           "voice_mechanism_compound": 2.21,
           "voice_estill_quality": 10.69,
           "voice_speech_song": 23.074999999999996,
           "voice_ensemble_config": 21.96999999999999,
           "voice_ornament_system": 7.9,
-          "voice_pitch_organization": 0.9749999999999999,
+          "voice_pitch_organization": 1.0399999999999998,
           "voice_processing_chain": 9.1925,
           "voice_multitrack_stack": 8.58
         }
@@ -104,10 +104,10 @@
           "grand_piano_brand": 1.595,
           "piano_hammer": 14.785,
           "piano_rim": 15.564999999999998,
-          "piano_soundboard": 14.649999999999999,
+          "piano_soundboard": 14.995,
           "piano_pinblock": 3.6999999999999997,
           "piano_plate": 3.65,
-          "piano_pitch_standard": 8.645
+          "piano_pitch_standard": 8.219999999999999
         }
       },
       {
@@ -142,7 +142,7 @@
         },
         "scores": {
           "drum_technique": 23.529999999999998,
-          "drumhead": 14.754999999999999,
+          "drumhead": 15.04,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -155,7 +155,7 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 14.072499999999998,
+          "electronic_technique": 13.9225,
           "poly_archetypes": 9.334999999999999,
           "poly_voices": 1.4425000000000001,
           "poly_maker_lineage": -0.1049999999999999
@@ -173,7 +173,7 @@
           "choir_size": 8.514999999999999,
           "choir_polyphonic_configuration": 1.8199999999999998,
           "choir_regional_canonical_configuration": 4.68,
-          "choir_ensemble_repertoire": 2.185
+          "choir_ensemble_repertoire": 2.275
         }
       },
       {

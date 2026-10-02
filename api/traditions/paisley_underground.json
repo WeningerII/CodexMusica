@@ -3,14 +3,14 @@
   "name": "Paisley Underground",
   "family": "rock",
   "lineage": "Los Angeles guitar-pop movement of 1982-87 named by Michael Quercio of The Three O'Clock and defined by The Dream Syndicate, Rain Parade, Green on Red and The Bangles — mid-tempo 4/4 backbeats, twelve-string Rickenbacker jangle and Byrds-derived vocal harmony fused with Velvet Underground feedback drones and extended one-chord codas, Vox organ, and reverb-heavy but analogue, band-in-a-room production on independent labels.",
-  "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock telugu folk. thick, breath veiled tone, straight onset, interlocked note trading. hi gain Rickenbacker modern clean strummed twelve string electric, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 827,
-  "score": 423.48,
+  "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock armenian indie. thick, breath veiled tone, slow rate, interlocked note trading. hi gain Rickenbacker modern clean strummed twelve string electric, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 825,
+  "score": 423.448,
   "config": {
     "traditions": [
       "paisley_underground",
       "noise_rock",
-      "telugu_folk"
+      "armenian_indie"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 40.270000000000024,
-          "voice_quality": 8.515,
+          "voice_register": 39.020000000000024,
+          "voice_quality": 9.62,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.27,
-          "voice_articulation": 15.599999999999994,
-          "voice_microtone": 33.47000000000001,
-          "voice_tradition": 11.959999999999999,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 17.09499999999999,
+          "voice_microtone": 34.47000000000001,
+          "voice_tradition": 10.334999999999999,
           "voice_mechanism_compound": 7.5249999999999995,
           "voice_estill_quality": 2.4699999999999998,
-          "voice_speech_song": 18.914999999999996,
-          "voice_ensemble_config": 17.809999999999995,
-          "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 0.9899999999999999,
-          "voice_processing_chain": 4.7650000000000015,
-          "voice_multitrack_stack": 6.467500000000002
+          "voice_speech_song": 20.409999999999993,
+          "voice_ensemble_config": 19.064999999999994,
+          "voice_ornament_system": 1.3,
+          "voice_pitch_organization": 1.49,
+          "voice_processing_chain": 4.465,
+          "voice_multitrack_stack": 4.635000000000001
         }
       },
       {
@@ -66,9 +66,9 @@
           "electric_technique": 6.075,
           "amp_make": 2.5449999999999995,
           "twelve_string_electric_model": 5.725000000000001,
-          "twelve_string_electric_context": 19.11,
+          "twelve_string_electric_context": 20.349999999999998,
           "twelve_string_electric_strings": 0.135,
-          "twelve_string_electric_pickup": 2.04
+          "twelve_string_electric_pickup": 1.3
         }
       },
       {
@@ -97,7 +97,7 @@
           "pickup_magnet": 1.3,
           "string_material": 1.48,
           "string_gauge": 1.48,
-          "bridge": 0.845,
+          "bridge": 0.435,
           "scale_length": 1.4949999999999999,
           "finish": 0,
           "string_tuning": 17.29,
@@ -119,7 +119,7 @@
         "scores": {
           "amp_make": 14.43,
           "body_wood": 1.4949999999999999,
-          "pickup_config": 0.845,
+          "pickup_config": 0.345,
           "string_type": 34.85,
           "scale_length_b": 1.48,
           "fretted_or_not": 0.09,
@@ -136,7 +136,7 @@
         },
         "scores": {
           "drum_technique": 27.5,
-          "drumhead": 7.75,
+          "drumhead": 6.7250000000000005,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -164,7 +164,7 @@
           "tambourine_orch_context": "tambourine_orch_film"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.65,
+          "tambourine_orch_jingle": 0.5,
           "tambourine_orch_context": 0.44999999999999996
         }
       }

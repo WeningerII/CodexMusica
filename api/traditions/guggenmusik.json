@@ -5,7 +5,7 @@
   "lineage": "Swiss carnival brass practice formalized in Basel and Lucerne in the 1930s and expanded through post-war Fasnacht and Fasnet cliques in Switzerland, Alsace and southwest Germany — massed trumpets, trombones, sousaphones and percussion marching at roughly 100-130 BPM playing familiar pop and march tunes deliberately out of tune, with smeared attacks, scooped entries and blown-out fortissimo, driven by bass drum and snare in simple duple patterns.",
   "recipe": "classic mid-1930s guggenmusik, carnival Processional, European branch, American marching groove percussion, European drinking song american drumline tamborazo zacatecano. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass trombone trombone, eb bass oompah march marching sousaphone, silver plated British brass band ceremonial besson sovereign canonical British brass band euphonium, double bass rapid double strokes bass five drum arc kevlar aramid extreme tension nylon tenor drum, softer tone ebonite hard rubber klezmer tradition clarinet. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 815,
-  "score": 110.53,
+  "score": 110.44,
   "config": {
     "traditions": [
       "guggenmusik",
@@ -26,7 +26,7 @@
         },
         "scores": {
           "wind_articulation": 2.5999999999999996,
-          "brass_size": 0.135,
+          "brass_size": 0.09,
           "trumpet_mouthpiece": 2.0149999999999997,
           "brass_mute": 0.39,
           "trumpet_technique": 2.5999999999999996,
@@ -47,7 +47,7 @@
         },
         "scores": {
           "wind_articulation": 2.5999999999999996,
-          "trombone_type": 0.435,
+          "trombone_type": 0.39,
           "trombone_mouthpiece": 3.38,
           "trombone_mute": 0.195,
           "trombone_technique": 1.235,
@@ -103,9 +103,9 @@
           "tenor_drum_shell": "tenor_drum_corps_shell"
         },
         "scores": {
-          "tenor_drum_form": 17.72,
+          "tenor_drum_form": 17.81,
           "tenor_drum_head": 12.295,
-          "tenor_drum_beater": 12.385,
+          "tenor_drum_beater": 12.34,
           "tenor_drum_shell": 11.95
         }
       },
@@ -121,7 +121,7 @@
         "scores": {
           "wind_articulation": 2.5999999999999996,
           "clarinet_body": 2.7950000000000004,
-          "clarinet_size": 0.435,
+          "clarinet_size": 0.39,
           "clarinet_reed": 0.195,
           "clarinet_articulation": 0.45499999999999996
         }

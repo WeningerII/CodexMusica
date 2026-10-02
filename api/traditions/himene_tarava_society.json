@@ -5,7 +5,7 @@
   "lineage": "Tahitian and Cook Islands congregational choral form that crystallised after London Missionary Society hymn contact from 1797 onward and is now judged annually at the Heiva i Tahiti — large unaccompanied village choirs stacked in six or more parts, a continuously grunted low-male ostinato (the tuki or perepere) under the texture, high women's ha'u lines sliding into the chords, sustained non-diatonic clusters that drift in pitch across a verse, and abrupt unison cadential drops.",
   "recipe": "classic Oceanian late-1790s himene tārava, praise Song, oceania pacific branch, christian gospel anglican choral, vocal drone modal anglican choral evensong trallalero. vocal fry, declaimed, slow rate, interlocked note trading. snappy to palm hand clap, foot stomp. tongan outdoor village green. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 358,
-  "score": 128.461,
+  "score": 128.416,
   "config": {
     "traditions": [
       "himene_tarava_society",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 4.16,
-          "voice_quality": 13.769499999999994,
+          "voice_quality": 13.724499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.275,

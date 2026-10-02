@@ -3,14 +3,14 @@
   "name": "Polish ambient",
   "family": "electronic",
   "lineage": "Contemporary ambient practice in Poland includes Jacaszek’s processed acoustic instrumentation and the string/electronic collaboration with Stefan Wesołowski. This is a regional scene grouping, not a uniform national sound. The default models the acoustic-electronic palette documented around Treny and Glimmer; exact construction and recording settings are authored.",
-  "recipe": "classic modern polish ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art german electronica. field textural sampler, half rectified sitka spruce hard rock maple acer saccharum French Polish violin orchestral, prepared harpsichord, clarinet. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
-  "recipe_chars": 428,
-  "score": 66.323,
+  "recipe": "classic modern polish ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art animal singing. field textural sampler, half rectified sitka spruce hard rock maple acer saccharum French Polish violin orchestral, equal temperament modern concert standard prepared harpsichord, clarinet. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, ultra-clean solid-state pre. 24-bit digital hall reverb.",
+  "recipe_chars": 466,
+  "score": 65.823,
   "config": {
     "traditions": [
       "polish_ambient",
       "sound_art",
-      "german_electronica"
+      "animal_singing"
     ],
     "instruments": [
       {
@@ -24,9 +24,9 @@
         },
         "scores": {
           "electronic_technique": 10.995000000000001,
-          "sampler_archetypes": 1.25,
+          "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.45499999999999996,
-          "sampler_workflow": 13.95,
+          "sampler_workflow": 14.100000000000001,
           "sampler_classic_context": 12.75
         }
       },
@@ -73,7 +73,7 @@
           "harpsichord_context": 5.720000000000001,
           "harpsichord_maker_school": 0.845,
           "harpsichord_plectrum": 0.45499999999999996,
-          "harpsichord_temperament": 0.45499999999999996
+          "harpsichord_temperament": 1.105
         }
       },
       {

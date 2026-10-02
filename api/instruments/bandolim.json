@@ -205,6 +205,23 @@
           "canonical_tags": [
             "historical-gut"
           ]
+        },
+        {
+          "id": "bandolim_ten_string_five_courses",
+          "auto": false,
+          "name": "Ten strings in five paired courses",
+          "descriptors": [
+            "ten-string",
+            "five-course",
+            "extended-range"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "bandolim_10_string"
+          ]
         }
       ]
     },
@@ -418,6 +435,23 @@
           ],
           "canonical_tags": [
             "historical-gut"
+          ]
+        },
+        {
+          "id": "bandolim_ten_string_five_courses",
+          "auto": false,
+          "name": "Ten strings in five paired courses",
+          "descriptors": [
+            "ten-string",
+            "five-course",
+            "extended-range"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "bandolim_10_string"
           ]
         }
       ]

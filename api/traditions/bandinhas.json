@@ -1,0 +1,203 @@
+{
+  "id": "bandinhas",
+  "name": "Bandinhas",
+  "family": "vernacular",
+  "lineage": "Bandinhas: Os Atuais — Nossas Canções Instrumentais (vol.37). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic bandinhas, functional Song, europop branch. basswood soft down tuning humbucker electric guitar, electric bass, drum kit, big tone large cup large rim orchestral bottom heavy trumpet, trombone, gold brass warmer tone saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 334,
+  "score": 16.29,
+  "config": {
+    "traditions": [
+      "bandinhas"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_british_60s_selmer",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 0.8814999999999998,
+          "body_wood": 1.0605000000000002,
+          "neck_wood": 0.273,
+          "fretboard": 0.1365,
+          "pickup_magnet": 0.2415,
+          "pickup_winding": 0.2415,
+          "string_material": 0,
+          "bridge": 1.0315,
+          "scale_length": 0.8505,
+          "string_gauge": 1.0315,
+          "finish": 0,
+          "string_tuning": 1.3020000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_60s_selmer",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "half_round",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0.8814999999999998,
+          "body_wood": 0.546,
+          "pickup_config": 0.2415,
+          "string_type": 0.273,
+          "scale_length_b": 0.3045,
+          "fretted_or_not": 0.1365,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "double_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 0.378,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "flugelhorn",
+          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
+          "brass_mute": "cup_mute",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "brass_size": 0.0315,
+          "trumpet_mouthpiece": 1.2349999999999999,
+          "brass_mute": 0,
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.714
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
+          "trombone_mute": "straight_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "trombone_type": 0.1365,
+          "trombone_mouthpiece": 0.325,
+          "trombone_mute": 0.0315,
+          "trombone_technique": 0.3045,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 0.714
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "alto_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_split_tone_overblown",
+          "sax_maker_school": "sax_keilwerth_german"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "sax_size": -0.035,
+          "sax_reed": 0.0315,
+          "sax_body_alloy": 1.56,
+          "sax_mouthpiece": 0,
+          "sax_technique": 0.95,
+          "sax_maker_school": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "trumpet_technique"
+      ],
+      "trombone": [
+        "wind_articulation"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_fuzz_riff",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "wind_articulation": "wind_punchy_ensemble",
+      "sax_size": "alto_sax"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "bandolim",
+  "name": "Bandolim music",
+  "family": "vernacular",
+  "lineage": "Bandolim music: Hamilton de Holanda — 01 Byte 10 Cordas (2005). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic mid-2000s bandolim music, improv On Frame, string improv branch. ten string five course choro tradition tremolo sustained bandolim. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 238,
+  "score": 7.878,
+  "config": {
+    "traditions": [
+      "bandolim"
+    ],
+    "instruments": [
+      {
+        "id": "bandolim",
+        "slots": {
+          "bandolim_body": "bandolim_bowl_back",
+          "bandolim_top_wood": "bandolim_european_spruce",
+          "bandolim_back_wood": "bandolim_brazilian_rosewood",
+          "bandolim_strings": "bandolim_ten_string_five_courses",
+          "bandolim_technique": "bandolim_pick_tremolo"
+        },
+        "scores": {
+          "bandolim_body": 0.63,
+          "bandolim_top_wood": 0.798,
+          "bandolim_back_wood": 0.26,
+          "bandolim_strings": 4.615,
+          "bandolim_technique": 1.5750000000000002
+        }
+      }
+    ],
+    "pinned": {
+      "bandolim": [
+        "bandolim_strings",
+        "bandolim_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bandolim_technique": "bandolim_pick_tremolo",
+      "bandolim_strings": "bandolim_ten_string_five_courses"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

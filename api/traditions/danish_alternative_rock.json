@@ -3,9 +3,9 @@
   "name": "Danish alternative rock",
   "family": "rock_punk",
   "lineage": "A Danish alternative-rock network including Mew, The Raveonettes, D-A-D, Kashmir and Dizzy Mizz Lizzy. The selected Dizzy Mizz Lizzy Alter Echo-era branch expands the guitar/bass/drum trio with Mellotron textures and more pronounced fuzz, phasing and reverberation.",
-  "recipe": "classic danish alternative rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, British high-gain stack, parametric EQ. 24-bit digital germanium fuzz phaser plate reverb.",
-  "recipe_chars": 601,
-  "score": 66.284,
+  "recipe": "classic danish alternative rock, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment, equal tempered 12 fixed pitch, single lead single track no stacking. marshall plexi amp British rock amp humbucker electric guitar, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, console-strip pre, British high-gain stack, parametric EQ. 24-bit digital germanium fuzz phaser plate reverb.",
+  "recipe_chars": 632,
+  "score": 66.366,
   "config": {
     "traditions": [
       "danish_alternative_rock"
@@ -17,29 +17,29 @@
           "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_h",
-          "neck_wood": "mahogany_neck_h",
+          "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_2_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
-          "string_gauge": "g_11_hum",
+          "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 4.42,
-          "body_wood": 0.441,
-          "neck_wood": 0.441,
+          "body_wood": 0.3045,
+          "neck_wood": 0.39,
           "fretboard": 0.39,
           "pickup_magnet": 0,
-          "pickup_winding": 0.714,
+          "pickup_winding": 0.6165,
           "string_material": 0.39,
-          "bridge": 0.441,
-          "scale_length": 0.8820000000000001,
-          "string_gauge": 0.441,
+          "bridge": 0.6629999999999998,
+          "scale_length": 0.609,
+          "string_gauge": 0.6629999999999998,
           "finish": 0,
           "string_tuning": 4.9399999999999995
         }
@@ -58,7 +58,7 @@
           "mellotron_voice": 4.55,
           "mellotron_context": 0.39,
           "mellotron_model": 6.175,
-          "mellotron_tape_material": 1.69
+          "mellotron_tape_material": 1.573
         }
       },
       {
@@ -75,10 +75,10 @@
         },
         "scores": {
           "amp_make": 5.785,
-          "body_wood": 0.441,
-          "pickup_config": 0.273,
+          "body_wood": 0.3045,
+          "pickup_config": 0.1365,
           "string_type": 11.375,
-          "scale_length_b": 0.441,
+          "scale_length_b": 0.3045,
           "fretted_or_not": 0.378,
           "bass_technique": 8.777999999999999,
           "electric_bass_string_configuration": 0
@@ -95,10 +95,10 @@
         },
         "scores": {
           "drum_technique": 8.75,
-          "drumhead": 0.5145,
+          "drumhead": 0.378,
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.39,
-          "cymbal_alloy": -0.2
+          "cymbal_alloy": -0.14
         }
       },
       {
@@ -135,9 +135,9 @@
           "voice_speech_song": 0.78,
           "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
+          "voice_pitch_organization": 0.7799999999999998,
           "voice_processing_chain": 0.168,
-          "voice_multitrack_stack": 0.585
+          "voice_multitrack_stack": 0.6044999999999999
         }
       }
     ],

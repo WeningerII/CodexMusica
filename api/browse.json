@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 4838,
+  "count": 4938,
   "items": [
     {
       "id": "honky_tonk",
@@ -177777,6 +177777,3056 @@
       "exemplars": [
         "Elephant Hump — Thinn Jazz (Single), 2025"
       ]
+    },
+    {
+      "id": "accordion",
+      "name": "Accordion",
+      "family": "vernacular",
+      "lineage": "Accordéon Mélancolique — Aquarelles (2015). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "accordion"
+      ],
+      "description": "Contemporary composed instrumental accordion repertoire, represented by Accordéon Mélancolique’s original two-accordion arrangements. One accordion timbral card represents the documented pair; it does not assert one player. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Accordéon Mélancolique — Aquarelles (2015)"
+      ]
+    },
+    {
+      "id": "accordion_band",
+      "name": "Accordion band",
+      "family": "vernacular",
+      "lineage": "Bradford Accordion Band — arranged mixed-accordion ensemble practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "accordion",
+        "electric_bass",
+        "grand_piano"
+      ],
+      "description": "Mixed accordion ensemble with arranged parts, represented by Bradford Accordion Band. The model selects its accordion section, bass guitar and piano roles; optional winds, choir and electronic upright bass are outside this selected core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Bradford Accordion Band — arranged mixed-accordion ensemble practice"
+      ]
+    },
+    {
+      "id": "acoustic_opm",
+      "name": "Acoustic OPM",
+      "family": "vernacular",
+      "lineage": "Swing Agenda — Bawat Sandali (2026). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar",
+        "cajon_peruano",
+        "electric_bass"
+      ],
+      "description": "Philippine acoustic OPM song branch represented by Swing Agenda’s classical-guitar, bass and handcrafted-cajon palette. The bass’s electric construction and unsnared cajon construction are authored family realizations; no Peruvian repertoire is asserted. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Swing Agenda — Bawat Sandali (2026)"
+      ]
+    },
+    {
+      "id": "adoracion_pentecostal",
+      "name": "Adoración pentecostal",
+      "family": "vernacular",
+      "lineage": "Guillermo Prein / CCNV — Resurrección, Himnos 2. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel.pentecostal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano"
+      ],
+      "description": "Spanish-language Pentecostal hymn worship represented by CCNV’s Resurrección recording. Named lead and chorus singers accompany guitar, bass, drums and piano; selected hardware and signal chain are authored. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Guillermo Prein / CCNV — Resurrección, Himnos 2"
+      ]
+    },
+    {
+      "id": "african_experimental",
+      "name": "African experimental",
+      "family": "vernacular",
+      "lineage": "SPAZA — SPAZA (recorded 2015; released 2019). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "improvOnFrame.jamFree",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "double_bass",
+        "electric_violin",
+        "trombone",
+        "analog_poly_synth"
+      ],
+      "description": "Johannesburg experimental free improvisation represented by SPAZA’s live encounter. Selected core uses positively credited voices, upright bass, electric violin, trombone and synthesisers. Generic percussion is omitted rather than assigned an undocumented local drum. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "SPAZA — SPAZA (recorded 2015; released 2019)"
+      ]
+    },
+    {
+      "id": "african_percussion",
+      "name": "African percussion",
+      "family": "vernacular",
+      "lineage": "Bolokada Conde — Malinke djembe lead and teaching practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "groovePercussion",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "djembe"
+      ],
+      "description": "Broad percussion discovery label represented by Bolokada Conde’s Malinke djembe lead/workshop practice in Guinea. This selected goblet-drum branch does not cover every African percussion tradition or infer a complete village ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Bolokada Conde — Malinke djembe lead and teaching practice"
+      ]
+    },
+    {
+      "id": "afrikaans_gqom",
+      "name": "Afrikaans gqom",
+      "family": "vernacular",
+      "lineage": "Temple Boys CPT — Saggies. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "electronicDance.africanDance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine"
+      ],
+      "description": "Cape Flats Afrikaans/Kaaps adaptation of gqom represented by Temple Boys CPT. Sources document electronic beats and computer-plus-microphone production; the sample-based drum-machine card is an authored realization of the produced beat role, not a claim of hardware sampler use. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Temple Boys CPT — Saggies"
+      ]
+    },
+    {
+      "id": "afro_psych",
+      "name": "Afro psych",
+      "family": "vernacular",
+      "lineage": "Lijadu Sisters — Bayi L’ense (1977), Africa Seven Afro Psych. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass"
+      ],
+      "description": "Afro-psychedelic song branch represented by Lijadu Sisters’ Bayi L’ense: Yoruba vocal duo, funk bass and fuzz guitar. Unspecified percussion is outside this documented melodic core; humbucker construction is an authored choice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Lijadu Sisters — Bayi L’ense (1977), Africa Seven Afro Psych"
+      ]
+    },
+    {
+      "id": "afro_cuban_percussion",
+      "name": "Afro-Cuban percussion",
+      "family": "vernacular",
+      "lineage": "Victor Rendón — The Art Of Playing Timbales (2022), conga/bongo examples. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "groovePercussion.caribbean",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "congas",
+        "bongos"
+      ],
+      "description": "Afro-Cuban percussion practice represented by the positively credited conga and bongo teaching core in Victor Rendón’s instructional release. Timbales, drumset and pitched backing examples are outside this hand-drum selection; no vocalist is inferred. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Victor Rendón — The Art Of Playing Timbales (2022), conga/bongo examples"
+      ]
+    },
+    {
+      "id": "afro_cuban_traditional",
+      "name": "Afro-Cuban traditional",
+      "family": "vernacular",
+      "lineage": "Ezequiel Torres — batá and Orisha-chant practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.afroDiasporic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "bata"
+      ],
+      "description": "Havana-rooted Afro-Cuban ritual tradition represented by Ezequiel Torres’s batá and Orisha-chant practice. The existing batá card is used as a selected leading iyá timbre from a documented three-drum set, not a claim that one drum renders the entire set. The neutral live-group vocal setting is an authored arrangement option: the source establishes chanting but does not specify singer count, leader/group response structure or ensemble layout. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Ezequiel Torres — batá and Orisha-chant practice"
+      ]
+    },
+    {
+      "id": "afrobeat_brasileiro",
+      "name": "Afrobeat brasileiro",
+      "family": "vernacular",
+      "lineage": "Abayomy Orquestra — Adar. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "groovePercussion.afroDiasporicElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "saxophone",
+        "trumpet",
+        "analog_poly_synth"
+      ],
+      "description": "Brazilian Afrobeat represented by Abayomy Orquestra’s Rio ensemble, drawing on Afro-Brazilian rhythms. Positively credited guitar, bass, drums, saxophone, trumpet, keys and grouped vocals form the selected core. Analog-poly keyboard construction is authored; generic percussion is not guessed. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Abayomy Orquestra — Adar"
+      ]
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "family": "vernacular",
+      "lineage": "Aleksandr Sigalov — OpenAI’s MuseNet Artificial Intelligence Piano Performances. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "AI-generated instrumental piano branch represented by Aleksandr Sigalov’s MuseNet/Magenta release. The grand-piano card provides an authored playable piano-timbre recording model; no human pianist or physical acoustic source instrument is asserted. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Aleksandr Sigalov — OpenAI’s MuseNet Artificial Intelligence Piano Performances"
+      ]
+    },
+    {
+      "id": "alandsk_musik",
+      "name": "Åländsk musik",
+      "family": "vernacular",
+      "lineage": "LAMORI — Symphony Of The Night. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.gothicRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Regional Åland discovery umbrella represented by LAMORI’s documented gothic-rock/modern-metal branch. Named singer, guitar, bass, drums and keyboard roles are preserved. This branch does not claim to characterize all Åland folk, classical or popular music. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "LAMORI — Symphony Of The Night"
+      ]
+    },
+    {
+      "id": "alaska_indie",
+      "name": "Alaska indie",
+      "family": "vernacular",
+      "lineage": "Termination Dust — Growing Down (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "drum_kit"
+      ],
+      "description": "Anchorage independent rock branch represented by Termination Dust’s two singers/guitarists and drummer. The interview’s Omnichord is omitted rather than replaced with another instrument. Model locality identifies the band’s scene, not its Washington recording session. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Termination Dust — Growing Down (2020)"
+      ]
+    },
+    {
+      "id": "albanian_alternative",
+      "name": "Albanian alternative",
+      "family": "vernacular",
+      "lineage": "Into Thin Air — Fibonacci Sequence EP, instrumental band-core selection. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Tirana alternative/post-rock instrumental band core represented by Into Thin Air. Guitar, bass and drums are positively credited. Track1’s guest singer is outside this selected instrumental arrangement; the model does not assert a singer-free entire EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Into Thin Air — Fibonacci Sequence EP, instrumental band-core selection"
+      ]
+    },
+    {
+      "id": "albany_ny_indie",
+      "name": "Albany NY indie",
+      "family": "vernacular",
+      "lineage": "Scotchka — Afraid To Fall Asleep. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Albany independent rock scene represented by Scotchka’s guitar, bass, drum and vocal credits. Lead/backing-auxiliary guitar roles are aggregated in one guitar timbre; an auxiliary credit is not promoted into a second named singer. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Scotchka — Afraid To Fall Asleep"
+      ]
+    },
+    {
+      "id": "albuquerque_indie",
+      "name": "Albuquerque indie",
+      "family": "vernacular",
+      "lineage": "The Ordinary Things — IV. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "trumpet"
+      ],
+      "description": "Albuquerque indie-rock branch represented by The Ordinary Things’ IV. The source names two vocalists plus guitar, bass, drums, synth and trumpet roles. Simultaneous performer assignments and exact equipment are authored rather than a source-session reconstruction. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "The Ordinary Things — IV"
+      ]
+    },
+    {
+      "id": "bangla_gojol",
+      "name": "Bangla gojol",
+      "family": "vernacular",
+      "lineage": "KMY — Ogo Maula (lyrics), Bangla Gojol (Hamd), vocal-only branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.islamic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Bengali Islamic gojol/nasheed voice-only branch represented by Halal Entertainment’s published repertoire. Ogo Maula’s publisher metadata positively specifies vocal-only/no-music performance and Voice—KMY. One named vocal credit is preserved; live take and overdub counts are unreported. The solo-unaccompanied setting is an explicit authored arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "KMY — Ogo Maula (lyrics), Bangla Gojol (Hamd), vocal-only branch"
+      ]
+    },
+    {
+      "id": "bangladeshi_indie",
+      "name": "Bangladeshi indie",
+      "family": "vernacular",
+      "lineage": "Rushnaf Wadud / Blunderware — Afim Chaash, acoustic live branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Bangladeshi independent song scene represented by Blunderware’s acoustic Afim Chaash performance branch. Primary artist metadata establishes indie/alternative identity; a first-hand Tehelka filming account identifies Rushnaf singing with guitar. Dreadnought steel-string construction is authored, not source instrument identification. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Rushnaf Wadud / Blunderware — Afim Chaash, acoustic live branch"
+      ]
+    },
+    {
+      "id": "baoule",
+      "name": "Baoulé",
+      "family": "vernacular",
+      "lineage": "The Baoulé of the Ivory Coast — track212, Vocal, with Chorus (1956). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Baoulé vocal practice represented by the Smithsonian’s track212: two singers imitating flute music. The instrument is voice; no flute or imported plucked instrument substitutes for imitation. Regional marker does not claim the exact duet was recorded in Sakassou. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "The Baoulé of the Ivory Coast — track212, Vocal, with Chorus (1956)"
+      ]
+    },
+    {
+      "id": "alpenpanorama",
+      "name": "Alpenpanorama",
+      "family": "vernacular",
+      "lineage": "Alpenpanorama: Familienmusik Paulsteiner — Alpenpanorama (2017); documented duet, accordion and guitar core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "piano_accordion",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Artist identifies Volksmusik, home in Hitzleried/Seeg in Allgäu, accordion and guitar, and Maria/Ludwig Zwiegesang. Distributed album metadata establishes Alpenpanorama release. Authored reduced duet/accordion/guitar branch of a variable documented roster. Hackbrett, harp, baritone, trombone, bass trumpet and violin are documented alternatives, not claimed simultaneously. Piano accordion construction and polka setting are authored; no Steirische substitution.",
+      "exemplars": [
+        "Familienmusik Paulsteiner — Alpenpanorama (2017); documented duet, accordion and guitar core"
+      ]
+    },
+    {
+      "id": "alternative_ccm",
+      "name": "Alternative ccm",
+      "family": "vernacular",
+      "lineage": "Alternative ccm: Switchfoot — documented alternative Christian rock band roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Official band roster names Jon Foreman vocals/guitar, Tim Foreman bass, Jerome Fontamillas keys/guitar and Chad Butler drums; publisher situates alternative rock and Christian-market audience in San Diego. Lead-vocal core plus positively credited band roles. A single guitar card aggregates two guitar roles. Digital keyboard timbre is an authored realization of unspecified keys, not a source synthesizer claim; no backing singers inferred.",
+      "exemplars": [
+        "Switchfoot — documented alternative Christian rock band roles"
+      ]
+    },
+    {
+      "id": "ambeat",
+      "name": "Ambeat",
+      "family": "vernacular",
+      "lineage": "Ambeat: konb — Lantern Floating. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -2,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "digital_subtractive",
+        "sampler_drum_machine",
+        "trumpet"
+      ],
+      "description": "Artist release explicitly defines Ambeat as ambient plus beatmusic, describes synthesizer and tight beat, and credits Produced & Trumpet by konb; Japan and Yokohama tags. Documented synthesizer, trumpet and beat-production branch. Sample-drum implementation, trumpet hardware and lyrical modern technique authored; no additional singer or bass inferred.",
+      "exemplars": [
+        "konb — Lantern Floating"
+      ]
+    },
+    {
+      "id": "american_early_music",
+      "name": "American early music",
+      "family": "classical",
+      "lineage": "American early music: Francis Hopkinson — My Days Have Been So Wondrous Free, AMRC0015 track1 soprano/harpsichord version. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "harpsichord"
+      ],
+      "description": "Recording owner lists track1 soprano and harpsichord, separately distinguishes organ versions. Library of Congress indexed article establishes 1759 early American secular composition and voice/harpsichord scoring. A single soprano role is specified, but performer identity is not supplied on selected label page. Solo vocal configuration follows singular soprano credit; selected_count1 is role count, not an inferred identity. Excludes other tracks organ and tenor. Present-day equal temperament and delrin plectrum deliberately authored, not historic authenticity claims.",
+      "exemplars": [
+        "Francis Hopkinson — My Days Have Been So Wondrous Free, AMRC0015 track1 soprano/harpsichord version"
+      ]
+    },
+    {
+      "id": "american_oi",
+      "name": "American oi",
+      "family": "rock_punk",
+      "lineage": "American oi: The Templars — original documented Carl/Phil duo branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.punk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "drum_kit"
+      ],
+      "description": "First-person Carl interview states original Long Island1990 lineup Carl vocals/guitar and Phil drums. Label catalogue identifies American Oi. Original documented duo core; later bass and second guitar are separately discussed and excluded. No gang chorus inferred from Oi label. Interview is first-person evidence rather than editorial instrument inference.",
+      "exemplars": [
+        "The Templars — original documented Carl/Phil duo branch"
+      ]
+    },
+    {
+      "id": "american_romanticism",
+      "name": "American romanticism",
+      "family": "classical",
+      "lineage": "American romanticism: Amy Beach — Songs (Naxos8.559191), Katherine Kelton and Catherine Bringerud. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Label credits Katherine Kelton mezzo-soprano and Catherine Bringerud piano; catalogue and composer notes place American art songs within Romantic framework. Selected American Romantic art-song voice/piano branch, not symphonic repertoire or a universal national style. Region denotes composer repertoire context; no performance city asserted.",
+      "exemplars": [
+        "Amy Beach — Songs (Naxos8.559191), Katherine Kelton and Catherine Bringerud"
+      ]
+    },
+    {
+      "id": "ancient_mediterranean",
+      "name": "Ancient mediterranean",
+      "family": "classical",
+      "lineage": "Ancient mediterranean: Ensemble De Organographia — Ancient Greek Music, reconstructed aulos role. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "aulos"
+      ],
+      "description": "Performers document ancient Greek surviving repertoire and modern instrument reconstructions including aulos; university performance description independently lists aulos. Authored instrumental aulos study selected from positively documented reconstruction practice; not a claim that the complete ensemble recording is solo or instrumental. Singing, lyra, kithara, trichordon and other reconstructed roles remain outside this reduction. Classical Athenian build and paired-pipe organization are authored settings.",
+      "exemplars": [
+        "Ensemble De Organographia — Ancient Greek Music, reconstructed aulos role"
+      ]
+    },
+    {
+      "id": "andean_flute",
+      "name": "Andean flute",
+      "family": "vernacular",
+      "lineage": "Andean flute: Aymara quena player — San Lorenzo Quena Music, Folkways anthology track34. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "quena"
+      ],
+      "description": "Smithsonian track metadata identifies Aymara quena player with drum, San Lorenzo, Bolivia. Authored quena melodic-core reduction of explicitly flute-with-drum source. Source does not identify drum type; it is omitted rather than replaced with guessed percussion. No vocal role in selected metadata. Regional point avoids identifying an ambiguous San Lorenzo village.",
+      "exemplars": [
+        "Aymara quena player — San Lorenzo Quena Music, Folkways anthology track34"
+      ]
+    },
+    {
+      "id": "anglican_liturgy",
+      "name": "Anglican liturgy",
+      "family": "classical",
+      "lineage": "Anglican liturgy: Westminster Abbey Choir — Jonathan Dove Missa brevis, HyperionCDA68350. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel.anglicanChoral",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "choir_cathedral_satb",
+        "pipe_organ"
+      ],
+      "description": "Label names Westminster Abbey Choir, Peter Holder organ and James ODonnell conductor and supplies choir/organ liturgical programme, including Dove Missa brevis. Choir is positively credited; singer count unknown and no headcount asserted. SATB is authored voicing for modern representative choral arrangement. Organ voicing/build choices do not claim Westminster hardware.",
+      "exemplars": [
+        "Westminster Abbey Choir — Jonathan Dove Missa brevis, HyperionCDA68350"
+      ]
+    },
+    {
+      "id": "animal_singing",
+      "name": "Animal singing",
+      "family": "electronic",
+      "lineage": "Animal singing: Jingle Cats — digitally arranged recorded cat meows. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "experimentalElec.musiqueConcrete",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "sampler_classic"
+      ],
+      "description": "Official Jingle Cats recording and primary radio report identify Mike Spalla and cat-based carols; original newspaper publicist account: recorded meows digitally arranged. Recorded nonhuman vocalization arrangement. Existing sampler realizes replay and pitch-edit workflow; human voice card would misrepresent sound source. No animal biological singer count inferred. Sampler model and chopping settings authored, not Spalla equipment.",
+      "exemplars": [
+        "Jingle Cats — digitally arranged recorded cat meows"
+      ]
+    },
+    {
+      "id": "anime_cv",
+      "name": "Anime cv",
+      "family": "vernacular",
+      "lineage": "Anime cv: Gareki (CV: Hiroshi Kamiya) — Karneval Character SongVol5, Reach for the sky (LACM14105). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.eastAsianPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Indexed primary label catalogue identifies TV anime character song, Gareki voiced/sung by Hiroshi Kamiya, catalogueLACM14105 release2013. Current legacy URL redirects to generic catalogue; exact indexed new release page observed. Character-voice solo singer core authored as isolated vocal reduction. Accompaniment instrumentation unknown, no a-cappella claim for complete recording. No role or singer count inferred from cast ensemble.",
+      "exemplars": [
+        "Gareki (CV: Hiroshi Kamiya) — Karneval Character SongVol5, Reach for the sky (LACM14105)"
+      ]
+    },
+    {
+      "id": "anime_game",
+      "name": "Anime game",
+      "family": "vernacular",
+      "lineage": "Anime game: Piano Collections FINAL FANTASY X — Zanarkand (SQEX10028). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.eastAsianPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Game publisher identifies15 Final FantasyX pieces newly arranged for piano, including Zanarkand, under Nobuo Uematsu direction; Victor pianist biography identifies Aki Kuroda participation. Instrumental game-score piano branch of anime/game discovery category; game-publisher role evidence excludes assumed anime title or singer. Distinct from character-voice songs and television opening covers.",
+      "exemplars": [
+        "Piano Collections FINAL FANTASY X — Zanarkand (SQEX10028)"
+      ]
+    },
+    {
+      "id": "anime_latino",
+      "name": "Anime latino",
+      "family": "vernacular",
+      "lineage": "Anime latino: Adrian Barba and Omar1up — Angeles Fuimos rock version. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker"
+      ],
+      "description": "Primary broadcaster identifies Dragon BallZ ending, original Spanish-language vocalist Adrian Barba and guitarist Omar1up collaborating on rock version; official singer account corroborates Latin American anime singing. Spanish-language anime-song voice/guitar core reduction; no bass/drums inferred from rock arrangement label, no full-recording duet/acappella claim. Humbucker construction modern authored.",
+      "exemplars": [
+        "Adrian Barba and Omar1up — Angeles Fuimos rock version"
+      ]
+    },
+    {
+      "id": "anime_piano",
+      "name": "Anime piano",
+      "family": "vernacular",
+      "lineage": "Anime piano: Animenz — Popular Anime Songs piano solo arrangements. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.eastAsianPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Artist/manufacturer biography and artist score shop identify anime-song solo piano arrangements, including television themes. Solo-piano arrangements of anime songs; distinguishes from anime score background composition and game piano collection. Geo is repertoire category, not German performer birthplace or recording location.",
+      "exemplars": [
+        "Animenz — Popular Anime Songs piano solo arrangements"
+      ]
+    },
+    {
+      "id": "anime_score",
+      "name": "Anime score",
+      "family": "classical",
+      "lineage": "Anime score: Nicolas Horvath — Joe Hisaishi Ghibli Piano CollectionVol2, One Summers Day. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Primary label identifies original Joe Hisaishi piano scores, authorized publishing, Nicolas Horvath performance, Spirited Away/Princess Mononoke repertoire and2026 release. Instrumental piano version of named animated-film background score. Original composer scores distinguish selected branch from Animenz theme-song arrangements; no orchestra inferred from film-score category.",
+      "exemplars": [
+        "Nicolas Horvath — Joe Hisaishi Ghibli Piano CollectionVol2, One Summers Day"
+      ]
+    },
+    {
+      "id": "animegrind",
+      "name": "Animegrind",
+      "family": "rock_punk",
+      "lineage": "Animegrind: Septic Karnage — Fat Otaku Abomination demo (Gonorrhea Records2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.metal.death",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "sampler_drum_machine"
+      ],
+      "description": "Label performance credits Emi vocals, Dec vocals, Legnalogyst guitars/programmed drums. Artist profile identifies Catamarca Argentina and animegrind self-category. Documented two-vocalist pool, guitar and programmed-drums branch; no acoustic drum kit or bass substitution. Live duet and ensemble capture are explicitly authored arrangement choices rather than claims about demo multitracking.",
+      "exemplars": [
+        "Septic Karnage — Fat Otaku Abomination demo (Gonorrhea Records2022)"
+      ]
+    },
+    {
+      "id": "ann_arbor_indie",
+      "name": "Ann arbor indie",
+      "family": "rock_punk",
+      "lineage": "Ann arbor indie: StopWatch — Starless EP (2019). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Artist release credits Mark Bosch guitar/vox, Jake Emanuel keys, Austin Broda bass, Duane Chelmsford drums; additional vocals Tyler Floyd and Marita Nitkiewicz. Artist profile names Ann Arbor and indie/alternative tags. Album-role pool credits three vocalists, not all on every song. One voice card aggregates pool with authored live-group arrangement; no exact harmony or doubling claim. Unspecified keys realized by authored digital keyboard.",
+      "exemplars": [
+        "StopWatch — Starless EP (2019)"
+      ]
+    },
+    {
+      "id": "anthem",
+      "name": "Anthem",
+      "family": "vernacular",
+      "lineage": "Anthem: Jon Batiste — The Star-Spangled Banner, Super Bowl LIX2025; voice/piano core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "NFL identifies Batiste national-anthem performance. Yamaha authored release specifies piano role. Ceremonial national-anthem branch rather than worship anthem. Authored voice/piano core excludes sampled introduction reported elsewhere and does not claim full-performance instrumentation. No crowd or ASL interpreter counted as a singer.",
+      "exemplars": [
+        "Jon Batiste — The Star-Spangled Banner, Super Bowl LIX2025; voice/piano core"
+      ]
+    },
+    {
+      "id": "anthem_worship",
+      "name": "Anthem worship",
+      "family": "blues_gospel",
+      "lineage": "Anthem worship: Nate Hale — Let There Be Light (2019); vocal/guitar core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Artist track self-tags worship/acoustic/Christian, identifies Nashville singer-songwriter Nate Hale, and credits Derek McClardy guitar/keys/bass/percussion; earlier primary album explicitly credits Hale lead voice/acoustic guitar. Authored singer/guitar core of positively worship-tagged song by documented lead vocalist; source does not state total backing-vocal headcount, which remains unknown. Keys/bass/undifferentiated percussion omitted in disclosed reduction; dreadnought realization is authored.",
+      "exemplars": [
+        "Nate Hale — Let There Be Light (2019); vocal/guitar core"
+      ]
+    },
+    {
+      "id": "baps",
+      "name": "BAPS devotional music",
+      "family": "vernacular",
+      "lineage": "BAPS Swaminarayan Sanstha kirtan aradhana: BAPS Swaminarayan Sanstha — Chino Hills kirtan aradhana, September3,2005. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.hindu",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sitar",
+        "tabla",
+        "harmonium_indian"
+      ],
+      "description": "BAPS firsthand event report identifies devotional hymns with sitar, tabla and harmonium in Chino Hills. Institutional Music page identifies BAPS kirtan aradhana singing by sadhus and youths, and Aksharpith devotional publications; Gujarati bicentenary collection documents institution-specific Swaminarayan repertoire. Institution-specific BAPS Swaminarayan devotional repertoire and concert practice, distinguished from broad bhajan, generic kirtan and Sikh shabad kirtan. Selected Chino Hills documented voice/sitar/tabla/harmonium branch. Singer identities and count are unknown. Live-group capture is an authored representative arrangement, not a source headcount or harmony claim. Modern sitar school, construction and harmonium voicing are authored production scaffolding, not BAPS lineage claims.",
+      "exemplars": [
+        "BAPS Swaminarayan Sanstha — Chino Hills kirtan aradhana, September3,2005",
+        "BAPS — Kirtan Aradhana Gujarati MP3 bicentenary collection"
+      ]
+    },
+    {
+      "id": "antideutsche",
+      "name": "Antideutsche",
+      "family": "rock_punk",
+      "lineage": "Antideutsche: Egotronic — documented production-plan arrangement (2012). Egotronic’s 2012 post documents a production plan, including intended guitar/bass/drums and partly analog and digital hardware synths. These planned roles inspire an authored present-day arrangement; this is not evidence that the planned album or that hardware session was completed. Political scene membership does not prescribe a universal timbre. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_synth",
+        "digital_subtractive"
+      ],
+      "description": "A political scene label represented through Egotronic’s documented plan to move from virtual electronics to guitar/bass/drums and played hardware synthesizers. Scene membership does not prescribe a universal sound. Select the explicitly documented rock/electronic arrangement, rather than calling political convictions a timbre. The 2012 equipment list motivates both analog and digital synth families; precise makes and patches remain authored. Exact settings and numeric axes are authored. The 2012 evidence is a production plan, not a completed recording.",
+      "exemplars": [
+        "Egotronic — documented production-plan arrangement (2012)"
+      ]
+    },
+    {
+      "id": "antilliaanse_folklore",
+      "name": "Antilliaanse folklore",
+      "family": "global",
+      "lineage": "Antilliaanse folklore: Jan Gerard Palm — Curaçao dance-piano repertoire, as performed by Marcel Worms. Select the piano dance-repertoire branch, not every Palm composition or every island. No vocal ensemble or percussion is inferred from the umbrella label. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.tropicalSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "The Curaçao salon-dance piano branch within the broad Netherlands Antillean folklore label: Palm’s waltzes, danzas and tumbas in piano interpretation. Select the piano dance-repertoire branch, not every Palm composition or every island. No vocal ensemble or percussion is inferred from the umbrella label. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Jan Gerard Palm — Curaçao dance-piano repertoire, as performed by Marcel Worms"
+      ]
+    },
+    {
+      "id": "apostolic_worship",
+      "name": "Apostolic worship",
+      "family": "global",
+      "lineage": "Apostolic worship: Richard W. Smith — Apostolic Praise School of Music church-piano practice. An accompaniment/solo-piano realization of positively documented apostolic church-piano practice. No singer count is asserted, no choir inferred, and the other courses are not used to invent this roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel.pentecostal",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Apostolic United Pentecostal church-piano teaching and performance branch, represented by Smith’s practical worship-piano work. An accompaniment/solo-piano realization of positively documented apostolic church-piano practice. No singer count is asserted, no choir inferred, and the other courses are not used to invent this roster. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Richard W. Smith — Apostolic Praise School of Music church-piano practice"
+      ]
+    },
+    {
+      "id": "arab_alternative",
+      "name": "Arab alternative",
+      "family": "rock_punk",
+      "lineage": "Arab alternative: DUNUMS — Where’s My Eidi? (2022 reissue). Selected voice and pitched/electronic core of the release. Percussion credited without named instrument is explicitly outside this scoped core, not silently replaced by drum kit. Album-level vocal credits establish two identified singers, not track-specific simultaneous singing. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "oud",
+        "electric_bass",
+        "electric_guitar_humbucker",
+        "analog_poly_synth",
+        "clarinet"
+      ],
+      "description": "Palestinian-rooted North Carolina alternative ensemble branch joining oud, guitars, bass, synthesizers and clarinet with credited voices. Selected voice and pitched/electronic core of the release. Percussion credited without named instrument is explicitly outside this scoped core, not silently replaced by drum kit. Album-level vocal credits establish two identified singers, not track-specific simultaneous singing. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "DUNUMS — Where’s My Eidi? (2022 reissue)"
+      ]
+    },
+    {
+      "id": "arab_experimental",
+      "name": "Arab experimental",
+      "family": "electronic",
+      "lineage": "Arab experimental: Kareem Samara — Prayer for Rain (2020). Select the positively named pitched and electronic core; unspecified percussion is not assigned a guessed instrument. No source-session singer headcount is asserted. Sampler workflow, exact piano preparations and granular sample source are authored. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "oud",
+        "prepared_piano",
+        "sampler_classic",
+        "granular_synth"
+      ],
+      "description": "Experimental oud, prepared piano, sampler and granular-synthesis improvisation branch. Select the positively named pitched and electronic core; unspecified percussion is not assigned a guessed instrument. No source-session singer headcount is asserted. Sampler workflow, exact piano preparations and granular sample source are authored. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Kareem Samara — Prayer for Rain (2020)"
+      ]
+    },
+    {
+      "id": "arab_groove",
+      "name": "Arab groove",
+      "family": "electronic",
+      "lineage": "Arab groove: Hadi Zeidan — Taksim Analog (2018). The timbre roster collapses the six synth devices into representative mono/poly analog roles; it does not claim six performers, six singers or specific photographed hardware. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "analog_synth",
+        "drum_machine_analog"
+      ],
+      "description": "Neo-Arabic belly-dance and taksim-informed analog club branch, realized through synthesizers and drum machine. The timbre roster collapses the six synth devices into representative mono/poly analog roles; it does not claim six performers, six singers or specific photographed hardware. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Hadi Zeidan — Taksim Analog (2018)"
+      ]
+    },
+    {
+      "id": "arabic_instrumental",
+      "name": "Arabic instrumental",
+      "family": "global",
+      "lineage": "Arabic instrumental: Chris Stephens — Oud Solo: Maqam Bayati Taqsim (2018). One expressly solo instrumental oud work is selected. Twelve-tone equal temperament is an authored generation baseline rather than a transcription of the source’s maqam intonation or modulations. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "improvOnFrame.persianArabImprov",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "oud"
+      ],
+      "description": "Solo Arabic oud improvisation branch documented as Bayati taqsim with Sabah and Hijaz modulations. One expressly solo instrumental oud work is selected. Twelve-tone equal temperament is an authored generation baseline rather than a transcription of the source’s maqam intonation or modulations. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Chris Stephens — Oud Solo: Maqam Bayati Taqsim (2018)"
+      ]
+    },
+    {
+      "id": "argentine_indie",
+      "name": "Argentine indie",
+      "family": "vernacular",
+      "lineage": "Argentine indie: Agustín Donati — El Impostor (2024), acoustic-song foreground. An authored foreground voice/acoustic-guitar reduction of the documented indie-folk branch; this is not the complete El Impostor album ensemble and does not assert all three album vocalists appear on the Acoustic Tape track. Existing argentine_indie_rock models an electric La Plata rock-band branch; this broader bucket receives a separately documented acoustic branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The acoustic indie-folk songwriter branch documented by Argentine artist Donati’s official album and bio, including an Acoustic Tape track. An authored foreground voice/acoustic-guitar reduction of the documented indie-folk branch; this is not the complete El Impostor album ensemble and does not assert all three album vocalists appear on the Acoustic Tape track. Existing argentine_indie_rock models an electric La Plata rock-band branch; this broader bucket receives a separately documented acoustic branch. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Agustín Donati — El Impostor (2024), acoustic-song foreground"
+      ]
+    },
+    {
+      "id": "argentine_telepop",
+      "name": "Argentine telepop",
+      "family": "pop",
+      "lineage": "Argentine telepop: Lali — KO (2023), vocal/guitar foreground. Selected positively credited vocal/guitar core. The humbucker guitar is an authored family-level guitar realization, not a claim about CA7RIEL’s actual construction. Telepop is a discovery bucket; no universal television-specific sound is asserted. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker"
+      ],
+      "description": "Argentine actor/singer crossover pop branch represented by Lali’s solo-album song KO and positively credited guitar/backing-voice contribution. Selected positively credited vocal/guitar core. The humbucker guitar is an authored family-level guitar realization, not a claim about CA7RIEL’s actual construction. Telepop is a discovery bucket; no universal television-specific sound is asserted. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Lali — KO (2023), vocal/guitar foreground"
+      ]
+    },
+    {
+      "id": "arkansas_indie",
+      "name": "Arkansas indie",
+      "family": "vernacular",
+      "lineage": "Arkansas indie: The Shady Janes / Brad Hahn — Beautiful Dream (2011). Select the individual songwriter’s voice/guitar core, not the complete Shady Janes band. Acoustic dreadnought is an authored guitar-family realization; generic guitar credit does not prove that physical build. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Fayetteville indie songwriter branch represented by Brad Hahn’s individually credited track and documented vocal/guitar role. Select the individual songwriter’s voice/guitar core, not the complete Shady Janes band. Acoustic dreadnought is an authored guitar-family realization; generic guitar credit does not prove that physical build. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "The Shady Janes / Brad Hahn — Beautiful Dream (2011)"
+      ]
+    },
+    {
+      "id": "armenian_indie",
+      "name": "Armenian indie",
+      "family": "vernacular",
+      "lineage": "Armenian indie: Tchamich — Jpta / Ժպտա (2021). Exact track’s soloist, guitar and clarinet credits take precedence over current-bio membership. No extra singer is inferred from “trio”; specific clarinet size and guitar construction are authored. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.popRock.folkRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "clarinet"
+      ],
+      "description": "Yerevan acoustic Armenian folk/original-song indie branch, represented by Tchamich’s specifically credited Jpta. Exact track’s soloist, guitar and clarinet credits take precedence over current-bio membership. No extra singer is inferred from “trio”; specific clarinet size and guitar construction are authored. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Tchamich — Jpta / Ժպտա (2021)"
+      ]
+    },
+    {
+      "id": "arunachal_indie",
+      "name": "Arunachal indie",
+      "family": "rock_punk",
+      "lineage": "Arunachal indie: Takar Nabam — Surfer, from This Home That Home (2018). Select the voice/guitar/bass/drums core of Surfer. Unspecified keys are outside the scoped core; no guessed piano or synth type. Smiti Malik’s backing vocals and specified guests belong to other tracks and do not increase selected singer count. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Arunachal-origin indie songwriting band branch represented by Nabam’s album and the track Surfer. Select the voice/guitar/bass/drums core of Surfer. Unspecified keys are outside the scoped core; no guessed piano or synth type. Smiti Malik’s backing vocals and specified guests belong to other tracks and do not increase selected singer count. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Takar Nabam — Surfer, from This Home That Home (2018)"
+      ]
+    },
+    {
+      "id": "asbury_park_indie",
+      "name": "Asbury Park indie",
+      "family": "rock_punk",
+      "lineage": "Asbury Park indie: Cloud Hands — Cynics (2019). Only one positively credited singer. Band membership and multiple guitarists do not imply a vocal group; synth type is an authored realization of a generic synth role. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Asbury Park indie-rock band branch documented through Cloud Hands’ credited Cynics arrangement. Only one positively credited singer. Band membership and multiple guitarists do not imply a vocal group; synth type is an authored realization of a generic synth role. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Cloud Hands — Cynics (2019)"
+      ]
+    },
+    {
+      "id": "asheville_indie",
+      "name": "Asheville indie",
+      "family": "rock_punk",
+      "lineage": "Asheville indie: Doc Aquatic — Tombs (2013). Two named singers support a generic live-group voice configuration; no thirds, duet harmony, choir or fixed stack is inferred. Programming is not a separate acoustic instrument. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Asheville indie band branch joining guitar/bass/drums with synthesizer/programming and two named vocalists. Two named singers support a generic live-group voice configuration; no thirds, duet harmony, choir or fixed stack is inferred. Programming is not a separate acoustic instrument. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Doc Aquatic — Tombs (2013)"
+      ]
+    },
+    {
+      "id": "athens_indie",
+      "name": "Athens indie",
+      "family": "rock_punk",
+      "lineage": "Athens indie: Tattoo Logic — Tattoo Logic (2026). Athens means the Georgia scene here. Select the positively specific voice/electric-guitar/bass/drums core; generic keys are outside this scoped core, not silently mapped to piano or synth. Two known voices do not prove a particular harmony. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Athens Georgia indie-rock/punk/funk band branch, represented by Tattoo Logic’s self-titled release. Athens means the Georgia scene here. Select the positively specific voice/electric-guitar/bass/drums core; generic keys are outside this scoped core, not silently mapped to piano or synth. Two known voices do not prove a particular harmony. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Tattoo Logic — Tattoo Logic (2026)"
+      ]
+    },
+    {
+      "id": "atlanta_indie",
+      "name": "Atlanta indie",
+      "family": "rock_punk",
+      "lineage": "Atlanta indie: Sleep Dance — Intervals (2015). Lead and backing voice are positively named, without inferred harmony intervals. Drum kit realizes the explicit drums credit; unspecified additional percussion is not assigned guessed timbres. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Atlanta indie/ambient-rock band branch represented by Sleep Dance’s credited Intervals. Lead and backing voice are positively named, without inferred harmony intervals. Drum kit realizes the explicit drums credit; unspecified additional percussion is not assigned guessed timbres. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Sleep Dance — Intervals (2015)"
+      ]
+    },
+    {
+      "id": "atmospheric_doom",
+      "name": "Atmospheric doom",
+      "family": "rock",
+      "lineage": "Atmospheric doom: Alizam — Exilium Vitae (2025), credited string/vocal core. Only positively credited string/vocal core. No drum kit is inferred from the metal label. Piano and violin expressly described for closing Elegy of Dust and Dusk are outside the selected string/vocal reduction, not added to every track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.metal.doom",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar",
+        "electric_guitar_humbucker",
+        "electric_bass"
+      ],
+      "description": "Iranian dark-folk/atmospheric-doom branch represented by Alizam’s documented electric/classical-string and vocal core. Only positively credited string/vocal core. No drum kit is inferred from the metal label. Piano and violin expressly described for closing Elegy of Dust and Dusk are outside the selected string/vocal reduction, not added to every track. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "Alizam — Exilium Vitae (2025), credited string/vocal core"
+      ]
+    },
+    {
+      "id": "atmospheric_sludge",
+      "name": "Atmospheric sludge",
+      "family": "rock",
+      "lineage": "Atmospheric sludge: Reserve de Marche — The Last Twenty Years (2012). Source explicitly identifies a Moscow instrumental atmospheric-sludge trio (guitar/bass/drums). Unlike existing atmospheric_post_metal, anchored to Cult of Luna’s vocal and sustained-keyboard ensemble and authored clean arpeggiation, this selected branch has no singer or keyboard, and models distorted guitar riffs. It also differs from Alizam’s vocal/classical-string atmospheric-doom branch. The category overlaps post-metal; the documented trio branch and its selected roles provide the narrower distinction. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.metal.sludge",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Moscow instrumental atmospheric-sludge/post-metal trio branch. Expressly instrumental trio; no singer is inferred from the distorted metal family. This post-metal/sludge arrangement differs from Alizam’s vocal/classical-string dark-folk doom branch. Exact settings and numeric axes are authored. Compared with existing atmospheric_post_metal (Cult of Luna), this Moscow trio explicitly omits singers/keys and uses authored distorted riffs instead of that record’s clean arpeggiated sustained-synth branch.",
+      "exemplars": [
+        "Reserve de Marche — The Last Twenty Years (2012)"
+      ]
+    },
+    {
+      "id": "bansuri",
+      "name": "Bansuri",
+      "family": "global",
+      "lineage": "Bansuri: David Philipson — Meditations for Bansuri (1997 concert;2015release). Distinct instrument-led recital branch with exactly the named flute, tabla and tanpura roles. Existing hindustani record is a broad multi-instrument umbrella; no existing hindustani_bansuri ID or narrow matching entry was found. Twelve-tone baseline is authored rather than a transcription of raga intonation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "improvOnFrame.indianClassicalImprov",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "bansuri",
+        "tabla",
+        "tanpura"
+      ],
+      "description": "Bansuri-led North Indian classical instrumental recital branch in the Pannalal Ghosh lineage. Distinct instrument-led recital branch with exactly the named flute, tabla and tanpura roles. Existing hindustani record is a broad multi-instrument umbrella; no existing hindustani_bansuri ID or narrow matching entry was found. Twelve-tone baseline is authored rather than a transcription of raga intonation. Exact settings and numeric axes are authored.",
+      "exemplars": [
+        "David Philipson — Meditations for Bansuri (1997 concert;2015release)"
+      ]
+    },
+    {
+      "id": "barcadi",
+      "name": "Barcadi",
+      "family": "electronic",
+      "lineage": "Barcadi: DJ Spoko — Azange / documented Bacardi house studio practice (2013). DJ Spoko’s explicitly named Bacardi/Barcadi house studio practice predates the later amapiano category: sampled composite snare and synthesized strings are documented by his own first-person account. This branch includes the positively identified two singers on Azange and software-sequenced rhythm/synth roles. It does not substitute an acoustic upright bass, invent acoustic drum players, or import a required amapiano log-drum/piano role. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "electronicDance.africanDance",
+      "axes": [
+        -1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        -1,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine",
+        "digital_subtractive"
+      ],
+      "description": "Pretoria Bacardi/Barcadi house branch represented by DJ Spoko’s first-person 2013 studio practice and Azange: composite sampled snare, software sequence, synthesized strings and two credited vocalists. The sample machine and digital VA cards are authored realizations of documented rhythm/synth roles, not source hardware or exact synthesis-engine claims. This is distinct from the catalog amapiano log-drum-and-piano branch.",
+      "exemplars": [
+        "DJ Spoko — Azange (Magaula and Puzuzu vocals)",
+        "DJ Spoko — Ghost Town EP / 2013 studio practice"
+      ],
+      "crossRefs": [
+        "electronicDance.house"
+      ]
+    },
+    {
+      "id": "auckland_indie",
+      "name": "Auckland indie",
+      "family": "rock_punk",
+      "lineage": "Auckland indie: Office Dog — Big Air (Spiel, 2024). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Artist/label credits establish Kane Strang vocals/guitar, Rassani Tolovaa bass and Mitchell Innes drums; Auckland indie tags and Auckland residency. Piano is credited only on three other tracks. Big Air guitar-trio branch excludes piano credited on Antidote, Warmer and Teeth.",
+      "exemplars": [
+        "Office Dog — Big Air (Spiel, 2024)"
+      ]
+    },
+    {
+      "id": "audiophile_vocal",
+      "name": "Audiophile vocal",
+      "family": "vernacular",
+      "lineage": "Audiophile vocal: Rebecca Pidgeon — The Raven (Chesky, 1994): lead-vocal and piano core. Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Label identifies The Raven as an audiophile vocal release; release credits positively identify Pidgeon lead voice and Joel Diamond piano. Deliberately selects the documented lead-vocal/piano core for an authored reduction; not an a-cappella claim or reproduction of the full album. Album also credits five background singers, synthesizer, two guitars, bass, percussion, two violins, viola and cello, whose parts are excluded. Los Angeles is current artist-profile locality, not album recording location.",
+      "exemplars": [
+        "Rebecca Pidgeon — The Raven (Chesky, 1994): lead-vocal and piano core"
+      ]
+    },
+    {
+      "id": "austindie",
+      "name": "Austindie",
+      "family": "rock_punk",
+      "lineage": "Austindie: Broken Gold — Held By a Thread (2021). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Artist calls group an Austin indie punk rock band; release credits Ian MacDougall voice/guitar, Ben Lance guitar, Rob Marchant bass and Ian Walling drums. One guitar timbre aggregates two documented guitars; no claim of one guitarist. Uses release-specific roster rather than changed current profile lineup.",
+      "exemplars": [
+        "Broken Gold — Held By a Thread (2021)"
+      ]
+    },
+    {
+      "id": "australian_children_s_music",
+      "name": "Australian children's music",
+      "family": "vernacular",
+      "lineage": "Australian children's music: The Wiggles — documented guitar, keytar, drums and vocal roles. Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Official children-focused group biography documents Anthony guitar, Lachy keytar and singing, Simon bass-baritone singing, Lucia drums. Role-based contemporary children-song model, not a particular recording. Existing digital synthesizer models the keytar sound role, without claiming Lachy uses this synth construction. Excludes bagpipes and unsupported bass guitar; bagpipes are a documented optional Anthony role, not the selected guitar branch.",
+      "exemplars": [
+        "The Wiggles — documented guitar, keytar, drums and vocal roles"
+      ]
+    },
+    {
+      "id": "australian_comedy",
+      "name": "Australian comedy",
+      "family": "vernacular",
+      "lineage": "Australian comedy: Tim Minchin — solo comic cabaret branch. Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Official biography establishes Australian comedian, Perth upbringing and solo comic cabaret; official channel identifies pianist and singer. Solo voice/piano cabaret branch; excludes orchestral concerts and Navel band accompaniment. Distinct from spoken-only stand-up and full comedy rock ensembles.",
+      "exemplars": [
+        "Tim Minchin — solo comic cabaret branch"
+      ]
+    },
+    {
+      "id": "australian_electropop",
+      "name": "Australian electropop",
+      "family": "electronic",
+      "lineage": "Australian electropop: Parralox — Artificial (2017). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "modular_synth",
+        "electric_bass"
+      ],
+      "description": "Track credits synth John von Ahlen, bass Ian Burden, vocals Louise Love and John von Ahlen; Buchla modular synth and Melbourne recording location explicitly stated. Australian artist electronic-pop description and synthpop tags support regional electropop. Documented voice, modular synth and bass branch; no drum machine inferred. Single voice timbre models vocal role pool; source credits two singers, without inferring harmony geometry. Buchla lineage selected from the documented modular family.",
+      "exemplars": [
+        "Parralox — Artificial (2017)"
+      ]
+    },
+    {
+      "id": "australian_experimental",
+      "name": "Australian experimental",
+      "family": "electronic",
+      "lineage": "Australian experimental: Modular Theme Time Sessions — Quantum Burst (2025). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        -1,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "modular_synth"
+      ],
+      "description": "Producer explicitly calls session experimental, lists Lost Ether, Jani Ho and Made in Space, and says only Eurorack modular synths are used; artists collaborate from Australia/New Zealand. Selected instrumental modular-electronics branch of the Australian experimental scene; Melbourne is organizer-profile locality, not each contributor location. Does not substitute a generic synth for unspecified acoustic sources.",
+      "exemplars": [
+        "Modular Theme Time Sessions — Quantum Burst (2025)"
+      ]
+    },
+    {
+      "id": "australian_indie",
+      "name": "Australian indie",
+      "family": "rock_punk",
+      "lineage": "Australian indie: Backyard — Royal Park (2017). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Artist page credits track performers and documents Melbourne indie category; profile assigns Adnan Kadric and Leon Andrews vocals/guitar, Tom Barlow drums and Joe Daly bass. Melbourne guitar-pop branch; single voice/guitar timbres model documented pools of two singers/two guitars, with no source count or harmony geometry encoded as a generic solo default.",
+      "exemplars": [
+        "Backyard — Royal Park (2017)"
+      ]
+    },
+    {
+      "id": "australian_psych",
+      "name": "Australian psych",
+      "family": "rock_punk",
+      "lineage": "Australian psych: Los Palms — Los Palms (2019). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Artist describes South Australian surf-tinged psych rock; Ant Candlish guitar/vocals, William Lee guitar, Paul Ingham bass and Josh Pullinen drums listed. Adelaide Desert Jangle psych branch rather than a universal Australian psychedelic instrumentation claim; one guitar card aggregates two players.",
+      "exemplars": [
+        "Los Palms — Los Palms (2019)"
+      ]
+    },
+    {
+      "id": "australian_talent_show",
+      "name": "Australian talent show",
+      "family": "vernacular",
+      "lineage": "Australian talent show: Guy Sebastian — singing/songwriting and piano branch. Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Official artist page establishes Australian Idol first winner and The Voice coach; broadcaster interview directly quotes piano as the starting point of almost every song. Talent-show alumni category; authored voice/piano songwriting branch, not a claim all contest arrangements use piano or the full backing ensemble of Angels Brought Me Here.",
+      "exemplars": [
+        "Guy Sebastian — singing/songwriting and piano branch"
+      ]
+    },
+    {
+      "id": "austrian_indie",
+      "name": "Austrian indie",
+      "family": "rock_punk",
+      "lineage": "Austrian indie: Crush — Past Perfect (2023). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "acoustic_guitar_dread",
+        "digital_subtractive",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Artist/label assign vocals/guitars/synths/bass/drums, classify indie pop and situate band in Graz Austria. Release-specific Graz indie/synth-pop branch. Four named vocalists include two additional backing singers; single voice timbre is a source-role pool without asserted choir topology. Both electric and acoustic guitar roles explicitly credited; auxiliary unspecified percussion omitted.",
+      "exemplars": [
+        "Crush — Past Perfect (2023)"
+      ]
+    },
+    {
+      "id": "austro_german_modernism",
+      "name": "Austro-german modernism",
+      "family": "classical",
+      "lineage": "Austro-german modernism: Arnold Schönberg — Three Piano Pieces op. 11 (1909/10). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Composer archive documents piano instrumentation, 1909 modernist tonal departure and surviving motivic/formal links to German-language classical tradition. Austro-German early modernist solo-piano branch, rather than later integral serialism or all orchestra modernism. Modern grand-piano hardware and twelve-tone equal temperament are authored performance choices; twelve-tone temperament does not assert twelve-tone compositional method.",
+      "exemplars": [
+        "Arnold Schönberg — Three Piano Pieces op. 11 (1909/10)"
+      ]
+    },
+    {
+      "id": "auteur_compositeur_interprete_quebecois",
+      "name": "Auteur-compositeur-interprete quebecois",
+      "family": "vernacular",
+      "lineage": "Auteur-compositeur-interprete quebecois: Ian Fournier — Déprimates (2018). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "balladPoetry.chansonFado",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Artist expressly describes the album in its simplest guitar-and-voice form and arpeggiated guitar; artist category auteur-compositeur-interprète and chanson québécoise tags, Sherbrooke profile. Québec French-language auteur-compositeur-interprète voice/guitar branch; dreadnought construction is authored, not a source instrument identification.",
+      "exemplars": [
+        "Ian Fournier — Déprimates (2018)"
+      ]
+    },
+    {
+      "id": "autoharp",
+      "name": "Autoharp",
+      "family": "vernacular",
+      "lineage": "Autoharp: Kenneth Benfield — Way Down in the Country (Mountain Music: Played on the Autoharp). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "autoharp"
+      ],
+      "description": "Smithsonian identifies autoharp-centered Southern mountain repertoire, track and Kenneth Benfield performer, and instrumental language metadata. Instrument-centered instrumental branch; other anthology vocal songs and duet performers are excluded. Regional point represents repertoire area, not exact track session or performer home.",
+      "exemplars": [
+        "Kenneth Benfield — Way Down in the Country (Mountain Music: Played on the Autoharp)"
+      ]
+    },
+    {
+      "id": "avant_garde",
+      "name": "Avant-garde",
+      "family": "classical",
+      "lineage": "Avant-garde: Quentin Tolimieri — Prepared Piano (2017). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "prepared_piano"
+      ],
+      "description": "Artist release credits only Tolimieri prepared piano; explicitly tagged avant-garde, experimental and improvisation. Solo prepared-piano improvisation branch; photo shows generic grand-piano structure only, not installed preparations. Preparation materials/zones are authored rather than facts inferred from titles.",
+      "exemplars": [
+        "Quentin Tolimieri — Prepared Piano (2017)"
+      ]
+    },
+    {
+      "id": "azeri_alternative",
+      "name": "Azeri alternative",
+      "family": "electronic",
+      "lineage": "Azeri alternative: Dihaj — T.E.O.S (2017). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Artist describes Baku Azerbaijan collective as experimental doom pop; identifies Anar guitar/synth, Ali drums/percussion/fx, atmospheric vocals, and post-rock guitar riffs. Azeri alternative experimental-electronic-pop branch; not a synonym for Azeri traditional music or metal. Source does not give an exact complete singer roster; singer count remains unknown. Generic voice timbre is a documented vocal role, not an inferred solo or choir configuration.",
+      "exemplars": [
+        "Dihaj — T.E.O.S (2017)"
+      ]
+    },
+    {
+      "id": "bachchon_ke_geet",
+      "name": "Bachchon ke geet",
+      "family": "vernacular",
+      "lineage": "Bachchon ke geet: Arnav Chaphekar — Chanda Mama Aao Na (Rhyme Time Hindi Vol. 1). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers. Unaccompanied Hindi card does not assert its source recording lacks backing.",
+      "parent": "functionalSong.southAsianPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Saregama label Hindi children-rhyme category; label catalogue search excerpt identifies Arnav Chaphekar on Chanda Mama Aao Na, corroborated by distributed Saregama recording metadata. Selected documented singer core only. Label catalogue direct open returned403 while its indexed title/artist excerpt remained visible; distributed label metadata corroborates recording. Backing instruments and total chorus count unknown, so none inferred. No claim the full recording is a cappella; authored vocal-only reduction. Geographic point is country representative, not singer birthplace or recording studio.",
+      "exemplars": [
+        "Arnav Chaphekar — Chanda Mama Aao Na (Rhyme Time Hindi Vol. 1)"
+      ]
+    },
+    {
+      "id": "background_music",
+      "name": "Background music",
+      "family": "vernacular",
+      "lineage": "Background music: SAKURA FRAME — Piano Solo Relax Selection (2026). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -2,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Artist title explicitly identifies solo piano and background music for relaxation/meditation; instrumental and Japan tags. Functional background-music category modeled through one positively documented solo-piano branch; not all background music is piano or Japanese.",
+      "exemplars": [
+        "SAKURA FRAME — Piano Solo Relax Selection (2026)"
+      ]
+    },
+    {
+      "id": "background_piano",
+      "name": "Background piano",
+      "family": "vernacular",
+      "lineage": "Background piano: SØLYS — Twilight (Solo Piano) (2023). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -2,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Artist provides separate Solo Piano track and background piano/calming instrumental tags; Hamilton Ontario profile. Explicit solo-piano version excludes synths described in the separate full Twilight arrangement. Distinct instrument-specific background category from broad background music.",
+      "exemplars": [
+        "SØLYS — Twilight (Solo Piano) (2023)"
+      ]
+    },
+    {
+      "id": "backing_track",
+      "name": "Backing track",
+      "family": "blues_gospel",
+      "lineage": "Backing track: Cliff Smith — A Major Soul Backing Track (Bass & Drums Only), 90bpm (2025). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Creator explicitly states electric bass and drums only, excludes guitar/keyboard/piano/organ, and frames track for accompaniment practice; London profile. Functional play-along category; selected bass/drums instrumental track leaves the learner chordal space. Does not add the absent lead guitar or infer vocals.",
+      "exemplars": [
+        "Cliff Smith — A Major Soul Backing Track (Bass & Drums Only), 90bpm (2025)"
+      ]
+    },
+    {
+      "id": "bagpipe_marching_band",
+      "name": "Bagpipe marching band",
+      "family": "vernacular",
+      "lineage": "Bagpipe marching band: U.S. Coast Guard Pipe Band — pipes-and-drums practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "highland_bagpipes",
+        "pipe_band_snare",
+        "tenor_drum",
+        "bass_drum"
+      ],
+      "description": "Scottish pipes-and-drums marching ensemble, modeled with ornamented Highland-pipe melody and interlocking snare, tenor and bass drum roles. The roster represents timbres rather than a count of band members.",
+      "exemplars": "U.S. Coast Guard Pipe Band — pipes-and-drums practice"
+    },
+    {
+      "id": "bahai",
+      "name": "Bahá’í music",
+      "family": "sacred",
+      "lineage": "Bahá’í music: Sarah Mohebiany — The Day Will Come (The last words of the Báb, 2023). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        -1,
+        1,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Bahá’í-inspired composed devotional song, represented by Sarah Mohebiany’s setting of sacred scripture for her credited voice and piano. This branch is an artist’s contemporary piano song, not a universal Bahá’í liturgical scoring rule.",
+      "exemplars": "Sarah Mohebiany — The Day Will Come (The last words of the Báb, 2023)"
+    },
+    {
+      "id": "baja_indie",
+      "name": "Baja indie",
+      "family": "rock_punk",
+      "lineage": "Baja indie: Vaya Futuro — Ideas a Medias (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Baja California indie rock, anchored to Vaya Futuro’s Tijuana formation and its 2014 Ideas a Medias lineup. Two credited guitar roles, electric bass and drums frame a single credited lead voice in this authored amplified-band model.",
+      "exemplars": "Vaya Futuro — Ideas a Medias (2014)"
+    },
+    {
+      "id": "bajki",
+      "name": "Bajki (Polish fairy-tale narration)",
+      "family": "global",
+      "lineage": "Bajki (Polish fairy-tale narration): Piotr Fronczewski — Michałek z pudełka od zapałek (Jung-off-ska, 2015). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "spokenWord.narration",
+      "axes": [
+        0,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        -2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Polish children’s fairy-tale and audiobook narration, represented by Piotr Fronczewski reading Michałek z pudełka od zapałek. The recipe deliberately models the credited narration core; the release also has SzaZa music whose instruments are unspecified, so this is not a claim that the recording is unaccompanied.",
+      "exemplars": "Piotr Fronczewski — Michałek z pudełka od zapałek (Jung-off-ska, 2015)"
+    },
+    {
+      "id": "bali_indie",
+      "name": "Bali indie",
+      "family": "rock_punk",
+      "lineage": "Bali indie: Sourmilk Club — A Collection of Absurd Ideas. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Bali indie rock/pop, represented by Sourmilk Club’s credited Denpasar band formation. Vocal and two guitar roles sit above bass and drums; the construction choices are contemporary authored guitar models, not reported artist equipment.",
+      "exemplars": "Sourmilk Club — A Collection of Absurd Ideas"
+    },
+    {
+      "id": "balikpapan_indie",
+      "name": "Balikpapan indie",
+      "family": "rock_punk",
+      "lineage": "Balikpapan indie: Unwell — Unwell (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass"
+      ],
+      "description": "Balikpapan alternative/indie rock and shoegaze, represented by Unwell’s 2021 release. Wendra’s positively credited guitar, bass and vocal roles supply this reduced recording core; no drummer is added from genre expectations.",
+      "exemplars": "Unwell — Unwell (2021)"
+    },
+    {
+      "id": "balkan_beats",
+      "name": "Balkan beats",
+      "family": "electronic",
+      "lineage": "Balkan beats: Robert Šoko — BalkanBeats Berlin. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "electronicDance.continental",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "description": "Balkan-beats dance remix production, anchored to Robert Šoko’s Berlin club practice of mixing traditional Balkan tunes with electronic beats. A sampler models beat programming and sampled brass/folk material; this branch does not posit live brass players or singers.",
+      "exemplars": "Robert Šoko — BalkanBeats Berlin"
+    },
+    {
+      "id": "ballet_class",
+      "name": "Ballet class music",
+      "family": "classical",
+      "lineage": "Ballet class music: Robert Long — Ballet Etudes (2000), Etudes II (2005), Etudes Volume 3 (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Functional piano accompaniment for ballet barre and center exercises, represented by Robert Long’s Ballet Etudes albums. The authored solo-piano recipe keeps clear phrase lengths and repeatable exercise pacing, rather than modeling a theatrical ballet orchestra.",
+      "exemplars": "Robert Long — Ballet Etudes (2000), Etudes II (2005), Etudes Volume 3 (2013)"
+    },
+    {
+      "id": "baltimore_indie",
+      "name": "Baltimore indie",
+      "family": "rock_punk",
+      "lineage": "Baltimore indie: Balkan Falcon — MMishering Light (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Baltimore indie/post-punk, represented by Balkan Falcon’s MMishering Light. Guitar, bass and drums are directly credited, as are vocal roles for all three members; the authored group-voice configuration does not claim an exact simultaneous singer count on any track.",
+      "exemplars": "Balkan Falcon — MMishering Light (2018)"
+    },
+    {
+      "id": "band_organ",
+      "name": "Band organ music",
+      "family": "vernacular",
+      "lineage": "Band organ music: Glen Echo Park — Wurlitzer 165 band-organ roll repertoire. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "barrel_organ"
+      ],
+      "description": "Mechanical carousel-band-organ repertoire, anchored to Glen Echo Park’s Wurlitzer Style 165. The source documents perforated paper-roll playback. Existing fairground-organ form, carousel dance/march programme and mixed-rank/percussion pins supply an authored composite timbre without claiming reproduction of that precise mechanism or inventing live musicians.",
+      "exemplars": "Glen Echo Park — Wurlitzer 165 band-organ roll repertoire"
+    },
+    {
+      "id": "banda_carnavalera",
+      "name": "Banda carnavalera",
+      "family": "vernacular",
+      "lineage": "Banda carnavalera: La Carnavalera de Samuel González — Luces de Invierno, Parque de la Consolación (2026). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "carnivalProcessional",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "trombone",
+        "tuba"
+      ],
+      "description": "Mexican carnival/festival banda, represented by La Carnavalera de Samuel González. The selected instrumental core uses only the trumpet, trombone and tuba roles positively named by Mexico City’s cultural authority; additional percussion or singers are not supplied from assumptions.",
+      "exemplars": "La Carnavalera de Samuel González — Luces de Invierno, Parque de la Consolación (2026)"
+    },
+    {
+      "id": "banda_militar",
+      "name": "Banda militar",
+      "family": "vernacular",
+      "lineage": "Banda militar: Banda Instrumental de la III DIVMÑA — Tattoo Militar y Concierto, Valdivia. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "groovePercussion.americanMarching",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "trombone",
+        "clarinet",
+        "saxophone",
+        "bass_drum"
+      ],
+      "description": "Military instrumental-band ceremonial repertoire, represented by the Chilean Army’s III DIVMÑA band in Valdivia. A reduced brass, reed and bass-drum core uses instrument specialties expressly listed by the Army’s musicians’ admission page, with march articulation authored for this recipe.",
+      "exemplars": "Banda Instrumental de la III DIVMÑA — Tattoo Militar y Concierto, Valdivia"
+    },
+    {
+      "id": "banda_peruana",
+      "name": "Banda peruana",
+      "family": "vernacular",
+      "lineage": "Banda peruana: Banda Sinfonía Junín de Jauja. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "carnivalProcessional",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "clarinet",
+        "saxophone",
+        "trumpet",
+        "euphonium",
+        "trombone",
+        "tuba",
+        "bass_drum"
+      ],
+      "description": "Peruvian popular wind-band festive practice, anchored to the Ministry’s account of Andean and coastal community bands and the recognized Sinfonía Junín de Jauja. Reeds, brass and bass drum form an authored reduced core of the explicitly described instrumentation.",
+      "exemplars": "Banda Sinfonía Junín de Jauja"
+    },
+    {
+      "id": "bandinhas",
+      "name": "Bandinhas",
+      "family": "vernacular",
+      "lineage": "Bandinhas: Os Atuais — Nossas Canções Instrumentais (vol.37). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "trombone",
+        "saxophone"
+      ],
+      "description": "Southern Brazilian bandinhas/bailão dance-band practice, represented by Os Atuais and its documented instrumental repertoire. Guitar, bass, drums and brass/reed roles are positively credited; this recipe selects the instrumental concert/album branch and does not infer accordion from German ancestry.",
+      "exemplars": "Os Atuais — Nossas Canções Instrumentais (vol.37)"
+    },
+    {
+      "id": "bandolim",
+      "name": "Bandolim music",
+      "family": "vernacular",
+      "lineage": "Bandolim music: Hamilton de Holanda — 01 Byte 10 Cordas (2005). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "improvOnFrame.stringImprov",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "bandolim"
+      ],
+      "description": "Brazilian bandolim-centered instrumental practice, represented by Hamilton de Holanda’s 01 Byte 10 Cordas solo release. The selected five-course, ten-string construction requires an explicit optional string-course variant; old four-course defaults remain unchanged.",
+      "exemplars": "Hamilton de Holanda — 01 Byte 10 Cordas (2005)"
+    },
+    {
+      "id": "bandoneon",
+      "name": "Bandoneon music",
+      "family": "vernacular",
+      "lineage": "Bandoneon music: Dino Saluzzi — Albores (ECM, 2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "improvOnFrame",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "bandoneon"
+      ],
+      "description": "Bandoneon-centered contemporary instrumental music, represented by Dino Saluzzi’s Albores solo recording. Bellows-shaped phrasing and a single free-reed timbre form the authored core, distinct from tango-orchestra scoring.",
+      "exemplars": "Dino Saluzzi — Albores (ECM, 2020)"
+    },
+    {
+      "id": "bandung_indie",
+      "name": "Bandung indie",
+      "family": "rock_punk",
+      "lineage": "Bandung indie: Minor Mirror — Feeling Empty: Semua Sia-Sia / Tak Peduli (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Bandung indie/punk rock, represented by Minor Mirror’s Feeling Empty album core on tracks without listed guests. Danisafher vocals, Hoyazmirror and Wildan guitars, Egoy bass and Handy drums provide documented roles for an authored amplified arrangement.",
+      "exemplars": "Minor Mirror — Feeling Empty: Semua Sia-Sia / Tak Peduli (2024)"
+    },
+    {
+      "id": "bandura",
+      "name": "Bandura music",
+      "family": "vernacular",
+      "lineage": "Bandura music: Julian Kytasty — Kozachok, Songs of Truth (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "improvOnFrame.stringImprov",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "bandura"
+      ],
+      "description": "Ukrainian bandura-centered instrumental repertoire, represented by Julian Kytasty’s Kozachok on Songs of Truth. The Smithsonian track explicitly credits bandura and marks the piece instrumental, separating this dance-tune branch from sung kobzar epics on the same album.",
+      "exemplars": "Julian Kytasty — Kozachok, Songs of Truth (2025)"
+    },
+    {
+      "id": "bangalore_indie",
+      "name": "Bangalore indie",
+      "family": "rock_punk",
+      "lineage": "Bangalore indie: Mahesh — Accept EP (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano"
+      ],
+      "description": "Bangalore indie singer-songwriter band production, represented by Mahesh’s Accept EP. Credits establish vocals, guitars, bass, drums and piano; this authored core omits the additionally credited electric-piano/organ roles rather than guessing their hardware.",
+      "exemplars": "Mahesh — Accept EP (2018)"
+    },
+    {
+      "id": "banjo",
+      "name": "Banjo music",
+      "family": "vernacular",
+      "lineage": "Banjo music: Tony Trischka with Bill Evans — Banjoland, Classic Banjo from Smithsonian Folkways. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "improvOnFrame.stringImprov",
+      "axes": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "banjo_5_string"
+      ],
+      "description": "Banjo-centered American instrumental repertoire, represented by Tony Trischka and Bill Evans’s Banjoland duet. Smithsonian liner notes identify Joe Morley’s1919classic-banjo piece, Trischka’s lead and Evans’s accompaniment. One five-string-banjo timbre models their shared role without claiming one performer; three-finger playing and classic-period setup are authored choices, not claimed source hardware.",
+      "exemplars": "Tony Trischka with Bill Evans — Banjoland, Classic Banjo from Smithsonian Folkways"
     }
   ]
 }

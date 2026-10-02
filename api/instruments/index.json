@@ -1,5 +1,5 @@
 {
-  "count": 1470,
+  "count": 1471,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8820,6 +8820,12 @@
       "name": "Saxophone section (alto and two tenors)",
       "family": "wind",
       "href": "instruments/saxophone_section_alto_two_tenors.json"
+    },
+    {
+      "id": "pipe_band_snare",
+      "name": "Scottish pipe-band snare drum",
+      "family": "percussion",
+      "href": "instruments/pipe_band_snare.json"
     }
   ]
 }

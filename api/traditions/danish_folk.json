@@ -3,9 +3,9 @@
   "name": "Danish folk",
   "family": "vernacular",
   "lineage": "Danish folk includes inherited dance tunes and contemporary roots ensembles. Trio Mio’s documented Scandinavian practice supplies this selected modern branch: fiddle, piano and guitar working between composed tunes and improvisation.",
-  "recipe": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, modern bright 17 ply hard rock maple Asian spruce hokkaido source grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 392,
-  "score": 26.247,
+  "recipe": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 384,
+  "score": 26.593,
   "config": {
     "traditions": [
       "danish_folk"
@@ -25,7 +25,7 @@
           "bowed_technique": 0.39,
           "fiddle_strings": 1.1365,
           "fiddle_bow": 2.6365,
-          "fiddle_mute": 0.13374999999999998,
+          "fiddle_mute": 0.23875,
           "fiddle_articulation": 0.0225,
           "fiddle_string_configuration": 0
         }
@@ -36,7 +36,7 @@
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "fazioli",
-          "piano_hammer": "renner_blue_hammer",
+          "piano_hammer": "renner_standard_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -46,13 +46,13 @@
         "scores": {
           "keyboard_technique": -0.05,
           "grand_piano_size": 0.01125,
-          "grand_piano_brand": 1.35,
-          "piano_hammer": 2.5865,
+          "grand_piano_brand": 1.3815,
+          "piano_hammer": 2.66,
           "piano_rim": 2.8075,
-          "piano_soundboard": 2.56625,
+          "piano_soundboard": 2.67125,
           "piano_pinblock": 2.5205,
           "piano_plate": 2.5865,
-          "piano_pitch_standard": 3.579
+          "piano_pitch_standard": 3.6105
         }
       },
       {
