@@ -3447,10 +3447,15 @@ def test_substituted_end_word_reaches_the_loop():
     # asks is unanswered and the run certifies. MEASURED: success, 0 rounds,
     # 1 mandated = 1 judged + 0 refused. superseded: no_progress after 1
     # round with L1/L2/L3 unjudged and coverage uncertified.
+    # 2026-10-02 (MISSING.md M-317, owner ruling: a group is judged at the
+    # words it binds): bay~pier shares no sound, and it held only through
+    # other words of the two lines. It is a violation now, so the stub
+    # repairs L2 in one round (`pier` -> `yea`) before the run certifies.
+    # superseded: success in 0 rounds.
     lr = revise_loop(R, draft, m12)
     check("on the free-L4 mandate nothing the mandate asks is unknown any "
           "more, so the run stops SUCCESS and certifies",
-          lr.stop_reason == "success" and len(lr.rounds) == 0
+          lr.stop_reason == "success" and len(lr.rounds) == 1
           and lr.unresolved == [] and lr.coverage["certified"] is True
           and (lr.coverage["pairs_mandated"], lr.coverage["pairs_judged"],
                lr.coverage["pairs_refused"]) == (1, 1, 0),
@@ -3460,11 +3465,13 @@ def test_substituted_end_word_reaches_the_loop():
     # dictionary reads, still a refusal under rule 5 -- holds the pair
     # unjudged. MEASURED: no_progress after 1 round, L4 unresolved and
     # unjudged with notes only, rhyme:3:4 refused, coverage uncertified.
+    # 2026-10-02 (M-317): the bay~pier repair above costs this run its
+    # first round too, so it stops after 2. superseded: 1 round.
     m34 = SC.mandate([[1, 2], [3, 4]], n_lines=4)
     lr34 = revise_loop(R, draft, m34)
     check("text-dependent unknowns receive a repair pass without turning "
           "notes into violations or certifying incomplete coverage",
-          lr34.stop_reason == "no_progress" and len(lr34.rounds) == 1
+          lr34.stop_reason == "no_progress" and len(lr34.rounds) == 2
           and lr34.unresolved == lr34.unresolved_unjudged
           and [b.line_no for b in lr34.unresolved] == [4]
           and not any(f.severity == 'flag' for b in lr34.unresolved
