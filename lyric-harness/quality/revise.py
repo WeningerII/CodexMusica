@@ -1579,7 +1579,7 @@ class Reviser:
     # -- grading the mandate ----------------------------------------------
 
     def grade(self, lines, mandate=None, profile=None, sections=None, *,
-              _only_groups=None, _verdicts_only=False):
+              _only_groups=None, _verdicts_only=False, _moot=None):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -2290,6 +2290,14 @@ class Reviser:
         _asked = ([v for v in _open
                    if v["why"] and "REPEAT" not in v["relations"]]
                   if _verdicts_only else verdicts)
+        # `_moot` (a trial grade only): obligations (i, j, group) whose
+        # answer the caller reads the same satisfied or undecided -- it left
+        # them undecided on the draft before the change, and the change was
+        # not asked to answer them. One that cannot end FAILED is left
+        # undecided without the search (`can_stay_open`). Conjunctive only:
+        # the disjunctive rule reads per-line answers across obligations.
+        if not (_verdicts_only and self.rdecl.overlap_rule == "conjunctive"):
+            _moot = None
         if _asked:
             from quality import relations as _RF
             # THE BOUND WORDS (owner ruling 2026-10-02): a group binds a
@@ -2341,6 +2349,24 @@ class Reviser:
                     if v["why"] and "REPEAT" not in v["relations"]:
                         v["why"] = None
                 elif v["why"] and "REPEAT" not in v["relations"]:
+                    if _moot and (*v["lines"], v["group"]) in _moot:
+                        _open_n = [n for n in (getattr(_wvp, "undecided", {})
+                                               .get(tuple(sorted(v["lines"])))
+                                               or ())
+                                   if _RF.REGISTRY[n].normative
+                                   not in ("forbidden", "deprecated")]
+                        if (_open_n and hasattr(_wvp, "can_stay_open")
+                                and _wvp.can_stay_open(v["lines"], _open_n)):
+                            i, j = v["lines"]
+                            k = v["group"]
+                            refusals.append({"lines": (i, j), "endwords": v["endwords"],
+                                             "unreadable": [], "groups": [m.labels[k]],
+                                             "reason": "the default relation remains unresolved in schema(s): "
+                                             + ", ".join(sorted(_open_n))})
+                            refused.add((i, j, k))
+                            unknown.update(((i, k), (j, k)))
+                            _fan_unknown.add(id(v))
+                            continue
                     # A GROUP BOUND AWAY FROM THE LINE END (owner ruling
                     # 2026-10-02, the bound words): most schemas stand only
                     # at the line's last word, so the instance route above
@@ -4392,7 +4418,7 @@ class Reviser:
                             (i, j, k) in requested_obligations)
                        for i, j, k in obligations)
 
-        baseline_bad = baseline_unknown = None
+        baseline_bad = baseline_unknown = moot = None
         kept, refused = [], []
         for word in dict.fromkeys(candidates):
             text = swap_at_slot(lines[line - 1], slot, word)
@@ -4422,8 +4448,14 @@ class Reviser:
                                       _verdicts_only=True)
                 baseline_bad = failures(baseline)
                 baseline_unknown = set(map(tuple, baseline.get("refused_obligations", ())))
+                # An obligation the draft already left undecided and this
+                # word was not asked to answer is no regression whether the
+                # trial holds it or leaves it undecided: only FAILED moves
+                # the verdict below, so `grade` skips the search there.
+                moot = {o for o in baseline_unknown if not demanded((o,))}
             graded = self.grade(trial, m, profile=profile, sections=sections,
-                                _only_groups=relevant, _verdicts_only=True)
+                                _only_groups=relevant, _verdicts_only=True,
+                                _moot=moot)
             bad = failures(graded)
             unknown = set(map(tuple, graded.get("refused_obligations", ())))
             unanswered = demanded(bad | unknown)

@@ -1883,7 +1883,7 @@ def enumerate_spans(rule, stream, max_span=8):
         if not ids:
             continue
         try:
-            yield from (replace(sp, search_k=sp.search_k * k)
+            yield from (sp if k == 1 else replace(sp, search_k=sp.search_k * k)
                         for sp in _spans_at(rule, stream, tuple(ids), origin))
             seen_any = True
         except NoReferent:
@@ -1893,6 +1893,29 @@ def enumerate_spans(rule, stream, max_span=8):
         raise NoReferent(
             f"anchor {rule.anchor!r} at locus {rule.locus!r} has no referent at "
             f"any of the {skipped} loci in this declaration")
+
+
+def _spans_on_lines(rule, stream, lines):
+    """`enumerate_spans` restricted to the loci on the 0-based `lines`, in
+    its order -> [Span], or None when no locus visited answered (only the
+    whole song can then say whether the rule refuses). A span carries its
+    locus's origin, `L<line>.…`, which is the line `_span_line` gives it, so
+    a locus whose origin names another line is skipped; one whose origin
+    names none is kept for the caller's own line filter."""
+    out, seen_any = [], False
+    for ids, origin, k in _loci(rule, stream):
+        if not ids:
+            continue
+        head = origin.split(".", 1)[0][1:] if origin.startswith("L") else ""
+        if head.isdigit() and int(head) not in lines:
+            continue
+        try:
+            for sp in _spans_at(rule, stream, tuple(ids), origin):
+                out.append(sp if k == 1 else replace(sp, search_k=sp.search_k * k))
+            seen_any = True
+        except NoReferent:
+            continue
+    return out if seen_any else None
 
 
 def _spans_at(rule, stream, ids, origin):
@@ -3023,7 +3046,7 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
 
 def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
             keep=("true", "none"), tally=None, skip_line_pairs=None,
-            requested_line_pairs=None, bind=None):
+            requested_line_pairs=None, bind=None, bind_side=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
 
     THE ALGORITHM
@@ -3075,9 +3098,18 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
     95% of the any-reading resolver's time. Same rule as `requested_line_
     pairs`: pair-local schemas only, since a figure is assembled from every
     edge.
+
+    `bind_side(span)`, given only with `bind`, is a NECESSARY condition for
+    a span to pass `bind` with any requested partner: a span it refuses is
+    dropped before bucketing, so it costs neither a bucket key nor a `bind`
+    call per partner. It must depend on the span alone (its line and its
+    units), so a span and its mirror share a verdict and every candidate it
+    removes is one `bind` would have refused.
     """
     if bind is not None and not pair_scope_representable(schema):
         raise ValueError("a bind predicate requires a pair-local schema")
+    if bind_side is not None and bind is None:
+        raise ValueError("bind_side narrows a bind predicate; pass both")
     if requested_line_pairs is not None and not pair_scope_representable(schema):
         raise ValueError("candidate projection requires a pair-local schema")
     if "stub_resolution" in schema.capabilities() \
@@ -3147,10 +3179,26 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
                 f"declaring only the first would not make this schema run.")
         return Refusal(schema.name, miss[0], detail, missing=miss, kind=kind,
                        vacuous=vac)
+    want = ({ln for pr in requested_line_pairs for ln in pr
+             if ln is not None}
+            if requested_line_pairs is not None else None)
     try:
-        A = list(enumerate_spans(schema.spans[0], stream))
-        B = (A if schema.spans[0] == schema.spans[1]
-             else list(enumerate_spans(schema.spans[1], stream)))
+        # A pair query reads its own lines first. When one of their loci
+        # answers, no other line can turn the rule into a refusal
+        # (`enumerate_spans` refuses only with no referent ANYWHERE) and
+        # the filter below would keep exactly these spans, in this order;
+        # otherwise the whole song is enumerated as before.
+        A = (_spans_on_lines(schema.spans[0], stream, want)
+             if want is not None else None)
+        if A is None:
+            A = list(enumerate_spans(schema.spans[0], stream))
+        if schema.spans[0] == schema.spans[1]:
+            B = A
+        else:
+            B = (_spans_on_lines(schema.spans[1], stream, want)
+                 if want is not None else None)
+            if B is None:
+                B = list(enumerate_spans(schema.spans[1], stream))
     except NoReferent as e:
         # NOT a capability refusal: `missing` stays empty and `.complete` is
         # False, because the span rule found no referent in a declaration that
@@ -3163,11 +3211,13 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
         # loop asks each span's line for its requested partners), so the
         # rest are dropped BEFORE they are bucketed. Every line is still
         # enumerated above, so a span refusal anywhere refuses as before.
-        want = {ln for pr in requested_line_pairs for ln in pr
-                if ln is not None}
         A = [sp for sp in A if _span_line(sp, stream) in want]
         B = A if schema.spans[0] == schema.spans[1] else [
             sp for sp in B if _span_line(sp, stream) in want]
+    if bind_side is not None:
+        A = [sp for sp in A if bind_side(sp)]
+        B = A if schema.spans[0] == schema.spans[1] else [
+            sp for sp in B if bind_side(sp)]
     a_keys = {s.idx for s in A}
     b_keys = a_keys if B is A else {s.idx for s in B}
 
@@ -7358,6 +7408,41 @@ class VocabularyPairResults(dict):
                 still.append(name)
         return satisfied, still
 
+    def can_stay_open(self, pair, names):
+        """-> True when the any-reading search for `pair` cannot answer False
+        under some schema in `names`: that schema ends True or undecided, so
+        the pair ends satisfied or undecided whatever the others say. A caller
+        to whom those two answers are the same (`revise.Reviser.declared_offer`
+        on an obligation the draft already left undecided) need not search.
+        An answer already remembered is read; otherwise only the default
+        reading is judged, and a search with more combinations than its cap
+        (`resolve_line_pair`'s None) or no combination at all is open.
+        """
+        pair = tuple(sorted(pair))
+        if self._resolve_ctx is None:
+            return False
+        full = self._full_resolve_key()
+        lkey = None
+        stream, _ = self._resolve_ctx()
+        if self._resolve_key is not None:
+            ld = _local_stream_digest(stream, pair)
+            if ld is not None:
+                rk = self._resolve_key
+                lkey = ("local", rk[0], rk[2], rk[3], rk[5], ld)
+        pb = self._bound.get(pair)
+        for name in names:
+            local = pair_scope_representable(REGISTRY[name])
+            key = ((lkey, pair, name, pb) if local and lkey is not None
+                   else (full, pair, name, pb) if full is not None else None)
+            hit = _RESOLVE_MEMO.get(key) if key is not None else None
+            if hit is not None:
+                if hit[0] is not False:
+                    return True
+                continue
+            if reading_search_open(REGISTRY[name], stream, pair, bound=pb):
+                return True
+        return False
+
 
 def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
                            requested_pairs=None, line_status=None,
@@ -7484,25 +7569,30 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     _ctx_box["stream"] = stream
     out, undecided, refused, lines = {}, {}, {}, {}
     open_pairs = set(requested_pairs) if settle else None
-    for name in names:
-        if settle and not open_pairs:
-            break
-        ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=True,
-                            requested_pairs=(open_pairs if settle
-                                             else requested_pairs),
-                            bound=bound or None)
-        if isinstance(ps, Refusal):
-            refused[name] = ps
-            continue
-        for pair in ps:
-            out.setdefault(pair, []).append(name)
-        if settle and REGISTRY[name].normative not in ("forbidden",
-                                                       "deprecated"):
-            open_pairs.difference_update(ps)
-        for pair in getattr(ps, "undecided", ()):
-            undecided.setdefault(pair, []).append(name)
-        for li in getattr(ps, "lines", ()):
-            lines.setdefault(li, []).append(name)
+    global _ACTIVE_SIGS
+    _prev_sigs, _ACTIVE_SIGS = _ACTIVE_SIGS, [stream, None]
+    try:
+        for name in names:
+            if settle and not open_pairs:
+                break
+            ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=True,
+                                requested_pairs=(open_pairs if settle
+                                                 else requested_pairs),
+                                bound=bound or None)
+            if isinstance(ps, Refusal):
+                refused[name] = ps
+                continue
+            for pair in ps:
+                out.setdefault(pair, []).append(name)
+            if settle and REGISTRY[name].normative not in ("forbidden",
+                                                           "deprecated"):
+                open_pairs.difference_update(ps)
+            for pair in getattr(ps, "undecided", ()):
+                undecided.setdefault(pair, []).append(name)
+            for li in getattr(ps, "lines", ()):
+                lines.setdefault(li, []).append(name)
+    finally:
+        _ACTIVE_SIGS = _prev_sigs
     res = VocabularyPairResults(out, undecided, refused, lines)
     if memo_key is not None:
         if len(_WVP_MEMO) >= _WVP_MEMO_CAP:
@@ -8760,7 +8850,7 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
         k = (i, j, sigs[i], sigs[j])
         return k + bound[(i + 1, j + 1)] if (i + 1, j + 1) in bound else k
     if memo is not None:
-        sigs = [_line_sig(stream, i) for i in range(len(stream.lines))]
+        sigs = _stream_line_sigs(stream)
         for i, j in measured:
             k = mkey(i, j)
             if k in memo["store"]:
@@ -8782,7 +8872,7 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
                      and stream.supply("stub_resolution").state == "absent")):
         edge_slot = _pair_memo_slot(schema, stream)
     if edge_slot is not None:
-        sigs = sigs or [_line_sig(stream, i) for i in range(n_lines)]
+        sigs = sigs or _stream_line_sigs(stream)
         edges = edge_slot.setdefault("edges", collections.OrderedDict())
         for i in range(n_lines):
             for j in range(i + 1, n_lines):
@@ -8807,11 +8897,33 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
         s1, s2 = (sa, sb) if la == a else (sb, sa)
         return (_span_binds(stream, s1, a - 1, ta, last)
                 and _span_binds(stream, s2, b - 1, tb, last))
+    side = pair_local and bool(bound) and requested_pairs is not None
+    partners = {}
+    for i, j in (measured if side else ()):
+        partners.setdefault(i + 1, []).append((i + 1, j + 1))
+        partners.setdefault(j + 1, []).append((i + 1, j + 1))
+    def span_side(sp):
+        # `span_bind` asked of ONE span: one that covers its line's bound
+        # word for no requested partner passes `span_bind` with none, and
+        # only a requested partner is ever a candidate.
+        ln = _origin_line(sp)
+        if ln is None:
+            return True
+        for a, b in partners.get(ln, ()):
+            if (a, b) not in bound:
+                return True
+            ta, tb = bound[(a, b)]
+            if whole_line and not (ta is None and tb is None):
+                continue
+            if _span_binds(stream, sp, ln - 1, ta if ln == a else tb, last):
+                return True
+        return False
     out = realise(schema, stream,
                   skip_line_pairs=(set(skip) | set(reuse)) or None,
                   requested_line_pairs=(set(measured)
                       if pair_local and requested_pairs is not None else None),
-                  bind=(span_bind if pair_local and bound else None))
+                  bind=(span_bind if pair_local and bound else None),
+                  bind_side=(span_side if side else None))
     if isinstance(out, Refusal):
         return out if keep_refusal else frozenset()
     if edge_slot is not None:
@@ -9103,6 +9215,23 @@ def _pair_memo_slot(schema, stream):
 #: `build_stream`'s cut rule (line 837), quoted here rather than re-derived,
 #: and pinned equal to it by `test_replay_memo.py` §7.
 _HYPHEN_CUT = re.compile(r"[\w’'](-)\s*$")
+
+
+#: [stream, sigs or None] while `whole_vocabulary_pairs` asks every schema
+#: of one stream, which nothing mutates in between: its lines' digests are
+#: taken once instead of once per schema. None outside that loop.
+_ACTIVE_SIGS = None
+
+
+def _stream_line_sigs(stream):
+    """-> [`_line_sig(stream, i)` for every line], read once per stream
+    inside `whole_vocabulary_pairs`' loop and fresh everywhere else."""
+    sc = _ACTIVE_SIGS
+    if sc is not None and sc[0] is stream:
+        if sc[1] is None:
+            sc[1] = [_line_sig(stream, i) for i in range(len(stream.lines))]
+        return sc[1]
+    return [_line_sig(stream, i) for i in range(len(stream.lines))]
 
 
 def _line_sig(stream, li):
@@ -9420,6 +9549,27 @@ def cached_builder(build):
             memo[key] = build(phon)
         return memo[key]
     return get
+
+
+def reading_search_open(schema, stream, pair, cap=READING_COMBO_CAP,
+                        bound=None):
+    """-> True when `resolve_line_pair` on these arguments cannot answer
+    False: the default reading is refused or undecided for a reason that is
+    not a reading, or there are no combinations to try, or more than `cap`.
+    Read off the same first judgement `resolve_line_pair` makes, without
+    trying a combination."""
+    pair = tuple(sorted(pair))
+    bmap = {pair: bound} if bound is not None else None
+    causes = {}
+    got = line_pairs_for(schema, stream, keep_refusal=True,
+                         requested_pairs={pair}, causes=causes, bound=bmap)
+    if isinstance(got, Refusal):
+        return True
+    verdict = got.verdict(pair)
+    if verdict is not None:
+        return verdict is True
+    combos, complete = reading_combos(stream, causes.get(pair, ()), cap)
+    return not combos or not complete
 
 
 def resolve_line_pair(schema, stream, pair, build, cap=READING_COMBO_CAP,
