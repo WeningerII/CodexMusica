@@ -1,11 +1,49 @@
 # Revise-loop redesign — status
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
-Last update: 2026-10-02. **The debate is passed.** Round 2 checked version 3
-against the code. Both judges ruled that it passes once their changes are
-applied, with no further owner question. The design is now **version 4**:
-version 3 plus the binding amendments in `LOOP_REDESIGN.md` §2.8.
-**Phase 3 (build) is starting.**
+Last update: 2026-10-02. **Phase 3 (build) is under way.** The debate passed,
+and the design is version 4.
+
+## Phase 3 progress
+
+| step | what | state |
+|---|---|---|
+| 1 | `verify` stops building offer menus it does not read (§2.6) | **built and tested locally**; long suites not yet run; not pushed |
+| 2 | batch verdicts, option B (§2.2, §2.8 D): `not_applied` dispositions in the harness; `folded` by journal diff in the connector | **built**; tests written, not yet run in full |
+| 3 | group menus (§2.4, §2.8 G) | not started |
+| 4 | the saved position, or cursor (§2.0, §2.8 A-C) | not started |
+| 5 | safe points, exit 5, the stall count (§2.3, §2.8 E) | not started |
+
+**Step 1, measured.**
+
+- `quality/test_loop_redesign.py` §1 passes all 7 checks on the new code.
+- On the old code it fails 4 of them:
+  - `verify` asks for the full offer;
+  - it runs the whole-lexicon search;
+  - both mutants pass unseen.
+- The equality half compares 19 `verify` calls, including every call a stub-driven loop makes, key for key and `reasons` byte for byte.
+- `revise.py`'s change computes `verify`'s three fields by the full brief's own code and skips only the offer. This is stricter than the per-word rule version 4 describes. `LOOP_REDESIGN.md` will record that.
+
+**Step 2, checked by hand so far.**
+
+- On the 4-line AABB reproduction, the connector now renders L4 as `pending: waiting on L1, L2, the question asked now`, not `unknown` / `unverified`.
+- On an 8-line anaphora fixture, accepting L1 closes the finding on L3, L5 and L7. Each gets a `not_applied` row naming L1, in its own list; `outcomes` is untouched.
+- Six connector tests pinned the old `unknown` rows, which is the defect. They are repinned with dated notes that keep the old values visible.
+
+## Pre-build measurements: one continuation's parts, declared relation, alone on the box
+
+| lines | run | re-brief | verify (no menus) | next question's exact menu | total |
+|---|---|---|---|---|---|
+| 24 | cold | 25.8 s | 22.5 s | 197.6 s (0 words offered) | 249.1 s |
+| 24 | warm | 22.1 s | 23.5 s | 160.5 s | 209.6 s |
+| 104 | cold | 248.5 s | 241.8 s | 230.1 s (20 words) | **724.7 s** |
+| 104 | warm | 225.1 s | 231.7 s | 211.2 s | **672.3 s** |
+| 60 | — | running | | | |
+
+**So with every fix in this design, one 104-line continuation still does not
+fit a 600 s call, cold or warm, even with a declared relation.** That is the
+grader's cost, which stays under M-240 by the owner's ruling (Q7b).
+`LOOP_REDESIGN.md` §2.7 says so.
 
 ## Debate round 2 (2026-10-02)
 
