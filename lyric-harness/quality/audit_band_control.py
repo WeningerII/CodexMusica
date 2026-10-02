@@ -362,13 +362,34 @@ def main(n=200):
 #: AND AGAIN THE SAME DAY when `nucleus_agreement` became "licensed": the
 #: band's nucleus channel is a predicate now, so band ON again drops edges band
 #: OFF keeps — whitman on ~~36~~ 27, sonnet on ~~441~~ 431; OFF rows held.
+#: REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5: a
+#: small word may be sung stressed). ALL FOUR CAPTURE COUNTS MOVED, BOTH ARMS,
+#: and the localiser's third cell -- the scorer's INPUT, not the band -- is
+#: where: `infer_chains` reads `line_anchors(lex, line)`, whose default now
+#: appends a small end word's dictionary-STRESSED readings after its demoted
+#: ones, so `best_score` maximises over more hypotheses on exactly the lines
+#: ending in `it`/`with`/`and`. MEASURED, not inferred: re-running this file's
+#: own statistic with `line_anchors(small_end="weak")` forced (the pre-ruling
+#: anchors) gives 36/27/441/431 exactly, so the whole move is that one change.
+#:   whitman_captured_off   ~~36~~ 43    24.0% -> 28.7%
+#:   whitman_captured_on    ~~27~~ 33    18.0% -> 22.0%
+#:   sonnet_captured_off    ~~441~~ 442  52.5% -> 52.6%
+#:   sonnet_captured_on     ~~431~~ 432  51.3% -> 51.4%
+#: WHICH LINES (`infer_chains`' 1-based numbers, both arms unless named): Whitman
+#: [16,17] it/it gains L15 `with` -> [15,16,17]; a new [94,95,97]
+#: it/with/wait; a new [117,118] and/hands; and band OFF only, [76,77] gains
+#: L79 `and`. That is +7 OFF and +6 ON. Sonnets: sonnet 9's [13,14]
+#: sits/commits gains L12 `destroys it` -> [12,13,14], +1 in each arm. Nothing left a
+#: chain. The OFF rows moved, and the 2026-09-16 note above already says what
+#: that means now: ingestion, null OR scorer, and here the scorer's anchor set.
+#: NOT TUNED: `captured_lines`, theta 0.82 and both declarations untouched.
 PINNED = {"whitman_lines": 150,
-          "whitman_captured_off": 36,   # REPINNED 2026-09-22 from ~~37~~
-          "whitman_captured_on": 27,    # REPINNED 2026-09-22 ~~16~~ ~~36~~
+          "whitman_captured_off": 43,   # REPINNED 2026-10-01 ~~37~~ ~~36~~
+          "whitman_captured_on": 33,    # REPINNED 2026-10-01 ~~16~~ ~~36~~ ~~27~~
           "sonnet_items": 60,
           "sonnet_lines": 840,
-          "sonnet_captured_off": 441,
-          "sonnet_captured_on": 431}    # REPINNED 2026-09-22 ~~406~~ ~~441~~
+          "sonnet_captured_off": 442,   # REPINNED 2026-10-01 ~~441~~
+          "sonnet_captured_on": 432}    # REPINNED 2026-10-01 ~~406~~ ~~441~~ ~~431~~
 
 #: READING ORDER for the check's report only -- shape first, then the two arms
 #: per corpus, so the band-OFF control sits next to the band-ON figure it
