@@ -35,17 +35,24 @@ written and waiting for its tests to run.
 
 ### Validation of steps 1-4 (run alone, no edits in flight)
 
+Code under test: this branch at `d31dfbb4` (steps 1-4), before the base-branch merge.
+
 | suite | result |
 |---|---|
-| `quality/test_loop_redesign.py` (new, 5 sections) | running |
-| `quality/test_revise.py` | running |
+| `quality/test_loop_redesign.py` (new) | **sections 1-4: 33 pass, 0 fail.** Section 5: 7 pass, then a bug **in the test** crashed the last T7 case (it emptied the state file before reading it). Fixed in the commit after `dbeb6d56`; that case is still to rerun. |
+| `quality/test_revise.py` | **exit 0** (1,133 s) |
 | `quality/test_loop.py` | **176 pass, 0 fail** (704 s) |
 | `quality/test_production_journal.py` | **20 tests, OK** (25 s) |
-| `quality/test_verbs.py`, `test_replay_memo.py`, the connector suites | running |
+| `quality/test_verbs.py` | 196 pass, 0 fail so far; still running |
+| `quality/test_replay_memo.py` | queued behind `test_verbs` |
+| `mcp/test.mjs` | **183 pass, 2 fail** (765 s). See below. |
+| `mcp/test_run_continuation.mjs` | **1 pass, then 1 fail** (624 s). See below. |
+| the other connector suites | running |
 
-Earlier runs had one failure each in `test_loop` and `test_revise`. Both came
-from `inspect.getsource` reading files I was editing while the suites ran.
-`test_loop` is clean on stable code; `test_revise` is being rerun.
+**The connector failures, by cause:**
+
+1. **Mine, fixed and pushed (`dbeb6d56`):** `mcp/test.mjs`'s M-236 check. A folded outcome row with no text of its own lost its answer. It now takes the answer on record. Not yet rerun.
+2. **Inherited from the base branch, not this branch:** `mcp/test.mjs`'s "lyric family" check (1 block where 2 were expected) and `test_run_continuation.mjs` (exit −1 where 4 was expected). Both are the **first `lyric_revise` of the 24-line seed-1 fixture running past the 600 s tool budget and being killed**. That matches the coordinator's account of PR #460's red `verify` check exactly (2,407 s on `362ca583`). The merge brings the base's speedups for that call, and both are rerun after it.
 
 **What the new tests show, so far:**
 
