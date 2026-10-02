@@ -31,3 +31,41 @@ prints `REPORT: 1 line(s) briefed — 0 FLAG, 1 NOTE`; the one note is MODAL_RHY
   which field, what verify() accepts do not move), and add a separate record of the groups
   whose only attribution is a note. The three renderers label those as holding with a
   predictable rhyme the loop still asks to change.
+
+## 2. The fix (2026-10-02)
+
+What the writer is asked to do does not change: same word, same place, same offered field,
+same forbidden modal head, and `verify()` still rejects a modal candidate. So no question for
+the owner was needed.
+
+- `quality/revise.py`: new `Brief.noted_groups` — `{label: (note codes)}` for a group in
+  `violated_groups` whose only attribution is NOTE findings (no flag, no incident graded
+  violation). `brief()` fills it by running `_violated_groups` once over the flag findings
+  and once per note finding; `violated_groups` itself is computed exactly as before. New
+  helper `held_note_standing(codes)`, used by `Brief.__str__`.
+- `lyric_harness.py` (`brief` report, "must answer group" lines) uses the same helper.
+- `quality/propose.py` (`_mandate_block`) writes the same sentence in its own words, since
+  that module imports nothing from `revise.py`. The two-place hint and the
+  "MORE THAN ONE PLACE ... IS VIOLATED" heading say "marked to change" / "ASKED TO CHANGE"
+  only when a noted group is present; otherwise they print exactly what they printed before.
+
+On the reproduction the line now reads:
+
+    must answer group A [1, 2]: L1 ('read') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+
+and the writer prompt adds ": this is the word to change". For HOMEOTELEUTON or SHARED_SUFFIX
+alone it reads "HOLDS, but carries NOTE <code>, which the loop still asks to change".
+A pair that fails keeps "VIOLATED".
+
+Standing rule 4: `comparator_fingerprint()` is `d8f5a5b15e17…` with and without the
+`lyric_harness.py` edit, so no memo is discarded.
+
+New test: `quality/test_revise.py` section 70,
+`test_a_holding_pair_with_a_pursued_note_is_not_violated` (8 checks: the label in all three
+renderers, the CLI run, plus controls that the field, the modal head and `verify()`'s
+rejection are unchanged and that a failing pair still says VIOLATED). Against the old source
+it gives 4 FAIL / 4 PASS (the 4 passes are the controls); against the new source 8 PASS.
+`quality/test_propose.py`'s stand-in `B` gained `noted_groups` (its field-set guard requires it).
+
+Suite runs (test_revise, test_propose, test_loop, test_production_revision, test_verbs,
+test_replay_memo) were still running at this commit; results follow in the next update.
