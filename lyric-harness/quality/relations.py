@@ -7113,6 +7113,51 @@ def _stream_digest(stream):
     return h.hexdigest()
 
 
+def _local_stream_digest(stream, pair):
+    """-> a digest of everything `stream` holds for the two lines of a 1-based
+    `pair`, or None when it cannot be spelled.
+
+    A pair-local schema (`pair_scope_representable`) judges a pair from the
+    units, tokens and frames of its own two lines, so this is its resolution's
+    key: two drafts that differ only in OTHER lines answer the same. Unit
+    indices are taken relative to the pair's first unit -- the syllable
+    distance between the two lines stays in the key, and an edit to a line
+    before both does not move it. A stream carrying a second declaration
+    (`alt`) is not spelled, and its caller keys on the whole draft (M-317)."""
+    if stream.alt or not stream.lines:
+        return None
+    la, lb = pair[0] - 1, pair[1] - 1
+    if not (0 <= la < len(stream.lines) and 0 <= lb < len(stream.lines)):
+        return None
+    ids = list(stream.lines[la]) + list(stream.lines[lb])
+    if not ids:
+        return None
+    off = min(ids)
+    rel = lambda i: (i - off) if isinstance(i, int) else i
+    fr = stream.frames
+    h = hashlib.sha1()
+    for li in (la, lb):
+        h.update(repr((
+            stream.text_lines[li] if li < len(stream.text_lines) else None,
+            stream.lexical_tokens[li] if li < len(stream.lexical_tokens) else None,
+            stream.line_status[li] if li < len(stream.line_status) else None,
+            [replace(stream.units[i], i=rel(i)) for i in stream.lines[li]],
+            sorted((t, tuple(rel(i) for i in v))
+                   for (ln, t), v in stream.tokens.items() if ln == li),
+            sorted(x for x in stream.unreadable if x[0] == li),
+            rel(fr.caesura.get(li)),
+            tuple(rel(i) for i in (fr.lifts.get(li) or ())),
+            rel(fr.refrain_tail.get(li)),
+            fr.hemistich.get(li),
+        )).encode())
+    h.update(repr((len(stream.lines), tuple(stream.line_stanzas),
+                   fr.caesura_source, fr.lift_source, fr.refrain_source,
+                   fr.beat, fr.beat_source, fr.bayt_source,
+                   sorted(stream.declaration.items(), key=repr),
+                   id(_stream_lexicon(stream)))).encode())
+    return h.hexdigest()
+
+
 def _wvp_key(text_lines, phon, sections, bearing, requested_pairs=None,
              line_status=None):
     """-> a hashable key for the memo, or None when one cannot be spelled."""
@@ -7191,11 +7236,26 @@ class VocabularyPairResults(dict):
         local = [n for n in names
                  if pair_scope_representable(REGISTRY[n])]
         whole = [n for n in names if n not in local]
+        # A PAIR-LOCAL schema's answer is keyed on the pair's own two lines
+        # (`_local_stream_digest`), so a draft that moved some OTHER line --
+        # every trial `declared_offer` grades -- reuses it rather than
+        # re-reading every combination of readings (M-317: on a 24-line
+        # revise, 16 resolutions of about 1.4 s each per trial).
+        lkey = None
+        if local and self._resolve_key is not None:
+            stream0, _ = self._resolve_ctx()
+            ld = _local_stream_digest(stream0, pair)
+            if ld is not None:
+                rk = self._resolve_key
+                lkey = ("local", rk[0], rk[2], rk[3], rk[5], ld)
         for name in local + whole:
             if satisfied and (first_only or name in whole):
                 break
             pb = self._bound.get(pair)
-            key = (full, pair, name, pb) if full is not None else None
+            if name in local and lkey is not None:
+                key = (lkey, pair, name, pb)
+            else:
+                key = (full, pair, name, pb) if full is not None else None
             hit = _RESOLVE_MEMO.get(key) if key is not None else None
             if hit is None:
                 stream, build = self._resolve_ctx()

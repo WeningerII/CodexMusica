@@ -2734,7 +2734,11 @@ class Reviser:
             raise ValueError(
                 f"ReviseDeclaration.group_merge must be 'report' or 'off', "
                 f"got {self.rdecl.group_merge!r}")
-        rep = self.grade(lines, m, profile=profile)
+        # THE SAME GRADE `inspect` RAN, sections and all: the collision set
+        # reads no section, but a grade asked under other coordinates misses
+        # every memo and resolves the whole draft's readings again (M-317;
+        # measured 34 s of a 24-line revise's first 71).
+        rep = self.grade(lines, m, profile=profile, sections=sections)
         _, endwords, _, matrix = self._matrix(lines, profile=profile)
         edges = {tuple(c["lines"]) for c in rep["collisions"]}
         th = self.decl.theta_rhyme
