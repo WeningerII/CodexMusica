@@ -1,0 +1,99 @@
+{
+  "id": "kora",
+  "name": "Kora",
+  "family": "global",
+  "lineage": "Catrin Finch and Seckou Keita — Clychau Dibon (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2010s kora, art Music. kora, concert harp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 155,
+  "score": 2.626,
+  "config": {
+    "traditions": [
+      "kora"
+    ],
+    "instruments": [
+      {
+        "id": "kora",
+        "slots": {
+          "plucked_traditional_technique": "plucked_fingerpicked",
+          "kora_strings": "kora_21_traditional",
+          "kora_resonator": "kora_calabash_full",
+          "kora_strings_mat": "kora_fishing_line",
+          "kora_top_skin": "kora_cowhide_canonical",
+          "kora_neck_wood": "kora_hardwood_local",
+          "kora_lineage": "kora_modern_concert"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.05,
+          "kora_strings": 0,
+          "kora_resonator": 0.39,
+          "kora_strings_mat": 0.063,
+          "kora_top_skin": 0.39,
+          "kora_neck_wood": 0.39,
+          "kora_lineage": 0.663
+        }
+      },
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 0.39,
+          "harp_pedals": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "kora": [
+        "plucked_traditional_technique",
+        "kora_strings",
+        "kora_resonator",
+        "kora_strings_mat",
+        "kora_top_skin",
+        "kora_neck_wood",
+        "kora_lineage"
+      ],
+      "concert_harp": [
+        "harp_strings",
+        "harp_pedals"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_fingerpicked",
+      "kora_strings": "kora_21_traditional",
+      "kora_resonator": "kora_calabash_full",
+      "kora_strings_mat": "kora_fishing_line",
+      "kora_top_skin": "kora_cowhide_canonical",
+      "kora_neck_wood": "kora_hardwood_local",
+      "kora_lineage": "kora_modern_concert",
+      "harp_strings": "harp_47_string",
+      "harp_pedals": "harp_double_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Israeli urban style formed in the 1970s among Yemenite, Iraqi, Moroccan and Turkish immigrant communities of south Tel Aviv and Jerusalem's Kerem HaTeimanim, circulated on kiosk cassettes ('musiqa qassetot') and codified by Zohar Argov, Daklon and arranger Moshe Ben-Mush — Hebrew lyrics sung with dense Arab-style silsulim melisma over 4/4 or 8/8 darbuka-and-bass grooves at 100-130 BPM, with electric guitar or bouzouki playing oud-derived maqam lines against synthesizer strings.",
   "recipe": "classic North African mid-1970s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, middle eastern classical art music khaleeji-iraqi song uzbek traditional music. thick, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium drone like modal qanun, goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, mahogany pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 865,
-  "score": 339.065,
+  "score": 334.325,
   "config": {
     "traditions": [
       "mizrahi",
@@ -38,18 +38,18 @@
           "voice_quality": 10.984999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.5,
+          "voice_vibrato": 10.840000000000002,
           "voice_articulation": 17.224999999999998,
           "voice_microtone": 31.524999999999995,
-          "voice_tradition": 17.37,
-          "voice_mechanism_compound": 13.165,
-          "voice_estill_quality": 8.96,
+          "voice_tradition": 15.93,
+          "voice_mechanism_compound": 13.27,
+          "voice_estill_quality": 8.915000000000001,
           "voice_speech_song": 20.019999999999996,
           "voice_ensemble_config": 19.044999999999995,
-          "voice_ornament_system": 15.930000000000003,
-          "voice_pitch_organization": 16.71,
+          "voice_ornament_system": 15.735000000000003,
+          "voice_pitch_organization": 16.425,
           "voice_processing_chain": 7.1000000000000005,
-          "voice_multitrack_stack": 3.3500000000000005
+          "voice_multitrack_stack": 3.2000000000000006
         }
       },
       {
@@ -64,13 +64,13 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 8.299999999999999,
-          "oud_school": 4.68,
+          "plucked_traditional_technique": 7.895,
+          "oud_school": 4.485,
           "oud_strings": 3.5100000000000002,
           "oud_pick": 2.6350000000000002,
-          "oud_body_wood": 4.245,
+          "oud_body_wood": 4.2,
           "oud_soundboard_wood": 4.615,
-          "oud_string_material": 2.8850000000000002
+          "oud_string_material": 2.7350000000000003
         }
       },
       {
@@ -85,11 +85,11 @@
           "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 8.299999999999999,
+          "plucked_traditional_technique": 7.895,
           "qanun_strings": 3.5100000000000002,
           "qanun_levers": 0.045,
           "qanun_pick": 3.705,
-          "qanun_body_wood": 2.8350000000000004,
+          "qanun_body_wood": 2.5350000000000006,
           "qanun_bridge_skin": 0.15,
           "qanun_string_material": 0.09
         }
@@ -103,10 +103,10 @@
           "darbuka_regional_style": "darbuka_iraqi_zarb"
         },
         "scores": {
-          "percussion_technique": 1.2449999999999999,
+          "percussion_technique": 1.1999999999999997,
           "darbuka_material": 0.46499999999999997,
-          "darbuka_skin": 3.885,
-          "darbuka_regional_style": 5.47
+          "darbuka_skin": 3.84,
+          "darbuka_regional_style": 5.425
         }
       },
       {
@@ -122,13 +122,13 @@
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
-          "finish": "oil_satin",
+          "finish": "nitro",
           "string_tuning": "dadgad",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 8.5,
-          "amp_make": 2.8150000000000004,
+          "amp_make": 2.7700000000000005,
           "body_wood": 2.545,
           "neck_wood": 2.545,
           "fretboard": 2.495,
@@ -137,7 +137,7 @@
           "string_gauge": 2.935,
           "bridge": 0.495,
           "scale_length": 2.74,
-          "finish": 0.195,
+          "finish": 0,
           "string_tuning": 0.65,
           "single_coil_pickup_construction": 0
         }
@@ -190,7 +190,7 @@
           "electronic_technique": 7.220000000000001,
           "poly_archetypes": 0.39,
           "poly_voices": 0.195,
-          "poly_maker_lineage": 3.295
+          "poly_maker_lineage": 3.1
         }
       }
     ],

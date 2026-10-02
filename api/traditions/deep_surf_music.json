@@ -5,7 +5,7 @@
   "lineage": "The Thurston Lava Tube — 2003 instrumental quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic early-2000s deep surf music, distorted Rock, surf rock branch. humbucker electric guitar, combo organ, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 314,
-  "score": 25.258,
+  "score": 25.247,
   "config": {
     "traditions": [
       "deep_surf_music"
@@ -105,7 +105,7 @@
           "drum_kit_kick_pedal": 0,
           "shell_wood": 0.126,
           "shell_thickness": 0,
-          "bearing_edges": 0.01125,
+          "bearing_edges": 0,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": 7.463,

@@ -1,0 +1,92 @@
+{
+  "id": "electronic_organ_unspecified",
+  "name": "Electronic organ (source-unspecified architecture)",
+  "short": "Electronic organ",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "electronic_organ_identity",
+      "name": "Source instrument identity",
+      "variants": [
+        {
+          "id": "electronic_organ_architecture_unspecified",
+          "name": "Electronic organ; internal architecture and exact model unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified"
+          ],
+          "match_tokens": [
+            "organ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "electronic_organ_melodic_sustained",
+          "name": "Melodic lines with sustained organ tones",
+          "default": true,
+          "descriptors": [
+            "melodic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electronic_organ_identity",
+      "name": "Source instrument identity",
+      "variants": [
+        {
+          "id": "electronic_organ_architecture_unspecified",
+          "name": "Electronic organ; internal architecture and exact model unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified"
+          ],
+          "match_tokens": [
+            "organ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "electronic_organ_melodic_sustained",
+          "name": "Melodic lines with sustained organ tones",
+          "default": true,
+          "descriptors": [
+            "melodic",
+            "sustained"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}

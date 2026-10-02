@@ -5,7 +5,7 @@
   "lineage": "Judeo-Spanish repertoire carried out of Iberia after 1492 and preserved in the Ottoman Balkans, Salonica, Izmir, Istanbul and Morocco, documented by Manuel Manrique de Lara and later Samuel Armistead — strophic ballads (romansas), lifecycle songs and koplas sung in Ladino, unaccompanied or with oud and frame drum, in Ottoman makam or Moroccan Andalusi modes with free-ish declamation and heavy melodic ornament.",
   "recipe": "classic Middle Eastern early-1490s sefardi song, ballad Poetry, Mediterranean ballad branch, Jewish ritual devotional, middle eastern classical art music khaleeji-iraqi song tajik traditional music. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean oud, kanun tortoiseshell traditional kanun, riq, cedar phosphor bronze bronze parlor acoustic guitar, def turkish. mediterranean sephardi synagogue. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 565,
-  "score": 231.245,
+  "score": 228.192,
   "config": {
     "traditions": [
       "sefardi_romancero",
@@ -38,16 +38,16 @@
           "voice_quality": 10.204999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.3675,
+          "voice_vibrato": 9.715,
           "voice_articulation": 18.654999999999994,
           "voice_microtone": 26.227499999999996,
-          "voice_tradition": 17.095,
-          "voice_mechanism_compound": 13.54,
-          "voice_estill_quality": 9.334999999999999,
+          "voice_tradition": 15.655,
+          "voice_mechanism_compound": 13.645,
+          "voice_estill_quality": 9.29,
           "voice_speech_song": 24.83,
           "voice_ensemble_config": 20.019999999999992,
-          "voice_ornament_system": 13.825,
-          "voice_pitch_organization": 14.065,
+          "voice_ornament_system": 13.45,
+          "voice_pitch_organization": 13.69,
           "voice_processing_chain": 3.3150000000000004,
           "voice_multitrack_stack": 2.0799999999999996
         }
@@ -56,7 +56,7 @@
         "id": "oud",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
-          "oud_school": "oud_turkish",
+          "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
           "oud_body_wood": "oud_rosewood_body",
@@ -65,11 +65,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 8.219999999999999,
-          "oud_school": 1.495,
+          "oud_school": 1.4949999999999999,
           "oud_strings": 3.7049999999999996,
           "oud_pick": 1.105,
-          "oud_body_wood": 1.7949999999999997,
-          "oud_soundboard_wood": 5.955,
+          "oud_body_wood": 1.7499999999999998,
+          "oud_soundboard_wood": 5.73,
           "oud_string_material": 0.45499999999999996
         }
       },

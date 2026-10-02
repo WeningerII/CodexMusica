@@ -1,0 +1,821 @@
+{
+  "status": "PASS_FOUR_TARGETED_FIXTURE_UPDATES_JUSTIFIED",
+  "reviewer": "research_119",
+  "frozen_sha256": "abdbc33a71f457fe788d31beec3f236b66cef57b84e01976d4f048025bebfcc0",
+  "initial_regression": "1145/1149",
+  "authorized_exact_fixture_ids": ["rockabilly_50s", "aor", "venice_carnevale", "mizrahi_israeli"],
+  "rows": [
+    {
+      "id": "rockabilly_50s",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "ItalianNewWave ties NewWave axis distance12 and wins lexical parent representative; original optimizer chooses Skiffle instead. Six valid unprotected slots change, including kit head; visible fixture changes NewWave\u2192Skiffle and premuffled\u2192vintage Ambassador wording.",
+      "expected_exact_original_baseline": true,
+      "actual_exact_original_current": true,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_talkbox",
+          "after": "voice_processing_melodyne_microtuned",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "modern_pop_vocal_training",
+          "after": "japanese_min_yo_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "semi_hollow",
+          "part": "semi_archetypes",
+          "before": "semi_es335",
+          "after": "semi_casino",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "bridge",
+          "before": "locking_trem",
+          "after": "vintage_trem",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "electric_technique",
+          "before": "electric_clean_strummed",
+          "after": "electric_country_chicken_pickin",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "ec_pre_muffled_drumhead",
+          "after": "vintage_ambassador_drumhead",
+          "runtime_protected": false
+        }
+      ],
+      "neighbor_deltas": {},
+      "candidate_parent_deltas": {
+        "seed": {
+          "functionalSong.popRock.newWave": {
+            "before": "new_wave",
+            "after": "italian_new_wave"
+          }
+        },
+        "new_wave": {
+          "functionalSong.popRock.newWave": {
+            "before": "rock_abc_paulista",
+            "after": "italian_new_wave"
+          }
+        },
+        "skiffle": {
+          "functionalSong.popRock.newWave": {
+            "before": "new_wave",
+            "after": "italian_new_wave"
+          }
+        }
+      },
+      "before_trace": [
+        {
+          "score": 193.37500000000003,
+          "desc": "seed"
+        },
+        {
+          "score": 287.83,
+          "desc": "staple tradition: + new_wave"
+        },
+        {
+          "score": 378.47499999999997,
+          "desc": "staple tradition: + classic_blues_women"
+        },
+        {
+          "score": 386.155,
+          "desc": "swap drum_kit.drumhead: double_coated \u2192 ec_pre_muffled_drumhead"
+        },
+        {
+          "score": 393.23999999999995,
+          "desc": "swap voice.voice_tradition: mande_jeli_vocal_tradition \u2192 modern_pop_vocal_training"
+        },
+        {
+          "score": 399.80499999999995,
+          "desc": "swap voice.voice_ensemble_config: voice_ensemble_solo_accompanied \u2192 voice_ensemble_four_plus_polyphony"
+        },
+        {
+          "score": 405.56499999999994,
+          "desc": "swap semi_hollow.semi_hollow_strings: semi_pure_nickel \u2192 semi_flatwound_jazz"
+        },
+        {
+          "score": 410.0499999999999,
+          "desc": "swap upright_bass.upright_strings: steel_upright \u2192 gut_wound_upright"
+        },
+        {
+          "score": 413.7249999999999,
+          "desc": "swap voice.voice_processing_chain: voice_processing_tape_saturation \u2192 voice_processing_talkbox"
+        },
+        {
+          "score": 417.2299999999999,
+          "desc": "swap drum_kit.drum_technique: sticks_rock \u2192 brushes_and_sticks"
+        },
+        {
+          "score": 418.6949999999999,
+          "desc": "swap electric_guitar_single_coil.electric_technique: electric_country_chicken_pickin \u2192 electric_clean_strummed"
+        },
+        {
+          "score": 419.7299999999999,
+          "desc": "swap upright_bass.upright_play: slap_upright \u2192 pizz_upright"
+        }
+      ],
+      "after_trace": [
+        {
+          "score": 193.37500000000003,
+          "desc": "seed"
+        },
+        {
+          "score": 281.185,
+          "desc": "staple tradition: + skiffle"
+        },
+        {
+          "score": 369.0374999999999,
+          "desc": "staple tradition: + classic_blues_women"
+        },
+        {
+          "score": 379.75749999999994,
+          "desc": "swap semi_hollow.semi_hollow_strings: semi_pure_nickel \u2192 semi_flatwound_jazz"
+        },
+        {
+          "score": 389.1874999999999,
+          "desc": "swap upright_bass.upright_strings: steel_upright \u2192 gut_wound_upright"
+        },
+        {
+          "score": 397.34749999999985,
+          "desc": "swap drum_kit.drum_technique: sticks_rock \u2192 brushes_and_sticks"
+        },
+        {
+          "score": 405.3274999999999,
+          "desc": "swap drum_kit.drumhead: double_coated \u2192 vintage_ambassador_drumhead"
+        },
+        {
+          "score": 412.21749999999986,
+          "desc": "swap voice.voice_ensemble_config: voice_ensemble_solo_accompanied \u2192 voice_ensemble_four_plus_polyphony"
+        },
+        {
+          "score": 418.0024999999999,
+          "desc": "swap upright_bass.upright_play: slap_upright \u2192 pizz_upright"
+        },
+        {
+          "score": 423.7224999999999,
+          "desc": "swap voice.voice_tradition: mande_jeli_vocal_tradition \u2192 japanese_min_yo_tradition"
+        },
+        {
+          "score": 427.75499999999994,
+          "desc": "swap semi_hollow.semi_archetypes: semi_es335 \u2192 semi_casino"
+        },
+        {
+          "score": 430.08499999999987,
+          "desc": "swap voice.voice_processing_chain: voice_processing_tape_saturation \u2192 voice_processing_melodyne_microtuned"
+        },
+        {
+          "score": 430.3249999999999,
+          "desc": "swap electric_guitar_single_coil.bridge: locking_trem \u2192 vintage_trem"
+        }
+      ]
+    },
+    {
+      "id": "aor",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "ItalianNewWave distance5 replaces NewWave11, with further pop/fusion candidate changes. Original solver chooses YachtRock then Skiffle. Seven valid unprotected slots change, including guitar/bass amp models, bass bodywood and kit head.",
+      "expected_exact_original_baseline": true,
+      "actual_exact_original_current": true,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_talkbox",
+          "after": "voice_processing_vocoder_8_band",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "bridge",
+          "before": "locking_trem",
+          "after": "vintage_trem",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "amp_make",
+          "before": "amp_british_marshall_jcm800",
+          "after": "amp_british_late_60s_marshall_plexi",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "mahogany_b",
+          "after": "alder_b",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "amp_make",
+          "before": "amp_american_ampeg_svt",
+          "after": "amp_british_late_60s_marshall_plexi",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "ec_pre_muffled_drumhead",
+          "after": "vintage_ambassador_drumhead",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "before": "a_432_alternative",
+          "after": "a_440_modern",
+          "runtime_protected": false
+        }
+      ],
+      "neighbor_deltas": {},
+      "candidate_parent_deltas": {
+        "seed": {
+          "improvOnFrame.americanJazz": {
+            "before": "bossa_nova_jazz",
+            "after": "italian_lounge"
+          },
+          "functionalSong.popRock.newWave": {
+            "before": "new_wave",
+            "after": "italian_new_wave"
+          },
+          "functionalSong.popRock": {
+            "before": "argentine_telepop",
+            "after": "leicester_indie"
+          },
+          "improvOnFrame.americanJazz.fusion": {
+            "before": "dutch_prog",
+            "after": "italian_library_music"
+          }
+        },
+        "new_wave": {
+          "improvOnFrame.americanJazz": {
+            "before": "bossa_nova_jazz",
+            "after": "italian_lounge"
+          },
+          "functionalSong.popRock.newWave": {
+            "before": "rock_abc_paulista",
+            "after": "italian_new_wave"
+          },
+          "functionalSong.popRock": {
+            "before": "argentine_telepop",
+            "after": "leicester_indie"
+          },
+          "improvOnFrame.americanJazz.fusion": {
+            "before": "dutch_prog",
+            "after": "italian_library_music"
+          }
+        },
+        "yacht_rock": {
+          "improvOnFrame.americanJazz": {
+            "before": "bossa_nova_jazz",
+            "after": "italian_lounge"
+          },
+          "functionalSong.popRock.newWave": {
+            "before": "new_wave",
+            "after": "italian_new_wave"
+          },
+          "functionalSong.popRock": {
+            "before": "argentine_telepop",
+            "after": "leicester_indie"
+          },
+          "improvOnFrame.americanJazz.fusion": {
+            "before": "dutch_prog",
+            "after": "italian_library_music"
+          }
+        }
+      },
+      "before_trace": [
+        {
+          "score": 247.10999999999999,
+          "desc": "seed"
+        },
+        {
+          "score": 413.58624999999995,
+          "desc": "staple tradition: + new_wave"
+        },
+        {
+          "score": 568.05125,
+          "desc": "staple tradition: + yacht_rock"
+        },
+        {
+          "score": 579.48125,
+          "desc": "swap electric_guitar_single_coil.electric_technique: electric_power_chord \u2192 electric_clean_strummed"
+        },
+        {
+          "score": 588.56125,
+          "desc": "swap drum_kit.drumhead: vintage_ambassador_drumhead \u2192 ec_pre_muffled_drumhead"
+        },
+        {
+          "score": 593.1112499999999,
+          "desc": "swap electric_guitar_single_coil.amp_make: amp_british_late_60s_marshall_plexi \u2192 amp_british_marshall_jcm800"
+        },
+        {
+          "score": 594.43625,
+          "desc": "swap electric_guitar_single_coil.fretboard: pau_ferro_fb \u2192 rosewood_fb"
+        },
+        {
+          "score": 595.42625,
+          "desc": "swap grand_piano.piano_pinblock: asian_multi_laminate_pinblock \u2192 standard_multi_laminate_pinblock"
+        },
+        {
+          "score": 595.90125,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_andean_huayno \u2192 voice_ornament_dhrupad_meend_andolan"
+        },
+        {
+          "score": 596.3562499999999,
+          "desc": "swap electric_guitar_single_coil.bridge: two_point_trem \u2192 locking_trem"
+        },
+        {
+          "score": 596.7937499999999,
+          "desc": "swap grand_piano.piano_plate: v_pro_vacuum_cast_plate \u2192 wet_sand_cast_plate"
+        },
+        {
+          "score": 597.1637499999999,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_false_fold_distorted \u2192 voice_mechanism_M0_pulse_borrowed"
+        },
+        {
+          "score": 597.45625,
+          "desc": "swap grand_piano.piano_pitch_standard: a_440_modern \u2192 a_432_alternative"
+        },
+        {
+          "score": 597.48875,
+          "desc": "swap grand_piano.piano_rim: steinway_17_ply_hard_rock_maple_rim \u2192 steinway_18_ply_hard_rock_maple_rim"
+        }
+      ],
+      "after_trace": [
+        {
+          "score": 247.10999999999999,
+          "desc": "seed"
+        },
+        {
+          "score": 394.8862500000001,
+          "desc": "staple tradition: + yacht_rock"
+        },
+        {
+          "score": 520.94375,
+          "desc": "staple tradition: + skiffle"
+        },
+        {
+          "score": 525.95875,
+          "desc": "swap electric_guitar_single_coil.electric_technique: electric_power_chord \u2192 electric_clean_strummed"
+        },
+        {
+          "score": 527.16125,
+          "desc": "swap electric_bass.amp_make: amp_american_ampeg_svt \u2192 amp_british_late_60s_marshall_plexi"
+        },
+        {
+          "score": 528.33625,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_false_fold_distorted \u2192 voice_mechanism_M0_pulse_borrowed"
+        },
+        {
+          "score": 529.31125,
+          "desc": "swap grand_piano.piano_pinblock: asian_multi_laminate_pinblock \u2192 standard_multi_laminate_pinblock"
+        },
+        {
+          "score": 530.2212499999999,
+          "desc": "swap voice.voice_processing_chain: voice_processing_talkbox \u2192 voice_processing_vocoder_8_band"
+        },
+        {
+          "score": 530.8062499999999,
+          "desc": "swap grand_piano.piano_rim: steinway_17_ply_hard_rock_maple_rim \u2192 steinway_18_ply_hard_rock_maple_rim"
+        },
+        {
+          "score": 531.2412499999999,
+          "desc": "swap electric_guitar_single_coil.fretboard: pau_ferro_fb \u2192 rosewood_fb"
+        },
+        {
+          "score": 531.56625,
+          "desc": "swap grand_piano.piano_plate: v_pro_vacuum_cast_plate \u2192 wet_sand_cast_plate"
+        },
+        {
+          "score": 531.8912499999999,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_andean_huayno \u2192 voice_ornament_dhrupad_meend_andolan"
+        },
+        {
+          "score": 532.08625,
+          "desc": "swap electric_bass.body_wood: mahogany_b \u2192 alder_b"
+        },
+        {
+          "score": 532.2362499999999,
+          "desc": "swap electric_guitar_single_coil.bridge: two_point_trem \u2192 vintage_trem"
+        }
+      ]
+    },
+    {
+      "id": "venice_carnevale",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New Kritika distance6 supersedes CroatianKlapa8 as MediterraneanBallad representative. Original optimizer chooses NewOrleansBrassParade then MardiGrasIndians. Ten valid unprotected slots change; voice timbre phrase changes, primary instruments and environment preserved.",
+      "expected_exact_original_baseline": true,
+      "actual_exact_original_current": true,
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_2010s_melodyne_microtuned",
+          "after": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_microtonal_glide_continuous",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "aspirated_voice",
+          "after": "crooner_voice",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_multiband_aggressive_broadcast",
+          "after": "voice_processing_vocoder_8_band",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "mediterranean_demotic_tradition",
+          "after": "yoruba_tonal_vocal_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "classical_nylon_string_guitar",
+          "part": "attack_technique_cl",
+          "before": "apoyando_cl",
+          "after": "fingertip_only_cl",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_mute",
+          "before": "practice_mute",
+          "after": "no_mute",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_articulation",
+          "before": "sul_pont",
+          "after": "arco",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "recorder",
+          "part": "recorder_size",
+          "before": "alto_recorder",
+          "after": "soprano_recorder",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "recorder",
+          "part": "recorder_context",
+          "before": "recorder_baroque_solo",
+          "after": "recorder_school",
+          "runtime_protected": false
+        }
+      ],
+      "neighbor_deltas": {},
+      "candidate_parent_deltas": {
+        "seed": {
+          "balladPoetry.mediterraneanBallad": {
+            "before": "croatian_klapa_dalmatian",
+            "after": "kritika"
+          }
+        },
+        "croatian_klapa_dalmatian": {
+          "balladPoetry.mediterraneanBallad": {
+            "before": "canzone_genovese",
+            "after": "kritika"
+          }
+        },
+        "new_orleans_brass_parade": {
+          "balladPoetry.mediterraneanBallad": {
+            "before": "croatian_klapa_dalmatian",
+            "after": "kritika"
+          }
+        }
+      },
+      "before_trace": [
+        {
+          "score": 70.08,
+          "desc": "seed"
+        },
+        {
+          "score": 148.77249999999998,
+          "desc": "staple tradition: + croatian_klapa_dalmatian"
+        },
+        {
+          "score": 181.51000000000002,
+          "desc": "staple tradition: + new_orleans_brass_parade"
+        },
+        {
+          "score": 190.955,
+          "desc": "swap voice.voice_tradition: modern_pop_vocal_training \u2192 mediterranean_demotic_tradition"
+        },
+        {
+          "score": 195.10999999999999,
+          "desc": "swap voice.voice_processing_chain: voice_processing_retune_10_50ms_natural \u2192 voice_processing_multiband_aggressive_broadcast"
+        },
+        {
+          "score": 198.88000000000002,
+          "desc": "swap voice.voice_multitrack_stack: voice_multitrack_chopped_sample_rhythmic_bed \u2192 voice_multitrack_2010s_melodyne_microtuned"
+        },
+        {
+          "score": 202.02,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_pythagorean \u2192 voice_pitch_meantone_quarter_comma"
+        },
+        {
+          "score": 203.785,
+          "desc": "swap voice.voice_estill_quality: voice_estill_opera \u2192 voice_estill_nasal_twang"
+        },
+        {
+          "score": 205.215,
+          "desc": "swap classical_nylon_string_guitar.attack_technique_cl: fingertip_only_cl \u2192 apoyando_cl"
+        },
+        {
+          "score": 206.365,
+          "desc": "swap recorder.recorder_size: soprano_recorder \u2192 alto_recorder"
+        },
+        {
+          "score": 207.01000000000002,
+          "desc": "swap classical_nylon_string_guitar.acoustic_technique: acoustic_fingerpicked \u2192 acoustic_chord_melody"
+        },
+        {
+          "score": 207.465,
+          "desc": "swap fiddle.fiddle_articulation: arco \u2192 sul_pont"
+        },
+        {
+          "score": 207.615,
+          "desc": "swap recorder.recorder_context: recorder_school \u2192 recorder_baroque_solo"
+        },
+        {
+          "score": 207.75500000000002,
+          "desc": "swap voice.voice_register: vocal_fry \u2192 chest_voice"
+        }
+      ],
+      "after_trace": [
+        {
+          "score": 70.08,
+          "desc": "seed"
+        },
+        {
+          "score": 102.81750000000001,
+          "desc": "staple tradition: + new_orleans_brass_parade"
+        },
+        {
+          "score": 130.61750000000004,
+          "desc": "staple tradition: + mardi_gras_indians"
+        },
+        {
+          "score": 135.6425,
+          "desc": "swap voice.voice_processing_chain: voice_processing_retune_10_50ms_natural \u2192 voice_processing_vocoder_8_band"
+        },
+        {
+          "score": 139.0225,
+          "desc": "swap voice.voice_multitrack_stack: voice_multitrack_chopped_sample_rhythmic_bed \u2192 voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        {
+          "score": 141.5575,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_pythagorean \u2192 voice_pitch_microtonal_glide_continuous"
+        },
+        {
+          "score": 144,
+          "desc": "swap voice.voice_tradition: modern_pop_vocal_training \u2192 yoruba_tonal_vocal_tradition"
+        },
+        {
+          "score": 145.245,
+          "desc": "swap voice.voice_register: vocal_fry \u2192 chest_voice"
+        },
+        {
+          "score": 146.28,
+          "desc": "swap voice.voice_estill_quality: voice_estill_opera \u2192 voice_estill_nasal_twang"
+        },
+        {
+          "score": 147.04999999999998,
+          "desc": "swap classical_nylon_string_guitar.acoustic_technique: acoustic_fingerpicked \u2192 acoustic_chord_melody"
+        },
+        {
+          "score": 147.79749999999996,
+          "desc": "swap voice.voice_quality: aspirated_voice \u2192 crooner_voice"
+        },
+        {
+          "score": 147.88749999999996,
+          "desc": "swap fiddle.fiddle_mute: practice_mute \u2192 no_mute"
+        }
+      ]
+    },
+    {
+      "id": "mizrahi_israeli",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New IsraeliTraditional crossref neighbor displaces TarabEgyptian in bounded neighbor set. Original search retains same staple traditions and changes unprotected darbuka_material from darbuka_copper_engraved to darbuka_aluminum_sombaty. Render consequently drops fish-skin/pre-modern/Egyptian-traditional descriptor phrase. Source, protected pins and imported browser card remain unchanged.",
+      "expected_exact_original_baseline": true,
+      "actual_exact_original_current": true,
+      "slot_changes": [
+        {
+          "instrument": "darbuka",
+          "part": "darbuka_material",
+          "before": "darbuka_copper_engraved",
+          "after": "darbuka_aluminum_sombaty",
+          "runtime_protected": false
+        }
+      ],
+      "neighbor_deltas": {
+        "mizrahi_israeli": {
+          "before": [
+            {
+              "id": "cantorial_khazonus",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "hasidic_niggun",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "yemenite_torah_cantillation",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "sephardi_bakkashot",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "jewish_kaddish",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "jewish_maggid_preaching",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "jewish_cantorial_recitative",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "chabad_niggunim",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "arab_tarab",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "tarab_egyptian",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "after": [
+            {
+              "id": "cantorial_khazonus",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "hasidic_niggun",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "yemenite_torah_cantillation",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "sephardi_bakkashot",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "jewish_kaddish",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "jewish_maggid_preaching",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "jewish_cantorial_recitative",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "chabad_niggunim",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "israeli_traditional",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "arab_tarab",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ]
+        }
+      },
+      "candidate_parent_deltas": {},
+      "before_trace": [
+        {
+          "score": 111.61000000000001,
+          "desc": "seed"
+        },
+        {
+          "score": 147.78,
+          "desc": "staple tradition: + iraqi_maqam"
+        },
+        {
+          "score": 180.73,
+          "desc": "staple tradition: + malhun_maghrebi"
+        },
+        {
+          "score": 185.95499999999996,
+          "desc": "swap voice.voice_tradition: yoruba_tonal_vocal_tradition \u2192 persian_dastgah_tradition"
+        },
+        {
+          "score": 190.7325,
+          "desc": "swap voice.voice_estill_quality: voice_estill_speech \u2192 voice_estill_opera"
+        },
+        {
+          "score": 191.2325,
+          "desc": "swap electric_guitar_single_coil.finish: nitro \u2192 oil_satin"
+        },
+        {
+          "score": 191.45250000000001,
+          "desc": "swap darbuka.darbuka_regional_style: darbuka_egyptian_sombaty \u2192 darbuka_iraqi_zarb"
+        },
+        {
+          "score": 191.49250000000004,
+          "desc": "swap darbuka.darbuka_material: darbuka_aluminum_sombaty \u2192 darbuka_copper_engraved"
+        }
+      ],
+      "after_trace": [
+        {
+          "score": 110.515,
+          "desc": "seed"
+        },
+        {
+          "score": 146.01999999999998,
+          "desc": "staple tradition: + iraqi_maqam"
+        },
+        {
+          "score": 178.90999999999997,
+          "desc": "staple tradition: + malhun_maghrebi"
+        },
+        {
+          "score": 183.715,
+          "desc": "swap voice.voice_tradition: yoruba_tonal_vocal_tradition \u2192 persian_dastgah_tradition"
+        },
+        {
+          "score": 188.4925,
+          "desc": "swap voice.voice_estill_quality: voice_estill_speech \u2192 voice_estill_opera"
+        },
+        {
+          "score": 189.01250000000002,
+          "desc": "swap darbuka.darbuka_regional_style: darbuka_egyptian_sombaty \u2192 darbuka_iraqi_zarb"
+        },
+        {
+          "score": 189.51250000000002,
+          "desc": "swap electric_guitar_single_coil.finish: nitro \u2192 oil_satin"
+        },
+        {
+          "score": 189.65250000000003,
+          "desc": "swap darbuka.darbuka_material: darbuka_clay_traditional \u2192 darbuka_aluminum_sombaty"
+        }
+      ]
+    }
+  ],
+  "preservation": "Existing source/extras/fullmergedinstruments/actualbrowsercards unchanged. All24 changed slots across these four fixtures are existing valid unprotected selections; every protected source pin, roster and environment preserved. No shared solver/compiler behavior change.",
+  "errors": [],
+  "required_followup": "Update only four named fixtures; run complete serial regression. No blanket update.",
+  "no_repo_mutations": true
+}

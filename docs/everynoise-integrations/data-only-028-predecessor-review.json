@@ -1,0 +1,6 @@
+{
+  "integration_predecessor": "4e1b47981322e06b2ffee91cf1b64b79682c3d62",
+  "merged_main": "76b1d199537cd3f766c3e53f8ae845d911772c53",
+  "identical_tree": "77c3d89314f34ffd441887846d2dbf5684fc7789",
+  "note": "Frozen required_predecessor records actual clean integration input. Subsequent fast-forward to its identical-tree merged main changes no build input."
+}

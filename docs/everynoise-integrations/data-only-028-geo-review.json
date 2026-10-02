@@ -1,0 +1,12 @@
+{
+  "id": "lagu_sabahan",
+  "before_sha256": "fd521a733ec9730e3cb70b1410b67a0f849359e0cd41719232f6a755822112ec",
+  "after_sha256": "abdbc33a71f457fe788d31beec3f236b66cef57b84e01976d4f048025bebfcc0",
+  "changed_fields": ["geo", "geo_rationale", "sources"],
+  "old_geo": [5.2831, 115.2308, "Labuan", "Southeast Asia"],
+  "new_geo": [5.337, 116.161, "Keningau", "Southeast Asia"],
+  "reason": "Labuan omitted by existing basemap; independently verified genuine repertoire anchor instead of falsifying performance site or changing shared basemap/gate.",
+  "primary_receipt": "turn2623view0",
+  "independent_reviewer": "research_119",
+  "api_input_unchanged": true
+}

@@ -1,0 +1,62 @@
+{
+  "id": "lesotho_traditional",
+  "name": "Lesotho Traditional",
+  "family": "global",
+  "lineage": "Moshesha Hlomelang — Mangoanana, track1 of SWP033 Lesotho Calling (2006 field recording). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic mid-2000s lesotho traditional, drone Modal. lesiba. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 158,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "lesotho_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "lesiba",
+        "slots": {
+          "lesiba_quill": "lesiba_feather_quill",
+          "lesiba_technique": "lesiba_inhale_exhale"
+        },
+        "scores": {
+          "lesiba_quill": 0,
+          "lesiba_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "lesiba": [
+        "lesiba_quill",
+        "lesiba_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "lesiba_quill": "lesiba_feather_quill",
+      "lesiba_technique": "lesiba_inhale_exhale"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

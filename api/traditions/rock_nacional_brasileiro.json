@@ -3,14 +3,14 @@
   "name": "Rock nacional brasileiro (BRock)",
   "family": "rock",
   "lineage": "Brazilian-language rock consolidated in Rio de Janeiro, Brasília and São Paulo between 1982 and 1989 — codified by Blitz, Barão Vermelho, Legião Urbana, Titãs and Os Paralamas do Sucesso and broadcast nationally after Rock in Rio 1985 — built on chorused clean-to-overdriven guitar, driving eighth-note bass, straight 4/4 kit at 130-160 BPM with occasional reggae or ska upstrokes, DX-era synth pads, and declamatory Portuguese vocals delivering long narrative and political lyrics.",
-  "recipe": "classic Southern American early-1980s rock nacional brasileiro, functional Song, pop rock branch, Brazilian song functional song, pop rock new wave, pop punk distorted rock oshare kei minimal wave. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, saxophone. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 717,
-  "score": 446.277,
+  "recipe": "classic Southern American early-1980s rock nacional brasileiro, functional Song, pop rock branch, Brazilian song functional song, pop rock new wave, pop punk distorted rock oshare kei easycore. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly synth, saxophone. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 724,
+  "score": 424.545,
   "config": {
     "traditions": [
       "rock_nacional_brasileiro",
       "oshare_kei",
-      "minimal_wave"
+      "easycore"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 47.065000000000026,
-          "voice_quality": 7.605000000000002,
+          "voice_register": 44.315000000000026,
+          "voice_quality": 7.540000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.165,
-          "voice_articulation": 22.81499999999999,
-          "voice_microtone": 47.07500000000002,
-          "voice_tradition": 17.249999999999996,
-          "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 2.990000000000001,
-          "voice_speech_song": 28.014999999999993,
-          "voice_ensemble_config": 19.694999999999993,
+          "voice_vibrato": 3.04,
+          "voice_articulation": 21.18999999999999,
+          "voice_microtone": 44.32500000000002,
+          "voice_tradition": 17.125,
+          "voice_mechanism_compound": 3.1750000000000007,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 25.609999999999992,
+          "voice_ensemble_config": 17.029999999999994,
           "voice_ornament_system": 2.1049999999999995,
-          "voice_pitch_organization": 3.5100000000000002,
-          "voice_processing_chain": 5.46,
-          "voice_multitrack_stack": 3.380000000000001
+          "voice_pitch_organization": 2.4699999999999998,
+          "voice_processing_chain": 4.42,
+          "voice_multitrack_stack": 3.1850000000000014
         }
       },
       {
@@ -63,26 +63,26 @@
           "pickup_magnet": "alnico_5_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_10_hum",
           "finish": "poly_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 16.95,
-          "amp_make": 19.43,
+          "electric_technique": 16.825,
+          "amp_make": 21.28,
           "body_wood": 0.39,
           "neck_wood": 0.39,
           "fretboard": 0.325,
           "pickup_magnet": 0.65,
           "pickup_winding": 0.545,
           "string_material": 0.09,
-          "bridge": 0.39,
+          "bridge": 0.9950000000000001,
           "scale_length": 0.39,
-          "string_gauge": 0.39,
+          "string_gauge": 0.845,
           "finish": 0.15,
-          "string_tuning": 14.075000000000003
+          "string_tuning": 13.585
         }
       },
       {
@@ -98,10 +98,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 15.195000000000002,
+          "amp_make": 14.295,
           "body_wood": 0.585,
           "pickup_config": 0.585,
-          "string_type": 31.925000000000004,
+          "string_type": 29.300000000000004,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.3,
           "bass_technique": 38.650000000000006,
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 31.625000000000004,
-          "drumhead": 16.145,
+          "drum_technique": 29.000000000000004,
+          "drumhead": 16.02,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,8 +130,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 16.595,
-          "poly_archetypes": 13.340000000000002,
+          "electronic_technique": 16.47,
+          "poly_archetypes": 12.290000000000001,
           "poly_voices": 0.445,
           "poly_maker_lineage": 0.585
         }
@@ -148,7 +148,7 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 3.7,
+          "wind_articulation": 3.2,
           "sax_size": 0.5,
           "sax_reed": 0.09,
           "sax_body_alloy": 0.7149999999999999,

@@ -1,0 +1,277 @@
+{
+  "status": "PASS",
+  "reviewer": "research_119",
+  "frozen_sha256": "abdbc33a71f457fe788d31beec3f236b66cef57b84e01976d4f048025bebfcc0",
+  "candidate_count": 100,
+  "baseline_traditions": 5338,
+  "excluded_possible_overlap_count": 189,
+  "errors": [],
+  "exact_requested_amendment_checks": [
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["extras", "parent"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["tradition", "family"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["neighbor_distinction"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "kundalini",
+      "path": ["tradition", "family"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "kora",
+      "path": ["extras", "parent"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "kora",
+      "path": ["neighbor_distinction"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "kodomo_no_ongaku",
+      "path": ["neighbor_distinction"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "kodomo_no_ongaku",
+      "path": ["vocal_count_audit", "decision"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "kodomo_no_ongaku",
+      "path": ["instrument_role_audit", "rationale"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["extras", "parent"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["neighbor_distinction"],
+      "exact_requested_after": true
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["sources"],
+      "exact_requested_after": true
+    }
+  ],
+  "source_packet_differences": [
+    {
+      "id": "tatar_pop",
+      "path": ["photo", "manifest", "source"],
+      "before": "wikimedia_commons_verified_instrument_context",
+      "after": "generic_recording_context"
+    },
+    {
+      "id": "togolese_pop",
+      "path": ["photo", "manifest", "source"],
+      "before": "wikimedia_commons_verified_instrument_context",
+      "after": "generic_recording_context"
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["neighbor_distinction"],
+      "before": "Italian film-score repertoire discovery category distinct from production library and general background piano; exact piano reduction is one documented arrangement of named soundtrack.",
+      "after": "Italian film-score repertoire discovery category distinct from production library and general background piano; exact piano reduction is one documented arrangement of named soundtrack. The University of Milan-hosted 2022 Filodrammatici concert program includes this exact composition in Ensemble Duomo\u2019s Morricone suite and describes its classical chamber treatment of film music. This establishes the composition\u2019s concert-repertoire context; the authored recipe realizes the separately published Musicnotes piano-only edition. It does not claim that edition was performed at the concert or import the concert quintet into the piano score. Broad artMusic avoids an unsupported modernist-style claim."
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["extras", "parent"],
+      "before": "artMusic.westernModern",
+      "after": "artMusic"
+    },
+    {
+      "id": "italian_soundtrack",
+      "path": ["sources"],
+      "before": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/fatti-di-gente-per-bene/accadde-a-venezia/MN0195839",
+          "title": "Ennio Morricone \u2014 Accadde a Venezia, Fatti di gente per bene, piano solo MN0195839",
+          "support_notes": "Licensed score source explicitly categorizes selected Morricone film theme Movie/TV, Italian, Soundtrack, with piano-only scoring. No invented original orchestral roles.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+          "title": "Exact contextual image rights",
+          "support_notes": "Fresh exact file rights and context checked2026-10-02; historic023 hash/bytes/dimensions/visual receipt inherited honestly, no fresh download claim.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "after": [
+        {
+          "url": "https://www.musicnotes.com/sheetmusic/fatti-di-gente-per-bene/accadde-a-venezia/MN0195839",
+          "title": "Ennio Morricone \u2014 Accadde a Venezia, Fatti di gente per bene, piano solo MN0195839",
+          "support_notes": "Licensed score source explicitly categorizes selected Morricone film theme Movie/TV, Italian, Soundtrack, with piano-only scoring. No invented original orchestral roles.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+          "title": "Exact contextual image rights",
+          "support_notes": "Fresh exact file rights and context checked2026-10-02; historic023 hash/bytes/dimensions/visual receipt inherited honestly, no fresh download claim.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.unimi.it/sites/default/files/2022-01/ConcertidellaDomenica%20programma.pdf",
+          "title": "I Concerti della Domenica2022 \u2014 Ensemble Duomo,16January, page2",
+          "support_notes": "Officialuniversity-hostedprogram namesAccadde aVenezia inMorriconesuite andexplains classicalchamberadaptationof filmscores. Composition/repertoirecontextonly; exactsolo-piano scoring remainsMusicnotesMN0195839, not thisconcertquintet.",
+          "checked_date": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["neighbor_distinction"],
+      "before": "Complete four-member performance format in artist ticketing biography, not an assertion about every studio layer on the EP. Two credited guitar-singers share one authored humbucker timbre card; both human singers counted. No producer instrumentation inferred. Ticketing primary biography is freshly search-indexed; direct page body was inaccessible, explicitly retained as indexed evidence.",
+      "after": "Complete four-member performance format in artist ticketing biography, not an assertion about every studio layer on the EP. Two credited guitar-singers share one authored humbucker timbre card; both human singers counted. No producer instrumentation inferred. Ticketing primary biography is freshly search-indexed; direct page body was inaccessible, explicitly retained as indexed evidence. The documented emo/post-hardcore branch uses the existing punk parent, which explicitly includes those lineages."
+    },
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["extras", "parent"],
+      "before": "distortedRock.alternative",
+      "after": "distortedRock.punk"
+    },
+    {
+      "id": "kelowna_bc_indie",
+      "path": ["tradition", "family"],
+      "before": "rock",
+      "after": "rock_punk"
+    },
+    {
+      "id": "kora",
+      "path": ["neighbor_distinction"],
+      "before": "Broad contemporary kora-centered recording field, including international instrumental collaborations; not an alias for existing kora_jaliya, which specifies hereditary Mandinka jali patron-repertoire, traditional modal cycles and praise practice. The chosen complete Welsh-Manding duet preserves both instruments, unlike reducing a larger band to kora. Liner notes describe adaptation between written European repertoire and oral Manding materials. Existing 21-string kora and 47-string double-pedal concert harp are disclosed authored realizations, not measured exact source string counts or hardware; no claim of Diabate family affiliation. Seckou percussion skills in biography do not establish percussion on this explicitly harp-kora instrumental album. Cardigan is the documented co-producing Theatr Mwldan anchor, not the unspecified Welsh recording address. The microphone photograph is LOW generic recording context only, not an image of kora or harp or source-session equipment.",
+      "after": "Broad contemporary kora-centered recording field, including international instrumental collaborations; not an alias for existing kora_jaliya, which specifies hereditary Mandinka jali patron-repertoire, traditional modal cycles and praise practice. The chosen complete Welsh-Manding duet preserves both instruments, unlike reducing a larger band to kora. Liner notes describe adaptation between written European repertoire and oral Manding materials. Existing 21-string kora and 47-string double-pedal concert harp are disclosed authored realizations, not measured exact source string counts or hardware; no claim of Diabate family affiliation. Seckou percussion skills in biography do not establish percussion on this explicitly harp-kora instrumental album. Cardigan is the documented co-producing Theatr Mwldan anchor, not the unspecified Welsh recording address. The microphone photograph is LOW generic recording context only, not an image of kora or harp or source-session equipment. The broad artMusic placement represents this documented concert and classical-crossover duet. It does not assert spontaneous improvisation, and it does not classify all kora practice as Western classical music."
+    },
+    {
+      "id": "kora",
+      "path": ["extras", "parent"],
+      "before": "improvOnFrame",
+      "after": "artMusic"
+    },
+    {
+      "id": "korean_traditional",
+      "path": ["signature_tokens"],
+      "before": ["plucked", "breathy", "sustained"],
+      "after": ["plucked", "sustained"]
+    },
+    {
+      "id": "lagu_lampung",
+      "path": ["photo", "manifest", "source"],
+      "before": "wikimedia_commons_verified_instrument_context",
+      "after": "generic_recording_context"
+    },
+    {
+      "id": "lagu_sabahan",
+      "path": ["geo_rationale"],
+      "before": "Official organizer locates this documented performance in Labuan; this is a performance anchor, not a claim that Labuan administratively belongs to Sabah.",
+      "after": "Editorial repertoire anchor: UiTM original lyric research documents the selected Original Sabahan song\u2019s Keningau narrative and Dusun setting. The selected education-band performance remains documented in Labuan; this pin does not claim that performance took place in Keningau."
+    },
+    {
+      "id": "lagu_sabahan",
+      "path": ["photo", "manifest", "source"],
+      "before": "wikimedia_commons_verified_instrument_context",
+      "after": "generic_recording_context"
+    },
+    {
+      "id": "lagu_sabahan",
+      "path": ["sources"],
+      "before": [
+        {
+          "url": "https://jpwpl.gov.my/sanasini/?p=11209&print=print",
+          "title": "JPWPL education band \u2014 Original Sabahan live program",
+          "support_notes": "Official organizer first-hand report of performed songs and complete six-member performing roster, with sound engineer separately identified.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.universalmusic.it/popular-music/album/original-sabahan_34307863326/",
+          "title": "Corroborating primary source",
+          "support_notes": "Label/distributor names Atmosfera and Floor 88 for Original Sabahan; supports repertoire identity only, not source of the selected live personnel.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6suhLOSv1aTHZNzQ0JsCLk",
+          "title": "Corroborating primary source",
+          "support_notes": "Creator The Sound of Lagu Sabahan item31 Atmosfera; positive artist/repertoire category relationship, not claim this live rendition is the playlist recording.",
+          "checked_date": "2026-10-02"
+        }
+      ],
+      "after": [
+        {
+          "url": "https://jpwpl.gov.my/sanasini/?p=11209&print=print",
+          "title": "JPWPL education band \u2014 Original Sabahan live program",
+          "support_notes": "Official organizer first-hand report of performed songs and complete six-member performing roster, with sound engineer separately identified.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.universalmusic.it/popular-music/album/original-sabahan_34307863326/",
+          "title": "Corroborating primary source",
+          "support_notes": "Label/distributor names Atmosfera and Floor 88 for Original Sabahan; supports repertoire identity only, not source of the selected live personnel.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/6suhLOSv1aTHZNzQ0JsCLk",
+          "title": "Corroborating primary source",
+          "support_notes": "Creator The Sound of Lagu Sabahan item31 Atmosfera; positive artist/repertoire category relationship, not claim this live rendition is the playlist recording.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://ir.uitm.edu.my/id/eprint/82481/1/82481.pdf",
+          "title": "UiTM ARTe2022 original research on Sabah song lyrics",
+          "support_notes": "Pages10\u201311 explicitly discuss Original Sabahan and its Keningau/Dusun narrative. Supports repertoire geography only; does not replace the Labuan live-performance personnel source.",
+          "checked_date": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "id": "lagu_sabahan",
+      "path": ["geo"],
+      "before": [5.2831, 115.2308, "Labuan", "Southeast Asia"],
+      "after": [5.337, 116.161, "Keningau", "Southeast Asia"]
+    },
+    {
+      "id": "language",
+      "path": ["photo", "manifest", "source"],
+      "before": "wikimedia_commons_verified_instrument_context",
+      "after": "generic_recording_context"
+    },
+    {
+      "id": "lasten_satuja",
+      "path": ["photo", "manifest", "source"],
+      "before": "wikimedia_commons_verified_instrument_context",
+      "after": "generic_recording_context"
+    },
+    {
+      "id": "latin_afrobeat",
+      "path": ["photo", "manifest", "source"],
+      "before": "wikimedia_commons_verified_instrument_context",
+      "after": "generic_recording_context"
+    }
+  ],
+  "semantic_review": "All final100 categories reviewed against existing tree and prior5338 category names/descriptions. Regional, language, instrument and religious branches may share exemplars without equivalence. No listed189 excluded label/URL or current normalized name/ID reused. Source-scoped electronic Tibetan/Tigrigna remixes, Kolkata instrumental fusion, African pioneering organ electronic branch and regional indie sources explicitly avoid universal category equations.",
+  "incremental_rows": {
+    "african_electronic": "Experimental electronic/electronic fits documented pioneering minimalist electronic organ branch; no invented ambient universal claim.",
+    "kolkata_indie": "Fusion/jazz fits source instrumental experimental jazz trio; city indie category broader than selected realization.",
+    "tibetan_pop": "Experimental reworking explicitly scoped; no universal Tibetan religious/electronic claim.",
+    "lo_fi_indie": "DIY independent rock distinct from sample-based study beats.",
+    "london_on_indie": "Explicit hardcore punk and Ontario locality; no England equivalence.",
+    "lund_indie": "Lund-origin regional independent rock despite later London residence.",
+    "macedonian_indie": "Regional indie subset distinct from full Macedonian rock.",
+    "lesotho_traditional": "Source track-specific traditional blown mouthbow; droneModal/global appropriate.",
+    "lilith": "Creator category and licensed adult-alternative/pop-rock PVG arrangement support popRock."
+  },
+  "scope": "Independent taxonomy, identity, exclusion and coordinator-amendment review. Primary source/roles/pins/photo audits retained in packet-specific reviews. Full integration/API/regression gates remain required.",
+  "no_repo_mutations": true
+}

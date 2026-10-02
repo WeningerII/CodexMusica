@@ -5,7 +5,7 @@
   "lineage": "Tel Aviv commercial song from the 1970s onward, formed when the Ashkenazi-European Shirei Eretz Yisrael tradition was overtaken by Mizrahi cassette culture from the Yemenite and Iraqi neighbourhoods — bouzouki and oud tremolo lines, darbuka doubling a rock kit, Hebrew lyric sung with Arabic-derived melisma, and 100-130 BPM verse-chorus forms.",
   "recipe": "classic mid-1970s israeli pop, functional Song, mid east n African pop branch, Jewish ritual devotional, europop functional song balkan pop belarusian pop. thick, breath veiled tone, slow rate, interlocked note trading. dance rhythm strummed bouzouki, walnut ribs canonical mid tier oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mahogany rosewood clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. treated studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
   "recipe_chars": 708,
-  "score": 284.957,
+  "score": 282.267,
   "config": {
     "traditions": [
       "israeli_pop",
@@ -40,8 +40,8 @@
           "voice_effort": 0,
           "voice_vibrato": 1.885,
           "voice_articulation": 14.3,
-          "voice_microtone": 21.799999999999994,
-          "voice_tradition": 21.389999999999997,
+          "voice_microtone": 21.994999999999994,
+          "voice_tradition": 20.909999999999997,
           "voice_mechanism_compound": 3.8349999999999995,
           "voice_estill_quality": 3.4450000000000003,
           "voice_speech_song": 22.035,
@@ -63,8 +63,8 @@
         },
         "scores": {
           "plucked_traditional_technique": 4.735,
-          "bouzouki_courses": 0.43500000000000005,
-          "bouzouki_pick": 1.345,
+          "bouzouki_courses": 0.28500000000000003,
+          "bouzouki_pick": 1.3900000000000001,
           "bouzouki_body_wood": 0.39,
           "bouzouki_strings": 0.345
         }
@@ -83,9 +83,9 @@
         "scores": {
           "plucked_traditional_technique": 1.195,
           "oud_school": 2.145,
-          "oud_strings": 0.78,
-          "oud_pick": 1.95,
-          "oud_body_wood": 1.74,
+          "oud_strings": 0.63,
+          "oud_pick": 1.83,
+          "oud_body_wood": 1.545,
           "oud_soundboard_wood": 0.78,
           "oud_string_material": 0.585
         }
@@ -100,9 +100,9 @@
         },
         "scores": {
           "percussion_technique": 0.52,
-          "darbuka_material": 0.765,
+          "darbuka_material": 0.6599999999999999,
           "darbuka_skin": 1.345,
-          "darbuka_regional_style": 3.3449999999999998
+          "darbuka_regional_style": 3.15
         }
       },
       {
@@ -125,23 +125,23 @@
         "scores": {
           "electric_technique": 19.875,
           "amp_make": 1.9499999999999997,
-          "body_wood": 1.935,
-          "neck_wood": 1.935,
-          "fretboard": 1.885,
+          "body_wood": 1.74,
+          "neck_wood": 1.74,
+          "fretboard": 1.69,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
           "string_gauge": 1.95,
-          "bridge": 0.585,
+          "bridge": 0.435,
           "scale_length": 1.95,
           "finish": 0,
-          "string_tuning": 1.885,
+          "string_tuning": 1.8849999999999998,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_british_orange",
+          "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
@@ -151,12 +151,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.6899999999999997,
-          "body_wood": 2.145,
-          "pickup_config": 0.39,
-          "string_type": 3.385,
-          "scale_length_b": 1.935,
-          "fretted_or_not": 0.24,
+          "amp_make": 1.6400000000000001,
+          "body_wood": 1.9949999999999999,
+          "pickup_config": 0.24,
+          "string_type": 3.34,
+          "scale_length_b": 1.74,
+          "fretted_or_not": 0.195,
           "bass_technique": 3.2,
           "electric_bass_string_configuration": 0
         }
@@ -179,13 +179,13 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 18.99,
-          "poly_archetypes": 1.57,
-          "poly_voices": 0.18,
+          "electronic_technique": 18.944999999999997,
+          "poly_archetypes": 1.48,
+          "poly_voices": 0.15,
           "poly_maker_lineage": 1.0999999999999999
         }
       }

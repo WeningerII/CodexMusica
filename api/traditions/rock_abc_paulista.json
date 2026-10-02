@@ -5,7 +5,7 @@
   "lineage": "Rock abc paulista is represented here by Der Baum. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic rock abc paulista, functional Song, new wave branch. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 412,
-  "score": 59.233,
+  "score": 59.644,
   "config": {
     "traditions": [
       "rock_abc_paulista"
@@ -37,9 +37,9 @@
           "pickup_magnet": 0.168,
           "pickup_winding": 0.168,
           "string_material": 0.063,
-          "bridge": 1.5725,
+          "bridge": 1.69,
           "scale_length": 0.336,
-          "string_gauge": 1.5475,
+          "string_gauge": 1.6840000000000002,
           "finish": 0.0315,
           "string_tuning": 0.37424999999999997
         }
@@ -60,7 +60,7 @@
           "amp_make": 6.5649999999999995,
           "body_wood": 0.336,
           "pickup_config": 0.0315,
-          "string_type": 13.97125,
+          "string_type": 14.12875,
           "scale_length_b": 0.168,
           "fretted_or_not": 0.08249999999999999,
           "bass_technique": -0.15000000000000002,

@@ -1,0 +1,47 @@
+{
+  "status": "PREEXISTING_FAILURE_REPRODUCED_ON_BASELINE",
+  "reviewer": "research_119",
+  "environment": {
+    "baseline_commit": "76b1d199537cd3f766c3e53f8ae845d911772c53",
+    "baseline_tree": "77c3d89314f34ffd441887846d2dbf5684fc7789",
+    "current_browser": "Chromium151.0.7922.173 Debian13",
+    "playwright_browsers_path": "/tmp/codex-playwright",
+    "executable": "/usr/bin/chromium",
+    "files": [
+      {
+        "path": "scripts/check_ui_foundation.js",
+        "sha256": "e8c627b58555732b640fe38234faae4cfc0c3e14b31644bb583cd4ccaaa97491",
+        "identical_current": true
+      },
+      {
+        "path": "src/workbench.js",
+        "sha256": "5ec9d9ab89f800e1d9cecaa3f8151f4913ade99fb0109e3d59afc65d0beee315",
+        "identical_current": true
+      },
+      {
+        "path": "assets/icon-192.png",
+        "sha256": "cfb35de45d0ad080697560defc0d3ae293a58ed3e776a58969846a0362263ec2",
+        "identical_current": true
+      },
+      {
+        "path": "assets/icon-1024.png",
+        "sha256": "0a482a013172ac8d1a0ef23dd19975d38979c2e3169fdbba4c30027f22e381c9",
+        "identical_current": true
+      }
+    ]
+  },
+  "baseline_log": "/tmp/batch028/ui-baseline119-complete.log",
+  "current_log": "/tmp/batch028/test-ui-foundation.log",
+  "logs_byte_identical": true,
+  "failure_count_each": 1,
+  "failure": "O: enlarged Delta blues photo retains prior1024px larger image when test switches mocked route into failure mode, rather than reverting to thumb.",
+  "classification": "Not introduced by batch028: exact baseline merge76b1d199 tree4e1b479 reproduces same lone failure under identical systemChromium151 and pinnedPlaywright library. This proves preexisting behavior in this environment, not that all browsers fail.",
+  "inferred_cause": "Test opens same genre image successfully in row before setting photos.fail(); subsequent detail opening may reuse decoded/cached larger image without a failing fetch. Browser image-cache/mock interaction is an inference from unchanged code and test ordering, not proven root cause.",
+  "setup_notes": [
+    "First incomplete baseline archive omitted api files and timed out before first paint; discarded as noncomparable.",
+    "Comparable completed run uses exact baseline codex.html/assets/data/api/references/scripts/src plus unchanged shared node_modules.",
+    "Pinned browser download403 reported by coordinator; this reviewer did not retry download."
+  ],
+  "scope_decision": "Do not modify shared UI or test code as part of genre-only task. Preserve local failure disclosure; require exact unchanged gate in remote CI pinned environment before considering batch fully green.",
+  "no_repo_mutations": true
+}
