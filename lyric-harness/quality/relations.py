@@ -7439,7 +7439,7 @@ class VocabularyPairResults(dict):
                 if hit[0] is not False:
                     return True
                 continue
-            if reading_search_open(REGISTRY[name], stream, pair, bound=pb):
+            if _reading_search_open(REGISTRY[name], stream, pair, bound=pb):
                 return True
         return False
 
@@ -9581,7 +9581,7 @@ def cached_builder(build):
     return get
 
 
-def reading_search_open(schema, stream, pair, cap=READING_COMBO_CAP,
+def _reading_search_open(schema, stream, pair, cap=READING_COMBO_CAP,
                         bound=None):
     """-> True when `resolve_line_pair` on these arguments cannot answer
     False: the default reading is refused or undecided for a reason that is
