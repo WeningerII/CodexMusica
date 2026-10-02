@@ -285,6 +285,13 @@ def _mandate_block(brief, indent="  "):
     gslots = dict(getattr(brief, "group_slots", {}) or {})
     violated = set(getattr(brief, "violated_groups", ()) or ())
     unjudged = set(getattr(brief, "unjudged_groups", ()) or ())
+    # A GROUP WHOSE PAIR HOLDS BUT CARRIES A PURSUED NOTE (2026-10-02). It
+    # is in `violated` because the loop still asks for this word to change,
+    # and until 2026-10-02 it was told "VIOLATED, this is the word to change"
+    # under a report of 0 flags. The word to change is the same; the label
+    # now says the pair holds. `quality/revise.held_note_standing` is the
+    # same sentence in the other two renderers.
+    noted = dict(getattr(brief, "noted_groups", {}) or {})
     for lab, mem, calls in must_answer:
         rhyme_calls = [(n, w) for n, w in calls if n not in return_members]
         shown = ", ".join(f"L{n} ({w!r})" for n, w in _ordered(
@@ -297,9 +304,18 @@ def _mandate_block(brief, indent="  "):
                      if gslots[lab] is not None else " at its end word")
         standing = ""
         if lab in unjudged:
-            standing = (" — VIOLATED; also UNJUDGED" if lab in violated
+            standing = (" — VIOLATED; also UNJUDGED"
+                        if lab in violated and lab not in noted
                         else " — UNJUDGED")
             standing += "; unresolved readings are not evidence that this word holds"
+        elif lab in noted:
+            _codes = tuple(noted[lab])
+            _what = ("its rhyme is a predictable one"
+                     if {"MODAL_RHYME", "PREDICTABLE_RHYME"} & set(_codes)
+                     else "it carries a note")
+            standing = (f" — HOLDS, but {_what} (NOTE {', '.join(_codes)}), "
+                        f"which the loop still asks to change: this is the "
+                        f"word to change")
         elif violated:
             standing = (" — VIOLATED, this is the word to change"
                         if lab in violated else
@@ -329,8 +345,11 @@ def _mandate_block(brief, indent="  "):
             # by its own word, and only the groups at ONE place conjoin.
             out.append(f"{indent}This line binds at {len(places)} "
                        f"PLACES, listed above: each place is its own word "
-                       f"answering its own group(s), so fix the violated "
-                       f"place and keep the word at any place that holds.")
+                       f"answering its own group(s), so fix the "
+                       + ("place marked to change" if noted else
+                          "violated place")
+                       + " and keep the word at any place that holds"
+                       + (" as written." if noted else "."))
         else:
             out.append(f"{indent}This line is a PIVOT: it is in "
                        f"{len(must_answer)} groups and must answer EVERY "
@@ -691,7 +710,14 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         # where two words answer two groups and nothing about the mandate is
         # at fault. `slot_conflict` now means more than one of this line's
         # places is VIOLATED, which is what the sentence below says.
-        out.append(f"  AND MORE THAN ONE PLACE ON THIS LINE IS VIOLATED — "
+        # A place whose pair HOLDS with a pursued note is asked to change
+        # but is not violated (2026-10-02), so the heading says which.
+        out.append(f"  AND MORE THAN ONE PLACE ON THIS LINE IS "
+                   + ("ASKED TO CHANGE (violated, or holding with a pursued "
+                      "note) — "
+                      if getattr(brief, "noted_groups", None) else
+                      "VIOLATED — ")
+                   +
                    f"the {word_name} is the first; the mandate block below "
                    f"names the rest, and a rewrite must answer each at its "
                    f"own word.")

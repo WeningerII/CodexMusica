@@ -5,7 +5,7 @@
   "lineage": "Nigerian Pentecostal congregational worship shaped in Lagos megachurches from the 1990s and exported on record after 2010 through Sinach, Nathaniel Bassey, Dunsin Oyekan and Mercy Chinwo — 70-100 BPM 4/4 and 6/8 forms that build over long repeated refrains, Hammond and synth pad beds under electric bass and kit, talking drum and conga underlay, call-and-response between soloist and choir, and English, Yoruba or Igbo lyrics carried by a belted, melismatic lead.",
   "recipe": "classic West African mid-1990s naija worship, ritual Devotional, pentecostal branch, christian gospel black gospel, African pop functional song contemporary urban gospel. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, iroko alternative west African talking drum, lead congas, singing lead digital subtractive. pentecostal storefront church. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
   "recipe_chars": 897,
-  "score": 503.335,
+  "score": 505.255,
   "config": {
     "traditions": [
       "naija_worship",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.795,
           "voice_articulation": 28.06500000000001,
           "voice_microtone": 25.285000000000004,
-          "voice_tradition": 40.085,
+          "voice_tradition": 40.730000000000004,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 27.975,
           "voice_speech_song": 29.250000000000004,
@@ -62,7 +62,7 @@
         },
         "scores": {
           "choir_size": 5.329999999999999,
-          "choir_polyphonic_configuration": 5.329999999999999,
+          "choir_polyphonic_configuration": 5.374999999999999,
           "choir_regional_canonical_configuration": 3.1200000000000006,
           "choir_ensemble_repertoire": 2.9899999999999998
         }
@@ -78,11 +78,11 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 31.395000000000007,
+          "keyboard_technique": 32.040000000000006,
           "drawbar_setting": 26.195000000000007,
           "rotary_speed": 25.950000000000003,
           "percussion_setting": 0.195,
-          "tonewheel_model": 29.145000000000003,
+          "tonewheel_model": 29.790000000000006,
           "leslie_cabinet_model": 0.6449999999999999
         }
       },
@@ -99,10 +99,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.449999999999999,
+          "amp_make": 7.494999999999999,
           "body_wood": 0.36,
           "pickup_config": 0.845,
-          "string_type": 4.005,
+          "string_type": 4.05,
           "scale_length_b": 0.845,
           "fretted_or_not": 0.39,
           "bass_technique": 3.3249999999999997,
@@ -131,7 +131,7 @@
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 0.15,
+          "talking_drum_origin": 0,
           "talking_drum_context": 3.445,
           "talking_drum_shell_wood": 4.42,
           "talking_drum_head": 0

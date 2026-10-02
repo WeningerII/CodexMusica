@@ -3,9 +3,9 @@
   "name": "Rap rock",
   "family": "hip_hop",
   "lineage": "Rap rock joins rapped delivery with rock-derived guitar and performance energy. The selected Beastie Boys branch grows from lower Manhattan punk into rap, guitar collaborations and layered sampling.",
-  "recipe": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 373,
-  "score": 39.138,
+  "recipe": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 390,
+  "score": 41.638,
   "config": {
     "traditions": [
       "rap_rock"
@@ -42,11 +42,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 9.499999999999998,
-          "voice_ensemble_config": 1.5925,
+          "voice_speech_song": 9.531499999999998,
+          "voice_ensemble_config": 1.624,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.045,
+          "voice_processing_chain": 0.0765,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -61,8 +61,8 @@
         },
         "scores": {
           "electronic_technique": 0.2,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.0315,
           "sampler_workflow": -0.15000000000000002,
           "sampler_classic_context": 3.7049999999999996
         }
@@ -75,29 +75,29 @@
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_2_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": 2.45,
-          "amp_make": 6.8500000000000005,
+          "amp_make": 7.354000000000001,
           "body_wood": 0.045,
           "neck_wood": 0.075,
           "fretboard": 0.075,
-          "pickup_magnet": 0,
-          "pickup_winding": 0.3,
+          "pickup_magnet": 0.0315,
+          "pickup_winding": 0.3315,
           "string_material": 0.12,
-          "bridge": 0.0225,
-          "scale_length": 0.075,
-          "string_gauge": 0.0225,
+          "bridge": 0.43200000000000005,
+          "scale_length": 0.1065,
+          "string_gauge": 0.4635,
           "finish": 0,
-          "string_tuning": 4.5975
+          "string_tuning": 5.508
         }
       }
     ],

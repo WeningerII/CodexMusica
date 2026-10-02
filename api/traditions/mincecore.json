@@ -3,14 +3,14 @@
   "name": "Mincecore",
   "family": "rock_punk",
   "lineage": "Coined by Belgian band Agathocles in Deinze around 1987 as a deliberate rejection of the term grindcore, mincecore fuses 200-plus-BPM blastbeat bursts with mid-tempo d-beat crust punk stomps, downtuned buzzsaw guitar, and alternating low guttural growls and hoarse shouted political sloganeering across songs often under ninety seconds, released almost exclusively on split 7-inches and tape trades.",
-  "recipe": "classic European late-1980s mincecore, distorted Rock, punk branch, death metal, noise rock distorted rock spazzcore cavernous death metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 529,
-  "score": 336.347,
+  "recipe": "classic European late-1980s mincecore, distorted Rock, punk branch, death metal, noise rock distorted rock spazzcore no wave. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 515,
+  "score": 333.73,
   "config": {
     "traditions": [
       "mincecore",
       "spazzcore",
-      "cavernous_death_metal"
+      "no_wave"
     ],
     "instruments": [
       {
@@ -28,34 +28,34 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_pelog_7",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 17.349999999999998,
-          "voice_quality": 6.955000000000001,
+          "voice_register": 21.65,
+          "voice_quality": 6.825000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.3950000000000005,
-          "voice_articulation": 19.564999999999994,
-          "voice_microtone": 17.615,
-          "voice_tradition": 6.37,
-          "voice_mechanism_compound": 22.874062499999997,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 17.029999999999994,
-          "voice_ensemble_config": 16.444999999999993,
-          "voice_ornament_system": 0.45500000000000007,
-          "voice_pitch_organization": 2.990000000000001,
-          "voice_processing_chain": 3.6724999999999994,
-          "voice_multitrack_stack": 2.08
+          "voice_vibrato": 4.16,
+          "voice_articulation": 20.994999999999994,
+          "voice_microtone": 21.765,
+          "voice_tradition": 5.785,
+          "voice_mechanism_compound": 17.8990625,
+          "voice_estill_quality": 2.7950000000000004,
+          "voice_speech_song": 18.004999999999992,
+          "voice_ensemble_config": 17.224999999999994,
+          "voice_ornament_system": 1.9499999999999997,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 4.550000000000001,
+          "voice_multitrack_stack": 2.5024999999999995
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_palm_muted_chug",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
@@ -64,25 +64,25 @@
           "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 18.7271875,
-          "amp_make": 21.2440625,
-          "body_wood": 9.815,
-          "neck_wood": 4.8100000000000005,
-          "fretboard": 4.745,
+          "electric_technique": 13.089999999999998,
+          "amp_make": 23.0440625,
+          "body_wood": 5.915,
+          "neck_wood": 4.225,
+          "fretboard": 4.16,
           "pickup_magnet": 0.845,
-          "pickup_winding": 2.215,
+          "pickup_winding": 2.565,
           "string_material": 0.65,
-          "bridge": 4.8100000000000005,
-          "scale_length": 7.084999999999999,
-          "string_gauge": 6.500000000000001,
-          "finish": 0.345,
-          "string_tuning": 16.25
+          "bridge": 4.225,
+          "scale_length": 4.225,
+          "string_gauge": 4.42,
+          "finish": 0.49499999999999994,
+          "string_tuning": 13.910000000000002
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 10.985,
-          "body_wood": 4.8100000000000005,
+          "amp_make": 11.505000000000003,
+          "body_wood": 4.225,
           "pickup_config": 0.845,
-          "string_type": 22.2440625,
-          "scale_length_b": 4.8100000000000005,
-          "fretted_or_not": 0.045,
-          "bass_technique": 26.625000000000004,
+          "string_type": 24.869062500000005,
+          "scale_length_b": 4.225,
+          "fretted_or_not": 0.345,
+          "bass_technique": 29.850000000000005,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 17.625,
-          "drumhead": 5.265000000000001,
+          "drum_technique": 20.250000000000004,
+          "drumhead": 4.225,
           "drum_kit_kick_pedal": 0
         }
       }

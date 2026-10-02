@@ -3,24 +3,24 @@
   "name": "Polish poezja śpiewana",
   "family": "global",
   "lineage": "Polish sung-poetry tradition setting the work of Polish poets (Wojciech Mlynarski, Agnieszka Osiecka, Jeremi Przybora, Konstanty Ildefons Galczynski) to song composed and performed by singers including Marek Grechuta (the figure), Czesław Niemen, Ewa Demarczyk, Stan Borys, Magda Umer, Anna Treter — emerging from the post-1956 Polish artistic thaw and developing in dialogue with French chanson and German Liedermacher traditions",
-  "recipe": "classic Central European mid-1950s polish poezja śpiewana, ballad Poetry, Slavic bard branch, chanson fado ballad poetry kundiman french musette. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar, oversize maple tension resonator European spruce norway spruce European tradition grand piano. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 541,
-  "score": 115.504,
+  "recipe": "classic Central European mid-1950s polish poezja śpiewana, ballad Poetry, Slavic bard branch, chanson fado ballad poetry kundiman. thick, lament wail, slow rate, interlocked note trading. fingerpicked acoustic guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 509,
+  "score": 114.691,
   "config": {
     "traditions": [
       "polish_poezja_spiewana",
       "kundiman",
-      "french_musette"
+      "fado"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "fado_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.42,
-          "voice_quality": 12.154999999999994,
+          "voice_register": 2.02,
+          "voice_quality": 10.085,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8275000000000006,
-          "voice_articulation": 12.089999999999996,
-          "voice_microtone": 13.584999999999994,
-          "voice_tradition": 7.3774999999999995,
-          "voice_mechanism_compound": 2.9899999999999998,
-          "voice_estill_quality": 6.467499999999999,
-          "voice_speech_song": 15.534999999999997,
-          "voice_ensemble_config": 12.804999999999994,
-          "voice_ornament_system": 1.825,
-          "voice_pitch_organization": 2.5350000000000006,
-          "voice_processing_chain": 3.6399999999999997,
-          "voice_multitrack_stack": 1.9556250000000002
+          "voice_vibrato": 1.7875,
+          "voice_articulation": 9.88,
+          "voice_microtone": 11.634999999999994,
+          "voice_tradition": 8.6775,
+          "voice_mechanism_compound": 3.1849999999999996,
+          "voice_estill_quality": 4.1925,
+          "voice_speech_song": 14.267499999999997,
+          "voice_ensemble_config": 11.049999999999995,
+          "voice_ornament_system": 1.4949999999999997,
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 3.38,
+          "voice_multitrack_stack": 1.04
         }
       },
       {
@@ -63,10 +63,10 @@
         },
         "scores": {
           "string_tuning": 0,
-          "top_wood": 0.8643750000000001,
-          "back_sides": 0.765,
-          "string_acoustic": 0.7143750000000001,
-          "acoustic_om_technique": 8.325625
+          "top_wood": 0.65,
+          "back_sides": 0.65,
+          "string_acoustic": 0.65,
+          "acoustic_om_technique": 7.875625000000001
         }
       },
       {
@@ -74,24 +74,24 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_415_baroque"
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 0.7149999999999999,
-          "grand_piano_size": 0.7143750000000001,
-          "grand_piano_brand": 0.845,
-          "piano_hammer": 0.7149999999999999,
-          "piano_rim": 1.625,
-          "piano_soundboard": 1.625,
-          "piano_pinblock": -0.05,
-          "piano_plate": 0.585,
-          "piano_pitch_standard": 4.1274999999999995
+          "keyboard_technique": 1.29,
+          "grand_piano_size": 0.65,
+          "grand_piano_brand": 0.65,
+          "piano_hammer": 2.5675,
+          "piano_rim": 5.4925,
+          "piano_soundboard": 3.8675,
+          "piano_pinblock": 1.865,
+          "piano_plate": 2.125,
+          "piano_pitch_standard": 4.842499999999999
         }
       }
     ],

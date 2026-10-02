@@ -3,14 +3,14 @@
   "name": "Northumbrian folk",
   "family": "global",
   "lineage": "Border-county tradition of north-east England centred on the closed-chanter Northumbrian smallpipes standardised in the nineteenth century by the Reid family of North Shields and carried forward by the Northumbrian Pipers' Society from 1928 — staccato detached-note pipe variation sets, hornpipes and rants at dance tempo, Tyneside industrial songs and Border ballads sung with plain unornamented delivery, backed by fiddle, concertina and melodeon.",
-  "recipe": "classic North American late-1920s northumbrian folk, ballad Poetry, English broadside branch, wind pipe drone modal, anglo singer song britfolk british folk revival scottish smallpipe music. thick, breath veiled tone, straight note core, interlocked note trading. modal traditional northumbrian smallpipes, plain gut lamb gut whole lamb method drone like fiddle, steel reeds canonical anglo drone like concertina anglo, Celtic drone like melodeon diatonic. hexham head studio pa chamber folk. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 616,
-  "score": 216.216,
+  "recipe": "classic North American late-1920s northumbrian folk, ballad Poetry, English broadside branch, wind pipe drone modal, anglo singer song britfolk scottish smallpipe music kosovan folk. thick, breath veiled tone, straight note core, interlocked note trading. modal traditional northumbrian smallpipes, drone like fiddle, drone like concertina anglo, Celtic drone like melodeon diatonic. hexham head studio pa chamber folk. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 543,
+  "score": 176.698,
   "config": {
     "traditions": [
       "northumbrian_folk",
-      "british_folk_revival",
-      "scottish_smallpipe_music"
+      "scottish_smallpipe_music",
+      "kosovan_folk"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "northumbrian_smallpipes_body": "northumbrian_smallpipes_blackwood_nickel"
         },
         "scores": {
-          "northumbrian_smallpipes_chanter_set": 3.0550000000000006,
+          "northumbrian_smallpipes_chanter_set": 3.380000000000001,
           "northumbrian_smallpipes_style": 4.5,
           "northumbrian_smallpipes_body": -0.05
         }
@@ -37,10 +37,10 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 12.252499999999996,
-          "fiddle_strings": 1.45,
+          "bowed_technique": 9.49,
+          "fiddle_strings": 0.95,
           "fiddle_bow": 0.15,
-          "fiddle_mute": 0.345,
+          "fiddle_mute": 0.65,
           "fiddle_articulation": 0.345,
           "fiddle_string_configuration": 0
         }
@@ -50,16 +50,16 @@
         "slots": {
           "free_reed_technique": "free_reed_drone_under",
           "concertina_anglo_config": "concertina_anglo_30",
-          "concertina_anglo_context": "concertina_anglo_morris",
+          "concertina_anglo_context": "concertina_anglo_irish_trad",
           "concertina_anglo_maker_school": "concertina_irish_made_modern",
           "concertina_anglo_reed": "concertina_anglo_steel_reeds"
         },
         "scores": {
-          "free_reed_technique": 10.952499999999999,
+          "free_reed_technique": 10.79,
           "concertina_anglo_config": 1.04,
-          "concertina_anglo_context": 2.0799999999999996,
-          "concertina_anglo_maker_school": -0.07000000000000006,
-          "concertina_anglo_reed": 1.95
+          "concertina_anglo_context": 1.69,
+          "concertina_anglo_maker_school": -0.525,
+          "concertina_anglo_reed": 0.7
         }
       },
       {
@@ -70,9 +70,9 @@
           "melodeon_diatonic_context": "melodeon_diatonic_celtic"
         },
         "scores": {
-          "free_reed_technique": 10.952499999999999,
-          "melodeon_rows": 5.193214285714285,
-          "melodeon_diatonic_context": 3.3149999999999995
+          "free_reed_technique": 10.79,
+          "melodeon_rows": 3.5432142857142854,
+          "melodeon_diatonic_context": 2.8600000000000003
         }
       },
       {
@@ -87,7 +87,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -96,22 +96,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 10.249999999999998,
-          "voice_quality": 17.289999999999992,
+          "voice_register": 4.5,
+          "voice_quality": 12.934999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4375,
-          "voice_articulation": 17.484999999999992,
-          "voice_microtone": 18.52499999999999,
-          "voice_tradition": 25.414999999999996,
-          "voice_mechanism_compound": 6.825,
-          "voice_estill_quality": 4.095000000000001,
-          "voice_speech_song": 20.604999999999997,
-          "voice_ensemble_config": 16.89999999999999,
-          "voice_ornament_system": 11.764999999999997,
-          "voice_pitch_organization": 2.5349999999999997,
+          "voice_vibrato": 2.7950000000000004,
+          "voice_articulation": 14.104999999999995,
+          "voice_microtone": 15.469999999999994,
+          "voice_tradition": 20.214999999999996,
+          "voice_mechanism_compound": 5.85,
+          "voice_estill_quality": 2.8600000000000003,
+          "voice_speech_song": 16.444999999999993,
+          "voice_ensemble_config": 13.519999999999992,
+          "voice_ornament_system": 9.740000000000002,
+          "voice_pitch_organization": 3.5100000000000002,
           "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 2.7625
+          "voice_multitrack_stack": 2.2099999999999995
         }
       }
     ],

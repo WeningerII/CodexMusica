@@ -3,12 +3,13 @@
   "name": "Ambient synth",
   "family": "electronic",
   "lineage": "Synthesizer-led ambient in which articulated patterns and changing electronic timbres remain recognizable, represented by Steve Hauschildt’s solo work around Strands (2016). A harmonic bed can give rise to arpeggios and aleatoric sequences, then be shaped through processing and editing. This selected pattern-oriented branch differs from beatless, steady-state space ambient and from the historically specific Berlin School.",
-  "recipe": "classic mid-2010s ambient synth, experimental Elec, ambient branch, idm glitch experimental electric, retro aesthetic experimental electric. analog fm synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
-  "recipe_chars": 310,
-  "score": 7.129,
+  "recipe": "classic mid-2010s ambient synth, experimental Elec, ambient branch, idm glitch experimental electric, retro aesthetic experimental electric abstract. analog fm synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter chorus.",
+  "recipe_chars": 319,
+  "score": 7.999,
   "config": {
     "traditions": [
       "ambient_synth",
+      "abstract",
       "ambient_idm"
     ],
     "instruments": [
@@ -40,10 +41,10 @@
         },
         "scores": {
           "electronic_technique": 0.25,
-          "fm_algorithm": 1.04,
-          "fm_modulator_ratio": 0,
+          "fm_algorithm": 1.69,
+          "fm_modulator_ratio": 0.5,
           "fm_polyphony": 0,
-          "fm_model_lineage": 0.78
+          "fm_model_lineage": 0.975
         }
       }
     ],

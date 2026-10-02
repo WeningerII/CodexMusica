@@ -1,5 +1,5 @@
 {
-  "count": 1468,
+  "count": 1472,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8808,6 +8808,30 @@
       "name": "Saxophone quartet (soprano, alto, tenor, baritone)",
       "family": "wind",
       "href": "instruments/saxophone_quartet_soprano_alto_tenor_baritone.json"
+    },
+    {
+      "id": "saxophone_section_tenor_baritone",
+      "name": "Saxophone section (tenor and baritone)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_tenor_baritone.json"
+    },
+    {
+      "id": "saxophone_section_alto_two_tenors",
+      "name": "Saxophone section (alto and two tenors)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_alto_two_tenors.json"
+    },
+    {
+      "id": "pipe_band_snare",
+      "name": "Scottish pipe-band snare drum",
+      "family": "percussion",
+      "href": "instruments/pipe_band_snare.json"
+    },
+    {
+      "id": "zills_sagat",
+      "name": "Zills / sagat (Middle Eastern finger cymbals)",
+      "family": "percussion",
+      "href": "instruments/zills_sagat.json"
     }
   ]
 }

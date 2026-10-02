@@ -3,9 +3,9 @@
   "name": "Brazilian Gospel",
   "family": "blues_gospel",
   "lineage": "Música gospel brasileira, industrialized from the early 1990s around São Paulo evangelical labels and the Universal and Assembleia de Deus congregations — 65-80 BPM power-ballad forms and 120 BPM congregational anthems with grand piano and pad foundations, stacked choir responses in Portuguese, belted modulating final choruses, and rock kit with electric guitar climaxes.",
-  "recipe": "classic 1990-1993 brazilian gospel, ritual Devotional, christian gospel branch, christian gospel pentecostal, Brazilian song functional song contemporary worship adoração. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, low-mid-thick articulate mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, analog poly synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 938,
-  "score": 421.298,
+  "recipe": "classic 1990-1993 brazilian gospel, ritual Devotional, christian gospel branch, christian gospel pentecostal, Brazilian song functional song contemporary worship adoração. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, low-mid-thick articulate mahogany maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, analog poly synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 147 6l6 tube 40w universal connection gospel runs full spectrum fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 953,
+  "score": 422.715,
   "config": {
     "traditions": [
       "brazilian_gospel",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.395,
           "voice_articulation": 18.99,
           "voice_microtone": 18.134999999999994,
-          "voice_tradition": 28.740000000000002,
+          "voice_tradition": 29.73,
           "voice_mechanism_compound": 4.614999999999999,
           "voice_estill_quality": 18.744999999999997,
           "voice_speech_song": 22.489999999999995,
@@ -58,13 +58,13 @@
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
           "choir_size": 8.319999999999999,
           "choir_polyphonic_configuration": 1.885,
           "choir_regional_canonical_configuration": 5.135,
-          "choir_ensemble_repertoire": 1.5299999999999998
+          "choir_ensemble_repertoire": 0.84
         }
       },
       {
@@ -81,12 +81,12 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 20.86,
+          "keyboard_technique": 21.31,
           "grand_piano_size": 0.65,
           "grand_piano_brand": 0.845,
           "piano_hammer": 2.1999999999999997,
-          "piano_rim": 3.25,
-          "piano_soundboard": 1.5750000000000002,
+          "piano_rim": 2.995,
+          "piano_soundboard": 1.9200000000000002,
           "piano_pinblock": -0.05,
           "piano_plate": 0.45499999999999996,
           "piano_pitch_standard": 5.720000000000001
@@ -157,7 +157,7 @@
         },
         "scores": {
           "drum_technique": 18.394999999999996,
-          "drumhead": 1.7700000000000002,
+          "drumhead": 2.0475000000000003,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -165,13 +165,13 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
           "electronic_technique": 2.8925000000000005,
-          "poly_archetypes": 2.9899999999999998,
+          "poly_archetypes": 2.9450000000000003,
           "poly_voices": 2.9450000000000003,
           "poly_maker_lineage": -0.385
         }
@@ -187,12 +187,12 @@
           "leslie_cabinet_model": "leslie_147_alt"
         },
         "scores": {
-          "keyboard_technique": 20.86,
-          "drawbar_setting": 19.529999999999998,
-          "rotary_speed": 23.945,
-          "percussion_setting": 2.6,
-          "tonewheel_model": 22.669999999999998,
-          "leslie_cabinet_model": 0.995
+          "keyboard_technique": 21.31,
+          "drawbar_setting": 19.335,
+          "rotary_speed": 23.75,
+          "percussion_setting": 2.585,
+          "tonewheel_model": 22.729999999999997,
+          "leslie_cabinet_model": 1.2349999999999999
         }
       }
     ],

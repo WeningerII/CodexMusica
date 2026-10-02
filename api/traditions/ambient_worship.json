@@ -5,7 +5,7 @@
   "lineage": "Contemporary Christian music for prayer and reflection that uses ambient soundscapes, intimate sung phrases and melodic acoustic or electronic layers. Salt of the Sound explicitly uses this name for a listening-oriented form alongside, rather than exclusively inside, congregational worship services.",
   "recipe": "classic modern ambient worship, ritual Devotional, christian gospel branch, ambient experimental electric argentine ambient. minimal subglottal pressure, pure, equal tempered, m1 with m0 pulse borrowing. 17 ply hard rock maple 7 ply quartersawn maple wet sand cast grand piano, pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 520,
-  "score": 55.766,
+  "score": 56.118,
   "config": {
     "traditions": [
       "ambient_worship",
@@ -47,7 +47,7 @@
           "voice_speech_song": 0.195,
           "voice_ensemble_config": 3.25,
           "voice_ornament_system": 0.195,
-          "voice_pitch_organization": 0.047499999999999994,
+          "voice_pitch_organization": 0.36416666666666664,
           "voice_processing_chain": 2.34,
           "voice_multitrack_stack": 0.047499999999999994
         }
@@ -70,9 +70,9 @@
           "grand_piano_size": 0.195,
           "grand_piano_brand": 1.24,
           "piano_hammer": -0.035,
-          "piano_rim": 1.2328124999999999,
+          "piano_rim": 1.2674999999999998,
           "piano_soundboard": 0.9599999999999999,
-          "piano_pinblock": 1.02,
+          "piano_pinblock": 1.0675,
           "piano_plate": 1.0725,
           "piano_pitch_standard": 5.3625
         }
@@ -89,7 +89,7 @@
         "scores": {
           "electronic_technique": 15.403333333333329,
           "oscillator": 0,
-          "filter_topology": 0.9375625,
+          "filter_topology": 0.8903125000000001,
           "envelope": 7.669999999999999,
           "modulation": 0
         }

@@ -1,0 +1,64 @@
+{
+  "id": "ancient_mediterranean",
+  "name": "Ancient mediterranean",
+  "family": "classical",
+  "lineage": "Ancient mediterranean: Ensemble De Organographia — Ancient Greek Music, reconstructed aulos role. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic ancient mediterranean, drone Modal, wind pipe branch. fifths and octaves bone built ivory intimate aulos. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 212,
+  "score": 48.229,
+  "config": {
+    "traditions": [
+      "ancient_mediterranean"
+    ],
+    "instruments": [
+      {
+        "id": "aulos",
+        "slots": {
+          "aulos_pipe_relation": "aulos_parallel_fifths",
+          "aulos_build": "aulos_bone_ivory",
+          "aulos_size": "aulos_kitharisterios",
+          "aulos_context": "aulos_symposium"
+        },
+        "scores": {
+          "aulos_pipe_relation": 19.11,
+          "aulos_build": 11.7415,
+          "aulos_size": 13.3145,
+          "aulos_context": 4.063
+        }
+      }
+    ],
+    "pinned": {
+      "aulos": [
+        "aulos_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "aulos_context": "aulos_symposium"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

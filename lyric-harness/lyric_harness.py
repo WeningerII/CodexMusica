@@ -12687,12 +12687,19 @@ def main():
                 _gs = dict(getattr(b, "group_slots", {}) or {})
                 _viol = set(getattr(b, "violated_groups", ()) or ())
                 _unjudged = set(getattr(b, "unjudged_groups", ()) or ())
+                # A HOLDING PAIR WITH A PURSUED NOTE IS NOT "VIOLATED"
+                # (2026-10-02): it was, on read/bed, under "0 FLAG, 1 NOTE".
+                _noted = dict(getattr(b, "noted_groups", {}) or {})
+                from quality.revise import held_note_standing  # noqa: PLC0415
                 for lab, mem, calls in b.must_answer:
                     shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
                     _place = (f" at {_gs[lab]}" if _gs.get(lab) is not None
                               else "")
-                    _stand = ((" — VIOLATED; also UNJUDGED" if lab in _viol
+                    _stand = ((" — VIOLATED; also UNJUDGED"
+                               if lab in _viol and lab not in _noted
                                else " — UNJUDGED") if lab in _unjudged else
+                              held_note_standing(_noted[lab]) if lab in _noted
+                              else
                               ((" — VIOLATED" if lab in _viol else " — HOLDS")
                                if _viol else ""))
                     print(f"      must answer group {lab} {mem}{_place}: "

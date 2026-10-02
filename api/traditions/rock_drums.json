@@ -5,7 +5,7 @@
   "lineage": "Anglo-American practice of the kit as lead voice, running from Sandy Nelson's 1959 tom-driven instrumental singles through the extended concert solos of Ginger Baker, John Bonham and Cozy Powell in 1966-1980 — large-shell kits tuned low and open, multi-mic close-and-room capture through transformer consoles to 15 ips tape, 4/4 backbeat frames at 100-160 BPM, and structured toms-and-cymbal improvisation over a minimal riff.",
   "recipe": "classic British mid-1970s rock drums, distorted Rock, classic branch, American marching groove percussion, jam free improv on frame jamgrass jam band. ride-driven brushes-and-sticks drum kit, bass drum, concert projecting nickel silver nickel silver tambourine orch, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder humbucker electric guitar. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 617,
-  "score": 112.197,
+  "score": 111.507,
   "config": {
     "traditions": [
       "rock_drums",
@@ -33,7 +33,7 @@
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 2.1,
+          "bass_drum_size": 1.95,
           "bass_drum_beater": 0.195
         }
       },
@@ -61,11 +61,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.165,
-          "body_wood": 1.69,
+          "amp_make": 8.21,
+          "body_wood": 1.6,
           "pickup_config": 0.24,
           "string_type": 15.924999999999997,
-          "scale_length_b": 1.69,
+          "scale_length_b": 1.645,
           "fretted_or_not": 0.195,
           "bass_technique": 16.114999999999995,
           "electric_bass_string_configuration": 0
@@ -91,7 +91,7 @@
         "scores": {
           "electric_technique": 2.23,
           "amp_make": 6.845,
-          "body_wood": 1.645,
+          "body_wood": 1.495,
           "neck_wood": 2.8400000000000003,
           "fretboard": 2.8400000000000003,
           "pickup_magnet": 0.585,
@@ -99,9 +99,9 @@
           "string_material": 2.8400000000000003,
           "bridge": 2.4050000000000002,
           "scale_length": 3.12,
-          "string_gauge": 1.6,
+          "string_gauge": 1.45,
           "finish": 0.15,
-          "string_tuning": 10.99
+          "string_tuning": 10.84
         }
       }
     ],

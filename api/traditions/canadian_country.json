@@ -5,7 +5,7 @@
   "lineage": "Canadian country ranges from regional traditions to international commercial recording. Shania Twain’s documented country-pop work supplies a selected studio branch, while the national category is not confined to her production style.",
   "recipe": "classic modern canadian country, functional Song, country branch. breath veiled tone, wide pitch sway, leader call answered, equal tempered. strummed open chord ringing overtones dreadnought acoustic Fender tweed amp American 50s amp tweed breakup single coil electric guitar, fiddle, Fender blackface amp American 60s amp spring reverb bright classic country mullen d10 pedal steel, sampler drum machine, Fender tweed amp American 50s amp tweed breakup electric bass. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 606,
-  "score": 164.322,
+  "score": 164.106,
   "config": {
     "traditions": [
       "canadian_country"
@@ -41,13 +41,13 @@
           "voice_microtone": 3.000000000000001,
           "voice_tradition": 0,
           "voice_mechanism_compound": 0.23099999999999998,
-          "voice_estill_quality": 12.918124999999998,
+          "voice_estill_quality": 12.912499999999998,
           "voice_speech_song": 3.835000000000001,
           "voice_ensemble_config": 0.9099999999999997,
           "voice_ornament_system": 1.8041124150158794e-17,
           "voice_pitch_organization": 0.3,
           "voice_processing_chain": 3.0550000000000006,
-          "voice_multitrack_stack": 0.24712499999999998
+          "voice_multitrack_stack": 0.2415
         }
       },
       {
@@ -60,10 +60,10 @@
           "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 3.300125,
+          "acoustic_technique": 3.2945,
           "string_tuning": 0,
           "top_wood": 0.105,
-          "back_sides": 0.23362499999999997,
+          "back_sides": 0.22049999999999997,
           "string_acoustic": 0.39
         }
       },
@@ -86,17 +86,17 @@
         },
         "scores": {
           "electric_technique": 12.876,
-          "amp_make": 12.723749999999997,
-          "body_wood": 0.23362499999999997,
+          "amp_make": 12.704999999999998,
+          "body_wood": 0.22049999999999997,
           "neck_wood": 0,
-          "fretboard": 0.03712499999999999,
+          "fretboard": 0.0315,
           "pickup_magnet": 0.105,
           "string_material": 0.39,
-          "string_gauge": 0.370125,
+          "string_gauge": 0.357,
           "bridge": 0.063,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.22949999999999995,
+          "string_tuning": 0.1995,
           "single_coil_pickup_construction": 0
         }
       },
@@ -114,7 +114,7 @@
           "bowed_technique": 1.95,
           "fiddle_strings": 0.39,
           "fiddle_bow": 0.1365,
-          "fiddle_mute": 0.370125,
+          "fiddle_mute": 0.357,
           "fiddle_articulation": 0.1365,
           "fiddle_string_configuration": 0
         }
@@ -132,14 +132,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 13.731749999999998,
-          "amp_make": 12.705249999999998,
+          "electric_technique": 13.720499999999998,
+          "amp_make": 12.686499999999997,
           "pickup_steel": 0.0315,
           "string_setup": 6.629999999999999,
           "bar_material": 0.39,
-          "pedal_steel_brand": 13.14675,
+          "pedal_steel_brand": 13.128,
           "pedal_steel_neck_config": 16.575,
-          "pedal_steel_strings": 13.11525
+          "pedal_steel_strings": 13.0965
         }
       },
       {
@@ -170,8 +170,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.723749999999997,
-          "body_wood": 0.03712499999999999,
+          "amp_make": 12.704999999999998,
+          "body_wood": 0.0315,
           "pickup_config": 0.1995,
           "string_type": 0.39,
           "scale_length_b": 0.0945,

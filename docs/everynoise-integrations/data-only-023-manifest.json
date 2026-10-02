@@ -1,0 +1,2028 @@
+{
+  "required_predecessor": "152e5453ca9216c697b1678ff6aa9f9464f6e21b",
+  "expected_additions": 100,
+  "expected_traditions": 4938,
+  "expected_instruments": 1471,
+  "ids": [
+    "accordion",
+    "accordion_band",
+    "acoustic_opm",
+    "adoracion_pentecostal",
+    "african_experimental",
+    "african_percussion",
+    "afrikaans_gqom",
+    "afro_psych",
+    "afro_cuban_percussion",
+    "afro_cuban_traditional",
+    "afrobeat_brasileiro",
+    "ai",
+    "alandsk_musik",
+    "alaska_indie",
+    "albanian_alternative",
+    "albany_ny_indie",
+    "albuquerque_indie",
+    "bangla_gojol",
+    "bangladeshi_indie",
+    "baoule",
+    "alpenpanorama",
+    "alternative_ccm",
+    "ambeat",
+    "american_early_music",
+    "american_oi",
+    "american_romanticism",
+    "ancient_mediterranean",
+    "andean_flute",
+    "anglican_liturgy",
+    "animal_singing",
+    "anime_cv",
+    "anime_game",
+    "anime_latino",
+    "anime_piano",
+    "anime_score",
+    "animegrind",
+    "ann_arbor_indie",
+    "anthem",
+    "anthem_worship",
+    "baps",
+    "antideutsche",
+    "antilliaanse_folklore",
+    "apostolic_worship",
+    "arab_alternative",
+    "arab_experimental",
+    "arab_groove",
+    "arabic_instrumental",
+    "argentine_indie",
+    "argentine_telepop",
+    "arkansas_indie",
+    "armenian_indie",
+    "arunachal_indie",
+    "asbury_park_indie",
+    "asheville_indie",
+    "athens_indie",
+    "atlanta_indie",
+    "atmospheric_doom",
+    "atmospheric_sludge",
+    "bansuri",
+    "barcadi",
+    "auckland_indie",
+    "audiophile_vocal",
+    "austindie",
+    "australian_children_s_music",
+    "australian_comedy",
+    "australian_electropop",
+    "australian_experimental",
+    "australian_indie",
+    "australian_psych",
+    "australian_talent_show",
+    "austrian_indie",
+    "austro_german_modernism",
+    "auteur_compositeur_interprete_quebecois",
+    "autoharp",
+    "avant_garde",
+    "azeri_alternative",
+    "bachchon_ke_geet",
+    "background_music",
+    "background_piano",
+    "backing_track",
+    "bagpipe_marching_band",
+    "bahai",
+    "baja_indie",
+    "bajki",
+    "bali_indie",
+    "balikpapan_indie",
+    "balkan_beats",
+    "ballet_class",
+    "baltimore_indie",
+    "band_organ",
+    "banda_carnavalera",
+    "banda_militar",
+    "banda_peruana",
+    "bandinhas",
+    "bandolim",
+    "bandoneon",
+    "bandung_indie",
+    "bandura",
+    "bangalore_indie",
+    "banjo"
+  ],
+  "equivalent_labels": [
+    {
+      "label": "accordeon",
+      "ordinal": 2726,
+      "target_id": "accordion"
+    },
+    {
+      "label": "aghani lil-atfal",
+      "ordinal": 2747,
+      "target_id": "lebanese_egyptian_aghani_atfal"
+    },
+    {
+      "label": "akordeon",
+      "ordinal": 2749,
+      "target_id": "accordion"
+    },
+    {
+      "label": "anime",
+      "ordinal": 2766,
+      "target_id": "anison_anime_song"
+    },
+    {
+      "label": "asmr",
+      "ordinal": 2790,
+      "target_id": "asmr_whisper_triggers"
+    },
+    {
+      "label": "atmosphere",
+      "ordinal": 2793,
+      "target_id": "ambient"
+    },
+    {
+      "label": "banda",
+      "ordinal": 2826,
+      "target_id": "banda_sinaloense"
+    }
+  ],
+  "scope": "100 distinct genre additions; one standalone pipe-band snare; one optional non-default bandolim ten-string variant. Original pipeline, engine, workflows and test logic unchanged. Prior source rows and selected defaults preserved; universal material expansion exposes optional borrowed variants without changing default selections.",
+  "allocation_manifest_sha256": "246ac5b37a638fa6a72627d55fad57cc6a04e4a0d34f968694bbf6eba63c61c7",
+  "allocation_groups": ["110", "111", "112", "113", "114"],
+  "allocation_exact_identity_audit": "107 exact immutable label/group/ordinal/hash identities verified: 100 novel entries plus seven equivalents. Supplemental next sequential unresolved labels replace equivalents.",
+  "baseline_sha256": {
+    "references/05_traditions.js": "10936e563d7fa4eae7df7d5bfd3446d5193e6bf82ea8df6529dcefba3fd5b82d",
+    "references/06_extras.js": "f01fe52121182f195355490deb0b6fb0e49da975e323168c9c77f4b1f3b0544a",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "e01e50ba96be4bc9e9b60ebc6648606a40206464c4af72c8f42de2931d3acfd6",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "d441d93cd4504ab0c3eef5bf3b4565c1e04f9e71a50063c72398053555214e2f",
+    "references/_image_manifest.json": "c6095ce985f57a91674016c13b86b5284f9c9ffc2580f760578074d7a5e22619",
+    "data/geo.json": "db41df9ef7580cf1c3df7c3b101fee6a703b25fd4432ce657087ee8bd455d3b0",
+    "tests/regression_snapshot.json": "b5d458a402f04e57583681e476622cd4c51378f9eda0f8123c2f002b136ec385"
+  },
+  "source_sha256": {
+    "references/05_traditions.js": "20c9b73863adc135a67856af2c392d8666dbd58c83c40a8b9ef0db61a0cb39f5",
+    "references/06_extras.js": "cfee828ab18663219a7406550190c90175f5ce66c144c550f14796c4340d65ed",
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "052a883e8a486f528b3d6004663f0e174e21488a94b9a6cf2b9e5fde66a5c34a",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "references/_tradition_signatures.json": "be10aa1de25977926dea25869ae3d66cc68bee5c17aadaaf0765a5c94c354b07",
+    "references/_image_manifest.json": "3af0e0f1b5aea1ecc5127b349863fb1cd6fbcb44fb9265e29f15dd3e9e21fb71",
+    "data/geo.json": "a38497e2f3aae25d9c979805ff4c7c5ac5aecbfdd5a49eb41b1442be1c1401ee",
+    "tests/regression_snapshot.json": "8ba59aa2fe82d3f625078cb775f98b6c0532661cb5051a7848867a894bb9fa9d"
+  },
+  "entry_sha256_canonical": {
+    "accordion": "7398e1fa4aac4178da9515f44fc1bfa3bf9a3d1160351dda4cdfdf03d055c685",
+    "accordion_band": "ee69b66a77cd5fac24185cbfe6566073c67c2294bc8acc85741c458c85fa4cc8",
+    "acoustic_opm": "062be634435ad45b2c866e78d1fb5d200c8bb4f062c94c84c19b064add594d9d",
+    "adoracion_pentecostal": "99c90018c98277e4c7927151acc4ab3e703b3340871d60bc5804c53f3088994b",
+    "african_experimental": "7c3a7756a84370669fab2a0157ce6d9542ed381b9bd9c61a5e9d3761be3a5df6",
+    "african_percussion": "fbc031fa9420b97c21dd2a48766952258d3d9ac551e8b463e5281de6e9615239",
+    "afrikaans_gqom": "74f3b78aa2daad4c85e446c29a76fa5adf21f5b453a25a58c71e3a7d198938a0",
+    "afro_psych": "f9f5b6f5e68d3f78fa5dd998329c83d115c4fae5ccde131275850d81bb24db55",
+    "afro_cuban_percussion": "a2ea8a717dab332de3fb11715d191bcd476bf3a7c2ba780d43710c4270849db5",
+    "afro_cuban_traditional": "e3bfb6e115307d63c55cdf1cb48b81b5f8307b60613b2ca0489ec904b9963228",
+    "afrobeat_brasileiro": "072d27d39b38ef8c1e8f2d04e5f81150917d4d28e3e18ef416febd7295aaaabb",
+    "ai": "f0369b5a5d1c1e729d9cfbd27f84580f63e25193255e9779a432021804ca6461",
+    "alandsk_musik": "d06868e5271a2393d48d4deab9f27848b4244dec7bb1204af766499db3e376eb",
+    "alaska_indie": "8e78e38acb7f97fe294499d58f1b92dc5ab79faf9ec0d46af9df0974f78c84bc",
+    "albanian_alternative": "83237019b5ff6db343fdd0316cf4a703b3a2cd01e3064718978785c487d1722c",
+    "albany_ny_indie": "0d2859767f2acd951e70d0e7fbb1d8930d7e2e7c9c1f26b850c8b826fb722dfa",
+    "albuquerque_indie": "2e7e43f449f43a8aa2ecb168a65ab1509d868a65c69b47450dc53e31ec1af87e",
+    "bangla_gojol": "16ce6979a899c6dc97a6a5419296b64149b3f8adc39bd8220f6996f3e00ebbca",
+    "bangladeshi_indie": "2851eef7de26ed7f173ca81b84fdf2f698aa7f88ff1d074086d1b49e458bb7c8",
+    "baoule": "162d3d05bfbc2b64727c54061169d39ec5518d84e9f4ef2ac83e6a609d46faed",
+    "alpenpanorama": "798a568929a158b77787ed53d1f2d4120988bbacaf843503d51df971847a601d",
+    "alternative_ccm": "624a543047c1a989bc4414a0eda38551a39b3105a2d7bd204869662f9b6e0734",
+    "ambeat": "c2f1e0496542bda7ed76d29f779ab3aec528084b69fe8d809a7e85ddfc061ea7",
+    "american_early_music": "0c6bd792c444fb618395e3b0c96151b8706ff49023f366fdcd30c6531144d961",
+    "american_oi": "2c8f07048b03a50c63239af0c1b66fd1cb5fec410f97e872567cc1071dc5d389",
+    "american_romanticism": "558b12d79560ae2bc5242b24f078ed5cbe5519875e98c508be52e6a40f9135ff",
+    "ancient_mediterranean": "1455a7bab3c611f3ec6599a1156432fb268d1f928b9dbfabc5f9c82f07835aea",
+    "andean_flute": "8830ca82d7e36811ad8cfce5f530231c7e52739cd31693c7a5caba0653ebbe57",
+    "anglican_liturgy": "9572c47ec142cb4d4d55097b7f277436de16d6a8452c89898e2858bc4e010f4a",
+    "animal_singing": "3c5ef393ce51b8b8e4134e9b38da8aa2f8ec64d04c5edc8f86590c6051f5e92e",
+    "anime_cv": "1fb0985bf58024023e892273fd74864e72b8cc5a779ab50c77273f1b4aed3e76",
+    "anime_game": "594f293dedc0932881eebf735348fd9acb3d2bcacb2abcc062643a343d5fe6f9",
+    "anime_latino": "53c50c90d5fcd2a7e41e3fcb6c8668cb05f383079ca1a8d7b868d3ac5396be2f",
+    "anime_piano": "4963e41258d3d2624d8adbe0f0059f2f7424ff1726789763bc37bc9909eddfe9",
+    "anime_score": "17f33e55c1f3349dab9f8c836ceecb07ed0300545ebccad427b033180d4b8dec",
+    "animegrind": "002a073790858911118a8aa453b2ca096d2227b46d00bb14e23f0f99bc41d7bc",
+    "ann_arbor_indie": "4c77efd9eccbf49bfd24749926011d311949436d9753fb651c97bc3897817547",
+    "anthem": "a6b797d50e3840836ef2d21b25ebd37ccc84caa64d917c0ba4d48055957aee0c",
+    "anthem_worship": "76b9d1611248e0391cfc9b3eb6cc2a921a32fa1db0679a6b51b0c5181a6296dd",
+    "baps": "a80788439166d5857da484d01bfb88b7bcafe88e9f528bf84a1fab5072df9b28",
+    "antideutsche": "7f79d1ac1e11e5214977c299dd5f0f33dcf042936349810e296a0092d4355372",
+    "antilliaanse_folklore": "de4c8d2dd2bfc04d7da6064ae489194e908f7898313ec4e3cc472c9e2ad7160c",
+    "apostolic_worship": "902846247c735064cc8771a95757e748082bc09e1e3a90011949bd1c99d4fb4d",
+    "arab_alternative": "18098ab57dab6291a58c82aea3806020416006be6962d39d4cb60e17765a6e84",
+    "arab_experimental": "5ecf53513e9fa2886de272035f86b93650fcaf405cfbc9532f939f3c52621059",
+    "arab_groove": "52bf408204a806e06d10322a77c282d51c7280b6d76f067a23b8d1455243967e",
+    "arabic_instrumental": "16b96fa5214f01e9e6936c7a3f0ae9d8ff2b597213e950da6d13db777687b772",
+    "argentine_indie": "acb47bc79496006f5af91658e4ad89e046c01965e9599d0677e459e743466d95",
+    "argentine_telepop": "3c4320a73ed39d1244930bd9ab69d50ca64e9deb1ab0270d44010fe10e65c06c",
+    "arkansas_indie": "b3eaf8f6bd997e7fd952482ab90ac2272cc7ce6457dde1fdae028db27ca8fc3c",
+    "armenian_indie": "dc76495e62284558e649ed6c4ffb026d3d9f6904464bd26353e104a5eab8f6d9",
+    "arunachal_indie": "3f4f7cedbf3935a5966ffd22a350363a0fce3c4c3754c6c625d62e147bb276e7",
+    "asbury_park_indie": "ff1a8c118e076c09bcf7f4b9ab8fe270361068054b0c6d37949324c781cae7f2",
+    "asheville_indie": "ead77dfd278caeac7a82a14f78f9d1cb36bc86d6b9a3b94b1b1e3c9f262516fa",
+    "athens_indie": "968cc1339cf1eb707ca483cb08f63f2fc4809f424372ddc58d8be0a72dd6cce6",
+    "atlanta_indie": "456f5170234cd66a850a6d68fc9d4b4e9cfbcae2bee221b3691ae86b32a388f8",
+    "atmospheric_doom": "72e049f8e3f7f65a487337578e60930184361c90c544d72182fd090db789c7f1",
+    "atmospheric_sludge": "97ab121d1356089ae75c50c1bb838959ebfb9cac12dfcb28cbdeb454c3fe1c0d",
+    "bansuri": "cc0c3d13e6cb7ebdf39a06c2d5a17003fc877c4b08593c8d203f2ed01e38aab0",
+    "barcadi": "0797ae39d34870afd2eccab10b4da335db3c73f2c0b10f9cce6b449d3f961b1b",
+    "auckland_indie": "6f137b4a045142184ecf08950825d270b870233334bd3e4f66b06696ca214103",
+    "audiophile_vocal": "31b2de1529b664dc573923af373f226bb1090e14467940a287eaf2147de1c1d0",
+    "austindie": "daacd86640ebf060c540f9cc5c6881c2c0d7bd49f783753ed9c19e55a4ebe2ba",
+    "australian_children_s_music": "4395054d02ab8f2e6d5ceb8e16e4aa6864a292198b38ee67d0d3d77d9d8fb098",
+    "australian_comedy": "cef3a71440fded08224057e6212aafe2d72d383dac6fc185ed005b7891025dbd",
+    "australian_electropop": "ee97640deb5fc7b77e9883298f554698a68ffb0b17836d632e2f7843580ef1c5",
+    "australian_experimental": "1840ab15213f3b8a73ecd3f0979b5c2acb74bead63e7643eafb2a95b0c7bd0a8",
+    "australian_indie": "1179938b37261efd5bc86c0f18a4dcb472716624ed664609e65a874bb4ff1098",
+    "australian_psych": "1f196d8bd1ad0fcd6eb43055b530b596728080ac0963122a5243ad982cf0ae65",
+    "australian_talent_show": "0d3845c2207ccc0433f7c9a2bee591e30aa0b241cd8c2974aa176578ecdfccaa",
+    "austrian_indie": "1be3b44f07ebdf31912eed173465cf73094b7baff8fa73a8716805788af0ed28",
+    "austro_german_modernism": "b7b08027fcf61b99420ae1fd46890d4c2eca331858919114a1a4f61223ec7da1",
+    "auteur_compositeur_interprete_quebecois": "8c14c7bc5b3c4e4036b2e31a526769cdd5bc2c5bb31379d470c0def5f0709beb",
+    "autoharp": "e7b5d42c9f5add825ae352fa23e423a3290d9ac125405c49bc4b4916c874e3dd",
+    "avant_garde": "d2949847ff3a13465840c37f365e8a8f639e2cbcd094f0f7380d82f70aa9b21c",
+    "azeri_alternative": "dde859eae4f465061b7614f55bf95d56e6646d8b3b89eb913353098f94642801",
+    "bachchon_ke_geet": "f38050bc82515c904a7c58aef39da3a96ec4fdba4b77a455a08b45c752160662",
+    "background_music": "ba91e939b2b811b90efb46352610eb0d63c0df2077a3424f87654e120cfcc397",
+    "background_piano": "d367696bae0c036fdd3d98728efd3616f3ab946dc230f66bd29a09aa33800c3d",
+    "backing_track": "7681ab70180a749cc5a751046931babbdbc74955b9d202de2f9f381a7a6879f1",
+    "bagpipe_marching_band": "7e381a9c52e2ff3b970ca527ea7bc138bb2544515bb9bc33ff44789bdfec8b47",
+    "bahai": "584513766ed2b6402f717c54afe2350e8c5dab90c0fd4d22b1cdbc77baecc8ac",
+    "baja_indie": "a13e3200df5646f9cbfdea3c665433a9107f5530c47eae29c31468a32eab8b1e",
+    "bajki": "4a39e6f47ae7bed401c7bc5ec1c99c35446f678fba40563aa62f83e46fa82a86",
+    "bali_indie": "cc7e0210c8014453394ae58c41feaa56bed90d4d50ae3c9b2fa5e511dd6ed5fc",
+    "balikpapan_indie": "68b8ea71994f483db742546e6ea064a3bc7276d949b8337f7ae330c21a141672",
+    "balkan_beats": "73fc8147cd757c959cbc31c29774217bfd3bce864afa8295bf217774e780d06f",
+    "ballet_class": "bb0916a413469420f926912889841ef4c007ebe191e5d5a64b0b417aeb61a2a8",
+    "baltimore_indie": "9db01730b62ef6399fb16a015bccb583cc70868e9671535be4c7b24c4d10fc23",
+    "band_organ": "b0c98bdc5da9c69b4782f0bf13e12b2430207b45decfd70a01a07cdbd1c31e53",
+    "banda_carnavalera": "09f2c69f35c962879f3e53f348c9b06c17badb66406f1e1601ed1a5d63974988",
+    "banda_militar": "9232036fd155661c3385a73c07c21957a2b1bfbbf6812b1c22f2f358ddd55ce9",
+    "banda_peruana": "e2a0149101e85c6a5e52a9b0bd9262f2a04b94b1d6b60e17aad03a17b5518595",
+    "bandinhas": "94590313aab0b921011104302ea11df23553176e818548bc847240b9df6b97d0",
+    "bandolim": "880cbec2185ff8da5082da7175423343c8b205b9f7a505732b1368f4a511b49d",
+    "bandoneon": "0bc68c215752054a18114da13372ee6b8ac3cfc1c0847154d81556ee8c63e99e",
+    "bandung_indie": "6d217b6031815b69569bc1da63260f151134b5769986857e6a4b48d54a8065c4",
+    "bandura": "556a74c738babae28bad8c7184e42ca471fd0914dcb9757376ba651bd4f4f4e1",
+    "bangalore_indie": "1417cf8d3c2f6568e301f9c375e4681249565defa1ad632e1eb0051300aba364",
+    "banjo": "92110feb030fb07cb77f065b93681450a2945ba10c0eda79f7751572aeb83d1b"
+  },
+  "hash_method": "UTF-8 JSON, sort_keys=True, ensure_ascii=False, separators comma/colon; excludes later review metadata.",
+  "instrument_dependencies": {
+    "new_instruments": [
+      {
+        "id": "pipe_band_snare",
+        "name": "Scottish pipe-band snare drum",
+        "family": "percussion",
+        "class": "membranophone",
+        "axes": {
+          "pitchFix": -1,
+          "sustain": -2,
+          "polyphony": -2,
+          "harmonicity": -2,
+          "register": 1,
+          "range": -2,
+          "articulation": 2,
+          "transduction": -2,
+          "dynamics": 2
+        },
+        "short": "pipe snare",
+        "parts": [
+          {
+            "id": "pipe_snare_head",
+            "name": "Head and tension",
+            "variants": [
+              {
+                "id": "pipe_snare_kevlar",
+                "default": true,
+                "name": "High-tension Kevlar marching head",
+                "descriptors": ["high-tension", "dry-crisp", "snare-buzz"],
+                "match_tokens": ["percussive-attack", "sticks", "processional"],
+                "canonical_tags": ["pipe_band_snare"]
+              }
+            ]
+          },
+          {
+            "id": "pipe_snare_play",
+            "name": "Playing role",
+            "variants": [
+              {
+                "id": "pipe_snare_rudimental_ensemble",
+                "default": true,
+                "name": "Rudimental ensemble strokes",
+                "descriptors": ["rudimental", "tight-unison", "pipe-band"],
+                "match_tokens": ["percussive-attack", "sticks", "ensemble"],
+                "canonical_tags": ["pipe_band_snare"]
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "url": "https://www.uscgpipeband.org/drumfaq.php",
+            "title": "U.S. Coast Guard Pipe Band — Drum FAQ",
+            "support_notes": "Explicit high-tension Kevlar marching snare distinct from tenor and bass. Snare writing complements bagpipe tunes.",
+            "checked_date": "2026-10-02"
+          },
+          {
+            "url": "https://www.euspba.org/about",
+            "title": "EUSPBA About",
+            "support_notes": "Association names Scottish snare drumming as a distinct discipline alongside Highland bagpipe, tenor and bass drums.",
+            "checked_date": "2026-10-02"
+          }
+        ],
+        "rationale": "Catalog has drum-kit snare wires and complete drumline ensemble; neither is standalone Scottish high-tension snare. Own two parts sufficient; does not inherit cymbals or kit kick pedal.",
+        "photo": {
+          "manifest": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_(2229791112).jpg",
+            "source_title": "Northern Constabulary Pipe Band — Snare Drummers at Portree Isle of Skye Scotland (2229791112).jpg",
+            "photographer_credit": "Dave Conner",
+            "license": "CC BY",
+            "license_raw": "CC BY 2.0 Generic",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "credit": "Dave Conner, Northern Constabulary Pipe Band — Snare Drummers at Portree Isle of Skye Scotland, Wikimedia Commons, CC BY 2.0",
+            "kind": "instrument",
+            "source": "wikimedia_commons_verified_practice_context",
+            "id": "pipe_band_snare",
+            "name": "Scottish pipe-band snare drum",
+            "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_%282229791112%29.jpg/500px-Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_%282229791112%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+            "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_%282229791112%29.jpg/500px-Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_%282229791112%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+            "matched_label": "Actual Scottish pipe-band snare players warming up at2007 Portree festival. Practice context; not the Coast Guard exemplar, an Edinburgh session or a claim to the photographed instrument hardware.",
+            "match_confidence": "high"
+          },
+          "rights": {
+            "source_page": "https://commons.wikimedia.org/wiki/File:Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_(2229791112).jpg",
+            "source_title": "Northern Constabulary Pipe Band — Snare Drummers at Portree Isle of Skye Scotland (2229791112).jpg",
+            "photographer_credit": "Dave Conner",
+            "license": "CC BY",
+            "license_raw": "CC BY 2.0 Generic",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "credit": "Dave Conner, Northern Constabulary Pipe Band — Snare Drummers at Portree Isle of Skye Scotland, Wikimedia Commons, CC BY 2.0",
+            "checked_date": "2026-10-02",
+            "changes_notice": "Commons served 500px preview; no extra crop. Preserve attribution/license and identify future changes. No endorsement implied.",
+            "evidence": "File-specific license personally browsed. Served preview acquired centrally; local exact bytes personally viewed, independently SHA-256 checked and Pillow decoded. Original download unavailable; no original receipt claimed."
+          },
+          "full": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_%282229791112%29.jpg/500px-Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_%282229791112%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+            "status": "downloaded_via_browser_link",
+            "content_type": "image/jpeg",
+            "bytes": 130943,
+            "sha256": "0c68d4243a8b62f80b57a66e8975f77c0f71191968a3a422c906610ac644b6bb",
+            "dimensions": [500, 667],
+            "local_path": "/workspace/scratch/798b01cac944/photos/pipe-snare-small.jpg",
+            "checked_date": "2026-10-02",
+            "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred."
+          },
+          "thumbnail": {
+            "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_%282229791112%29.jpg/500px-Northern_Constabulary_Pipe_Band_-_Snare_Drummers_-_at_Portree_Isle_of_Skye_Scotland_%282229791112%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+            "status": "downloaded_via_browser_link",
+            "content_type": "image/jpeg",
+            "bytes": 130943,
+            "sha256": "0c68d4243a8b62f80b57a66e8975f77c0f71191968a3a422c906610ac644b6bb",
+            "dimensions": [500, 667],
+            "local_path": "/workspace/scratch/798b01cac944/photos/pipe-snare-small.jpg",
+            "checked_date": "2026-10-02",
+            "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred."
+          },
+          "visual": {
+            "checked": true,
+            "checked_date": "2026-10-02",
+            "method": "Personal view_image; independent SHA-256 and Pillow decode.",
+            "observation": "Three uniformed kilted musicians carry individual black high-tension snare drums on straps and hold paired sticks while warming up outdoors.",
+            "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/pipe-snare-small.jpg"]
+          },
+          "delivery_note": "Same verified 500×667 Commons served preview used for full/thumb; full-resolution original download unavailable."
+        }
+      }
+    ],
+    "new_variants": [
+      {
+        "instrument_id": "bandolim",
+        "part_id": "bandolim_strings",
+        "variant": {
+          "id": "bandolim_ten_string_five_courses",
+          "auto": false,
+          "name": "Ten strings in five paired courses",
+          "descriptors": ["ten-string", "five-course", "extended-range"],
+          "match_tokens": ["plucked", "melodic"],
+          "canonical_tags": ["bandolim_10_string"]
+        },
+        "sources": [
+          {
+            "url": "https://hamiltondeholanda.com/tempo/",
+            "title": "Hamilton de Holanda — timeline",
+            "support_notes": "2000 commission describes changing his eight-string design by four-to-five proportional extension and explicitly calls new instrument ten-string;2005 solo release explicitly ten-string.",
+            "checked_date": "2026-10-02"
+          }
+        ],
+        "rationale": "Additive optional auto:false, non-default construction value in existing strings/course dimension. Existing steel four-course default and old variant records remain unchanged; only new bandolim row explicitly pins ten-string value. Original universal-material expansion also offers optional auto:false/non-default copies on 313 other matching string parts across 304 instruments. applies_to cannot restrict this under current merge rules. Curated API strips these expanded copies. This exposure changes merged metadata, not old selected defaults; no claim of byte-identical merged instrument catalogs.",
+        "expansion_audit": {
+          "checked_date": "2026-10-02",
+          "curated_exposure": [
+            {
+              "instrument_id": "bandolim",
+              "part_id": "bandolim_strings",
+              "expanded": null,
+              "auto": false,
+              "default": false
+            }
+          ],
+          "expanded_exposure_count": 313,
+          "expanded_instrument_count": 304,
+          "expanded_all_auto_false": true,
+          "expanded_all_non_default": true,
+          "expanded_sample": [
+            {
+              "instrument_id": "twelve_string_electric",
+              "part_id": "twelve_string_electric_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "archtop_jazz",
+              "part_id": "archtop_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "baritone_electric",
+              "part_id": "baritone_electric_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "electric_bass",
+              "part_id": "string_type",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "fretless_bass",
+              "part_id": "fretless_bass_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "electric_guitar_humbucker",
+              "part_id": "string_material",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "pedal_steel",
+              "part_id": "pedal_steel_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "semi_hollow",
+              "part_id": "semi_hollow_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "short_scale_bass",
+              "part_id": "short_scale_bass_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument_id": "semi_hollow_bass",
+              "part_id": "semi_hollow_bass_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            }
+          ],
+          "applies_to_effect": "Original universal-material union/lending ignores applies_to, which is filtered only for family variants before union. Thus applies_to does not constrain this curated own variant after universal expansion.",
+          "decision": "Retain additive optional auto:false non-default value in existing bandolim_strings as instructed by parent. New course-count part would coexist with existing four-course string default; no schema/engine redesign in batch. Optional expanded metadata exposure is acknowledged; no claim all other merged instrument bytes remain identical. Curated API strips expanded copies, and prior defaults/automatic picks are not changed by this value."
+        }
+      }
+    ],
+    "new_parts": [],
+    "withdrawn": ["mechanical_band_organ — existing barrel_organ fairground own parts suffice"],
+    "photo_required_for_new_instrument": "Verified served preview complete"
+  },
+  "runtime_review_artifact": "docs/everynoise-integrations/data-only-023-runtime-review.json",
+  "independent_reviews": [
+    {
+      "reviewer": "genres_4",
+      "checked_date": "2026-10-02",
+      "scope": "Independent source-role, vocal reduction, geographic and pin applicability review of packet2/3. No reviewed packet edited.",
+      "lane2": {
+        "result": "Corrections applied; current20 includingBAPS source/pin checks pass",
+        "findings": [
+          {
+            "id": "ambeat",
+            "finding": "Release directly credits trumpet, not merely artist biography. Corrected by adding trumpet and disclosure.",
+            "source": "https://konb.bandcamp.com/album/lantern-floating",
+            "status": "resolved_independently_rechecked"
+          },
+          {
+            "id": "anime",
+            "finding": "LiSA Homura theme was within existing anison_anime_song/anison; piano arrangement did not define separate category. Converted equivalentmapping and replacedwithBAPS.",
+            "status": "resolved"
+          },
+          {
+            "id": "baps",
+            "finding": "Firsthand ChinoHills institutional event explicitly documents devotional hymns,sitar,tabla,harmonium; communal practice singers supported byinstitutionpage, count unknown, authored aggregate disclosed.",
+            "source": "https://www.baps.org/News/2005/Groundbreaking-Ceremony-BAPS-Shree-Swaminarayan-Mandir-981.aspx",
+            "status": "replacement_verified"
+          }
+        ],
+        "source_limitations": "Naxos,PRX,YouTube and BandaiNamco full pages sometimes blocked; official indexed catalogue/recording excerpts checked independently with explicit exact queries. Do not infer successful full-page reads from these independent checks."
+      },
+      "lane3": {
+        "result": "20 roles/core singer credits geographicallysupported. Allflatpins have valid owningroster parts; softsemantic and productionplan wording followups sent to agent3.",
+        "findings": [
+          {
+            "id": "antideutsche",
+            "finding": "2012 Egotronic post documents production in progress and planned hardware, not finished2012 recording. Rename exemplar/scoping to documented2012 production-plan arrangement.",
+            "source": "https://egotronic.net/blog/zurueck-in-die-zukunft.html",
+            "status": "sent_to_agent3"
+          },
+          {
+            "id": "atmosphere",
+            "finding": "Source calls Beginning ambient piano/acoustic. Current distinction compares location/metal rather than existingambient; provide positive distinct mood/discovery-umbrella evidence or equivalentmap if evidence only supports ambient.",
+            "source": "https://ambient.eskimotion.com/js_albums/beginning/",
+            "status": "soft_semantic_flag_sent_to_agent3"
+          },
+          {
+            "id": "atmospheric_sludge",
+            "finding": "Primary exactatmospheric-sludge tag supports category; add comparison to existingatmospheric_post_metal rather than only newdoomrow.",
+            "source": "https://reserve-de-marche.bandcamp.com/album/the-last-twenty-years",
+            "status": "scope_improvement_sent_to_agent3"
+          }
+        ],
+        "source_limitations": "Lali Sony role credit independently confirmed in primary indexedsource excerpt; directpage unavailable. Primary credits allothercoreselectedrole pages opened. MarcelWorms additional officialprogram excerpt independently confirms Palm pianorepertoire."
+      }
+    },
+    {
+      "reviewer": "genres_3",
+      "reviewed_date": "2026-10-02",
+      "scope": ["packet-1.json", "packet-5.json", "dependencies-5.json"],
+      "result": "No unresolved blocking correction found in current packets. Two P1 vocal-layout corrections were requested and verified as resolved.",
+      "not_edited": ["Peer packets", "Shared source", "Generated products"],
+      "mechanics": {
+        "packet-1": {
+          "entries": 20,
+          "errors": []
+        },
+        "packet-5": {
+          "entries": 20,
+          "errors": []
+        },
+        "pipe_band_snare": {
+          "ownParts": ["pipe_snare_head", "pipe_snare_play"],
+          "mergedParts": ["pipe_snare_head", "pipe_snare_play"]
+        },
+        "bandolim": [
+          {
+            "id": "bandolim_steel_courses",
+            "default": true
+          },
+          {
+            "id": "bandolim_phosphor_bronze"
+          },
+          {
+            "id": "bandolim_gut_pre_1900"
+          },
+          {
+            "id": "bandolim_ten_string_five_courses",
+            "auto": false
+          }
+        ],
+        "bandolim_variant_hosts": {
+          "count": 314,
+          "sample": [
+            {
+              "instrument": "twelve_string_electric",
+              "part": "twelve_string_electric_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument": "archtop_jazz",
+              "part": "archtop_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument": "baritone_electric",
+              "part": "baritone_electric_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument": "electric_bass",
+              "part": "string_type",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument": "fretless_bass",
+              "part": "fretless_bass_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument": "electric_guitar_humbucker",
+              "part": "string_material",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument": "pedal_steel",
+              "part": "pedal_steel_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            },
+            {
+              "instrument": "semi_hollow",
+              "part": "semi_hollow_strings",
+              "expanded": "string",
+              "auto": false,
+              "default": false
+            }
+          ]
+        }
+      },
+      "photo_bytes": {
+        "records_checked": 80,
+        "unique_paths": 19,
+        "photo_byte_decode_errors": [],
+        "snare": {
+          "path": "/workspace/scratch/798b01cac944/photos/pipe-snare-small.jpg",
+          "bytes": 130943,
+          "sha256": "0c68d4243a8b62f80b57a66e8975f77c0f71191968a3a422c906610ac644b6bb",
+          "dimensions": [500, 667]
+        },
+        "independently_matched_asset_receipts": [
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/borsini.jpg",
+            "bytes": 103098,
+            "sha256": "6467c932ec96af16adb93c85739e7bbc641c772429ea85c77c7659fc37b36364",
+            "dimensions": [526, 429],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "accordion",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "accordion",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "accordion_band",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "accordion_band",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/classical-guitar.jpg",
+            "bytes": 393726,
+            "sha256": "8bad9878992df9ab082574ebdb01be96152b4009cbdbde4f39f3f1b882b574bb",
+            "dimensions": [1051, 1600],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "acoustic_opm",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "acoustic_opm",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/grand-piano.jpg",
+            "bytes": 1360401,
+            "sha256": "0cfe3f6af011d9c25cc8f448b11d4fd45b8d596436e9704b6fbe86d31851f9d5",
+            "dimensions": [3682, 2849],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "adoracion_pentecostal",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "adoracion_pentecostal",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "ai",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "ai",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "bahai",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bahai",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "ballet_class",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "ballet_class",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/prophet.jpg",
+            "bytes": 3585265,
+            "sha256": "a87618054162486688e93e9caf018a60322af5d717261e374ba4b88dce04b406",
+            "dimensions": [3993, 1973],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "african_experimental",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "african_experimental",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/djembe.jpg",
+            "bytes": 47670,
+            "sha256": "4c48133ba35dc7fd242611dc9613ae79993107095796c1840d4cd2f5573beeb3",
+            "dimensions": [600, 450],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "african_percussion",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "african_percussion",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/akai.jpg",
+            "bytes": 453343,
+            "sha256": "d5d68cdd26ba41b8180110b9f21208cee77f809b3986d02844b60e8cb22cd85d",
+            "dimensions": [3000, 1750],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "afrikaans_gqom",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "afrikaans_gqom",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "balkan_beats",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "balkan_beats",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/lespaul.jpg",
+            "bytes": 503215,
+            "sha256": "d0f4e03caf84350b5dc79f417dbc27403fdd67c87d18e42f83ac2fdc878013e3",
+            "dimensions": [1280, 960],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "afro_psych",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "afro_psych",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "afrobeat_brasileiro",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "afrobeat_brasileiro",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "alandsk_musik",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "alandsk_musik",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "alaska_indie",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "alaska_indie",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "albanian_alternative",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "albanian_alternative",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "albany_ny_indie",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "albany_ny_indie",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "albuquerque_indie",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "albuquerque_indie",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "baja_indie",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "baja_indie",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "bali_indie",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bali_indie",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "balikpapan_indie",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "balikpapan_indie",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "baltimore_indie",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "baltimore_indie",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "bandung_indie",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bandung_indie",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "bangalore_indie",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bangalore_indie",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/congas-preview.jpg",
+            "bytes": 113496,
+            "sha256": "523bdeef218392f6cfc231f1cb02ae8c6470627cb75fcb13077dd19378691ff3",
+            "dimensions": [960, 638],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "afro_cuban_percussion",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "afro_cuban_percussion",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/bata.jpg",
+            "bytes": 32412,
+            "sha256": "cf2ba2cda167e0f4a89e72c2bf9c49b017ed5e8d2c2297156625d019d511122c",
+            "dimensions": [390, 245],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "afro_cuban_traditional",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "afro_cuban_traditional",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/voice.jpg",
+            "bytes": 1210205,
+            "sha256": "683f33d186d512d9b72a3595d170dda10a5ad5a1e551ed3b267bde5368c06128",
+            "dimensions": [1998, 1498],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "bangla_gojol",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "bangla_gojol",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 1,
+                "id": "baoule",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "baoule",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/walden-acoustic.jpg",
+            "bytes": 3847938,
+            "sha256": "2e184303f9e8bffaab99fe69e642c6d48cd95facb6369003d4ab65ed4a1076b5",
+            "dimensions": [3000, 4000],
+            "used_by": [
+              {
+                "packet": 1,
+                "id": "bangladeshi_indie",
+                "size": "full"
+              },
+              {
+                "packet": 1,
+                "id": "bangladeshi_indie",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/bagpipe.jpg",
+            "bytes": 275977,
+            "sha256": "00c0de320b63a9502b0efb64cc4e33e5528ac4bacc84ee26d30b578c1d1b2a32",
+            "dimensions": [924, 1441],
+            "used_by": [
+              {
+                "packet": 5,
+                "id": "bagpipe_marching_band",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bagpipe_marching_band",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+            "bytes": 33015,
+            "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+            "dimensions": [250, 720],
+            "used_by": [
+              {
+                "packet": 5,
+                "id": "bajki",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bajki",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/bandorgan.jpg",
+            "bytes": 2126383,
+            "sha256": "46386abd005ae63f42e6ed5eb0a160ec92e5406bed5a0bf3e712156f47e3c833",
+            "dimensions": [2592, 1936],
+            "used_by": [
+              {
+                "packet": 5,
+                "id": "band_organ",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "band_organ",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/trumpet.jpg",
+            "bytes": 130635,
+            "sha256": "64c0b5188374c8f33fa744e5e493ff2617d467879e28a50add7b749c6abe318a",
+            "dimensions": [1299, 431],
+            "used_by": [
+              {
+                "packet": 5,
+                "id": "banda_carnavalera",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "banda_carnavalera",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "banda_militar",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "banda_militar",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "banda_peruana",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "banda_peruana",
+                "size": "thumbnail"
+              },
+              {
+                "packet": 5,
+                "id": "bandinhas",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bandinhas",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/bandolim.jpg",
+            "bytes": 4666819,
+            "sha256": "8bcba83ecd22579e324fd8d2bad6e924a2ab3cec780cc6c383bd80e7d8256a76",
+            "dimensions": [2497, 3662],
+            "used_by": [
+              {
+                "packet": 5,
+                "id": "bandolim",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bandolim",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/bandoneon.jpg",
+            "bytes": 1155611,
+            "sha256": "7a2a12fc523968d571bd574c90d41b443e095b60f707a0999e9fefdd1000ea08",
+            "dimensions": [1600, 1132],
+            "used_by": [
+              {
+                "packet": 5,
+                "id": "bandoneon",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bandoneon",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/bandura.jpg",
+            "bytes": 6489442,
+            "sha256": "972e3cac20c0b033f628cbc05467f332acd866608885adb3dd81a958a6f4ebfe",
+            "dimensions": [2454, 5024],
+            "used_by": [
+              {
+                "packet": 5,
+                "id": "bandura",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "bandura",
+                "size": "thumbnail"
+              }
+            ]
+          },
+          {
+            "path": "/workspace/scratch/798b01cac944/photos/banjo.png",
+            "bytes": 946973,
+            "sha256": "3bac99f3bd028d370964920f0f0b7842acada1c5a1663958cc3e42745f0473e5",
+            "dimensions": [704, 1919],
+            "used_by": [
+              {
+                "packet": 5,
+                "id": "banjo",
+                "size": "full"
+              },
+              {
+                "packet": 5,
+                "id": "banjo",
+                "size": "thumbnail"
+              }
+            ]
+          }
+        ]
+      },
+      "resolved_findings": [
+        {
+          "id": "adoracion_pentecostal",
+          "finding": "Two named singers do not by themselves establish duet/choral-response phrasing.",
+          "current_resolution": "voice_ensemble_live_duet replaces duet_chorus; positive Prein and Testa credits preserved."
+        },
+        {
+          "id": "afro_cuban_traditional",
+          "finding": "NEA establishes chanting and bata practice but does not establish an exact singer census or leader/group-response layout.",
+          "current_resolution": "voice_ensemble_live_group explicitly described as authored; selected_count is null and source-unknown vocal mechanisms remain unspecified."
+        }
+      ],
+      "priority_source_reviews": [
+        {
+          "id": "baoule",
+          "source": "https://folkways.si.edu/the-baoule-of-the-ivory-coast/world/music/album/smithsonian",
+          "observation": "Smithsonian track212 explicitly has two Baoule singers imitating flute music.",
+          "assessment": "Voice duet is positively supported; no physical flute substituted. Sakassou marker is regional and expressly does not claim this exact duet session location."
+        },
+        {
+          "id": "pipe_band_snare",
+          "source": "https://www.uscgpipeband.org/drumfaq.php",
+          "observation": "Band describes high-tension marching snares with Kevlar heads separately from tenor and bass drum roles.",
+          "assessment": "Standalone new card is supported and its merged roster has exactly two own parts. General band-member ranges are not made recipe player counts."
+        },
+        {
+          "id": "bandolim",
+          "source": "https://hamiltondeholanda.com/tempo/",
+          "observation": "Artist timeline describes 2000 construction of10-string instrument and2005 first solo10-string disc recorded at Leblon Lounge, Rio.",
+          "assessment": "Explicit ten-string/five-course pin avoids inherited four-course default. Additional optional variant does not alter selected old default."
+        },
+        {
+          "id": "band_organ",
+          "source": "https://glenechopark.org/band-organ",
+          "observation": "Park describes Wurlitzer165 pipe organ with perforated paper roll control and mixed instrument voices.",
+          "assessment": "Existing fairground mechanical-organ family is a disclosed representative model. chain_medium is authored audio recording medium, not mechanical program-control medium. No live keyboard player or singer inferred."
+        },
+        {
+          "id": "baltimore_indie",
+          "source": "https://balkanfalcon.bandcamp.com/album/mmishering-light",
+          "observation": "Three musicians have explicit album-level vocal credits.",
+          "assessment": "Live-group voice card aggregates named roles; does not claim a simultaneous three-person sung take."
+        },
+        {
+          "id": "bandura",
+          "source": "https://folkways.si.edu/julian-kytasty/kozachok",
+          "observation": "Selected archive track is marked Instrumental and credits Julian Kytasty on bandura.",
+          "assessment": "No vocals imported from album-level repertoire."
+        },
+        {
+          "id": "banjo",
+          "source": "https://folkways.si.edu/tony-trischka-with-bill-evans/banjoland/american-folk-bluegrass-country-old-time/track/smithsonian",
+          "observation": "Selected track is instrumental and credits both Trischka and Bill Evans on banjo.",
+          "assessment": "One timbral card aggregates two players; no inferred singer."
+        },
+        {
+          "id": "bajki",
+          "source": "https://jungoffska.pl/products/michalek-z-pudelka-od-zapalek-mp3",
+          "observation": "Publisher explicitly names reader Piotr Fronczewski and SzaZa music without instrumental roster.",
+          "assessment": "Selected narrated foreground voice is supported. Unspecified instrumental music is omitted with an explicit reduction scope, rather than asserted absent from whole audiobook."
+        },
+        {
+          "id": "balikpapan_indie",
+          "source": "https://unw3ll.bandcamp.com/album/unwell",
+          "observation": "Release credits Wendra guitar/voice and bass.",
+          "assessment": "No assumed drums added."
+        },
+        {
+          "id": "banda_carnavalera",
+          "source": "https://www.facebook.com/Cultura.Ciudad.de.Mexico/posts/con-trompetas-trombones-y-tuba-la-banda-la-carnavalera-de-samuel-gonz%C3%A1lez-puso-a/1296680185821076/",
+          "observation": "Indexed official cultural-secretariat caption names trumpets, trombones and tuba for La Carnavalera.",
+          "assessment": "Only these positive brass roles retained; no generic banda percussion inference. Direct official event page was inaccessible in this independent review; indexed official caption reproduced roles."
+        }
+      ],
+      "broader_role_review": "Primary artist, band, archive, label, publisher or institutional source bodies were inspected for all40 entry role reductions, alongside mechanical checking. Narrow instrumental tracks, historical credited lineups and selected foreground reductions are explicitly distinguished from full release/artist rosters. Source-unspecified vocal mechanisms are neutral; named vocal credits are preserved without invented simultaneous take or layer counts.",
+      "photo_priority_visual_review": {
+        "personally_viewed_current_pixels": [
+          "pipe-snare-small.jpg",
+          "bandolim.jpg",
+          "bandorgan.jpg"
+        ],
+        "snare": "Served500x667 preview depicts individual snare drummers with straps and sticks; status preserves preview dimensions rather than asserting original download.",
+        "bandolim": "Adamor portrait is contextual eight-string instrument practice, not Hamilton de Holanda or a ten-string construction. Current caption explicitly preserves that distinction.",
+        "band_organ": "Knoebels mechanical Wurlitzer facade is contextual band-organ image, not the Glen Echo example. Current caption disclaims exact location/installation.",
+        "rights": "File-specific Commons licenses for these three priorities were personally browsed: Dave Conner CC BY2.0; Jader Moreira CC BY-SA4.0; Brad.K CC BY2.0.",
+        "limit": "Independent SHA/decode checks cover all packet assets, but this review does not assert that every peer asset was personally visually inspected again; the three high-priority pixels were."
+      },
+      "bandolim_expansion_semantics": {
+        "implementation": "scripts/_merge.js mergeFamilyParts / augmentUniversalMaterial",
+        "observation": "applies_to filtering operates on initial family variant merge. Own-part variants are not filtered, and universal string-material lending copies the union without an applies_to filter.",
+        "assessment": "A bandolim-only applies_to declaration would document scope but would not prevent optional expanded exposure elsewhere. Existing loader intentionally permits sound-generator material borrowing. No engine edit requested for this data-only batch; parent separately compares prior merged objects/default behavior after accounting for this one additive variant."
+      },
+      "independent_access_limitations": [
+        {
+          "id": "bangla_gojol",
+          "source": "https://www.youtube.com/watch?v=WhxXvgdFPq8",
+          "observation": "Direct video retrieval timed out; primary indexed metadata independently reproduced Vocal Only and no-music Bengali Islamic song branch, but did not reproduce exact Voice—KMY credit.",
+          "assessment": "Voice-only branch independently supported. Exact KMY credit is peer researcher observation pending capture, not independently claimed checked by this reviewer."
+        }
+      ]
+    }
+  ],
+  "photo_audit": "All 100 genre images plus prerequisite snare image full/thumbnail paths rehashed and Pillow-decoded by coordinator; individual researchers personally inspected exact bytes and file-specific licenses. Context does not claim exemplar gear/locality. Served-preview limitations disclosed in receipts.",
+  "validation_status": "All local source/photo audits, full primary4938 API, supporting artifacts, independent35 snapshot and78 API reviews, complete1149 regressions, docs/lint/format pass. Exact-head required CI including real browser/freshness gates remains pending; merge awaits those gates.",
+  "image_coverage": {
+    "traditions_total": 4938,
+    "traditions_with_image": 4888,
+    "instruments_total": 1471,
+    "instruments_with_image": 1471,
+    "preexisting_tradition_gap": 50
+  },
+  "local_checks": {
+    "passed": [
+      "validate:4938 traditions /1471 instruments",
+      "batch exact allocation identity:107 labels",
+      "photo receipts:100 genres plus one new instrument, exact bytes and Pillow decode",
+      "new real app/connector parity:100 × four formats, all pins resolve",
+      "prior record and selected-default preservation audit",
+      "signature gate",
+      "historical EveryNoise pilot:50 genres only",
+      "duplicate gate:zero new blocking collisions; existing advisory findings remain",
+      "preface regressions:79/79",
+      "slot regressions:4/4",
+      "app recipe regressions:56/56",
+      "browser/Node descriptor equivalence:8/8",
+      "descriptor DF check",
+      "lint",
+      "format check",
+      "documentation counters, paths, commands and behavior",
+      "full primary4938 API build, jobs2",
+      "static API contracts all4938/1471",
+      "new compiled100 source rosters/environments/applicable pins retained",
+      "rebuilt atlas geography/tree and full atlas gate",
+      "full1149 recipe rerun after35 individually reviewed snapshot updates",
+      "independent78 prior API changes reviewed, including protected pins and geometry-policy corrections"
+    ],
+    "pending": ["required exact-head CI including real browser/freshness gates"],
+    "local_browser_limitation": "test:app reached 56/56 app recipe pass, then mobile layout could not launch because Chromium is absent. Full test:app is not counted passed locally. Original real-browser gates remain required in CI.",
+    "superseded_attempts": "Pre-freeze API/recipe jobs interrupted with exit130; early atlas build before API index regeneration failed with100 new orphan IDs. Neither counted as passing; full final artifacts and checks run after frozen sources."
+  },
+  "bandolim_expansion_audit": {
+    "checked_date": "2026-10-02",
+    "curated_exposure": [
+      {
+        "instrument_id": "bandolim",
+        "part_id": "bandolim_strings",
+        "expanded": null,
+        "auto": false,
+        "default": false
+      }
+    ],
+    "expanded_exposure_count": 313,
+    "expanded_instrument_count": 304,
+    "expanded_all_auto_false": true,
+    "expanded_all_non_default": true,
+    "expanded_sample": [
+      {
+        "instrument_id": "twelve_string_electric",
+        "part_id": "twelve_string_electric_strings",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "archtop_jazz",
+        "part_id": "archtop_strings",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "baritone_electric",
+        "part_id": "baritone_electric_strings",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "electric_bass",
+        "part_id": "string_type",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "fretless_bass",
+        "part_id": "fretless_bass_strings",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "electric_guitar_humbucker",
+        "part_id": "string_material",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "pedal_steel",
+        "part_id": "pedal_steel_strings",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "semi_hollow",
+        "part_id": "semi_hollow_strings",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "short_scale_bass",
+        "part_id": "short_scale_bass_strings",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      },
+      {
+        "instrument_id": "semi_hollow_bass",
+        "part_id": "semi_hollow_bass_strings",
+        "expanded": "string",
+        "auto": false,
+        "default": false
+      }
+    ],
+    "applies_to_effect": "Original universal-material union/lending ignores applies_to, which is filtered only for family variants before union. Thus applies_to does not constrain this curated own variant after universal expansion.",
+    "decision": "Retain additive optional auto:false non-default value in existing bandolim_strings as instructed by parent. New course-count part would coexist with existing four-course string default; no schema/engine redesign in batch. Optional expanded metadata exposure is acknowledged; no claim all other merged instrument bytes remain identical. Curated API strips expanded copies, and prior defaults/automatic picks are not changed by this value."
+  },
+  "count_only_public_docs_proof": "Reviewed numeric-only changes in AGENTS.md, README.md, SKILL.md, index.html, atlas.html, package.json, connector docs; SKILL global family count updated1342→1347.",
+  "snapshot_review_artifact": "docs/everynoise-integrations/data-only-023-snapshot-review.json",
+  "affected_primary_app_imports": {
+    "primary_and_secondary_blend_anchor_count": 80,
+    "formats": 4,
+    "byte_identical_before_after": true
+  },
+  "initial_complete_recipe_suite": "1114/1149, exit1. Each of35 changes reproduced against exact baseline and terminal outputs; roster/environment unchanged; only existing unpinned options selected. Snapshot acceptance pending individual peer review. Do not count initial suite as passed.",
+  "snapshot_review_status": "All35 individually reproduced and independently accepted, with material unpinned optimizer/compression observations retained. Exactly35 expected values updated via original --update --fixture; fixture set1149 and all other expectations unchanged. Complete final suite pending.",
+  "geo_editorial_corrections": [
+    {
+      "id": "accordion",
+      "before": [53.274, 5.604, "Sint Jacobiparochie, Netherlands", "Europe"],
+      "after": [53.274, 5.604, "Sint Jacobiparochie", "Europe"]
+    },
+    {
+      "id": "accordion_band",
+      "before": [53.795, -1.759, "Bradford, England", "Europe"],
+      "after": [53.795, -1.759, "Bradford", "Europe"]
+    },
+    {
+      "id": "acoustic_opm",
+      "before": [14.677, 121.044, "Quezon City, Philippines", "Asia"],
+      "after": [14.677, 121.044, "Quezon City", "Southeast Asia"]
+    },
+    {
+      "id": "adoracion_pentecostal",
+      "before": [-34.604, -58.382, "Buenos Aires, Argentina", "South America"],
+      "after": [-34.604, -58.382, "Buenos Aires", "Latin America & Caribbean"]
+    },
+    {
+      "id": "african_experimental",
+      "before": [-26.194, 28.071, "Troyeville, Johannesburg, South Africa", "Africa"],
+      "after": [-26.194, 28.071, "Troyeville", "Africa"]
+    },
+    {
+      "id": "african_percussion",
+      "before": [9.4, -10.5, "Sankaran region, Guinea", "Africa"],
+      "after": [9.4, -10.5, "Sankaran region", "Africa"]
+    },
+    {
+      "id": "afrikaans_gqom",
+      "before": [-33.931, 18.584, "Ravensmead, Cape Town, South Africa", "Africa"],
+      "after": [-33.931, 18.584, "Ravensmead", "Africa"]
+    },
+    {
+      "id": "afro_psych",
+      "before": [6.524, 3.379, "Lagos, Nigeria", "Africa"],
+      "after": [6.524, 3.379, "Lagos", "Africa"]
+    },
+    {
+      "id": "afro_cuban_percussion",
+      "before": [40.713, -74.006, "New York City, United States", "North America"],
+      "after": [40.713, -74.006, "New York City", "North America"]
+    },
+    {
+      "id": "afro_cuban_traditional",
+      "before": [23.113, -82.366, "Havana, Cuba", "Caribbean"],
+      "after": [23.113, -82.366, "Havana", "Latin America & Caribbean"]
+    },
+    {
+      "id": "afrobeat_brasileiro",
+      "before": [-22.907, -43.173, "Rio de Janeiro, Brazil", "South America"],
+      "after": [-22.907, -43.173, "Rio de Janeiro", "Latin America & Caribbean"]
+    },
+    {
+      "id": "ai",
+      "before": [34.052, -118.244, "Los Angeles, United States", "North America"],
+      "after": [34.052, -118.244, "Los Angeles", "North America"]
+    },
+    {
+      "id": "alandsk_musik",
+      "before": [60.1, 19.94, "Åland Islands, Finland", "Europe"],
+      "after": [60.1, 19.94, "Åland Islands", "Europe"]
+    },
+    {
+      "id": "alaska_indie",
+      "before": [61.218, -149.9, "Anchorage, Alaska, United States", "North America"],
+      "after": [61.218, -149.9, "Anchorage", "North America"]
+    },
+    {
+      "id": "albanian_alternative",
+      "before": [41.328, 19.819, "Tirana, Albania", "Europe"],
+      "after": [41.328, 19.819, "Tirana", "Europe"]
+    },
+    {
+      "id": "albany_ny_indie",
+      "before": [42.653, -73.757, "Albany, New York, United States", "North America"],
+      "after": [42.653, -73.757, "Albany", "North America"]
+    },
+    {
+      "id": "albuquerque_indie",
+      "before": [35.084, -106.651, "Albuquerque, New Mexico, United States", "North America"],
+      "after": [35.084, -106.651, "Albuquerque", "North America"]
+    },
+    {
+      "id": "bangla_gojol",
+      "before": [23.72, 90.38, "Dhaka / Keraniganj, Bangladesh", "Asia"],
+      "after": [23.72, 90.38, "Dhaka / Keraniganj", "South Asia"]
+    },
+    {
+      "id": "bangladeshi_indie",
+      "before": [23.81, 90.413, "Dhaka, Bangladesh", "Asia"],
+      "after": [23.81, 90.413, "Dhaka", "South Asia"]
+    },
+    {
+      "id": "baoule",
+      "before": [7.45, -5.29, "Baoulé region / Sakassou, Côte d’Ivoire", "Africa"],
+      "after": [7.45, -5.29, "Baoulé region / Sakassou", "Africa"]
+    },
+    {
+      "id": "alpenpanorama",
+      "before": [47.65, 10.6, "Seeg, Allgäu", "Europe"],
+      "after": [47.65, 10.6, "Seeg", "Europe"]
+    },
+    {
+      "id": "ambeat",
+      "before": [35.44, 139.64, "Yokohama", "Asia"],
+      "after": [35.44, 139.64, "Yokohama", "East Asia"]
+    },
+    {
+      "id": "american_oi",
+      "before": [40.8, -73.3, "Long Island, New York", "North America"],
+      "after": [40.8, -73.3, "Long Island", "North America"]
+    },
+    {
+      "id": "andean_flute",
+      "before": [-16.5, -68.1, "Bolivian Andes", "South America"],
+      "after": [-16.5, -68.1, "Bolivian Andes", "Latin America & Caribbean"]
+    },
+    {
+      "id": "anglican_liturgy",
+      "before": [51.5, -0.13, "Westminster, London", "Europe"],
+      "after": [51.5, -0.13, "Westminster", "Europe"]
+    },
+    {
+      "id": "anime_cv",
+      "before": [36.2, 138.3, "Japan", "Asia"],
+      "after": [36.2, 138.3, "Japan", "East Asia"]
+    },
+    {
+      "id": "anime_game",
+      "before": [36.2, 138.3, "Japan", "Asia"],
+      "after": [36.2, 138.3, "Japan", "East Asia"]
+    },
+    {
+      "id": "anime_latino",
+      "before": [23.6, -102.5, "Mexico", "North America"],
+      "after": [23.6, -102.5, "Mexico", "Latin America & Caribbean"]
+    },
+    {
+      "id": "anime_piano",
+      "before": [36.2, 138.3, "Japanese anime repertoire", "Asia"],
+      "after": [36.2, 138.3, "Japanese anime repertoire", "East Asia"]
+    },
+    {
+      "id": "anime_score",
+      "before": [36.2, 138.3, "Japanese animated film repertoire", "Asia"],
+      "after": [36.2, 138.3, "Japanese animated film repertoire", "East Asia"]
+    },
+    {
+      "id": "animegrind",
+      "before": [-28.47, -65.79, "Catamarca", "South America"],
+      "after": [-28.47, -65.79, "Catamarca", "Latin America & Caribbean"]
+    },
+    {
+      "id": "ann_arbor_indie",
+      "before": [42.28, -83.74, "Ann Arbor, Michigan", "North America"],
+      "after": [42.28, -83.74, "Ann Arbor", "North America"]
+    },
+    {
+      "id": "anthem_worship",
+      "before": [36.16, -86.78, "Nashville, Tennessee", "North America"],
+      "after": [36.16, -86.78, "Nashville", "North America"]
+    },
+    {
+      "id": "baps",
+      "before": [33.99, -117.73, "Chino Hills, California", "North America"],
+      "after": [33.99, -117.73, "Chino Hills", "North America"]
+    },
+    {
+      "id": "antilliaanse_folklore",
+      "before": [12.122, -68.883, "Curaçao", "Caribbean"],
+      "after": [12.122, -68.883, "Curaçao", "Latin America & Caribbean"]
+    },
+    {
+      "id": "apostolic_worship",
+      "before": [33.4, -86.95, "Bessemer, Alabama", "North America"],
+      "after": [33.4, -86.95, "Bessemer", "North America"]
+    },
+    {
+      "id": "arab_alternative",
+      "before": [35.994, -78.899, "Durham, North Carolina", "North America"],
+      "after": [35.994, -78.899, "Durham", "North America"]
+    },
+    {
+      "id": "arab_experimental",
+      "before": [51.56, -0.073, "Stoke Newington, London", "Europe"],
+      "after": [51.56, -0.073, "Stoke Newington", "Europe"]
+    },
+    {
+      "id": "argentine_telepop",
+      "before": [
+        -34.604,
+        -58.382,
+        "Argentina (Buenos Aires representative point)",
+        "South America"
+      ],
+      "after": [
+        -34.604,
+        -58.382,
+        "Argentina (Buenos Aires representative point)",
+        "Latin America & Caribbean"
+      ]
+    },
+    {
+      "id": "arkansas_indie",
+      "before": [36.063, -94.157, "Fayetteville, Arkansas", "North America"],
+      "after": [36.063, -94.157, "Fayetteville", "North America"]
+    },
+    {
+      "id": "armenian_indie",
+      "before": [40.187, 44.515, "Yerevan", "Middle East"],
+      "after": [40.187, 44.515, "Yerevan", "Caucasus & Central Asia"]
+    },
+    {
+      "id": "asbury_park_indie",
+      "before": [40.22, -74.012, "Asbury Park, New Jersey", "North America"],
+      "after": [40.22, -74.012, "Asbury Park", "North America"]
+    },
+    {
+      "id": "asheville_indie",
+      "before": [35.595, -82.552, "Asheville, North Carolina", "North America"],
+      "after": [35.595, -82.552, "Asheville", "North America"]
+    },
+    {
+      "id": "atlanta_indie",
+      "before": [33.749, -84.388, "Atlanta, Georgia", "North America"],
+      "after": [33.749, -84.388, "Atlanta", "North America"]
+    },
+    {
+      "id": "bansuri",
+      "before": [34.126, -118.211, "Eagle Rock, Los Angeles", "North America"],
+      "after": [34.126, -118.211, "Eagle Rock", "North America"]
+    },
+    {
+      "id": "auckland_indie",
+      "before": [-36.85, 174.76, "Auckland", "Oceania"],
+      "after": [-36.85, 174.76, "Auckland", "Oceania & Pacific"]
+    },
+    {
+      "id": "australian_children_s_music",
+      "before": [-33.87, 151.21, "Sydney", "Oceania"],
+      "after": [-33.87, 151.21, "Sydney", "Oceania & Pacific"]
+    },
+    {
+      "id": "australian_comedy",
+      "before": [-37.81, 144.96, "Melbourne", "Oceania"],
+      "after": [-37.81, 144.96, "Melbourne", "Oceania & Pacific"]
+    },
+    {
+      "id": "australian_electropop",
+      "before": [-37.81, 144.96, "Melbourne", "Oceania"],
+      "after": [-37.81, 144.96, "Melbourne", "Oceania & Pacific"]
+    },
+    {
+      "id": "australian_experimental",
+      "before": [-37.81, 144.96, "Melbourne", "Oceania"],
+      "after": [-37.81, 144.96, "Melbourne", "Oceania & Pacific"]
+    },
+    {
+      "id": "australian_indie",
+      "before": [-37.81, 144.96, "Melbourne", "Oceania"],
+      "after": [-37.81, 144.96, "Melbourne", "Oceania & Pacific"]
+    },
+    {
+      "id": "australian_psych",
+      "before": [-34.93, 138.6, "Adelaide", "Oceania"],
+      "after": [-34.93, 138.6, "Adelaide", "Oceania & Pacific"]
+    },
+    {
+      "id": "australian_talent_show",
+      "before": [-33.87, 151.21, "Sydney", "Oceania"],
+      "after": [-33.87, 151.21, "Sydney", "Oceania & Pacific"]
+    },
+    {
+      "id": "auteur_compositeur_interprete_quebecois",
+      "before": [45.4, -71.89, "Sherbrooke, Québec", "North America"],
+      "after": [45.4, -71.89, "Sherbrooke", "North America"]
+    },
+    {
+      "id": "azeri_alternative",
+      "before": [40.41, 49.87, "Baku", "Asia"],
+      "after": [40.41, 49.87, "Baku", "Caucasus & Central Asia"]
+    },
+    {
+      "id": "bachchon_ke_geet",
+      "before": [20.6, 78.9, "India", "Asia"],
+      "after": [20.6, 78.9, "India", "South Asia"]
+    },
+    {
+      "id": "background_music",
+      "before": [36.2, 138.3, "Japan", "Asia"],
+      "after": [36.2, 138.3, "Japan", "East Asia"]
+    },
+    {
+      "id": "background_piano",
+      "before": [43.25, -79.87, "Hamilton, Ontario", "North America"],
+      "after": [43.25, -79.87, "Hamilton", "North America"]
+    },
+    {
+      "id": "bagpipe_marching_band",
+      "before": [55.95, -3.19, "Edinburgh, Scotland", "Europe"],
+      "after": [55.95, -3.19, "Edinburgh", "Europe"]
+    },
+    {
+      "id": "bahai",
+      "before": [49.28, -123.12, "Vancouver, Canada", "North America"],
+      "after": [49.28, -123.12, "Vancouver", "North America"]
+    },
+    {
+      "id": "baja_indie",
+      "before": [32.51, -117.04, "Tijuana, Baja California, Mexico", "North America"],
+      "after": [32.51, -117.04, "Tijuana", "Latin America & Caribbean"]
+    },
+    {
+      "id": "bajki",
+      "before": [52.23, 21.01, "Warsaw, Poland", "Europe"],
+      "after": [52.23, 21.01, "Warsaw", "Europe"]
+    },
+    {
+      "id": "bali_indie",
+      "before": [-8.65, 115.22, "Denpasar, Bali, Indonesia", "Asia"],
+      "after": [-8.65, 115.22, "Denpasar", "Southeast Asia"]
+    },
+    {
+      "id": "balikpapan_indie",
+      "before": [-1.27, 116.83, "Balikpapan, East Kalimantan, Indonesia", "Asia"],
+      "after": [-1.27, 116.83, "Balikpapan", "Southeast Asia"]
+    },
+    {
+      "id": "balkan_beats",
+      "before": [52.52, 13.405, "Berlin, Germany", "Europe"],
+      "after": [52.52, 13.405, "Berlin", "Europe"]
+    },
+    {
+      "id": "ballet_class",
+      "before": [43.55, -79.59, "Port Credit, Ontario, Canada", "North America"],
+      "after": [43.55, -79.59, "Port Credit", "North America"]
+    },
+    {
+      "id": "baltimore_indie",
+      "before": [39.29, -76.61, "Baltimore, Maryland, USA", "North America"],
+      "after": [39.29, -76.61, "Baltimore", "North America"]
+    },
+    {
+      "id": "band_organ",
+      "before": [38.967, -77.14, "Glen Echo, Maryland, USA", "North America"],
+      "after": [38.967, -77.14, "Glen Echo", "North America"]
+    },
+    {
+      "id": "banda_carnavalera",
+      "before": [19.43, -99.13, "Mexico City, Mexico", "North America"],
+      "after": [19.43, -99.13, "Mexico City", "Latin America & Caribbean"]
+    },
+    {
+      "id": "banda_militar",
+      "before": [-39.81, -73.25, "Valdivia, Chile", "South America"],
+      "after": [-39.81, -73.25, "Valdivia", "Latin America & Caribbean"]
+    },
+    {
+      "id": "banda_peruana",
+      "before": [-11.78, -75.5, "Jauja, Junín, Peru", "South America"],
+      "after": [-11.78, -75.5, "Jauja", "Latin America & Caribbean"]
+    },
+    {
+      "id": "bandinhas",
+      "before": [-27.66, -54.44, "Tucunduva, Rio Grande do Sul, Brazil", "South America"],
+      "after": [-27.66, -54.44, "Tucunduva", "Latin America & Caribbean"]
+    },
+    {
+      "id": "bandolim",
+      "before": [-22.91, -43.17, "Rio de Janeiro, Brazil", "South America"],
+      "after": [-22.91, -43.17, "Rio de Janeiro", "Latin America & Caribbean"]
+    },
+    {
+      "id": "bandoneon",
+      "before": [-34.6, -58.38, "Buenos Aires, Argentina", "South America"],
+      "after": [-34.6, -58.38, "Buenos Aires", "Latin America & Caribbean"]
+    },
+    {
+      "id": "bandung_indie",
+      "before": [-6.91, 107.61, "Bandung, West Java, Indonesia", "Asia"],
+      "after": [-6.91, 107.61, "Bandung", "Southeast Asia"]
+    },
+    {
+      "id": "bandura",
+      "before": [50.45, 30.52, "Kyiv, Ukraine", "Europe"],
+      "after": [50.45, 30.52, "Kyiv", "Europe"]
+    },
+    {
+      "id": "bangalore_indie",
+      "before": [12.97, 77.59, "Bengaluru (Bangalore), Karnataka, India", "Asia"],
+      "after": [12.97, 77.59, "Bengaluru (Bangalore)", "South Asia"]
+    },
+    {
+      "id": "banjo",
+      "before": [38.9, -77.04, "Washington, D.C., USA", "North America"],
+      "after": [38.9, -77.04, "Washington", "North America"]
+    }
+  ],
+  "source_packet_hash_note": "Original candidate entry hashes retained; final entry hashes below include coordinator atlas label/region corrections only. Coordinates and source-locality reasoning preserved. Geography is independent of original API compiler inputs; no genre/instrument model changes after full primary compile.",
+  "final_entry_sha256_canonical": {
+    "accordion": "7d0abcb50e46ab07ffee6f26822b8278f7b9af35e9644b87d09b68f541fe84fe",
+    "accordion_band": "b90816a7fde87dd011181ad672edcd3185ae770683061f0c6461b49fb25f211b",
+    "acoustic_opm": "7b2524a8663c8903749652bcd84a91b57457339a10f10f207514a8f889e9ceff",
+    "adoracion_pentecostal": "e45b2cdc41fb54caae2718ee6184dea1d8aaefd453f6aa208cb9cb7367fa901c",
+    "african_experimental": "3552d32e8140e8a970a443a3d8a2c468f58e8ef76954aadbcb766298829a71b5",
+    "african_percussion": "fa120da37670992b019a4191f143c60275f199bd4d5d14994eb5ef5cb39ec71a",
+    "afrikaans_gqom": "3a2f9060a934cebff44108a55e16451714d37a3276d740ee283018c8df0ec853",
+    "afro_psych": "548374a3e23b0f03cc26951acb99356ade7d833bfe4c88a7146640bc9d518f85",
+    "afro_cuban_percussion": "26f78916b6fb2dbd6f6cea314c0be2cbe60bc42eab9e4c944678ad30a1a9e8d0",
+    "afro_cuban_traditional": "0714ca8a3fe7531a76016d1cbba9b3ef4a7b99697909c4fe8b05ef6c56cf5a66",
+    "afrobeat_brasileiro": "814101e719d4a7175120bfb3006fa34d378c312cf8ba8f780f794b0227cbe1ee",
+    "ai": "1249aefe2cd3e4f5e5693c85b65e4fd412fbcc29d5a26d9bb68ec60d9484ab94",
+    "alandsk_musik": "97b140305066b47638e5263899cb0acc67c08df3242d5b368d2bbc8ee9b46813",
+    "alaska_indie": "bb68e9569eb2358e1443938151ac5613ee360a9d4e1f0ee385ed44e6d0c8658f",
+    "albanian_alternative": "dfdf4218b33e8fa4b2b9e7c61b3c628434a4deeb795940a9e71150bc263d22ef",
+    "albany_ny_indie": "2f8cca0c029f37f4b6772c7907ab49abc53c5fca58b92b752abc9103f56679a9",
+    "albuquerque_indie": "d2279e7b859fce2d3e77a8498056ec103f34e322faa25ded721ca08434ec4945",
+    "bangla_gojol": "712aad388db60e7919cc7a85a168f7e794a6970eb19887765e0220b3af785d73",
+    "bangladeshi_indie": "d27db1d56d65703549ecfb2a98a58a676f203fa9a7283ad30248fac547151bb6",
+    "baoule": "1ae47d5ff33325fed4689bae4ef8f729b94b328890791933a51beac1a4396906",
+    "alpenpanorama": "41f01e5c977be7ce4887febfd63ef10de2098b293fb4bb3c004ce7117184c8e2",
+    "alternative_ccm": "624a543047c1a989bc4414a0eda38551a39b3105a2d7bd204869662f9b6e0734",
+    "ambeat": "71ffa025ea2b537644444bf9446c3d6b011df77b12d4c98c12086f923c144cd6",
+    "american_early_music": "0c6bd792c444fb618395e3b0c96151b8706ff49023f366fdcd30c6531144d961",
+    "american_oi": "47ff2c666eabed1dec4cae0db29ad38d4c0c4a3f8a48779a1c3d8133c38618f0",
+    "american_romanticism": "558b12d79560ae2bc5242b24f078ed5cbe5519875e98c508be52e6a40f9135ff",
+    "ancient_mediterranean": "1455a7bab3c611f3ec6599a1156432fb268d1f928b9dbfabc5f9c82f07835aea",
+    "andean_flute": "32c8026117529acd13204662845459dfd2bcce4fce60955bd7d562010d70f482",
+    "anglican_liturgy": "c17291974c3146c3eed0ca1be47c48fc2b96605e8ebc9200fa6204e993a8b1ee",
+    "animal_singing": "3c5ef393ce51b8b8e4134e9b38da8aa2f8ec64d04c5edc8f86590c6051f5e92e",
+    "anime_cv": "a95a45570b1c845d7819b3d455f5b5fa29ebebd1e844dd92822f922f667d5e2f",
+    "anime_game": "444d3d184183331132a84019a26c44a1f3037e8e5d9bb0206d9a4b3c5f60cb71",
+    "anime_latino": "ab988f3a8564387f135e95b98233d2101c0609c4b85d520e8d1c9f13ee083a1c",
+    "anime_piano": "96019f6e4d5898a0b7da04a0426f14b82ba40d11cffc3095c2c6a758b22287ad",
+    "anime_score": "51bf01b9f7ace1915f91b896d90780d9076af5c9e2de8c216404218c9ffddfbd",
+    "animegrind": "88f0f4e350808f11b5c80a665cba13aac68d3f01de8baca3f240c00fc55a29bd",
+    "ann_arbor_indie": "9805dd056eda715dbb1282a77e853ac5855b48af4b6a4bd84563cdbb2fe1fe94",
+    "anthem": "a6b797d50e3840836ef2d21b25ebd37ccc84caa64d917c0ba4d48055957aee0c",
+    "anthem_worship": "79cad137e1beb3e46346abd7d2ca16f21318fb78695cb04431f06b2e0458d95c",
+    "baps": "e129b97a08049551cecc53b34295b25da3d72545d43e68b3b77b3b5ed2ee0f4f",
+    "antideutsche": "7f79d1ac1e11e5214977c299dd5f0f33dcf042936349810e296a0092d4355372",
+    "antilliaanse_folklore": "e81e3c857c51f7b57b7bedffd4c9343746a5e6899ae7c869c8a811fbfef076c2",
+    "apostolic_worship": "f251612d1c237ea0eaaea95cd2d2501318153fb3ba148170d52aab53ae8e4253",
+    "arab_alternative": "f935866a869c4f9a5bee8bf3e28d24d3258d57c1784af4f2c072cc1a6c9838a1",
+    "arab_experimental": "32655fa18e5731e6ca89b31b9fdb9a55fa884b034ed54639b440f380f8590988",
+    "arab_groove": "52bf408204a806e06d10322a77c282d51c7280b6d76f067a23b8d1455243967e",
+    "arabic_instrumental": "16b96fa5214f01e9e6936c7a3f0ae9d8ff2b597213e950da6d13db777687b772",
+    "argentine_indie": "acb47bc79496006f5af91658e4ad89e046c01965e9599d0677e459e743466d95",
+    "argentine_telepop": "75a7706d6d8424e1a48d3f70d5529c2e4ac851edbcaa6af3766bc4087cc9a4ba",
+    "arkansas_indie": "cf5091a65253d7aeca25d96603ff6d6e158dcd49036fa9985cb91f2b0e8e91f3",
+    "armenian_indie": "f021f16a55f68580d497df65783f55c3174a13953fbe4fc363fb4c7f889c3e70",
+    "arunachal_indie": "3f4f7cedbf3935a5966ffd22a350363a0fce3c4c3754c6c625d62e147bb276e7",
+    "asbury_park_indie": "3724d654f7c5ba06788e911581b53aec1cfb1e31f1fbdd91c667d4827d69f4a8",
+    "asheville_indie": "5927e46f53abad8b83ca7604fbb7b4550b1ba606c80a8ea6ccc690ca7cdf92f0",
+    "athens_indie": "968cc1339cf1eb707ca483cb08f63f2fc4809f424372ddc58d8be0a72dd6cce6",
+    "atlanta_indie": "b330c38452d272461e890950141f714f47dbff77a57a050bfae0bdb0fbd2f2bb",
+    "atmospheric_doom": "72e049f8e3f7f65a487337578e60930184361c90c544d72182fd090db789c7f1",
+    "atmospheric_sludge": "97ab121d1356089ae75c50c1bb838959ebfb9cac12dfcb28cbdeb454c3fe1c0d",
+    "bansuri": "eb033ac74ee65225826ca060f97f437f8ac1139f291258c1c78c1f29d1a57925",
+    "barcadi": "0797ae39d34870afd2eccab10b4da335db3c73f2c0b10f9cce6b449d3f961b1b",
+    "auckland_indie": "873ff176983e40ce358ab9ad44e9e3c6e8c1a60850f232d3df0295b2dae32047",
+    "audiophile_vocal": "31b2de1529b664dc573923af373f226bb1090e14467940a287eaf2147de1c1d0",
+    "austindie": "daacd86640ebf060c540f9cc5c6881c2c0d7bd49f783753ed9c19e55a4ebe2ba",
+    "australian_children_s_music": "2658085a3acc8dfd300c2f30894449bed8df512e6e3a4661ce0ac21bdc944afc",
+    "australian_comedy": "772c90911fa4d8c1b528e08b3b9a57768215ab0cad361c2c04fdc3160b18f411",
+    "australian_electropop": "44b85157705bc8e69cace3999c48a7f2fb18f28df194d084a6bf25e5125fd432",
+    "australian_experimental": "bad300047f3aa9bb06ca0e7f7e6a5e71c0b1ab1333bbb5961cc2f84c3e615fa8",
+    "australian_indie": "86e7315f857c8b0bf2c78059a09067c41464be19b82a0f91bb2a11268e99ee6c",
+    "australian_psych": "5408291aa6583c2741370719ae557c62b1bb2fe41800b8b323d662d94ea3e1d4",
+    "australian_talent_show": "b031957a0f18d80b23c6dd33c9bc84544badb121c3899166e8d16ad1216ed654",
+    "austrian_indie": "1be3b44f07ebdf31912eed173465cf73094b7baff8fa73a8716805788af0ed28",
+    "austro_german_modernism": "b7b08027fcf61b99420ae1fd46890d4c2eca331858919114a1a4f61223ec7da1",
+    "auteur_compositeur_interprete_quebecois": "8b65402cbbdb31b981abdba2c3bab2897e4560ddef578b36bd76ef6ffdc8082a",
+    "autoharp": "e7b5d42c9f5add825ae352fa23e423a3290d9ac125405c49bc4b4916c874e3dd",
+    "avant_garde": "d2949847ff3a13465840c37f365e8a8f639e2cbcd094f0f7380d82f70aa9b21c",
+    "azeri_alternative": "d81e471e8702d5d06b1fb359a1a539273baeeadbe2ab2f742498b44998f94ac4",
+    "bachchon_ke_geet": "ba853a95fe025b7fb58547195949f45f06c320716024f5054537489888e77cb8",
+    "background_music": "d68635221db119e6245ac256cec929639c57d69f75851f4d932fc61016ae3331",
+    "background_piano": "6c5bc225e909fcadbade2f643d9640d1e667de37f5866c0cd142babebe3c8b75",
+    "backing_track": "7681ab70180a749cc5a751046931babbdbc74955b9d202de2f9f381a7a6879f1",
+    "bagpipe_marching_band": "f2c599ff0b0d98c1229d16ee243dd0d2c5b4618beb1059e0da57e91842087255",
+    "bahai": "dfecd08c875bd287c6813a85ddd5503db9db29886a54cf148528598468f00cca",
+    "baja_indie": "1efd5859151a9a99fda3c4a86f4d9d2f35cda88f402fdf1c62a5892c8a7df882",
+    "bajki": "99734e5670bd9463a64a593dd53dbd53bf04f4e8bca2aa60660ed2587a5a2d0c",
+    "bali_indie": "2a7573639b547190d8d9e2b2b773114080278df5a3a454625a8cfd70f9454e7a",
+    "balikpapan_indie": "563dbe592d20615dd43de86c9827c7d363025f69b7ab8506194cbb8d6d5ed78e",
+    "balkan_beats": "4adacf9bf1bfdf0566b45c76d08d941e4daa3fe17cd54ff581a2d219cb094d64",
+    "ballet_class": "d8b9124b6af057aab4ef65e3995a564b269560ee998fc6062c04dc49800f4152",
+    "baltimore_indie": "ac5635d07b51326b7b6c8e6cb40a69563caec1d768d2bec4f46baa64908b1ef1",
+    "band_organ": "c59e74a76fccc7a0c83c3aea89a14f742e871b2a2f86ccd29667da86a75ea59a",
+    "banda_carnavalera": "408c4d19ce3925e904f3c645258c04bb9b00c691cf192387ad3448245284def5",
+    "banda_militar": "90023613ed7ff737dd8caadb96237dc86f027c88bd6c80fcfdaeddaa6b6810dd",
+    "banda_peruana": "f520cc27b7d62901fb29c9da3d30811a4d6e889501ba908c2200ac0de75d38f5",
+    "bandinhas": "fc8f32e44ac053100f75547feb21bbba3ffe11f9814625e9953642a608b958ca",
+    "bandolim": "caf0bdcbc12fa564fe169f049afa82d3953551760ab2a14f73f92480e328b795",
+    "bandoneon": "42cf83fe7801a30b818bbaa60c8c4cbb8e3a40be22e9afeaf3882b6c09f4b1f8",
+    "bandung_indie": "baceb98a5f62e8a242a0b006e5551acb4948c25410ac9d208e32d6fa6015329a",
+    "bandura": "d40080ab4cf20f08580e34cd964594dfac70b78b94e9c397c78b064abc4f9984",
+    "bangalore_indie": "b173a96b53c0c03b47e7781c3491ef52b32560ff23992d9935d15232296b9d49",
+    "banjo": "ac76ba643278a113f476bae5cc215716d1734e7cfd5f1d25517abebd25594d6e"
+  },
+  "full_primary_api": {
+    "status": "passed",
+    "traditions": 4938,
+    "instruments": 1471,
+    "failed": 0,
+    "elapsed_seconds": 936.6,
+    "jobs": 2,
+    "all_recipes_within_ceiling": true,
+    "all_ids_resolve": true,
+    "new_entry_rosters_environments_and_applicable_pins_retained": 100,
+    "additional_compiler_neighbor_labels": {
+      "barcadi": ["g_house", "ballroom_house"]
+    },
+    "review_artifact": "docs/everynoise-integrations/data-only-023-api-review.json"
+  },
+  "complete_recipe_suite": {
+    "status": "passed",
+    "fixtures": 1149,
+    "exit_code": 0,
+    "workers": 4,
+    "unchanged_original_test_logic": true,
+    "exact_selected_snapshot_updates": 35
+  },
+  "post_build_scope_note": "Only atlas labels/region fields changed after full primary compile; source genre and instrument models and compiler inputs stayed unchanged. Full atlas builds pass. Initial broad custom assertions on shared part IDs and compiler neighbor absence were corrected to actual applicable owners and original neighbor semantics; all100 compiled source pins and exact rosters/environments pass.",
+  "append_only_scope_proof": {
+    "prior_tradition_and_extras_literal_prefixes_preserved": true,
+    "prior_geo_values_preserved": true,
+    "prior_image_records_preserved": true,
+    "all_4838_old_tradition_objects_preserved": true,
+    "prior_instrument_objects_preserved_except_optional_variant_and_its_expanded_copies": true,
+    "engine_and_workflow_and_test_logic_files_unchanged": true
+  },
+  "publication_schedule": "One fully generated/reviewed tree is published; merge awaits exact-head CI. Complete local1149 suite already passed. Browser checks are delegated to unchanged required CI gates because local Chromium is absent.",
+  "continuation_cursor": {
+    "allocation_group_id": "114",
+    "next_ordinal": 2843,
+    "next_exact_label": "bard",
+    "note": "Continue the same alphabetical tail routing; earlier unresolved routing buckets remain separately tracked. Exactly100 actual additions plus seven resolved equivalent labels are documented here."
+  },
+  "prior_api_review": {
+    "recipe_changes": 71,
+    "config_only_changes": 7,
+    "individual_accepted_decisions": 78,
+    "independent_review_artifact": "docs/everynoise-integrations/data-only-023-api-review.json",
+    "material_semantic_and_rendering_observations_retained": 18,
+    "no_source_pin_roster_or_environment_regression": true,
+    "app_imports_unchanged_before_after": 80
+  }
+}

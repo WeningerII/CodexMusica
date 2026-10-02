@@ -5,7 +5,7 @@
   "lineage": "Seattle Pacific Northwest alternative-rock genre that emerged in the late 1980s and went global in 1991 — codified through Nirvana (Nevermind 1991, the commercial breakthrough produced by Butch Vig), Pearl Jam (Ten 1991), Soundgarden (Badmotorfinger 1991, then Superunknown 1994), Alice in Chains (Facelift 1990, Dirt 1992), Mudhoney (the Sub Pop founding band), Screaming Trees, Tad — built on a fusion of hardcore punk aggression and Sabbath-style heavy-blues-derived guitar tone",
   "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal venezuelan metal louisiana metal. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
   "recipe_chars": 688,
-  "score": 265.961,
+  "score": 267.416,
   "config": {
     "traditions": [
       "grunge",
@@ -40,12 +40,12 @@
           "voice_effort": 0,
           "voice_vibrato": 3.95,
           "voice_articulation": 9.424999999999997,
-          "voice_microtone": 18.549999999999997,
+          "voice_microtone": 18.849999999999998,
           "voice_tradition": 5.974,
-          "voice_mechanism_compound": 22.487,
+          "voice_mechanism_compound": 22.7945,
           "voice_estill_quality": 1.6899999999999997,
           "voice_speech_song": 9.619999999999997,
-          "voice_ensemble_config": 11.3375,
+          "voice_ensemble_config": 11.682500000000001,
           "voice_ornament_system": 3.95,
           "voice_pitch_organization": 1.885,
           "voice_processing_chain": 4.9399999999999995,
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 17.1325,
+          "electric_technique": 17.439999999999998,
           "amp_make": 18.785,
           "body_wood": 3.769999999999999,
           "neck_wood": 0.3945,
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 15.499999999999998,
-          "drumhead": 3.29,
+          "drumhead": 3.4850000000000003,
           "drum_kit_kick_pedal": 0
         }
       }

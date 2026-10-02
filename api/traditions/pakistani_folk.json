@@ -1,0 +1,90 @@
+{
+  "id": "pakistani_folk",
+  "name": "Pakistani folk",
+  "family": "vernacular",
+  "lineage": "Pakistani folk: Folk Dance (Region of Sind) — Folk Music of Pakistan, FW04425_105 (1951 release). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic early-1950s pakistani folk, drone Modal, wind pipe branch. maihar gharana canonical 20th century melodic bansuri, dark folk clay tabla, algoza. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 250,
+  "score": 28.996,
+  "config": {
+    "traditions": [
+      "pakistani_folk"
+    ],
+    "instruments": [
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "bansuri_length": "small_bansuri",
+          "bansuri_ornament": "gamak_bansuri",
+          "bansuri_body_material": "bansuri_assam_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 10.055,
+          "bansuri_length": 10.105,
+          "bansuri_ornament": 0,
+          "bansuri_body_material": 0,
+          "bansuri_lineage": 1.05
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "teak_dayan",
+          "tabla_bayan": "clay_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 0.39,
+          "tabla_bayan": 5.008,
+          "tabla_syahi": 0.6974999999999999
+        }
+      },
+      {
+        "id": "algoza",
+        "slots": {
+          "algoza_pair": "algoza_melody_drone",
+          "algoza_breath": "algoza_pulsed"
+        },
+        "scores": {
+          "algoza_pair": 0,
+          "algoza_breath": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "algoza": [
+        "algoza_pair"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "algoza_pair": "algoza_melody_drone"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

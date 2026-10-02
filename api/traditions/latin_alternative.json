@@ -3,21 +3,21 @@
   "name": "Latin alternative",
   "family": "global",
   "lineage": "Spanish-language alternative-rock tradition codified through Mexican Café Tacuba, Argentine Soda Stereo and Café Tacvba, Chilean Los Prisioneros, and the broader Hispanic-American post-1990s indie-rock ecosystem; characterized by rock instrumentation with regional-Latin folk and electronic crossovers, and Spanish-language alternative-poetic lyrical register",
-  "recipe": "classic mid-1990s latin alternative, distorted Rock, regional branch, alternative distorted rock argentine alternative rock. thick, conversational, breath pulsed, interlocked note trading. marshall plexi amp British rock amp basswood soft down tuning power chord humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, water buffalo premium alternative oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 644,
-  "score": 247.69,
+  "recipe": "classic mid-1990s latin alternative, distorted Rock, regional branch, alternative distorted rock baja indie bali indie. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall plexi amp British rock amp basswood low output no compression arpeggiated humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, water buffalo premium alternative oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 627,
+  "score": 234.73,
   "config": {
     "traditions": [
       "latin_alternative",
-      "alternative_pop_rock",
-      "argentine_alternative_rock"
+      "baja_indie",
+      "bali_indie"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "speech_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
@@ -28,34 +28,34 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
         },
         "scores": {
-          "voice_register": 26.754999999999995,
-          "voice_quality": 2.39,
+          "voice_register": 23.004999999999995,
+          "voice_quality": 3.7050000000000014,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.9099999999999999,
-          "voice_articulation": 7.734999999999999,
-          "voice_microtone": 23.674999999999997,
-          "voice_tradition": 5.9799999999999995,
+          "voice_articulation": 9.555,
+          "voice_microtone": 21.924999999999997,
+          "voice_tradition": 7.475,
           "voice_mechanism_compound": 5.005000000000001,
-          "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 7.734999999999999,
-          "voice_ensemble_config": 8.45,
-          "voice_ornament_system": 0.49999999999999994,
-          "voice_pitch_organization": 2.7850000000000006,
-          "voice_processing_chain": 3.77,
-          "voice_multitrack_stack": 3.1200000000000006
+          "voice_estill_quality": 1.4949999999999999,
+          "voice_speech_song": 11.049999999999995,
+          "voice_ensemble_config": 9.685,
+          "voice_ornament_system": 0.39,
+          "voice_pitch_organization": 3.7850000000000006,
+          "voice_processing_chain": 3.1449999999999996,
+          "voice_multitrack_stack": 1.345
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
-          "electric_technique": "electric_power_chord",
+          "electric_technique": "electric_arpeggiated_clean",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
@@ -67,22 +67,22 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 5.265000000000001,
-          "amp_make": 11.439999999999998,
+          "electric_technique": 5.89,
+          "amp_make": 10.14,
           "body_wood": 3.854999999999999,
           "neck_wood": 0.825,
           "fretboard": 0.3,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.195,
+          "pickup_winding": 1.02,
           "string_material": 0.15,
-          "bridge": 2.39,
+          "bridge": 2.09,
           "scale_length": 2.6849999999999996,
-          "string_gauge": 2.39,
+          "string_gauge": 2.09,
           "finish": 0,
-          "string_tuning": 11.96
+          "string_tuning": 10.27
         }
       },
       {
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 11.895,
+          "amp_make": 10.595,
           "body_wood": 1.6500000000000004,
           "pickup_config": 0.585,
-          "string_type": 28.925,
+          "string_type": 25.675,
           "scale_length_b": 0.825,
           "fretted_or_not": 0.105,
-          "bass_technique": 22.2,
+          "bass_technique": 19.7,
           "electric_bass_string_configuration": 0
         }
       },
@@ -112,12 +112,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "sticks_rock",
-          "drumhead": "ec_pre_muffled_drumhead",
+          "drumhead": "double_coated",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.25,
-          "drumhead": 1.7700000000000002,
+          "drum_technique": 19.75,
+          "drumhead": 0.9099999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,7 +132,7 @@
         "scores": {
           "percussion_technique": 6.374999999999999,
           "conga_set": 0.195,
-          "conga_skin": 8.84,
+          "conga_skin": 7.15,
           "conga_shell_wood": 1.755
         }
       }

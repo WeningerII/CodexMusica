@@ -189,6 +189,10 @@ class B:
         self.fields_by_slot = kw.get("fields_by_slot", {})
         self.group_slots = kw.get("group_slots", {})
         self.violated_groups = kw.get("violated_groups", ())
+        #: THE HOLDING-BUT-NOTED GROUPS (2026-10-02): read by
+        #: `_mandate_block` so a pair that holds with a pursued note is not
+        #: labelled VIOLATED.
+        self.noted_groups = kw.get("noted_groups", {})
         self.slot_groups = kw.get("slot_groups", ())
         #: THE SCREENED-OUT RHYMES (M-185, the same day): read by
         #: `render_line` to say why the menu is short.
