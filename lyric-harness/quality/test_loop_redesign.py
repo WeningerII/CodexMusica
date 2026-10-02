@@ -787,8 +787,9 @@ def test_resume_through_the_verb():
           rec.get("cursor_stripped") == "digest"
           and rec.get("cursor_resumed") is False, str(rec)[:300])
     _, _, run = _converse(AABB, "AABB", flags, False, calls=2)
+    st = answer_pending(run)          # read before the file is reopened for writing
     with open(run.state, "w") as fh:
-        json.dump(answer_pending(run), fh)
+        json.dump(st, fh)
     other = list(run.cmd)
     other[other.index("--attempts=1")] = "--attempts=2"
     p = subprocess.run(other, cwd=ROOT, capture_output=True, text=True,
