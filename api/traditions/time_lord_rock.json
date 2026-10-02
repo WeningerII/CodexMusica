@@ -3,14 +3,14 @@
   "name": "Time Lord Rock",
   "family": "pop_rock",
   "lineage": "Doctor Who fan-music genre (Trock) begun in 2008 when Charlie McDonnell and Alex Day formed Chameleon Circuit and released through YouTube and DFTBA Records — bedroom-recorded pop-punk and acoustic power-pop at 120-160 BPM, close-miked doubled lead vocals over strummed acoustic and clean electric guitar, programmed or lightly played drums, and lyrics narrating specific episodes and characters.",
-  "recipe": "classic late-2000s time lord rock, ballad Poetry, bedroom singer song branch, anglo singer song indie folk, pop punk distorted rock oshare kei skate punk. thick, breath veiled tone, straight note core, interlocked note trading. strummed open chord ringing overtones dreadnought acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 672,
-  "score": 382.913,
+  "recipe": "classic late-2000s time lord rock, ballad Poetry, bedroom singer song branch, anglo singer song indie folk, pop punk distorted rock oshare kei stomp and flutter. thick, breath veiled tone, straight note core, interlocked note trading. strummed open chord ringing overtones dreadnought acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 679,
+  "score": 369.327,
   "config": {
     "traditions": [
       "time_lord_rock",
       "oshare_kei",
-      "skate_punk"
+      "stomp_and_flutter"
     ],
     "instruments": [
       {
@@ -27,46 +27,46 @@
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 33.71500000000001,
-          "voice_quality": 5.915000000000001,
+          "voice_register": 36.24,
+          "voice_quality": 5.070000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.5924999999999998,
-          "voice_articulation": 20.539999999999996,
-          "voice_microtone": 31.724999999999998,
-          "voice_tradition": 18.02,
-          "voice_mechanism_compound": 7.075,
-          "voice_estill_quality": 5.005000000000001,
-          "voice_speech_song": 25.544999999999995,
-          "voice_ensemble_config": 20.23,
-          "voice_ornament_system": 4.615000000000001,
-          "voice_pitch_organization": 3.545000000000001,
-          "voice_processing_chain": 3.9000000000000004,
-          "voice_multitrack_stack": 3.795
+          "voice_vibrato": 1.3975,
+          "voice_articulation": 21.904999999999998,
+          "voice_microtone": 29.499999999999996,
+          "voice_tradition": 19.195,
+          "voice_mechanism_compound": 2.150000000000001,
+          "voice_estill_quality": 6.890000000000002,
+          "voice_speech_song": 28.144999999999996,
+          "voice_ensemble_config": 20.734999999999992,
+          "voice_ornament_system": 6.045000000000002,
+          "voice_pitch_organization": 3.2450000000000006,
+          "voice_processing_chain": 4.7125,
+          "voice_multitrack_stack": 3.67
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "open_d",
-          "top_wood": "cedar",
-          "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_tuning": "drop_d",
+          "top_wood": "adirondack",
+          "back_sides": "maple_bs",
+          "string_acoustic": "silk_steel"
         },
         "scores": {
-          "acoustic_technique": 17.490000000000002,
-          "string_tuning": 0.52,
-          "top_wood": 0.585,
-          "back_sides": 0.345,
-          "string_acoustic": 0.585
+          "acoustic_technique": 18.24,
+          "string_tuning": 0.16249999999999998,
+          "top_wood": 0.345,
+          "back_sides": 0.45499999999999996,
+          "string_acoustic": 0.7350000000000001
         }
       },
       {
@@ -74,31 +74,31 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "mahogany",
+          "body_wood": "alder",
           "neck_wood": "mahogany_neck",
-          "fretboard": "ebony_fb",
+          "fretboard": "maple_fb",
           "pickup_magnet": "alnico_3",
           "string_material": "nickel_plated",
-          "string_gauge": "g_12",
-          "bridge": "hardtail",
-          "scale_length": "scale_gibson",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_short",
           "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 18.945,
-          "amp_make": 23.549999999999997,
-          "body_wood": 0.585,
-          "neck_wood": 0.585,
-          "fretboard": 0.585,
+          "electric_technique": 20.12,
+          "amp_make": 15.45,
+          "body_wood": 0.845,
+          "neck_wood": 0.195,
+          "fretboard": 0.3,
           "pickup_magnet": 0,
           "string_material": 0.38999999999999996,
-          "string_gauge": 0.585,
-          "bridge": 0.585,
-          "scale_length": 0.585,
+          "string_gauge": 0.45499999999999996,
+          "bridge": 0.195,
+          "scale_length": 0.54,
           "finish": 0.15,
-          "string_tuning": 9.729999999999999,
+          "string_tuning": 7.98,
           "single_coil_pickup_construction": 0
         }
       },
@@ -109,19 +109,19 @@
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 8.67,
-          "body_wood": 0.645,
-          "pickup_config": 0.39,
-          "string_type": 16.66,
-          "scale_length_b": 0.585,
+          "amp_make": 7.07,
+          "body_wood": 0.345,
+          "pickup_config": 0.195,
+          "string_type": 13.91,
+          "scale_length_b": 0.39,
           "fretted_or_not": 0.135,
-          "bass_technique": 29.945,
+          "bass_technique": 22.445000000000004,
           "electric_bass_string_configuration": 0
         }
       },
@@ -133,8 +133,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.109999999999996,
-          "drumhead": 15.950000000000003,
+          "drum_technique": 20.019999999999996,
+          "drumhead": 16.625,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -147,8 +147,8 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 18.17,
-          "poly_archetypes": 7.4799999999999995,
+          "electronic_technique": 18.92,
+          "poly_archetypes": 6.53,
           "poly_voices": 0.4,
           "poly_maker_lineage": -1.55
         }
@@ -161,9 +161,9 @@
           "ukulele_wood": "ukulele_spruce"
         },
         "scores": {
-          "ukulele_size": 1.95,
-          "ukulele_style": 1.4299999999999997,
-          "ukulele_wood": 0.8
+          "ukulele_size": 2.6,
+          "ukulele_style": 1.885,
+          "ukulele_wood": 0.65
         }
       }
     ],

@@ -1,0 +1,1137 @@
+{
+  "reviewer": "research_119",
+  "status": "PASS_EXPECTED_UNPROTECTED_ORIGINAL_SOLVER_DRIFT",
+  "baseline": "73fa100709001b80c75b83798e41c24c5ebeaff1",
+  "frozen_sha256": "0022ca032c8eb575b0dac7bf0415729fab82ab594f404c3677ad30e7e6cc972d",
+  "method": "Five targeted before/after original-solver searches executed serially. Diagnostics expose unchanged getNeighbors in an in-memory module solely to observe output; no engine, snapshot or repository edits.",
+  "engine": {
+    "scripts/search.js": {
+      "unchanged": true,
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+    },
+    "scripts/score.js": {
+      "unchanged": true,
+      "sha256": "cd3171659c29186d298fba27f0b600635c624f6a246b81810d8dccb85f11aa2c"
+    },
+    "scripts/translate.js": {
+      "unchanged": true,
+      "sha256": "43af50cd7d656ade2f3247f89861326b6803081228c1edd57db8d5f7cdb42a8d"
+    },
+    "scripts/_loader.js": {
+      "unchanged": true,
+      "sha256": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365"
+    },
+    "scripts/_merge.js": {
+      "unchanged": true,
+      "sha256": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c"
+    },
+    "scripts/_seed_workspace.js": {
+      "unchanged": true,
+      "sha256": "223924a3ce0f08dd0302731cf815d712755dc906b3546986966765dc63ded58d"
+    },
+    "scripts/_recipe_stack.js": {
+      "unchanged": true,
+      "sha256": "b02bb4c770a2639657e5397ad4f36370e19e224098d308c6c5a67ea6434c72bc"
+    }
+  },
+  "all5138_app_import_cards_changed": [],
+  "fixtures": [
+    {
+      "id": "dream_pop",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["dream_pop", "bogor_indie", "alabama_indie"],
+      "current_staples": ["dream_pop", "bogor_indie", "deep_latin_alternative"],
+      "mechanism": "After bogor_indie distance5 is selected, new deep_latin_alternative distance5 supersedes alabama_indie6 as alternative-rock candidate representative. Original neighbor scoring also changes.",
+      "baseline_neighbors": [
+        {
+          "id": "shoegaze",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "alternative_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "grunge",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "math_rock_post_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "slowcore",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "sadcore",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "madchester_baggy",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "slacker_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "funk_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "modern_indie_rock_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "shoegaze",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "alternative_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "grunge",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "math_rock_post_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "slowcore",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "sadcore",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "madchester_baggy",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "slacker_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "funk_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "modern_indie_rock_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_talkbox",
+          "protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_maker_lineage",
+          "before": "poly_sequential_smith",
+          "after": "poly_oberheim_tom",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bogor indie alabama indie. thick, breath veiled tone, pure, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
+      "current_output": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bogor indie deep latin alternative. thick, breath veiled tone, pure, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
+      "baseline_trace": [
+        {
+          "score": 235.08499999999998,
+          "desc": "seed"
+        },
+        {
+          "score": 260.5925,
+          "desc": "staple tradition: + bogor_indie"
+        },
+        {
+          "score": 282.3474999999999,
+          "desc": "staple tradition: + alabama_indie"
+        },
+        {
+          "score": 283.60749999999996,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_sub_semitone_third_glide \u2192 voice_pitch_equal_tempered_12"
+        },
+        {
+          "score": 284.62249999999995,
+          "desc": "swap electric_guitar_single_coil.string_gauge: g_11 \u2192 g_10"
+        },
+        {
+          "score": 285.59749999999997,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_M0_pulse_borrowed \u2192 voice_mechanism_false_fold_distorted"
+        },
+        {
+          "score": 285.68749999999994,
+          "desc": "swap voice.voice_processing_chain: voice_processing_talkbox \u2192 voice_processing_vocoder_8_band"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 235.08499999999998,
+          "desc": "seed"
+        },
+        {
+          "score": 260.5925,
+          "desc": "staple tradition: + bogor_indie"
+        },
+        {
+          "score": 281.4425,
+          "desc": "staple tradition: + deep_latin_alternative"
+        },
+        {
+          "score": 282.60749999999996,
+          "desc": "swap electric_guitar_single_coil.string_gauge: g_11 \u2192 g_10"
+        },
+        {
+          "score": 283.5825,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_M0_pulse_borrowed \u2192 voice_mechanism_false_fold_distorted"
+        },
+        {
+          "score": 284.49249999999995,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_sub_semitone_third_glide \u2192 voice_pitch_equal_tempered_12"
+        },
+        {
+          "score": 285.3375,
+          "desc": "swap analog_poly_synth.poly_maker_lineage: poly_sequential_smith \u2192 poly_oberheim_tom"
+        }
+      ]
+    },
+    {
+      "id": "ethio_pop_modern",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["ethio_pop_modern", "acid_jazz_uk_90s", "fusion"],
+      "current_staples": ["ethio_pop_modern", "acid_jazz_uk_90s", "dutch_prog"],
+      "mechanism": "After acid_jazz_uk_90s11 is selected, dutch_prog11 supersedes fusion12 as fusion representative. Original scoring selects it and changes five unprotected parts.",
+      "baseline_neighbors": [
+        {
+          "id": "fusion",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "acid_jazz_uk_90s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "nu_jazz_2000s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "third_stream",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "fusion_70s_electric",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "indo_jazz",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "jazz_funk",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "jazztronica",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "nu_jazz",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "jazz_fusion",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "fusion",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "acid_jazz_uk_90s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "nu_jazz_2000s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "third_stream",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "fusion_70s_electric",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "indo_jazz",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "jazz_funk",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "jazztronica",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "nu_jazz",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "jazz_fusion",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_dhrupad_meend_andolan",
+          "after": "voice_ornament_connemara_unaccompanied",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_tonal_language_constrained",
+          "after": "voice_pitch_ethiopian_qenet",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_talkbox",
+          "after": "voice_processing_retune_10_50ms_natural",
+          "protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "drop_d",
+          "after": "dadgad",
+          "protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_maker_lineage",
+          "before": "poly_oberheim_tom",
+          "after": "poly_sequential_smith",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "current_output": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion acid jazz dutch prog. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "baseline_trace": [
+        {
+          "score": 164.78,
+          "desc": "seed"
+        },
+        {
+          "score": 245.12749999999994,
+          "desc": "staple tradition: + acid_jazz_uk_90s"
+        },
+        {
+          "score": 325.6,
+          "desc": "staple tradition: + fusion"
+        },
+        {
+          "score": 346.2975,
+          "desc": "swap drum_kit.drumhead: ec_pre_muffled_drumhead \u2192 vintage_ambassador_drumhead"
+        },
+        {
+          "score": 365.8725,
+          "desc": "swap electric_bass.bass_technique: sub_bass_synth_blend \u2192 fingerstyle_walking"
+        },
+        {
+          "score": 384.00000000000006,
+          "desc": "swap voice.voice_tradition: modern_pop_vocal_training \u2192 jazz_scat_tradition"
+        },
+        {
+          "score": 390.5975,
+          "desc": "swap electric_guitar_single_coil.amp_make: amp_modern_modeling \u2192 amp_american_fender_blackface"
+        },
+        {
+          "score": 395.63500000000005,
+          "desc": "swap electric_bass.amp_make: amp_modern_modeling \u2192 amp_american_ampeg_b15"
+        },
+        {
+          "score": 398.925,
+          "desc": "swap voice.voice_processing_chain: voice_processing_retune_10_50ms_natural \u2192 voice_processing_talkbox"
+        },
+        {
+          "score": 400.53000000000003,
+          "desc": "swap voice.voice_estill_quality: voice_estill_speech \u2192 voice_estill_belt"
+        },
+        {
+          "score": 400.79,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_connemara_unaccompanied \u2192 voice_ornament_dhrupad_meend_andolan"
+        },
+        {
+          "score": 400.945,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_ethiopian_qenet \u2192 voice_pitch_tonal_language_constrained"
+        },
+        {
+          "score": 401.05,
+          "desc": "swap analog_poly_synth.poly_maker_lineage: poly_sequential_smith \u2192 poly_oberheim_tom"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 164.78,
+          "desc": "seed"
+        },
+        {
+          "score": 245.12749999999994,
+          "desc": "staple tradition: + acid_jazz_uk_90s"
+        },
+        {
+          "score": 285.58750000000003,
+          "desc": "staple tradition: + dutch_prog"
+        },
+        {
+          "score": 300.4125,
+          "desc": "swap electric_bass.bass_technique: sub_bass_synth_blend \u2192 fingerstyle_walking"
+        },
+        {
+          "score": 313.91,
+          "desc": "swap drum_kit.drumhead: ec_pre_muffled_drumhead \u2192 vintage_ambassador_drumhead"
+        },
+        {
+          "score": 324.83750000000003,
+          "desc": "swap voice.voice_tradition: modern_pop_vocal_training \u2192 jazz_scat_tradition"
+        },
+        {
+          "score": 329.61500000000007,
+          "desc": "swap electric_bass.amp_make: amp_modern_modeling \u2192 amp_american_ampeg_b15"
+        },
+        {
+          "score": 332.6050000000001,
+          "desc": "swap electric_guitar_single_coil.amp_make: amp_modern_modeling \u2192 amp_american_fender_blackface"
+        },
+        {
+          "score": 334.55500000000006,
+          "desc": "swap voice.voice_estill_quality: voice_estill_speech \u2192 voice_estill_belt"
+        },
+        {
+          "score": 335.8550000000001,
+          "desc": "swap electric_guitar_single_coil.string_tuning: drop_d \u2192 dadgad"
+        }
+      ]
+    },
+    {
+      "id": "cloud_rap",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["cloud_rap", "hauntology_aesthetic", "psychill"],
+      "current_staples": ["cloud_rap", "hauntology_aesthetic", "deep_downtempo_fusion"],
+      "mechanism": "After hauntology_aesthetic8, deep_downtempo_fusion9 supersedes psychill10 as ambient representative; original scoring changes four unprotected parts.",
+      "baseline_neighbors": [
+        {
+          "id": "ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "drone_dark_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dark_ambient_industrial",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dungeon_synth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "darksynth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "witch_house_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "mallsoft",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "vapor_aesthetic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "hauntology_uk_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "melancholia_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "drone_dark_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dark_ambient_industrial",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dungeon_synth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "darksynth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "witch_house_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "mallsoft",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "vapor_aesthetic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "hauntology_uk_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "melancholia_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "delayed_vibrato",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_just_intonation",
+          "after": "voice_pitch_meantone_quarter_comma",
+          "protected": false
+        },
+        {
+          "instrument": "analog_synth",
+          "part": "oscillator",
+          "before": "saw_super",
+          "after": "saw_single",
+          "protected": false
+        },
+        {
+          "instrument": "analog_synth",
+          "part": "filter_topology",
+          "before": "resonant_acid",
+          "after": "svf",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic Southern American 2010-2013 cloud rap, mc Rhythm, modern branch, ambient experimental electric hauntology psychill. thick, rap, straight note core, interlocked note trading. drum machine analog, pad like pad analog synth. tape echo chamber. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+      "current_output": "classic Southern American 2010-2013 cloud rap, mc Rhythm, modern branch, ambient experimental electric hauntology deep downtempo fusion. thick, rap, straight onset, interlocked note trading. drum machine analog, pad like pad analog synth. tape echo chamber. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+      "baseline_trace": [
+        {
+          "score": 104.44999999999997,
+          "desc": "seed"
+        },
+        {
+          "score": 127.94749999999999,
+          "desc": "staple tradition: + hauntology_aesthetic"
+        },
+        {
+          "score": 149.89749999999995,
+          "desc": "staple tradition: + psychill"
+        },
+        {
+          "score": 154.89999999999995,
+          "desc": "swap voice.voice_tradition: beatboxing_tradition \u2192 microtonal_31tet_tradition"
+        },
+        {
+          "score": 158.95499999999996,
+          "desc": "swap voice.voice_speech_song: voice_rhythmic_spoken_flow \u2192 voice_sprechgesang_notated"
+        },
+        {
+          "score": 161.60499999999996,
+          "desc": "swap analog_synth.electronic_technique: electronic_bass_sub \u2192 electronic_pad_drone"
+        },
+        {
+          "score": 163.29999999999995,
+          "desc": "swap voice.voice_register: vocal_fry \u2192 chest_voice"
+        },
+        {
+          "score": 163.85999999999996,
+          "desc": "swap analog_synth.filter_topology: svf \u2192 resonant_acid"
+        },
+        {
+          "score": 164.30499999999995,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_meantone_quarter_comma \u2192 voice_pitch_just_intonation"
+        },
+        {
+          "score": 164.54499999999996,
+          "desc": "swap voice.voice_vibrato: delayed_vibrato \u2192 terminal_vibrato"
+        },
+        {
+          "score": 164.57749999999996,
+          "desc": "swap analog_synth.oscillator: saw_single \u2192 saw_super"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 104.44999999999997,
+          "desc": "seed"
+        },
+        {
+          "score": 127.94749999999999,
+          "desc": "staple tradition: + hauntology_aesthetic"
+        },
+        {
+          "score": 132.7775,
+          "desc": "staple tradition: + deep_downtempo_fusion"
+        },
+        {
+          "score": 136.64249999999998,
+          "desc": "swap voice.voice_tradition: beatboxing_tradition \u2192 microtonal_31tet_tradition"
+        },
+        {
+          "score": 139.2325,
+          "desc": "swap voice.voice_speech_song: voice_rhythmic_spoken_flow \u2192 voice_sprechgesang_notated"
+        },
+        {
+          "score": 141.20749999999998,
+          "desc": "swap analog_synth.electronic_technique: electronic_bass_sub \u2192 electronic_pad_drone"
+        },
+        {
+          "score": 142.30249999999998,
+          "desc": "swap voice.voice_register: vocal_fry \u2192 chest_voice"
+        }
+      ]
+    },
+    {
+      "id": "minimalist",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["minimalist", "hauntology_aesthetic", "chakra"],
+      "current_staples": ["minimalist", "deep_downtempo_fusion", "hauntology_aesthetic"],
+      "mechanism": "deep_downtempo_fusion9 outranks hauntology_aesthetic12 and chakra13 in ambient candidate pool. Search now chooses deep_downtempo_fusion then hauntology; piano maker/hammer and synth filter are material unprotected changes.",
+      "baseline_neighbors": [
+        {
+          "id": "ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "drone_dark_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dark_ambient_industrial",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dungeon_synth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "darksynth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "witch_house_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "mallsoft",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "vapor_aesthetic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "hauntology_uk_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "melancholia_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "drone_dark_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dark_ambient_industrial",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dungeon_synth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "darksynth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "witch_house_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "mallsoft",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "vapor_aesthetic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "hauntology_uk_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "melancholia_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "grand_piano_brand",
+          "before": "steinway_d",
+          "after": "yamaha_cfx",
+          "protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "renner_standard_hammer",
+          "after": "renner_blue_hammer",
+          "protected": false
+        },
+        {
+          "instrument": "analog_synth",
+          "part": "filter_topology",
+          "before": "resonant_acid",
+          "after": "transistor_ladder",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric hauntology chakra. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "current_output": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric deep downtempo fusion hauntology. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "baseline_trace": [
+        {
+          "score": 60.555,
+          "desc": "seed"
+        },
+        {
+          "score": 61.81249999999999,
+          "desc": "staple tradition: + hauntology_aesthetic"
+        },
+        {
+          "score": 64.44250000000001,
+          "desc": "swap grand_piano.keyboard_technique: keyboard_classical_legato \u2192 keyboard_avant_prepared"
+        },
+        {
+          "score": 66.5425,
+          "desc": "staple tradition: + chakra"
+        },
+        {
+          "score": 67.9475,
+          "desc": "swap analog_synth.envelope: sustain_env \u2192 pad_env"
+        },
+        {
+          "score": 68.55250000000001,
+          "desc": "swap grand_piano.grand_piano_brand: bosendorfer \u2192 steinway_d"
+        },
+        {
+          "score": 69.15750000000001,
+          "desc": "swap analog_synth.filter_topology: transistor_ladder \u2192 resonant_acid"
+        },
+        {
+          "score": 69.2025,
+          "desc": "swap grand_piano.piano_hammer: renner_blue_hammer \u2192 renner_standard_hammer"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 60.555,
+          "desc": "seed"
+        },
+        {
+          "score": 61.105,
+          "desc": "staple tradition: + deep_downtempo_fusion"
+        },
+        {
+          "score": 62.3625,
+          "desc": "staple tradition: + hauntology_aesthetic"
+        },
+        {
+          "score": 66.86750000000002,
+          "desc": "swap grand_piano.keyboard_technique: keyboard_classical_legato \u2192 keyboard_avant_prepared"
+        },
+        {
+          "score": 68.27250000000001,
+          "desc": "swap analog_synth.envelope: sustain_env \u2192 pad_env"
+        },
+        {
+          "score": 68.4675,
+          "desc": "swap grand_piano.grand_piano_brand: bosendorfer \u2192 yamaha_cfx"
+        }
+      ]
+    },
+    {
+      "id": "drone_dark_ambient",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["drone_dark_ambient", "atmospheric_doom"],
+      "current_staples": ["drone_dark_ambient"],
+      "mechanism": "New doomgaze13 (lexically before gaian_doom13) replaces atmospheric_doom15 as exact doom-parent candidate representative. Doomgaze is not a profitable staple, so previous atmospheric_doom is no longer tried and no doom staple is retained. Five-neighbor scoring lists unchanged; candidate representative expansion is the cause, including an unprotected string-machine chorus choice.",
+      "baseline_neighbors": [
+        {
+          "id": "doom",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "stoner_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "traditional_doom",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "funeral_doom",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "stoner_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "desert_rock_palm",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "doom_blues",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "arkansas_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "brazilian_doom_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "christian_doom_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "doom",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "stoner_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "traditional_doom",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "funeral_doom",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "stoner_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "desert_rock_palm",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "doom_blues",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "arkansas_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "brazilian_doom_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "christian_doom_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "string_machine",
+          "part": "sm_chorus",
+          "before": "sm_chorus_lush",
+          "after": "sm_chorus_subtle",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal atmospheric doom. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "current_output": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "baseline_trace": [
+        {
+          "score": 113.605,
+          "desc": "seed"
+        },
+        {
+          "score": 114.34250000000002,
+          "desc": "staple tradition: + atmospheric_doom"
+        },
+        {
+          "score": 116.23250000000002,
+          "desc": "swap string_machine.sm_chorus: sm_chorus_subtle \u2192 sm_chorus_lush"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 113.605,
+          "desc": "seed"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "decision": "Five targeted fixture updates are eligible: outputs reproduced and explained by new026 catalog additions through original adjacency rules; no protected pin, old source, imported app card or environment changed. Material unpinned slot choices are explicitly listed. This is not an aesthetic endorsement of old solver choices, and does not authorize shared-engine changes. Full API comparison remains separate once build completes.",
+  "rebind_addendum": {
+    "evidence_only_corrections": [
+      "experimental_vocal.flat_pin_resolution",
+      "finnish_experimental.flat_pin_resolution and authored playback prose",
+      "gotico_brasileiro.flat_pin_resolution"
+    ],
+    "three_actual_compiled_unpinned_values_unchanged": true,
+    "reviewed_api_and_source_artifact_hashes_unchanged": {
+      "api/all.json": true,
+      "api/traditions/index.json": true,
+      "api/instruments/index.json": true,
+      "references/05_traditions.js": true,
+      "references/02_instruments.js": true
+    },
+    "geo_amendment": {
+      "old_frozen_sha256": "9e7bfaba2cd52654b3f697aaf057f991d7ad6e29db09079e5ea4839e0f2e7b8d",
+      "new_frozen_sha256": "1a8fdb78e5357bf3aa3d3d15bb51822ac9d11019ecc02e8a0ef55f0e276f4bf5",
+      "change": {
+        "id": "classic_opm",
+        "field": "geo",
+        "before": [12.88, 121.77, "Philippines", "Southeast Asia"],
+        "after": [14.6, 120.98, "Philippines", "Southeast Asia"],
+        "reason": "Full atlas coastline gate found national centroid offshore; use Manila as explicitly editorial Philippines anchor, no source/session assertion."
+      },
+      "api_inputs_unchanged": true
+    },
+    "no_expensive_rebuild_needed": true
+  }
+}

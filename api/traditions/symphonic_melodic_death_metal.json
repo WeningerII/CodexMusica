@@ -5,7 +5,7 @@
   "lineage": "Symphonic melodic death metal is represented here by BRYMIR. This selected branch has an authored present-day studio realization.",
   "recipe": "classic symphonic melodic death metal, distorted Rock, symphonic branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 484,
-  "score": 33.014,
+  "score": 33.136,
   "config": {
     "traditions": [
       "symphonic_melodic_death_metal"
@@ -113,10 +113,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.0315,
+          "voice_ornament_system": 0.063,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.04875,
-          "voice_multitrack_stack": 0.0945
+          "voice_multitrack_stack": 0.126
         }
       },
       {
@@ -130,8 +130,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "rompler_preset_bank": 0.126,
-          "rompler_context": 0.5205,
-          "rompler_lineage": 1.663
+          "rompler_context": 0.5519999999999999,
+          "rompler_lineage": 1.69
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Taiwan metal is represented here by Chthonic. This selected branch has an authored present-day studio realization.",
   "recipe": "classic taiwan metal, distorted Rock, symphonic branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits rompler workstation, erhu. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 489,
-  "score": 41.24,
+  "score": 41.339,
   "config": {
     "traditions": [
       "taiwan_metal"
@@ -113,10 +113,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.0315,
+          "voice_ornament_system": 0.063,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.04875,
-          "voice_multitrack_stack": 0.126
+          "voice_multitrack_stack": 0.1575
         }
       },
       {
@@ -131,7 +131,7 @@
           "electronic_technique": -0.07,
           "rompler_preset_bank": 0.126,
           "rompler_context": 0.78,
-          "rompler_lineage": 1.663
+          "rompler_lineage": 1.69
         }
       },
       {
@@ -146,11 +146,11 @@
         },
         "scores": {
           "bowed_technique": 0.78,
-          "erhu_skin": 0.7972499999999998,
+          "erhu_skin": 0.7747499999999998,
           "erhu_use": 0.363,
           "erhu_body_wood": 0,
           "erhu_strings": 0.4095,
-          "erhu_bow": 0.21675
+          "erhu_bow": 0.24825000000000003
         }
       }
     ],

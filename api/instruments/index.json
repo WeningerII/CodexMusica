@@ -1,5 +1,5 @@
 {
-  "count": 1472,
+  "count": 1474,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8832,6 +8832,18 @@
       "name": "Zills / sagat (Middle Eastern finger cymbals)",
       "family": "percussion",
       "href": "instruments/zills_sagat.json"
+    },
+    {
+      "id": "collegiate_brass_percussion_ensemble",
+      "name": "Collegiate brass and percussion ensemble",
+      "family": "ensemble",
+      "href": "instruments/collegiate_brass_percussion_ensemble.json"
+    },
+    {
+      "id": "string_orchestra_obbligato_violin",
+      "name": "String orchestra with obbligato violin",
+      "family": "ensemble",
+      "href": "instruments/string_orchestra_obbligato_violin.json"
     }
   ]
 }

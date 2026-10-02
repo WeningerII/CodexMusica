@@ -3,9 +3,9 @@
   "name": "Punk Blues",
   "family": "rock_punk",
   "lineage": "Blues form played with punk attack, emerging from US and Australian garage scenes 1985-2001 through the Gun Club, the Cramps, the Jon Spencer Blues Explosion, Beasts of Bourbon and the White Stripes — 120-180 BPM one- and twelve-bar structures, blown-out fuzz guitar and slide, minimal or drummer-only rhythm sections, and a howled, unpitched vocal recorded fast and deliberately distorted.",
-  "recipe": "classic mid-1990s punk blues, distorted Rock, punk branch, noise rock distorted rock, blues electric functional song, alternative distorted rock detroit blues swamp blues. thick, blues-shouter, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric open g tuning slide steel resonator guitar, brushes-and-sticks drum kit, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 789,
-  "score": 422.482,
+  "recipe": "classic mid-1990s punk blues, distorted Rock, punk branch, noise rock distorted rock, blues electric functional song, alternative distorted rock detroit blues swamp blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric open g tuning slide steel resonator guitar, brushes-and-sticks drum kit, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 794,
+  "score": 419.023,
   "config": {
     "traditions": [
       "punk_blues",
@@ -17,7 +17,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 33.57000000000002,
-          "voice_quality": 10.979999999999992,
+          "voice_quality": 10.204999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 23.01,
           "voice_articulation": 17.614999999999995,
-          "voice_microtone": 24.43,
-          "voice_tradition": 11.424999999999999,
+          "voice_microtone": 24.235,
+          "voice_tradition": 10.629999999999999,
           "voice_mechanism_compound": 7.280000000000001,
           "voice_estill_quality": 5.67,
           "voice_speech_song": 22.424999999999997,
           "voice_ensemble_config": 17.09499999999999,
           "voice_ornament_system": 1.7549999999999994,
           "voice_pitch_organization": 0.59,
-          "voice_processing_chain": 3.81,
+          "voice_processing_chain": 3.66,
           "voice_multitrack_stack": 2.34
         }
       },
@@ -95,8 +95,8 @@
           "res_strings": "phosphor_res"
         },
         "scores": {
-          "acoustic_technique": 4.484999999999999,
-          "string_tuning": 4.25,
+          "acoustic_technique": 4.245,
+          "string_tuning": 4.4,
           "cone_type": 2.125,
           "body_resonator": 0.65,
           "res_strings": 0.65
@@ -134,7 +134,7 @@
           "string_type": 13.8125,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.32999999999999996,
-          "bass_technique": 20.965,
+          "bass_technique": 20.92,
           "electric_bass_string_configuration": 0
         }
       },
@@ -153,8 +153,8 @@
           "harmonica_comb": 21.979999999999997,
           "harmonica_reed": 22.18,
           "harmonica_technique": 23.965,
-          "harmonica_maker_school": 21.705,
-          "harmonica_tuning": 10.51
+          "harmonica_maker_school": 20.999999999999996,
+          "harmonica_tuning": 9.805
         }
       }
     ],

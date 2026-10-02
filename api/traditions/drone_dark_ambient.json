@@ -3,13 +3,12 @@
   "name": "Drone and dark ambient",
   "family": "electronic",
   "lineage": "Long-form sustained-tone genre family descending from early-20th-century minimalist composition (La Monte Young, Tony Conrad, Charlemagne Palestine), Brian Eno post-Roxy ambient canon (Ambient 1: Music for Airports 1978), the Eno-and-Lanois ambient-textural canon (Apollo: Atmospheres and Soundtracks 1983), and the 1990s-onward dark ambient extension into ritualistic-occult mood (Lustmord, Coil, Raison dÊtre, the Cold Meat Industry label catalog)",
-  "recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal atmospheric doom. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 563,
-  "score": 116.233,
+  "recipe": "classic Central European mid-1990s drone and dark ambient, experimental Elec, ambient branch, doom metal. pad like pad analog emu modular 1971 1978 analog studio grade east coast precision pad modular synth, overtone rich sustained brass tape replay keyboard, sustained pad string machine, ritual waterphone. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 546,
+  "score": 113.605,
   "config": {
     "traditions": [
-      "drone_dark_ambient",
-      "atmospheric_doom"
+      "drone_dark_ambient"
     ],
     "instruments": [
       {
@@ -62,13 +61,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
-          "sm_chorus": "sm_chorus_lush",
+          "sm_chorus": "sm_chorus_subtle",
           "sm_voicing": "sm_violins"
         },
         "scores": {
           "electronic_technique": 20.815,
           "sm_voice_count": 1.7950000000000002,
-          "sm_chorus": 2.0399999999999996,
+          "sm_chorus": 0.15,
           "sm_voicing": 2.08
         }
       },
@@ -81,9 +80,9 @@
           "waterphone_construction": "waterphone_bronze_stainless"
         },
         "scores": {
-          "waterphone_model": 10.18,
+          "waterphone_model": 9.955,
           "waterphone_excitation": 0.345,
-          "waterphone_context": 10.525,
+          "waterphone_context": 10.3,
           "waterphone_construction": 0.195
         }
       }

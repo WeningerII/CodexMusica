@@ -3,9 +3,9 @@
   "name": "Second line",
   "family": "vernacular",
   "lineage": "New Orleans street-parade practice in which the hired brass band is the first line and the following neighborhood crowd is the second, formalized through 19th-century Afro-Creole benevolent and social aid and pleasure club funerals and Sunday parades and still weekly in Treme and Central City — bass drum with attached cymbal marking a syncopated three-over-two street beat, snare rolling loose press patterns, sousaphone walking a two-beat bassline, trumpets and trombones riffing hymns and pop tunes over roughly 90-110 BPM, with the crowd's handclaps, whistles and dance steps as an active layer.",
-  "recipe": "classic modern second line, carnival Processional, American south branch, American marching groove percussion, American jazz early man's orchestra new orleans jazz. eb bass brass band sousaphone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, double bass rapid double strokes bass pipe band flourishing kevlar aramid extreme tension tenor drum, traditional mellow brass tambourine orch, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 771,
-  "score": 152.715,
+  "recipe": "classic modern second line, carnival Processional, American south branch, American marching groove percussion, American jazz early man's orchestra new orleans jazz. eb bass brass band sousaphone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line shallow cup lead trumpet trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, double bass rapid double strokes bass pipe band flourishing kevlar aramid extreme tension tenor drum, traditional mellow brass tambourine orch, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 783,
+  "score": 150.78,
   "config": {
     "traditions": [
       "second_line",
@@ -29,18 +29,18 @@
         "slots": {
           "wind_articulation": "wind_dixieland_lead",
           "brass_size": "cornet",
-          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "trumpet_mouthpiece": "bach_trumpet_mp_10half_c",
           "brass_mute": "harmon_in",
           "trumpet_technique": "trumpet_dixieland_lead",
           "trumpet_bell_metal": "trumpet_red_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 8.809999999999999,
+          "wind_articulation": 8.674999999999999,
           "brass_size": 0,
-          "trumpet_mouthpiece": 12.435,
+          "trumpet_mouthpiece": 11.954999999999998,
           "brass_mute": 0.39,
-          "trumpet_technique": 8.809999999999999,
+          "trumpet_technique": 8.674999999999999,
           "trumpet_bell_metal": 3.835,
           "trumpet_maker_school": 7.0200000000000005
         }
@@ -51,16 +51,16 @@
           "wind_articulation": "wind_dixieland_lead",
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
-          "trombone_mute": "straight_mute_trb",
+          "trombone_mute": "no_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_red_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 8.809999999999999,
+          "wind_articulation": 8.674999999999999,
           "trombone_type": 11.625,
           "trombone_mouthpiece": 14.125,
-          "trombone_mute": 0.195,
+          "trombone_mute": 0.24,
           "trombone_technique": 0.78,
           "trombone_bell_metal": 3.835,
           "trombone_maker_school": 7.0200000000000005
@@ -84,7 +84,7 @@
           "sax_body_alloy": 12,
           "sax_mouthpiece": 0.195,
           "sax_technique": 11.625,
-          "sax_maker_school": 10.385
+          "sax_maker_school": 9.575
         }
       },
       {
@@ -107,10 +107,10 @@
           "tenor_drum_shell": "tenor_drum_muffled_cloth"
         },
         "scores": {
-          "tenor_drum_form": 8.16,
+          "tenor_drum_form": 8.07,
           "tenor_drum_head": 2.4699999999999998,
-          "tenor_drum_beater": 2.3199999999999994,
-          "tenor_drum_shell": 5.04
+          "tenor_drum_beater": 2.2749999999999995,
+          "tenor_drum_shell": 4.89
         }
       },
       {

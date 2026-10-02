@@ -1,0 +1,104 @@
+{
+  "id": "collegiate_brass_percussion_ensemble",
+  "name": "Collegiate brass and percussion ensemble",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "short": "collegiate brass and percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "parts": [
+    {
+      "id": "collegiate_brass_percussion_roster",
+      "name": "Instrumental roster",
+      "variants": [
+        {
+          "id": "collegiate_ohio_full_roster",
+          "default": true,
+          "name": "Cornets, trumpets, flugelhorns, mellophones, tenor and bass trombones, baritone horns, sousaphones, snares, tenors, bass drums and cymbals",
+          "descriptors": [
+            "brass",
+            "percussion",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "collegiate_brass_percussion_context",
+      "name": "Selected context",
+      "variants": [
+        {
+          "id": "collegiate_full_roster_realization",
+          "default": true,
+          "name": "Authored full-membership roster realization, including alternates",
+          "descriptors": [
+            "marching",
+            "projecting",
+            "coordinated"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "collegiate_brass_percussion_roster",
+      "name": "Instrumental roster",
+      "variants": [
+        {
+          "id": "collegiate_ohio_full_roster",
+          "default": true,
+          "name": "Cornets, trumpets, flugelhorns, mellophones, tenor and bass trombones, baritone horns, sousaphones, snares, tenors, bass drums and cymbals",
+          "descriptors": [
+            "brass",
+            "percussion",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "collegiate_brass_percussion_context",
+      "name": "Selected context",
+      "variants": [
+        {
+          "id": "collegiate_full_roster_realization",
+          "default": true,
+          "name": "Authored full-membership roster realization, including alternates",
+          "descriptors": [
+            "marching",
+            "projecting",
+            "coordinated"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

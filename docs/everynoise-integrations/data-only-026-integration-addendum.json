@@ -1,0 +1,36 @@
+{
+  "status": "accepted",
+  "reviewer": "review_461",
+  "original_report": "/tmp/batch026/independent-integration-review.json",
+  "original_frozen_sha256": "9e7bfaba2cd52654b3f697aaf057f991d7ad6e29db09079e5ea4839e0f2e7b8d",
+  "current_frozen_sha256": "a75d48872fc6b312b1da78bac7d4f12ba7220a6dead2325e89fc3c6c5bf37089",
+  "required_predecessor": "6c69cded2efde72a297459f55fe7c1dea7805849",
+  "actual_head": "6c69cded2efde72a297459f55fe7c1dea7805849",
+  "prior_source_commit": "73fa100709001b80c75b83798e41c24c5ebeaff1",
+  "predecessor_trees": {
+    "prior": "4500cf045dd9d85c880780ec633e5308d3e2af5d",
+    "merged": "4500cf045dd9d85c880780ec633e5308d3e2af5d",
+    "identical": true
+  },
+  "material_comparison": "All100tradition records,extras,signature tokens andphoto manifests equal independently reviewed preflight; both raw instrument dependency declarations exactly unchanged. Runtime/card/default proofs remain applicable because source engine/config identical.",
+  "geo_changes": [
+    {
+      "id": "classic_opm",
+      "old": [12.88, 121.77, "Philippines", "Southeast Asia"],
+      "new": [14.6, 120.98, "Philippines", "Southeast Asia"]
+    }
+  ],
+  "geo_assessment": "classic_opm changed offshore national centroid to Manila14.6,120.98 while retaining explicitly editorial Philippines label and SoutheastAsia; no session-location assertion. Exact integrated source and evidence100matched.",
+  "metadata_changes": "Source-role/flat-pin fallback explanatory wording clarified for experimental_vocal,finnish_experimental,gotico_brasileiro; no effective or authored flatparts changed. Required predecessor now binds merged identical025 tree.",
+  "retained_original_checks": {
+    "prior_traditions_extras_geo": 5138,
+    "prior_instruments_raw_merged_default_cards": 1472,
+    "prior_images": 6560,
+    "new_entries": 100,
+    "new_instruments": 2,
+    "new_effective_parts": 3433,
+    "new_flat_pins": 3334,
+    "shared_engine_logic_changed": false
+  },
+  "errors": []
+}

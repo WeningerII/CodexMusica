@@ -5,7 +5,7 @@
   "lineage": "North American commercial repertoire for children under six, professionalized from the 1950s Ella Jenkins and Mister Rogers broadcasts through Raffi's late-1970s Canadian albums and the 1990s Wiggles and Laurie Berkner catalogues — narrow-range diatonic melodies inside an octave at 90-120 BPM, strummed acoustic guitar or ukulele with glockenspiel and toy-piano color, four-square phrases with built-in call-and-response and gesture cues, and a bright, clearly enunciated adult voice doubled by a children's chorus.",
   "recipe": "classic 1977-1979 preschool children's music, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, narration spoken word barnmusik muziek voor kinderen. extended whistle, breath veiled tone, straight onset, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, maple strummed open chord ringing overtones dreadnought acoustic guitar, bright projecting spruce ukulele, glockenspiel, naive celeste block chord toy block chord upright piano, tambourine orch, recorder, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 801,
-  "score": 218.74,
+  "score": 218.17,
   "config": {
     "traditions": [
       "preschool_childrens_music",
@@ -42,13 +42,13 @@
           "voice_articulation": 21.254999999999995,
           "voice_microtone": 21.514999999999997,
           "voice_tradition": 7.572499999999999,
-          "voice_mechanism_compound": 4.754999999999999,
-          "voice_estill_quality": 4.41,
+          "voice_mechanism_compound": 4.6499999999999995,
+          "voice_estill_quality": 4.455,
           "voice_speech_song": 23.66,
           "voice_ensemble_config": 24.634999999999998,
-          "voice_ornament_system": 1.29,
+          "voice_ornament_system": 1.38,
           "voice_pitch_organization": 4.510000000000001,
-          "voice_processing_chain": 6.759999999999999,
+          "voice_processing_chain": 6.684999999999999,
           "voice_multitrack_stack": 7.442499999999999
         }
       },
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 6.154999999999999,
+          "choir_size": 5.99,
           "choir_polyphonic_configuration": 3.25,
-          "choir_regional_canonical_configuration": 4.66,
-          "choir_ensemble_repertoire": 1.9949999999999999
+          "choir_regional_canonical_configuration": 4.555,
+          "choir_ensemble_repertoire": 2.04
         }
       },
       {
@@ -72,14 +72,14 @@
         "slots": {
           "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "open_g",
-          "top_wood": "adirondack",
+          "top_wood": "cedar",
           "back_sides": "maple_bs",
           "string_acoustic": "nickel_bronze"
         },
         "scores": {
           "acoustic_technique": 5.25,
           "string_tuning": 0.6499999999999999,
-          "top_wood": 0.105,
+          "top_wood": 0.045,
           "back_sides": 1.1549999999999998,
           "string_acoustic": 0.78
         }
@@ -131,7 +131,7 @@
         },
         "scores": {
           "tambourine_orch_jingle": 0.845,
-          "tambourine_orch_context": 1.9949999999999999
+          "tambourine_orch_context": 1.95
         }
       },
       {
@@ -144,7 +144,7 @@
         "scores": {
           "keyboard_technique": 3.95,
           "upright_use": 0.045,
-          "upright_piano_size": 1.755
+          "upright_piano_size": 1.605
         }
       },
       {
@@ -157,7 +157,7 @@
         },
         "scores": {
           "wind_articulation": -0.07,
-          "recorder_size": 0.09,
+          "recorder_size": 0.045,
           "recorder_context": 3.3149999999999995,
           "recorder_body_wood": 0.135
         }

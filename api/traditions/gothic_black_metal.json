@@ -5,7 +5,7 @@
   "lineage": "Gothic black metal is a crossover discovery label represented by Cradle of Filth’s Suffolk-origin extreme-metal practice, combining blackened intensity, gothic theatricality and symphonic keyboard color.",
   "recipe": "classic modern gothic black metal, distorted Rock, black branch, symphonic metal christian symphonic metal deep symphonic black metal. duet. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension drum kit, melodic band keyboard rompler workstation. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 564,
-  "score": 77.105,
+  "score": 76.985,
   "config": {
     "traditions": [
       "gothic_black_metal",
@@ -19,7 +19,7 @@
           "electric_technique": "electric_tremolo_picking",
           "amp_make": "amp_mesa_dual_rectifier",
           "body_wood": "basswood_h",
-          "neck_wood": "maple_neck_h",
+          "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_4_h",
           "pickup_winding": "mid_wind",
@@ -27,22 +27,22 @@
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
-          "finish": "oil_satin_hum",
+          "finish": "nitro_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": -0.07,
           "amp_make": 11.829999999999997,
           "body_wood": 12.025,
-          "neck_wood": 0.03899999999999999,
-          "fretboard": 0.144,
+          "neck_wood": 0,
+          "fretboard": 0.105,
           "pickup_magnet": 0.105,
           "pickup_winding": 0.105,
-          "string_material": 0.144,
+          "string_material": 0.105,
           "bridge": 0.9099999999999999,
           "scale_length": 12.025,
           "string_gauge": 0.9099999999999999,
-          "finish": 0.03899999999999999,
+          "finish": 0,
           "string_tuning": 5.59
         }
       },
@@ -62,7 +62,7 @@
           "amp_make": 5.525,
           "body_wood": 0.105,
           "pickup_config": 0.38999999999999996,
-          "string_type": 11.995000000000001,
+          "string_type": 12.025,
           "scale_length_b": 0.045,
           "fretted_or_not": 0.045,
           "bass_technique": 9.2,
@@ -115,7 +115,7 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 0.08399999999999999,
+          "voice_ornament_system": 0.09,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
           "voice_multitrack_stack": 0.39

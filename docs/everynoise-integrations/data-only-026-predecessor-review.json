@@ -1,0 +1,9 @@
+{
+  "previous_baseline": "73fa100709001b80c75b83798e41c24c5ebeaff1",
+  "merged_predecessor": "6c69cded2efde72a297459f55fe7c1dea7805849",
+  "trees_identical": true,
+  "tree_sha": "4500cf045dd9d85c880780ec633e5308d3e2af5d",
+  "previous_frozen_sha256": "0022ca032c8eb575b0dac7bf0415729fab82ab594f404c3677ad30e7e6cc972d",
+  "current_frozen_sha256": "a75d48872fc6b312b1da78bac7d4f12ba7220a6dead2325e89fc3c6c5bf37089",
+  "scope": "Only predecessor metadata changed; source/API/build/test inputs identical to previously verified025head."
+}
