@@ -1,0 +1,66 @@
+{
+  "id": "modern_string_quartet",
+  "name": "Modern string quartet",
+  "family": "classical",
+  "lineage": "Modern string quartet is represented by Kronos Quartet — Kronos Quartet Performs Philip Glass (1995). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic mid-1990s modern string quartet, art Music, western modern branch. string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 194,
+  "score": 3.025,
+  "config": {
+    "traditions": [
+      "modern_string_quartet"
+    ],
+    "instruments": [
+      {
+        "id": "string_quartet_inst",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "quartet_school": "quartet_classical",
+          "string_quartet_inst_era": "string_quartet_inst_contemporary"
+        },
+        "scores": {
+          "bowed_technique": 2.605,
+          "quartet_school": 0,
+          "string_quartet_inst_era": 0.42000000000000004
+        }
+      }
+    ],
+    "pinned": {
+      "string_quartet_inst": [
+        "bowed_technique",
+        "quartet_school",
+        "string_quartet_inst_era"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "quartet_school": "quartet_classical",
+      "string_quartet_inst_era": "string_quartet_inst_contemporary"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

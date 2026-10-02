@@ -1,0 +1,64 @@
+{
+  "id": "appenzeller_folk",
+  "name": "Appenzeller folk",
+  "family": "vernacular",
+  "lineage": "Appenzeller folk is represented by Nicolas Senn — traditional Appenzeller melodies in solo hackbrett programme. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+  "recipe": "classic appenzeller folk, drone Modal, string branch. hammered dulcimer. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 171,
+  "score": 5.358,
+  "config": {
+    "traditions": [
+      "appenzeller_folk"
+    ],
+    "instruments": [
+      {
+        "id": "hammered_dulcimer",
+        "slots": {
+          "hammer_dulcimer_courses": "hd_15_15",
+          "hammer_material": "wood_bare",
+          "hammered_dulcimer_body_wood": "hd_walnut_canonical",
+          "hammered_dulcimer_strings": "hd_steel_bronze_modern"
+        },
+        "scores": {
+          "hammer_dulcimer_courses": 2.274,
+          "hammer_material": 2.274,
+          "hammered_dulcimer_body_wood": 0.42,
+          "hammered_dulcimer_strings": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "hammered_dulcimer": [
+        "hammered_dulcimer_body_wood"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "hammered_dulcimer_body_wood": "hd_walnut_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

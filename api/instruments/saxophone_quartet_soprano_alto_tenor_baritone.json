@@ -1,0 +1,94 @@
+{
+  "id": "saxophone_quartet_soprano_alto_tenor_baritone",
+  "name": "Saxophone quartet (soprano, alto, tenor, baritone)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "soprano-alto-tenor-baritone saxophone quartet",
+  "parts": [
+    {
+      "id": "saxophone_quartet_articulation",
+      "name": "Ensemble articulation",
+      "variants": [
+        {
+          "id": "saxophone_quartet_legato",
+          "default": true,
+          "name": "Coordinated legato (authored default)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "classical-trained",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "saxophone_quartet_detached",
+          "name": "Detached short notes (authored alternative)",
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saxophone_quartet_articulation",
+      "name": "Ensemble articulation",
+      "variants": [
+        {
+          "id": "saxophone_quartet_legato",
+          "default": true,
+          "name": "Coordinated legato (authored default)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "classical-trained",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "saxophone_quartet_detached",
+          "name": "Detached short notes (authored alternative)",
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        }
+      ]
+    }
+  ]
+}

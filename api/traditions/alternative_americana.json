@@ -1,0 +1,233 @@
+{
+  "id": "alternative_americana",
+  "name": "Alternative americana",
+  "family": "country",
+  "lineage": "Alternative americana is represented by Pete Kavanagh — To Hold the Red Rose (Join up the Dots, track 1). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+  "recipe": "classic alternative americana, functional Song, americana branch. dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, cold pressed wurzen felt 17 ply hard rock maple 7 ply grand piano, projecting adirondack red spruce mandola, Leslie 760 solid state 90w 1970s alternative tonewheel organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 440,
+  "score": 33.456,
+  "config": {
+    "traditions": [
+      "alternative_americana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.063,
+          "voice_ornament_system": 0.1365,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.063
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "koa_bs",
+          "string_acoustic": "silk_steel"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 0.9629999999999999,
+          "top_wood": 0.168,
+          "back_sides": 0.0315,
+          "string_acoustic": 0.49349999999999994
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_fender_tweed",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "tape_wound_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerpicked_country_b",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 6.751,
+          "body_wood": 0.273,
+          "pickup_config": 0.3315,
+          "string_type": 0.4095,
+          "scale_length_b": 0.3315,
+          "fretted_or_not": 0.063,
+          "bass_technique": 6.4705,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.1365,
+          "grand_piano_brand": 0.36750000000000005,
+          "piano_hammer": 2.015,
+          "piano_rim": 2.21,
+          "piano_soundboard": 0.7314999999999999,
+          "piano_pinblock": 1.8679999999999999,
+          "piano_plate": 0.7629999999999999,
+          "piano_pitch_standard": 2.4855
+        }
+      },
+      {
+        "id": "mandola",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "mandola_size": "mandola_alto",
+          "mandola_context": "mandola_art",
+          "mandola_top": "mandola_adirondack",
+          "mandola_back": "mandola_big_leaf_maple",
+          "mandola_strings": "mandola_phosphor"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "mandola_size": 0.78,
+          "mandola_context": 0.47250000000000003,
+          "mandola_top": 1,
+          "mandola_back": 0.39,
+          "mandola_strings": 0
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "stopped_rotor",
+          "percussion_setting": "percussion_on_long",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_760_solid_state"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "drawbar_setting": -0.035,
+          "rotary_speed": 0.39,
+          "percussion_setting": 0.7874999999999999,
+          "tonewheel_model": 0.325,
+          "leslie_cabinet_model": 2.105
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "mandola": [
+        "acoustic_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_amp_bass": "amp_american_ampeg_b15"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "latin_american_baroque",
+  "name": "Latin american baroque",
+  "family": "classical",
+  "lineage": "Latin american baroque is represented by Cristina García Banegas — The Hispanic Tradition in the New World, selected organ repertoire (2023). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s latin american baroque, art Music, western early branch. Baroque leaning silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 447,
+  "score": 25.954,
+  "config": {
+    "traditions": [
+      "latin_american_baroque"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "pipe_organ_class": 2.9899999999999998,
+          "pipe_organ_context": 5.2,
+          "pipe_organ_voicing_school": 4.9399999999999995,
+          "pipe_organ_pipe_alloy": 2.3939999999999997,
+          "pipe_organ_temperament": 4.9399999999999995,
+          "pipe_organ_action": 2.9899999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

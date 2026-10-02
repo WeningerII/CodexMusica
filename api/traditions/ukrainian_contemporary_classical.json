@@ -1,0 +1,74 @@
+{
+  "id": "ukrainian_contemporary_classical",
+  "name": "Ukrainian contemporary classical",
+  "family": "classical",
+  "lineage": "Ukrainian contemporary classical is represented by Valentin Silvestrov — Bagatellen (solo piano portion). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+  "recipe": "classic ukrainian contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 251,
+  "score": 89.873,
+  "config": {
+    "traditions": [
+      "ukrainian_contemporary_classical"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_blue_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.86,
+          "grand_piano_size": 0.441,
+          "grand_piano_brand": 2.4364999999999997,
+          "piano_hammer": 14.181000000000001,
+          "piano_rim": 13,
+          "piano_soundboard": 12,
+          "piano_pinblock": 13,
+          "piano_plate": 13.908,
+          "piano_pitch_standard": 13.047
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

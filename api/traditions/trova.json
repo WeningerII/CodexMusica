@@ -3,53 +3,53 @@
   "name": "Trova (Cuban troubadour song)",
   "family": "global",
   "lineage": "Guitar-and-voice troubadour practice of eastern Cuba from the 1880s, carried by Santiago cantadores such as Pepe Sánchez, Sindo Garay, Manuel Corona and Rosendo Ruiz into Havana's patios and cafés: two singers in parallel thirds and sixths over one strummed and one arpeggiating guitar, moderate 2/4 or 6/8, bolero, criolla, guaracha and canción forms, decorated with punteo interludes and light claves or maracas.",
-  "recipe": "classic Caribbean mid-1880s trova, ballad Poetry, Latin am troubadour branch, tropical song functional song, iberian Latin protest song bolero cubano polca paraguaya. kargyraa, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, claves, maracas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. havana solar outdoor courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 500,
-  "score": 168.5,
+  "recipe": "classic Caribbean mid-1880s trova, ballad Poetry, Latin am troubadour branch, tropical song functional song, iberian Latin protest song argentine canto nuevo / canto popular chilean nueva canción. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, claves, maracas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. havana solar outdoor courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 527,
+  "score": 155.508,
   "config": {
     "traditions": [
       "trova",
-      "bolero_cubano",
-      "polca_paraguaya"
+      "argentine_canto_nuevo",
+      "chilean_nueva_cancion"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "flamenco_chico_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.3499999999999999,
-          "voice_quality": 13.064999999999994,
+          "voice_register": 5.845,
+          "voice_quality": 7.280000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.17,
-          "voice_articulation": 21.125,
-          "voice_microtone": 19.239999999999995,
-          "voice_tradition": 3.5749999999999993,
-          "voice_mechanism_compound": 5.265,
-          "voice_estill_quality": 5.265000000000001,
-          "voice_speech_song": 31.33,
-          "voice_ensemble_config": 21.45,
-          "voice_ornament_system": 2.5749999999999993,
-          "voice_pitch_organization": 1.8799999999999997,
-          "voice_processing_chain": 5.005,
-          "voice_multitrack_stack": 5.98
+          "voice_vibrato": 0.975,
+          "voice_articulation": 14.949999999999996,
+          "voice_microtone": 14.754999999999992,
+          "voice_tradition": 10.92,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 25.414999999999992,
+          "voice_ensemble_config": 16.964999999999996,
+          "voice_ornament_system": 5.450000000000001,
+          "voice_pitch_organization": 1.6574999999999998,
+          "voice_processing_chain": 4.2,
+          "voice_multitrack_stack": 8.530000000000001
         }
       },
       {
@@ -59,16 +59,16 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
-          "string_classical": "nylon_high_cl",
+          "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 3.1,
+          "acoustic_technique": 10.975,
           "string_tuning": 0,
-          "top_wood_classical": 9.49,
-          "bracing_classical": 2.08,
-          "string_classical": 0,
-          "attack_technique_cl": 0.69
+          "top_wood_classical": 3.9,
+          "bracing_classical": 0.78,
+          "string_classical": 0.78,
+          "attack_technique_cl": 0.845
         }
       },
       {
@@ -78,14 +78,14 @@
           "claves_wood": "claves_cuban_hardwood"
         },
         "scores": {
-          "claves_pattern": 3.1849999999999996,
+          "claves_pattern": 2.145,
           "claves_wood": 0.15
         }
       },
       {
         "id": "maracas",
         "slots": {
-          "maracas_construction": "maracas_leather",
+          "maracas_construction": "maracas_gourd",
           "maracas_filling": "maracas_seeds"
         },
         "scores": {
@@ -102,10 +102,10 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 8.93,
-          "bongos_skin": 3.7699999999999996,
+          "percussion_technique": 12.255,
+          "bongos_skin": 1.4299999999999997,
           "bongos_context": 1.275,
-          "bongos_shell_wood": 2.145
+          "bongos_shell_wood": 1.4949999999999999
         }
       }
     ],

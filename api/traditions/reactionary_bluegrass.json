@@ -5,7 +5,7 @@
   "lineage": "Late-1960s and 1970s US topical bluegrass strain in which the standard Monroe-derived instrumentation — banjo, fiddle, mandolin, guitar, upright bass at 130-160 BPM with driving offbeat mandolin chop and high-lonesome tenor stacked above the lead — carried explicitly conservative, pro-military, anti-counterculture lyrics, circulated on Rebel, County and Starday singles and at the emerging festival circuit.",
   "recipe": "classic Southern American 1967-1969 reactionary bluegrass, improv On Frame, bluegrass branch, neo trad country, anglo American protest song classic texas country neotraditional country. thick, register break ornamental, wide pitch sway, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, steel double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, spruce steel silk travis picked dreadnought acoustic cutting steel steel resonator guitar, sustaining steel upright bass. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 767,
-  "score": 428.253,
+  "score": 426.809,
   "config": {
     "traditions": [
       "reactionary_bluegrass",
@@ -33,10 +33,10 @@
           "banjo_head": 16.835,
           "banjo_pot": 0.39,
           "banjo_play": 5.329999999999999,
-          "banjo_rim_wood": 11.969375,
-          "banjo_neck_wood": 12.000875,
-          "banjo_strings": 14.248017857142857,
-          "banjo_bridge": 12.300874999999998,
+          "banjo_rim_wood": 11.675374999999999,
+          "banjo_neck_wood": 11.706875,
+          "banjo_strings": 13.954017857142857,
+          "banjo_bridge": 12.006874999999999,
           "banjo_setup_period": 29.899999999999995
         }
       },
@@ -54,7 +54,7 @@
           "bowed_technique": 37.06,
           "fiddle_strings": 2.73,
           "fiddle_bow": 0.195,
-          "fiddle_mute": 0.191625,
+          "fiddle_mute": 0.313125,
           "fiddle_articulation": 0.65,
           "fiddle_string_configuration": 0
         }
@@ -72,9 +72,9 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 10.5045,
+          "acoustic_technique": 10.367999999999999,
           "mandolin_shape": 10.743999999999998,
-          "mandolin_top": 12.331874999999998,
+          "mandolin_top": 12.300374999999999,
           "mandolin_back": 10.355,
           "mandolin_bracing": 11.089,
           "mandolin_strings": 2.925,
@@ -88,14 +88,14 @@
           "acoustic_technique": "acoustic_travis_picking",
           "string_tuning": "eb_standard",
           "top_wood": "adirondack",
-          "back_sides": "maple_bs",
+          "back_sides": "mahogany_bs",
           "string_acoustic": "silk_steel"
         },
         "scores": {
           "acoustic_technique": 19.477999999999998,
           "string_tuning": 0.06499999999999999,
           "top_wood": 1.105,
-          "back_sides": 0.674625,
+          "back_sides": 0.65,
           "string_acoustic": 2.9403571428571427
         }
       },
@@ -132,20 +132,20 @@
         },
         "scores": {
           "voice_register": 19.592999999999996,
-          "voice_quality": 10.701499999999998,
+          "voice_quality": 10.669999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 19.17825,
+          "voice_vibrato": 19.07325,
           "voice_articulation": 16.639999999999997,
           "voice_microtone": 17.029999999999994,
           "voice_tradition": 4.68,
           "voice_mechanism_compound": 4.03,
-          "voice_estill_quality": 22.237178571428572,
+          "voice_estill_quality": 22.13217857142857,
           "voice_speech_song": 24.439999999999998,
           "voice_ensemble_config": 16.119999999999997,
           "voice_ornament_system": 0.78,
           "voice_pitch_organization": 1.6057499999999998,
-          "voice_processing_chain": 5.571553571428572,
+          "voice_processing_chain": 5.616553571428572,
           "voice_multitrack_stack": 6.825000000000001
         }
       },

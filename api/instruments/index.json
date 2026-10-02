@@ -1,5 +1,5 @@
 {
-  "count": 1467,
+  "count": 1468,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8802,6 +8802,12 @@
       "name": "Al-Ayyala percussion section",
       "family": "percussion",
       "href": "instruments/ayyala_percussion.json"
+    },
+    {
+      "id": "saxophone_quartet_soprano_alto_tenor_baritone",
+      "name": "Saxophone quartet (soprano, alto, tenor, baritone)",
+      "family": "wind",
+      "href": "instruments/saxophone_quartet_soprano_alto_tenor_baritone.json"
     }
   ]
 }

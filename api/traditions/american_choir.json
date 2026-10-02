@@ -5,7 +5,7 @@
   "lineage": "American choir is represented here by The Crossing / David Lang — protect yourself from infection (recorded July 2019; Rising w/ The Crossing,2020). This is a documented branch with an authored present-day studio realization.",
   "recipe": "classic late-2010s american choir, art Music, western modern branch. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 169,
-  "score": 0.726,
+  "score": 1.053,
   "config": {
     "traditions": [
       "american_choir"
@@ -44,10 +44,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.03599999999999999,
+          "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.3
+          "voice_processing_chain": 0.27299999999999996,
+          "voice_multitrack_stack": 0.39
         }
       }
     ],
