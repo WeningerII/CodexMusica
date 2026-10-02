@@ -93,4 +93,9 @@ dated repin.
   keeps its name, so a reader has to check `noted_groups` to tell a held pair from a broken one.
   Renaming it would touch the loop and the tests and was outside the label fix.
 - If a group is both unjudged and noted, the label says only "UNJUDGED".
-- No pull request opened, nothing merged.
+
+## 4. Pull request (2026-10-02)
+
+At the owner's request: **PR #464**, https://github.com/WeningerII/CodexMusica/pull/464 —
+`claude/violated-label-fix` into `claude/practical-curie-n66u8c` (the branch this was cut from;
+against `main` the diff would also carry practical-curie's own unmerged commits). Not merged.
