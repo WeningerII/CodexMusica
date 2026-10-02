@@ -78,13 +78,70 @@ honoured.
 They are a worst case: every line is a near-copy, so nearly every line is
 open.
 
-| lines | one whole-draft grade (`song`) | report bytes | first deferred `finish` call |
-|---|---|---|---|
-| 24 | 97.8 s | 517,529 | (pending) |
-| 60 | 324.8 s | 1,627,839 | (pending) |
-| 104 | (pending) | (pending) | (pending) |
+One whole-draft grade (`song`, cold), alone on the box except where noted:
 
-(pending: the 60- and 104-line pasted-song replay curves; question sizes.)
+| lines | time | report bytes |
+|---|---|---|
+| 24 | 97.8 s | 517,529 |
+| 60 | 324.8 s | 1,627,839 |
+| 104 | **1,307.3 s** | 4,032,610 (just under the connector's 4 MiB `MAX_OUTPUT_BYTES`) |
+
+**The first deferred `finish` call on the 24-line fixture ran at least 31 min
+42 s and never asked its first question.** Its last checkpoint was round 1,
+`grading`. By the profile, it was inside the batch door (`prefetch`), building
+an exact offer menu for every independent open line. My session's time limit
+stopped it. It was not run at 60 or 104 lines.
+
+**Replay curves at three lengths.** These use pasted couplet songs, which
+declare one relation (`class:RHYME`), under connector defaults, one cold
+process per call:
+
+| lines | seconds per call (answers on record) |
+|---|---|
+| 24 | 53.1 (0) · 15.3 (12) · 56.1 (13) · 30.2 (24) · 35.4 (25) · 37.6 (26) · 43.9 (27) · 49.8 (28) · 51.1 (29) · 57.7 (30) · 65.2 (31) · 68.9 (32) |
+| 60 | 50.0 (0) · 49.0 (1) · 95.9 (2) · 97.7 (3) · 171.8 (4) · 173.0 (5) |
+| 104 | 88.6 (0) · 82.7 (1) · 210.0 (2) |
+
+Each group answer on the 60-line song adds about 70 s to every later call.
+The one recorded on the 104-line song added about 127 s. These ran
+concurrently with other measurements on 4 cores, so the absolute seconds run
+high. The growth is the finding.
+
+**What one acceptance check costs.** `tryline` runs exactly the loop's
+`verify`. It was timed three times in one process: cold, then warm on the same
+line, then warm on another line.
+
+| run | 24 lines | 60 lines | 104 lines |
+|---|---|---|---|
+| `verify` as it is, cold | 424.8 s | (running) | (running) |
+| as it is, warm, same line | 261.1 s | (running) | (running) |
+| without the offer menus*, cold | 162.8 s | 574.7 s | (running) |
+| without the offer menus*, warm, same line | 89.4 s | (running) | (running) |
+| without the offer menus*, warm, other line | 112.1 s | (running) | (running) |
+
+\* A measurement-only, in-process patch: `verify`'s internal
+`brief(target_lines=…)` was asked for no offers. That also skips rule 3's
+modal check, so these rows are a lower bound, not a replacement. The verdict
+was the same as `verify`'s in every row measured.
+
+A 60-second profile of the warm unpatched check puts **100% of samples** under
+`verify` → `brief(target_lines=…)` → `declared_offer` → `grade`.
+
+`verify` builds and grades the changed line's whole offer menu. It then reads
+three fields from that brief: `slot`, `forbidden_incumbent`, and
+`forbidden_modal`. Only the last needs the menu, and rule 3 asks one question
+of it: is the new word on it (`revise.py` around `verify`, `modal_hits` /
+`modal_kept`).
+
+With the menus gone, what remains is the whole-draft re-inspection. 68% of its
+samples are in `relations.whole_vocabulary_pairs`. That is the
+undeclared-relation path, which judges each group against every relation.
+
+**Why warm barely helps past about 90 lines.** The per-pair memo that makes a
+one-line re-grade cheap holds `PAIR_MEMO_CAP = 4_096` rows per schema slot.
+Its own comment says that covers a whole draft only up to **91 lines**. The
+edge memo is switched off past the same size (`relations.py`, the per-pair
+memo). The comment files the scaling question under M-240, which is open.
 
 ---
 
@@ -332,6 +389,102 @@ own block. This is rendering only: the same facts, once.
 
 Whether this belongs in this change or in its own is a question for the
 debate.
+
+### 2.6 (Found in Phase 1) `verify` stops building offer menus it does not read
+
+**Today.** `Reviser.verify` calls `self.brief(before, …, target_lines=changed)`
+with the default `include_offers=True`. That builds the changed line's whole
+candidate field (`joint_field_screened`) and grades every offered and every
+forbidden word through `declared_offer`. It does this to learn three things:
+
+- the line's `slot`;
+- its `forbidden_incumbent`, a word read off the line;
+- whether the new bound word is in `forbidden_modal`.
+
+Rule 3 rejects a revision that *takes* a modal candidate. Measured above, this
+menu is about two-thirds of a warm acceptance check on the 24-line fixture
+(261.1 s against 89.4 s).
+
+**Change.** `verify` asks `brief` for no offers. It then answers rule 3 for the
+one new word directly, with the same two steps the field takes:
+
+1. Is the word in the raw modal head of these call words? (`joint_field_screened`'s forbidden split, on the same calls and exclusion.)
+2. If so, does it pass `declared_offer` for this place, on its own?
+
+`forbidden_modal` is exactly that head, filtered through `declared_offer`. So
+"word ∈ forbidden_modal" and "word ∈ head and the word passes `declared_offer`
+alone" are the same predicate. One difference has to be checked: whether
+`declared_offer`'s per-word verdict can depend on the other words in its input
+list. If it can (it carries a `limit` and a baseline computed once), this
+equivalence fails. The debate must settle that from the code, and the build
+pins it by test.
+
+**Test (T8).** Over every draft and revision pair in `quality/test_revise.py` /
+`test_loop.py` / `test_verbs.py` that reaches `verify`, plus the Phase 1
+fixtures, the new `verify` returns the same dict as the old one, key for key,
+including `reasons` text and `modal_endword_unchanged`. A mutant that drops
+the rule 3 check must fail it.
+
+**What it does not change.** What is accepted. Rule 3 still rejects exactly
+what it rejects today.
+
+### 2.7 (Found in Phase 1) The floor this design does not remove, stated plainly
+
+After 2.0 and 2.6, a continuation still pays:
+
+- one whole-draft re-inspection per answer it judges;
+- one exact menu for the question it asks next.
+
+On the fixture drafts, a cold whole grade costs 97.8 s at 24 lines, 324.8 s at
+60, and **1,307.3 s at 104**. A cold acceptance check without menus costs
+162.8 s at 24 and 574.7 s at 60.
+
+**So at about 100 lines, on this box, a call that starts cold cannot judge even
+one answer inside a 600 s deadline.** Warm calls are cheaper only while the
+per-pair memo holds the draft, which is up to 91 lines.
+
+Two ways through, neither in this design without a ruling:
+
+1. **Size the per-pair memo to the draft** instead of the fixed
+   `PAIR_MEMO_CAP = 4_096`. The bound would be derived (rows ≥ the draft's
+   pair count), not removed. Memory cost would be measured first. Its comment
+   says changing it "is a behaviour change with its own record". It belongs to
+   M-240, and to the owner.
+2. **Make the whole-draft re-inspection incremental**: recompute only the
+   findings a changed line can reach. That is the grader's own work (M-240),
+   not the loop's.
+
+**What 2.3(b)'s safe points can and cannot do here.**
+
+- They stop a call *between* steps.
+- They cannot stop one *inside* a single verification.
+- A fresh call has no measured step yet, so it starts its first verification.
+
+If that one verification takes longer than the whole deadline, the call is
+killed mid-step. The kill takes the warm worker and its memos, so the next call
+is cold again and the same thing happens. **That is a livelock, not slow
+progress.**
+
+The design must not hide this. When a run is stopped twice at the same cursor
+with no step completed, the state says so: `status: "interrupted"` plus
+`no_step_completed: true`, naming the step and the draft size. A caller is told
+that this draft does not fit one call on this server. A third identical
+attempt is never presented as progress.
+
+**Where the line falls (the cause is being checked, not yet established).**
+The pasted 104-line songs declare one relation. They open in 88.6 s and take answers, slower with each answer today
+(2.0 removes that growth). The 104-line planner fixture declares none, so every
+group is judged against the whole relation vocabulary. One cold grade of it
+takes 1,307 s.
+
+So on this box, with this design:
+
+- a 100-line song **with a declared relation** is revisable call by call;
+- a 100-line song on the **undeclared default** is not, until M-240 brings the
+  grade under the deadline or the deadline changes.
+
+This file says that rather than claim the loop is fixed for every 100-line
+song.
 
 ---
 
