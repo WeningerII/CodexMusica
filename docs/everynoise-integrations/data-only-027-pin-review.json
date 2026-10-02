@@ -1,0 +1,115 @@
+{
+  "previous_frozen_sha256": "6afea5df95dbbc99111c5f338c2a9e7ad5e2b0264816758065bf237c9a3807f0",
+  "final_frozen_sha256": "cb3cee924c3db49148491a868ddb67b78018bdcf59287159eeae9575b04ee375",
+  "scope": "Evidence-only correction for7unprotectedslots across6newentries. All catalogtraditions/extras/geo/signatures/photos/dependencyrecords unchanged. No rebuildrequired; API/sourceinputs identical.",
+  "slots": [
+    {
+      "id": "guatemalan_indie",
+      "instrument": "analog_poly_synth",
+      "part": "electronic_technique",
+      "compiled": "electronic_bass_sub",
+      "flatPin": "electronic_sustained_layering",
+      "imported": "electronic_pad_drone",
+      "disclosure": {
+        "shared_keys_reviewed": ["electronic_technique"],
+        "rule": "Flat electronic_sustained_layering applies to sampler; polysynth retains its existing electronic_pad_drone default because it does not own that variant. Authored sustained guitar-loop playback plus synth pad; no invented per-instrument schema."
+      }
+    },
+    {
+      "id": "h8000",
+      "instrument": "analog_poly_synth",
+      "part": "electronic_technique",
+      "compiled": "electronic_bass_sub",
+      "flatPin": "electronic_sustained_layering",
+      "imported": "electronic_pad_drone",
+      "disclosure": {
+        "shared_keys_reviewed": ["body_wood", "electronic_technique"],
+        "rule": "Flat electronic_sustained_layering applies to sampler; polysynth retains existing electronic_pad_drone fallback because it does not own the sustained-layering variant. Authored sustained textural sample layer, not a source claim about sample mechanism. No independently addressable per-instrument electronic_technique override exists in the original flat schema."
+      }
+    },
+    {
+      "id": "hypertrance",
+      "instrument": "sampler_classic",
+      "part": "electronic_technique",
+      "compiled": "electronic_sample_chopped",
+      "flatPin": "electronic_arpeggiated",
+      "imported": "electronic_sample_chopped",
+      "disclosure": {
+        "shared_keys_reviewed": ["electronic_technique"],
+        "rule": "The flat electronic_technique=electronic_arpeggiated pin belongs only to wavetable_synth. Sampler does not offer that variant and therefore retains its unpinned electronic_sample_chopped default. Its separate sampler_workflow= sampler_loop_layered pin explicitly authors the source-supported loops. This shared-key limitation is disclosed; not every effective part is protected by a flat pin.",
+        "owning_part_audit": [
+          {
+            "instrument": "wavetable_synth",
+            "part": "electronic_technique",
+            "flat_value": "electronic_arpeggiated",
+            "applies": true,
+            "effective_value": "electronic_arpeggiated"
+          },
+          {
+            "instrument": "sampler_classic",
+            "part": "electronic_technique",
+            "flat_value": "electronic_arpeggiated",
+            "applies": false,
+            "effective_value": "electronic_sample_chopped",
+            "status": "unpinned owning-part fallback; chopped descriptor is generic engine scaffolding, not a measured producer action"
+          },
+          {
+            "instrument": "sampler_classic",
+            "part": "sampler_workflow",
+            "flat_value": "sampler_loop_layered",
+            "applies": true,
+            "effective_value": "sampler_loop_layered"
+          }
+        ]
+      }
+    },
+    {
+      "id": "indian_indie",
+      "instrument": "sarod",
+      "part": "plucked_traditional_technique",
+      "compiled": "plucked_classical_idiom",
+      "flatPin": "plucked_folk_strummed",
+      "imported": "plucked_ornamented_melodic",
+      "disclosure": {
+        "shared_keys_reviewed": ["plucked_traditional_technique", "plucked_traditional_technique"],
+        "rule": "Flat pins apply only where the variant belongs to the owning merged part. Every effective selection is recorded below; shared techniques/materials are authored choices, not recording facts."
+      }
+    },
+    {
+      "id": "indian_indie",
+      "instrument": "oud",
+      "part": "plucked_traditional_technique",
+      "compiled": "plucked_classical_idiom",
+      "flatPin": "plucked_folk_strummed",
+      "imported": "plucked_ornamented_melodic",
+      "disclosure": {
+        "shared_keys_reviewed": ["plucked_traditional_technique", "plucked_traditional_technique"],
+        "rule": "Flat pins apply only where the variant belongs to the owning merged part. Every effective selection is recorded below; shared techniques/materials are authored choices, not recording facts."
+      }
+    },
+    {
+      "id": "indie_nordeste_argentino",
+      "instrument": "analog_poly_synth",
+      "part": "electronic_technique",
+      "compiled": "electronic_pluck_short",
+      "flatPin": "electronic_sample_chopped",
+      "imported": "electronic_pad_drone",
+      "disclosure": {
+        "shared_keys_reviewed": ["body_wood", "electronic_technique"],
+        "rule": "Flat electronic_sample_chopped applies to sampler; polysynth retains its existing electronic_pad_drone default because it does not own the chopped variant. Authored pad plus triggered sample texture; no invented per-instrument pin schema."
+      }
+    },
+    {
+      "id": "iowa_indie",
+      "instrument": "mandolin",
+      "part": "acoustic_technique",
+      "compiled": "acoustic_chord_melody",
+      "flatPin": "acoustic_fingerpicked",
+      "imported": "acoustic_strummed_ringing",
+      "disclosure": {
+        "shared_keys_reviewed": ["acoustic_technique"],
+        "rule": "Flat pin only applies to owning merged part when applicable; other owner retains own default. Resolved audit records effective values."
+      }
+    }
+  ]
+}

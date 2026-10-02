@@ -1,0 +1,57 @@
+{
+  "id": "credited_auxiliary_percussion",
+  "name": "Credited auxiliary percussion (source unspecified)",
+  "short": "Unspecified credited percussion",
+  "family": "percussion",
+  "class": "percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_auxiliary_percussion_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_auxiliary_percussion_source_unspecified",
+          "name": "Percussion credited without instrument identification",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Data owner for a positively credited auxiliary percussion role whose source does not identify the instrument family or playing mechanism. No drum, shaker, tambourine, construction, material or technique is inferred. Neutral axes are authored routing coordinates, not measured acoustic facts.",
+  "sources": [
+    "https://mencho.bandcamp.com/album/interiores",
+    "https://www.wuwm.com/arts-culture/2023-06-23/muna-tiny-desk-concert"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_auxiliary_percussion_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_auxiliary_percussion_source_unspecified",
+          "name": "Percussion credited without instrument identification",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ]
+}

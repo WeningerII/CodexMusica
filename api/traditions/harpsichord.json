@@ -1,0 +1,78 @@
+{
+  "id": "harpsichord",
+  "name": "Harpsichord",
+  "family": "classical",
+  "lineage": "Yago Mahúgo — Armand-Louis Couperin Complete Solo Harpsichord Music. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic harpsichord, art Music. equal temperament modern concert standard harpsichord. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 185,
+  "score": 12.304,
+  "config": {
+    "traditions": [
+      "harpsichord"
+    ],
+    "instruments": [
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "harpsichord_register": "harpsi_double_8",
+          "harpsichord_context": "harpsichord_solo",
+          "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+          "harpsichord_plectrum": "harpsichord_quill_canonical",
+          "harpsichord_temperament": "harpsichord_equal_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.5315,
+          "harpsichord_register": 0,
+          "harpsichord_context": 5.2,
+          "harpsichord_maker_school": 0.6,
+          "harpsichord_plectrum": 0.0315,
+          "harpsichord_temperament": 3.941
+        }
+      }
+    ],
+    "pinned": {
+      "harpsichord": [
+        "keyboard_technique",
+        "harpsichord_register",
+        "harpsichord_context",
+        "harpsichord_maker_school",
+        "harpsichord_plectrum",
+        "harpsichord_temperament"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "harpsichord_register": "harpsi_double_8",
+      "harpsichord_context": "harpsichord_solo",
+      "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+      "harpsichord_plectrum": "harpsichord_quill_canonical",
+      "harpsichord_temperament": "harpsichord_equal_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

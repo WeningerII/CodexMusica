@@ -1,0 +1,70 @@
+{
+  "id": "irish_flute",
+  "name": "Irish flute",
+  "family": "vernacular",
+  "lineage": "Áine Heslin — A tribute to Michael Tubridy. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic irish flute, improv On Frame, Celtic traditional branch. ornamented breathy dance driving irish wooden flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 216,
+  "score": 2.185,
+  "config": {
+    "traditions": [
+      "irish_flute"
+    ],
+    "instruments": [
+      {
+        "id": "irish_wooden_flute",
+        "slots": {
+          "irish_wooden_flute_pattern": "irish_wooden_flute_modern_copy",
+          "irish_wooden_flute_keys": "irish_wooden_flute_keyless_six",
+          "irish_wooden_flute_idiom": "irish_wooden_flute_sligo",
+          "irish_wooden_flute_material": "irish_wooden_flute_blackwood"
+        },
+        "scores": {
+          "irish_wooden_flute_pattern": 0.7,
+          "irish_wooden_flute_keys": -0.07,
+          "irish_wooden_flute_idiom": 1.6249999999999998,
+          "irish_wooden_flute_material": -0.07
+        }
+      }
+    ],
+    "pinned": {
+      "irish_wooden_flute": [
+        "irish_wooden_flute_pattern",
+        "irish_wooden_flute_keys",
+        "irish_wooden_flute_idiom",
+        "irish_wooden_flute_material"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "irish_wooden_flute_pattern": "irish_wooden_flute_modern_copy",
+      "irish_wooden_flute_keys": "irish_wooden_flute_keyless_six",
+      "irish_wooden_flute_idiom": "irish_wooden_flute_sligo",
+      "irish_wooden_flute_material": "irish_wooden_flute_blackwood"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "id": "historical_keyboard",
+  "name": "Historical keyboard",
+  "family": "classical",
+  "lineage": "Peter Sykes — The Master's Legacy: Couperin to Bach, Ravensong, September 25, 2026. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s historical keyboard, art Music, western common practice branch. flemish ruckers antwerp canonical late 16th 17th century bird quill plectra canonical historical raven crow turkey harpsichord. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 11.393,
+  "config": {
+    "traditions": [
+      "historical_keyboard"
+    ],
+    "instruments": [
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "harpsichord_register": "harpsi_8_foot",
+          "harpsichord_context": "harpsichord_solo",
+          "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+          "harpsichord_plectrum": "harpsichord_quill_canonical",
+          "harpsichord_temperament": "harpsichord_equal_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "harpsichord_register": 1.3,
+          "harpsichord_context": 3.9,
+          "harpsichord_maker_school": 1.0394999999999999,
+          "harpsichord_plectrum": 1.8730000000000002,
+          "harpsichord_temperament": 0.78
+        }
+      }
+    ],
+    "pinned": {
+      "harpsichord": [
+        "keyboard_technique",
+        "harpsichord_register",
+        "harpsichord_context",
+        "harpsichord_maker_school",
+        "harpsichord_plectrum",
+        "harpsichord_temperament"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "harpsichord_register": "harpsi_8_foot",
+      "harpsichord_context": "harpsichord_solo",
+      "harpsichord_maker_school": "harpsichord_flemish_ruckers",
+      "harpsichord_plectrum": "harpsichord_quill_canonical",
+      "harpsichord_temperament": "harpsichord_equal_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

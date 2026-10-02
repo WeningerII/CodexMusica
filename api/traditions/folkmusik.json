@@ -3,14 +3,14 @@
   "name": "Folkmusik (Swedish folk revival)",
   "family": "global",
   "lineage": "Swedish folk-music revival that ran from the 1970s 'gröna vågen' youth turn to tradition through the 1990s Falun and Umeå scenes, codified by Groupa, Filarfolket, Hedningarna and Väsen — traditional polska and vallåt melodies reharmonized with modal chords, nyckelharpa and Hardanger d'amore fiddle joined by bouzouki, hand percussion and later samplers, at moderate dance tempi with close-miked chamber clarity.",
-  "recipe": "classic North American mid-1970s folkmusik, drone Modal, string branch, string improv improv on frame, anglo singer song indie folk cuatro venezolano. thick, breath veiled tone, straight note core, interlocked note trading. spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, drone like fiddle, dance rhythm strummed bouzouki, leather castagnari Italian premium folk music straight accordion, spilapipa, drone heavy hardanger damore. hexham head studio pa chamber folk. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-  "recipe_chars": 592,
-  "score": 271.873,
+  "recipe": "classic North American mid-1970s folkmusik, drone Modal, string branch, string improv improv on frame, anglo singer song indie folk cuatro venezolano halifax indie. thick, breath veiled tone, fast rate, interlocked note trading. spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, steel drone like fiddle, dance rhythm strummed bouzouki, steel leather castagnari Italian premium folk music straight accordion, spilapipa, drone heavy hardanger damore. hexham head studio pa chamber folk. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 609,
+  "score": 235.037,
   "config": {
     "traditions": [
       "folkmusik",
-      "indie_folk_2000s",
-      "cuatro_venezolano"
+      "cuatro_venezolano",
+      "halifax_indie"
     ],
     "instruments": [
       {
@@ -25,8 +25,8 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "nyckel_keys": 5.779999999999999,
-          "nyckel_strings": 13.624999999999998,
+          "nyckel_keys": 4.529999999999999,
+          "nyckel_strings": 10.875,
           "nyckel_body_wood": 2.4499999999999997,
           "nyckel_string_material": 2.8499999999999996,
           "nyckel_mechanism": -0.9600000000000001
@@ -43,10 +43,10 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 15.719999999999997,
-          "fiddle_strings": 0.845,
+          "bowed_technique": 12.969999999999997,
+          "fiddle_strings": 1.04,
           "fiddle_bow": 0.845,
-          "fiddle_mute": 0.45499999999999996,
+          "fiddle_mute": 0.845,
           "fiddle_articulation": 0.39,
           "fiddle_string_configuration": 0
         }
@@ -61,11 +61,11 @@
           "bouzouki_strings": "bouzouki_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 15.929999999999998,
+          "plucked_traditional_technique": 13.179999999999998,
           "bouzouki_courses": 4.805000000000001,
           "bouzouki_pick": 2.08,
           "bouzouki_body_wood": 0.195,
-          "bouzouki_strings": 0.345
+          "bouzouki_strings": 0.195
         }
       },
       {
@@ -80,13 +80,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 14.924999999999999,
-          "accordion_reed_material": 0.845,
+          "free_reed_technique": 11.724999999999998,
+          "accordion_reed_material": 1.04,
           "musette_offset": 1.7950000000000002,
           "reed_config": 0.39,
           "bellows": 1.75,
           "voicing_chamber": 0.845,
-          "accordion_maker_school": 7.169999999999999
+          "accordion_maker_school": 6.22
         }
       },
       {
@@ -96,7 +96,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -106,26 +106,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 22.095,
-          "voice_quality": 11.374999999999993,
+          "voice_register": 12.369999999999997,
+          "voice_quality": 8.775000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0074999999999998,
-          "voice_articulation": 18.914999999999992,
-          "voice_microtone": 22.35999999999999,
-          "voice_tradition": 24.5375,
-          "voice_mechanism_compound": 8.06,
-          "voice_estill_quality": 4.680000000000001,
-          "voice_speech_song": 22.164999999999992,
-          "voice_ensemble_config": 20.279999999999994,
-          "voice_ornament_system": 1.69,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 17.809999999999995,
+          "voice_microtone": 21.254999999999992,
+          "voice_tradition": 21.0275,
+          "voice_mechanism_compound": 7.279999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 21.839999999999996,
+          "voice_ensemble_config": 19.174999999999997,
+          "voice_ornament_system": 1.5399999999999998,
           "voice_pitch_organization": 1.9499999999999997,
-          "voice_processing_chain": 5.329999999999999,
-          "voice_multitrack_stack": 7.41
+          "voice_processing_chain": 4.325,
+          "voice_multitrack_stack": 5.720000000000001
         }
       },
       {
@@ -144,13 +144,13 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "hdamore_tuning": "hdamore_troll",
-          "hdamore_style": "hdamore_contemporary",
+          "hdamore_style": "hdamore_lydarslatt",
           "hdamore_sympathetic": "hdamore_steel"
         },
         "scores": {
           "bowed_technique": -0.035,
           "hdamore_tuning": 2.6,
-          "hdamore_style": 0.845,
+          "hdamore_style": 0.435,
           "hdamore_sympathetic": 0
         }
       }

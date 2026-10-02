@@ -1,0 +1,78 @@
+{
+  "id": "japanese_guitar",
+  "name": "Japanese guitar",
+  "family": "global",
+  "lineage": "Yukihiro Atsumi — Etenraku Solo Guitar Version, Japanese Guitar Song Book (2016). Authored present-day solo classical-guitar realization. Sources establish repertoire, solo role and Japanese Guitar category; materials, technique, tuning, recording chain and numeric axes are editorial choices, not measured source-session facts.",
+  "recipe": "classic mid-2010s japanese guitar, art Music, east Asian branch. low mid rich spectrum cedar classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 222,
+  "score": 5.05,
+  "config": {
+    "traditions": [
+      "japanese_guitar"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_chord_melody",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.035,
+          "string_tuning": 0,
+          "top_wood_classical": 1.9004999999999996,
+          "bracing_classical": 0.39,
+          "string_classical": 0.325,
+          "attack_technique_cl": 2.47
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "acoustic_technique": "acoustic_chord_melody",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "cedar_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "tirando_cl"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
