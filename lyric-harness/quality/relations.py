@@ -8842,6 +8842,14 @@ def _pair_memo_slot(schema, stream):
     key cannot be spelled."""
     if not _pair_memo_enabled():
         return None
+    # A stream read under ONE combination of readings (`pinned_phonology`)
+    # is judged once per schema and never again, and its declaration is
+    # unique to the combination: memoising it only opened a fresh slot per
+    # combination, and on the 18-line capacity draft (seed 20260909) those
+    # filled all `PAIR_MEMO_SLOTS` and evicted the draft's own -- 2,040 edge
+    # hits against 41,106 misses (2026-10-02).
+    if getattr(getattr(stream, "phon", None), "any_reading_trial", False):
+        return None
     # A stream that does not carry its own text, or carries it for a
     # different number of lines than it indexes, cannot spell a per-line
     # signature: every line would digest to the same bytes and distinct
@@ -9129,8 +9137,11 @@ def pinned_phonology(stream, combo):
                                 in sorted(combo.items())], _READING_SOURCE)
     if pinned is None:
         return None
-    return English(fallback=ph.fallback, readings=ph.readings,
-                   lexicon=pinned)
+    eng = English(fallback=ph.fallback, readings=ph.readings, lexicon=pinned)
+    # A trial phonology, built once per combination: `_pair_memo_slot`
+    # keeps its streams out of the memo (see there).
+    eng.any_reading_trial = True
+    return eng
 
 
 def reading_witness(combo):
