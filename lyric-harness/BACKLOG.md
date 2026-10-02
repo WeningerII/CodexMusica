@@ -2193,18 +2193,34 @@ never one (doctrine 79).
 | MISSING entries by status | 43 OPEN / 35 PARTIAL / 1 BLOCKED / 277 CLOSED / 15 RESOLVED = 371 entries | `python3 quality/counters.py` |
 | doctrines | **96**, a contiguous run 1–96 with no number in both files (21 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,741 lines with a `__main__` and 4 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`, `span_rules.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1644** DECLARED-public top-level functions/classes under `quality/` and the root — **379** named by another production module, **496** by tests only, **638** only inside their own module, **4** by nothing anywhere, **127** REFUSED (80 ambiguous, 36 dynamic, 11 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **91** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1653** DECLARED-public top-level functions/classes under `quality/` and the root — **384** named by another production module, **497** by tests only, **641** only inside their own module, **4** by nothing anywhere, **127** REFUSED (81 ambiguous, 35 dynamic, 11 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **91** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **59 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/sources.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
-| sonnet battery | 9/936 = 1.0% violations (`mandated 1064, judged 936, refused 128`) | `python3 battery.py` |
+| sonnet battery | 15/1007 = 1.5% violations (`mandated 1064, judged 1007, refused 57`) | `python3 battery.py` |
 | band FPR on random pairs | **0.00%** (0 of 4,000 at seed 20260810, the runner's own default n; 0.00% = 0 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
 | register-audit findings | **0** — FALSE derivations: none | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
 <!-- /COUNTERS -->
+
+> **The sonnet battery read ~~9/936 = 1.0% (`judged 936, refused 128`)~~
+> until 2026-10-01**, and the any-reading rule (CLAUDE.md standing rule 5)
+> moved it to the row above, re-derived with `--write`. Measured per
+> (sonnet, line_i, line_j) against the pre-ruling tree: 71 former refusals
+> are judged and nothing else moved. 53 refused because the end words'
+> readings disagreed and now pass because one reading holds; 18 refused on
+> undecided schemas and are now asked per whole reading, 12 satisfied and 6
+> violated by every reading (the six `battery.py`'s 2026-10-01 note names).
+> **The symbol census read ~~1644 (379 / 496 / 638 / 4 / 127: 80 ambiguous,
+> 36 dynamic)~~ the same day**: the branch's reading machinery added nine
+> public defs (`relations.cached_builder`, `pair_satisfies_any`,
+> `pinned_phonology`, `reading_combos`, `reading_witness`,
+> `resolve_line_pair`; `pronunciation.occurrence_position`,
+> `occurrence_readings`, `pin_readings`), and relations.py's new bare `build`
+> turned `rhyme_constraints.build` from dynamic to ambiguous.
 
 > **The MISSING-entry total read 239 on 2026-09-01**, at 64 OPEN / 34 PARTIAL
 > / 2 BLOCKED / 128 CLOSED / 11 RESOLVED, and was superseded the same day by
