@@ -5,7 +5,7 @@
   "lineage": "Ambient composition treats recorded sound, acoustic resonance, noise and electronic montage as mutable material. Tim Hecker’s Ravedeath, 1972 was built from improvised pipe-organ recordings in Reykjavik and extended studio transformation in Montreal. The default models the transformed-recording stage with sampling and granular synthesis, not an assertion that Hecker used a particular sampler or granular algorithm.",
   "recipe": "classic early-1970s experimental ambient, experimental Elec, ambient branch, musique concrete experimental electric, industrial noise experimental electric death industrial japanoise. field textural sampler, glitched textural granular synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital digital delay hall reverb.",
   "recipe_chars": 441,
-  "score": 86.9,
+  "score": 86.615,
   "config": {
     "traditions": [
       "experimental_ambient",
@@ -26,7 +26,7 @@
           "electronic_technique": 16.995000000000005,
           "sampler_archetypes": 3.25,
           "sampler_bit_depth": 1.04,
-          "sampler_workflow": 18.939999999999998,
+          "sampler_workflow": 18.7,
           "sampler_classic_context": 35.25
         }
       },
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 16.995000000000005,
           "granular_use": 0.045,
-          "granular_synth_source": 1.885
+          "granular_synth_source": 1.84
         }
       }
     ],

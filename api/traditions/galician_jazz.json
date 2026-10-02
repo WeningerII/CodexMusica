@@ -1,0 +1,109 @@
+{
+  "id": "galician_jazz",
+  "name": "Galician jazz",
+  "family": "jazz",
+  "lineage": "Galician jazz: Sumrrá — 7 visións. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic galician jazz, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator 7 ply grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 313,
+  "score": 40.421,
+  "config": {
+    "traditions": [
+      "galician_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.105,
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 1.885,
+          "piano_rim": 1.885,
+          "piano_soundboard": 0.26,
+          "piano_pinblock": 1.5,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 1.625
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.141,
+          "upright_play": 11.25
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 6.890000000000001,
+          "drumhead": 14.559999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_jazz_comping",
+      "upright_play": "pizz_upright",
+      "upright_strings": "steel_upright",
+      "drum_technique": "brushes_and_sticks"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

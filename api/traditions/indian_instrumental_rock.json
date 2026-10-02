@@ -5,7 +5,7 @@
   "lineage": "Indian instrumental rock is represented here by Celestial Teapot. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic indian instrumental rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 321,
-  "score": 43.257,
+  "score": 44.216,
   "config": {
     "traditions": [
       "indian_instrumental_rock"
@@ -31,14 +31,14 @@
         "scores": {
           "electric_technique": 0.18150000000000002,
           "amp_make": 5.2,
-          "body_wood": 0.693,
-          "neck_wood": 0.42074999999999996,
-          "fretboard": 0.42074999999999996,
-          "pickup_magnet": 0.252,
+          "body_wood": 0.7979999999999999,
+          "neck_wood": 0.55725,
+          "fretboard": 0.55725,
+          "pickup_magnet": 0.357,
           "pickup_winding": 0.39,
-          "string_material": 0.42074999999999996,
+          "string_material": 0.55725,
           "bridge": 1.5482500000000001,
-          "scale_length": 1.269,
+          "scale_length": 1.3867500000000001,
           "string_gauge": 1.48525,
           "finish": 0.1365,
           "string_tuning": 0.34275
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 5.654999999999999,
           "body_wood": 0.21,
-          "pickup_config": 0.2835,
+          "pickup_config": 0.38849999999999996,
           "string_type": 13.325,
-          "scale_length_b": 0.50175,
+          "scale_length_b": 0.483,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 10.25,
-          "drumhead": 0.42074999999999996,
+          "drumhead": 0.55725,
           "drum_kit_kick_pedal": 0
         }
       }

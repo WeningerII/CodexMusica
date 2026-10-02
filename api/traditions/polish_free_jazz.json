@@ -5,7 +5,7 @@
   "lineage": "Polish free-jazz lineage; selected Stańko/Szukalski chordless quartet",
   "recipe": "classic modern polish free jazz, improv On Frame, avant branch. bach stradivarius 180 canonical American orchestral split tone overblown trumpet, split tone overblown saxophone, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 405,
-  "score": 55.532,
+  "score": 55.273,
   "config": {
     "traditions": [
       "polish_free_jazz"
@@ -23,10 +23,10 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 3.4995,
+          "wind_articulation": 3.4364999999999997,
           "brass_size": 0.39,
           "trumpet_mouthpiece": -0.07,
-          "brass_mute": 0.105,
+          "brass_mute": 0,
           "trumpet_technique": 0.325,
           "trumpet_bell_metal": 0.4095,
           "trumpet_maker_school": 1.95
@@ -44,13 +44,13 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 3.4995,
+          "wind_articulation": 3.4364999999999997,
           "sax_size": 0.19500000000000003,
           "sax_reed": 0.0315,
           "sax_body_alloy": -0.07,
           "sax_mouthpiece": 0,
-          "sax_technique": 3.4995,
-          "sax_maker_school": 0.0735
+          "sax_technique": 3.4364999999999997,
+          "sax_maker_school": 0
         }
       },
       {
@@ -81,11 +81,11 @@
         },
         "scores": {
           "drum_technique": 7.280000000000001,
-          "drumhead": 0,
+          "drumhead": 0.03599999999999999,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0,
+          "shell_wood": 0.03599999999999999,
           "shell_thickness": 0,
-          "bearing_edges": 0,
+          "bearing_edges": 0.03599999999999999,
           "snare_wires": 0,
           "cymbal_alloy": 11.299499999999998,
           "cymbal_hammering": 11.367999999999999,

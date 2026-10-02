@@ -1,0 +1,81 @@
+{
+  "id": "kawaii_edm",
+  "name": "Kawaii edm",
+  "family": "electronic",
+  "lineage": "Kawaii edm is represented by Moe Shop — KORG 2021 Volca sample demonstration. One documented branch receives an authored present-day studio realization.",
+  "recipe": "classic early-2020s kawaii edm, electronic Dance, house branch. sampler drum machine, korg lineage canonical ms 20 1978 tokyo short envelope analog mono synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 260,
+  "score": 14.703,
+  "config": {
+    "traditions": [
+      "kawaii_edm"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0.1365,
+          "sample_swing": 6.999999999999999,
+          "sample_processing": 0.273
+        }
+      },
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_pluck_short",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_korg_kato"
+        },
+        "scores": {
+          "electronic_technique": 4.95,
+          "mono_oscillator": 0.1365,
+          "mono_filter": 0.273,
+          "mono_archetypes": 0.40950000000000003,
+          "mono_maker_lineage": 1.625
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_drum_machine": [
+        "electronic_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sample_chopped"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

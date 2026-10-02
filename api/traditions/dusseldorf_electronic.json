@@ -5,7 +5,7 @@
   "lineage": "Dusseldorf electronic is represented here by Grandbrothers — Open-era piano and live-sampling core. This is one documented branch with an authored present-day studio realization.",
   "recipe": "classic dusseldorf electronic, experimental Elec, idm glitch branch. 18 ply hard rock maple vintage production prepared grand piano, sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 10.228,
+  "score": 9.749,
   "config": {
     "traditions": [
       "dusseldorf_electronic"
@@ -26,12 +26,12 @@
         },
         "scores": {
           "keyboard_technique": 3.7,
-          "grand_piano_size": 0.378,
-          "grand_piano_brand": 0.378,
+          "grand_piano_size": 0.1365,
+          "grand_piano_brand": 0.1365,
           "piano_hammer": -0.035,
-          "piano_rim": 1.56,
+          "piano_rim": 1.5045,
           "piano_soundboard": 0.2,
-          "piano_pinblock": 0.2,
+          "piano_pinblock": 0.26,
           "piano_plate": 0.26,
           "piano_pitch_standard": -0.035
         }

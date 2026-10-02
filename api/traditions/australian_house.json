@@ -5,7 +5,7 @@
   "lineage": "Australian house-production network with a selected bass-driven Melbourne club strand represented by Dom Dolla and Torren Foot, and wider Australian production represented by Sonny Fodera. Contemporary laptop work, programmed drums and repitched vocal hooks are documented artist practices, not a unique national meter.",
   "recipe": "classic modern australian house, electronic Dance, house branch, tech house house brazilian tech house latin tech house. low sub bass wavetable synth, sampler drum machine, sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 375,
-  "score": 52.131,
+  "score": 51.507,
   "config": {
     "traditions": [
       "australian_house",
@@ -23,7 +23,7 @@
         },
         "scores": {
           "electronic_technique": 3.7700000000000005,
-          "wt_position": 0.1365,
+          "wt_position": 0,
           "wt_family": 0.15,
           "wt_polyphony": 0
         }
@@ -57,7 +57,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.195,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 45.79987499999999
+          "sampler_classic_context": 45.312374999999996
         }
       }
     ],

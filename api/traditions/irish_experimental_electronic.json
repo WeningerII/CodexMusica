@@ -5,7 +5,7 @@
   "lineage": "Irish experimental electronic is represented by Donnacha Costello — Love From Dust. One documented branch receives an authored present-day studio realization.",
   "recipe": "classic irish experimental electronic, experimental Elec, ambient branch. evolving modular modular synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 206,
-  "score": 10.478,
+  "score": 10.66,
   "config": {
     "traditions": [
       "irish_experimental_electronic"
@@ -20,8 +20,8 @@
           "mod_lineage": "mod_buchla_west_coast"
         },
         "scores": {
-          "electronic_technique": 9.365812499999999,
-          "mod_voltage_source": 0.3658125,
+          "electronic_technique": 9.523874999999999,
+          "mod_voltage_source": 0.39,
           "mod_patch_density": 0.0315,
           "mod_lineage": 0.7149999999999999
         }

@@ -5,7 +5,7 @@
   "lineage": "1990s-onward electronics-foregrounded improvisation tradition — codified through the Erstwhile Records catalog (Jon Abbey-curated), the Tokyo Off-Site scene (Otomo Yoshihide, Sachiko M, Toshimaru Nakamura), Berlin Echtzeitmusik scene, and Vienna sin: ned label; characterized by no-input-mixer feedback, contact-mic preparations, and sustained low-amplitude texture exploration",
   "recipe": "classic European mid-1990s electroacoustic improvisation, improv On Frame, jam free branch, musique concrete experimental electric sound art electroacoustic composition. modular granular modular modular synth, modular eurorack modular, basswood mahogany ebony low output no compression nickel humbucker electric guitar. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
   "recipe_chars": 443,
-  "score": 59.002,
+  "score": 59.107,
   "config": {
     "traditions": [
       "electroacoustic_improv",
@@ -49,7 +49,7 @@
         },
         "scores": {
           "electronic_technique": 7.500000000000001,
-          "mod_voltage_source": 0.39,
+          "mod_voltage_source": 0.345,
           "mod_patch_density": 0.65,
           "mod_lineage": 0.585
         }
@@ -65,7 +65,7 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
@@ -80,7 +80,7 @@
           "pickup_magnet": 0.9099999999999999,
           "pickup_winding": 2.9899999999999998,
           "string_material": 1,
-          "bridge": 1,
+          "bridge": 1.15,
           "scale_length": 2.21,
           "string_gauge": 1,
           "finish": 0.195,

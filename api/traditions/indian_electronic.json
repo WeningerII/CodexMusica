@@ -5,7 +5,7 @@
   "lineage": "Indian electronic is represented by Charanjit Singh — Synthesizing: Ten Ragas to a Disco Beat. One documented branch receives an authored present-day studio realization.",
   "recipe": "classic indian electronic, electronic Dance. analog poly synth, monosynth acid bass, TR-808. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 193,
-  "score": 1.105,
+  "score": 1.183,
   "config": {
     "traditions": [
       "indian_electronic"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": -0.05,
           "poly_archetypes": 0,
-          "poly_voices": 0.0225,
+          "poly_voices": 0,
           "poly_maker_lineage": 0.5814999999999999
         }
       },
@@ -37,7 +37,7 @@
         "scores": {
           "electronic_technique": -0.05,
           "wave_acid": 0,
-          "filter_acid": 0,
+          "filter_acid": 0.0315,
           "accent_acid": 0
         }
       },
@@ -50,7 +50,7 @@
         },
         "scores": {
           "tr808_voice": -0.035,
-          "drum_machine_808_context": 0.246,
+          "drum_machine_808_context": 0.315,
           "tr808_production_origin": 0.39
         }
       }

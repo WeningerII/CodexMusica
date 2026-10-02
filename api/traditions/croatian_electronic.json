@@ -3,9 +3,9 @@
   "name": "Croatian electronic",
   "family": "electronic",
   "lineage": "Croatian electronic is represented by Bamwise — Soundproof synth rhythm-section core. This documented branch is realized as an authored present-day arrangement.",
-  "recipe": "classic croatian electronic, electronic Dance. analog poly synth, electric bass, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 191,
-  "score": 1.326,
+  "recipe": "classic croatian electronic, electronic Dance. solo with instrumental accompaniment. analog poly synth, electric bass, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 229,
+  "score": 2.005,
   "config": {
     "traditions": [
       "croatian_electronic"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 0.27374999999999994,
+          "poly_archetypes": 0.105,
           "poly_voices": 0,
           "poly_maker_lineage": -0.035
         }
@@ -44,7 +44,7 @@
           "pickup_config": 0,
           "string_type": 0.26,
           "scale_length_b": 0,
-          "fretted_or_not": 0.08549999999999999,
+          "fretted_or_not": 0.063,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
@@ -94,7 +94,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.327,
+          "voice_ensemble_config": 1.1969999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

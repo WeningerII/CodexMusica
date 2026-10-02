@@ -5,7 +5,7 @@
   "lineage": "French compositional movement emerging in mid-1970s Paris through the Itinéraire ensemble (founded 1973 by Gérard Grisey, Tristan Murail, Michaël Levinas, and Roger Tessier), generating compositional material from the harmonic-spectrum analysis of acoustic sounds. Grisey's Les Espaces Acoustiques cycle (1974-1985) and Murail's Désintégrations (1982-83) constitute the canonical type-specimens. Distinguished from total serialism by spectralism's acoustic-physical (vs combinatorial-mathematical) compositional logic.",
   "recipe": "classic Asian spectralism, art Music, western modern branch, musique concrete experimental electric acousmatic music soundscape composition. thick, breath veiled tone, slow rate, interlocked note trading. synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, no chemical hardener t rivet beech laminated maple laminated European tradition grand piano. shoebox concert hall. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 542,
-  "score": 225.618,
+  "score": 223.59,
   "config": {
     "traditions": [
       "spectralism",
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
@@ -38,18 +38,18 @@
           "voice_quality": 8.905000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.5255,
+          "voice_vibrato": 7.08,
           "voice_articulation": 6.5649999999999995,
-          "voice_microtone": 6.59725,
+          "voice_microtone": 6.37,
           "voice_tradition": 9.425,
           "voice_mechanism_compound": 4.9,
-          "voice_estill_quality": 5.995875000000001,
+          "voice_estill_quality": 5.835000000000001,
           "voice_speech_song": 9.555,
           "voice_ensemble_config": 6.5,
           "voice_ornament_system": 4.9,
           "voice_pitch_organization": 5.53,
-          "voice_processing_chain": 9.825,
-          "voice_multitrack_stack": 6.231750000000001
+          "voice_processing_chain": 10.02,
+          "voice_multitrack_stack": 5.910000000000001
         }
       },
       {
@@ -61,22 +61,22 @@
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
-          "orch_bow": "modern_bow",
+          "orch_bow": "baroque_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
           "bowed_technique": 5,
-          "orch_strings": 1.801625,
+          "orch_strings": 1.7149999999999999,
           "orch_top_wood": 6.085000000000001,
           "orch_back_wood": 8.75,
           "orch_varnish": 8.75,
-          "orch_setup_period": 9.460625,
-          "orch_bow": 0.160875,
-          "orch_bow_stick": 9.27375,
-          "orch_articulation": 1.801625,
-          "orch_rosin": 9.460625
+          "orch_setup_period": 9.275,
+          "orch_bow": 0.15,
+          "orch_bow_stick": 9.149999999999999,
+          "orch_articulation": 1.7149999999999999,
+          "orch_rosin": 9.275
         }
       },
       {
@@ -94,13 +94,13 @@
         },
         "scores": {
           "keyboard_technique": 7.200000000000001,
-          "grand_piano_size": 1.801625,
-          "grand_piano_brand": 1.4608750000000001,
+          "grand_piano_size": 1.7149999999999999,
+          "grand_piano_brand": 1.3,
           "piano_hammer": 9.59,
           "piano_rim": 10.225,
           "piano_soundboard": 8.795,
-          "piano_pinblock": 8.75,
-          "piano_plate": 9.460625,
+          "piano_pinblock": 8.795,
+          "piano_plate": 9.275,
           "piano_pitch_standard": 10.165000000000001
         }
       }

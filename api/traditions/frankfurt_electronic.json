@@ -1,0 +1,65 @@
+{
+  "id": "frankfurt_electronic",
+  "name": "Frankfurt electronic",
+  "family": "electronic",
+  "lineage": "Frankfurt electronic is represented here by Jogging House — Self (2017). This is one documented branch with an authored present-day studio realization.",
+  "recipe": "classic late-2010s frankfurt electronic, experimental Elec. emu modular 1971 1978 analog studio grade east coast precision modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 225,
+  "score": 8.509,
+  "config": {
+    "traditions": [
+      "frankfurt_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_emu_modular"
+        },
+        "scores": {
+          "electronic_technique": 4.2940000000000005,
+          "mod_voltage_source": 0.78,
+          "mod_patch_density": 1.81,
+          "mod_lineage": 1.625
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_sequencer"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

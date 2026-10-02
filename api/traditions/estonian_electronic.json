@@ -1,0 +1,88 @@
+{
+  "id": "estonian_electronic",
+  "name": "Estonian electronic",
+  "family": "electronic",
+  "lineage": "Estonian electronic is represented here by Ekke — Chasm, modular and recorded-object core (2016 edition). This is one documented branch with an authored present-day studio realization.",
+  "recipe": "classic mid-2010s estonian electronic, experimental Elec. emu modular 1971 1978 analog studio grade east coast precision modular modular synth, field textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 247,
+  "score": 25.837,
+  "config": {
+    "traditions": [
+      "estonian_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_emu_modular"
+        },
+        "scores": {
+          "electronic_technique": 5.6655,
+          "mod_voltage_source": 2.0285,
+          "mod_patch_density": 0.378,
+          "mod_lineage": 3.3150000000000004
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 3.7,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 4.6000000000000005,
+          "sampler_classic_context": 3.65
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source"
+      ],
+      "sampler_classic": [
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_sequencer",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_classic_context": "sampler_classic_industrial"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

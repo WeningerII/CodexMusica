@@ -5,7 +5,7 @@
   "lineage": "An ambient production approach that develops slowly changing, interwoven sound through recording, synthesis and processing. Projekt explicitly classifies Jeff Greinke’s Oceanic as organic ambient, while contemporary label accounts also include acoustic instruments and environmental recordings. The term does not require an acoustic ensemble: Greinke describes Oceanic as entirely sample- and synth-based. The default selects that electronic branch.",
   "recipe": "classic organic ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. pad like sustained analog synth, layered sustained sampler. treated studio. large-diaphragm condenser, ultra-clean solid-state pre. 24-bit digital true-stereo reverb.",
   "recipe_chars": 276,
-  "score": 34.175,
+  "score": 33.705,
   "config": {
     "traditions": [
       "organic_ambient",
@@ -23,9 +23,9 @@
         },
         "scores": {
           "electronic_technique": 12.8,
-          "oscillator": 0.03712499999999999,
-          "filter_topology": 1.61875,
-          "envelope": 5.969375,
+          "oscillator": 0,
+          "filter_topology": 1.4949999999999999,
+          "envelope": 5.66,
           "modulation": 0
         }
       },

@@ -1,0 +1,93 @@
+{
+  "id": "irish_electronic",
+  "name": "Irish electronic",
+  "family": "electronic",
+  "lineage": "Irish electronic is represented by Solar Bears — Stasis piano and sampled-sound core. One documented branch receives an authored present-day studio realization.",
+  "recipe": "classic irish electronic, experimental Elec, ambient branch. one piece 17 ply hard rock maple grand piano, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 229,
+  "score": 12.55,
+  "config": {
+    "traditions": [
+      "irish_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_minimalist_repeated",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.3045,
+          "grand_piano_brand": 1.0815000000000001,
+          "piano_hammer": -0.035,
+          "piano_rim": 1.56,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": 0.26,
+          "piano_plate": -0.035,
+          "piano_pitch_standard": 0.325
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "sixteen_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "pitched_kick"
+        },
+        "scores": {
+          "electronic_technique": 1.17,
+          "sample_bitdepth": 0.1995,
+          "sample_swing": 7.5,
+          "sample_processing": 0.3045
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "sampler_drum_machine": [
+        "electronic_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_minimalist_repeated",
+      "electronic_technique": "electronic_sample_chopped"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

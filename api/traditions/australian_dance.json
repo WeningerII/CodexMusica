@@ -3,9 +3,9 @@
   "name": "Australian dance",
   "family": "electronic",
   "lineage": "Australian dance is represented by Mild Minds — MACHINE synth-and-voice core. This documented branch is realized as an authored present-day arrangement.",
-  "recipe": "classic australian dance, electronic Dance. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 163,
-  "score": 1.051,
+  "recipe": "classic australian dance, electronic Dance. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 201,
+  "score": 1.752,
   "config": {
     "traditions": [
       "australian_dance"
@@ -21,7 +21,7 @@
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 0.27374999999999994,
+          "poly_archetypes": 0.105,
           "poly_voices": 0,
           "poly_maker_lineage": 0.5499999999999999
         }
@@ -58,7 +58,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.327,
+          "voice_ensemble_config": 1.1969999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

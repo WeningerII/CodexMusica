@@ -5,7 +5,7 @@
   "lineage": "A tech-house discovery network connecting artists working across Spain, Latin America and related international scenes, including Maceo Plex, Dennis Cruz, Dosem, Chus & Ceballos, Luciano and Guti. The selected Maceo Plex branch is grounded in his own account of synthesized or sampled kicks, bass continuity, synthesizer production and vocal use.",
   "recipe": "classic modern latin tech house, electronic Dance, tech house branch. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 318,
-  "score": 28.599,
+  "score": 28.718,
   "config": {
     "traditions": [
       "latin_tech_house"
@@ -39,7 +39,7 @@
           "electronic_technique": 1.885,
           "oscillator": 0.07425,
           "filter_topology": 0.78,
-          "envelope": 0,
+          "envelope": 0.105,
           "modulation": 0
         }
       },
@@ -57,7 +57,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.363,
           "sampler_workflow": -0.035,
-          "sampler_classic_context": 21.305999999999997
+          "sampler_classic_context": 21.32
         }
       }
     ],

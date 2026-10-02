@@ -3,14 +3,14 @@
   "name": "Kwaito",
   "family": "global",
   "lineage": "South African post-apartheid (1994-onward) township urban dance music codified through Boom Shaka, Brenda Fassie (her late-career kwaito turn), Trompies, M_du Masilela, Arthur Mafokate, TKZee — slower-tempo (90-110 BPM) derivation of house music with Zulu and Tsotsitaal language vocals and characteristic shouted-and-rapped delivery; precursor to the post-2010 amapiano genre",
-  "recipe": "classic Southern African modern kwaito, mc Rhythm, Afro-diasporic branch, African dance electronic dance amapiano kuduro. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, analog poly synth, monosynth acid bass. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 407,
-  "score": 134.875,
+  "recipe": "classic Southern African modern kwaito, mc Rhythm, Afro-diasporic branch, African dance electronic dance amapiano south african electronic. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, analog poly synth, monosynth acid bass. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 425,
+  "score": 124.87,
   "config": {
     "traditions": [
       "kwaito",
       "amapiano",
-      "kuduro"
+      "south_african_electronic"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.085,
+          "voice_register": 1.935,
           "voice_quality": 2.0799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.79,
-          "voice_articulation": 12.674999999999994,
-          "voice_microtone": 12.47999999999999,
-          "voice_tradition": 20.310000000000002,
-          "voice_mechanism_compound": 2.8600000000000003,
-          "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 13.259999999999993,
-          "voice_ensemble_config": 12.804999999999993,
-          "voice_ornament_system": 2.0149999999999997,
-          "voice_pitch_organization": 1.4299999999999997,
-          "voice_processing_chain": 10.735,
-          "voice_multitrack_stack": 8.775000000000002
+          "voice_vibrato": 4.29,
+          "voice_articulation": 10.659999999999995,
+          "voice_microtone": 10.464999999999991,
+          "voice_tradition": 22.509999999999998,
+          "voice_mechanism_compound": 3.7700000000000005,
+          "voice_estill_quality": 2.925000000000001,
+          "voice_speech_song": 10.659999999999995,
+          "voice_ensemble_config": 10.789999999999994,
+          "voice_ornament_system": 1.6249999999999998,
+          "voice_pitch_organization": 1.2899999999999996,
+          "voice_processing_chain": 10.910000000000002,
+          "voice_multitrack_stack": 7.995
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tr909_voice": 8.79,
-          "drum_machine_909_context": 4.9399999999999995,
+          "drum_machine_909_context": 3.9,
           "tr909_production_origin": 0.24
         }
       },
@@ -74,10 +74,10 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 2.8600000000000003,
-          "poly_archetypes": 0.195,
-          "poly_voices": 0.195,
-          "poly_maker_lineage": -1.705
+          "electronic_technique": 2.665000000000001,
+          "poly_archetypes": 0.54,
+          "poly_voices": 0.54,
+          "poly_maker_lineage": -1.8549999999999998
         }
       },
       {
@@ -89,8 +89,8 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 2.8600000000000003,
-          "wave_acid": 1.04,
+          "electronic_technique": 2.665000000000001,
+          "wave_acid": 0.435,
           "filter_acid": 1.2349999999999999,
           "accent_acid": 0.43499999999999994
         }

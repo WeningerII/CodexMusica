@@ -5,7 +5,7 @@
   "lineage": "A geographically grouped ambient scene with multiple practices, including Leandro Fresco’s layered synthesizer compositions and Federico Durand’s intimate recorded loops and small sounds. This representative model combines quiet synth colour, a clean guitar fragment and looping recorded material; it does not assert a national timbre or compulsory tango instrumentation.",
   "recipe": "classic modern argentine ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art. pad like sustained analog synth, single coil electric guitar, layered sustained sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital tape echo plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 433,
-  "score": 35.865,
+  "score": 35.34,
   "config": {
     "traditions": [
       "argentine_ambient",
@@ -23,9 +23,9 @@
         },
         "scores": {
           "electronic_technique": 11.75,
-          "oscillator": 0.15599999999999997,
-          "filter_topology": 0.5309999999999999,
-          "envelope": 5.452,
+          "oscillator": 0,
+          "filter_topology": 0.49499999999999994,
+          "envelope": 4.96,
           "modulation": 0
         }
       },
@@ -47,18 +47,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 0.8859999999999999,
+          "electric_technique": 0.8499999999999999,
           "amp_make": 0,
           "body_wood": 0.315,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "string_material": 0,
-          "string_gauge": 0.63,
+          "string_gauge": 0.78,
           "bridge": 0,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.195,
+          "string_tuning": 0.24,
           "single_coil_pickup_construction": 0
         }
       },

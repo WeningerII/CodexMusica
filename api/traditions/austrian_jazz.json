@@ -5,7 +5,7 @@
   "lineage": "Austria-connected jazz musicians working in international ensembles. Wolfgang Muthspiel’s Rising Grace quintet supplies this selected branch: electric guitar, trumpet and piano converse above acoustic bass and drums.",
   "recipe": "classic modern austrian jazz, improv On Frame, bop branch. acoustic leaning carved top solid spruce Gibson canon thomastik archtop, bach stradivarius 180 canonical American orchestral trumpet, grand piano, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 433,
-  "score": 91.443,
+  "score": 91.504,
   "config": {
     "traditions": [
       "austrian_jazz"
@@ -46,7 +46,7 @@
         "scores": {
           "wind_articulation": 0.325,
           "brass_size": 0.1365,
-          "trumpet_mouthpiece": -0.1,
+          "trumpet_mouthpiece": -0.07,
           "brass_mute": 0,
           "trumpet_technique": -0.05,
           "trumpet_bell_metal": 0.1365,
@@ -114,7 +114,7 @@
           "snare_wires": 0.03712499999999999,
           "cymbal_alloy": 11.099999999999998,
           "cymbal_hammering": 11.367999999999999,
-          "cymbal_lathing": -0.15000000000000002,
+          "cymbal_lathing": -0.11850000000000002,
           "cymbal_finish": 0.0315
         }
       }

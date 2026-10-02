@@ -5,7 +5,7 @@
   "lineage": "Brazilian tech-house production and DJ network. Vivi Seixas is verified on the exact author map; her Keskem collaboration is independently documented as club-oriented tech house. Mochakk supplies a separately documented Brazilian production example rather than a verified member of the inspected map. Programmed rhythm, bass hooks and vocal sampling are selected studio practices, not mandatory traditional Brazilian instrumentation.",
   "recipe": "classic modern brazilian tech house, electronic Dance, tech house branch latin house freestyle house. sub bass analog synth, sampler drum machine, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 301,
-  "score": 68.189,
+  "score": 67.62,
   "config": {
     "traditions": [
       "brazilian_tech_house",
@@ -59,7 +59,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.31725,
           "sampler_workflow": 0.7,
-          "sampler_classic_context": 61.70912499999999
+          "sampler_classic_context": 61.14062499999999
         }
       }
     ],

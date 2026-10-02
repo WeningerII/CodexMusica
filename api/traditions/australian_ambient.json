@@ -5,7 +5,7 @@
   "lineage": "Australian atmospheric electronic and electroacoustic practices, represented here by Lawrence English and the Brisbane ROOM40 network: environmental listening, recorded sound and slowly transformed electronic material. A representative field-recording/synthesis arrangement is selected rather than a national instrument inventory.",
   "recipe": "classic modern australian ambient, experimental Elec, ambient branch, musique concrete experimental electric sound art electroacoustic composition. field sustained sampler, sustained analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 412,
-  "score": 39.084,
+  "score": 38.668,
   "config": {
     "traditions": [
       "australian_ambient",
@@ -26,7 +26,7 @@
           "electronic_technique": 9,
           "sampler_archetypes": 0.375,
           "sampler_bit_depth": 0.9099999999999999,
-          "sampler_workflow": 15.3175,
+          "sampler_workflow": 15.2785,
           "sampler_classic_context": 2.9899999999999998
         }
       },
@@ -41,8 +41,8 @@
         },
         "scores": {
           "electronic_technique": 9,
-          "oscillator": 0.3379999999999999,
-          "filter_topology": 0.5385,
+          "oscillator": 0,
+          "filter_topology": 0.49949999999999994,
           "envelope": 0.39,
           "modulation": 0
         }
