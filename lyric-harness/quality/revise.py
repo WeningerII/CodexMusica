@@ -126,6 +126,27 @@ RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME",
                   "HOMEOTELEUTON"}
 
+
+def held_note_standing(codes):
+    """-> the standing a mandate line prints for a group whose pair HOLDS but
+    carries a pursued NOTE (`Brief.noted_groups`, 2026-10-02).
+
+    It was printed as "VIOLATED" until 2026-10-02: on read/bed the report
+    said "0 FLAG, 1 NOTE" and the line said "— VIOLATED". The pair holds;
+    what is true is that its rhyme is a predictable one (or another pursued
+    note) and the loop still asks for this word to change (doctrine 9).
+    `Brief.__str__` and the `brief` verb's report print this; the writer
+    prompt (`quality/propose.py`, which imports nothing from here) says the
+    same in its own words.
+    """
+    codes = tuple(codes)
+    named = ", ".join(codes)
+    if {"MODAL_RHYME", "PREDICTABLE_RHYME"} & set(codes):
+        return (f" — HOLDS, but its rhyme is a predictable one (NOTE "
+                f"{named}), which the loop still asks to change")
+    return (f" — HOLDS, but carries NOTE {named}, which the loop still "
+            f"asks to change")
+
 #: Findings whose PRESENCE records that a requirement or a licence HOLDS.
 #: Everything else in the finding set names something WRONG, so its
 #: disappearance is a repair; these name something RIGHT, so their
@@ -522,6 +543,17 @@ class Brief:
     #: empty when neither names a group (e.g. only PREDICTABLE_RHYME),
     #: in which case `slot` is the first group's.
     violated_groups: tuple = ()
+    #: THE GROUPS IN `violated_groups` WHOSE PAIR HOLDS (2026-10-02):
+    #: `{label: (note codes)}` for a group attributed only by NOTE findings
+    #: (MODAL_RHYME, PREDICTABLE_RHYME, HOMEOTELEUTON, SHARED_SUFFIX — the
+    #: pursued notes in `RHYME_FINDINGS`) and by no flag and no incident
+    #: graded violation. `violated_groups` still carries them, because the
+    #: loop still asks for that word to change (doctrine 9) and the place,
+    #: the field and `verify()` are unchanged; this is what lets a renderer
+    #: say the pair HOLDS instead of calling it VIOLATED. Measured on
+    #: read/bed under `--groups=1,2;3,4`: "0 FLAG, 1 NOTE", and the brief
+    #: said "group A [1, 2]: L1 ('read') — VIOLATED".
+    noted_groups: dict = field(default_factory=dict)
     #: The labels of the groups that bind at `slot` — the groups a tier-2
     #: backtrack may rewrite for this pivot. Tier 2 used to walk EVERY group
     #: of the line and intersect their calls across places.
@@ -756,9 +788,12 @@ class Brief:
             _sk = self.group_slots.get(lab, None) if self.group_slots else None
             place = f" at {_sk}" if _sk is not None else ""
             standing = ""
+            _noted = (self.noted_groups or {}).get(lab)
             if lab in self.unjudged_groups:
                 standing = (" — VIOLATED; also UNJUDGED" if lab in self.violated_groups
-                            else " — UNJUDGED")
+                            and not _noted else " — UNJUDGED")
+            elif _noted:
+                standing = held_note_standing(_noted)
             elif self.violated_groups:
                 standing = (" — VIOLATED" if lab in self.violated_groups
                             else " — HOLDS")
@@ -5954,6 +5989,25 @@ class Reviser:
             _violated.update(k for k, _ in groups if m.labels[k] in _incident)
             b.violated_groups = tuple(m.labels[k] for k, _ in groups
                                       if k in _violated)
+            # A GROUP ATTRIBUTED ONLY BY NOTES STILL HOLDS. It stays in
+            # `violated_groups` above — the loop still asks for that word
+            # to change — and is recorded here with its note codes so the
+            # renderers can say so (flags and notes kept apart, never
+            # summed: doctrine 79).
+            _flagged = self._violated_groups(
+                m, ln, groups, [f for f in fs
+                                 if getattr(f, "severity", "flag") != "note"])
+            _flagged.update(k for k, _ in groups
+                            if m.labels[k] in _incident)
+            _noted = {}
+            for f in fs:
+                if getattr(f, "severity", "flag") != "note":
+                    continue
+                for k in self._violated_groups(m, ln, groups, [f]):
+                    if k not in _flagged and f.code not in _noted.get(k, ()):
+                        _noted[k] = _noted.get(k, ()) + (f.code,)
+            b.noted_groups = {m.labels[k]: _noted[k] for k, _ in groups
+                              if k in _noted}
             _by_slot = {}
             for k, _mates in groups:
                 _by_slot.setdefault(_skey[k], []).append(k)
