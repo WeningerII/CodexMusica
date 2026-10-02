@@ -1,0 +1,105 @@
+{
+  "id": "german_dance",
+  "name": "German dance",
+  "family": "electronic",
+  "lineage": "German dance is represented by MEUTE — selected Elbphilharmonie Sessions brass and mallet rhythm core. One documented branch receives an authored present-day studio realization.",
+  "recipe": "classic german dance, electronic Dance, continental branch. red brass 90 10 darkest heavy one piece matched to monette horn trumpet, brass band sousaphone, bass drum, marimba orchestral. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 6.837,
+  "config": {
+    "traditions": [
+      "german_dance"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "monette_unity_b1_mp",
+          "brass_mute": "harmon_in",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_red_brass",
+          "trumpet_maker_school": "trumpet_schilke"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "brass_size": 0.26249999999999996,
+          "trumpet_mouthpiece": 1.2349999999999999,
+          "brass_mute": 0.168,
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 1.4995,
+          "trumpet_maker_school": 0.546
+        }
+      },
+      {
+        "id": "sousaphone",
+        "slots": {
+          "sousaphone_bore": "sousaphone_eb_bass",
+          "sousaphone_context": "sousaphone_nola_brass_band"
+        },
+        "scores": {
+          "sousaphone_bore": 0.39,
+          "sousaphone_context": 1.69
+        }
+      },
+      {
+        "id": "bass_drum",
+        "slots": {
+          "bass_drum_size": "bass_drum_concert",
+          "bass_drum_beater": "bass_drum_double_pedal"
+        },
+        "scores": {
+          "bass_drum_size": 0.4095,
+          "bass_drum_beater": 0.39
+        }
+      },
+      {
+        "id": "marimba_orchestral",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "marimba_size": "marimba_5_octave",
+          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "marimba_size": 0.1575,
+          "marimba_orchestral_bar": 0.294
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "trumpet_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "trumpet_technique": "trumpet_punchy_ensemble"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

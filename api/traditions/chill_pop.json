@@ -5,7 +5,7 @@
   "lineage": "Chill pop is represented here by Audra Watt — Start Late. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic chill pop, functional Song, pop rock branch. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 385,
-  "score": 65.258,
+  "score": 65.271,
   "config": {
     "traditions": [
       "chill_pop"
@@ -20,7 +20,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -35,13 +35,13 @@
           "neck_wood": 0.1365,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.1365,
+          "pickup_winding": 0.18525,
           "string_material": 0.0315,
           "bridge": 1.69,
           "scale_length": 0.504,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.38175
+          "string_tuning": 0.38549999999999995
         }
       },
       {
@@ -129,7 +129,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.9615,
+          "acoustic_technique": 13.9225,
           "string_tuning": 0,
           "top_wood": 0.2415,
           "back_sides": 0.105,

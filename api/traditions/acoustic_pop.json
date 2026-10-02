@@ -5,7 +5,7 @@
   "lineage": "Acoustic pop is represented here by Like Crazy — selected acoustic duo. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic acoustic pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 253,
-  "score": 18.459,
+  "score": 18.322,
   "config": {
     "traditions": [
       "acoustic_pop"
@@ -21,9 +21,9 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.036,
+          "acoustic_technique": 13.0045,
           "string_tuning": 0,
-          "top_wood": 0.2955,
+          "top_wood": 0.1905,
           "back_sides": 0.063,
           "string_acoustic": 0.3045
         }

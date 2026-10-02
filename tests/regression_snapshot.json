@@ -12,7 +12,7 @@
     ]
   },
   "acid_house": {
-    "output": "classic Asian 1988-1989 acid house, electronic Dance, chicago house branch, idm glitch experimental electric live coding breakcore. drum machine analog, squelching classic acid monosynth acid bass. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+    "output": "classic Asian 1988-1989 acid house, electronic Dance, chicago house branch, idm glitch experimental electric. drum machine analog, squelching classic acid monosynth acid bass. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
     "traditions": [
       "acid_house"
     ]
@@ -348,7 +348,7 @@
     ]
   },
   "art_rock": {
-    "output": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock classic psychedelic rock spanish pop rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key arpeggiated sustain rich overtones mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic rubber saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+    "output": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock classic psychedelic rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key arpeggiated sustain rich overtones mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic rubber saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
     "traditions": [
       "art_rock"
     ]
@@ -576,7 +576,7 @@
     ]
   },
   "bedroom_singer_song": {
-    "output": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+    "output": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, plucked short envelope analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
     "traditions": [
       "bedroom_singer_song"
     ]
@@ -1131,7 +1131,7 @@
     ]
   },
   "blend_techno_industrial": {
-    "output": "classic Asian 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric industrial idm and experimental electronic. thick, breath veiled tone, slow rate, interlocked note trading. drum machine analog, ambient pad like analog synth, vocoder. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape echo lexicon 224 / 480L digital delay.",
+    "output": "classic Asian 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric industrial icelandic electronic. thick, breath veiled tone, slow rate, interlocked note trading. drum machine analog, analog synth, vocoder. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape echo lexicon 224 / 480L digital delay.",
     "traditions": [
       "detroit_techno",
       "industrial"
@@ -1944,7 +1944,7 @@
     ]
   },
   "cumbia_rebajada": {
-    "output": "classic Mexican mid-1980s cumbia rebajada, functional Song, Mexican branch, Latin electric electronic dance baile funk brega funk. thick, full chest belt, straight note core, interlocked note trading. brass castagnari Italian premium folk music accordion, alder pyramid pure nickel bass British mid 60s era electric bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+    "output": "classic Mexican mid-1980s cumbia rebajada, functional Song, Mexican branch, Latin electric electronic dance colombian electronic cuban electronic. vocal fry, full chest belt, breath pulsed, interlocked note trading. accordion, electric bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
     "traditions": [
       "cumbia_rebajada"
     ]
@@ -2088,7 +2088,7 @@
     ]
   },
   "detroit_techno": {
-    "output": "classic Asian 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric idm and experimental electronic live coding. drum machine analog, ambient pad like analog synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape echo lexicon 224 / 480L digital delay.",
+    "output": "classic Asian 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric. drum machine analog, analog synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape echo lexicon 224 / 480L digital delay.",
     "traditions": [
       "detroit_techno"
     ]
@@ -3299,7 +3299,7 @@
     ]
   },
   "hypnagogic_pop": {
-    "output": "classic 2007-2009 hypnagogic pop, experimental Elec, lofi branch, pop rock functional song metropopolis yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, field textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+    "output": "classic 2007-2009 hypnagogic pop, experimental Elec, lofi branch, pop rock functional song yacht rock 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, field textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
     "traditions": [
       "hypnagogic_pop"
     ]
@@ -4465,7 +4465,7 @@
     ]
   },
   "microhouse": {
-    "output": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric ambient idm folktronica. sustained pad digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric dusseldorf electronic icelandic electronic. digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "microhouse"
     ]
@@ -4489,7 +4489,7 @@
     ]
   },
   "minimal_tech_house": {
-    "output": "classic modern minimal tech-house, electronic Dance, tech house branch, idm glitch experimental electric folktronica. sub bass digital subtractive, TR-909, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic modern minimal tech-house, electronic Dance, tech house branch, idm glitch experimental electric icelandic electronic italian electronica. digital subtractive, TR-909, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "minimal_tech_house"
     ]
@@ -4687,7 +4687,7 @@
     ]
   },
   "new_wave": {
-    "output": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock kazakh pop. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
+    "output": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock french synthpop. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
     "traditions": [
       "new_wave"
     ]
@@ -6534,7 +6534,7 @@
     ]
   },
   "tropicalia": {
-    "output": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock french post-rock finnish psychedelic rock. thick, breath veiled tone, breath pulsed, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall plexi amp British rock amp basswood pau ferro power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+    "output": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock french post-rock. thick, breath veiled tone, breath pulsed, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall plexi amp British rock amp pau ferro soft down tuning clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
     "traditions": [
       "tropicalia"
     ]
@@ -6606,7 +6606,7 @@
     ]
   },
   "uilleann_pipe_solo": {
-    "output": "classic Northern European mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame scottish fiddle tradition irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+    "output": "classic Northern European mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame irish dance scottish fiddle tradition. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
     "traditions": [
       "uilleann_pipe_solo"
     ]
@@ -6642,7 +6642,7 @@
     ]
   },
   "uplifting_trance": {
-    "output": "classic mid-2000s uplifting trance, electronic Dance, trance branch, pop rock functional song 1960s girl group new romanticism. singing lead analog poly synth, singing lead digital subtractive, TR-909, melodic orchestral imitation pitched sampler, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+    "output": "classic mid-2000s uplifting trance, electronic Dance, trance branch, pop rock functional song 1960s girl group yé-yé. singing lead analog poly synth, singing lead digital subtractive, TR-909, melodic orchestral imitation pitched sampler, a cappella small 3 to 8 one per part call response single leader group response global traditional polyphonic choir ensemble. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
     "traditions": [
       "uplifting_trance"
     ]

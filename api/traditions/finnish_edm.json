@@ -1,0 +1,129 @@
+{
+  "id": "finnish_edm",
+  "name": "Finnish edm",
+  "family": "electronic",
+  "lineage": "Finnish edm is represented here by Darude — Sandstorm documented instrumental roles. This is one documented branch with an authored present-day studio realization.",
+  "recipe": "classic finnish edm, electronic Dance, trance branch. digital subtractive, sampler, organ preset rompler workstation, TR-909. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 205,
+  "score": 21.106,
+  "config": {
+    "traditions": [
+      "finnish_edm"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "va_archetypes": 0.1365,
+          "digital_subtractive_context": 2.34
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "sampler_archetypes": 0,
+          "sampler_bit_depth": 0.063,
+          "sampler_workflow": -0.035,
+          "sampler_classic_context": 10.334999999999999
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "rompler_preset_bank": "rompler_preset_dance_stabs",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_roland_jv_xp"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "rompler_preset_bank": 6.449999999999999,
+          "rompler_context": -0.035,
+          "rompler_lineage": 0.7149999999999999
+        }
+      },
+      {
+        "id": "drum_machine_909",
+        "slots": {
+          "tr909_voice": "tr909_hat",
+          "drum_machine_909_context": "drum_machine_909_house",
+          "tr909_production_origin": "tr909_tr_8s_modern"
+        },
+        "scores": {
+          "tr909_voice": 0,
+          "drum_machine_909_context": 0.21,
+          "tr909_production_origin": 0.7364999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ],
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "va_archetypes": "nord_lead",
+      "digital_subtractive_context": "digital_subtractive_trance",
+      "sampler_archetypes": "ensoniq_asr10",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_one_shot_pitched",
+      "sampler_classic_context": "sampler_classic_edm",
+      "rompler_lineage": "rompler_roland_jv_xp",
+      "rompler_context": "rompler_context_pop_workstation",
+      "rompler_preset_bank": "rompler_preset_dance_stabs"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

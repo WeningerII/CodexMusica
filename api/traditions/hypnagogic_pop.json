@@ -3,14 +3,14 @@
   "name": "Hypnagogic pop",
   "family": "global",
   "lineage": "Late-2000s onward American underground genre evocative of half-remembered 1980s pop-and-soundtrack production aesthetics, characterized by hazy lo-fi production, cassette-tape saturation, and nostalgia-as-subject-matter compositional posture — codified through Ariel Pink (Worn Copy 2003, House Arrest 2006), Ducktails, James Ferraro, Spencer Clark, with David Keenan's 2009 The Wire article naming the genre",
-  "recipe": "classic 2007-2009 hypnagogic pop, experimental Elec, lofi branch, pop rock functional song metropopolis yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, field textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 473,
-  "score": 334.724,
+  "recipe": "classic 2007-2009 hypnagogic pop, experimental Elec, lofi branch, pop rock functional song yacht rock 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, field textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 477,
+  "score": 318.837,
   "config": {
     "traditions": [
       "hypnagogic_pop",
-      "metropopolis",
-      "yacht_rock"
+      "yacht_rock",
+      "girl_group_60s"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 40.750000000000014,
+          "voice_register": 39.82500000000001,
           "voice_quality": 2.600000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.125,
-          "voice_articulation": 16.639999999999997,
-          "voice_microtone": 39.75,
-          "voice_tradition": 28.144999999999996,
-          "voice_mechanism_compound": 3.119999999999999,
-          "voice_estill_quality": 2.5349999999999997,
-          "voice_speech_song": 20.864999999999995,
-          "voice_ensemble_config": 16.314999999999994,
+          "voice_vibrato": 8.41375,
+          "voice_articulation": 16.119999999999997,
+          "voice_microtone": 37.1,
+          "voice_tradition": 27.819999999999993,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 2.665000000000001,
+          "voice_speech_song": 20.994999999999994,
+          "voice_ensemble_config": 16.249999999999993,
           "voice_ornament_system": 0.345,
-          "voice_pitch_organization": 1.2349999999999997,
-          "voice_processing_chain": 14.776249999999997,
-          "voice_multitrack_stack": 12.415
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 10.876249999999999,
+          "voice_multitrack_stack": 9.912500000000001
         }
       },
       {
@@ -61,27 +61,27 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 22.284999999999997,
-          "poly_archetypes": 8.58,
-          "poly_voices": 0.39,
-          "poly_maker_lineage": -0.42000000000000004
+          "electronic_technique": 21.459999999999994,
+          "poly_archetypes": 7.669999999999999,
+          "poly_voices": 0.585,
+          "poly_maker_lineage": -0.5950000000000001
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "roland_s750",
+          "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 3.7506250000000003,
-          "sampler_archetypes": 1.6899999999999997,
-          "sampler_bit_depth": 3.8024999999999998,
-          "sampler_workflow": 4.93,
-          "sampler_classic_context": 28.21
+          "sampler_archetypes": 2,
+          "sampler_bit_depth": 3.5100000000000002,
+          "sampler_workflow": 5.58,
+          "sampler_classic_context": 29.31499999999999
         }
       },
       {
@@ -97,23 +97,23 @@
           "string_gauge": "g_11",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
-          "finish": "poly",
+          "finish": "nitro",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 21.654999999999998,
-          "amp_make": 10.789999999999996,
-          "body_wood": 1.4300000000000002,
-          "neck_wood": 1.4300000000000002,
-          "fretboard": 1.365,
+          "electric_technique": 20.304999999999996,
+          "amp_make": 10.075,
+          "body_wood": 1.235,
+          "neck_wood": 1.235,
+          "fretboard": 1.17,
           "pickup_magnet": 0.39,
           "string_material": 0.39,
           "string_gauge": 1.235,
-          "bridge": 0.195,
-          "scale_length": 1.4300000000000002,
-          "finish": 0.5,
-          "string_tuning": 9.555,
+          "bridge": 0.25875,
+          "scale_length": 1.235,
+          "finish": 0.09,
+          "string_tuning": 8.645,
           "single_coil_pickup_construction": 0
         }
       }

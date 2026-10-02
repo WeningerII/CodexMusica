@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-01",
-  "count": 4238,
+  "count": 4338,
   "items": [
     {
       "id": "honky_tonk",
@@ -176,8 +176,8 @@
       "id": "art_rock",
       "name": "Art rock",
       "family": "rock_punk",
-      "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock classic psychedelic rock spanish pop rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key arpeggiated sustain rich overtones mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic rubber saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 980
+      "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock classic psychedelic rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key arpeggiated sustain rich overtones mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic rubber saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 963
     },
     {
       "id": "glam_rock",
@@ -246,8 +246,8 @@
       "id": "new_wave",
       "name": "New wave",
       "family": "rock_punk",
-      "recipe": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock kazakh pop. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
-      "recipe_chars": 680
+      "recipe": "classic North American 1977-1979 new wave, functional Song, new wave branch, pop rock synthpop, alternative distorted rock french synthpop. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog synth, string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
+      "recipe_chars": 693
     },
     {
       "id": "folk_rock",
@@ -533,15 +533,15 @@
       "id": "detroit_techno",
       "name": "Detroit techno",
       "family": "electronic",
-      "recipe": "classic Asian 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric idm and experimental electronic live coding. drum machine analog, ambient pad like analog synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape echo lexicon 224 / 480L digital delay.",
-      "recipe_chars": 357
+      "recipe": "classic Asian 1984-1986 detroit techno, electronic Dance, techno branch, idm glitch experimental electric. drum machine analog, analog synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape echo lexicon 224 / 480L digital delay.",
+      "recipe_chars": 296
     },
     {
       "id": "acid_house",
       "name": "Acid house",
       "family": "electronic",
-      "recipe": "classic Asian 1988-1989 acid house, electronic Dance, chicago house branch, idm glitch experimental electric live coding breakcore. drum machine analog, squelching classic acid monosynth acid bass. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-      "recipe_chars": 347
+      "recipe": "classic Asian 1988-1989 acid house, electronic Dance, chicago house branch, idm glitch experimental electric. drum machine analog, squelching classic acid monosynth acid bass. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "recipe_chars": 325
     },
     {
       "id": "peak_techno",
@@ -1429,8 +1429,8 @@
       "id": "microhouse",
       "name": "Microhouse",
       "family": "electronic",
-      "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric ambient idm folktronica. sustained pad digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 339
+      "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric dusseldorf electronic icelandic electronic. digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 344
     },
     {
       "id": "hardstyle",
@@ -1975,8 +1975,8 @@
       "id": "uplifting_trance",
       "name": "Uplifting trance",
       "family": "global",
-      "recipe": "classic mid-2000s uplifting trance, electronic Dance, trance branch, pop rock functional song 1960s girl group new romanticism. singing lead analog poly synth, singing lead digital subtractive, TR-909, melodic orchestral imitation pitched sampler, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 567
+      "recipe": "classic mid-2000s uplifting trance, electronic Dance, trance branch, pop rock functional song 1960s girl group yé-yé. singing lead analog poly synth, singing lead digital subtractive, TR-909, melodic orchestral imitation pitched sampler, a cappella small 3 to 8 one per part call response single leader group response global traditional polyphonic choir ensemble. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 509
     },
     {
       "id": "vocal_trance",
@@ -2227,8 +2227,8 @@
       "id": "hypnagogic_pop",
       "name": "Hypnagogic pop",
       "family": "global",
-      "recipe": "classic 2007-2009 hypnagogic pop, experimental Elec, lofi branch, pop rock functional song metropopolis yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, field textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 473
+      "recipe": "classic 2007-2009 hypnagogic pop, experimental Elec, lofi branch, pop rock functional song yacht rock 1960s girl group. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, field textural sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 477
     },
     {
       "id": "bedroom_pop",
@@ -2255,8 +2255,8 @@
       "id": "uilleann_pipe_solo",
       "name": "Uilleann pipe solo",
       "family": "global",
-      "recipe": "classic Northern European mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame scottish fiddle tradition irish trad session. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed dublin tradition uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 496
+      "recipe": "classic Northern European mid-1990s uilleann pipe solo, drone Modal, wind pipe branch, Celtic traditional improv on frame irish dance scottish fiddle tradition. full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes. connemara kitchen sean nos. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 520
     },
     {
       "id": "didgeridoo_yidaki_solo",
@@ -2353,8 +2353,8 @@
       "id": "bedroom_singer_song",
       "name": "Bedroom singer-songwriter",
       "family": "global",
-      "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 415
+      "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, plucked short envelope analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 442
     },
     {
       "id": "sean_nos_solo",
@@ -2696,8 +2696,8 @@
       "id": "minimal_tech_house",
       "name": "Minimal tech-house",
       "family": "global",
-      "recipe": "classic modern minimal tech-house, electronic Dance, tech house branch, idm glitch experimental electric folktronica. sub bass digital subtractive, TR-909, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 328
+      "recipe": "classic modern minimal tech-house, electronic Dance, tech house branch, idm glitch experimental electric icelandic electronic italian electronica. digital subtractive, TR-909, glitched textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 348
     },
     {
       "id": "drone_metal",
@@ -2927,8 +2927,8 @@
       "id": "tropicalia",
       "name": "Tropicália",
       "family": "global",
-      "recipe": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock french post-rock finnish psychedelic rock. thick, breath veiled tone, breath pulsed, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall plexi amp British rock amp basswood pau ferro power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-      "recipe_chars": 762
+      "recipe": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock french post-rock. thick, breath veiled tone, breath pulsed, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall plexi amp British rock amp pau ferro soft down tuning clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_chars": 739
     },
     {
       "id": "mpb",
@@ -4691,8 +4691,8 @@
       "id": "cumbia_rebajada",
       "name": "Cumbia rebajada (Monterrey slowed)",
       "family": "global",
-      "recipe": "classic Mexican mid-1980s cumbia rebajada, functional Song, Mexican branch, Latin electric electronic dance baile funk brega funk. thick, full chest belt, straight note core, interlocked note trading. brass castagnari Italian premium folk music accordion, alder pyramid pure nickel bass British mid 60s era electric bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-      "recipe_chars": 501
+      "recipe": "classic Mexican mid-1980s cumbia rebajada, functional Song, Mexican branch, Latin electric electronic dance colombian electronic cuban electronic. vocal fry, full chest belt, breath pulsed, interlocked note trading. accordion, electric bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+      "recipe_chars": 421
     },
     {
       "id": "son_huasteco",
@@ -8429,8 +8429,8 @@
       "id": "nova_mpb",
       "name": "Nova MPB",
       "family": "global",
-      "recipe": "classic late-2000s nova mpb, functional Song, Brazilian song branch, Latin am troubadour ballad poetry, pop rock functional song skiffle metropopolis. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon strummed open chord ringing overtones classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 872
+      "recipe": "classic late-2000s nova mpb, functional Song, Brazilian song branch, Latin am troubadour ballad poetry, pop rock functional song skiffle yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 851
     },
     {
       "id": "cancion_melodica",
@@ -10781,8 +10781,8 @@
       "id": "psybreaks",
       "name": "Psybreaks",
       "family": "electronic",
-      "recipe": "classic mid-2000s psybreaks, electronic Dance, trance branch, uk soundsystem bass system, idm glitch experimental electric idm and experimental electronic chiptune / 8-bit. classic acid monosynth acid bass, glitched textural sampler, TR-909, analog mono native instruments fm8 modern software 8 operator fm synth, drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 527
+      "recipe": "classic mid-2000s psybreaks, electronic Dance, trance branch, uk soundsystem bass system, idm glitch experimental electric idm and experimental electronic darkcore. classic acid sub bass monosynth acid bass, glitched textural sampler, TR-909, low sub bass analog mono yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator sub bass fm synth, brushes-and-sticks drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 587
     },
     {
       "id": "psyprog",
@@ -10991,8 +10991,8 @@
       "id": "darkside_jungle",
       "name": "Darkside Jungle",
       "family": "electronic",
-      "recipe": "classic Western European early-1990s darkside jungle, bass System, uk soundsystem branch, idm glitch experimental electric, techno electronic dance live coding. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. glitched textural sampler, sampler drum machine, sub bass analog poly synth, sub bass monosynth acid bass, turntable. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-      "recipe_chars": 505
+      "recipe": "classic Western European early-1990s darkside jungle, bass System, uk soundsystem branch, idm glitch experimental electric, techno electronic dance birmingham techno. breath veiled tone, straight note core, interlocked note trading, neutral third half flat. glitched textural sampler, sampler drum machine, sub bass analog poly synth, monosynth acid bass, turntable. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+      "recipe_chars": 506
     },
     {
       "id": "raggacore",
@@ -11089,8 +11089,8 @@
       "id": "skweee",
       "name": "Skweee",
       "family": "electronic",
-      "recipe": "classic late-2000s skweee, experimental Elec, lofi branch, continental electronic dance, idm glitch experimental electric, footwork electronic dance folktronica drill'n'bass. analog mono fm synth, monosynth acid bass, cheap paired with 303 chicago foundational TR-707, TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 384
+      "recipe": "classic late-2000s skweee, experimental Elec, lofi branch, continental electronic dance, idm glitch experimental electric, footwork electronic dance. analog mono fm synth, monosynth acid bass, cheap paired with 303 chicago foundational TR-707, TR-808. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 359
     },
     {
       "id": "sound_art",
@@ -11201,8 +11201,8 @@
       "id": "vaportrap",
       "name": "Vaportrap",
       "family": "electronic",
-      "recipe": "classic 2013-2016 vaportrap, experimental Elec, retro aesthetic branch, us hip hop southern, lofi experimental electric dirty south rap lo-fi beats. thick, rap, straight onset, interlocked note trading. TR-808, field textural sampler, sub bass digital subtractive, sub bass analog poly synth, sampled chopped turntable. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 436
+      "recipe": "classic 2013-2016 vaportrap, experimental Elec, retro aesthetic branch, us hip hop southern, lofi experimental electric dirty south rap phonk. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, sub bass digital subtractive, sub bass analog poly synth, sampled chopped turntable. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 475
     },
     {
       "id": "vaporhop",
@@ -11425,8 +11425,8 @@
       "id": "power_noise",
       "name": "Power Noise",
       "family": "electronic",
-      "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding. roland tr 8s modern aira digital recreation TR-909, sampler drum machine, sub bass analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
-      "recipe_chars": 626
+      "recipe": "classic Central European mid-1990s power noise, experimental Elec, industrial noise branch, techno electronic dance, hardstyle electronic dance, idm glitch experimental electric live coding dusseldorf electronic. TR-909, sampler drum machine, analog evolving modular modular evolving modular granular glitched textural wavetable synth. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. FET condenser, console-strip pre, colored vintage console, optical compressor, parametric EQ. vinyl master cut tape echo analog bucket-brigade delay spring reverb.",
+      "recipe_chars": 595
     },
     {
       "id": "praise_and_worship",
@@ -11845,8 +11845,8 @@
       "id": "progressive_breaks",
       "name": "Progressive Breaks",
       "family": "electronic",
-      "recipe": "classic mid-2000s progressive breaks, electronic Dance, continental branch, trance electronic dance, idm glitch experimental electric idm and experimental electronic. vocal fry, breath veiled tone, straight note core, interlocked note trading. glitched textural sampler, sub bass analog poly synth, sub bass digital subtractive, sub bass monosynth acid bass, sustained pad string machine, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 600
+      "recipe": "classic mid-2000s progressive breaks, electronic Dance, continental branch, trance electronic dance, idm glitch experimental electric dream house classic trance. vocal fry, breath veiled tone, straight note core, interlocked note trading. glitched textural sampler, sub bass analog poly synth, sub bass digital subtractive, sub bass monosynth acid bass, string machine, TR-909. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 581
     },
     {
       "id": "beach_music_carolina",
@@ -12321,8 +12321,8 @@
       "id": "funk_mtg",
       "name": "Funk MTG (Montagem)",
       "family": "electronic",
-      "recipe": "classic late-2010s funk mtg, electronic Dance, Latin electric branch, lofi experimental electric vaporwave chillwave. thick, breath veiled tone, wide pitch sway, interlocked note trading. glitched textural sampler, TR-808, modular granular synth, monosynth acid bass. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 384
+      "recipe": "classic late-2010s funk mtg, electronic Dance, Latin electric branch, lofi experimental electric finnish electronic vaporwave. vocal fry, breath veiled tone, wide pitch sway, interlocked note trading. glitched textural sampler, TR-808, modular granular synth, monosynth acid bass. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 397
     },
     {
       "id": "mega_funk",
@@ -13371,8 +13371,8 @@
       "id": "batida",
       "name": "Batida (Lisbon Angolan Electronic)",
       "family": "electronic",
-      "recipe": "classic 2007-2009 batida, electronic Dance, African dance branch, continental electronic dance, idm glitch experimental electric big beat live coding. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, sampler drum machine, glitched textural wavetable fm synth, close dry to palm hand clap. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 424
+      "recipe": "classic 2007-2009 batida, electronic Dance, African dance branch, continental electronic dance, idm glitch experimental electric big beat drift phonk. vocal fry, breath veiled tone, straight onset, interlocked note trading. TR-808, sampled chopped sampler drum machine, glitched textural wavetable fm synth, close dry to palm hand clap. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 444
     },
     {
       "id": "sgija",
@@ -13392,8 +13392,8 @@
       "id": "singeli",
       "name": "Singeli",
       "family": "electronic",
-      "recipe": "classic 2007-2009 singeli, electronic Dance, African dance branch, Afro-diasporic MC rhythm, lofi experimental electric skweee anime lo-fi. thick, breath veiled tone, straight onset, interlocked note trading. sampler drum machine, TR-808, glitched textural wavetable synth, live ambient room natural hand clap. tin roofed shack. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 427
+      "recipe": "classic 2007-2009 singeli, electronic Dance, African dance branch, Afro-diasporic MC rhythm, lofi experimental electric merenrap merengue de calle. extended whistle, breath veiled tone, straight onset, interlocked note trading. sampler drum machine, TR-808, wavetable synth, room natural to palm hand clap. tin roofed shack. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 423
     },
     {
       "id": "zilizopendwa",
@@ -15926,8 +15926,8 @@
       "id": "minimal_wave",
       "name": "Minimal Wave",
       "family": "electronic",
-      "recipe": "classic mid-1980s minimal wave, functional Song, new wave branch, pop rock synthpop, retro aesthetic experimental electric, gothic rock distorted rock coldwave deathrock. thick, breath veiled tone, breath pulsed, interlocked note trading. plucked short envelope analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca short envelope analog poly synth, drum machine analog, drum machine 606, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass. carpeted bedroom. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-      "recipe_chars": 593
+      "recipe": "classic mid-1980s minimal wave, functional Song, new wave branch, pop rock synthpop, retro aesthetic experimental electric, gothic rock distorted rock coldwave deathrock. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead analog mono oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, drum machine analog, drum machine 606, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass. carpeted bedroom. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+      "recipe_chars": 573
     },
     {
       "id": "minimal_synth",
@@ -15940,8 +15940,8 @@
       "id": "sovietwave",
       "name": "Sovietwave",
       "family": "electronic",
-      "recipe": "classic 2013-2016 sovietwave, experimental Elec, retro aesthetic branch, ambient experimental electric, pop rock synthpop metropopolis new romanticism. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly singing lead analog mono synth, string machine, classic source linndrum, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 510
+      "recipe": "classic 2013-2016 sovietwave, experimental Elec, retro aesthetic branch, ambient experimental electric, pop rock synthpop ambient techno ambient house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly analog mono synth, sustained pad string machine, classic source linndrum, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 512
     },
     {
       "id": "neoclassical_darkwave",
@@ -15961,8 +15961,8 @@
       "id": "slushwave",
       "name": "Slushwave",
       "family": "electronic",
-      "recipe": "classic 2016-2018 slushwave, experimental Elec, ambient branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, modular granular sustained pad analog poly synth, sustained pad string machine, tape replay keyboard. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 358
+      "recipe": "classic 2016-2018 slushwave, experimental Elec, ambient branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, glitched textural granular sustained pad analog poly synth, sustained pad string machine, tape replay keyboard. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 368
     },
     {
       "id": "utopian_virtual",
@@ -15982,8 +15982,8 @@
       "id": "hauntology_aesthetic",
       "name": "Hauntology (library-music aesthetic)",
       "family": "electronic",
-      "recipe": "classic 2005-2006 hauntology, experimental Elec, ambient branch, musique concrete experimental electric, idm glitch experimental electric folktronica idm and experimental electronic. thick, breath veiled tone, straight note core, interlocked note trading. tape replay keyboard, modular modular analog mono synth, glitched textural sampler, prepared upright piano, sustained pad string machine. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-      "recipe_chars": 552
+      "recipe": "classic 2005-2006 hauntology, experimental Elec, ambient branch, musique concrete experimental electric, idm glitch experimental electric dusseldorf electronic folktronica. thick, breath veiled tone, straight note core, interlocked note trading. tape replay keyboard, modular modular analog mono synth, glitched textural sampler, prepared upright piano, sustained pad string machine. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+      "recipe_chars": 542
     },
     {
       "id": "wonky_beat_scene",
@@ -16024,8 +16024,8 @@
       "id": "memphis_phonk",
       "name": "Memphis phonk",
       "family": "hip_hop",
-      "recipe": "classic mid-1990s memphis phonk, mc Rhythm, southern branch, us hip hop gangsta, lofi experimental electric bedroom pop. thick, rap, straight onset, interlocked note trading. TR-808, chopped sampler, low sub bass analog poly synth, sampled chopped turntable, mahogany tape wound nylon tape upright like fingerstyle electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 437
+      "recipe": "classic mid-1990s memphis phonk, mc Rhythm, southern branch, us hip hop gangsta, lofi experimental electric finnish electronic. thick, rap, straight onset, interlocked note trading. TR-808, chopped sampler, sub bass analog poly synth, sampled chopped turntable, tape wound nylon tape upright like fingerstyle locked electric bass. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 438
     },
     {
       "id": "phonk",
@@ -16276,8 +16276,8 @@
       "id": "hexd",
       "name": "HexD",
       "family": "electronic",
-      "recipe": "classic 2020-2022 hexd, mc Rhythm, experimental branch, lofi experimental electric, us hip hop southern anime lo-fi bossbeat. TR-808, field textural sampler, octuple plus dense stack multi track instrument hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, sub bass digital subtractive, glitched textural granular synth. boombox portable speaker. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
-      "recipe_chars": 460
+      "recipe": "classic 2020-2022 hexd, mc Rhythm, experimental branch, lofi experimental electric, us hip hop southern aggressive phonk grunk. roland tr 8s modern aira digital recreation TR-808, field textural sampler, octuple plus dense stack multi track instrument hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, low sub bass digital subtractive, glitched textural granular synth. boombox portable speaker. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
+      "recipe_chars": 510
     },
     {
       "id": "bubblegum_bass",
@@ -16360,8 +16360,8 @@
       "id": "psychill",
       "name": "Psychill (psychedelic chillout)",
       "family": "electronic",
-      "recipe": "classic mid-1990s psychill, experimental Elec, ambient branch, trance electronic dance, dub descendants bass system, idm glitch experimental electric folktronica psydub. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly evolving modular granular synth, glitched textural sampler, foundational concert bansuri bansuri, didgeridoo. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 573
+      "recipe": "classic mid-1990s psychill, experimental Elec, ambient branch, trance electronic dance, dub descendants bass system, idm glitch experimental electric psydub. vocal fry, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly sustained pad granular synth, glitched textural sampler, foundational concert bansuri bansuri, didgeridoo. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 562
     },
     {
       "id": "zenonesque",
@@ -16500,8 +16500,8 @@
       "id": "outsider_house",
       "name": "Outsider House",
       "family": "electronic",
-      "recipe": "classic 2011-2015 outsider house, electronic Dance, lofi house branch, lofi experimental electric skweee anime lo-fi. cheap paired with 303 chicago foundational TR-707, drum machine 606, analog mono synth, sampler drum machine, tape replay keyboard. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 357
+      "recipe": "classic 2011-2015 outsider house, electronic Dance, lofi house branch, lofi experimental electric finnish electronic skweee. cheap paired with 303 chicago foundational TR-707, drum machine 606, analog mono synth, sampler drum machine, tape replay keyboard. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 364
     },
     {
       "id": "gospel_house",
@@ -17221,8 +17221,8 @@
       "id": "afro_rnb",
       "name": "Afro R&B",
       "family": "pop",
-      "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance naija old school isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, tremolo block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, melodic pitched sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
-      "recipe_chars": 593
+      "recipe": "classic 2004-2006 afro r&b, functional Song, soul R&B branch, African pop functional song, African dance electronic dance isicathamiya rumba lingala. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, TR-808, block chord rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+      "recipe_chars": 566
     },
     {
       "id": "afro_soul",
@@ -17263,8 +17263,8 @@
       "id": "kosmische",
       "name": "Kosmische Musik",
       "family": "rock",
-      "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal protovapor bristol trip hop. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key arpeggiated sustain rich overtones mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, arpeggiated sustain rich overtones tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-      "recipe_chars": 961
+      "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal bristol trip hop berlin school. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+      "recipe_chars": 952
     },
     {
       "id": "zamrock",
@@ -28456,8 +28456,8 @@
       "id": "norwegian_rock",
       "name": "Norwegian rock",
       "family": "rock",
-      "recipe": "classic norwegian rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 395
+      "recipe": "classic norwegian rock, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. marshall plexi amp British rock amp basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 404
     },
     {
       "id": "pakistani_rock",
@@ -29534,8 +29534,8 @@
       "id": "classic_assamese_pop",
       "name": "Classic assamese pop",
       "family": "pop",
-      "recipe": "classic classic assamese pop, functional Song, pop rock branch. group vocals, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 294
+      "recipe": "classic classic assamese pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 280
     },
     {
       "id": "classic_azeri_pop",
@@ -29669,6 +29669,706 @@
       "family": "pop",
       "recipe": "classic hungarian pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
       "recipe_chars": 294
+    },
+    {
+      "id": "classic_moroccan_pop",
+      "name": "Classic moroccan pop",
+      "family": "pop",
+      "recipe": "classic classic moroccan pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, oud. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 304
+    },
+    {
+      "id": "classic_portuguese_pop",
+      "name": "Classic portuguese pop",
+      "family": "pop",
+      "recipe": "classic classic portuguese pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 301
+    },
+    {
+      "id": "classic_punjabi_pop",
+      "name": "Classic punjabi pop",
+      "family": "pop",
+      "recipe": "classic classic punjabi pop, functional Song, pop rock branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar, hard rock maple k and k twin internal mounted acoustic faithful strummed mandolin, dhol, dholak, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 422
+    },
+    {
+      "id": "classic_romanian_pop",
+      "name": "Classic romanian pop",
+      "family": "pop",
+      "recipe": "classic mid-2010s classic romanian pop, functional Song, pop rock branch. solo with instrumental accompaniment. marshall plexi amp British rock amp clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 421
+    },
+    {
+      "id": "classic_russian_pop",
+      "name": "Classic russian pop",
+      "family": "pop",
+      "recipe": "classic classic russian pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 346
+    },
+    {
+      "id": "classic_sinhala_pop",
+      "name": "Classic sinhala pop",
+      "family": "pop",
+      "recipe": "classic classic sinhala pop, functional Song, pop rock branch. mahogany maple clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 323
+    },
+    {
+      "id": "classic_sudanese_pop",
+      "name": "Classic sudanese pop",
+      "family": "pop",
+      "recipe": "classic classic sudanese pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 244
+    },
+    {
+      "id": "classic_tunisian_pop",
+      "name": "Classic tunisian pop",
+      "family": "pop",
+      "recipe": "classic early-2010s classic tunisian pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. oud, silver wound lamb gut core hard rock maple acer saccharum violin orchestral, qanun, silver wound lamb gut core hard rock maple cello, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 440
+    },
+    {
+      "id": "collage_pop",
+      "name": "Collage pop",
+      "family": "pop",
+      "recipe": "classic collage pop, functional Song, pop rock branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 177
+    },
+    {
+      "id": "country_pop",
+      "name": "Country pop",
+      "family": "pop",
+      "recipe": "classic country pop, functional Song, pop rock branch. duet, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 258
+    },
+    {
+      "id": "cypriot_pop",
+      "name": "Cypriot pop",
+      "family": "pop",
+      "recipe": "classic cypriot pop, functional Song, europop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "czsk_viral_pop",
+      "name": "Czsk viral pop",
+      "family": "pop",
+      "recipe": "classic czsk viral pop, functional Song, europop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 262
+    },
+    {
+      "id": "deep_acoustic_pop",
+      "name": "Deep acoustic pop",
+      "family": "pop",
+      "recipe": "classic deep acoustic pop, functional Song, pop rock branch. unprocessed natural acoustic. deep indian rosewood rosewood dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 250
+    },
+    {
+      "id": "deep_brazilian_pop",
+      "name": "Deep brazilian pop",
+      "family": "pop",
+      "recipe": "classic deep brazilian pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 211
+    },
+    {
+      "id": "deep_indie_pop",
+      "name": "Deep indie pop",
+      "family": "pop",
+      "recipe": "classic deep indie pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 322
+    },
+    {
+      "id": "dogri_pop",
+      "name": "Dogri pop",
+      "family": "pop",
+      "recipe": "classic dogri pop, functional Song, south Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar, flute, dark clay tabla, song accompaniment harmonium indian. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 364
+    },
+    {
+      "id": "dutch_idol_pop",
+      "name": "Dutch idol pop",
+      "family": "pop",
+      "recipe": "classic dutch idol pop, functional Song, europop branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 262
+    },
+    {
+      "id": "ethiopian_pop",
+      "name": "Ethiopian pop",
+      "family": "pop",
+      "recipe": "classic ethiopian pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 347
+    },
+    {
+      "id": "experimental_pop",
+      "name": "Experimental pop",
+      "family": "pop",
+      "recipe": "classic experimental pop, distorted Rock, experimental branch. duet, live take. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 291
+    },
+    {
+      "id": "finnish_idol_pop",
+      "name": "Finnish idol pop",
+      "family": "pop",
+      "recipe": "classic early-2010s finnish idol pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "french_folk_pop",
+      "name": "French folk pop",
+      "family": "pop",
+      "recipe": "classic french folk pop, functional Song, folk rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 257
+    },
+    {
+      "id": "gabonese_pop",
+      "name": "Gabonese pop",
+      "family": "pop",
+      "recipe": "classic gabonese pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 302
+    },
+    {
+      "id": "gambian_pop",
+      "name": "Gambian pop",
+      "family": "pop",
+      "recipe": "classic gambian pop, functional Song, African pop branch. clean strummed humbucker electric guitar, gambia modern revival kora, electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 278
+    },
+    {
+      "id": "ghanaian_pop",
+      "name": "Ghanaian pop",
+      "family": "pop",
+      "recipe": "classic ghanaian pop, functional Song, African pop branch. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 200
+    },
+    {
+      "id": "greenlandic_pop",
+      "name": "Greenlandic pop",
+      "family": "pop",
+      "recipe": "classic greenlandic pop, functional Song, pop rock branch. duet, live take. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 302
+    },
+    {
+      "id": "guinean_pop",
+      "name": "Guinean pop",
+      "family": "pop",
+      "recipe": "classic guinean pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. kora, strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 307
+    },
+    {
+      "id": "guyanese_pop",
+      "name": "Guyanese pop",
+      "family": "pop",
+      "recipe": "classic guyanese pop, functional Song, folk rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "hausa_pop",
+      "name": "Hausa pop",
+      "family": "pop",
+      "recipe": "classic hausa pop, functional Song, African pop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 273
+    },
+    {
+      "id": "hazaragi_pop",
+      "name": "Hazaragi pop",
+      "family": "pop",
+      "recipe": "classic hazaragi pop, functional Song, south Asian pop branch. solo with instrumental accompaniment, single lead single track no stacking. basswood clean strummed humbucker electric guitar, electric bass, pre muffled edge muffled drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 340
+    },
+    {
+      "id": "hmong_pop",
+      "name": "Hmong pop",
+      "family": "pop",
+      "recipe": "classic hmong pop, functional Song, pop rock branch. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 213
+    },
+    {
+      "id": "icelandic_pop",
+      "name": "Icelandic pop",
+      "family": "pop",
+      "recipe": "classic icelandic pop, functional Song, pop rock branch. solo with instrumental accompaniment. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 236
+    },
+    {
+      "id": "idol",
+      "name": "Idol",
+      "family": "pop",
+      "recipe": "classic idol, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 321
+    },
+    {
+      "id": "idol_kayo",
+      "name": "Idol kayo",
+      "family": "pop",
+      "recipe": "classic idol kayo, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 317
+    },
+    {
+      "id": "igbo_pop",
+      "name": "Igbo pop",
+      "family": "pop",
+      "recipe": "classic igbo pop, functional Song, pop rock branch. humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 263
+    },
+    {
+      "id": "indie_dream_pop",
+      "name": "Indie dream pop",
+      "family": "pop",
+      "recipe": "classic indie dream pop, functional Song, pop rock branch. group vocals, live take. roland jc120 amp solid state stereo chorus arpeggiated clean humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 375
+    },
+    {
+      "id": "indie_psych_pop",
+      "name": "Indie psych-pop",
+      "family": "pop",
+      "recipe": "classic indie psych-pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 304
+    },
+    {
+      "id": "indonesian_city_pop",
+      "name": "Indonesian city pop",
+      "family": "pop",
+      "recipe": "classic indonesian city pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 289
+    },
+    {
+      "id": "indonesian_folk_pop",
+      "name": "Indonesian folk pop",
+      "family": "pop",
+      "recipe": "classic indonesian folk pop, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. strummed open chord ringing overtones dreadnought acoustic guitar, ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 369
+    },
+    {
+      "id": "indonesian_indie_pop",
+      "name": "Indonesian indie pop",
+      "family": "pop",
+      "recipe": "classic indonesian indie pop, functional Song, pop rock branch. arpeggiated clean humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 293
+    },
+    {
+      "id": "indonesian_pop",
+      "name": "Indonesian pop",
+      "family": "pop",
+      "recipe": "classic indonesian pop, functional Song, pop rock branch. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 362
+    },
+    {
+      "id": "industrial_pop",
+      "name": "Industrial pop",
+      "family": "pop",
+      "recipe": "classic industrial pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 303
+    },
+    {
+      "id": "inuit_pop",
+      "name": "Inuit pop",
+      "family": "pop",
+      "recipe": "classic inuit pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "irish_pop",
+      "name": "Irish pop",
+      "family": "pop",
+      "recipe": "classic irish pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "italian_adult_pop",
+      "name": "Italian adult pop",
+      "family": "pop",
+      "recipe": "classic italian adult pop, functional Song, pop rock branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 266
+    },
+    {
+      "id": "italian_indie_pop",
+      "name": "Italian indie pop",
+      "family": "pop",
+      "recipe": "classic italian indie pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 306
+    },
+    {
+      "id": "italian_pop",
+      "name": "Italian pop",
+      "family": "pop",
+      "recipe": "classic italian pop, functional Song, pop rock branch. ernie ball slinky electric bass, sampler drum machine, singing lead rompler workstation. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 244
+    },
+    {
+      "id": "j_idol",
+      "name": "J-idol",
+      "family": "pop",
+      "recipe": "classic j-idol, functional Song, pop rock branch. mahogany maple clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 291
+    },
+    {
+      "id": "japanese_alternative_pop",
+      "name": "Japanese alternative pop",
+      "family": "pop",
+      "recipe": "classic japanese alternative pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 294
+    },
+    {
+      "id": "japanese_bedroom_pop",
+      "name": "Japanese bedroom pop",
+      "family": "pop",
+      "recipe": "classic japanese bedroom pop, functional Song, pop rock branch. duet, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 267
+    },
+    {
+      "id": "japanese_dance_pop",
+      "name": "Japanese dance pop",
+      "family": "pop",
+      "recipe": "classic japanese dance pop, functional Song, pop rock branch. solo with instrumental accompaniment. sampler drum machine, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 241
+    },
+    {
+      "id": "japanese_dream_pop",
+      "name": "Japanese dream pop",
+      "family": "pop",
+      "recipe": "classic japanese dream pop, functional Song, pop rock branch. solo with instrumental accompaniment. roland jc120 amp solid state stereo chorus humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 354
+    },
+    {
+      "id": "japanese_indie_pop",
+      "name": "Japanese indie pop",
+      "family": "pop",
+      "recipe": "classic japanese indie pop, functional Song, pop rock branch. solo with instrumental accompaniment. arpeggiated clean humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 245
+    },
+    {
+      "id": "jazz_pop",
+      "name": "Jazz pop",
+      "family": "pop",
+      "recipe": "classic jazz pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, thomastik infeld low tension jazz warm electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 337
+    },
+    {
+      "id": "jewish_pop",
+      "name": "Jewish pop",
+      "family": "pop",
+      "recipe": "classic jewish pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 280
+    },
+    {
+      "id": "kannada_pop",
+      "name": "Kannada pop",
+      "family": "pop",
+      "recipe": "classic kannada pop, functional Song, pop rock branch. solo with instrumental accompaniment. sampler drum machine, analog poly synth, silver wound lamb gut core hard rock maple cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 284
+    },
+    {
+      "id": "kashmiri_pop",
+      "name": "Kashmiri pop",
+      "family": "pop",
+      "recipe": "classic kashmiri pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 293
+    },
+    {
+      "id": "korean_dream_pop",
+      "name": "Korean dream pop",
+      "family": "pop",
+      "recipe": "classic korean dream pop, functional Song, pop rock branch. roland jc120 amp solid state stereo chorus humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 314
+    },
+    {
+      "id": "australian_dance",
+      "name": "Australian dance",
+      "family": "electronic",
+      "recipe": "classic australian dance, electronic Dance. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 163
+    },
+    {
+      "id": "belarusian_electronic",
+      "name": "Belarusian electronic",
+      "family": "electronic",
+      "recipe": "classic belarusian electronic, functional Song, synthpop branch. analog poly synth, sampler drum machine, ernie ball slinky electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 239
+    },
+    {
+      "id": "boston_electronic",
+      "name": "Boston electronic",
+      "family": "electronic",
+      "recipe": "classic boston electronic, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 278
+    },
+    {
+      "id": "brazilian_edm",
+      "name": "Brazilian edm",
+      "family": "electronic",
+      "recipe": "classic brazilian edm, electronic Dance. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 163
+    },
+    {
+      "id": "canadian_electronic",
+      "name": "Canadian electronic",
+      "family": "electronic",
+      "recipe": "classic canadian electronic, experimental Elec. solo with instrumental accompaniment. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 227
+    },
+    {
+      "id": "czech_electronic",
+      "name": "Czech electronic",
+      "family": "electronic",
+      "recipe": "classic czech electronic, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 277
+    },
+    {
+      "id": "dark_synthpop",
+      "name": "Dark synthpop",
+      "family": "electronic",
+      "recipe": "classic dark synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 274
+    },
+    {
+      "id": "japanese_viral_pop",
+      "name": "Japanese viral pop",
+      "family": "pop",
+      "recipe": "classic japanese viral pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 326
+    },
+    {
+      "id": "k_pop_ballad",
+      "name": "K-pop ballad",
+      "family": "pop",
+      "recipe": "classic k-pop ballad, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, hard rock maple cello. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 314
+    },
+    {
+      "id": "kenyan_pop",
+      "name": "Kenyan pop",
+      "family": "pop",
+      "recipe": "classic kenyan pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 251
+    },
+    {
+      "id": "kokborok_pop",
+      "name": "Kokborok pop",
+      "family": "pop",
+      "recipe": "classic late-2010s kokborok pop, functional Song, pop rock branch. clean strummed humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 293
+    },
+    {
+      "id": "korean_pop",
+      "name": "Korean pop",
+      "family": "pop",
+      "recipe": "classic korean pop, functional Song, pop rock branch. solo with instrumental accompaniment. clean strummed humbucker electric strummed open chord ringing overtones dreadnought acoustic guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 377
+    },
+    {
+      "id": "deep_idm",
+      "name": "Deep idm",
+      "family": "electronic",
+      "recipe": "classic mid-2010s deep idm, experimental Elec, idm glitch branch. doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 237
+    },
+    {
+      "id": "french_synthpop",
+      "name": "French synthpop",
+      "family": "pop",
+      "recipe": "classic late-2010s french synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 287
+    },
+    {
+      "id": "early_synthpop",
+      "name": "Early synthpop",
+      "family": "pop",
+      "recipe": "classic early synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. moog east coast modular canonical 1964 1981 trumansburg keyboard driven subtractive modular yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 414
+    },
+    {
+      "id": "belgian_electronic",
+      "name": "Belgian electronic",
+      "family": "electronic",
+      "recipe": "classic belgian electronic, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 257
+    },
+    {
+      "id": "bristol_electronic",
+      "name": "Bristol electronic",
+      "family": "electronic",
+      "recipe": "classic bristol electronic, experimental Elec. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 166
+    },
+    {
+      "id": "bulgarian_electronic",
+      "name": "Bulgarian electronic",
+      "family": "electronic",
+      "recipe": "classic bulgarian electronic, electronic Dance, house branch. solo with instrumental accompaniment. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 241
+    },
+    {
+      "id": "chinese_electronic",
+      "name": "Chinese electronic",
+      "family": "electronic",
+      "recipe": "classic chinese electronic, experimental Elec. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 207
+    },
+    {
+      "id": "christian_dance",
+      "name": "Christian dance",
+      "family": "electronic",
+      "recipe": "classic christian dance, electronic Dance, eurodance branch. single lead single track no stacking. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 221
+    },
+    {
+      "id": "cologne_electronic",
+      "name": "Cologne electronic",
+      "family": "electronic",
+      "recipe": "classic cologne electronic, experimental Elec. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 166
+    },
+    {
+      "id": "colombian_electronic",
+      "name": "Colombian electronic",
+      "family": "electronic",
+      "recipe": "classic colombian electronic, electronic Dance, Latin electric branch. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 212
+    },
+    {
+      "id": "croatian_electronic",
+      "name": "Croatian electronic",
+      "family": "electronic",
+      "recipe": "classic croatian electronic, electronic Dance. analog poly synth, electric bass, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 191
+    },
+    {
+      "id": "cuban_electronic",
+      "name": "Cuban electronic",
+      "family": "electronic",
+      "recipe": "classic cuban electronic, electronic Dance, Latin electric branch. sampler drum machine, electric bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 204
+    },
+    {
+      "id": "danish_electro",
+      "name": "Danish electro",
+      "family": "electronic",
+      "recipe": "classic danish electro, functional Song, synthpop branch. single lead single track no stacking. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 237
+    },
+    {
+      "id": "danish_electronic",
+      "name": "Danish electronic",
+      "family": "electronic",
+      "recipe": "classic danish electronic, electronic Dance. solo with instrumental accompaniment. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 224
+    },
+    {
+      "id": "dark_disco",
+      "name": "Dark disco",
+      "family": "electronic",
+      "recipe": "classic dark disco, electronic Dance, house branch. solo with instrumental accompaniment. analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 231
+    },
+    {
+      "id": "icelandic_electronic",
+      "name": "Icelandic electronic",
+      "family": "electronic",
+      "recipe": "classic mid-2010s icelandic electronic, experimental Elec, idm glitch branch. one piece 17 ply hard rock maple grand piano, analog poly synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 265
+    },
+    {
+      "id": "indian_electronic",
+      "name": "Indian electronic",
+      "family": "electronic",
+      "recipe": "classic indian electronic, electronic Dance. analog poly synth, monosynth acid bass, TR-808. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 193
+    },
+    {
+      "id": "irish_experimental_electronic",
+      "name": "Irish experimental electronic",
+      "family": "electronic",
+      "recipe": "classic irish experimental electronic, experimental Elec, ambient branch. evolving modular modular synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 206
+    },
+    {
+      "id": "italian_electronica",
+      "name": "Italian electronica",
+      "family": "electronic",
+      "recipe": "classic italian electronica, experimental Elec, idm glitch branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 189
+    },
+    {
+      "id": "japanese_edm",
+      "name": "Japanese edm",
+      "family": "electronic",
+      "recipe": "classic japanese edm, electronic Dance, house branch. plucked short envelope wavetable synth, sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 216
+    },
+    {
+      "id": "japanese_electronic",
+      "name": "Japanese electronic",
+      "family": "electronic",
+      "recipe": "classic japanese electronic, experimental Elec, idm glitch branch. sampler drum machine, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 208
+    },
+    {
+      "id": "japanese_idm",
+      "name": "Japanese idm",
+      "family": "electronic",
+      "recipe": "classic japanese idm, experimental Elec, idm glitch branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "korean_electronic",
+      "name": "Korean electronic",
+      "family": "electronic",
+      "recipe": "classic korean electronic, experimental Elec, idm glitch branch. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 187
+    },
+    {
+      "id": "dusseldorf_electronic",
+      "name": "Dusseldorf electronic",
+      "family": "electronic",
+      "recipe": "classic dusseldorf electronic, experimental Elec, idm glitch branch. 18 ply hard rock maple vintage production prepared grand piano, sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 221
+    },
+    {
+      "id": "finnish_electro",
+      "name": "Finnish electro",
+      "family": "electronic",
+      "recipe": "classic early-2000s finnish electro, experimental Elec, retro aesthetic branch. analog poly synth, drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 209
+    },
+    {
+      "id": "finnish_electronic",
+      "name": "Finnish electronic",
+      "family": "electronic",
+      "recipe": "classic finnish electronic, experimental Elec, lofi branch. sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 148
+    },
+    {
+      "id": "deep_neo_synthpop",
+      "name": "Deep neo-synthpop",
+      "family": "pop",
+      "recipe": "classic deep neo-synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, clean strummed humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "german_dance",
+      "name": "German dance",
+      "family": "electronic",
+      "recipe": "classic german dance, electronic Dance, continental branch. red brass 90 10 darkest heavy one piece matched to monette horn trumpet, brass band sousaphone, bass drum, marimba orchestral. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 287
+    },
+    {
+      "id": "irish_dance",
+      "name": "Irish dance",
+      "family": "vernacular",
+      "recipe": "classic irish dance, improv On Frame, Celtic traditional branch. silver wound lamb gut core fiddle, breathy dance driving irish wooden flute, full band boxwood pre 1900 historical Irish cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, dreadnought acoustic guitar, upright bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 463
+    },
+    {
+      "id": "finnish_edm",
+      "name": "Finnish edm",
+      "family": "electronic",
+      "recipe": "classic finnish edm, electronic Dance, trance branch. digital subtractive, sampler, organ preset rompler workstation, TR-909. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 205
+    },
+    {
+      "id": "experimental_synth",
+      "name": "Experimental synth",
+      "family": "electronic",
+      "recipe": "classic mid-1970s experimental synth, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 244
     }
   ]
 }

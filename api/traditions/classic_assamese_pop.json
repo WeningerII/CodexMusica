@@ -3,9 +3,9 @@
   "name": "Classic assamese pop",
   "family": "pop",
   "lineage": "Classic assamese pop is represented here by Mayukh Hazarika — Niyoror Xur selected song core. This is one documented branch, with an authored present-day studio realization.",
-  "recipe": "classic classic assamese pop, functional Song, pop rock branch. group vocals, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 294,
-  "score": 17.708,
+  "recipe": "classic classic assamese pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 280,
+  "score": 17.52,
   "config": {
     "traditions": [
       "classic_assamese_pop"
@@ -21,9 +21,9 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.286,
+          "acoustic_technique": 12.2545,
           "string_tuning": 0,
-          "top_wood": 0.2955,
+          "top_wood": 0.1905,
           "back_sides": 0.063,
           "string_acoustic": 0.3045
         }
@@ -60,7 +60,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.5579999999999999,
+          "voice_ensemble_config": 0.45299999999999996,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.8099999999999999,
@@ -78,7 +78,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "poly_archetypes": 2.9899999999999998,
-          "poly_voices": 0.231,
+          "poly_voices": 0.28500000000000003,
           "poly_maker_lineage": -0.035
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "An internet-circulated ambient discovery cluster whose indexed Every Noise roster includes Borrtex, Gibran Alcocer, reidenshi and SymphoCat. Documented members span quiet piano, electronic synthesis and field-recorded work. The selected piano-and-synth arrangement follows Borrtex’s mixed keyboard/electronic branch, without treating all ambient music with low fidelity as this category.",
   "recipe": "classic modern ambient lo-fi, experimental Elec, ambient branch, lofi experimental electric lo-fi beats. pad like pad analog synth, 7 ply quartersawn maple a 440 modern pitch us standard grand piano. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 415,
-  "score": 27.332,
+  "score": 26.96,
   "config": {
     "traditions": [
       "ambient_lo_fi",
@@ -24,8 +24,8 @@
         "scores": {
           "electronic_technique": 14.884999999999998,
           "oscillator": 0.65,
-          "filter_topology": 1.4260000000000002,
-          "envelope": 6.856,
+          "filter_topology": 1.3900000000000001,
+          "envelope": 6.52,
           "modulation": 0.045
         }
       },

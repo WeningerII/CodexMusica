@@ -3,14 +3,14 @@
   "name": "Psychill (psychedelic chillout)",
   "family": "electronic",
   "lineage": "Chillout-tent music of the 1990s-2000s psytrance festival circuit, codified by Shpongle (Simon Posford and Raja Ram, from 1996), Entheogenic, Carbon Based Lifeforms and the Twisted, Ultimae and Interchill catalogues — 80-120 BPM loose downtempo or beatless passages, long evolving pad beds and reverse-reverb swells, phrase-length arrangements that move by texture rather than chorus, sampled bansuri, didgeridoo, throat singing and spoken-word fragments, and pitch-shifted wordless vocals used as timbre.",
-  "recipe": "classic mid-1990s psychill, experimental Elec, ambient branch, trance electronic dance, dub descendants bass system, idm glitch experimental electric folktronica psydub. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly evolving modular granular synth, glitched textural sampler, foundational concert bansuri bansuri, didgeridoo. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 573,
-  "score": 231.555,
+  "recipe": "classic mid-1990s psychill, experimental Elec, ambient branch, trance electronic dance, dub descendants bass system, idm glitch experimental electric psydub. vocal fry, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly sustained pad granular synth, glitched textural sampler, foundational concert bansuri bansuri, didgeridoo. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 562,
+  "score": 223.145,
   "config": {
     "traditions": [
       "psychill",
-      "folktronica",
-      "psydub"
+      "psydub",
+      "ambient_dub"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 8.79,
+          "electronic_technique": 12.415,
           "poly_archetypes": 1.885,
           "poly_voices": 1.69,
           "poly_maker_lineage": -0.31499999999999995
@@ -31,14 +31,14 @@
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_modular_patch",
-          "granular_use": "granular_idm",
-          "granular_synth_source": "granular_synth_field"
+          "electronic_technique": "electronic_pad_drone",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_synthesized"
         },
         "scores": {
-          "electronic_technique": 15.92,
-          "granular_use": 0.65,
-          "granular_synth_source": 4.8255
+          "electronic_technique": 12.415,
+          "granular_use": 0,
+          "granular_synth_source": 3.965
         }
       },
       {
@@ -51,26 +51,26 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 14.875,
+          "electronic_technique": 9,
           "sampler_archetypes": 0.65,
           "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 14.875,
-          "sampler_classic_context": 20.279999999999998
+          "sampler_workflow": 9,
+          "sampler_classic_context": 22.9775
         }
       },
       {
         "id": "bansuri",
         "slots": {
-          "wind_articulation": "wind_folk_melodic",
-          "bansuri_length": "small_bansuri",
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "bass_bansuri",
           "bansuri_ornament": "meend_bansuri",
           "bansuri_body_material": "bansuri_kerala_bamboo",
           "bansuri_lineage": "bansuri_pannalal_ghosh"
         },
         "scores": {
-          "wind_articulation": 2.0475,
-          "bansuri_length": 1.82,
-          "bansuri_ornament": 1.17,
+          "wind_articulation": 0.2,
+          "bansuri_length": 1.69,
+          "bansuri_ornament": 1.3649999999999998,
           "bansuri_body_material": 0.65,
           "bansuri_lineage": 1
         }
@@ -93,7 +93,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -108,25 +108,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.3949999999999996,
-          "voice_quality": 7.605,
+          "voice_register": 1.4299999999999997,
+          "voice_quality": 8.709999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.95,
-          "voice_articulation": 20.279999999999998,
-          "voice_microtone": 20.929999999999993,
-          "voice_tradition": 12.0005,
-          "voice_mechanism_compound": 2.73,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 20.344999999999995,
-          "voice_ensemble_config": 19.369999999999997,
-          "voice_ornament_system": 2.4074999999999998,
-          "voice_pitch_organization": 2.5850000000000004,
-          "voice_processing_chain": 14.370000000000001,
-          "voice_multitrack_stack": 7.289
+          "voice_vibrato": 2.145,
+          "voice_articulation": 21.58,
+          "voice_microtone": 22.229999999999993,
+          "voice_tradition": 7.875500000000001,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 2.5350000000000006,
+          "voice_speech_song": 22.034999999999993,
+          "voice_ensemble_config": 20.864999999999995,
+          "voice_ornament_system": 3.5075000000000003,
+          "voice_pitch_organization": 2.8600000000000003,
+          "voice_processing_chain": 12.57,
+          "voice_multitrack_stack": 7.54
         }
       }
     ],

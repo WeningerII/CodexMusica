@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 4238,
+  "count": 4338,
   "items": [
     {
       "id": "honky_tonk",
@@ -159188,6 +159188,3123 @@
       "description": "Hungarian pop is represented by Budapest-based amber smith’s indie-pop/rock branch. The artist includes pop among its tags and credits guitar, bass, drums and two singing members. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
       "exemplars": [
         "amber smith — Once Upon A Time band core"
+      ]
+    },
+    {
+      "id": "classic_moroccan_pop",
+      "name": "Classic moroccan pop",
+      "family": "pop",
+      "lineage": "Classic moroccan pop is represented here by Nabyla Maan — selected Salam Music vocal-string core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "oud",
+        "voice"
+      ],
+      "description": "Classic Moroccan pop is represented by Nabyla Maan’s contemporary Malhoun-related crossover. The presenting venue names her voice, Orwa Saleh’s oud, and Tarik Hilal and Mahan Mirarab on guitars. The authored core uses a single singer over plucked strings. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Nabyla Maan — selected Salam Music vocal-string core"
+      ]
+    },
+    {
+      "id": "classic_portuguese_pop",
+      "name": "Classic portuguese pop",
+      "family": "pop",
+      "lineage": "Classic portuguese pop is represented here by Mafalda Veiga — Solo vocal-guitar program. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Classic Portuguese pop is represented by Mafalda Veiga’s singer-songwriter branch. The presenting theatre credits her alone on voice and guitars for Solo, which revisits her songs alongside Portuguese adaptations of pop repertoire. The authored model retains this reduced format. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Mafalda Veiga — Solo vocal-guitar program"
+      ]
+    },
+    {
+      "id": "classic_punjabi_pop",
+      "name": "Classic punjabi pop",
+      "family": "pop",
+      "lineage": "Classic punjabi pop is represented here by Sangtar — Jinday Ni Jinday production core with Kamal Heer. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "mandolin",
+        "dhol",
+        "dholak",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Classic Punjabi pop is represented by Sangtar’s production of Kamal Heer’s Jinday Ni Jinday. Sangtar’s firsthand studio account identifies his guitar, mandolin and keyboards, and Ramzan Khavra’s dhol and dholak. The authored core supports Kamal’s single lead voice with plucked strings and layered rhythm. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Sangtar — Jinday Ni Jinday production core with Kamal Heer"
+      ]
+    },
+    {
+      "id": "classic_romanian_pop",
+      "name": "Classic romanian pop",
+      "family": "pop",
+      "lineage": "Classic romanian pop is represented here by Voltaj — 2015 pop-rock lineup. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Classic Romanian pop is represented by Voltaj’s pop-rock branch. An institutional interview records Călin Goia’s voice, Gabi Constantin’s guitar, Valeriu Ionescu’s bass, Oliver Sterian’s drums and Adrian Cristescu’s keyboards. The authored model keeps this five-role core. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Voltaj — 2015 pop-rock lineup"
+      ]
+    },
+    {
+      "id": "classic_russian_pop",
+      "name": "Classic russian pop",
+      "family": "pop",
+      "lineage": "Classic russian pop is represented here by Alexander Rosenbaum — Skobyanaya lavka band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Classic Russian pop is represented by Alexander Rosenbaum’s authored-song and band crossover. His own Metafizika album credits identify his voice, guitars, bass, drums and keyboards. This selected track-eight core receives a clean-guitar studio realization. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Alexander Rosenbaum — Skobyanaya lavka band core"
+      ]
+    },
+    {
+      "id": "classic_sinhala_pop",
+      "name": "Classic sinhala pop",
+      "family": "pop",
+      "lineage": "Classic sinhala pop is represented here by MARIANS — selected singing-band roster. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Classic Sinhala pop is represented by MARIANS’ Negombo-based band practice. The official roster names guitar, bass, drums and keyboards, with four explicitly named singer-instrumentalists or vocalists. The authored model combines shared singing with clean guitar and a sustained keyboard layer. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "MARIANS — selected singing-band roster"
+      ]
+    },
+    {
+      "id": "classic_sudanese_pop",
+      "name": "Classic sudanese pop",
+      "family": "pop",
+      "lineage": "Classic sudanese pop is represented here by Sharhabil Ahmed — selected guitar-vocal core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "voice"
+      ],
+      "description": "Classic Sudanese pop is represented by Sharhabil Ahmed’s electric-guitar-led crossover. His licensing label documents his voice and guitar approach and its links with surf, rock and Congolese music. This authored reduced arrangement foregrounds the sung melody and guitar. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Sharhabil Ahmed — selected guitar-vocal core"
+      ]
+    },
+    {
+      "id": "classic_tunisian_pop",
+      "name": "Classic tunisian pop",
+      "family": "pop",
+      "lineage": "Classic tunisian pop is represented here by Lotfi Bouchnak — 2011 Tetouan ensemble core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "instruments": [
+        "oud",
+        "violin_orchestral",
+        "qanun",
+        "cello",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Classic Tunisian pop is represented by Lotfi Bouchnak’s Maluf-related vocal branch. The recording label documents his oud and voice with violin, qanun, cello and keyboard accompaniment. The authored realization combines a single lead with plucked, bowed and sustained keyboard layers. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Lotfi Bouchnak — 2011 Tetouan ensemble core"
+      ]
+    },
+    {
+      "id": "collage_pop",
+      "name": "Collage pop",
+      "family": "pop",
+      "lineage": "Collage pop is represented here by Nym — Edge City sampler core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "description": "Collage pop is represented by Nym’s sample-built instrumental branch. His own album account describes assembling Edge City after buying a sampler and searching Virginia thrift-store records. The authored realization uses a chopped-sample instrument with no live singer. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Nym — Edge City sampler core"
+      ]
+    },
+    {
+      "id": "country_pop",
+      "name": "Country pop",
+      "family": "pop",
+      "lineage": "Country pop is represented here by SmithField — acoustic duet core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Country pop is represented by SmithField’s Nashville-based duet. The artists describe a core of two intertwined voices and acoustic guitar, balancing country phrasing with pop hooks. The authored realization retains the two shared singers and guitar without the larger release arrangements. Exact equipment, instrument subtypes, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "SmithField — acoustic duet core"
+      ]
+    },
+    {
+      "id": "cypriot_pop",
+      "name": "Cypriot pop",
+      "family": "pop",
+      "lineage": "Cypriot pop is represented here by Alkinoos Ioannidis — guitar-and-voice solo branch. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "A Cypriot singer-songwriter branch drawn from Ioannidis’s explicitly documented guitar-and-voice solo programme. The authored arrangement keeps one voice and acoustic guitar; the steel-string implementation is an authored choice, not an identification of his actual guitar. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Alkinoos Ioannidis — guitar-and-voice solo branch"
+      ]
+    },
+    {
+      "id": "czsk_viral_pop",
+      "name": "Czsk viral pop",
+      "family": "pop",
+      "lineage": "Czsk viral pop is represented here by Vojtaano — guitar-and-voice performance branch. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "A Czech internet-pop discovery branch represented by Vojtaano’s folk-rap songwriting and guitar-accompanied singing. The primary artist profile connects his work to YouTube and viral songs; the documented Prague performance supplies the selected pared-down roles. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Vojtaano — guitar-and-voice performance branch"
+      ]
+    },
+    {
+      "id": "deep_acoustic_pop",
+      "name": "Deep acoustic pop",
+      "family": "pop",
+      "lineage": "Deep acoustic pop is represented here by Luluc — acoustic duo core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "A quiet acoustic branch of this discovery category represented by the sung guitar core of Luluc. Their label documents Zoë Randell and Steve Hassett harmonizing and recording guitar/voice, while the presenting broadcaster specifies Randell’s acoustic guitar. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Luluc — acoustic duo core"
+      ]
+    },
+    {
+      "id": "deep_brazilian_pop",
+      "name": "Deep brazilian pop",
+      "family": "pop",
+      "lineage": "Deep brazilian pop is represented here by Mônica Salmaso — Ô de Casas: João e Maria. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        -1,
+        1,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "flute",
+        "voice"
+      ],
+      "description": "This MPB-oriented discovery branch is represented by Mônica Salmaso’s remote João e Maria collaboration: Salmaso and Chico Buarque sing, Teco Cardoso plays flute and Luiz Claudio Ramos guitar. The present-day arrangement realizes that small ensemble with clean electric guitar. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Mônica Salmaso — Ô de Casas: João e Maria"
+      ]
+    },
+    {
+      "id": "deep_indie_pop",
+      "name": "Deep indie pop",
+      "family": "pop",
+      "lineage": "Deep indie pop is represented here by Title Tracks — Long Dream. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "A guitar-trio power-pop branch of this discovery category represented by Title Tracks on Long Dream. The release label documents John Davis singing and playing guitar, Michael Cotterman on bass and Elmer Sharp on drums, based in Washington, D.C. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Title Tracks — Long Dream"
+      ]
+    },
+    {
+      "id": "dogri_pop",
+      "name": "Dogri pop",
+      "family": "pop",
+      "lineage": "Dogri pop is represented here by Sonali Dogra — Avishkar Dogri-song branch. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.southAsianPop",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "flute",
+        "tabla",
+        "harmonium_indian",
+        "voice"
+      ],
+      "description": "This discovery category is represented by Sonali Dogra’s literary-song branch at Avishkar in Jammu. The presenting institution documents Dogri poems sung by Dogra with flute, guitar, tabla and harmonium accompaniment. The present-day model preserves those five sound roles. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Sonali Dogra — Avishkar Dogri-song branch"
+      ]
+    },
+    {
+      "id": "dutch_idol_pop",
+      "name": "Dutch idol pop",
+      "family": "pop",
+      "lineage": "Dutch idol pop is represented here by Ivar Oosterloo — singer-guitarist branch. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.europop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Dutch talent-show pop represented by Ivar Oosterloo’s singer-songwriter branch. Public broadcaster profiles connect him to both Idols and The Voice of Holland and explicitly describe his guitar playing. This authored pared-down arrangement joins that guitar role to one sung lead. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Ivar Oosterloo — singer-guitarist branch"
+      ]
+    },
+    {
+      "id": "ethiopian_pop",
+      "name": "Ethiopian pop",
+      "family": "pop",
+      "lineage": "Ethiopian pop is represented here by Gigi — Mesgana Ethiopia: core band excluding guest track. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "An Ethiopian popular-song fusion branch represented by Gigi with Material on Mesgana Ethiopia. The label credits Gigi singing, Bill Laswell bass, Abegasu Shiota keyboards, Hamid Drake drums and Dominic Kanza guitar, with Amharic melody and reggae/dub/jazz crossover. This authored reduction selects that core band. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Gigi — Mesgana Ethiopia: core band excluding guest track"
+      ]
+    },
+    {
+      "id": "experimental_pop",
+      "name": "Experimental pop",
+      "family": "pop",
+      "lineage": "Experimental pop is represented here by Deerhoof — Devil Kids. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "distortedRock.experimental",
+      "axes": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "An unruly guitar-band branch of experimental pop represented by Deerhoof’s Devil Kids live ensemble: Satomi Matsuzaki on bass and voice, John Dieterich and Ed Rodriguez on guitars, and Greg Saunier on drums and voice. Its label connects the band’s San Francisco noise origins to their distinctive pop approach. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices, not historical session facts.",
+      "exemplars": [
+        "Deerhoof — Devil Kids"
+      ]
+    },
+    {
+      "id": "finnish_idol_pop",
+      "name": "Finnish idol pop",
+      "family": "pop",
+      "lineage": "Finnish idol pop is represented here by Softengine — documented 2011 core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Finnish idol pop is represented by Softengine, explicitly present in the creator’s discovery map. Yle’s artist presentation supplies the Seinäjoki locality and guitar, bass, drums and three named singers. The authored realization selects that documented early-band core. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Softengine — documented 2011 core"
+      ]
+    },
+    {
+      "id": "french_folk_pop",
+      "name": "French folk pop",
+      "family": "pop",
+      "lineage": "French folk pop is represented here by Douglas Hinton — Start Anew acoustic core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock.folkRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "French folk pop is represented by a France-based branch: Douglas Hinton’s Start Anew. The artist calls his work acoustic folk-rock made in northern France, tags folk pop, and credits acoustic guitar with three named vocal performers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Douglas Hinton — Start Anew acoustic core"
+      ]
+    },
+    {
+      "id": "gabonese_pop",
+      "name": "Gabonese pop",
+      "family": "pop",
+      "lineage": "Gabonese pop is represented here by Pierre Akendengué — guitar-and-voice core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Gabonese pop is represented by Pierre Akendengué’s guitar-led songwriting branch, included in the creator’s map. His label documents his self-accompanied guitar and singing; another label locates later recording practice in Libreville. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Pierre Akendengué — guitar-and-voice core"
+      ]
+    },
+    {
+      "id": "gambian_pop",
+      "name": "Gambian pop",
+      "family": "pop",
+      "lineage": "Gambian pop is represented here by Sona Jobarteh — Gambia core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "kora",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Gambian pop is represented by Sona Jobarteh’s Gambia, listed in the creator’s discovery cluster. Her track notes explicitly frame the song as a tribute to The Gambia and its diaspora, and credit guitar, kora, bass, drum kit and three named singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Sona Jobarteh — Gambia core"
+      ]
+    },
+    {
+      "id": "ghanaian_pop",
+      "name": "Ghanaian pop",
+      "family": "pop",
+      "lineage": "Ghanaian pop is represented here by Ata Kak — Obaa Sima electronic core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Ghanaian pop is represented by Ata Kak’s Ghanaian diaspora electronic branch on Obaa Sima. The artist/label release account documents synthesized melody and drum sounds, Ata Kak’s singing and rapping, and Lucy Quansah’s backing voice. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Ata Kak — Obaa Sima electronic core"
+      ]
+    },
+    {
+      "id": "greenlandic_pop",
+      "name": "Greenlandic pop",
+      "family": "pop",
+      "lineage": "Greenlandic pop is represented here by Nanook — documented live-band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Greenlandic pop is represented by Nanook’s melodic band branch. A municipal cultural listing names the two singing guitarists, bass, drums and keyboard roles; the band’s label independently documents recording practice in Nuuk. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Nanook — documented live-band core"
+      ]
+    },
+    {
+      "id": "guinean_pop",
+      "name": "Guinean pop",
+      "family": "pop",
+      "lineage": "Guinean pop is represented here by Mory Kanté — selected lead-performer core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "kora",
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Guinean pop is represented by Mory Kanté’s documented pop/Manding branch. His management’s WOMEX presentation identifies Guinea, Conakry production practice, and his lead voice, kora and guitar roles. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Mory Kanté — selected lead-performer core"
+      ]
+    },
+    {
+      "id": "guyanese_pop",
+      "name": "Guyanese pop",
+      "family": "pop",
+      "lineage": "Guyanese pop is represented here by Juke Ross — acoustic songwriter core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock.folkRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Guyanese pop is represented by Juke Ross’s acoustic folk-pop branch. Berklee’s artist presentation establishes his Guyanese background, singing/guitar practice and New York recording base; his instrument partner documents acoustic-guitar accompaniment. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Juke Ross — acoustic songwriter core"
+      ]
+    },
+    {
+      "id": "hausa_pop",
+      "name": "Hausa pop",
+      "family": "pop",
+      "lineage": "Hausa pop is represented here by Ali Jita — lead-only Kano electronic-song model. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.africanPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Hausa pop is represented by the Kano electronic-song practice documented by Nigeria’s National Institute for Cultural Orientation. The fieldwork-based account places singer Ali Jita within independent Nanaye and describes sampled keyboard rhythms and synthetic melody supporting voice. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Ali Jita — lead-only Kano electronic-song model"
+      ]
+    },
+    {
+      "id": "hazaragi_pop",
+      "name": "Hazaragi pop",
+      "family": "pop",
+      "lineage": "Hazaragi pop is represented here by Dawood Sarkhosh — Maryam Western-band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.southAsianPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Hazaragi pop is represented by Dawood Sarkhosh’s Maryam crossover, with membership verified in the creator’s map. The artist’s official release credits identify his singing, bass, drums, guitar and keyboards, and recordings in Sopron and Vienna. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Dawood Sarkhosh — Maryam Western-band core"
+      ]
+    },
+    {
+      "id": "hmong_pop",
+      "name": "Hmong pop",
+      "family": "pop",
+      "lineage": "Hmong pop is represented here by Ka Lia Universe — Hmonglish vocal/beat core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Hmong pop is represented by Ka Lia Universe’s bilingual Hmong-English pop branch. In her first-person account she describes writing her own songs, selecting producer-created beats and recording her voice; her professional profile identifies Saint Paul. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Ka Lia Universe — Hmonglish vocal/beat core"
+      ]
+    },
+    {
+      "id": "icelandic_pop",
+      "name": "Icelandic pop",
+      "family": "pop",
+      "lineage": "Icelandic pop is represented here by Hildur — Afturábak electronic core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Icelandic pop is represented by Reykjavík-based Hildur’s indie-pop branch. Hildur Kristín Stefánsdóttir is credited with voice, synthesizers and drum programming. The authored realization selects this electronic core. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Hildur — Afturábak electronic core"
+      ]
+    },
+    {
+      "id": "idol",
+      "name": "Idol",
+      "family": "pop",
+      "lineage": "Idol is represented here by Casey Abrams — acoustic lead-performer core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Idol is represented by Casey Abrams, a named member of the creator’s idol discovery cluster. His presenting college documents his American Idol background and singing plus acoustic-guitar role on his debut. The authored realization selects that lead-performer core. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Casey Abrams — acoustic lead-performer core"
+      ]
+    },
+    {
+      "id": "idol_kayo",
+      "name": "Idol kayo",
+      "family": "pop",
+      "lineage": "Idol kayo is represented here by Chisato Moritaka — Pepperland multi-instrumental core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Idol kayo is represented by Chisato Moritaka’s singer-songwriter and multi-instrumentalist branch. Her official history documents her playing drums, guitar, bass and piano on much of Pepperland. The authored model selects the guitar rhythm section and one lead singer. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Chisato Moritaka — Pepperland multi-instrumental core"
+      ]
+    },
+    {
+      "id": "igbo_pop",
+      "name": "Igbo pop",
+      "family": "pop",
+      "lineage": "Igbo pop is represented here by Oriental Brothers International Band — Oku Ngwo Di Ochi core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Igbo pop is represented by Oriental Brothers International Band’s contemporary Igbo-highlife branch. The authored model selects electric guitars, bass and drums with the 2022 release’s three named singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Oriental Brothers International Band — Oku Ngwo Di Ochi core"
+      ]
+    },
+    {
+      "id": "indie_dream_pop",
+      "name": "Indie dream pop",
+      "family": "pop",
+      "lineage": "Indie dream pop is represented here by Suburban Living — Audiotree Live. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Indie dream pop is represented by Suburban Living’s Philadelphia guitar-and-keyboard branch. The performance credits three singers alongside guitar, bass, drums and keyboards. The authored arrangement favors clean arpeggios and a sustained synth layer. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Suburban Living — Audiotree Live"
+      ]
+    },
+    {
+      "id": "indie_psych_pop",
+      "name": "Indie psych-pop",
+      "family": "pop",
+      "lineage": "Indie psych-pop is represented here by Sound Mirrors — spacerocketsandsunshine core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Indie psych-pop is represented by Sound Mirrors’ Essex-based sunshine-pop/indie-psych branch. A guitar, bass, drums and keyboard core supports several singers. The authored arrangement favors clean chord patterns and sustained keyboard color. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Sound Mirrors — spacerocketsandsunshine core"
+      ]
+    },
+    {
+      "id": "indonesian_city_pop",
+      "name": "Indonesian city pop",
+      "family": "pop",
+      "lineage": "Indonesian city pop is represented here by ikkubaru — DECADE band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian city pop is represented by ikkubaru’s Bandung-based neo-city-pop branch. The authored arrangement selects its guitar-band core and two singing guitarists, favoring interlocking clean chords and a compact rhythm section. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "ikkubaru — DECADE band core"
+      ]
+    },
+    {
+      "id": "indonesian_folk_pop",
+      "name": "Indonesian folk pop",
+      "family": "pop",
+      "lineage": "Indonesian folk pop is represented here by Endah N Rhesa — acoustic duo core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "voice"
+      ],
+      "description": "Indonesian folk pop is represented by Endah N Rhesa’s folk-rooted acoustic duo. The authored arrangement pairs strummed acoustic guitar and a single singing lead with electric bass. Pamulang is its documented practice hub. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Endah N Rhesa — acoustic duo core"
+      ]
+    },
+    {
+      "id": "indonesian_indie_pop",
+      "name": "Indonesian indie pop",
+      "family": "pop",
+      "lineage": "Indonesian indie pop is represented here by Sharesprings — Maydear. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Indonesian indie pop is represented by Sharesprings’ Jakarta twee/shoegaze branch. The label credits a guitar, bass and drum ensemble with two separately named singers. The authored realization uses arpeggiated electric guitar over a steady pulse. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Sharesprings — Maydear"
+      ]
+    },
+    {
+      "id": "indonesian_pop",
+      "name": "Indonesian pop",
+      "family": "pop",
+      "lineage": "Indonesian pop is represented here by White Shoes & The Couples Company — selected band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Indonesian pop is represented by White Shoes & The Couples Company’s Jakarta-based retro-pop branch. The authored model combines acoustic/electric guitar, bass, drums and keyboards with the credited lead and backing singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "White Shoes & The Couples Company — selected band core"
+      ]
+    },
+    {
+      "id": "industrial_pop",
+      "name": "Industrial pop",
+      "family": "pop",
+      "lineage": "Industrial pop is represented here by Mark E Moon — From The Inside core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Industrial pop is represented by Mark E Moon’s Isle of Man synthpop/post-punk crossover. The authored model combines electric guitar, bass, drums and synthesizer with the release’s four credited singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Mark E Moon — From The Inside core"
+      ]
+    },
+    {
+      "id": "inuit_pop",
+      "name": "Inuit pop",
+      "family": "pop",
+      "lineage": "Inuit pop is represented here by Elisapie — Inuktitut selected band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Inuit pop is represented by Elisapie’s Montréal-based Inuktitut cover-song branch. The authored model selects guitars, bass, drums and synthesizers with the documented sung-band voices. It does not impose a universal Inuit sound. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Elisapie — Inuktitut selected band core"
+      ]
+    },
+    {
+      "id": "irish_pop",
+      "name": "Irish pop",
+      "family": "pop",
+      "lineage": "Irish pop is represented here by roe — That’s When The Panic Sets In core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Irish pop is represented by roe’s Derry/Londonderry indie-pop branch. The authored arrangement selects guitar, bass and drums with Roisin Donald’s lead and three credited additional singers. Clean guitar chords frame a shared vocal ensemble. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "roe — That’s When The Panic Sets In core"
+      ]
+    },
+    {
+      "id": "italian_adult_pop",
+      "name": "Italian adult pop",
+      "family": "pop",
+      "lineage": "Italian adult pop is represented here by Niccolò Fabi — solo guitar-and-voice branch. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Italian adult pop is represented by Niccolò Fabi’s Rome-rooted singer-songwriter branch. His official 2015 summer program distinguishes solo guitar-and-voice appearances from concerts with a quartet. The authored realization uses one singer with strummed acoustic guitar. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Niccolò Fabi — solo guitar-and-voice branch"
+      ]
+    },
+    {
+      "id": "italian_indie_pop",
+      "name": "Italian indie pop",
+      "family": "pop",
+      "lineage": "Italian indie pop is represented here by Fitness Forever — Personal Train core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice",
+        "analog_poly_synth"
+      ],
+      "description": "Italian indie pop is represented by Fitness Forever’s Naples-based retro-pop branch. The authored arrangement selects its electric-guitar, bass, drums and synth core with four named vocal performers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Fitness Forever — Personal Train core"
+      ]
+    },
+    {
+      "id": "italian_pop",
+      "name": "Italian pop",
+      "family": "pop",
+      "lineage": "Italian pop is represented here by Mario Di Pasquale — Un attimo di smarrimento title track core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_bass",
+        "sampler_drum_machine",
+        "rompler_workstation",
+        "voice"
+      ],
+      "description": "Italian pop is represented by Mario Di Pasquale’s Vilnius-based title-track duet. The artist credits bass and programmed drums/piano with his own singing and Sofía Pera Renauld’s voice. The authored realization uses a sample rhythm instrument and keyboard workstation. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Mario Di Pasquale — Un attimo di smarrimento title track core"
+      ]
+    },
+    {
+      "id": "j_idol",
+      "name": "J-idol",
+      "family": "pop",
+      "lineage": "J-idol is represented here by SCANDAL — singing guitar-band branch. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "J-idol is represented by SCANDAL’s Osaka-formed guitar-band branch. Sony’s profile names four singing instrumentalists across guitars, bass and drums. The authored model realizes their shared vocal roles over compact clean-chord accompaniment. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "SCANDAL — singing guitar-band branch"
+      ]
+    },
+    {
+      "id": "japanese_alternative_pop",
+      "name": "Japanese alternative pop",
+      "family": "pop",
+      "lineage": "Japanese alternative pop is represented here by Apple Light — original quartet core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese alternative pop is represented by Apple Light’s Nagoya-rooted guitar-band branch. The authored model selects its original quartet’s guitars, bass, drums and two documented singers. Ringing guitar chords anchor a compact rhythm section. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Apple Light — original quartet core"
+      ]
+    },
+    {
+      "id": "japanese_bedroom_pop",
+      "name": "Japanese bedroom pop",
+      "family": "pop",
+      "lineage": "Japanese bedroom pop is represented here by MIZ — acoustic performance duo. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Japanese bedroom pop is represented by MIZ’s Tokyo-based acoustic branch. The authored arrangement selects acoustic guitar and a live vocal duet, supported by the festival’s explicit voice/guitar credits for both performers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "MIZ — acoustic performance duo"
+      ]
+    },
+    {
+      "id": "japanese_dance_pop",
+      "name": "Japanese dance pop",
+      "family": "pop",
+      "lineage": "Japanese dance pop is represented here by THREE1989 — sampler/keyboard/vocal trio. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Japanese dance pop is represented by THREE1989’s Tokyo-based trio. The label documents Shohei’s voice, Datch’s sampler-based DJ work and Shimo’s keyboards. The authored model uses a sampled rhythm bed and sustained synth support. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "THREE1989 — sampler/keyboard/vocal trio"
+      ]
+    },
+    {
+      "id": "japanese_dream_pop",
+      "name": "Japanese dream pop",
+      "family": "pop",
+      "lineage": "Japanese dream pop is represented here by Moon In June — 色彩を持たないで. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese dream pop is represented by Moon In June’s Tokyo guitar-band branch. The release explicitly frames its music within Japanese dream pop/shoegaze and credits guitar, bass, drums and miho’s singing. The authored arrangement favors ringing arpeggios. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Moon In June — 色彩を持たないで"
+      ]
+    },
+    {
+      "id": "japanese_indie_pop",
+      "name": "Japanese indie pop",
+      "family": "pop",
+      "lineage": "Japanese indie pop is represented here by Homecomings — guitar-and-voice core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "voice"
+      ],
+      "description": "Japanese indie pop is represented by Homecomings’ Kyoto-associated guitar-and-voice branch. The authored arrangement uses clean interlocking guitar figures and one lead singer. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Homecomings — guitar-and-voice core"
+      ]
+    },
+    {
+      "id": "jazz_pop",
+      "name": "Jazz pop",
+      "family": "pop",
+      "lineage": "Jazz pop is represented here by Rosie Frater-Taylor — Bloom guitar-trio core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Jazz pop is represented by Rosie Frater-Taylor’s London jazz/pop crossover. The authored model selects electric guitar, electric bass and drums with her solo singing. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Rosie Frater-Taylor — Bloom guitar-trio core"
+      ]
+    },
+    {
+      "id": "jewish_pop",
+      "name": "Jewish pop",
+      "family": "pop",
+      "lineage": "Jewish pop is represented here by Josh Goldberg — ONE selected core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Jewish pop is represented by Josh Goldberg’s Los Angeles liturgical-pop branch. The authored arrangement selects electric guitar, bass and drums behind lead and backing singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Josh Goldberg — ONE selected core"
+      ]
+    },
+    {
+      "id": "kannada_pop",
+      "name": "Kannada pop",
+      "family": "pop",
+      "lineage": "Kannada pop is represented here by MD Pallavi & Andi Otto — Songs for Broken Ships electronic core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_poly_synth",
+        "cello",
+        "voice"
+      ],
+      "description": "Kannada pop is represented by MD Pallavi and Andi Otto’s transnational folktronica/pop collaboration. The authored model selects the documented drum-machine, synthesizer and cello roles with Pallavi’s singing. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "MD Pallavi & Andi Otto — Songs for Broken Ships electronic core"
+      ]
+    },
+    {
+      "id": "kashmiri_pop",
+      "name": "Kashmiri pop",
+      "family": "pop",
+      "lineage": "Kashmiri pop is represented here by Parvaaz — Kun electric core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Kashmiri pop is represented by Parvaaz’s Kashmiri/Urdu rock crossover. The authored arrangement selects the 2019 electric guitar, bass and drum core with two regular singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Parvaaz — Kun electric core"
+      ]
+    },
+    {
+      "id": "korean_dream_pop",
+      "name": "Korean dream pop",
+      "family": "pop",
+      "lineage": "Korean dream pop is represented here by Say Sue Me — The Last Thing Left band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Korean dream pop is represented by Say Sue Me’s Busan guitar-band branch. The authored arrangement favors ringing guitar arpeggios, bass and drums with three named core singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Say Sue Me — The Last Thing Left band core"
+      ]
+    },
+    {
+      "id": "australian_dance",
+      "name": "Australian dance",
+      "family": "electronic",
+      "lineage": "Australian dance is represented by Mild Minds — MACHINE synth-and-voice core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Australian dance is represented by Melbourne-born, Los Angeles-based Mild Minds. The artist describes MACHINE as made almost entirely on a Prophet-5 and identifies the electronic song’s vocals. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Mild Minds — MACHINE synth-and-voice core"
+      ]
+    },
+    {
+      "id": "belarusian_electronic",
+      "name": "Belarusian electronic",
+      "family": "electronic",
+      "lineage": "Belarusian electronic is represented by luty sakavik — Bol Jon Moj. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "electric_bass",
+        "voice"
+      ],
+      "description": "Belarusian electronic is represented by Minsk duo luty sakavik’s electronic/new-wave branch. The release credits two named singers, synthesizers, drum machine and bass. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "luty sakavik — Bol Jon Moj"
+      ]
+    },
+    {
+      "id": "boston_electronic",
+      "name": "Boston electronic",
+      "family": "electronic",
+      "lineage": "Boston electronic is represented by Only Child — Srs One title-track electronic core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Boston electronic is represented by Only Child’s self-described electronic-pop branch. The title-track credits name Christopher James Martin for vocals, synths, bass synth and drum programming. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Only Child — Srs One title-track electronic core"
+      ]
+    },
+    {
+      "id": "brazilian_edm",
+      "name": "Brazilian edm",
+      "family": "electronic",
+      "lineage": "Brazilian edm is represented by Pedro — Liminalia programmed-vocal core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Brazilian EDM is represented by Campinas-based Pedro’s self-described EDM/BR-pop practice. Liminalia credits Pedro Anderson for singing and programming. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Pedro — Liminalia programmed-vocal core"
+      ]
+    },
+    {
+      "id": "canadian_electronic",
+      "name": "Canadian electronic",
+      "family": "electronic",
+      "lineage": "Canadian electronic is represented by Marie Davidson — documented solo electronic practice. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Canadian electronic is represented by Marie Davidson’s Montréal solo practice. Her releasing label documents sequencer composition, synthesizers, drum machines and her own French/English sung and spoken voice. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Marie Davidson — documented solo electronic practice"
+      ]
+    },
+    {
+      "id": "czech_electronic",
+      "name": "Czech electronic",
+      "family": "electronic",
+      "lineage": "Czech electronic is represented by Anakver — debut electronic core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Czech electronic is represented by Prague-based Anakver’s dream-electronica/synthpop branch. The debut credits Anakver’s vocals and programming alongside Aitcher Clark’s synthesizers and programming. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Anakver — debut electronic core"
+      ]
+    },
+    {
+      "id": "dark_synthpop",
+      "name": "Dark synthpop",
+      "family": "electronic",
+      "lineage": "Dark synthpop is represented by BlakLight — Wicked Face electronic core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Dark synthpop is represented by Los Angeles-based BlakLight’s explicitly self-described dark-synthpop release. Adam Collier handles synthesizers/programming and Brian Belknap the credited vocals. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "BlakLight — Wicked Face electronic core"
+      ]
+    },
+    {
+      "id": "japanese_viral_pop",
+      "name": "Japanese viral pop",
+      "family": "pop",
+      "lineage": "Japanese viral pop is represented here by KEPURA (ケプラ) — guitar-band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Japanese viral pop is represented by KEPURA’s guitar-pop branch. The authored model selects the four-piece band’s guitar, bass and drum roles with ritsuki’s lead singing. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "KEPURA (ケプラ) — guitar-band core"
+      ]
+    },
+    {
+      "id": "k_pop_ballad",
+      "name": "K-pop ballad",
+      "family": "pop",
+      "lineage": "K-pop ballad is represented here by 10cm — October Rain acoustic trio. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "cello",
+        "voice"
+      ],
+      "description": "K-pop ballad is represented by 10cm’s October Rain. The distributor identifies a Korean pop release and an autumn ballad; its track-specific core is voice, acoustic guitar and cello. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "10cm — October Rain acoustic trio"
+      ]
+    },
+    {
+      "id": "kenyan_pop",
+      "name": "Kenyan pop",
+      "family": "pop",
+      "lineage": "Kenyan pop is represented here by Sauti Sol — early Penya acoustic lineup. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "voice"
+      ],
+      "description": "Kenyan pop is represented by Sauti Sol’s early acoustic vocal-group branch. The authored arrangement pairs acoustic guitar with the four explicitly credited singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Sauti Sol — early Penya acoustic lineup"
+      ]
+    },
+    {
+      "id": "kokborok_pop",
+      "name": "Kokborok pop",
+      "family": "pop",
+      "lineage": "Kokborok pop is represented here by KOLOMA — 2018 guitar-band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Kokborok pop is represented by KOLOMA’s Tripura folk-fusion crossover. The authored arrangement selects guitars, bass and drums with the two musicians who explicitly identify themselves as singers. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "KOLOMA — 2018 guitar-band core"
+      ]
+    },
+    {
+      "id": "korean_pop",
+      "name": "Korean pop",
+      "family": "pop",
+      "lineage": "Korean pop is represented here by 10CM — The 3rd EP band core. This is one documented branch, with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Korean pop is represented by 10CM’s 2021 singer-songwriter band branch. The authored model selects acoustic/electric guitars, bass and drums with one lead singer. Exact equipment, room, signal chain, tuning, techniques and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "10CM — The 3rd EP band core"
+      ]
+    },
+    {
+      "id": "deep_idm",
+      "name": "Deep idm",
+      "family": "electronic",
+      "lineage": "Deep idm is represented here by Datach’i — System (2016). This is one documented branch with an authored present-day studio realization.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        -2,
+        1,
+        0,
+        0
+      ],
+      "instruments": [
+        "modular_synth"
+      ],
+      "description": "The deep IDM discovery cluster is represented by Datach’i’s System. Artist and releasing label explicitly state that all sixteen pieces were made exclusively on a Eurorack modular system, with no external computer or sequencer. The label locates this 2016 practice in New York. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Datach’i — System (2016)"
+      ]
+    },
+    {
+      "id": "french_synthpop",
+      "name": "French synthpop",
+      "family": "pop",
+      "lineage": "French synthpop is represented here by Minuit Machine — Infrarouge (2019). This is one documented branch with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "French synthpop is represented by Minuit Machine’s Infrarouge. Album credits assign music/production to Hélène de Thoury and vocal lines to Amandine Stioui in Paris. In a direct interview de Thoury describes composing synthesizers and drum machines while Stioui records her voice. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Minuit Machine — Infrarouge (2019)"
+      ]
+    },
+    {
+      "id": "early_synthpop",
+      "name": "Early synthpop",
+      "family": "pop",
+      "lineage": "Early synthpop is represented here by Telex — early modular/polyphonic synthesizer core. This is one documented branch with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "modular_synth",
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Early synthpop is represented by Telex’s early electronic core. Direct member testimony assigns Michel Moers singing, Marc Moulin keyboards and Dan Lacksman synthesis, with modular-generated drums, bass and sequences alongside polyphonic synth pads. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Telex — early modular/polyphonic synthesizer core"
+      ]
+    },
+    {
+      "id": "belgian_electronic",
+      "name": "Belgian electronic",
+      "family": "electronic",
+      "lineage": "Belgian electronic is represented by Joy Wellboy — What Baby synth-and-voice core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Belgian electronic is represented by Brussels-origin Joy Wellboy’s synth-based pop branch, now based in Berlin. The band’s own page identifies the synth arrangement and Joy Adegoke’s singing on What Baby. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Joy Wellboy — What Baby synth-and-voice core"
+      ]
+    },
+    {
+      "id": "bristol_electronic",
+      "name": "Bristol electronic",
+      "family": "electronic",
+      "lineage": "Bristol electronic is represented by Distraxi — self-titled synth-and-voice core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Bristol electronic is represented by Distraxi’s self-described Bristol power-electronics/industrial branch. The release credits Alina Church with voice, synthesizers and noise. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Distraxi — self-titled synth-and-voice core"
+      ]
+    },
+    {
+      "id": "bulgarian_electronic",
+      "name": "Bulgarian electronic",
+      "family": "electronic",
+      "lineage": "Bulgarian electronic is represented by KiNK with Rachel Row — L Square vocal-electronic branch. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Bulgarian electronic is represented by Sofia-based KiNK’s production with Rachel Row. The releasing label identifies her vocal alongside synth and rhythm production; a manufacturer-hosted first-person interview independently establishes KiNK’s synthesis, drum-machine and computer practice. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "KiNK with Rachel Row — L Square vocal-electronic branch"
+      ]
+    },
+    {
+      "id": "chinese_electronic",
+      "name": "Chinese electronic",
+      "family": "electronic",
+      "lineage": "Chinese electronic is represented by Shanghai Restoration Project with Zhang Le — There and Then programmed-vocal core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Chinese electronic is represented by Shanghai Restoration Project’s Chinese-diaspora electronica branch with Shanghai singer Zhang Le. Life Elsewhere documents her singing and the duo’s drum programming. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Shanghai Restoration Project with Zhang Le — There and Then programmed-vocal core"
+      ]
+    },
+    {
+      "id": "christian_dance",
+      "name": "Christian dance",
+      "family": "electronic",
+      "lineage": "Christian dance is represented by G-Powered — early Miia-and-Kimmo programmed-vocal configuration. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance.eurodance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Christian dance is represented by G-Powered’s Finnish Eurodance configuration with Miia singing and Kimmo handling electronic machines. The artist’s own profile documents computer, Reason and Logic production; its professional profiles establish Christian/gospel categorization and Jyväskylä practice. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "G-Powered — early Miia-and-Kimmo programmed-vocal configuration"
+      ]
+    },
+    {
+      "id": "cologne_electronic",
+      "name": "Cologne electronic",
+      "family": "electronic",
+      "lineage": "Cologne electronic is represented by Verneblung — Ready To Drown synth-and-voice core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "voice"
+      ],
+      "description": "Cologne electronic is represented by Verneblung’s synth-based industrial/downtempo branch from the Cologne surroundings. The releasing label identifies Nadin Klein’s vocal/lyric role and Adnan Abbas’s synthesizers. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Verneblung — Ready To Drown synth-and-voice core"
+      ]
+    },
+    {
+      "id": "colombian_electronic",
+      "name": "Colombian electronic",
+      "family": "electronic",
+      "lineage": "Colombian electronic is represented by Amaru Tribe — Golden Roots electronic-and-vocal core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance.latinElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Colombian electronic is represented by Amaru Tribe’s Melbourne-based Colombian-Australian global-bass/folktronica branch. Golden Roots explicitly credits Oscar Jiménez with synthesizers and programming, alongside four named core vocalists. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Amaru Tribe — Golden Roots electronic-and-vocal core"
+      ]
+    },
+    {
+      "id": "croatian_electronic",
+      "name": "Croatian electronic",
+      "family": "electronic",
+      "lineage": "Croatian electronic is represented by Bamwise — Soundproof synth rhythm-section core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "electric_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Croatian electronic is represented by Zagreb-based Bamwise’s explicitly identified electronic-dub practice. The artist’s release notes name Andrija Santro on synthesizer and vocals, Igor Ivanković on bass and Goran Goldin on drums. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Bamwise — Soundproof synth rhythm-section core"
+      ]
+    },
+    {
+      "id": "cuban_electronic",
+      "name": "Cuban electronic",
+      "family": "electronic",
+      "lineage": "Cuban electronic is represented by EDKUB — Color de Rosas programmed-vocal core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance.latinElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "electric_bass",
+        "voice"
+      ],
+      "description": "Cuban electronic is represented by EDKUB’s explicitly described Cuban-electro collaboration. Color de Rosas identifies three singers and Fred Sumi’s bass/electronic programming, with the Cuban vocal sessions in Havana. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "EDKUB — Color de Rosas programmed-vocal core"
+      ]
+    },
+    {
+      "id": "danish_electro",
+      "name": "Danish electro",
+      "family": "electronic",
+      "lineage": "Danish electro is represented by State of Mind — Miserabilism electronic core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Danish electro is represented by Copenhagen-based State of Mind’s self-described electro-noisepop branch. Miserabilism credits Kim Bülow Bonfils with vocals, synthesizers and programming. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "State of Mind — Miserabilism electronic core"
+      ]
+    },
+    {
+      "id": "danish_electronic",
+      "name": "Danish electronic",
+      "family": "electronic",
+      "lineage": "Danish electronic is represented by LORNÆ with Avoid Dave — Paper Thin electronic core. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Danish electronic is represented by Copenhagen-based LORNÆ’s dance/electronica branch. Paper Thin specifically credits Avoid Dave with the singing, synthesizers and programming within LORNÆ and Youngr’s composition. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "LORNÆ with Avoid Dave — Paper Thin electronic core"
+      ]
+    },
+    {
+      "id": "dark_disco",
+      "name": "Dark disco",
+      "family": "electronic",
+      "lineage": "Dark disco is represented by Daniel Monaco with Zoë Xenia — Change vocal-electronic branch. This documented branch is realized as an authored present-day arrangement.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "sampler_drum_machine",
+        "voice"
+      ],
+      "description": "Dark disco is represented by Daniel Monaco’s self-tagged dark-disco/proto-house crossover in Amsterdam. His artist page identifies synths and drum machines as project ingredients and names Zoë Xenia’s vocals on Change. Exact instrument implementations, production chain, room, technique pins, tuning and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Daniel Monaco with Zoë Xenia — Change vocal-electronic branch"
+      ]
+    },
+    {
+      "id": "icelandic_electronic",
+      "name": "Icelandic electronic",
+      "family": "electronic",
+      "lineage": "Icelandic electronic is represented by Kiasmos — selected 2014 piano, synthesis and programmed-rhythm core. One documented branch receives an authored present-day studio realization.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "grand_piano",
+        "analog_poly_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "Kiasmos links Ólafur Arnalds’s piano writing and Janus Rasmussen’s electronic work. The debut’s label identifies grand piano, synthesizers and drum machines; the artists describe DAW-programmed beats. This model selects those three roles. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Kiasmos — selected 2014 piano, synthesis and programmed-rhythm core"
+      ]
+    },
+    {
+      "id": "indian_electronic",
+      "name": "Indian electronic",
+      "family": "electronic",
+      "lineage": "Indian electronic is represented by Charanjit Singh — Synthesizing: Ten Ragas to a Disco Beat. One documented branch receives an authored present-day studio realization.",
+      "parent": "electronicDance",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "monosynth_acid_bass",
+        "drum_machine_808"
+      ],
+      "description": "Charanjit Singh’s 1982 project puts raga-based melodic work into an electronic disco setting. The estate-cooperating reissue label identifies a Jupiter-8, TB-303 and TR-808, recorded live using only these three devices. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Charanjit Singh — Synthesizing: Ten Ragas to a Disco Beat"
+      ]
+    },
+    {
+      "id": "irish_experimental_electronic",
+      "name": "Irish experimental electronic",
+      "family": "electronic",
+      "lineage": "Irish experimental electronic is represented by Donnacha Costello — Love From Dust. One documented branch receives an authored present-day studio realization.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        0,
+        0,
+        -1,
+        -1,
+        -1,
+        1,
+        2,
+        -1,
+        -2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "modular_synth"
+      ],
+      "description": "Love From Dust is a live modular-synthesis recording. Costello’s own credits specify one Buchla Music Easel and two effects pedals, with neither looping nor overdubs. The model follows the evolving synthesizer role. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Donnacha Costello — Love From Dust"
+      ]
+    },
+    {
+      "id": "italian_electronica",
+      "name": "Italian electronica",
+      "family": "electronic",
+      "lineage": "Italian electronica is represented by Clap! Clap! — selected Desert Stone field-recording and programmed core. One documented branch receives an authored present-day studio realization.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "description": "Clap! Clap!’s Liquid Portraits develops field-recording and sound-design composition. The selected Desert Stone core represents Crisci’s electronic assemblage, with no invented live instrumentalist. His label specifies Martha Da’ro’s vocal contribution on Moving On, which is excluded here. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Clap! Clap! — selected Desert Stone field-recording and programmed core"
+      ]
+    },
+    {
+      "id": "japanese_edm",
+      "name": "Japanese edm",
+      "family": "electronic",
+      "lineage": "Japanese edm is represented by Qrion — synth and chopped-sample production core. One documented branch receives an authored present-day studio realization.",
+      "parent": "electronicDance.house",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "wavetable_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "Qrion’s firsthand production account names Massive and Serum alongside sample editing in Cubase. Her characteristic chopped voices are sourced and transformed as samples. The model implements synthesis and sample manipulation without adding an unsupported live singer. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Qrion — synth and chopped-sample production core"
+      ]
+    },
+    {
+      "id": "japanese_electronic",
+      "name": "Japanese electronic",
+      "family": "electronic",
+      "lineage": "Japanese electronic is represented by Anchorsong — solo MPC and keyboard performance core. One documented branch receives an authored present-day studio realization.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine",
+        "analog_poly_synth"
+      ],
+      "description": "Anchorsong, Masaaki Yoshida, creates electronic music live with an MPC2500 and keyboard according to his label. The model selects this solo instrumental production setup, with an authored analog keyboard timbre. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Anchorsong — solo MPC and keyboard performance core"
+      ]
+    },
+    {
+      "id": "japanese_idm",
+      "name": "Japanese idm",
+      "family": "electronic",
+      "lineage": "Japanese idm is represented by Yosi Horikawa — Wandering field-sampling core. One documented branch receives an authored present-day studio realization.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "description": "Yosi Horikawa builds rhythm and melody from captured everyday sounds. His Academy interview documents the birdsong field-recording process behind Wandering; his artist release describes sample-based sound design. This core models that sampled instrumental practice. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Yosi Horikawa — Wandering field-sampling core"
+      ]
+    },
+    {
+      "id": "korean_electronic",
+      "name": "Korean electronic",
+      "family": "electronic",
+      "lineage": "Korean electronic is represented by Lionclad — Seoul Community Radio MPC performance core. One documented branch receives an authored present-day studio realization.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "sampler_drum_machine"
+      ],
+      "description": "Lionclad’s Seoul Community Radio performance explicitly uses an MPC2500. The broadcaster’s production session and her own account establish a live beatmaking practice rooted in the Seoul scene. This model realizes the sampler-driven instrumental core. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Lionclad — Seoul Community Radio MPC performance core"
+      ]
+    },
+    {
+      "id": "dusseldorf_electronic",
+      "name": "Dusseldorf electronic",
+      "family": "electronic",
+      "lineage": "Dusseldorf electronic is represented here by Grandbrothers — Open-era piano and live-sampling core. This is one documented branch with an authored present-day studio realization.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "grand_piano",
+        "sampler_classic"
+      ],
+      "description": "The Düsseldorf electronic discovery cluster is represented by Grandbrothers’ Open-era core. City Slang explicitly identifies the piano as the source of every sound. The presenting institution credits Erol Sarp at piano and Lukas Vogel on electronics and describes live sampling and computer-controlled interaction with the piano body and strings. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Grandbrothers — Open-era piano and live-sampling core"
+      ]
+    },
+    {
+      "id": "finnish_electro",
+      "name": "Finnish electro",
+      "family": "electronic",
+      "lineage": "Finnish electro is represented here by Aavikko — WFMU instrumental performance (2002). This is one documented branch with an authored present-day studio realization.",
+      "parent": "experimentalElec.retroAesthetic",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        1,
+        -2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "drum_kit"
+      ],
+      "description": "Finnish electro is represented by Aavikko’s 2002 WFMU performance. The recording broadcaster explicitly calls the set all-instrumental and names Tomi Kosonen and Paul Staufenbiel on twin Casio keyboards with Tomi Leppänen’s rhythmic part. Ektro’s artist account identifies the band’s Siilinjärvi origin and Leppänen as drummer. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Aavikko — WFMU instrumental performance (2002)"
+      ]
+    },
+    {
+      "id": "finnish_electronic",
+      "name": "Finnish electronic",
+      "family": "electronic",
+      "lineage": "Finnish electronic is represented here by Fanu / FatGyver — Adventures In Imperfection instrumental sampling branch. This is one documented branch with an authored present-day studio realization.",
+      "parent": "experimentalElec.lofi",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_classic"
+      ],
+      "description": "Finnish electronic is represented by Janne Hatula’s FatGyver alias, explicitly linked by the artist’s label to Fanu. The Adventures In Imperfection release documents instrumental sample-based hip-hop built from records, breaks and film material; Helsinki is supported by the release and Ableton’s trainer profile. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Fanu / FatGyver — Adventures In Imperfection instrumental sampling branch"
+      ]
+    },
+    {
+      "id": "deep_neo_synthpop",
+      "name": "Deep neo-synthpop",
+      "family": "pop",
+      "lineage": "Deep neo-synthpop is represented here by Sea of Sin — Unbroken documented core. This is one documented branch with an authored present-day studio realization.",
+      "parent": "functionalSong.popRock.synthpop",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "analog_poly_synth",
+        "electric_guitar_humbucker",
+        "voice"
+      ],
+      "description": "Deep neo-synthpop is represented by Sea of Sin’s Unbroken core. The band explicitly credits Klaus Schill with synthesizers, guitars and production and Frank Zwicker with vocals. The release identifies Hamburg and separately credits vocal/guitar recording at Studio B in Stuttgart. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Sea of Sin — Unbroken documented core"
+      ]
+    },
+    {
+      "id": "german_dance",
+      "name": "German dance",
+      "family": "electronic",
+      "lineage": "German dance is represented by MEUTE — selected Elbphilharmonie Sessions brass and mallet rhythm core. One documented branch receives an authored present-day studio realization.",
+      "parent": "electronicDance.continental",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        1,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "trumpet",
+        "sousaphone",
+        "bass_drum",
+        "marimba_orchestral"
+      ],
+      "description": "MEUTE translates techno and house repertoire into acoustic brass and percussion. The presenting Elbphilharmonie names Thomas Burhorn and Hans-Christian Stephan on trumpet, Philipp Westermann on sousaphone, Marco Möller on bass drum and André Wittmann on marimba. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "MEUTE — selected Elbphilharmonie Sessions brass and mallet rhythm core"
+      ]
+    },
+    {
+      "id": "irish_dance",
+      "name": "Irish dance",
+      "family": "vernacular",
+      "lineage": "Irish dance is represented by Lúnasa — contemporary instrumental dance-tune core. One documented branch receives an authored present-day studio realization.",
+      "parent": "improvOnFrame.celticTraditional",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        -1,
+        0,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "fiddle",
+        "irish_wooden_flute",
+        "uilleann_pipes",
+        "acoustic_guitar_dread",
+        "upright_bass"
+      ],
+      "description": "Lúnasa’s own lineup identifies fiddle, flute, uilleann pipes, acoustic guitar and bass roles. Its album page describes the band’s instrumental reels and jigs. This model follows that acoustic tune-and-rhythm branch rather than electronic dance music. The numeric axes, exact gear, tuning and recording settings are authored choices.",
+      "exemplars": [
+        "Lúnasa — contemporary instrumental dance-tune core"
+      ]
+    },
+    {
+      "id": "finnish_edm",
+      "name": "Finnish edm",
+      "family": "electronic",
+      "lineage": "Finnish edm is represented here by Darude — Sandstorm documented instrumental roles. This is one documented branch with an authored present-day studio realization.",
+      "parent": "electronicDance.trance",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "digital_subtractive",
+        "sampler_classic",
+        "rompler_workstation",
+        "drum_machine_909"
+      ],
+      "description": "Finnish EDM is represented by Darude’s Sandstorm. His direct production account identifies digital-modeling synth arpeggios and strings, a sampled lead, JV-series bass and drum sounds, and TR-909 percussion. Finnish artist collective Luxonia explicitly includes Darude within Finnish EDM, and the artist identifies Turku as his home practice center. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Darude — Sandstorm documented instrumental roles"
+      ]
+    },
+    {
+      "id": "experimental_synth",
+      "name": "Experimental synth",
+      "family": "electronic",
+      "lineage": "Experimental synth is represented here by Suzanne Ciani — Galeria Bonino Buchla concert (1974). This is one documented branch with an authored present-day studio realization.",
+      "parent": "experimentalElec",
+      "axes": [
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        2,
+        2,
+        0,
+        -2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "modular_synth"
+      ],
+      "description": "Experimental synth is represented by Suzanne Ciani’s live Buchla concert at Galeria Bonino in New York in April 1974. The releasing archival label describes a live instrumental synthesizer exploration. Her concert presenter explicitly places her work in experimental synth music. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Suzanne Ciani — Galeria Bonino Buchla concert (1974)"
       ]
     }
   ]

@@ -5,7 +5,7 @@
   "lineage": "The 2009-2011 American experimental precursor stratum to vaporwave — hypnagogic-pop and plunderphonic cassette work by Daniel Lopatin (as Chuck Person), James Ferraro and Ford & Lopatin — using slowed, looped and echo-drenched fragments of 1980s soft rock, VHS library music and early digital synth demos, with no fixed tempo grid, degraded cassette speed drift, and structures built from a single repeated four-bar cell.",
   "recipe": "classic 2009-2011 protovapor, experimental Elec, retro aesthetic branch, lofi experimental electric, musique concrete experimental electric anime lo-fi lo-fi beats. thick, breath veiled tone, straight onset, interlocked note trading. field textural sampler, block chord tape replay keyboard, sub bass analog poly synth, sub bass digital subtractive, sustained pad string machine. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 487,
-  "score": 246.812,
+  "score": 246.662,
   "config": {
     "traditions": [
       "protovapor",
@@ -26,7 +26,7 @@
           "electronic_technique": 16.950000000000003,
           "sampler_archetypes": 5.590000000000001,
           "sampler_bit_depth": 2.67,
-          "sampler_workflow": 18.17,
+          "sampler_workflow": 18.035,
           "sampler_classic_context": 23.725
         }
       },
@@ -96,10 +96,10 @@
           "voice_quality": 6.435000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5749999999999997,
+          "voice_vibrato": 3.4699999999999998,
           "voice_articulation": 19.174999999999997,
           "voice_microtone": 18.784999999999993,
-          "voice_tradition": 20.18,
+          "voice_tradition": 20.27,
           "voice_mechanism_compound": 4.42,
           "voice_estill_quality": 4.2250000000000005,
           "voice_speech_song": 19.369999999999997,

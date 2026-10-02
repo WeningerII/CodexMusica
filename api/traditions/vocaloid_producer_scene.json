@@ -5,7 +5,7 @@
   "lineage": "Japanese bedroom-producer culture formed after the August 2007 release of Crypton's Hatsune Miku voicebank for Yamaha's Vocaloid 2 engine, codified on Niconico Douga by ryo (supercell), wowaka, Hachi, kz and Jin — songs entirely built in a DAW at 130-180 BPM around a machine-sung lead whose pitch, note-length and phoneme timing are hand-drawn, with fast syllabic wordy verses that exceed human breath capacity, four-on-floor or driving eighth-note rock backing, piano-and-synth arrangements, and a release cycle of free uploads answered by fan illustration and dance covers.",
   "recipe": "classic late-2000s vocaloid producer scene, functional Song, east Asian pop branch, pop rock synthpop, pop experimental experimental electric, eurodance electronic dance etherpop wonky pop. lead plus third fifth 3 part stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, singing lead analog poly synth, singing lead digital subtractive, field textural sampler, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 738,
-  "score": 282.915,
+  "score": 282.202,
   "config": {
     "traditions": [
       "vocaloid_producer_scene",
@@ -22,8 +22,8 @@
         },
         "scores": {
           "multitrack_stack_density": 2.535,
-          "multitrack_stack_era_aesthetic": 2.1125,
-          "multitrack_stack_processing": 1.775
+          "multitrack_stack_era_aesthetic": 2.1049999999999995,
+          "multitrack_stack_processing": 1.685
         }
       },
       {
@@ -35,7 +35,7 @@
           "poly_maker_lineage": "poly_yamaha_cs"
         },
         "scores": {
-          "electronic_technique": 21.935,
+          "electronic_technique": 21.785,
           "poly_archetypes": 5.98,
           "poly_voices": 0.21,
           "poly_maker_lineage": -0.8700000000000001
@@ -49,7 +49,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 21.935,
+          "electronic_technique": 21.785,
           "va_archetypes": 0.845,
           "digital_subtractive_context": 21.319999999999997
         }
@@ -64,10 +64,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 8.995000000000001,
+          "electronic_technique": 8.950000000000001,
           "sampler_archetypes": 0.78,
-          "sampler_bit_depth": 0.4799999999999999,
-          "sampler_workflow": 9.565,
+          "sampler_bit_depth": 0.43499999999999994,
+          "sampler_workflow": 9.475,
           "sampler_classic_context": 22.067499999999995
         }
       },
@@ -86,11 +86,11 @@
         "scores": {
           "amp_make": 6.565000000000001,
           "body_wood": 1.39,
-          "pickup_config": 1.195,
+          "pickup_config": 1.15,
           "string_type": 12.35,
           "scale_length_b": 0.195,
           "fretted_or_not": 0.15,
-          "bass_technique": 10.34,
+          "bass_technique": 10.295,
           "electric_bass_string_configuration": 0
         }
       },
@@ -111,7 +111,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_arpeggio_sustain_rich",
-          "grand_piano_size": "grand_5_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "japanese_1980s_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
@@ -122,7 +122,7 @@
         },
         "scores": {
           "keyboard_technique": 19.34,
-          "grand_piano_size": 0.24,
+          "grand_piano_size": 0.195,
           "grand_piano_brand": 0.54,
           "piano_hammer": 20.474999999999998,
           "piano_rim": 20.234999999999996,

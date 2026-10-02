@@ -3,9 +3,9 @@
   "name": "Slushwave",
   "family": "electronic",
   "lineage": "Vaporwave subgenre named around 2016-2018 and codified by 猫 シ Corp., t e l e p a t h テレパシー能力者, Hantasi and Vaperror, built by pitching sampled easy-listening or new-age loops down 30-60 percent, drowning them in cascaded reverb and delay, and stretching two- to four-bar cycles across ten- to thirty-minute beatless tracks with no discernible pulse.",
-  "recipe": "classic 2016-2018 slushwave, experimental Elec, ambient branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, modular granular sustained pad analog poly synth, sustained pad string machine, tape replay keyboard. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 358,
-  "score": 75.439,
+  "recipe": "classic 2016-2018 slushwave, experimental Elec, ambient branch, lofi experimental electric vaporwave chillwave. glitched textural sampler, glitched textural granular sustained pad analog poly synth, sustained pad string machine, tape replay keyboard. tape echo chamber. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 368,
+  "score": 75.405,
   "config": {
     "traditions": [
       "slushwave",
@@ -33,12 +33,12 @@
       {
         "id": "granular_synth",
         "slots": {
-          "electronic_technique": "electronic_modular_patch",
+          "electronic_technique": "electronic_glitch_textural",
           "granular_use": "granular_idm",
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 10.983749999999999,
+          "electronic_technique": 10.950000000000001,
           "granular_use": 0.39,
           "granular_synth_source": 6.5
         }

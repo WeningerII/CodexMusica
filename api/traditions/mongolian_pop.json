@@ -5,7 +5,7 @@
   "lineage": "Selected late-2010s Mongolian producer-led commercial singles associated with Uka and Ocean Grey, anchored by Do It (2018) and the contemporaneous Don't Stop release. This modern digital-pop branch is distinct from socialist-era zohioliin duu, urtyn duu and throat-singing repertoires; Mongolian language alone does not prescribe a vocal technique or instrumental ensemble.",
   "recipe": "classic 2017-2019 mongolian pop, functional Song, east Asian pop branch, pop rock synthpop kazakh pop. straight note core, equal tempered, modern pop training, single source phonation. analog synth, sampler drum machine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter stereo widener / width control.",
   "recipe_chars": 397,
-  "score": 100.875,
+  "score": 100.122,
   "config": {
     "traditions": [
       "mongolian_pop",
@@ -35,13 +35,13 @@
         },
         "scores": {
           "voice_register": 0,
-          "voice_quality": -0.175,
+          "voice_quality": -0.20500000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.1049999999999998,
           "voice_articulation": 0.26,
-          "voice_microtone": 34.64950000000001,
-          "voice_tradition": 39.3505,
+          "voice_microtone": 34.45000000000001,
+          "voice_tradition": 38.89,
           "voice_mechanism_compound": 0.585,
           "voice_estill_quality": 0.09,
           "voice_speech_song": 2.7299999999999995,
@@ -81,7 +81,7 @@
           "electronic_technique": 0.7749999999999999,
           "sample_bitdepth": 1.4949999999999999,
           "sample_swing": 6.344999999999999,
-          "sample_processing": 0.258
+          "sample_processing": 0.195
         }
       }
     ],

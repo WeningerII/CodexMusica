@@ -5,7 +5,7 @@
   "lineage": "Japanese teen-idol pop formalised by talent agencies and TV variety programming in Tokyo from the early 1970s — Momoe Yamaguchi and then Seiko Matsuda in the 1980s establishing the template, extended by Onyanko Club and later Morning Musume and AKB48 — bright 120-145 BPM major-key songs with Brill-Building-style key-change choruses, session-band backing with syncopated slap bass and gated snare, sweetened brass and synth-string beds, and a deliberately thin, high, unrehearsed-sounding solo or unison-group vocal recorded very close.",
   "recipe": "classic East Asian 1970-1973 japanese idol pop, functional Song, east Asian pop branch, pop rock synthpop yacht rock a cappella. thick, breath veiled tone, straight onset, interlocked note trading. lead plus dense cluster 5 part stack late 1980s reverb saturated bus stack chorus detuned thickener across stack multitrack vocal stack, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, singing lead analog poly synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, mid attack plastic glockenspiel. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series, dbx 160 VCA, SSL surgical EQ. 16-bit digital lexicon 224 / 480L TC electronic 2290 delay chorus.",
   "recipe_chars": 924,
-  "score": 619.612,
+  "score": 617.708,
   "config": {
     "traditions": [
       "japanese_teen_pop",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 49.77000000000001,
+          "voice_register": 49.53000000000001,
           "voice_quality": 14.364999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.095,
+          "voice_vibrato": 7.66,
           "voice_articulation": 22.1,
           "voice_microtone": 47.025000000000006,
           "voice_tradition": 38.08999999999999,
@@ -46,7 +46,7 @@
           "voice_estill_quality": 3.835000000000001,
           "voice_speech_song": 27.04,
           "voice_ensemble_config": 21.904999999999998,
-          "voice_ornament_system": 2.6300000000000003,
+          "voice_ornament_system": 2.5400000000000005,
           "voice_pitch_organization": 5.46,
           "voice_processing_chain": 12.62,
           "voice_multitrack_stack": 10.2375
@@ -62,7 +62,7 @@
         "scores": {
           "multitrack_stack_density": 1.8199999999999998,
           "multitrack_stack_era_aesthetic": 7.8325,
-          "multitrack_stack_processing": 1.305
+          "multitrack_stack_processing": 1.08
         }
       },
       {
@@ -82,9 +82,9 @@
           "body_wood": 1.8850000000000002,
           "pickup_config": 0.65,
           "string_type": 20.474999999999998,
-          "scale_length_b": 1.8850000000000002,
+          "scale_length_b": 1.8400000000000003,
           "fretted_or_not": 0.3,
-          "bass_technique": 17.134999999999998,
+          "bass_technique": 17.09,
           "electric_bass_string_configuration": 0
         }
       },
@@ -119,15 +119,15 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 28.684999999999995,
+          "electric_technique": 28.639999999999997,
           "amp_make": 8.059999999999999,
           "body_wood": 1.8850000000000002,
           "neck_wood": 1.8850000000000002,
           "fretboard": 1.8200000000000003,
-          "pickup_magnet": 1.345,
-          "string_material": 1.435,
+          "pickup_magnet": 1.3,
+          "string_material": 1.3,
           "string_gauge": 1.8850000000000002,
-          "bridge": 0.44999999999999996,
+          "bridge": 0.3,
           "scale_length": 1.8850000000000002,
           "finish": 1.09,
           "string_tuning": 10.854999999999997,
@@ -163,11 +163,11 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 28.774999999999995,
+          "keyboard_technique": 28.729999999999997,
           "grand_piano_size": 1.8850000000000002,
           "grand_piano_brand": 1.8850000000000002,
-          "piano_hammer": 32.345,
-          "piano_rim": 31.734999999999996,
+          "piano_hammer": 32.3,
+          "piano_rim": 31.419999999999995,
           "piano_soundboard": 29.869999999999997,
           "piano_pinblock": 1.5,
           "piano_plate": 0.45499999999999996,
@@ -184,7 +184,7 @@
         "scores": {
           "percussion_technique": -0.05,
           "glockenspiel_size": 1.69,
-          "glockenspiel_mallet": 1.8850000000000002
+          "glockenspiel_mallet": 1.8400000000000003
         }
       }
     ],

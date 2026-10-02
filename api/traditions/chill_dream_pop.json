@@ -5,7 +5,7 @@
   "lineage": "Chill dream pop is represented here by Vansire — Reflections and Reveries core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic chill dream pop, functional Song, pop rock branch. solo with instrumental accompaniment. pristine clean transistor clean roland jc120 amp solid state stereo chorus humbucker electric guitar, ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 402,
-  "score": 37.605,
+  "score": 37.33,
   "config": {
     "traditions": [
       "chill_dream_pop"
@@ -20,7 +20,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
@@ -31,17 +31,17 @@
         "scores": {
           "electric_technique": 0.19500000000000003,
           "amp_make": 4.1985,
-          "body_wood": 0.483,
-          "neck_wood": 0.2415,
+          "body_wood": 0.378,
+          "neck_wood": 0.1365,
           "fretboard": 0.0315,
           "pickup_magnet": 0.1365,
-          "pickup_winding": 0.1365,
+          "pickup_winding": 0.16899999999999998,
           "string_material": 0.0315,
-          "bridge": 1.62175,
+          "bridge": 1.69,
           "scale_length": 0.504,
-          "string_gauge": 1.6847500000000002,
+          "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.34275
+          "string_tuning": 0.38175
         }
       },
       {
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 2.275,
-          "body_wood": 0.378,
+          "body_wood": 0.168,
           "pickup_config": 0.3045,
           "string_type": 4.875,
           "scale_length_b": 0.168,

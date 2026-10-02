@@ -3,14 +3,14 @@
   "name": "Microhouse",
   "family": "electronic",
   "lineage": "Berlin-and-Cologne minimal-techno genre extending Chicago-house's rhythmic foundation through clicks-and-cuts micro-detail textural aesthetic and Kompakt-label-associated restrained-palette arrangement — codified through Akufen (My Way 2002), Matthew Herbert, Ricardo Villalobos (Alcachofa 2003, Fizheuer Zieheuer 2006), Luciano, Magda, with the genre serving as the early-2000s Cologne-Berlin minimal-aesthetic mainstream",
-  "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric ambient idm folktronica. sustained pad digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 339,
-  "score": 102.48,
+  "recipe": "classic 2000-2003 microhouse, electronic Dance, microhouse branch, idm glitch experimental electric dusseldorf electronic icelandic electronic. digital subtractive, TR-909, glitched textural sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 344,
+  "score": 79.015,
   "config": {
     "traditions": [
       "microhouse",
-      "ambient_idm",
-      "folktronica"
+      "dusseldorf_electronic",
+      "icelandic_electronic"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 3.62,
+          "electronic_technique": 0.5449999999999999,
           "va_archetypes": 0,
-          "digital_subtractive_context": 13.779999999999998
+          "digital_subtractive_context": 11.049999999999997
         }
       },
       {
@@ -43,17 +43,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "akai_mpc",
+          "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_microsampling_glitch",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 20.195,
-          "sampler_archetypes": 0.975,
+          "electronic_technique": 12.195,
+          "sampler_archetypes": 2.5,
           "sampler_bit_depth": 0.26,
-          "sampler_workflow": 20.6,
-          "sampler_classic_context": 29.379999999999992
+          "sampler_workflow": 12.600000000000001,
+          "sampler_classic_context": 26.845
         }
       }
     ],
