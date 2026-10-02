@@ -5,7 +5,7 @@
   "lineage": "Texas country includes a regional touring and recording network whose participants are not all Texas-born. Turnpike Troubadours explicitly describe their longstanding place in the Texas country scene, supplying this fiddle-and-guitar band branch.",
   "recipe": "classic modern texas country, functional Song, country branch. thick, breath veiled tone, wide pitch sway, neutral third half flat. dreadnought acoustic Fender tweed amp American 50s amp tweed breakup single coil electric guitar, fiddle, Fender tweed amp American 50s amp tweed breakup electric bass, drum kit. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 448,
-  "score": 79.431,
+  "score": 79.344,
   "config": {
     "traditions": [
       "texas_country"
@@ -64,7 +64,7 @@
           "string_tuning": 0,
           "top_wood": 0.105,
           "back_sides": 0.22049999999999997,
-          "string_acoustic": 0.23174999999999998
+          "string_acoustic": 0.2205
         }
       },
       {
@@ -79,7 +79,7 @@
         },
         "scores": {
           "bowed_technique": 1.95,
-          "fiddle_strings": 0.23174999999999998,
+          "fiddle_strings": 0.2205,
           "fiddle_bow": 0.1365,
           "fiddle_mute": 0.357,
           "fiddle_articulation": 0.1365,
@@ -110,12 +110,12 @@
           "neck_wood": 0,
           "fretboard": 0.0315,
           "pickup_magnet": 0.105,
-          "string_material": 0.4634999999999998,
+          "string_material": 0.44099999999999984,
           "string_gauge": 0.357,
           "bridge": 0.063,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0.205125,
+          "string_tuning": 0.1995,
           "single_coil_pickup_construction": 0
         }
       },
@@ -135,9 +135,9 @@
           "amp_make": 11.205,
           "body_wood": 0.0315,
           "pickup_config": 0.1995,
-          "string_type": 0.29474999999999996,
+          "string_type": 0.2835,
           "scale_length_b": 0.39,
-          "fretted_or_not": 0.42337499999999995,
+          "fretted_or_not": 0.3989999999999999,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }

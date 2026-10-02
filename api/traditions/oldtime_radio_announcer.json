@@ -5,7 +5,7 @@
   "lineage": "American network-radio announcer style of the 1930s-50s NBC and CBS era, delivered in projected, precisely articulated diction — often the cultivated Mid-Atlantic ('transatlantic') accent taught in period broadcast and elocution training — into RCA 44 and 77 ribbon microphones. Staff and program announcers such as Don Wilson (The Jack Benny Program), Harry von Zell, Ken Carpenter, and Milton Cross (the Metropolitan Opera broadcasts) defined the register across variety-show openings, drama introductions, station identifications, and live commercial reads; Orson Welles's 1938 Mercury Theatre on the Air 'War of the Worlds' broadcast famously exploited the authority this announcer voice carried. The sound is inseparable from the period transmission chain: ribbon mic, tube electronics, and bandwidth-limited live AM air or transcription disc.",
   "recipe": "classic mid-1930s old-time radio announcer, spoken Word, narration branch golden-age radio drama sports play-by-play commentary. vocal fry, breath veiled tone, straight note core, interlocked note trading. am radio booth. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
   "recipe_chars": 356,
-  "score": 177.271,
+  "score": 177.364,
   "config": {
     "traditions": [
       "oldtime_radio_announcer",
@@ -29,7 +29,7 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
@@ -38,7 +38,7 @@
           "voice_quality": 33.93,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7021875000000004,
+          "voice_vibrato": 2.7950000000000004,
           "voice_articulation": 20.345,
           "voice_microtone": 20.149999999999995,
           "voice_tradition": 4.04,

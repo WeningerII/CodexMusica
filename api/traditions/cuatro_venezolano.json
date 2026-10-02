@@ -3,14 +3,14 @@
   "name": "Cuatro venezolano (solo concert tradition)",
   "family": "global",
   "lineage": "Solo and small-ensemble concert repertoire for the four-string Venezuelan cuatro, lifted from accompaniment to art instrument by Fredy Reyna from the 1950s and extended by Cheo Hurtado and Jorge Glem, using re-entrant A-D-F#-B tuning, thumb-and-finger charrasqueo strum with muted rasgueo, and joropo, vals and merengue caraqueño forms at hemiola-heavy 3/4 and 5/8.",
-  "recipe": "classic mid-1950s cuatro venezolano, improv On Frame, string improv branch, tropical song functional song, Latin am troubadour ballad poetry cuatro puertorriqueño bolero cubano. cedar canonical Venezuelan gut pre modern cuatro venezolano, plastic synthetic maracas, treble-extended sustaining steel upright bass, cedar concert modern carbon fiber fan strum classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 525,
-  "score": 30.601,
+  "recipe": "classic mid-1950s cuatro venezolano, improv On Frame, string improv branch, tropical song functional song, Latin am troubadour ballad poetry cuatro puertorriqueño folklore surero. cedar canonical Venezuelan cuatro venezolano, plastic synthetic maracas, treble-extended sustaining steel upright bass, cedar concert modern nylon fingerpicked classical nylon-string guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 508,
+  "score": 30.886,
   "config": {
     "traditions": [
       "cuatro_venezolano",
       "cuatro_puertorriqueno",
-      "bolero_cubano"
+      "folklore_surero"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "cuatro_venezolano_tuning": 0,
           "cuatro_venezolano_technique": 1.8199999999999998,
           "cuatro_venezolano_body_wood": 1.885,
-          "cuatro_venezolano_strings": 1.17
+          "cuatro_venezolano_strings": 0.975
         }
       },
       {
@@ -36,7 +36,7 @@
         },
         "scores": {
           "maracas_construction": 1.04,
-          "maracas_filling": 1.235
+          "maracas_filling": 1.04
         }
       },
       {
@@ -57,16 +57,16 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "lattice_cl",
-          "string_classical": "carbon_cl",
-          "attack_technique_cl": "rasgueado_cl"
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 1.8999999999999997,
+          "acoustic_technique": 3.7,
           "string_tuning": 0,
-          "top_wood_classical": 7.02,
+          "top_wood_classical": 6.37,
           "bracing_classical": 3.50625,
-          "string_classical": 1.04,
-          "attack_technique_cl": 1.4
+          "string_classical": 1.625,
+          "attack_technique_cl": 1.69
         }
       }
     ],

@@ -1,0 +1,85 @@
+{
+  "id": "anglican_liturgy",
+  "name": "Anglican liturgy",
+  "family": "classical",
+  "lineage": "Anglican liturgy: Westminster Abbey Choir — Jonathan Dove Missa brevis, HyperionCDA68350. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic anglican liturgy, ritual Devotional, anglican choral branch. choir cathedral satb, equal temperament modern standard post 1850 pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 245,
+  "score": 9.723,
+  "config": {
+    "traditions": [
+      "anglican_liturgy"
+    ],
+    "instruments": [
+      {
+        "id": "choir_cathedral_satb",
+        "slots": {
+          "voicing": "satb_with_boys",
+          "repertoire": "romantic_choral"
+        },
+        "scores": {
+          "voicing": 3.9619999999999997,
+          "repertoire": 0.0225
+        }
+      },
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_romantic",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_henry_willis",
+          "pipe_organ_pipe_alloy": "pipe_organ_high_lead_25_75",
+          "pipe_organ_temperament": "pipe_organ_equal_temperament",
+          "pipe_organ_action": "pipe_organ_electric_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 2.5315,
+          "pipe_organ_class": 0,
+          "pipe_organ_context": 1.0635000000000001,
+          "pipe_organ_voicing_school": 0.168,
+          "pipe_organ_pipe_alloy": 0.045,
+          "pipe_organ_temperament": 1.69,
+          "pipe_organ_action": 0.24
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique",
+        "pipe_organ_class",
+        "pipe_organ_voicing_school"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "pipe_organ_class": "pipe_organ_romantic",
+      "pipe_organ_voicing_school": "pipe_organ_henry_willis"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

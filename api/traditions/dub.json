@@ -3,20 +3,18 @@
   "name": "Dub",
   "family": "global",
   "lineage": "Jamaican instrumental remix-and-effects genre invented by King Tubby (Osbourne Ruddock) in the late 1960s through the early 1970s in his Waterhouse-district Kingston home workshop — created by taking the rhythm tracks (riddims) of existing reggae recordings and live-re-mixing them through tape delay (Roland Space Echo), spring reverb, and dropout-mute manipulation; codified through King Tubby, Lee Scratch Perry (his Black Ark studio canon), Augustus Pablo (King Tubby Meets Rockers Uptown 1976), Scientist (Hopeton Brown, Tubbys protégé)",
-  "recipe": "classic Caribbean 1967-1969 dub, bass System, Jamaican branch, ambient experimental electric ambient house berlin school. la bella flats Detroit soul bass canon thumb muted electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. kingston king tubby dub workshop. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb roland RE-201 space echo plate reverb.",
-  "recipe_chars": 721,
-  "score": 79.295,
+  "recipe": "classic Caribbean 1967-1969 dub, bass System, Jamaican branch, ambient experimental electric. la bella flats Detroit soul bass canon thumb muted electric bass, vintage ambassador asymmetric rim clicks drum kit, Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. kingston king tubby dub workshop. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb roland RE-201 space echo plate reverb.",
+  "recipe_chars": 685,
+  "score": 63.5,
   "config": {
     "traditions": [
-      "dub",
-      "ambient_house",
-      "berlin_school"
+      "dub"
     ],
     "instruments": [
       {
         "id": "electric_bass",
         "slots": {
-          "amp_make": "amp_american_ampeg_svt",
+          "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
@@ -26,26 +24,26 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 2.655,
+          "amp_make": 2.0799999999999996,
           "body_wood": 0.8700000000000001,
           "pickup_config": 0,
-          "string_type": 4.1899999999999995,
+          "string_type": 3.69,
           "scale_length_b": 0.435,
           "fretted_or_not": 0,
-          "bass_technique": 13.8,
+          "bass_technique": 11.299999999999999,
           "electric_bass_string_configuration": 0
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "drum_technique": "brushes_and_sticks",
-          "drumhead": "kevlar_drumhead",
+          "drum_technique": "rim_clicks_dub",
+          "drumhead": "vintage_ambassador_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 14.624999999999995,
-          "drumhead": 1.1749999999999998,
+          "drum_technique": 11,
+          "drumhead": 1.17,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -63,22 +61,22 @@
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "dadgad",
+          "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 4.325,
+          "electric_technique": 3.95,
           "amp_make": 3.4450000000000016,
           "body_wood": 0.435,
           "neck_wood": 1.11,
-          "fretboard": 0.65,
-          "pickup_magnet": 0.65,
+          "fretboard": 0.39,
+          "pickup_magnet": 0.39,
           "string_material": 1.11,
-          "string_gauge": 0.65,
+          "string_gauge": 0.675,
           "bridge": 0.09,
           "scale_length": 0.8700000000000001,
           "finish": 0,
-          "string_tuning": 1.7850000000000004,
+          "string_tuning": 2.055,
           "single_coil_pickup_construction": 0
         }
       },
@@ -86,19 +84,19 @@
         "id": "tonewheel_organ",
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
-          "drawbar_setting": "rock_drawbars",
-          "rotary_speed": "slow_chorale",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "stopped_rotor",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_a100",
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "drawbar_setting": 0.375,
-          "rotary_speed": 0.7149999999999999,
-          "percussion_setting": 0.195,
-          "tonewheel_model": 8.47,
-          "leslie_cabinet_model": 1.345
+          "drawbar_setting": -0.035,
+          "rotary_speed": 0.045,
+          "percussion_setting": 0.21,
+          "tonewheel_model": 4.12,
+          "leslie_cabinet_model": 1.195
         }
       },
       {
@@ -111,9 +109,9 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "melodica_use": 7.250000000000001,
-          "melodica_pitch": 0.585,
-          "melodica_maker_school": 6.705000000000001
+          "melodica_use": 4.75,
+          "melodica_pitch": 0.39,
+          "melodica_maker_school": 3.575
         }
       }
     ],

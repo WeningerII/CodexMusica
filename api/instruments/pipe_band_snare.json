@@ -1,0 +1,118 @@
+{
+  "id": "pipe_band_snare",
+  "name": "Scottish pipe-band snare drum",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "pipe snare",
+  "parts": [
+    {
+      "id": "pipe_snare_head",
+      "name": "Head and tension",
+      "variants": [
+        {
+          "id": "pipe_snare_kevlar",
+          "default": true,
+          "name": "High-tension Kevlar marching head",
+          "descriptors": [
+            "high-tension",
+            "dry-crisp",
+            "snare-buzz"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "processional"
+          ],
+          "canonical_tags": [
+            "pipe_band_snare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_snare_play",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "pipe_snare_rudimental_ensemble",
+          "default": true,
+          "name": "Rudimental ensemble strokes",
+          "descriptors": [
+            "rudimental",
+            "tight-unison",
+            "pipe-band"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "pipe_band_snare"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pipe_snare_head",
+      "name": "Head and tension",
+      "variants": [
+        {
+          "id": "pipe_snare_kevlar",
+          "default": true,
+          "name": "High-tension Kevlar marching head",
+          "descriptors": [
+            "high-tension",
+            "dry-crisp",
+            "snare-buzz"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "processional"
+          ],
+          "canonical_tags": [
+            "pipe_band_snare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pipe_snare_play",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "pipe_snare_rudimental_ensemble",
+          "default": true,
+          "name": "Rudimental ensemble strokes",
+          "descriptors": [
+            "rudimental",
+            "tight-unison",
+            "pipe-band"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "pipe_band_snare"
+          ]
+        }
+      ]
+    }
+  ]
+}

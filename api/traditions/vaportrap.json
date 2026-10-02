@@ -5,7 +5,7 @@
   "lineage": "Internet-born hybrid formed around 2013-2016 on Bandcamp and SoundCloud, merging vaporwave's pitched-down 1980s corporate and R&B samples with Atlanta trap drum programming — 60-75 BPM half-time feel over 808 kicks with long pitch-glide sub tails, rolling triplet hi-hats, chopped and screwed vocal fragments drowned in hall reverb, and lush pad washes lifted from smooth-jazz and mall-music sources.",
   "recipe": "classic 2013-2016 vaportrap, experimental Elec, retro aesthetic branch, us hip hop southern, lofi experimental electric dirty south rap phonk. thick, rap, straight onset, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, sub bass digital subtractive, sub bass analog poly synth, sampled chopped turntable. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 475,
-  "score": 285.189,
+  "score": 283.723,
   "config": {
     "traditions": [
       "vaportrap",
@@ -21,7 +21,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 10.313571428571429,
+          "tr808_voice": 9.735,
           "drum_machine_808_context": 5.525,
           "tr808_production_origin": 1.105
         }
@@ -36,7 +36,7 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 6.805,
+          "electronic_technique": 7,
           "sampler_archetypes": 8.254999999999999,
           "sampler_bit_depth": 0.8449999999999999,
           "sampler_workflow": 7.049999999999999,
@@ -51,7 +51,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 15.208571428571428,
+          "electronic_technique": 14.629999999999999,
           "va_archetypes": 0.15,
           "digital_subtractive_context": 21.775000000000006
         }
@@ -77,22 +77,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 4.725000000000001,
+          "voice_register": 4.920000000000002,
           "voice_quality": 14.884999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.6399999999999997,
           "voice_articulation": 21.125,
           "voice_microtone": 23.919999999999998,
-          "voice_tradition": 7.807499999999999,
-          "voice_mechanism_compound": 5.843928571428572,
+          "voice_tradition": 7.897499999999999,
+          "voice_mechanism_compound": 5.635,
           "voice_estill_quality": 4.29,
           "voice_speech_song": 22.815,
           "voice_ensemble_config": 20.41,
           "voice_ornament_system": 4.810000000000001,
-          "voice_pitch_organization": 5.093928571428571,
+          "voice_pitch_organization": 4.885,
           "voice_processing_chain": 8.194999999999999,
-          "voice_multitrack_stack": 5.318214285714286
+          "voice_multitrack_stack": 5.330000000000001
         }
       },
       {
@@ -104,7 +104,7 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 15.208571428571428,
+          "electronic_technique": 14.629999999999999,
           "poly_archetypes": 1.195,
           "poly_voices": 1,
           "poly_maker_lineage": -1.435
@@ -117,7 +117,7 @@
           "turntable_technique": "turntable_scratch"
         },
         "scores": {
-          "electronic_technique": 6.805,
+          "electronic_technique": 7,
           "turntable_technique": 4.799999999999999
         }
       }

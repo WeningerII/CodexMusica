@@ -3,13 +3,13 @@
   "name": "Ambient post-rock",
   "family": "rock_punk",
   "lineage": "2000s onward meeting of post-rock ensemble dynamics and ambient sustain, represented by Nashville duo Hammock. Their guitar-rooted work moves between atmospheric passages and fuller rhythmic arrivals; Everything and Nothing documents a guitar-based return, beats, vocals, and cello. This instrumental guitar-bass-drum-cello branch and modern multitrack chain are authored models rather than a session-equipment inventory.",
-  "recipe": "classic mid-2000s ambient post-rock, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal illbient. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp mahogany maple electric bass, sticks backbeat drum kit, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, class-A discrete pre, British class-A combo, parallel compression, parametric EQ. 24-bit digital digital delay hall reverb octave-up reverb.",
-  "recipe_chars": 634,
-  "score": 61.105,
+  "recipe": "classic mid-2000s ambient post-rock, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal ambeat. marshall plexi amp British rock amp alnico humbucker electric guitar, ampeg svt amp rock bass amp electric bass, sticks backbeat drum kit, plain gut sheep gut unsplit engelmann spruce hard rock maple cello. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, class-A discrete pre, British class-A combo, parallel compression, parametric EQ. 24-bit digital digital delay hall reverb octave-up reverb.",
+  "recipe_chars": 588,
+  "score": 57.442,
   "config": {
     "traditions": [
       "ambient_post_rock",
-      "illbient"
+      "ambeat"
     ],
     "instruments": [
       {
@@ -19,11 +19,11 @@
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
-          "fretboard": "rosewood_fb_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "stoptail",
+          "bridge": "string_thru",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
@@ -32,15 +32,15 @@
         "scores": {
           "electric_technique": 0.26,
           "amp_make": 4.705,
-          "body_wood": 1.04,
-          "neck_wood": 1.04,
-          "fretboard": 0.975,
-          "pickup_magnet": 1.255,
-          "pickup_winding": 1.255,
+          "body_wood": 0.435,
+          "neck_wood": 0.435,
+          "fretboard": 0.39,
+          "pickup_magnet": 1.4049999999999998,
+          "pickup_winding": 1.4049999999999998,
           "string_material": 0,
-          "bridge": 1.04,
-          "scale_length": 1.4949999999999999,
-          "string_gauge": 1.69,
+          "bridge": 0.59,
+          "scale_length": 1.6899999999999997,
+          "string_gauge": 0.675,
           "finish": 0,
           "string_tuning": 0
         }
@@ -58,8 +58,8 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.904999999999999,
-          "body_wood": 1.04,
+          "amp_make": 6.055,
+          "body_wood": 0.435,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 1.4949999999999999,
@@ -77,7 +77,7 @@
         },
         "scores": {
           "drum_technique": 11,
-          "drumhead": 0.195,
+          "drumhead": 0.045,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -85,7 +85,7 @@
         "id": "cello",
         "slots": {
           "bowed_technique": "bowed_sul_tasto",
-          "cello_strings": "venice_catlin_cello",
+          "cello_strings": "plain_sheep_gut_cello",
           "cello_top_wood": "engelmann_spruce_cello",
           "cello_back_wood": "hard_rock_maple_cello_back",
           "cello_varnish": "modern_synthetic_varnish_cello",
@@ -96,14 +96,14 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "cello_strings": 2.5949999999999998,
-          "cello_top_wood": 2.5,
-          "cello_back_wood": 7.109999999999999,
-          "cello_varnish": 3.25,
-          "cello_setup_period": 5.095,
+          "cello_strings": 1.595,
+          "cello_top_wood": 2.875,
+          "cello_back_wood": 7.4849999999999985,
+          "cello_varnish": 3.932499999999999,
+          "cello_setup_period": 4.619999999999999,
           "cello_bow_grip": 0,
-          "cello_rosin": 5.05,
-          "cello_bow_stick": 2.7
+          "cello_rosin": 5.425,
+          "cello_bow_stick": 3.0749999999999997
         }
       }
     ],

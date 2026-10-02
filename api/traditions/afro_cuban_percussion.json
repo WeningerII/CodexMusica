@@ -1,0 +1,94 @@
+{
+  "id": "afro_cuban_percussion",
+  "name": "Afro-Cuban percussion",
+  "family": "vernacular",
+  "lineage": "Victor Rendón — The Art Of Playing Timbales (2022), conga/bongo examples. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic early-2020s afro-cuban percussion, groove Percussion, Caribbean branch. mule hide canonical Cuban premium oak staved canonical Cuban hands layered congas, mule hide canonical Cuban son premium oak staved canonical Cuban hands layered bongos. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 348,
+  "score": 11.739,
+  "config": {
+    "traditions": [
+      "afro_cuban_percussion"
+    ],
+    "instruments": [
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 3.2,
+          "conga_set": 0,
+          "conga_skin": 1.363,
+          "conga_shell_wood": 1.3315000000000001
+        }
+      },
+      {
+        "id": "bongos",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "bongos_skin": "bongos_mule_hide",
+          "bongos_context": "bongos_son",
+          "bongos_shell_wood": "bongos_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 3.2,
+          "bongos_skin": 1.313,
+          "bongos_context": 0,
+          "bongos_shell_wood": 1.3315000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "congas": [
+        "percussion_technique",
+        "conga_set",
+        "conga_skin",
+        "conga_shell_wood"
+      ],
+      "bongos": [
+        "percussion_technique",
+        "bongos_skin",
+        "bongos_context",
+        "bongos_shell_wood"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "percussion_technique": "percussion_hands_layered",
+      "conga_set": "conga_proper",
+      "conga_skin": "conga_mule_hide",
+      "conga_shell_wood": "conga_oak_staved",
+      "bongos_skin": "bongos_mule_hide",
+      "bongos_context": "bongos_son",
+      "bongos_shell_wood": "bongos_oak_staved"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

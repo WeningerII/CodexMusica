@@ -1,0 +1,110 @@
+{
+  "id": "bansuri",
+  "name": "Bansuri",
+  "family": "global",
+  "lineage": "Bansuri: David Philipson — Meditations for Bansuri (1997 concert;2015release). Distinct instrument-led recital branch with exactly the named flute, tabla and tanpura roles. Existing hindustani record is a broad multi-instrument umbrella; no existing hindustani_bansuri ID or narrow matching entry was found. Twelve-tone baseline is authored rather than a transcription of raga intonation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic late-1990s bansuri, improv On Frame, indian classical improv branch. low overtone rich kerala bamboo alternative south indian foundational concert bansuri continuous-airflow legato bansuri, indian rosewood rosewood copper tabla, drone like modal tanpura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 361,
+  "score": 35.462,
+  "config": {
+    "traditions": [
+      "bansuri"
+    ],
+    "instruments": [
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "classical_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_pannalal_ghosh"
+        },
+        "scores": {
+          "wind_articulation": 4.4815000000000005,
+          "bansuri_length": 1.69,
+          "bansuri_ornament": 4.225,
+          "bansuri_body_material": 2.34,
+          "bansuri_lineage": 5.0455
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 4.615,
+          "tabla_bayan": 2.34,
+          "tabla_syahi": 0.39
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "tanpura_size": "tamburi_small",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "five_string_chitra",
+          "tanpura_string_material": "tanpura_brass_only",
+          "tanpura_body_wood": "tanpura_wooden_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.7775,
+          "tanpura_size": 0,
+          "tanpura_jawari": 4.5,
+          "tanpura_strings": 1.69,
+          "tanpura_string_material": 0.16799999999999998,
+          "tanpura_body_wood": 0.1995
+        }
+      }
+    ],
+    "pinned": {
+      "bansuri": [
+        "wind_articulation",
+        "bansuri_length",
+        "bansuri_ornament",
+        "bansuri_lineage"
+      ],
+      "tanpura": [
+        "plucked_traditional_technique",
+        "tanpura_size"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_drone_modal",
+      "tanpura_size": "tamburi_small",
+      "wind_articulation": "wind_continuous_legato",
+      "bansuri_length": "classical_bansuri",
+      "bansuri_ornament": "meend_bansuri",
+      "bansuri_lineage": "bansuri_pannalal_ghosh"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

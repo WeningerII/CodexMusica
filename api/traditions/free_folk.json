@@ -3,14 +3,14 @@
   "name": "Free Folk",
   "family": "vernacular",
   "lineage": "New England and the American Northeast circa 1998-2008 around Sunburned Hand of the Man, No-Neck Blues Band and the Brattleboro/Ecstatic Peace and Time-Lag circles — collectively improvised, largely unmetered sessions on acoustic guitar, hand percussion, harmonium, flute and untrained group voice, captured in one take on cassette or portable recorder in houses and lofts and issued in tiny CD-R editions.",
-  "recipe": "classic North American mid-2000s free folk, ballad Poetry, freak folk branch, string drone modal, experimental distorted rock drone folk ambient post-rock. thick, breath veiled tone, straight onset, interlocked note trading. coated nanoweb fingerpicked dreadnought acoustic guitar, open slap hand drum congas, melodic straight harmonium indian, melodic tin whistle, pre muffled edge muffled brushes-and-sticks drum kit, hammer low mid emphasis folk melodica. takoma home recording fahey. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 586,
-  "score": 272.905,
+  "recipe": "classic North American mid-2000s free folk, ballad Poetry, freak folk branch, string drone modal, experimental distorted rock drone folk musique touareg. thick, breath veiled tone, wide pitch sway, interlocked note trading. fingerpicked dreadnought acoustic guitar, open slap hand drum congas, melodic straight harmonium indian, melodic tin whistle, pre muffled edge muffled brushes-and-sticks drum kit, hammer low mid emphasis folk melodica. takoma home recording fahey. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 570,
+  "score": 265.112,
   "config": {
     "traditions": [
       "free_folk",
       "drone_folk",
-      "ambient_post_rock"
+      "musique_touareg"
     ],
     "instruments": [
       {
@@ -24,10 +24,10 @@
         },
         "scores": {
           "acoustic_technique": 13.964999999999996,
-          "string_tuning": 1.885,
+          "string_tuning": 1.2999999999999998,
           "top_wood": 0.21,
           "back_sides": 0.21,
-          "string_acoustic": 1.04
+          "string_acoustic": 0.845
         }
       },
       {
@@ -39,7 +39,7 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 4.415000000000001,
+          "percussion_technique": 4.5649999999999995,
           "conga_set": 0.7049999999999998,
           "conga_skin": 0.7949999999999999,
           "conga_shell_wood": 0.7949999999999999
@@ -55,9 +55,9 @@
         },
         "scores": {
           "free_reed_technique": 11.809999999999997,
-          "harmonium_action": 3.1200000000000006,
+          "harmonium_action": 3.9650000000000003,
           "harmonium_voicing": 0.96,
-          "harmonium_use": 4.875
+          "harmonium_use": 5.3950000000000005
         }
       },
       {
@@ -67,7 +67,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -81,37 +81,37 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 20.14999999999999,
-          "voice_quality": 8.84,
+          "voice_register": 15.899999999999997,
+          "voice_quality": 13.129999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.325,
-          "voice_articulation": 23.334999999999994,
-          "voice_microtone": 26.389999999999997,
-          "voice_tradition": 22.1,
-          "voice_mechanism_compound": 5.98,
-          "voice_estill_quality": 4.745,
-          "voice_speech_song": 26.324999999999996,
-          "voice_ensemble_config": 23.72499999999999,
-          "voice_ornament_system": 2.9250000000000016,
-          "voice_pitch_organization": 3.380000000000001,
-          "voice_processing_chain": 4.160000000000001,
-          "voice_multitrack_stack": 4.385000000000001
+          "voice_vibrato": 2.45,
+          "voice_articulation": 21.254999999999995,
+          "voice_microtone": 25.122499999999995,
+          "voice_tradition": 20.669999999999995,
+          "voice_mechanism_compound": 7.085,
+          "voice_estill_quality": 4.8100000000000005,
+          "voice_speech_song": 24.894999999999996,
+          "voice_ensemble_config": 22.099999999999994,
+          "voice_ornament_system": 3.3800000000000017,
+          "voice_pitch_organization": 3.9000000000000004,
+          "voice_processing_chain": 5.200000000000001,
+          "voice_multitrack_stack": 3.1200000000000006
         }
       },
       {
         "id": "tin_whistle",
         "slots": {
           "wind_articulation": "wind_folk_melodic",
-          "whistle_key": "c_whistle",
+          "whistle_key": "low_d_whistle",
           "whistle_ornament": "no_ornament",
-          "whistle_body_material": "whistle_aluminum_anodized"
+          "whistle_body_material": "whistle_wood_premium"
         },
         "scores": {
           "wind_articulation": 11.769999999999998,
-          "whistle_key": 0.5,
+          "whistle_key": 0.195,
           "whistle_ornament": 4.6499999999999995,
-          "whistle_body_material": 0.65
+          "whistle_body_material": 0.585
         }
       },
       {
@@ -122,8 +122,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 21.904999999999998,
-          "drumhead": 3.18,
+          "drum_technique": 20.28,
+          "drumhead": 2.5300000000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -138,7 +138,7 @@
         "scores": {
           "keyboard_technique": -0.07,
           "melodica_use": 4.844999999999999,
-          "melodica_pitch": 0.65,
+          "melodica_pitch": 0.39,
           "melodica_maker_school": 0.3
         }
       }

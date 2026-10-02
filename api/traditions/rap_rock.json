@@ -3,9 +3,9 @@
   "name": "Rap rock",
   "family": "hip_hop",
   "lineage": "Rap rock joins rapped delivery with rock-derived guitar and performance energy. The selected Beastie Boys branch grows from lower Manhattan punk into rap, guitar collaborations and layered sampling.",
-  "recipe": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
-  "recipe_chars": 373,
-  "score": 39.138,
+  "recipe": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+  "recipe_chars": 390,
+  "score": 39.785,
   "config": {
     "traditions": [
       "rap_rock"
@@ -82,22 +82,22 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_10_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "eb_standard"
         },
         "scores": {
           "electric_technique": 2.45,
-          "amp_make": 6.8500000000000005,
+          "amp_make": 7.0075,
           "body_wood": 0.045,
           "neck_wood": 0.075,
           "fretboard": 0.075,
           "pickup_magnet": 0,
           "pickup_winding": 0.3,
           "string_material": 0.12,
-          "bridge": 0.0225,
+          "bridge": 0.159,
           "scale_length": 0.075,
-          "string_gauge": 0.0225,
+          "string_gauge": 0.159,
           "finish": 0,
-          "string_tuning": 4.5975
+          "string_tuning": 4.815
         }
       }
     ],

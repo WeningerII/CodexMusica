@@ -3,14 +3,14 @@
   "name": "Dream pop",
   "family": "global",
   "lineage": "1980s-onward atmospheric guitar pop genre codified through the 4AD label catalog (Cocteau Twins, Treasure 1984, Heaven or Las Vegas 1990 the dream pop album), the Mazzy Star California canon (She Hangs Brightly 1990, So Tonight That I Might See 1993 with Hope Sandoval female-vocal-foreground), Galaxie 500 (the New England slowcore-adjacent canon), Beach House (Baltimore modern dream pop, Teen Dream 2010, Bloom 2012)",
-  "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock alabama indie german indie rock. thick, breath veiled tone, breath pulsed, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
-  "recipe_chars": 835,
-  "score": 291.932,
+  "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock alabama indie albuquerque indie. thick, breath veiled tone, pure, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
+  "recipe_chars": 826,
+  "score": 284.907,
   "config": {
     "traditions": [
       "dream_pop",
       "alabama_indie",
-      "german_indie_rock"
+      "albuquerque_indie"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 26.829999999999995,
+          "voice_register": 25.954999999999995,
           "voice_quality": 5.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8449999999999999,
-          "voice_articulation": 8.319999999999999,
-          "voice_microtone": 27.299999999999997,
+          "voice_vibrato": 0.6749999999999998,
+          "voice_articulation": 8.254999999999999,
+          "voice_microtone": 27.724999999999994,
           "voice_tradition": 18.92,
           "voice_mechanism_compound": 3.0550000000000006,
-          "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 11.894999999999996,
-          "voice_ensemble_config": 8.84,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 12.479999999999995,
+          "voice_ensemble_config": 8.774999999999999,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.15,
-          "voice_processing_chain": 4.085,
+          "voice_pitch_organization": 2.3,
+          "voice_processing_chain": 3.495,
           "voice_multitrack_stack": 3.6399999999999997
         }
       },
@@ -77,11 +77,11 @@
           "fretboard": 0.3,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
-          "string_gauge": 1.4949999999999999,
+          "string_gauge": 1.8400000000000003,
           "bridge": 0.195,
           "scale_length": 1.6500000000000004,
           "finish": 0,
-          "string_tuning": 5.46,
+          "string_tuning": 5.005,
           "single_coil_pickup_construction": 0
         }
       },
@@ -93,18 +93,18 @@
           "pickup_config": "split_coil",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 6.240000000000001,
+          "amp_make": 5.330000000000001,
           "body_wood": 1.6500000000000004,
           "pickup_config": 0,
-          "string_type": 16.25,
+          "string_type": 15.1125,
           "scale_length_b": 0.825,
-          "fretted_or_not": 0.5,
-          "bass_technique": 10.45,
+          "fretted_or_not": 0.105,
+          "bass_technique": 9.575,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,7 +116,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.5,
+          "drum_technique": 9.625,
           "drumhead": 19.07,
           "drum_kit_kick_pedal": 0
         }
@@ -130,8 +130,8 @@
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 16.599999999999998,
-          "poly_archetypes": 5.46,
+          "electronic_technique": 16.099999999999998,
+          "poly_archetypes": 5.005,
           "poly_voices": 0,
           "poly_maker_lineage": 0.325
         }
@@ -146,9 +146,9 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 16.599999999999998,
+          "electronic_technique": 16.099999999999998,
           "fm_algorithm": 0.39,
-          "fm_modulator_ratio": 1.04,
+          "fm_modulator_ratio": 1.7349999999999999,
           "fm_polyphony": 0.195,
           "fm_model_lineage": 9.555
         }
@@ -163,7 +163,7 @@
         "scores": {
           "omnichord_model": 6.984999999999999,
           "omnichord_context": 6.3999999999999995,
-          "omnichord_sound_setting": 2.21
+          "omnichord_sound_setting": 1.365
         }
       }
     ],
