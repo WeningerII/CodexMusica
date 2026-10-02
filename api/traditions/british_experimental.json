@@ -5,7 +5,7 @@
   "lineage": "Michael Parsons — Piano Music 1977–1996. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic mid-1980s british experimental, art Music. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 2.531,
+  "score": 2.793,
   "config": {
     "traditions": [
       "british_experimental"
@@ -27,11 +27,11 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.345,
+          "grand_piano_brand": 0.354,
           "piano_hammer": 0.2,
           "piano_rim": 0.26,
-          "piano_soundboard": -0.1,
-          "piano_pinblock": 1.3365,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": 1.56,
           "piano_plate": -0.1,
           "piano_pitch_standard": 0.6579999999999999
         }

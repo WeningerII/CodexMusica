@@ -1,0 +1,3255 @@
+{
+  "baseline_commit": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
+  "status": "pass_with_explicitly_reviewed_original_solver_drift",
+  "reviewed_artifact": "Completed final API build session7027 exited0; parent explicitly confirmed stable tradition/instrument payloads.",
+  "frozen_sha256": "0e30b15d1925f7573d80b93565f1475be7e19d1bcda04c5aae55b4256c97e7c2",
+  "source_preservation": {
+    "old_traditions": 5038,
+    "unchanged_old_payloads": 5019,
+    "old_source_identity_changes": [],
+    "missing_old_traditions": [],
+    "old_instrument_payloads_identical": 1472,
+    "old_instrument_changes": [],
+    "actual_app_preservation": {
+      "old_traditions_unchanged": 5038,
+      "old_extras_unchanged": 5038,
+      "data/geo.json_old_unchanged": 5038,
+      "references/_tradition_signatures.json_old_unchanged": 3016,
+      "old_images_unchanged": 6460,
+      "old_actual_app_instruments_unchanged": 1472,
+      "old_actual_app_traditions_unchanged": 5038,
+      "new_traditions": 100,
+      "current_traditions": 5138,
+      "current_instruments": 1472,
+      "new_cards": 283,
+      "new_applicable_parts": 3034,
+      "new_pins": 2957
+    }
+  },
+  "old_generated_changes": {
+    "changed_payloads": 19,
+    "recipe_changes": 2,
+    "material_slot_changes": 0,
+    "score_only_payloads": 17,
+    "hidden_material_slot_payloads": 0,
+    "protected_slot_changes": [],
+    "environment_changes": [],
+    "instrument_roster_changes": [],
+    "validated_selected_slots_in_all_changed_payloads": 373,
+    "variant_errors": []
+  },
+  "new_100": {
+    "id_set_exactly_matches_frozen": true,
+    "count": 100,
+    "compiled_source_identity_roster_environment_errors": [],
+    "candidate_parts_checked": 3034,
+    "applicable_source_pins_retained_and_runtime_protected": 3030,
+    "rows": [
+      {
+        "id": "kurdish_pop",
+        "instruments": ["voice", "violin_orchestral"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "la_pop",
+        "instruments": ["voice", "electric_guitar_humbucker", "grand_piano", "analog_poly_synth"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "latvian_pop",
+        "instruments": ["voice", "flute"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "lithuanian_pop",
+        "instruments": [
+          "voice",
+          "grand_piano",
+          "electric_bass",
+          "drum_kit",
+          "acoustic_guitar_dread",
+          "electric_guitar_humbucker"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "luxembourgian_pop",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "macau_pop",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "malawian_pop",
+        "instruments": ["voice", "electric_guitar_humbucker"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "maltese_pop",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "saxophone",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "math_pop",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bogor_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cape_breton_indie",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread",
+          "electric_bass",
+          "drum_kit",
+          "grand_piano"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cape_town_indie",
+        "instruments": ["voice", "acoustic_guitar_dread", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cardiff_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cascadia_psych",
+        "instruments": ["electric_guitar_humbucker", "electric_bass", "analog_poly_synth"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cdmx_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cdo_indie",
+        "instruments": ["voice", "acoustic_guitar_om"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cello",
+        "instruments": ["cello"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cello_ensemble",
+        "instruments": ["cello"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "celtic_harp",
+        "instruments": ["celtic_harp"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "ceske_chvaly",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_om",
+          "fiddle",
+          "grand_piano",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chakra",
+        "instruments": ["himalayan_singing_bowl"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chamame_brasilero",
+        "instruments": ["accordion", "acoustic_guitar_om"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chamber_psych",
+        "instruments": ["voice", "electric_guitar_humbucker", "analog_poly_synth", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "channel_islands_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chanson_humoristique",
+        "instruments": ["voice", "acoustic_guitar_om"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chanson_paillarde",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chanson_quebecois",
+        "instruments": [
+          "voice",
+          "spoons",
+          "acoustic_guitar_om",
+          "grand_piano",
+          "double_bass",
+          "trombone",
+          "clarinet",
+          "saxophone",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chanson_virale",
+        "instruments": ["voice", "grand_piano", "viola_classical", "violin_orchestral", "cello"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chant_basque",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chant_religieux",
+        "instruments": ["voice", "acoustic_guitar_12_string"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chapman_stick",
+        "instruments": ["chapman_stick"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "charango",
+        "instruments": ["charango"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "charlotte_nc_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "analog_poly_synth",
+          "sampler_drum_machine"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "charlottesville_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "charred_death",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chattanooga_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chennai_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chicago_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "wurlitzer_ep"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chihuahua_indie",
+        "instruments": ["voice", "acoustic_guitar_dread"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "children_s_story",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chilean_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chill_beats",
+        "instruments": ["sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chill_groove",
+        "instruments": ["saxophone", "electric_bass", "archtop_jazz"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chill_guitar",
+        "instruments": ["electric_guitar_humbucker", "voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chillsynth",
+        "instruments": ["analog_poly_synth"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chinderlieder",
+        "instruments": [
+          "voice",
+          "grand_piano",
+          "electric_bass",
+          "drum_kit",
+          "acoustic_guitar_dread",
+          "ukulele"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chinese_audiophile",
+        "instruments": ["voice", "acoustic_guitar_dread", "grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chinese_experimental",
+        "instruments": ["analog_poly_synth", "violin_orchestral", "guqin"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chinese_new_year",
+        "instruments": ["grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chinese_worship",
+        "instruments": ["grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "chip_hop",
+        "instruments": ["voice", "sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "choro_contemporaneo",
+        "instruments": ["classical_nylon_string_guitar"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "christchurch_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "christelijk",
+        "instruments": ["voice", "acoustic_guitar_dread"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "christian_a_cappella",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "christian_indie",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread",
+          "electric_bass",
+          "grand_piano",
+          "tonewheel_organ",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "christian_lo_fi",
+        "instruments": ["rompler_workstation"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "christian_music",
+        "instruments": ["voice", "acoustic_guitar_dread", "cello", "grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "christian_uplift",
+        "instruments": ["voice", "classical_nylon_string_guitar"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "christmas_instrumental",
+        "instruments": ["grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cincinnati_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "circus",
+        "instruments": ["steam_calliope"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "clap_and_tap",
+        "instruments": ["voice", "hand_clap"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "clarinet_ensemble",
+        "instruments": ["clarinet"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "classic_praise",
+        "instruments": ["voice", "grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "classic_schlager",
+        "instruments": ["voice", "grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "classify",
+        "instruments": ["grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "clean_comedy",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cleveland_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cocuk_masallari",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cocuk_sarkilari",
+        "instruments": ["voice", "grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "college_a_cappella",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cologne_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "colombian_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "color_noise",
+        "instruments": ["sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "columbus_ohio_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "comedia",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "comedienne",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "comic",
+        "instruments": ["voice", "grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "commons",
+        "instruments": ["voice", "acoustic_guitar_om"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "comptine_africaine",
+        "instruments": ["voice", "acoustic_guitar_om", "djembe"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "concepcion_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "concertina",
+        "instruments": ["concertina"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "connecticut_indie",
+        "instruments": [
+          "voice",
+          "grand_piano",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "contrabass",
+        "instruments": ["double_bass"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "convent",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cork_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cornwall_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "analog_poly_synth", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cosmic_american",
+        "instruments": ["voice", "acoustic_guitar_om", "grand_piano", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "countrygaze",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "coventry_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "croatian_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "crossover_prog",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cruise",
+        "instruments": ["sampler_classic", "digital_subtractive", "sampler_drum_machine"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cyberpunk",
+        "instruments": ["digital_subtractive", "analog_mono_synth", "sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cymraeg",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "czech_experimental",
+        "instruments": ["acoustic_guitar_om", "eurorack_modular"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "czech_psychedelic",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "dainuojamoji_poezija",
+        "instruments": ["voice", "acoustic_guitar_om"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "danish_electropop",
+        "instruments": ["voice", "analog_poly_synth", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      }
+    ]
+  },
+  "indexes": {
+    "traditions": {
+      "baseline_count": 5038,
+      "current_count": 5138,
+      "old_items_changed": [],
+      "added_ids": [
+        "bogor_indie",
+        "cape_breton_indie",
+        "cape_town_indie",
+        "cardiff_indie",
+        "cascadia_psych",
+        "cdmx_indie",
+        "cdo_indie",
+        "cello",
+        "cello_ensemble",
+        "celtic_harp",
+        "ceske_chvaly",
+        "chakra",
+        "chamame_brasilero",
+        "chamber_psych",
+        "channel_islands_indie",
+        "chanson_humoristique",
+        "chanson_paillarde",
+        "chanson_quebecois",
+        "chanson_virale",
+        "chant_basque",
+        "chant_religieux",
+        "chapman_stick",
+        "charango",
+        "charlotte_nc_indie",
+        "charlottesville_indie",
+        "charred_death",
+        "chattanooga_indie",
+        "chennai_indie",
+        "chicago_indie",
+        "chihuahua_indie",
+        "children_s_story",
+        "chilean_indie",
+        "chill_beats",
+        "chill_groove",
+        "chill_guitar",
+        "chillsynth",
+        "chinderlieder",
+        "chinese_audiophile",
+        "chinese_experimental",
+        "chinese_new_year",
+        "chinese_worship",
+        "chip_hop",
+        "choro_contemporaneo",
+        "christchurch_indie",
+        "christelijk",
+        "christian_a_cappella",
+        "christian_indie",
+        "christian_lo_fi",
+        "christian_music",
+        "christian_uplift",
+        "christmas_instrumental",
+        "cincinnati_indie",
+        "circus",
+        "clap_and_tap",
+        "clarinet_ensemble",
+        "classic_praise",
+        "classic_schlager",
+        "classify",
+        "clean_comedy",
+        "cleveland_indie",
+        "cocuk_masallari",
+        "cocuk_sarkilari",
+        "college_a_cappella",
+        "cologne_indie",
+        "colombian_indie",
+        "color_noise",
+        "columbus_ohio_indie",
+        "comedia",
+        "comedienne",
+        "comic",
+        "commons",
+        "comptine_africaine",
+        "concepcion_indie",
+        "concertina",
+        "connecticut_indie",
+        "contrabass",
+        "convent",
+        "cork_indie",
+        "cornwall_indie",
+        "cosmic_american",
+        "countrygaze",
+        "coventry_indie",
+        "croatian_indie",
+        "crossover_prog",
+        "cruise",
+        "cyberpunk",
+        "cymraeg",
+        "czech_experimental",
+        "czech_psychedelic",
+        "dainuojamoji_poezija",
+        "danish_electropop",
+        "kurdish_pop",
+        "la_pop",
+        "latvian_pop",
+        "lithuanian_pop",
+        "luxembourgian_pop",
+        "macau_pop",
+        "malawian_pop",
+        "maltese_pop",
+        "math_pop"
+      ]
+    },
+    "instruments": {
+      "baseline_count": 1472,
+      "current_count": 1472,
+      "old_items_changed": [],
+      "added_ids": []
+    }
+  },
+  "individual_old_output_reviews": [
+    {
+      "id": "acoustic_guitar_cover",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["acoustic_guitar_cover"],
+      "traditions_after": ["acoustic_guitar_cover"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s acoustic guitar cover, art Music. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s acoustic guitar cover, art Music. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "acoustic_guitar_cover": {
+          "before": [
+            {
+              "id": "katta_ashula",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_experimental",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_soundtrack",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "neo_classical",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "acoustic_cover",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "afrikaans",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "baroque_woodwind",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "432hz",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "katta_ashula",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_experimental",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_soundtrack",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "cello_ensemble",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "choro_contemporaneo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "clarinet_ensemble",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "neo_classical",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "acoustic_cover",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "afrikaans",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "baroque_woodwind",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "auteur_compositeur_interprete_quebecois",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["auteur_compositeur_interprete_quebecois"],
+      "traditions_after": ["auteur_compositeur_interprete_quebecois"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s auteur-compositeur-interprete quebecois, ballad Poetry, chanson fado branch. interlocked note trading, single source phonation, opera quality low larynx anchored, solo with instrumental accompaniment. transparent warm nickel bronze modern blend dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s auteur-compositeur-interprete quebecois, ballad Poetry, chanson fado branch. interlocked note trading, single source phonation, opera quality low larynx anchored, solo with instrumental accompaniment. transparent warm nickel bronze modern blend dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "auteur_compositeur_interprete_quebecois": {
+          "before": [
+            {
+              "id": "french_musette",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kundiman",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "alpenpanorama",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "audiophile_vocal",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "australian_comedy",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "australian_talent_show",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "american_early_music",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "french_musette",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kundiman",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "alpenpanorama",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "audiophile_vocal",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "australian_comedy",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "australian_talent_show",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "chanson_virale",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "bible",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["bible"],
+      "traditions_after": ["bible"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2010s bible, functional Song. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-2010s bible, functional Song. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "bible": {
+          "before": [
+            {
+              "id": "black_comedy",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "bornehistorier",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "canadian_latin",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "black_comedy",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "bornehistorier",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "clean_comedy",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "cocuk_masallari",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "college_a_cappella",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "birdsong",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["birdsong"],
+      "traditions_after": ["birdsong"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2020s birdsong, functional Song. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2020s birdsong, functional Song. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "birdsong": {
+          "before": [
+            {
+              "id": "birthday",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "accordion",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "greenlandic_drum_song",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "birthday",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "classify",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "color_noise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "accordion",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "birmingham_indie",
+      "changed_keys": ["recipe_chars", "recipe", "score", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["birmingham_indie"],
+      "traditions_after": ["birmingham_indie"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic birmingham indie, functional Song. solo with instrumental accompaniment. humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic birmingham indie, functional Song. humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "birmingham_indie": {
+          "before": [
+            {
+              "id": "black_noise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "boom_bap_brasileiro",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "canadian_latin",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "black_noise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "boom_bap_brasileiro",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "classic_praise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "classic_schlager",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "cocuk_sarkilari",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "recipe_descriptor_surfacing_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical.",
+      "descriptor_rendering_proof": {
+        "selected_voice_ensemble_before": "voice_ensemble_solo_accompanied",
+        "selected_voice_ensemble_after": "voice_ensemble_solo_accompanied",
+        "score_before": 0.6000000000000001,
+        "score_after": 0.4635,
+        "original_renderer_threshold": 0.5,
+        "source": "scripts/translate.js:1368",
+        "recipe_change": "Drops solo with instrumental accompaniment phrase only. Actual voice card, selected ensemble, source pins, vocal count and remainder of recipe unchanged."
+      }
+    },
+    {
+      "id": "birthday",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["birthday"],
+      "traditions_after": ["birthday"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s birthday, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s birthday, functional Song. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "birthday": {
+          "before": [
+            {
+              "id": "birdsong",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "accordion",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "greenlandic_drum_song",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "birdsong",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "classify",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "color_noise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "accordion",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "black_comedy",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["black_comedy"],
+      "traditions_after": ["black_comedy"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2010s black comedy, functional Song. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-2010s black comedy, functional Song. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "black_comedy": {
+          "before": [
+            {
+              "id": "bible",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "bornehistorier",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "canadian_latin",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "bible",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "bornehistorier",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "clean_comedy",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "cocuk_masallari",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "college_a_cappella",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "black_noise",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["black_noise"],
+      "traditions_after": ["black_noise"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2020s black noise, functional Song. humbucker electric guitar, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-2020s black noise, functional Song. humbucker electric guitar, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "black_noise": {
+          "before": [
+            {
+              "id": "birmingham_indie",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "boom_bap_brasileiro",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "canadian_latin",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "birmingham_indie",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "boom_bap_brasileiro",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "classic_praise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "classic_schlager",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "cocuk_sarkilari",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "boom_bap_brasileiro",
+      "changed_keys": ["recipe_chars", "recipe", "score", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["boom_bap_brasileiro"],
+      "traditions_after": ["boom_bap_brasileiro"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s boom bap brasileiro, functional Song. solo with instrumental accompaniment. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s boom bap brasileiro, functional Song. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "boom_bap_brasileiro": {
+          "before": [
+            {
+              "id": "birmingham_indie",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "black_noise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "canadian_latin",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "birmingham_indie",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "black_noise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "classic_praise",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "classic_schlager",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "cocuk_sarkilari",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "recipe_descriptor_surfacing_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical.",
+      "descriptor_rendering_proof": {
+        "selected_voice_ensemble_before": "voice_ensemble_solo_accompanied",
+        "selected_voice_ensemble_after": "voice_ensemble_solo_accompanied",
+        "score_before": 0.6000000000000001,
+        "score_after": 0.4635,
+        "original_renderer_threshold": 0.5,
+        "source": "scripts/translate.js:1368",
+        "recipe_change": "Drops solo with instrumental accompaniment phrase only. Actual voice card, selected ensemble, source pins, vocal count and remainder of recipe unchanged."
+      }
+    },
+    {
+      "id": "bornehistorier",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["bornehistorier"],
+      "traditions_after": ["bornehistorier"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic bornehistorier, functional Song. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic bornehistorier, functional Song. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "bornehistorier": {
+          "before": [
+            {
+              "id": "bible",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "black_comedy",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "canadian_latin",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "bible",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "black_comedy",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "clean_comedy",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "cocuk_masallari",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "college_a_cappella",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "braindance",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["braindance"],
+      "traditions_after": ["braindance"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2020s braindance, functional Song. analog poly synth, drum machine analog. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-2020s braindance, functional Song. analog poly synth, drum machine analog. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "braindance": {
+          "before": [
+            {
+              "id": "binaural",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "blasmusik",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "greenlandic_drum_song",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "chill_beats",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "chillsynth",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "binaural",
+              "weight": 0.95,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "hiragasy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tebe_tebe",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandiyaa_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mari_song_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "yupik_yuraq",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "british_experimental",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["british_experimental"],
+      "traditions_after": ["british_experimental"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-1980s british experimental, art Music. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-1980s british experimental, art Music. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "british_experimental": {
+          "before": [
+            {
+              "id": "katta_ashula",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "acoustic_guitar_cover",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_soundtrack",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "ancient_mediterranean",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "andean_flute",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_game",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_piano",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_score",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "katta_ashula",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "acoustic_guitar_cover",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_soundtrack",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "cello_ensemble",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "choro_contemporaneo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "clarinet_ensemble",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "ancient_mediterranean",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "andean_flute",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_game",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_piano",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "british_soundtrack",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["british_soundtrack"],
+      "traditions_after": ["british_soundtrack"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic british soundtrack, art Music. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic british soundtrack, art Music. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "british_soundtrack": {
+          "before": [
+            {
+              "id": "katta_ashula",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "acoustic_guitar_cover",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_experimental",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "ancient_mediterranean",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "andean_flute",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_game",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_piano",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_score",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "katta_ashula",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "acoustic_guitar_cover",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_experimental",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "cello_ensemble",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "choro_contemporaneo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "clarinet_ensemble",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "ancient_mediterranean",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "andean_flute",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_game",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "anime_piano",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "canadian_indie",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["canadian_indie"],
+      "traditions_after": ["canadian_indie"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic canadian indie, distorted Rock. single lead single track no stacking. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic canadian indie, distorted Rock. single lead single track no stacking. humbucker electric guitar, electric bass, bronze bell bronze machine hammered symmetric pattern organized rows drum kit, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "canadian_indie": {
+          "before": [
+            {
+              "id": "rap_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "afro_psych",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indigenous_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bornesange",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bosnian_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bossa_nova_cover",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "boston_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "boy_soprano",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "rap_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "afro_psych",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indigenous_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "cardiff_indie",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "cascadia_psych",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bornesange",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bosnian_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bossa_nova_cover",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "boston_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "boy_soprano",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "danish_folk",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["danish_folk"],
+      "traditions_after": ["danish_folk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "neighbor_changes": {
+        "danish_folk": {
+          "before": [
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "israeli_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "romanian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "burkinabe_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "traditional_bluegrass",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bluegrass_fiddle",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "scottish_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "finnish_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "baltic_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "israeli_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "romanian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "burkinabe_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "chapman_stick",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "traditional_bluegrass",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bluegrass_fiddle",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "scottish_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "finnish_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "israeli_folk",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["israeli_folk"],
+      "traditions_after": ["israeli_folk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "neighbor_changes": {
+        "israeli_folk": {
+          "before": [
+            {
+              "id": "danish_folk",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "romanian_folk",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "burkinabe_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "baltic_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kosovan_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "mazandarani_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "danish_folk",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "romanian_folk",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "burkinabe_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "chapman_stick",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "baltic_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kosovan_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "mazandarani_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "katta_ashula",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["katta_ashula"],
+      "traditions_after": ["katta_ashula"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern katta ashula, art Music. katta ashula, duet. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern katta ashula, art Music. katta ashula, duet. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "neighbor_changes": {
+        "katta_ashula": {
+          "before": [
+            {
+              "id": "acoustic_guitar_cover",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_experimental",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_soundtrack",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_gisalo",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "khanty_mansi_bear_festival",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "falak",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "turkmen_bagshy",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "armenian_duduk_chant",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "acoustic_guitar_cover",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_experimental",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_soundtrack",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "cello_ensemble",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "choro_contemporaneo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "clarinet_ensemble",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_gisalo",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "khanty_mansi_bear_festival",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "falak",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "turkmen_bagshy",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "rap_rock",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["rap_rock"],
+      "traditions_after": ["rap_rock"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_after": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "neighbor_changes": {
+        "rap_rock": {
+          "before": [
+            {
+              "id": "afro_psych",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indie",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indigenous_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bronx_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_old_school_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_underground_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_indigenous_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "afro_psych",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indie",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indigenous_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "cardiff_indie",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "cascadia_psych",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bronx_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_old_school_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_underground_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_indigenous_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    },
+    {
+      "id": "romanian_folk",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["romanian_folk"],
+      "traditions_after": ["romanian_folk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic romanian folk, improv On Frame. drone like fiddle, pre war tone martin lifespan sealed dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic romanian folk, improv On Frame. drone like fiddle, pre war tone martin lifespan sealed dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "romanian_folk": {
+          "before": [
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "israeli_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "danish_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "burkinabe_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kosovan_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "mazandarani_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "serbian_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "slovak_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "pakistani_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "israeli_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "danish_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "burkinabe_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "chapman_stick",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kosovan_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "mazandarani_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "serbian_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "slovak_folk",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "change_type": "score_bookkeeping_only",
+      "causal_review": "Changed original catalog-wide nearest-neighbor list alters original scoreVariant scoring; source and engine unchanged.",
+      "scope_decision": "Valid unprotected generated choices; original authored cards/pins/environment/roster unchanged.",
+      "config_change_scope": "Only per-part scores differ; all selected slot values, runtime protected-pin maps and every other config field identical."
+    }
+  ],
+  "errors": [],
+  "original_engine_sha256": {
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "94e645a71a7165e5d2ea4b9c1f1e1a7721c8632d6a7f0926e6bd76f3657c71dc",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "scripts/_loader.js": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365",
+    "scripts/_merge.js": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c",
+    "scripts/_seed_workspace.js": "223924a3ce0f08dd0302731cf815d712755dc906b3546986966765dc63ded58d",
+    "scripts/_recipe_stack.js": "b02bb4c770a2639657e5397ad4f36370e19e224098d308c6c5a67ea6434c72bc",
+    "scripts/build_static_api.js": "2bfbacc7291337b62a05e8466cf44feb95258569343a89fdd3d6d2b4b3cf9fd9",
+    "data/geo.json": "725551496b361c987137f1c777c8bd6a26dbbbe1bd5d2370ed202eff6b6936e7",
+    "references/_tradition_signatures.json": "48c3dba74eb554d3b467a1b1d39c7d67da8aae2ec1818e6f2d938414ff8f244b",
+    "references/_image_manifest.json": "392ba2d66919c1cd13ded1b8d879f06c20f33a5bd9e6d56fb5eee4a03939768e",
+    "scripts/translate.js": "43af50cd7d656ade2f3247f89861326b6803081228c1edd57db8d5f7cdb42a8d",
+    "scripts/score.js": "cd3171659c29186d298fba27f0b600635c624f6a246b81810d8dccb85f11aa2c",
+    "scripts/search.js": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+  },
+  "artifact_sha256": {
+    "api/all.json": "f1ce6cc4616045532977f44ed3b8f10ae4e46f6782914e35c9ea282d318aea76",
+    "api/traditions/index.json": "47e88e492c14b69d558f356a580083d38974c8d1abfb13b78b3332219141d646",
+    "api/instruments/index.json": "ab9bd0b92c5ddbac81f6f2b4f186685ba06cbac710fc890e1cc9be36f722f027",
+    "references/05_traditions.js": "0e325d84d35b01d28f89ab7b57ca76b85124381706f8ea6bca0005f0021bd94c",
+    "references/02_instruments.js": "94e645a71a7165e5d2ea4b9c1f1e1a7721c8632d6a7f0926e6bd76f3657c71dc"
+  },
+  "conclusion": "PASS. All5038 old authored source payloads and actual imported cards preserved; all1472 instrument payloads identical. Nineteen generated payloads differ only in scores; in two, original voice-rendering score crosses0.5 and hides solo-accompaniment text despite identical selected ensemble and pins. No generated slot, roster, environment or pin-map changes. New100 exact and3030 applicable compiled source-pin assignments protected. No API/source/snapshot edits by reviewer. Regression1149/1149 passed unchanged as coordinator reported; exact-head CI remains separate.",
+  "all_json_check": {
+    "count": 5138,
+    "per_tradition_fields_match": true,
+    "errors": []
+  },
+  "atlas_metadata_rebind": {
+    "previous_frozen_sha256": "d4c57e4fec90ff642fc85defd8c3ffd7abaa607dcaee61f199c11e736d880eb4",
+    "new_frozen_sha256": "0e30b15d1925f7573d80b93565f1475be7e19d1bcda04c5aae55b4256c97e7c2",
+    "modified_new_geo_rows": 14,
+    "coordinate_changes": 0,
+    "region_changes": 3,
+    "label_changes": 12,
+    "proof": "Reversed exactly14 logged geo amendments and removed their log records; serialization reproduces byte-exact previously reviewed frozen hash. Thus all non-geo entry fields including source, extras, instruments, pins, photos and coordinates unchanged. Current repo geo matches14 amended rows; all5038 prior geo rows unchanged. Previously hashed API aggregate, tradition/instrument indexes and source files remain byte-identical.",
+    "amendments": [
+      {
+        "id": "kurdish_pop",
+        "field": "geo",
+        "before": [41.008, 28.978, "Istanbul", "Middle East & North Africa"],
+        "after": [41.008, 28.978, "Istanbul", "Middle East"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "chamame_brasilero",
+        "field": "geo",
+        "before": [
+          -20.47,
+          -54.62,
+          "Campo Grande, Mato Grosso do Sul scene",
+          "Latin America & Caribbean"
+        ],
+        "after": [-20.47, -54.62, "Campo Grande", "Latin America & Caribbean"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "channel_islands_indie",
+        "field": "geo",
+        "before": [49.18, -2.11, "St Helier, Jersey", "Europe"],
+        "after": [49.18, -2.11, "St Helier", "Europe"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "chant_basque",
+        "field": "geo",
+        "before": [43.33, -1.32, "Macaye, Basque Country", "Europe"],
+        "after": [43.33, -1.32, "Macaye", "Europe"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "children_s_story",
+        "field": "geo",
+        "before": [34.501, -85.282, "Paradise Garden, Summerville", "North America"],
+        "after": [34.501, -85.282, "Paradise Garden (Summerville)", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "chinese_worship",
+        "field": "geo",
+        "before": [33.745, -117.826, "Tustin, California — ministry base", "North America"],
+        "after": [33.745, -117.826, "Tustin (ministry base)", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "christian_lo_fi",
+        "field": "geo",
+        "before": [34.17, -80.06, "Lamar, South Carolina", "North America"],
+        "after": [34.17, -80.06, "Lamar", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "cleveland_indie",
+        "field": "geo",
+        "before": [41.499, -81.694, "Cleveland, Ohio", "North America"],
+        "after": [41.499, -81.694, "Cleveland", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "cocuk_masallari",
+        "field": "geo",
+        "before": [39.0, 35.0, "Türkiye", "West Asia"],
+        "after": [39.0, 35.0, "Türkiye", "Middle East"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "cocuk_sarkilari",
+        "field": "geo",
+        "before": [40.99, 29.03, "Kadıköy, Istanbul", "West Asia"],
+        "after": [40.99, 29.03, "Kadıköy", "Middle East"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "college_a_cappella",
+        "field": "geo",
+        "before": [41.308, -72.928, "New Haven, Connecticut", "North America"],
+        "after": [41.308, -72.928, "New Haven", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "color_noise",
+        "field": "geo",
+        "before": [43.073, -89.401, "Madison, Wisconsin", "North America"],
+        "after": [43.073, -89.401, "Madison", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "columbus_ohio_indie",
+        "field": "geo",
+        "before": [39.961, -82.999, "Columbus, Ohio", "North America"],
+        "after": [39.961, -82.999, "Columbus", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "convent",
+        "field": "geo",
+        "before": [39.61, -94.6, "Gower, Missouri community", "North America"],
+        "after": [39.61, -94.6, "Gower (community)", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      }
+    ]
+  }
+}

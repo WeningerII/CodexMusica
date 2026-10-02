@@ -3,9 +3,9 @@
   "name": "Boom Bap Brasileiro",
   "family": "hip_hop",
   "lineage": "soul.za — Halls de Menta (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s boom bap brasileiro, functional Song. solo with instrumental accompaniment. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 202,
-  "score": 4.842,
+  "recipe": "classic late-2010s boom bap brasileiro, functional Song. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 164,
+  "score": 4.662,
   "config": {
     "traditions": [
       "boom_bap_brasileiro"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6000000000000001,
+          "voice_ensemble_config": 0.4635,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.09675,
+          "voice_multitrack_stack": 0.054,
           "voice_tessitura": 0
         }
       },

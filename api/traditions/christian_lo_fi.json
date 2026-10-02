@@ -1,0 +1,70 @@
+{
+  "id": "christian_lo_fi",
+  "name": "Christian lo-fi",
+  "family": "vernacular",
+  "lineage": "Tyler James Cook — My Wonderful Lord, The Lo-Fi Hymnal (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s christian lo-fi, functional Song. yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 260,
+  "score": 1.766,
+  "config": {
+    "traditions": [
+      "christian_lo_fi"
+    ],
+    "instruments": [
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "rompler_preset_bank": "rompler_preset_piano_orchestral",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_yamaha_psr_casio"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "rompler_preset_bank": -0.05,
+          "rompler_context": -0.05,
+          "rompler_lineage": 1.9364999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "rompler_workstation": [
+        "electronic_technique",
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_lead_line",
+      "rompler_preset_bank": "rompler_preset_piano_orchestral",
+      "rompler_context": "rompler_context_pop_workstation",
+      "rompler_lineage": "rompler_yamaha_psr_casio"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

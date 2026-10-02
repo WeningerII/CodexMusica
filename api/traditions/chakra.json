@@ -1,0 +1,62 @@
+{
+  "id": "chakra",
+  "name": "Chakra",
+  "family": "vernacular",
+  "lineage": "Sonic Yogi — Singing Bowl Love (2017), Sacral Chakra branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic late-2010s chakra, functional Song. himalayan singing bowl. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 166,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "chakra"
+    ],
+    "instruments": [
+      {
+        "id": "himalayan_singing_bowl",
+        "slots": {
+          "singing_bowl_form": "singing_bowl_hand_hammered",
+          "singing_bowl_technique": "singing_bowl_rim_rubbed"
+        },
+        "scores": {
+          "singing_bowl_form": 0,
+          "singing_bowl_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "himalayan_singing_bowl": [
+        "singing_bowl_form",
+        "singing_bowl_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "singing_bowl_form": "singing_bowl_hand_hammered",
+      "singing_bowl_technique": "singing_bowl_rim_rubbed"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

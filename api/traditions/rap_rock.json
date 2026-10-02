@@ -5,7 +5,7 @@
   "lineage": "Rap rock joins rapped delivery with rock-derived guitar and performance energy. The selected Beastie Boys branch grows from lower Manhattan punk into rap, guitar collaborations and layered sampling.",
   "recipe": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
   "recipe_chars": 390,
-  "score": 41.638,
+  "score": 42.904,
   "config": {
     "traditions": [
       "rap_rock"
@@ -43,7 +43,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 9.531499999999998,
-          "voice_ensemble_config": 1.624,
+          "voice_ensemble_config": 1.6555,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0765,
@@ -86,18 +86,18 @@
         },
         "scores": {
           "electric_technique": 2.45,
-          "amp_make": 7.354000000000001,
+          "amp_make": 7.700500000000001,
           "body_wood": 0.045,
           "neck_wood": 0.075,
           "fretboard": 0.075,
           "pickup_magnet": 0.0315,
           "pickup_winding": 0.3315,
           "string_material": 0.12,
-          "bridge": 0.43200000000000005,
+          "bridge": 0.7050000000000001,
           "scale_length": 0.1065,
-          "string_gauge": 0.4635,
+          "string_gauge": 0.7364999999999999,
           "finish": 0,
-          "string_tuning": 5.508
+          "string_tuning": 5.85
         }
       }
     ],

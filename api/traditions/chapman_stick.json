@@ -1,0 +1,62 @@
+{
+  "id": "chapman_stick",
+  "name": "Chapman Stick",
+  "family": "vernacular",
+  "lineage": "Michael Kollwitz — The Chapman Stick Meets The Beatles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic chapman stick, improv On Frame. chapman stick. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 153,
+  "score": 0.363,
+  "config": {
+    "traditions": [
+      "chapman_stick"
+    ],
+    "instruments": [
+      {
+        "id": "chapman_stick",
+        "slots": {
+          "chapman_stick_strings": "chapman_stick_ten_string",
+          "chapman_stick_technique": "chapman_stick_two_hand_tap"
+        },
+        "scores": {
+          "chapman_stick_strings": 0.3315,
+          "chapman_stick_technique": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "chapman_stick": [
+        "chapman_stick_strings",
+        "chapman_stick_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "chapman_stick_strings": "chapman_stick_ten_string",
+      "chapman_stick_technique": "chapman_stick_two_hand_tap"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

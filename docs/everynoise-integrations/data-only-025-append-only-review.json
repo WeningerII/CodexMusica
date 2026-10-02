@@ -1,0 +1,94 @@
+{
+  "predecessor": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
+  "head": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
+  "frozen_sha256": "0e30b15d1925f7573d80b93565f1475be7e19d1bcda04c5aae55b4256c97e7c2",
+  "counts": {
+    "raw_traditions_old_unchanged": 5038,
+    "raw_instruments_old_unchanged": 1472,
+    "old_extras_unchanged": 5038,
+    "merged_instruments_old_unchanged": 1472,
+    "data/geo.json_old_keys": 5038,
+    "references/_tradition_signatures.json_old_keys": 3016,
+    "old_images_unchanged": 6460,
+    "new_images": 100
+  },
+  "additions": 100,
+  "instrument_additions": [],
+  "runtime_independent": {
+    "cards": 283,
+    "effective_parts": 3034,
+    "flat_pins": 2957,
+    "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+  },
+  "zills": {
+    "id": "zills_sagat",
+    "name": "Zills / sagat (Middle Eastern finger cymbals)",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -1,
+      "sustain": 0,
+      "polyphony": -1,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "zills finger cymbals",
+    "parts": [
+      {
+        "id": "zills_sagat_articulation",
+        "name": "Finger-cymbal articulation",
+        "variants": [
+          {
+            "id": "zills_sagat_open_ringing",
+            "default": true,
+            "name": "Open ringing finger-cymbal strikes",
+            "descriptors": ["open-ringing", "finger-cymbal-strikes"],
+            "match_tokens": ["metallic", "percussive-attack"]
+          },
+          {
+            "id": "zills_sagat_damped_short",
+            "name": "Damped short finger-cymbal clicks",
+            "descriptors": ["damped-short", "finger-cymbal-clicks"],
+            "match_tokens": ["metallic", "percussive-attack"]
+          }
+        ]
+      }
+    ],
+    "_ownParts": [
+      {
+        "id": "zills_sagat_articulation",
+        "name": "Finger-cymbal articulation",
+        "variants": [
+          {
+            "id": "zills_sagat_open_ringing",
+            "default": true,
+            "name": "Open ringing finger-cymbal strikes",
+            "descriptors": ["open-ringing", "finger-cymbal-strikes"],
+            "match_tokens": ["metallic", "percussive-attack"]
+          },
+          {
+            "id": "zills_sagat_damped_short",
+            "name": "Damped short finger-cymbal clicks",
+            "descriptors": ["damped-short", "finger-cymbal-clicks"],
+            "match_tokens": ["metallic", "percussive-attack"]
+          }
+        ]
+      }
+    ]
+  },
+  "app_scope": {
+    "added_signature_rows": 100,
+    "removed_rows": 0,
+    "logic_changes": false
+  },
+  "errors": [],
+  "warnings": [],
+  "reviewer_notes": {
+    "method": "Root mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+    "limitation": "API/regression/exact-head CI separate required gates."
+  }
+}

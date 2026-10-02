@@ -1,0 +1,1203 @@
+{
+  "reviewer": "research_119",
+  "review_type": "Independent final integrated source/default/scope and original app preservation review",
+  "baseline": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
+  "head": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
+  "frozen_sha256": "0e30b15d1925f7573d80b93565f1475be7e19d1bcda04c5aae55b4256c97e7c2",
+  "status": "pass_source_defaults_and_preservation",
+  "counts": {
+    "old_traditions_unchanged": 5038,
+    "old_extras_unchanged": 5038,
+    "data/geo.json_old_unchanged": 5038,
+    "references/_tradition_signatures.json_old_unchanged": 3016,
+    "old_images_unchanged": 6460,
+    "old_actual_app_instruments_unchanged": 1472,
+    "old_actual_app_traditions_unchanged": 5038,
+    "new_traditions": 100,
+    "current_traditions": 5138,
+    "current_instruments": 1472,
+    "new_cards": 283,
+    "new_applicable_parts": 3034,
+    "new_pins": 2957
+  },
+  "new_checks": [
+    {
+      "id": "kurdish_pop",
+      "cards": 2,
+      "applicable_parts": 27,
+      "pins": 27,
+      "source_count": 3,
+      "source_packet": "/tmp/batch025/held-group072-supplement-frozen6.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "la_pop",
+      "cards": 4,
+      "applicable_parts": 43,
+      "pins": 43,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/held-group072.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "latvian_pop",
+      "cards": 2,
+      "applicable_parts": 22,
+      "pins": 22,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/held-group072.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "lithuanian_pop",
+      "cards": 6,
+      "applicable_parts": 63,
+      "pins": 60,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/held-group072-supplement-frozen6.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "luxembourgian_pop",
+      "cards": 5,
+      "applicable_parts": 54,
+      "pins": 51,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/held-group072.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "macau_pop",
+      "cards": 3,
+      "applicable_parts": 38,
+      "pins": 36,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/held-group072-supplement-frozen6.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "malawian_pop",
+      "cards": 2,
+      "applicable_parts": 30,
+      "pins": 30,
+      "source_count": 3,
+      "source_packet": "/tmp/batch025/held-group072-supplement-frozen6.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "maltese_pop",
+      "cards": 5,
+      "applicable_parts": 56,
+      "pins": 54,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/held-group072.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "math_pop",
+      "cards": 3,
+      "applicable_parts": 32,
+      "pins": 30,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/held-group072.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "bogor_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch024/group116-bogor-replacement.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "cape_breton_indie",
+      "cards": 5,
+      "applicable_parts": 50,
+      "pins": 50,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025-ready-from119.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "cape_town_indie",
+      "cards": 4,
+      "applicable_parts": 41,
+      "pins": 41,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025-ready-from119.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "cardiff_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025-ready-from119.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "cascadia_psych",
+      "cards": 3,
+      "applicable_parts": 25,
+      "pins": 23,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025-ready-from119.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "cdmx_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "cdo_indie",
+      "cards": 2,
+      "applicable_parts": 22,
+      "pins": 22,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": "unspecified_explicitly_authored",
+      "status": "pass"
+    },
+    {
+      "id": "cello",
+      "cards": 1,
+      "applicable_parts": 9,
+      "pins": 9,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "cello_ensemble",
+      "cards": 1,
+      "applicable_parts": 9,
+      "pins": 9,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "celtic_harp",
+      "cards": 1,
+      "applicable_parts": 3,
+      "pins": 3,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "ceske_chvaly",
+      "cards": 6,
+      "applicable_parts": 56,
+      "pins": 56,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 4,
+      "status": "pass"
+    },
+    {
+      "id": "chakra",
+      "cards": 1,
+      "applicable_parts": 2,
+      "pins": 2,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "chamame_brasilero",
+      "cards": 2,
+      "applicable_parts": 12,
+      "pins": 12,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "chamber_psych",
+      "cards": 4,
+      "applicable_parts": 45,
+      "pins": 45,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "channel_islands_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chanson_humoristique",
+      "cards": 2,
+      "applicable_parts": 22,
+      "pins": 22,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chanson_paillarde",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 3,
+      "status": "pass"
+    },
+    {
+      "id": "chanson_quebecois",
+      "cards": 9,
+      "applicable_parts": 73,
+      "pins": 71,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chanson_virale",
+      "cards": 5,
+      "applicable_parts": 54,
+      "pins": 52,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chant_basque",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "chant_religieux",
+      "cards": 2,
+      "applicable_parts": 21,
+      "pins": 21,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chapman_stick",
+      "cards": 1,
+      "applicable_parts": 2,
+      "pins": 2,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "charango",
+      "cards": 1,
+      "applicable_parts": 5,
+      "pins": 5,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "charlotte_nc_indie",
+      "cards": 5,
+      "applicable_parts": 46,
+      "pins": 43,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "charlottesville_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "charred_death",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group120.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chattanooga_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chennai_indie",
+      "cards": 3,
+      "applicable_parts": 38,
+      "pins": 36,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "chicago_indie",
+      "cards": 5,
+      "applicable_parts": 54,
+      "pins": 52,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "chihuahua_indie",
+      "cards": 2,
+      "applicable_parts": 22,
+      "pins": 22,
+      "source_count": 3,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "children_s_story",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chilean_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chill_beats",
+      "cards": 1,
+      "applicable_parts": 5,
+      "pins": 5,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "chill_groove",
+      "cards": 3,
+      "applicable_parts": 22,
+      "pins": 21,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "chill_guitar",
+      "cards": 2,
+      "applicable_parts": 30,
+      "pins": 30,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chillsynth",
+      "cards": 1,
+      "applicable_parts": 4,
+      "pins": 4,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "chinderlieder",
+      "cards": 6,
+      "applicable_parts": 53,
+      "pins": 53,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 3,
+      "status": "pass"
+    },
+    {
+      "id": "chinese_audiophile",
+      "cards": 3,
+      "applicable_parts": 31,
+      "pins": 31,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "chinese_experimental",
+      "cards": 3,
+      "applicable_parts": 19,
+      "pins": 19,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "chinese_new_year",
+      "cards": 1,
+      "applicable_parts": 9,
+      "pins": 9,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "chinese_worship",
+      "cards": 1,
+      "applicable_parts": 9,
+      "pins": 9,
+      "source_count": 3,
+      "source_packet": "/tmp/batch025/group121.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "chip_hop",
+      "cards": 2,
+      "applicable_parts": 22,
+      "pins": 22,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "choro_contemporaneo",
+      "cards": 1,
+      "applicable_parts": 6,
+      "pins": 6,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "christchurch_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "christelijk",
+      "cards": 2,
+      "applicable_parts": 22,
+      "pins": 22,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": "unspecified_explicitly_authored",
+      "status": "pass"
+    },
+    {
+      "id": "christian_a_cappella",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 4,
+      "status": "pass"
+    },
+    {
+      "id": "christian_indie",
+      "cards": 6,
+      "applicable_parts": 56,
+      "pins": 55,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "christian_lo_fi",
+      "cards": 1,
+      "applicable_parts": 4,
+      "pins": 4,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "christian_music",
+      "cards": 4,
+      "applicable_parts": 40,
+      "pins": 40,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "christian_uplift",
+      "cards": 2,
+      "applicable_parts": 23,
+      "pins": 23,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "christmas_instrumental",
+      "cards": 1,
+      "applicable_parts": 9,
+      "pins": 9,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "cincinnati_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "circus",
+      "cards": 1,
+      "applicable_parts": 4,
+      "pins": 4,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group122-circus.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "clap_and_tap",
+      "cards": 2,
+      "applicable_parts": 19,
+      "pins": 19,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": "unspecified_explicitly_authored",
+      "status": "pass"
+    },
+    {
+      "id": "clarinet_ensemble",
+      "cards": 1,
+      "applicable_parts": 5,
+      "pins": 5,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group122.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "classic_praise",
+      "cards": 2,
+      "applicable_parts": 26,
+      "pins": 26,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "classic_schlager",
+      "cards": 2,
+      "applicable_parts": 26,
+      "pins": 26,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "classify",
+      "cards": 1,
+      "applicable_parts": 9,
+      "pins": 9,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "clean_comedy",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "cleveland_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "cocuk_masallari",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "cocuk_sarkilari",
+      "cards": 2,
+      "applicable_parts": 26,
+      "pins": 26,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "college_a_cappella",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 14,
+      "status": "pass"
+    },
+    {
+      "id": "cologne_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 3,
+      "status": "pass"
+    },
+    {
+      "id": "colombian_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 3,
+      "status": "pass"
+    },
+    {
+      "id": "color_noise",
+      "cards": 1,
+      "applicable_parts": 5,
+      "pins": 5,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "columbus_ohio_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "comedia",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "comedienne",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "comic",
+      "cards": 2,
+      "applicable_parts": 26,
+      "pins": 26,
+      "source_count": 3,
+      "source_packet": "/tmp/batch025/group123.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "commons",
+      "cards": 2,
+      "applicable_parts": 22,
+      "pins": 22,
+      "source_count": 3,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "comptine_africaine",
+      "cards": 3,
+      "applicable_parts": 25,
+      "pins": 25,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "concepcion_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 3,
+      "status": "pass"
+    },
+    {
+      "id": "concertina",
+      "cards": 1,
+      "applicable_parts": 3,
+      "pins": 3,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "connecticut_indie",
+      "cards": 5,
+      "applicable_parts": 58,
+      "pins": 56,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "contrabass",
+      "cards": 1,
+      "applicable_parts": 10,
+      "pins": 10,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "convent",
+      "cards": 1,
+      "applicable_parts": 17,
+      "pins": 17,
+      "source_count": 2,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": "unspecified_explicitly_authored",
+      "status": "pass"
+    },
+    {
+      "id": "cork_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "cornwall_indie",
+      "cards": 4,
+      "applicable_parts": 45,
+      "pins": 45,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "cosmic_american",
+      "cards": 5,
+      "applicable_parts": 50,
+      "pins": 50,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "countrygaze",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "coventry_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "croatian_indie",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "crossover_prog",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group124.json",
+      "voice_count": 2,
+      "status": "pass"
+    },
+    {
+      "id": "cruise",
+      "cards": 3,
+      "applicable_parts": 12,
+      "pins": 10,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group125-supplement.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "cyberpunk",
+      "cards": 3,
+      "applicable_parts": 13,
+      "pins": 11,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group125-supplement.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "cymraeg",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group125.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "czech_experimental",
+      "cards": 2,
+      "applicable_parts": 8,
+      "pins": 8,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group125.json",
+      "voice_count": 0,
+      "status": "pass"
+    },
+    {
+      "id": "czech_psychedelic",
+      "cards": 4,
+      "applicable_parts": 49,
+      "pins": 47,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group125.json",
+      "voice_count": 3,
+      "status": "pass"
+    },
+    {
+      "id": "dainuojamoji_poezija",
+      "cards": 2,
+      "applicable_parts": 22,
+      "pins": 22,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group125.json",
+      "voice_count": 1,
+      "status": "pass"
+    },
+    {
+      "id": "danish_electropop",
+      "cards": 3,
+      "applicable_parts": 32,
+      "pins": 32,
+      "source_count": 1,
+      "source_packet": "/tmp/batch025/group125.json",
+      "voice_count": 2,
+      "status": "pass"
+    }
+  ],
+  "required_corrections_verified": {
+    "chip_hop": {
+      "sampler_workflow": "sampler_loop_layered",
+      "electronic_technique": "electronic_sample_chopped"
+    },
+    "christian_uplift": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "attack_technique_cl": "tirando_cl"
+    },
+    "choro_contemporaneo": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "attack_technique_cl": "tirando_cl"
+    },
+    "chanson_quebecois": {
+      "bowed_technique": "bowed_pizzicato",
+      "bass_play": "bass_pizz"
+    }
+  },
+  "errors": [],
+  "source_review": {
+    "method": "All100 scoped evidence narratives, classification/distinctness, selected role credits, voice-count decisions and source/default compatibility independently read. Prior named packet reviewers provide detailed primary-source/rights receipts. Focused fresh primary reopens for correction cases; no claim of100 fresh source downloads or new image byte verification.",
+    "primary_rechecks": [
+      "https://gamemusic4all.bandcamp.com/album/game-boy-6-in-1",
+      "https://wilderadkins.bandcamp.com/album/oak-apple",
+      "https://teafor20s.bandcamp.com/track/dans-nos-vieilles-maisons"
+    ],
+    "findings": "Four new-data coherence corrections requested and verified above. All remaining sampler archetype/bit depth/workflow/context combinations coherent. Album/track core reductions and excluded performers explicitly scoped; no full-source-roster claims inferred. Unknown singer counts remain authored or group-only."
+  },
+  "limitations": [
+    "Original celtic_harp merged card exposes only acoustic_strummed_ringing, steam_calliope only keyboard_block_chord_pop: inherited modeling constraints, no new shared-part mutation authorized. The new source roles remain positively supported.",
+    "App snapshot covers complete original import/default surfaces; compile-time global neighbor scoring may still move generated unprotected defaults and must be reviewed separately.",
+    "Full build, API delta, regression and exact-head CI remain separate pending gates."
+  ],
+  "app_scope": {
+    "new_signature_rows": 100,
+    "removed_lines": 0,
+    "logic_change": false
+  },
+  "protected_files_sha256": {
+    "references/01_family_parts.js": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791",
+    "references/02_instruments.js": "94e645a71a7165e5d2ea4b9c1f1e1a7721c8632d6a7f0926e6bd76f3657c71dc",
+    "references/03_rooms_chains_tunings.js": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7",
+    "references/04_tree.js": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90",
+    "scripts/_loader.js": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365",
+    "scripts/_merge.js": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c",
+    "scripts/_seed_workspace.js": "223924a3ce0f08dd0302731cf815d712755dc906b3546986966765dc63ded58d",
+    "scripts/_recipe_stack.js": "b02bb4c770a2639657e5397ad4f36370e19e224098d308c6c5a67ea6434c72bc",
+    "scripts/build_static_api.js": "2bfbacc7291337b62a05e8466cf44feb95258569343a89fdd3d6d2b4b3cf9fd9",
+    "data/geo.json": "982da633b40f967c45f4d06f41f0f1b327a6597e22c3c17d2f19cf9ff6813fac",
+    "references/_tradition_signatures.json": "48c3dba74eb554d3b467a1b1d39c7d67da8aae2ec1818e6f2d938414ff8f244b",
+    "references/_image_manifest.json": "392ba2d66919c1cd13ded1b8d879f06c20f33a5bd9e6d56fb5eee4a03939768e"
+  },
+  "app_snapshot_paths": {
+    "baseline": "/tmp/batch025/baseline-app-pins.json",
+    "current": "/tmp/batch025/current-app-pins-review119.json"
+  },
+  "baseline_rebind": {
+    "old_commit": "33a0824a0538b1205e54445122fdf1daa5fe636e",
+    "new_commit": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
+    "identical_tree": "6609d3346398b29f25fb0d87902893dfa228c173",
+    "old_frozen_sha256": "41f06caca5d6a6737c3a572b9ae519fbaeccab8748aaa4eeec5939112bd0b9e6",
+    "only_change": "required_predecessor",
+    "proof": "Replacing only new predecessor string with old reconstructs byte-exact original reviewed frozen hash; git tree IDs identical."
+  },
+  "atlas_metadata_rebind": {
+    "previous_frozen_sha256": "d4c57e4fec90ff642fc85defd8c3ffd7abaa607dcaee61f199c11e736d880eb4",
+    "new_frozen_sha256": "0e30b15d1925f7573d80b93565f1475be7e19d1bcda04c5aae55b4256c97e7c2",
+    "modified_new_geo_rows": 14,
+    "coordinate_changes": 0,
+    "region_changes": 3,
+    "label_changes": 12,
+    "proof": "Reversed exactly14 logged geo amendments and removed their log records; serialization reproduces byte-exact previously reviewed frozen hash. Thus all non-geo entry fields including source, extras, instruments, pins, photos and coordinates unchanged. Current repo geo matches14 amended rows; all5038 prior geo rows unchanged. Previously hashed API aggregate, tradition/instrument indexes and source files remain byte-identical.",
+    "amendments": [
+      {
+        "id": "kurdish_pop",
+        "field": "geo",
+        "before": [41.008, 28.978, "Istanbul", "Middle East & North Africa"],
+        "after": [41.008, 28.978, "Istanbul", "Middle East"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "chamame_brasilero",
+        "field": "geo",
+        "before": [
+          -20.47,
+          -54.62,
+          "Campo Grande, Mato Grosso do Sul scene",
+          "Latin America & Caribbean"
+        ],
+        "after": [-20.47, -54.62, "Campo Grande", "Latin America & Caribbean"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "channel_islands_indie",
+        "field": "geo",
+        "before": [49.18, -2.11, "St Helier, Jersey", "Europe"],
+        "after": [49.18, -2.11, "St Helier", "Europe"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "chant_basque",
+        "field": "geo",
+        "before": [43.33, -1.32, "Macaye, Basque Country", "Europe"],
+        "after": [43.33, -1.32, "Macaye", "Europe"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "children_s_story",
+        "field": "geo",
+        "before": [34.501, -85.282, "Paradise Garden, Summerville", "North America"],
+        "after": [34.501, -85.282, "Paradise Garden (Summerville)", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "chinese_worship",
+        "field": "geo",
+        "before": [33.745, -117.826, "Tustin, California — ministry base", "North America"],
+        "after": [33.745, -117.826, "Tustin (ministry base)", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "christian_lo_fi",
+        "field": "geo",
+        "before": [34.17, -80.06, "Lamar, South Carolina", "North America"],
+        "after": [34.17, -80.06, "Lamar", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "cleveland_indie",
+        "field": "geo",
+        "before": [41.499, -81.694, "Cleveland, Ohio", "North America"],
+        "after": [41.499, -81.694, "Cleveland", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "cocuk_masallari",
+        "field": "geo",
+        "before": [39.0, 35.0, "Türkiye", "West Asia"],
+        "after": [39.0, 35.0, "Türkiye", "Middle East"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "cocuk_sarkilari",
+        "field": "geo",
+        "before": [40.99, 29.03, "Kadıköy, Istanbul", "West Asia"],
+        "after": [40.99, 29.03, "Kadıköy", "Middle East"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "college_a_cappella",
+        "field": "geo",
+        "before": [41.308, -72.928, "New Haven, Connecticut", "North America"],
+        "after": [41.308, -72.928, "New Haven", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "color_noise",
+        "field": "geo",
+        "before": [43.073, -89.401, "Madison, Wisconsin", "North America"],
+        "after": [43.073, -89.401, "Madison", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "columbus_ohio_indie",
+        "field": "geo",
+        "before": [39.961, -82.999, "Columbus, Ohio", "North America"],
+        "after": [39.961, -82.999, "Columbus", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      },
+      {
+        "id": "convent",
+        "field": "geo",
+        "before": [39.61, -94.6, "Gower, Missouri community", "North America"],
+        "after": [39.61, -94.6, "Gower (community)", "North America"],
+        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+      }
+    ]
+  }
+}
