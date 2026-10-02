@@ -3960,7 +3960,9 @@ class Reviser:
                 whole.append(Finding(
                     "MANDATE_GROUPS_INDISTINGUISHABLE", "note",
                     f"groups {la} {ma} and {lb} {mb} would pass as ONE group "
-                    f"— every cross pair rhymes — so the mandate splits a "
+                    f"— every cross pair scores at or above the collision "
+                    f"cut ({THETA_COLLISION}), rhyme or near rhyme alike "
+                    f"(the edges below name which) — so the mandate splits a "
                     f"group the graph does not, and each of the "
                     f"{len(mg['edges'])} cross pairs is reported as a "
                     f"collision purely because the letters differ",

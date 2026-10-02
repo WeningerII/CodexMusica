@@ -5899,9 +5899,20 @@ def _record_schemas(r):
     registry names in `satisfied_by` (which also lists coarse relations)."""
     if r.get("schemas") is not None:
         return list(r["schemas"])
-    return [n for n in (r.get("satisfied_by") or ())
-            if n not in ADMITTABLE_RELATIONS and n not in (
-                "REPEAT", NO_ANCHOR)]
+    # A DECLARED relation is stored namespaced (`schema:perfect rhyme`,
+    # `class:RHYME`, `type:pararhyme`). Only the `schema:` namespace names a
+    # registry schema; read as a bare name, `schema:perfect rhyme` resolved to
+    # nothing and a declared perfect rhyme was reported "not heard as end
+    # rhyme", and `class:RHYME` was listed as a schema (2026-10-02).
+    out = []
+    for n in r.get("satisfied_by") or ():
+        if n.startswith("schema:"):
+            out.append(n[len("schema:"):])
+        elif n.startswith(("class:", "type:")):
+            continue
+        elif n not in ADMITTABLE_RELATIONS and n not in ("REPEAT", NO_ANCHOR):
+            out.append(n)
+    return out
 
 
 def schema_default_disclosure(sch_sat):

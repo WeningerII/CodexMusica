@@ -1867,6 +1867,23 @@ def test_the_default_doors_are_priced_where_they_answer():
           and "1 read as END RHYME and 0 do NOT" in sd_aud
           and "not heard as end rhyme" not in sd_aud,
           sd_aud)
+    # A DECLARED relation is stored namespaced. `schema:perfect rhyme` names
+    # the registry's `perfect rhyme` and is end rhyme; `class:RHYME` is a
+    # coarse relation and names no schema (2026-10-02: the first was reported
+    # "not heard as end rhyme" and the second listed as a schema).
+    sd_decl = _LH.schema_default_disclosure(
+        [{"lines": (1, 2), "label": "A",
+          "satisfied_by": ["schema:perfect rhyme"]}])
+    check("a declared `schema:` relation is read as its registry schema, so "
+          "a declared perfect rhyme reads as END RHYME; a declared `class:` "
+          "relation names no schema",
+          sd_decl is not None
+          and "L1~L2 (group A): perfect rhyme" in sd_decl
+          and "1 read as END RHYME and 0 do NOT" in sd_decl
+          and _LH.schema_default_disclosure(
+              [{"lines": (1, 2), "label": "A",
+                "satisfied_by": ["class:RHYME"]}]) is None,
+          sd_decl)
     sd_bad = _LH.schema_default_disclosure(
         [{"lines": (1, 2), "label": "C", "satisfied_by": ["no such schema"]}])
     check("M-140: a name the registry cannot resolve counts as NOT audible "

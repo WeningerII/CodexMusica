@@ -252,6 +252,24 @@ const bridge = createPythonBridge({
   getContext: requestContext,
   openKitchenBudget,
 });
+// A lookup does not wait behind a grade. In the song runs of 2026-09-30,
+// twelve `lyric_types` calls passed the caller's 60 s limit while a grade
+// or revise held the one serial queue, though the lookup itself takes about
+// 2.5 s. Lookups get their own queue and a one-shot process (no warm
+// worker): measured at about 2.5 s and 283 MB peak a call, so one at a time
+// fits beside the warm worker in the service's 2 GB.
+const LOOKUP_MAX_ADMITTED = 8;
+const lookupBridge = createPythonBridge({
+  python: PYTHON,
+  harnessDir: HARNESS_DIR,
+  workerPath: WORKER_PATH,
+  harnessEnv,
+  timeoutMs: SUBPROCESS_TIMEOUT_MS,
+  maxOutputBytes: MAX_OUTPUT_BYTES,
+  workerEnabled: false,
+  getContext: requestContext,
+  maxAdmitted: LOOKUP_MAX_ADMITTED,
+});
 const admissionScope = new AsyncLocalStorage();
 const runVerb = (args, options = {}) =>
   bridge.runVerb(args, {
@@ -3228,7 +3246,8 @@ export function registerLyricTools(server, tool) {
       checkWords([a.word_a, a.word_b]);
       // The position completes the coordinate; without one the harness names
       // nothing, because most names are defined at a place in the line.
-      const r = await runVerb([
+      // Its own queue: see `lookupBridge`.
+      const r = await lookupBridge.runVerb([
         'types',
         a.word_a,
         '--',
