@@ -1,101 +1,141 @@
 # Revise-loop redesign — status
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
-Last update: 2026-10-02, Phase 1 in progress (3 of 4 defects reproduced).
+Last update: 2026-10-02, **Phase 1 nearly done**. All four defects are
+reproduced. The long-draft measurements are mostly in, and two are still
+running.
 
 ## Current phase
 
-**Phase 1 — verify.** No code changes yet.
+**Phase 1 — verify.** No production code has changed.
+
+A design draft is already written, marked pre-debate:
+`lyric-harness/quality/LOOP_REDESIGN.md`. It is not built, and it will be
+revised with the findings below before the debate runs.
 
 ## What I did
 
 - Read `lyric-harness/CLAUDE.md` (the five standing rules, the loop section,
-  test discipline) and the two song-run reports (`claude/songrun-20-ballad`,
-  `claude/songrun-40-soul`). I did not find reports for the 60/80/100-line
-  runs on any remote branch. If they exist somewhere else, a pointer would help.
-- Mapped the code paths, with file:line references, for:
-  - the harness `defer:` protocol: `lyric_harness.py` `_defer_proposer`,
-    `quality/loop.py` `revise_loop`, `quality/replay_memo.py`;
-  - the connector `lyric_revise`: `mcp/lyric_tools.js`, `python_bridge.js`,
-    `workflow_sessions.js`, `client.js`, `run_store.js`.
-- Staged the local runtime (`cmudict.dict`, the nltk wheels pinned in
-  `mcp/requirements-runtime.txt`, `quality/fetch_data.py`). Built fixture
-  drafts at 24, 60 and 104 lines the same way the connector's live test
-  builds them (`plan --seed=1 --lines=N`, the fixture line bank, the
-  declared returns honoured).
+  test discipline) and the song-run reports on `claude/songrun-20-ballad` and
+  `claude/songrun-40-soul`. I found no reports for the 60, 80 or 100-line runs
+  on any remote branch. A pointer to them would help.
+- Mapped the harness `defer:` protocol and the connector's `lyric_revise`
+  path, with file:line references.
+- Staged the runtime locally and reproduced each defect through a real verb or
+  through the real connector and session code.
+- Committed the measurement scripts, with a README, in
+  `lyric-harness/quality/loop_redesign_phase1/`. None of them produced a song.
 
-## What I measured so far
+## The four defects: all reproduced
 
-- **The first deferred `finish` call on the 24-line fixture draft, run cold
-  on this box, had been running more than 11 minutes and was still in round
-  1 when I took the profile.** A 60-second `py-spy` profile puts 100% of
-  samples under `loop._materialize` → `Reviser.brief(target_lines=…)` →
-  `Reviser.declared_offer` → `Reviser.grade`. In other words, the time goes
-  into building the per-line offer menu, which grades each candidate word
-  against the draft.
-- The final timing is not in yet. It will be recorded here when the call
-  returns.
-- `song` (one whole-draft grade) on the fixture drafts: **24 lines 97.8 s,
-  517,529 bytes of report; 60 lines 324.8 s, 1,627,839 bytes.** 104 lines
-  is running.
-- Pasted 24-line couplet song, deferred `revise` under the connector's
-  defaults, answered mechanically by a scratch measurement driver (it never
-  produced a song): first call 53.1 s with a 12-line batch question of
-  103,921 bytes; later calls 15.3, 56.1, 30.2, 35.4, 37.6 s at 12, 13, 24,
-  25, 26 answers on record.
+1. **Replay growth: REPRODUCED.** Each continuation re-runs the loop from
+   round 1 and replays every answer on record. On one state with 27 answers,
+   replaying alone took **47.0 s** of a **49.8 s** continuation, about 94% of
+   the call. Per-call times are in the table below.
+2. **No verdict on batch answers: REPRODUCED.** I ran `revise` on a 4-line
+   AABB draft under the connector's defaults (`--attempts=1 --backtrack=1`),
+   which asked L2 and L4 as one batch. L2 got its verdict. L4's answer, a word
+   from L4's own OFFERED list, got none: the loop moved straight to a group
+   question about L1+L2. The connector's own `foldedOf` renders L4 as
+   `unknown` / `unverified`.
+3. **Killed continuations: REPRODUCED** through the real session layer, with a
+   10 s and a 12 s tool budget on a 3-line song. After the kill:
+   - the operation reads `completed` with `resumable: false`;
+   - `resume_operation` refuses with `RESUME_NOT_INTERRUPTED`;
+   - re-sending the same answer is refused ("`state` holds no pending
+     question");
+   - the no-answer continuation is killed again at the same budget, because
+     the kill also kills the warm worker.
+4. **Empty group menus: REPRODUCED.** On a 2-line couplet, L2's line question
+   offered 4 words. One call later, after a rejected answer, the group question
+   printed `(none offered)` for both lines. The code records this as a
+   deliberate choice (M-205); the owner has since named it a defect.
 
-## Defects reproduced so far (through real verbs or the real connector code)
+## Long drafts: what I measured
 
-- **Defect 2 (batch answers with no verdict): REPRODUCED.** `revise` on a
-  4-line AABB draft (`--relation=class:RHYME --attempts=1 --backtrack=1`, the
-  connector's defaults) asked L2 and L4 as one batch. I answered L2 with a
-  miss and L4 with a word from its own OFFERED list. After the call, the state
-  held both answers, but `outcomes` held only L2 (`rejected`, "nothing was
-  fixed"), and the next question was a group question on L1+L2. The
-  connector's own `foldedOf` (from `mcp/lyric_tools.js`), fed those two
-  states, renders L4 as `verdict: "unknown", source: "unverified"`.
-- **Defect 3 (killed continuations): REPRODUCED** through the real session
-  layer (`buildWorkflowServer` + `WorkflowSessions` + the real worker), with
-  a 10 s and a 12 s tool budget (`CHAT_TOOL_TIMEOUT_MS`) on a 3-line pasted
-  song. When the answering call is killed: `exit_code -1`, the operation
-  reads `status: completed, resumable: false`; `resume_operation` refuses
-  with `RESUME_NOT_INTERRUPTED`; re-sending the same answer is refused with
-  "`state` holds no pending question". A no-answer continuation is then
-  killed again at the same budget: the kill also kills the warm worker, so
-  the retry pays a cold start plus the full replay.
-- **Defect 4 (empty group menus): REPRODUCED.** `revise` on a 2-line couplet
-  (same flags). L2's line question offered 4 words (`tov, hargrove, alcove,
-  mangrove`). After a rejected answer, the group question for L1+L2 printed
-  `(none offered)` for the pivot and for L1. The code records this as a
-  deliberate choice (M-205: a pivot bound by one group "may take ANY word").
-  The owner has since named it a defect.
-- **Defect 1 (replay growth):** being measured (below).
+### One whole-draft grade (`song`, cold) on the planner fixture drafts
 
-## What the code reading says (still to be confirmed by running it)
+| lines | time | report size |
+|---|---|---|
+| 24 | 97.8 s | 517,529 B |
+| 60 | 324.8 s | 1,627,839 B |
+| 104 | **1,307.3 s** | 4,032,610 B, just under the connector's 4 MiB output cap |
 
-1. **Replay:** a continuation re-runs `revise_loop` from round 1 on the
-   input draft and replays every recorded answer. Each replayed answer
-   costs a whole-draft `verify`, which is two full `inspect`s. The replay
-   memo lives in one process only, and a kill restarts the worker, which
-   empties it.
-2. **Batch verdicts:** a batch member's verdict exists only once the
-   loop's linear walk reaches it. The call usually suspends on the next
-   question before that happens.
-3. **Killed continuations:** the bridge turns a kill into a normal tool
-   result. The session layer then marks the operation `completed`, not
-   `interrupted`, so `resume_operation` refuses it. The returned state is a
-   checkpoint taken after the answer was folded in, so it has no pending
-   question.
-4. **Empty group menus:** the pivot and anchor menus in `_try_tier2` are
-   searched only against a word's other groups. A word bound by one group
-   (an ordinary couplet) gets no search at all.
+The fixture is built the way `mcp/test.mjs` builds it, and is a worst case:
+nearly every line is open, and no relation is declared, so every group is
+judged against the whole relation vocabulary.
+
+### The first deferred `finish` call on the 24-line fixture
+
+It ran at least **31 min 42 s** and never asked its first question. The last
+checkpoint it wrote was round 1, `grading`. By the profile, it was building
+offer menus for every line in the first batch. It was stopped by my session's
+time limit. I did not run it at 60 or 104 lines.
+
+### Replay curves on pasted couplet songs
+
+Connector defaults, one relation declared (`class:RHYME`), one cold process
+per call.
+
+| lines | seconds per call, by answers on record |
+|---|---|
+| 24 | 53.1 (0) · 15.3 (12) · 56.1 (13) · 30.2 (24) · 35.4 (25) · 37.6 (26) · 43.9 (27) · 49.8 (28) · 51.1 (29) · 57.7 (30) · 65.2 (31) · 68.9 (32) |
+| 60 | 50.0 (0) · 49.0 (1) · 95.9 (2) · 97.7 (3) · 171.8 (4) · 173.0 (5) |
+| 104 | 88.6 (0) · 82.7 (1) · still running |
+
+On the 60-line song, each group answer adds about 70 s to every later call.
+
+### One line's acceptance check (`tryline`, which is the loop's `verify`), 24-line fixture
+
+| run | time |
+|---|---|
+| cold | 424.8 s |
+| warm, same process, same line | 261.1 s |
+
+A 60-second profile of the warm call puts **100% of samples** under `verify` →
+`brief(target_lines=…)` → `declared_offer` → `grade`. In other words, `verify`
+builds and grades the changed line's whole offer menu. Its rule 3 then reads
+one fact from that menu: whether the new word is on the forbidden list.
+
+To price this, I ran the same `tryline` sequence with `verify`'s internal
+brief asked for no offers. This was an in-process patch for measurement only,
+and it skips rule 3, so it gives a lower bound rather than a replacement:
+
+| run | time |
+|---|---|
+| cold | 162.8 s |
+| warm, same line | 89.4 s |
+| warm, other line | 112.1 s |
+
+The verdicts were the same in all three. What remains is the whole-draft
+re-inspection: 68% of it is in `relations.whole_vocabulary_pairs`.
+
+The 60 and 104-line runs of both `tryline` variants are still running.
+
+## What this changes in the design draft
+
+- **Resume from a saved position** still removes the growth (defect 1).
+- **But at 104 lines one cold whole grade alone is 1,307 s**, more than twice
+  the 600 s call deadline. So the per-answer verification cost must come down
+  too, or a long song cannot take even one answer per call. Two measured
+  levers:
+  1. `verify` should stop building offer menus it does not read. It needs a
+     yes/no for one word. This must be exactly equivalent, pinned by a test
+     that compares verdicts.
+  2. The rest is the grader's own whole-draft cost. The per-pair memo that
+     makes warm re-grading cheap holds 4,096 rows per schema, which its own
+     comment says covers a whole draft **only up to 91 lines**. The edge memo
+     switches off past the same size. That cost is the open M-240. The design
+     will state this floor plainly at each length rather than claim to fix it.
 
 ## Next
 
-Reproduce each defect through the real verb or the real connector code, then
-measure time per call, state bytes and questions asked at 24, 60 and 104
-lines.
+1. Finish the 104-line replay curve and the 60/104-line `tryline` timings.
+2. Revise `LOOP_REDESIGN.md` with the findings above.
+3. Close Phase 1, then run the debate workflow.
 
 ## Open questions
 
-None yet.
+None for the owner yet. One will likely come: whether the per-pair memo bound
+(4,096 rows, set aside under M-240) may be sized to the draft. Changing it is
+"a behaviour change with its own record". I will put it to the debate first.
