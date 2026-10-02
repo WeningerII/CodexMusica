@@ -74,6 +74,25 @@ does not, B alone cannot fix this case, and the choice is between A and C.
 **Until you answer I build nothing more for this.** The validation of what is
 already built continues.
 
+### Validation at `58b59b28` (base merged, steps 1-5 built)
+
+| suite | result |
+|---|---|
+| `quality/test_loop_redesign.py` (8 sections: T8, T3, T6, T1/T2, T1/T7 on the verb, T4, T5, group menus across calls) | **ALL PASS** (2,155 s) |
+| `quality/test_loop.py` | **exit 0** (728 s) |
+| `quality/test_revise.py` | **exit 0** (1,060 s) |
+| `quality/test_verbs.py` | **exit 0** (3,066 s) |
+| `quality/test_replay_memo.py` | **exit 0** (240 s) |
+| `quality/test_production_journal.py` | **exit 0** (23 s) |
+| `mcp/test_loop_redesign.mjs`, `test_deferred_continuation`, `test_continuation_audit`, `test_state_codec`, `test_verdict_view`, the four `test_chatgpt*`, `test_lyric_workflow`, `test_session_repairs`, `test_kitchen_repairs` | **all exit 0** |
+| `mcp/test.mjs` | **184 pass, 1 fail**: "lyric family" |
+| `mcp/test_run_continuation.mjs` | **fails** (624 s) |
+
+The two failures are the same inherited case, PR #460's red `verify`: the
+24-line first call outlasts the 600 s call before any safe point. That is the
+owner question above. Every other failure from the earlier runs is fixed:
+the fold row's answer, the T7 test bug, and the stranded Phase 1 scripts.
+
 ### Re-timing on the merged tree (coordinator's request)
 
 One continuation's parts, 24-line fixture, `--relation=class:RHYME`, alone on
