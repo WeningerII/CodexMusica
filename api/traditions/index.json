@@ -1,5 +1,5 @@
 {
-  "count": 4538,
+  "count": 4638,
   "items": [
     {
       "id": "honky_tonk",
@@ -27228,6 +27228,606 @@
       "name": "Classical trumpet",
       "family": "classical",
       "href": "traditions/classical_trumpet.json"
+    },
+    {
+      "id": "cambridge_choir",
+      "name": "Cambridge choir",
+      "family": "classical",
+      "href": "traditions/cambridge_choir.json"
+    },
+    {
+      "id": "canadian_choir",
+      "name": "Canadian choir",
+      "family": "classical",
+      "href": "traditions/canadian_choir.json"
+    },
+    {
+      "id": "cathedral_choir",
+      "name": "Cathedral choir",
+      "family": "classical",
+      "href": "traditions/cathedral_choir.json"
+    },
+    {
+      "id": "chamber_orchestra",
+      "name": "Chamber orchestra",
+      "family": "classical",
+      "href": "traditions/chamber_orchestra.json"
+    },
+    {
+      "id": "children_s_choir",
+      "name": "Children's choir",
+      "family": "classical",
+      "href": "traditions/children_s_choir.json"
+    },
+    {
+      "id": "classical_mandolin",
+      "name": "Classical mandolin",
+      "family": "classical",
+      "href": "traditions/classical_mandolin.json"
+    },
+    {
+      "id": "classical_mezzo_soprano",
+      "name": "Classical mezzo-soprano",
+      "family": "classical",
+      "href": "traditions/classical_mezzo_soprano.json"
+    },
+    {
+      "id": "classical_organ",
+      "name": "Classical organ",
+      "family": "classical",
+      "href": "traditions/classical_organ.json"
+    },
+    {
+      "id": "classical_percussion",
+      "name": "Classical percussion",
+      "family": "classical",
+      "href": "traditions/classical_percussion.json"
+    },
+    {
+      "id": "classical_saxophone",
+      "name": "Classical saxophone",
+      "family": "classical",
+      "href": "traditions/classical_saxophone.json"
+    },
+    {
+      "id": "classical_soprano",
+      "name": "Classical soprano",
+      "family": "classical",
+      "href": "traditions/classical_soprano.json"
+    },
+    {
+      "id": "classical_string_trio",
+      "name": "Classical string trio",
+      "family": "classical",
+      "href": "traditions/classical_string_trio.json"
+    },
+    {
+      "id": "classical_tenor",
+      "name": "Classical tenor",
+      "family": "classical",
+      "href": "traditions/classical_tenor.json"
+    },
+    {
+      "id": "classical_trombone",
+      "name": "Classical trombone",
+      "family": "classical",
+      "href": "traditions/classical_trombone.json"
+    },
+    {
+      "id": "contemporary_choir",
+      "name": "Contemporary choir",
+      "family": "classical",
+      "href": "traditions/contemporary_choir.json"
+    },
+    {
+      "id": "contemporary_classical",
+      "name": "Contemporary classical",
+      "family": "classical",
+      "href": "traditions/contemporary_classical.json"
+    },
+    {
+      "id": "czech_classical",
+      "name": "Czech classical",
+      "family": "classical",
+      "href": "traditions/czech_classical.json"
+    },
+    {
+      "id": "czech_contemporary_classical",
+      "name": "Czech contemporary classical",
+      "family": "classical",
+      "href": "traditions/czech_contemporary_classical.json"
+    },
+    {
+      "id": "danish_choir",
+      "name": "Danish choir",
+      "family": "classical",
+      "href": "traditions/danish_choir.json"
+    },
+    {
+      "id": "dutch_classical_piano",
+      "name": "Dutch classical piano",
+      "family": "classical",
+      "href": "traditions/dutch_classical_piano.json"
+    },
+    {
+      "id": "french_classical_piano",
+      "name": "French classical piano",
+      "family": "classical",
+      "href": "traditions/french_classical_piano.json"
+    },
+    {
+      "id": "finnish_contemporary_classical",
+      "name": "Finnish contemporary classical",
+      "family": "classical",
+      "href": "traditions/finnish_contemporary_classical.json"
+    },
+    {
+      "id": "finnish_classical",
+      "name": "Finnish classical",
+      "family": "classical",
+      "href": "traditions/finnish_classical.json"
+    },
+    {
+      "id": "french_contemporary_classical",
+      "name": "French contemporary classical",
+      "family": "classical",
+      "href": "traditions/french_contemporary_classical.json"
+    },
+    {
+      "id": "german_contemporary_classical",
+      "name": "German contemporary classical",
+      "family": "classical",
+      "href": "traditions/german_contemporary_classical.json"
+    },
+    {
+      "id": "greek_contemporary_classical",
+      "name": "Greek contemporary classical",
+      "family": "classical",
+      "href": "traditions/greek_contemporary_classical.json"
+    },
+    {
+      "id": "german_classical_piano",
+      "name": "German classical piano",
+      "family": "classical",
+      "href": "traditions/german_classical_piano.json"
+    },
+    {
+      "id": "danish_classical",
+      "name": "Danish classical",
+      "family": "classical",
+      "href": "traditions/danish_classical.json"
+    },
+    {
+      "id": "danish_contemporary_classical",
+      "name": "Danish contemporary classical",
+      "family": "classical",
+      "href": "traditions/danish_contemporary_classical.json"
+    },
+    {
+      "id": "dutch_contemporary_classical",
+      "name": "Dutch contemporary classical",
+      "family": "classical",
+      "href": "traditions/dutch_contemporary_classical.json"
+    },
+    {
+      "id": "english_baroque",
+      "name": "English baroque",
+      "family": "classical",
+      "href": "traditions/english_baroque.json"
+    },
+    {
+      "id": "dutch_baroque",
+      "name": "Dutch baroque",
+      "family": "classical",
+      "href": "traditions/dutch_baroque.json"
+    },
+    {
+      "id": "experimental_classical",
+      "name": "Experimental classical",
+      "family": "classical",
+      "href": "traditions/experimental_classical.json"
+    },
+    {
+      "id": "harlem_renaissance",
+      "name": "Harlem renaissance",
+      "family": "jazz",
+      "href": "traditions/harlem_renaissance.json"
+    },
+    {
+      "id": "historic_classical_performance",
+      "name": "Historic classical performance",
+      "family": "classical",
+      "href": "traditions/historic_classical_performance.json"
+    },
+    {
+      "id": "historic_orchestral_performance",
+      "name": "Historic orchestral performance",
+      "family": "classical",
+      "href": "traditions/historic_orchestral_performance.json"
+    },
+    {
+      "id": "historic_string_quartet",
+      "name": "Historic string quartet",
+      "family": "classical",
+      "href": "traditions/historic_string_quartet.json"
+    },
+    {
+      "id": "hungarian_choir",
+      "name": "Hungarian choir",
+      "family": "classical",
+      "href": "traditions/hungarian_choir.json"
+    },
+    {
+      "id": "hungarian_classical_performance",
+      "name": "Hungarian classical performance",
+      "family": "classical",
+      "href": "traditions/hungarian_classical_performance.json"
+    },
+    {
+      "id": "hungarian_classical_piano",
+      "name": "Hungarian classical piano",
+      "family": "classical",
+      "href": "traditions/hungarian_classical_piano.json"
+    },
+    {
+      "id": "hungarian_contemporary_classical",
+      "name": "Hungarian contemporary classical",
+      "family": "classical",
+      "href": "traditions/hungarian_contemporary_classical.json"
+    },
+    {
+      "id": "icelandic_choir",
+      "name": "Icelandic choir",
+      "family": "classical",
+      "href": "traditions/icelandic_choir.json"
+    },
+    {
+      "id": "icelandic_classical",
+      "name": "Icelandic classical",
+      "family": "classical",
+      "href": "traditions/icelandic_classical.json"
+    },
+    {
+      "id": "indian_classical",
+      "name": "Indian classical",
+      "family": "classical",
+      "href": "traditions/indian_classical.json"
+    },
+    {
+      "id": "irish_classical",
+      "name": "Irish classical",
+      "family": "classical",
+      "href": "traditions/irish_classical.json"
+    },
+    {
+      "id": "irish_contemporary_classical",
+      "name": "Irish contemporary classical",
+      "family": "classical",
+      "href": "traditions/irish_contemporary_classical.json"
+    },
+    {
+      "id": "israeli_classical",
+      "name": "Israeli classical",
+      "family": "classical",
+      "href": "traditions/israeli_classical.json"
+    },
+    {
+      "id": "israeli_classical_piano",
+      "name": "Israeli classical piano",
+      "family": "classical",
+      "href": "traditions/israeli_classical_piano.json"
+    },
+    {
+      "id": "italian_baroque_ensemble",
+      "name": "Italian baroque ensemble",
+      "family": "classical",
+      "href": "traditions/italian_baroque_ensemble.json"
+    },
+    {
+      "id": "italian_choir",
+      "name": "Italian choir",
+      "family": "classical",
+      "href": "traditions/italian_choir.json"
+    },
+    {
+      "id": "italian_classical_guitar",
+      "name": "Italian classical guitar",
+      "family": "classical",
+      "href": "traditions/italian_classical_guitar.json"
+    },
+    {
+      "id": "italian_classical_piano",
+      "name": "Italian classical piano",
+      "family": "classical",
+      "href": "traditions/italian_classical_piano.json"
+    },
+    {
+      "id": "italian_contemporary_classical",
+      "name": "Italian contemporary classical",
+      "family": "classical",
+      "href": "traditions/italian_contemporary_classical.json"
+    },
+    {
+      "id": "italian_opera",
+      "name": "Italian opera",
+      "family": "classical",
+      "href": "traditions/italian_opera.json"
+    },
+    {
+      "id": "italian_orchestra",
+      "name": "Italian orchestra",
+      "family": "classical",
+      "href": "traditions/italian_orchestra.json"
+    },
+    {
+      "id": "italian_renaissance",
+      "name": "Italian renaissance",
+      "family": "classical",
+      "href": "traditions/italian_renaissance.json"
+    },
+    {
+      "id": "japanese_choir",
+      "name": "Japanese choir",
+      "family": "classical",
+      "href": "traditions/japanese_choir.json"
+    },
+    {
+      "id": "japanese_classical",
+      "name": "Japanese classical",
+      "family": "classical",
+      "href": "traditions/japanese_classical.json"
+    },
+    {
+      "id": "japanese_classical_performance",
+      "name": "Japanese classical performance",
+      "family": "classical",
+      "href": "traditions/japanese_classical_performance.json"
+    },
+    {
+      "id": "japanese_classical_piano",
+      "name": "Japanese classical piano",
+      "family": "classical",
+      "href": "traditions/japanese_classical_piano.json"
+    },
+    {
+      "id": "korean_classical_piano",
+      "name": "Korean classical piano",
+      "family": "classical",
+      "href": "traditions/korean_classical_piano.json"
+    },
+    {
+      "id": "latin_american_classical_piano",
+      "name": "Latin american classical piano",
+      "family": "classical",
+      "href": "traditions/latin_american_classical_piano.json"
+    },
+    {
+      "id": "nordic_classical_piano",
+      "name": "Nordic classical piano",
+      "family": "classical",
+      "href": "traditions/nordic_classical_piano.json"
+    },
+    {
+      "id": "norwegian_classical",
+      "name": "Norwegian classical",
+      "family": "classical",
+      "href": "traditions/norwegian_classical.json"
+    },
+    {
+      "id": "new_zealand_classical",
+      "name": "New zealand classical",
+      "family": "classical",
+      "href": "traditions/new_zealand_classical.json"
+    },
+    {
+      "id": "japanese_contemporary_classical",
+      "name": "Japanese contemporary classical",
+      "family": "classical",
+      "href": "traditions/japanese_contemporary_classical.json"
+    },
+    {
+      "id": "korean_contemporary_classical",
+      "name": "Korean contemporary classical",
+      "family": "classical",
+      "href": "traditions/korean_contemporary_classical.json"
+    },
+    {
+      "id": "nordic_contemporary_classical",
+      "name": "Nordic contemporary classical",
+      "family": "classical",
+      "href": "traditions/nordic_contemporary_classical.json"
+    },
+    {
+      "id": "mexican_classical",
+      "name": "Mexican classical",
+      "family": "classical",
+      "href": "traditions/mexican_classical.json"
+    },
+    {
+      "id": "latin_classical",
+      "name": "Latin classical",
+      "family": "classical",
+      "href": "traditions/latin_classical.json"
+    },
+    {
+      "id": "oriental_classical",
+      "name": "Oriental classical",
+      "family": "classical",
+      "href": "traditions/oriental_classical.json"
+    },
+    {
+      "id": "korean_classical_performance",
+      "name": "Korean classical performance",
+      "family": "classical",
+      "href": "traditions/korean_classical_performance.json"
+    },
+    {
+      "id": "polish_classical",
+      "name": "Polish classical",
+      "family": "classical",
+      "href": "traditions/polish_classical.json"
+    },
+    {
+      "id": "polish_classical_piano",
+      "name": "Polish classical piano",
+      "family": "classical",
+      "href": "traditions/polish_classical_piano.json"
+    },
+    {
+      "id": "polish_contemporary_classical",
+      "name": "Polish contemporary classical",
+      "family": "classical",
+      "href": "traditions/polish_contemporary_classical.json"
+    },
+    {
+      "id": "portuguese_classical",
+      "name": "Portuguese classical",
+      "family": "classical",
+      "href": "traditions/portuguese_classical.json"
+    },
+    {
+      "id": "portuguese_contemporary_classical",
+      "name": "Portuguese contemporary classical",
+      "family": "classical",
+      "href": "traditions/portuguese_contemporary_classical.json"
+    },
+    {
+      "id": "romanian_classical_piano",
+      "name": "Romanian classical piano",
+      "family": "classical",
+      "href": "traditions/romanian_classical_piano.json"
+    },
+    {
+      "id": "romanian_contemporary_classical",
+      "name": "Romanian contemporary classical",
+      "family": "classical",
+      "href": "traditions/romanian_contemporary_classical.json"
+    },
+    {
+      "id": "russian_classical_piano",
+      "name": "Russian classical piano",
+      "family": "classical",
+      "href": "traditions/russian_classical_piano.json"
+    },
+    {
+      "id": "spanish_classical",
+      "name": "Spanish classical",
+      "family": "classical",
+      "href": "traditions/spanish_classical.json"
+    },
+    {
+      "id": "spanish_contemporary_classical",
+      "name": "Spanish contemporary classical",
+      "family": "classical",
+      "href": "traditions/spanish_contemporary_classical.json"
+    },
+    {
+      "id": "swedish_classical",
+      "name": "Swedish classical",
+      "family": "classical",
+      "href": "traditions/swedish_classical.json"
+    },
+    {
+      "id": "polish_choir",
+      "name": "Polish choir",
+      "family": "classical",
+      "href": "traditions/polish_choir.json"
+    },
+    {
+      "id": "school_choir",
+      "name": "School choir",
+      "family": "classical",
+      "href": "traditions/school_choir.json"
+    },
+    {
+      "id": "spanish_renaissance",
+      "name": "Spanish renaissance",
+      "family": "classical",
+      "href": "traditions/spanish_renaissance.json"
+    },
+    {
+      "id": "string_orchestra",
+      "name": "String orchestra",
+      "family": "classical",
+      "href": "traditions/string_orchestra.json"
+    },
+    {
+      "id": "spanish_classical_piano",
+      "name": "Spanish classical piano",
+      "family": "classical",
+      "href": "traditions/spanish_classical_piano.json"
+    },
+    {
+      "id": "russian_contemporary_classical",
+      "name": "Russian contemporary classical",
+      "family": "classical",
+      "href": "traditions/russian_contemporary_classical.json"
+    },
+    {
+      "id": "russian_modern_classical",
+      "name": "Russian modern classical",
+      "family": "classical",
+      "href": "traditions/russian_modern_classical.json"
+    },
+    {
+      "id": "early_music_choir",
+      "name": "Early music choir",
+      "family": "classical",
+      "href": "traditions/early_music_choir.json"
+    },
+    {
+      "id": "german_choir",
+      "name": "German choir",
+      "family": "classical",
+      "href": "traditions/german_choir.json"
+    },
+    {
+      "id": "finnish_choir",
+      "name": "Finnish choir",
+      "family": "classical",
+      "href": "traditions/finnish_choir.json"
+    },
+    {
+      "id": "french_orchestra",
+      "name": "French orchestra",
+      "family": "classical",
+      "href": "traditions/french_orchestra.json"
+    },
+    {
+      "id": "german_orchestra",
+      "name": "German orchestra",
+      "family": "classical",
+      "href": "traditions/german_orchestra.json"
+    },
+    {
+      "id": "french_opera",
+      "name": "French opera",
+      "family": "classical",
+      "href": "traditions/french_opera.json"
+    },
+    {
+      "id": "german_opera",
+      "name": "German opera",
+      "family": "classical",
+      "href": "traditions/german_opera.json"
+    },
+    {
+      "id": "french_renaissance",
+      "name": "French renaissance",
+      "family": "classical",
+      "href": "traditions/french_renaissance.json"
+    },
+    {
+      "id": "german_renaissance",
+      "name": "German renaissance",
+      "family": "classical",
+      "href": "traditions/german_renaissance.json"
+    },
+    {
+      "id": "oxford_choir",
+      "name": "Oxford choir",
+      "family": "classical",
+      "href": "traditions/oxford_choir.json"
     }
   ]
 }

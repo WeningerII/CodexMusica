@@ -1,0 +1,70 @@
+{
+  "id": "classical_organ",
+  "name": "Classical organ",
+  "family": "classical",
+  "lineage": "Classical organ is represented by Olivier Latry — Bach to the Future at Notre-Dame. One documented branch is realized as an authored present-day recording arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic classical organ, art Music, western common practice branch. skinner aeolian skinner canonical American eclectic early 20th century equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic legato pipe organ. cathedral. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 17.53,
+  "config": {
+    "traditions": [
+      "classical_organ"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_romantic",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_skinner_american",
+          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
+          "pipe_organ_temperament": "pipe_organ_equal_temperament",
+          "pipe_organ_action": "pipe_organ_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 7.86,
+          "pipe_organ_class": 0.582,
+          "pipe_organ_context": 3.9,
+          "pipe_organ_voicing_school": 1.3875,
+          "pipe_organ_pipe_alloy": 0.9764999999999999,
+          "pipe_organ_temperament": 1.69,
+          "pipe_organ_action": 1.1340000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "cathedral",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "cathedral",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

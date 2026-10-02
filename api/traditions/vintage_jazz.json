@@ -5,7 +5,7 @@
   "lineage": "Vintage jazz is represented here by Art Tatum —1948 Los Angeles solo session, The Complete Jazz Chronicle Solo Session (Storyville). This is a documented branch with an authored present-day studio realization.",
   "recipe": "classic late-1940s vintage jazz, improv On Frame, stride piano branch. vintage steinway pre-war compression wired 18 ply hard rock maple grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 250,
-  "score": 17.475,
+  "score": 17.611,
   "config": {
     "traditions": [
       "vintage_jazz"
@@ -29,7 +29,7 @@
           "grand_piano_size": 0.273,
           "grand_piano_brand": 0.273,
           "piano_hammer": 5.8785,
-          "piano_rim": 5.756,
+          "piano_rim": 5.8925,
           "piano_soundboard": 0.7464999999999999,
           "piano_pinblock": 1.02525,
           "piano_plate": 0.8865000000000001,

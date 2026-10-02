@@ -5,7 +5,7 @@
   "lineage": "Baroque cello: Elinor Frey — Dall’Abaco Capriccio primo from Tous les matins d’Elinor. A documented branch is realized as an authored current studio arrangement.",
   "recipe": "classic baroque cello, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 248,
-  "score": 51.974,
+  "score": 51.885,
   "config": {
     "traditions": [
       "baroque_cello"
@@ -25,12 +25,12 @@
           "cello_bow_stick": "snakewood_stick_cello"
         },
         "scores": {
-          "bowed_technique": 2.62,
+          "bowed_technique": 2.5,
           "cello_strings": 0.2415,
           "cello_top_wood": 8.25,
           "cello_back_wood": 8.25,
           "cello_varnish": 8.4075,
-          "cello_setup_period": 6.55125,
+          "cello_setup_period": 6.58275,
           "cello_bow_grip": 2.89675,
           "cello_rosin": 9.05675,
           "cello_bow_stick": 5.7

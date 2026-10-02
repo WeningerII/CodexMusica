@@ -3,9 +3,9 @@
   "name": "Filmi (Indian film playback song)",
   "family": "pop",
   "lineage": "The song form of Indian commercial cinema, established in Bombay studios from the 1940s once playback recording separated singer from actor — codified by composers Naushad, S.D. Burman, Shankar-Jaikishan, R.D. Burman and Laxmikant-Pyarelal with singers Lata Mangeshkar, Mohammed Rafi and Kishore Kumar; mukhda-antara verse-refrain structure over dholak or tabla keherwa with a large mixed orchestra of massed violins, brass, accordion, sitar and santoor, recorded live to multitrack in one room with the vocal in a high, thin, vibrato-light register.",
-  "recipe": "classic South Asian mid-1940s filmi, functional Song, south Asian pop branch, south Asian art music, east Asian pop functional song enka sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood brass tabla, goat skin syahi rope laced steel ring dholak, brass castagnari Italian premium folk music accordion, teak calabash gut maihar gharana instrumental concert lineage sitar, walnut bronze tun indian cedar alternative santoor canonical lineage ornamented santoor, low overtone rich vocal male harmonium indian, yamaha modern Japanese mid to premium flute, venice catlin high twist renaissance bass carpathian spruce European maple double bass. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 893,
-  "score": 300.017,
+  "recipe": "classic South Asian mid-1940s filmi, functional Song, south Asian pop branch, south Asian art music, east Asian pop functional song enka sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood brass tabla, goat skin syahi rope laced steel ring dholak, brass castagnari Italian premium folk music accordion, teak calabash gut maihar gharana instrumental concert lineage sitar, walnut steel modern tun indian cedar alternative santoor canonical lineage ornamented santoor, low overtone rich vocal male harmonium indian, yamaha modern Japanese mid to premium flute, venice catlin high twist renaissance bass carpathian spruce European maple double bass. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 899,
+  "score": 296.926,
   "config": {
     "traditions": [
       "filmi_playback",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 17.34999999999999,
@@ -41,15 +41,15 @@
           "voice_vibrato": 5.882499999999999,
           "voice_articulation": 18.525000000000002,
           "voice_microtone": 18.785,
-          "voice_tradition": 20.194625000000002,
+          "voice_tradition": 18.874625,
           "voice_mechanism_compound": 5.915,
           "voice_estill_quality": 7.0200000000000005,
           "voice_speech_song": 29.120000000000005,
           "voice_ensemble_config": 19.11,
           "voice_ornament_system": 9.114999999999998,
           "voice_pitch_organization": 9.100000000000001,
-          "voice_processing_chain": 6.6000000000000005,
-          "voice_multitrack_stack": 6.550000000000001
+          "voice_processing_chain": 6.45,
+          "voice_multitrack_stack": 6.419
         }
       },
       {
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tabla_dayan": 4.42,
-          "tabla_bayan": 1.795,
+          "tabla_bayan": 1.945,
           "tabla_syahi": 5.330000000000001
         }
       },
@@ -69,13 +69,13 @@
         "id": "dholak",
         "slots": {
           "dholak_use": "dholak_classical",
-          "dholak_construction": "dholak_large",
+          "dholak_construction": "dholak_mango",
           "dholak_head": "dholak_goat_skin_canonical",
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 2.275,
-          "dholak_construction": 0.845,
+          "dholak_use": 1.9945,
+          "dholak_construction": 0.895,
           "dholak_head": 1.6899999999999997,
           "dholak_tensioning": 1.6899999999999997
         }
@@ -86,7 +86,7 @@
           "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "brass_reeds",
           "musette_offset": "german_tuning",
-          "reed_config": "lm_only",
+          "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
@@ -95,7 +95,7 @@
           "free_reed_technique": 2.875,
           "accordion_reed_material": 1,
           "musette_offset": 2.5949999999999998,
-          "reed_config": 0.6749999999999998,
+          "reed_config": 0.15,
           "bellows": 0.795,
           "voicing_chamber": 0.045,
           "accordion_maker_school": 3.769999999999999
@@ -123,7 +123,7 @@
           "sitar_taraf": 0.795,
           "sitar_frets": 1.295,
           "sitar_pluck": 1.4949999999999999,
-          "sitar_main_strings": -0.5,
+          "sitar_main_strings": -0.455,
           "sitar_jawari_style": 0.045,
           "sitar_gharana": 2.0799999999999996
         }
@@ -134,7 +134,7 @@
           "plucked_traditional_technique": "plucked_ornamented_melodic",
           "santoor_courses": "santoor_70",
           "santoor_mallets": "walnut_mallets",
-          "santoor_strings": "bronze_strings",
+          "santoor_strings": "steel_strings_santoor",
           "santoor_body_wood": "santoor_tun",
           "santoor_lineage": "santoor_shivkumar_sharma_canon"
         },
@@ -142,7 +142,7 @@
           "plucked_traditional_technique": 4.825000000000001,
           "santoor_courses": 1.4949999999999999,
           "santoor_mallets": 1.4449999999999998,
-          "santoor_strings": 1.295,
+          "santoor_strings": 1.2349999999999997,
           "santoor_body_wood": 2.9899999999999998,
           "santoor_lineage": 3.3799999999999994
         }
@@ -156,7 +156,7 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 2.5545000000000004,
+          "free_reed_technique": 2.2695000000000003,
           "harmonium_action": 4.419999999999999,
           "harmonium_voicing": 5.069999999999999,
           "harmonium_use": 5.719999999999999
@@ -173,10 +173,10 @@
         },
         "scores": {
           "wind_articulation": 2.875,
-          "flute_size": 0.54,
+          "flute_size": 0.345,
           "flute_material": 0.45,
           "flute_technique": 0.045,
-          "flute_maker_school": 4.1194999999999995
+          "flute_maker_school": 3.864499999999999
         }
       },
       {
@@ -196,13 +196,13 @@
         "scores": {
           "bowed_technique": 3.445,
           "bass_size": 0,
-          "bass_strings": 2.31375,
+          "bass_strings": 2.2687500000000003,
           "bass_top_wood": 2.875,
           "bass_back_wood": 3.02,
           "bass_varnish": 2.825,
-          "bass_setup_period": 2.69,
+          "bass_setup_period": 2.645,
           "bass_play": 1.885,
-          "bass_rosin": 5.015000000000001,
+          "bass_rosin": 4.970000000000001,
           "bass_bow_stick": 3.6075000000000004
         }
       }

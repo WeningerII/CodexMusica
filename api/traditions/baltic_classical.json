@@ -3,9 +3,9 @@
   "name": "Baltic classical",
   "family": "classical",
   "lineage": "Baltic classical: Arvo Pärt — Für Alina, original solo-piano version. A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic baltic classical, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 252,
-  "score": 75.082,
+  "recipe": "classic baltic classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 238,
+  "score": 74.986,
   "config": {
     "traditions": [
       "baltic_classical"
@@ -16,9 +16,9 @@
         "slots": {
           "keyboard_technique": "keyboard_arpeggio_sustain_rich",
           "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_blue_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
@@ -26,14 +26,14 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.441,
-          "grand_piano_brand": 0.9555,
-          "piano_hammer": 13.194749999999999,
-          "piano_rim": 11.5545,
+          "grand_piano_size": 0.294,
+          "grand_piano_brand": 0.7886071428571428,
+          "piano_hammer": 13.393071428571428,
+          "piano_rim": 11.832142857142857,
           "piano_soundboard": 11.25,
           "piano_pinblock": 11.55,
-          "piano_plate": 12.92175,
-          "piano_pitch_standard": 13.3148125
+          "piano_plate": 13.120071428571428,
+          "piano_pitch_standard": 12.857714285714286
         }
       }
     ],

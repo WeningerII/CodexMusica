@@ -3,9 +3,9 @@
   "name": "Classical trumpet",
   "family": "classical",
   "lineage": "Classical trumpet is represented by Alison Balsom and Tom Poster — Légende trumpet-and-piano recital. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
-  "recipe": "classic classical trumpet, art Music, western modern branch. yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese legato student friendly trumpet, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 344,
-  "score": 125.642,
+  "recipe": "classic classical trumpet, art Music, western modern branch. yamaha xeno modern Japanese legato student friendly trumpet, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 297,
+  "score": 126.019,
   "config": {
     "traditions": [
       "classical_trumpet"
@@ -28,7 +28,7 @@
           "trumpet_mouthpiece": 12,
           "brass_mute": 7.5,
           "trumpet_technique": 7.6365,
-          "trumpet_bell_metal": 1.1235000000000002,
+          "trumpet_bell_metal": 0.9870000000000001,
           "trumpet_maker_school": 2.34
         }
       },
@@ -49,11 +49,11 @@
           "keyboard_technique": 7.5,
           "grand_piano_size": 1.573,
           "grand_piano_brand": 0.9555,
-          "piano_hammer": 14.0145,
-          "piano_rim": 13.18,
+          "piano_hammer": 14.181000000000001,
+          "piano_rim": 13.36,
           "piano_soundboard": 12,
           "piano_pinblock": 12,
-          "piano_plate": 13.7415,
+          "piano_plate": 13.908,
           "piano_pitch_standard": 12.273
         }
       }

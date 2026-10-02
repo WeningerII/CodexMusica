@@ -3,9 +3,9 @@
   "name": "Classical bass",
   "family": "classical",
   "lineage": "A classical singer discovery category. Its exact artist roster includes Ruggero Raimondi, Samuel Ramey and Cesare Siepi. Official performance archives confirm low singing voice types; the selected art-song recital branch is supported by Ferruccio Furlanetto’s direct account.",
-  "recipe": "classic modern classical bass, art Music, western common practice branch. equal tempered, operatic, bass vocal tessitura. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 347,
-  "score": 79.187,
+  "recipe": "classic modern classical bass, art Music, western common practice branch. equal tempered, operatic, equal tempered 12 fixed pitch, bass vocal tessitura. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 378,
+  "score": 80.746,
   "config": {
     "traditions": [
       "classical_bass"
@@ -40,16 +40,16 @@
           "voice_vibrato": 0,
           "voice_articulation": 0.16799999999999998,
           "voice_microtone": 4.55,
-          "voice_tradition": 11.202999999999998,
-          "voice_mechanism_compound": 0.273,
+          "voice_tradition": 11.439999999999996,
+          "voice_mechanism_compound": 0.1365,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
+          "voice_pitch_organization": 0.9899999999999999,
           "voice_processing_chain": 0.3315,
-          "voice_multitrack_stack": 0.189,
-          "voice_tessitura": 5.24475
+          "voice_multitrack_stack": 0.1575,
+          "voice_tessitura": 5.2132499999999995
         }
       },
       {
@@ -70,7 +70,7 @@
           "grand_piano_size": 0.9099999999999999,
           "grand_piano_brand": 1.69,
           "piano_hammer": 8.3365,
-          "piano_rim": 8.667999999999997,
+          "piano_rim": 9.200124999999998,
           "piano_soundboard": 8.2,
           "piano_pinblock": 8.2,
           "piano_plate": 8.263,

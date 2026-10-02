@@ -3,9 +3,9 @@
   "name": "Baroque singing",
   "family": "classical",
   "lineage": "Baroque singing: Andreas Scholl and Tamar Halperin — Purcell songs, RheinVokal Koblenz program (2014). A documented branch is realized as an authored current studio arrangement.",
-  "recipe": "classic mid-2010s baroque singing, art Music, western common practice branch. countertenor developed head, tahrir tekye chain mechanism, opera quality low larynx anchored, recitative rhythmically free pitched speech. oversize maple tension resonator European spruce norway spruce European tradition grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 413,
-  "score": 52.771,
+  "recipe": "classic mid-2010s baroque singing, art Music, western common practice branch. countertenor developed head, tahrir tekye chain mechanism, opera quality low larynx anchored, recitative rhythmically free pitched speech. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 403,
+  "score": 52.673,
   "config": {
     "traditions": [
       "baroque_singing"
@@ -40,13 +40,13 @@
           "voice_articulation": 0,
           "voice_microtone": 0,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 2.4,
+          "voice_mechanism_compound": 2.72175,
           "voice_estill_quality": 3.1200000000000006,
           "voice_speech_song": 7.45,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 2.4315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.06675,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 0.1575
         }
       },
@@ -57,7 +57,7 @@
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
           "piano_hammer": "renner_standard_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
@@ -65,14 +65,14 @@
         },
         "scores": {
           "keyboard_technique": 2.5,
-          "grand_piano_size": 0.6492499999999999,
-          "grand_piano_brand": 2.6,
+          "grand_piano_size": 0.567,
+          "grand_piano_brand": 2.525,
           "piano_hammer": 3.185,
-          "piano_rim": 3.0460000000000003,
+          "piano_rim": 3.185,
           "piano_soundboard": 2.9725,
-          "piano_pinblock": 2.85725,
+          "piano_pinblock": 2.94575,
           "piano_plate": 2.8070000000000004,
-          "piano_pitch_standard": 7.959249999999999
+          "piano_pitch_standard": 7.50475
         }
       }
     ],

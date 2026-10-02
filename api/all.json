@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-02",
-  "count": 4538,
+  "count": 4638,
   "items": [
     {
       "id": "honky_tonk",
@@ -1149,8 +1149,8 @@
       "id": "carnatic_instrumental",
       "name": "Carnatic instrumental",
       "family": "classical",
-      "recipe": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri afghan traditional. thanjavur canonical south indian veena, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, extended concert stage thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-      "recipe_chars": 993
+      "recipe": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri. thanjavur canonical south indian veena, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, extended concert stage thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_chars": 974
     },
     {
       "id": "bhajan",
@@ -1625,8 +1625,8 @@
       "id": "easy_listening_orchestral",
       "name": "Easy listening (orchestral pop)",
       "family": "global",
-      "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal chamber music classical baritone. concert harp, sustained legato string quartet inst, cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, extended harmony through composed jazz big band, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 785
+      "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal canadian choir chamber music. concert harp, string quartet inst, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, extended harmony through composed jazz big band, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, carpathian spruce bigleaf maple western maple oil varnish amber tinted violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 769
     },
     {
       "id": "dream_pop",
@@ -5097,8 +5097,8 @@
       "id": "lutheran_chorale",
       "name": "Lutheran chorale tradition",
       "family": "classical",
-      "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music austrian choir british choir. thick, breath veiled tone, slow rate, leader call answered. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, schnitger hamburg canonical north German Baroque late 17th century zinc canonical large pedal pipes late 19th century cost efficient werckmeister iii canonical bach era well temperament pneumatic canonical late 19th century romantic legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 721
+      "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music austrian choir hungarian choir. thick, declaimed, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, schnitger hamburg canonical north German Baroque late 17th century zinc canonical large pedal pipes late 19th century cost efficient werckmeister iii canonical bach era well temperament pneumatic canonical late 19th century romantic legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 718
     },
     {
       "id": "methodist_hymnody",
@@ -5377,8 +5377,8 @@
       "id": "baroque_pop_60s",
       "name": "Baroque pop",
       "family": "rock_punk",
-      "recipe": "classic British mid-1960s baroque pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, 18 ply hard rock maple vintage production European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-      "recipe_chars": 999
+      "recipe": "classic British mid-1960s baroque pop, distorted Rock, art rock branch, western common practice art music classical period canadian choir. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, 18 ply hard rock maple vintage production European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bird quill plectra canonical historical raven crow turkey quarter comma meantone canonical renaissance early Baroque legato harpsichord. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+      "recipe_chars": 992
     },
     {
       "id": "speed_metal",
@@ -8009,8 +8009,8 @@
       "id": "tamil_filmi",
       "name": "Tamil filmi / Kollywood playback",
       "family": "global",
-      "recipe": "classic South Asian early-1940s tamil filmi / kollywood playback, functional Song, south Asian pop branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, gourd silk pre modern vijayanagara era thanjavur canonical south indian veena, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth.",
-      "recipe_chars": 992
+      "recipe": "classic South Asian early-1940s tamil filmi / kollywood playback, functional Song, south Asian pop branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, gourd silk pre modern vijayanagara era thanjavur canonical south indian veena, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit.",
+      "recipe_chars": 917
     },
     {
       "id": "french_touch",
@@ -8205,8 +8205,8 @@
       "id": "anison_anime_song",
       "name": "Anison (anime song)",
       "family": "pop",
-      "recipe": "classic East Asian 1977-1979 anison, functional Song, east Asian pop branch, western modern art music post-minimalism soundtrack. thick, breath veiled tone, slow rate, interlocked note trading. polychordal major seven nine eleven stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, soldano slo amp boutique high gain basswood maple alnico humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, wide brass string machine, red brass 90 10 darkest yamaha xeno modern Japanese standard rim orchestral balance legato trumpet. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-      "recipe_chars": 947
+      "recipe": "classic East Asian 1977-1979 anison, functional Song, east Asian pop branch, western modern art music cambridge choir cathedral choir. thick, breath veiled tone, straight onset, interlocked note trading. polychordal major seven nine eleven stack 2000s elastic pitch edited stack hard tuned perfect pitch retune 0ms all tracks multitrack vocal stack, basswood maple alnico nickel plated steel nickel humbucker electric guitar, alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, wide brass string machine, red brass 90 10 darkest yamaha xeno modern Japanese student friendly legato trumpet. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+      "recipe_chars": 906
     },
     {
       "id": "screen_soundtrack_hybrid",
@@ -8968,8 +8968,8 @@
       "id": "epicore",
       "name": "Epicore (trailer-music epic)",
       "family": "classical",
-      "recipe": "classic mid-2000s epicore, art Music, western modern branch, western common practice art music, symphonic metal zarzuela género chico british brass band. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass continuous-airflow legato french horn, synthetic timpani, stave built modern non trunk modern ensemble taiko drum, immediate hard beater gong tamtam, one man band sub bass rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 794
+      "recipe": "classic mid-2000s epicore, art Music, western modern branch, western common practice art music, symphonic metal zarzuela género chico chamber orchestra. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, plain gut sheep gut unsplit sitka spruce European maple violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass continuous-airflow legato french horn, synthetic timpani, stave built modern non trunk modern ensemble taiko drum, immediate hard beater gong tamtam, one man band korg PA series arranger 2001 present pro regional style banks balkan middle eastern wedding circuits sub bass rompler workstation. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 887
     },
     {
       "id": "chicano_rap",
@@ -9738,8 +9738,8 @@
       "id": "tamil_pop",
       "name": "Tamil pop (independent non-film)",
       "family": "pop",
-      "recipe": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music afghan traditional carnatic kacheri. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, singing lead analog poly synth, rock canon ernie ball slinky electric bass, TR-808, indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
-      "recipe_chars": 974
+      "recipe": "classic mid-1990s tamil pop, functional Song, south Asian pop branch, south Asian art music afghan traditional carnatic kacheri. thick, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, plucked short envelope analog poly synth, rock canon ernie ball slinky electric bass, TR-808, indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
+      "recipe_chars": 984
     },
     {
       "id": "desi_pop",
@@ -9759,8 +9759,8 @@
       "id": "indian_instrumental",
       "name": "Indian Instrumental (raga instrumental recital)",
       "family": "global",
-      "recipe": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri hindustani vocal. calabash maihar gharana instrumental concert lineage classical trained lineage drone like sitar, gut 3 main playing strings legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative drone like modal santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, treble-extended vocal female harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-      "recipe_chars": 931
+      "recipe": "classic South Asian mid-1950s indian instrumental, improv On Frame, indian classical improv branch, south Asian art music carnatic kacheri. calabash maihar gharana instrumental concert lineage classical trained lineage drone like sitar, sustained legato sarangi, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, steel modern tun indian cedar alternative santoor canonical lineage drone like modal santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai, indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_chars": 923
     },
     {
       "id": "pakistani_pop",
@@ -10151,8 +10151,8 @@
       "id": "piano_blues",
       "name": "Piano Blues",
       "family": "blues_gospel",
-      "recipe": "classic North American early-1920s piano blues, functional Song, blues acoustic branch, American jazz boogie woogie, American jazz stride piano, blues electric functional song. thick, breath veiled tone, straight onset, interlocked note trading. stride upright character piano stride tack piano, cedar phosphor bronze bronze parlor acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 650
+      "recipe": "classic North American early-1920s piano blues, functional Song, blues acoustic branch, American jazz boogie woogie, American jazz stride piano, blues electric functional song barrelhouse piano boogie-woogie. thick, blues-shouter, wide pitch sway, interlocked note trading. stride upright stride tack piano, parlor acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 633
     },
     {
       "id": "punk_blues",
@@ -10235,8 +10235,8 @@
       "id": "choral",
       "name": "Choral (Western art choral singing)",
       "family": "classical",
-      "recipe": "classic European early-1950s choral, art Music, western common practice branch, christian gospel anglican choral, western early art music, christian gospel Russian orthodox orthodox chant russian orthodox liturgical chant. thick, declaimed, slow rate, interlocked note trading. choir cathedral satb, a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, choir russian orthodox. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 801
+      "recipe": "classic European early-1950s choral, art Music, western common practice branch, christian gospel anglican choral, western early art music, christian gospel Russian orthodox orthodox chant russian orthodox liturgical chant. thick, declaimed, slow rate, interlocked note trading. choir cathedral satb, a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient kirnberger iii canonical late Baroque well temperament pneumatic canonical late 19th century romantic legato pipe organ, choir russian orthodox. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 797
     },
     {
       "id": "concerto_grosso",
@@ -10823,8 +10823,8 @@
       "id": "furniture_music",
       "name": "Furniture Music (musique d'ameublement)",
       "family": "classical",
-      "recipe": "classic Western European mid-1920s furniture music, art Music, western modern branch, western common practice art music, ambient experimental electric salon music austrian classical piano. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, composite resin blackwood dust continuous-airflow legato clarinet, band section bass trombone, plain gut sheep gut unsplit carpathian spruce European maple violin orchestral, plain gut sheep gut unsplit carpathian spruce European maple cello, yamaha modern Japanese mid to premium continuous-airflow legato flute. intimate paris small studio. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-      "recipe_chars": 680
+      "recipe": "classic Western European mid-1920s furniture music, art Music, western modern branch, western common practice art music, ambient experimental electric romanian classical piano russian classical piano. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, composite resin blackwood dust continuous-airflow legato clarinet, band section bass trombone, silver wound lamb gut core carpathian spruce European maple sycamore maple violin orchestral, silver wound lamb gut core carpathian spruce European maple sycamore maple cello, yamaha modern Japanese mid to premium continuous-airflow legato flute. intimate paris small studio. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+      "recipe_chars": 720
     },
     {
       "id": "lounge_music",
@@ -12125,8 +12125,8 @@
       "id": "negro_spiritual",
       "name": "Negro Spiritual (concert arrangement)",
       "family": "blues_gospel",
-      "recipe": "classic British early-1870s negro spiritual, ritual Devotional, spirituals branch, christian gospel jubilee quartet, western common practice art music british choir. thick, declaimed, slow rate, leader call answered. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-      "recipe_chars": 515
+      "recipe": "classic British early-1870s negro spiritual, ritual Devotional, spirituals branch, christian gospel jubilee quartet, western common practice art music early music choir. thick, declaimed, slow rate, leader call answered. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+      "recipe_chars": 519
     },
     {
       "id": "anison",
@@ -13749,8 +13749,8 @@
       "id": "filmi_playback",
       "name": "Filmi (Indian film playback song)",
       "family": "pop",
-      "recipe": "classic South Asian mid-1940s filmi, functional Song, south Asian pop branch, south Asian art music, east Asian pop functional song enka sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood brass tabla, goat skin syahi rope laced steel ring dholak, brass castagnari Italian premium folk music accordion, teak calabash gut maihar gharana instrumental concert lineage sitar, walnut bronze tun indian cedar alternative santoor canonical lineage ornamented santoor, low overtone rich vocal male harmonium indian, yamaha modern Japanese mid to premium flute, venice catlin high twist renaissance bass carpathian spruce European maple double bass. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo plate reverb.",
-      "recipe_chars": 893
+      "recipe": "classic South Asian mid-1940s filmi, functional Song, south Asian pop branch, south Asian art music, east Asian pop functional song enka sinhala vannama. thick, breath veiled tone, slow rate, interlocked note trading. indian rosewood rosewood brass tabla, goat skin syahi rope laced steel ring dholak, brass castagnari Italian premium folk music accordion, teak calabash gut maihar gharana instrumental concert lineage sitar, walnut steel modern tun indian cedar alternative santoor canonical lineage ornamented santoor, low overtone rich vocal male harmonium indian, yamaha modern Japanese mid to premium flute, venice catlin high twist renaissance bass carpathian spruce European maple double bass. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo plate reverb.",
+      "recipe_chars": 899
     },
     {
       "id": "keroncong_asli",
@@ -16647,8 +16647,8 @@
       "id": "ars_subtilior",
       "name": "Ars Subtilior",
       "family": "classical",
-      "recipe": "classic European early-1370s ars subtilior, art Music, western early branch, western common practice art music, western modern art music baltic choir musical impressionism. thick, breath veiled tone, slow rate, interlocked note trading. sustained legato vielle medieval, harpa, late 16c ayre and lieder fluorocarbon modern revival lute renaissance, melismatic single line portative organ, grenadilla African blackwood modern premium continuous-airflow legato recorder. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 554
+      "recipe": "classic European early-1370s ars subtilior, art Music, western early branch, western common practice art music, western modern art music baltic choir japanese choir. thick, breath veiled tone, slow rate, interlocked note trading. late medieval legato vielle medieval, harpa, late 16c ayre and lieder fluorocarbon modern revival lute renaissance, melismatic single line portative organ, grenadilla African blackwood modern premium continuous-airflow legato recorder. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 551
     },
     {
       "id": "trecento",
@@ -16668,8 +16668,8 @@
       "id": "franco_flemish_school",
       "name": "Franco-Flemish School",
       "family": "classical",
-      "recipe": "classic European early-1450s franco-flemish school, art Music, western early branch, western common practice art music choral british choir. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, great bass octav colla parte thin hammered brass sackbut, cornetto, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, renaissance soloistic ayre and lieder lute renaissance. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 696
+      "recipe": "classic European early-1450s franco-flemish school, art Music, western early branch, western common practice art music choral early music choir. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, great bass octav colla parte thin hammered brass sackbut, cornetto, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, renaissance soloistic ayre and lieder lute renaissance. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 700
     },
     {
       "id": "english_renaissance",
@@ -19958,8 +19958,8 @@
       "id": "classical_bass",
       "name": "Classical bass",
       "family": "classical",
-      "recipe": "classic modern classical bass, art Music, western common practice branch. equal tempered, operatic, bass vocal tessitura. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 347
+      "recipe": "classic modern classical bass, art Music, western common practice branch. equal tempered, operatic, equal tempered 12 fixed pitch, bass vocal tessitura. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 378
     },
     {
       "id": "italian_bass",
@@ -31487,8 +31487,8 @@
       "id": "baltic_classical",
       "name": "Baltic classical",
       "family": "classical",
-      "recipe": "classic baltic classical, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 252
+      "recipe": "classic baltic classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 238
     },
     {
       "id": "brazilian_classical",
@@ -31529,8 +31529,8 @@
       "id": "baroque_singing",
       "name": "Baroque singing",
       "family": "classical",
-      "recipe": "classic mid-2010s baroque singing, art Music, western common practice branch. countertenor developed head, tahrir tekye chain mechanism, opera quality low larynx anchored, recitative rhythmically free pitched speech. oversize maple tension resonator European spruce norway spruce European tradition grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 413
+      "recipe": "classic mid-2010s baroque singing, art Music, western common practice branch. countertenor developed head, tahrir tekye chain mechanism, opera quality low larynx anchored, recitative rhythmically free pitched speech. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 403
     },
     {
       "id": "baroque_ensemble",
@@ -31550,15 +31550,15 @@
       "id": "austrian_orchestra",
       "name": "Austrian orchestra",
       "family": "classical",
-      "recipe": "classic austrian orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 496
+      "recipe": "classic austrian orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 four layer system viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 495
     },
     {
       "id": "british_orchestra",
       "name": "British orchestra",
       "family": "classical",
-      "recipe": "classic mid-2020s british orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 510
+      "recipe": "classic mid-2020s british orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 violin orchestral, Italian alpine spruce val di fiemme European maple general cremonese pre 1750 four layer system viola classical, Italian alpine spruce val di fiemme European maple sycamore maple cremonese pre 1750 cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 504
     },
     {
       "id": "canadian_classical",
@@ -31627,8 +31627,8 @@
       "id": "classical_baritone",
       "name": "Classical baritone",
       "family": "classical",
-      "recipe": "classic classical baritone, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 265
+      "recipe": "classic classical baritone, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 256
     },
     {
       "id": "classical_bassoon",
@@ -31662,8 +31662,8 @@
       "id": "classical_countertenor",
       "name": "Classical countertenor",
       "family": "classical",
-      "recipe": "classic classical countertenor, art Music, western modern branch. solo with instrumental accompaniment. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-      "recipe_chars": 295
+      "recipe": "classic classical countertenor, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 257
     },
     {
       "id": "classical_flute",
@@ -31718,8 +31718,8 @@
       "id": "contemporary_classical_piano",
       "name": "Contemporary classical piano",
       "family": "classical",
-      "recipe": "classic contemporary classical piano, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 239
+      "recipe": "classic contemporary classical piano, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 247
     },
     {
       "id": "classical_piano_trio",
@@ -31767,8 +31767,708 @@
       "id": "classical_trumpet",
       "name": "Classical trumpet",
       "family": "classical",
-      "recipe": "classic classical trumpet, art Music, western modern branch. yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese legato student friendly trumpet, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 344
+      "recipe": "classic classical trumpet, art Music, western modern branch. yamaha xeno modern Japanese legato student friendly trumpet, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 297
+    },
+    {
+      "id": "cambridge_choir",
+      "name": "Cambridge choir",
+      "family": "classical",
+      "recipe": "classic cambridge choir, art Music, western modern branch. cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic pipe organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 402
+    },
+    {
+      "id": "canadian_choir",
+      "name": "Canadian choir",
+      "family": "classical",
+      "recipe": "classic late-2010s canadian choir, art Music, western common practice branch. group vocals, live take. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "cathedral_choir",
+      "name": "Cathedral choir",
+      "family": "classical",
+      "recipe": "classic cathedral choir, art Music, western modern branch. cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic pipe organ. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 402
+    },
+    {
+      "id": "chamber_orchestra",
+      "name": "Chamber orchestra",
+      "family": "classical",
+      "recipe": "classic chamber orchestra, art Music, western common practice branch. oversize maple tension resonator European spruce norway spruce European tradition grand piano, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup double bass, flute, boxwood canonical Baroque classical pre 1850 oboe, reedy French orchestra bassoon, french horn, large cup large rim orchestral bottom heavy legato trumpet, timpani. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 830
+    },
+    {
+      "id": "children_s_choir",
+      "name": "Children's choir",
+      "family": "classical",
+      "recipe": "classic children's choir, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 251
+    },
+    {
+      "id": "classical_mandolin",
+      "name": "Classical mandolin",
+      "family": "classical",
+      "recipe": "classic classical mandolin, art Music, western common practice branch. German spruce classical leaning x brace modern mandolin thomastik mandolin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 245
+    },
+    {
+      "id": "classical_mezzo_soprano",
+      "name": "Classical mezzo-soprano",
+      "family": "classical",
+      "recipe": "classic classical mezzo-soprano, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 252
+    },
+    {
+      "id": "classical_organ",
+      "name": "Classical organ",
+      "family": "classical",
+      "recipe": "classic classical organ, art Music, western common practice branch. skinner aeolian skinner canonical American eclectic early 20th century equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic legato pipe organ. cathedral. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 342
+    },
+    {
+      "id": "classical_percussion",
+      "name": "Classical percussion",
+      "family": "classical",
+      "recipe": "classic classical percussion, art Music, western modern branch. marimba orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "classical_saxophone",
+      "name": "Classical saxophone",
+      "family": "classical",
+      "recipe": "classic classical saxophone, art Music, western modern branch. yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 348
+    },
+    {
+      "id": "classical_soprano",
+      "name": "Classical soprano",
+      "family": "classical",
+      "recipe": "classic classical soprano, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 246
+    },
+    {
+      "id": "classical_string_trio",
+      "name": "Classical string trio",
+      "family": "classical",
+      "recipe": "classic classical string trio, art Music, western common practice branch. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, carpathian spruce eastern European source European maple general oil varnish amber tinted viola classical, carpathian spruce European maple sycamore maple oil varnish amber tinted cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 451
+    },
+    {
+      "id": "classical_tenor",
+      "name": "Classical tenor",
+      "family": "classical",
+      "recipe": "classic classical tenor, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 244
+    },
+    {
+      "id": "classical_trombone",
+      "name": "Classical trombone",
+      "family": "classical",
+      "recipe": "classic classical trombone, art Music, western common practice branch. legato bass trombone trombone, 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 278
+    },
+    {
+      "id": "contemporary_choir",
+      "name": "Contemporary choir",
+      "family": "classical",
+      "recipe": "classic contemporary choir, art Music, western modern branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 176
+    },
+    {
+      "id": "contemporary_classical",
+      "name": "Contemporary classical",
+      "family": "classical",
+      "recipe": "classic contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 241
+    },
+    {
+      "id": "czech_classical",
+      "name": "Czech classical",
+      "family": "classical",
+      "recipe": "classic czech classical, art Music, western common practice branch. sustained legato string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 204
+    },
+    {
+      "id": "czech_contemporary_classical",
+      "name": "Czech contemporary classical",
+      "family": "classical",
+      "recipe": "classic czech contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 239
+    },
+    {
+      "id": "danish_choir",
+      "name": "Danish choir",
+      "family": "classical",
+      "recipe": "classic danish choir, art Music, western modern branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 170
+    },
+    {
+      "id": "dutch_classical_piano",
+      "name": "Dutch classical piano",
+      "family": "classical",
+      "recipe": "classic dutch classical piano, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 257
+    },
+    {
+      "id": "french_classical_piano",
+      "name": "French classical piano",
+      "family": "classical",
+      "recipe": "classic french classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 258
+    },
+    {
+      "id": "finnish_contemporary_classical",
+      "name": "Finnish contemporary classical",
+      "family": "classical",
+      "recipe": "classic finnish contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 249
+    },
+    {
+      "id": "finnish_classical",
+      "name": "Finnish classical",
+      "family": "classical",
+      "recipe": "classic finnish classical, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 253
+    },
+    {
+      "id": "french_contemporary_classical",
+      "name": "French contemporary classical",
+      "family": "classical",
+      "recipe": "classic early-1980s french contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 260
+    },
+    {
+      "id": "german_contemporary_classical",
+      "name": "German contemporary classical",
+      "family": "classical",
+      "recipe": "classic german contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 248
+    },
+    {
+      "id": "greek_contemporary_classical",
+      "name": "Greek contemporary classical",
+      "family": "classical",
+      "recipe": "classic greek contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 247
+    },
+    {
+      "id": "german_classical_piano",
+      "name": "German classical piano",
+      "family": "classical",
+      "recipe": "classic mid-2020s german classical piano, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 268
+    },
+    {
+      "id": "danish_classical",
+      "name": "Danish classical",
+      "family": "classical",
+      "recipe": "classic danish classical, art Music, western common practice branch. 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 252
+    },
+    {
+      "id": "danish_contemporary_classical",
+      "name": "Danish contemporary classical",
+      "family": "classical",
+      "recipe": "classic danish contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 248
+    },
+    {
+      "id": "dutch_contemporary_classical",
+      "name": "Dutch contemporary classical",
+      "family": "classical",
+      "recipe": "classic dutch contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 247
+    },
+    {
+      "id": "english_baroque",
+      "name": "English baroque",
+      "family": "classical",
+      "recipe": "classic english baroque, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 244
+    },
+    {
+      "id": "dutch_baroque",
+      "name": "Dutch baroque",
+      "family": "classical",
+      "recipe": "classic dutch baroque, art Music, western common practice branch. cold pressed light felt practice grade 18 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 239
+    },
+    {
+      "id": "experimental_classical",
+      "name": "Experimental classical",
+      "family": "classical",
+      "recipe": "classic experimental classical, art Music, western modern branch. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, synthetic core carpathian spruce eastern European source European maple general oil varnish viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 442
+    },
+    {
+      "id": "harlem_renaissance",
+      "name": "Harlem renaissance",
+      "family": "jazz",
+      "recipe": "classic early-1920s harlem renaissance, improv On Frame, stride piano branch. cold pressed wurzen felt oversize maple tension resonator grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 247
+    },
+    {
+      "id": "historic_classical_performance",
+      "name": "Historic classical performance",
+      "family": "classical",
+      "recipe": "classic mid-1920s historic classical performance, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 276
+    },
+    {
+      "id": "historic_orchestral_performance",
+      "name": "Historic orchestral performance",
+      "family": "classical",
+      "recipe": "classic late-1930s historic orchestral performance, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral, Italian alpine spruce val di fiemme European maple general oil varnish amber tinted viola classical, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish cello, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 567
+    },
+    {
+      "id": "historic_string_quartet",
+      "name": "Historic string quartet",
+      "family": "classical",
+      "recipe": "classic mid-1930s historic string quartet, art Music, western common practice branch. string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 205
+    },
+    {
+      "id": "hungarian_choir",
+      "name": "Hungarian choir",
+      "family": "classical",
+      "recipe": "classic hungarian choir, art Music, western common practice branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "hungarian_classical_performance",
+      "name": "Hungarian classical performance",
+      "family": "classical",
+      "recipe": "classic hungarian classical performance, art Music, western common practice branch. carpathian spruce European maple sycamore maple oil varnish amber tinted cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 262
+    },
+    {
+      "id": "hungarian_classical_piano",
+      "name": "Hungarian classical piano",
+      "family": "classical",
+      "recipe": "classic hungarian classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 261
+    },
+    {
+      "id": "hungarian_contemporary_classical",
+      "name": "Hungarian contemporary classical",
+      "family": "classical",
+      "recipe": "classic hungarian contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 243
+    },
+    {
+      "id": "icelandic_choir",
+      "name": "Icelandic choir",
+      "family": "classical",
+      "recipe": "classic icelandic choir, art Music, western common practice branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "icelandic_classical",
+      "name": "Icelandic classical",
+      "family": "classical",
+      "recipe": "classic icelandic classical, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 255
+    },
+    {
+      "id": "indian_classical",
+      "name": "Indian classical",
+      "family": "classical",
+      "recipe": "classic indian classical, art Music, south Asian branch. sarangi, indian rosewood rosewood copper tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 203
+    },
+    {
+      "id": "irish_classical",
+      "name": "Irish classical",
+      "family": "classical",
+      "recipe": "classic irish classical, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 251
+    },
+    {
+      "id": "irish_contemporary_classical",
+      "name": "Irish contemporary classical",
+      "family": "classical",
+      "recipe": "classic irish contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 239
+    },
+    {
+      "id": "israeli_classical",
+      "name": "Israeli classical",
+      "family": "classical",
+      "recipe": "classic israeli classical, art Music, western common practice branch. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 260
+    },
+    {
+      "id": "israeli_classical_piano",
+      "name": "Israeli classical piano",
+      "family": "classical",
+      "recipe": "classic israeli classical piano, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 252
+    },
+    {
+      "id": "italian_baroque_ensemble",
+      "name": "Italian baroque ensemble",
+      "family": "classical",
+      "recipe": "classic italian baroque ensemble, art Music, western early branch. English kirkman shudi canonical mid 18th century London soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament harpsichord, Italian alpine spruce val di fiemme European maple bosnian source flamed figure violin orchestral, Italian alpine spruce val di fiemme European maple bosnian source flamed figure viola classical, Italian alpine spruce val di fiemme European maple bosnian source flamed figure cello, Italian alpine spruce val di fiemme European maple bosnian source flamed figure double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 730
+    },
+    {
+      "id": "italian_choir",
+      "name": "Italian choir",
+      "family": "classical",
+      "recipe": "classic mid-2010s italian choir, art Music, western common practice branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 190
+    },
+    {
+      "id": "italian_classical_guitar",
+      "name": "Italian classical guitar",
+      "family": "classical",
+      "recipe": "classic italian classical guitar, art Music, western common practice branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 244
+    },
+    {
+      "id": "italian_classical_piano",
+      "name": "Italian classical piano",
+      "family": "classical",
+      "recipe": "classic italian classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "italian_contemporary_classical",
+      "name": "Italian contemporary classical",
+      "family": "classical",
+      "recipe": "classic italian contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 241
+    },
+    {
+      "id": "italian_opera",
+      "name": "Italian opera",
+      "family": "classical",
+      "recipe": "classic mid-2020s italian opera, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 252
+    },
+    {
+      "id": "italian_orchestra",
+      "name": "Italian orchestra",
+      "family": "classical",
+      "recipe": "classic italian orchestra, art Music, western common practice branch. Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral, Italian alpine spruce val di fiemme European maple general oil varnish amber tinted viola classical, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish cello, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 542
+    },
+    {
+      "id": "italian_renaissance",
+      "name": "Italian renaissance",
+      "family": "classical",
+      "recipe": "classic italian renaissance, art Music, western early branch. a cappella small 3 to 8 one per part choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 213
+    },
+    {
+      "id": "japanese_choir",
+      "name": "Japanese choir",
+      "family": "classical",
+      "recipe": "classic japanese choir, art Music, western modern branch. choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 172
+    },
+    {
+      "id": "japanese_classical",
+      "name": "Japanese classical",
+      "family": "classical",
+      "recipe": "classic japanese classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 229
+    },
+    {
+      "id": "japanese_classical_performance",
+      "name": "Japanese classical performance",
+      "family": "classical",
+      "recipe": "classic japanese classical performance, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 266
+    },
+    {
+      "id": "japanese_classical_piano",
+      "name": "Japanese classical piano",
+      "family": "classical",
+      "recipe": "classic early-2020s japanese classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 272
+    },
+    {
+      "id": "korean_classical_piano",
+      "name": "Korean classical piano",
+      "family": "classical",
+      "recipe": "classic korean classical piano, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 241
+    },
+    {
+      "id": "latin_american_classical_piano",
+      "name": "Latin american classical piano",
+      "family": "classical",
+      "recipe": "classic latin american classical piano, art Music, western common practice branch. oversize maple tension resonator European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 276
+    },
+    {
+      "id": "nordic_classical_piano",
+      "name": "Nordic classical piano",
+      "family": "classical",
+      "recipe": "classic mid-2020s nordic classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 268
+    },
+    {
+      "id": "norwegian_classical",
+      "name": "Norwegian classical",
+      "family": "classical",
+      "recipe": "classic late-2010s norwegian classical, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 266
+    },
+    {
+      "id": "new_zealand_classical",
+      "name": "New zealand classical",
+      "family": "classical",
+      "recipe": "classic late-2010s new zealand classical, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 268
+    },
+    {
+      "id": "japanese_contemporary_classical",
+      "name": "Japanese contemporary classical",
+      "family": "classical",
+      "recipe": "classic japanese contemporary classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 250
+    },
+    {
+      "id": "korean_contemporary_classical",
+      "name": "Korean contemporary classical",
+      "family": "classical",
+      "recipe": "classic mid-2010s korean contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 250
+    },
+    {
+      "id": "nordic_contemporary_classical",
+      "name": "Nordic contemporary classical",
+      "family": "classical",
+      "recipe": "classic late-2000s nordic contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 251
+    },
+    {
+      "id": "mexican_classical",
+      "name": "Mexican classical",
+      "family": "classical",
+      "recipe": "classic mexican classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 236
+    },
+    {
+      "id": "latin_classical",
+      "name": "Latin classical",
+      "family": "classical",
+      "recipe": "classic latin classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 234
+    },
+    {
+      "id": "oriental_classical",
+      "name": "Oriental classical",
+      "family": "classical",
+      "recipe": "classic oriental classical, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 237
+    },
+    {
+      "id": "korean_classical_performance",
+      "name": "Korean classical performance",
+      "family": "classical",
+      "recipe": "classic mid-2010s korean classical performance, art Music, western common practice branch. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 281
+    },
+    {
+      "id": "polish_classical",
+      "name": "Polish classical",
+      "family": "classical",
+      "recipe": "classic polish classical, art Music, western modern branch. half rectified carpathian spruce European maple sycamore maple oil varnish violin orchestral, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 321
+    },
+    {
+      "id": "polish_classical_piano",
+      "name": "Polish classical piano",
+      "family": "classical",
+      "recipe": "classic polish classical piano, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 233
+    },
+    {
+      "id": "polish_contemporary_classical",
+      "name": "Polish contemporary classical",
+      "family": "classical",
+      "recipe": "classic polish contemporary classical, art Music, western modern branch. sustained legato string quartet inst. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 209
+    },
+    {
+      "id": "portuguese_classical",
+      "name": "Portuguese classical",
+      "family": "classical",
+      "recipe": "classic portuguese classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 231
+    },
+    {
+      "id": "portuguese_contemporary_classical",
+      "name": "Portuguese contemporary classical",
+      "family": "classical",
+      "recipe": "classic portuguese contemporary classical, art Music, western modern branch. composite resin blackwood dust legato clarinet, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "romanian_classical_piano",
+      "name": "Romanian classical piano",
+      "family": "classical",
+      "recipe": "classic early-1950s romanian classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 272
+    },
+    {
+      "id": "romanian_contemporary_classical",
+      "name": "Romanian contemporary classical",
+      "family": "classical",
+      "recipe": "classic romanian contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 242
+    },
+    {
+      "id": "russian_classical_piano",
+      "name": "Russian classical piano",
+      "family": "classical",
+      "recipe": "classic russian classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "spanish_classical",
+      "name": "Spanish classical",
+      "family": "classical",
+      "recipe": "classic spanish classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 228
+    },
+    {
+      "id": "spanish_contemporary_classical",
+      "name": "Spanish contemporary classical",
+      "family": "classical",
+      "recipe": "classic spanish contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 241
+    },
+    {
+      "id": "swedish_classical",
+      "name": "Swedish classical",
+      "family": "classical",
+      "recipe": "classic swedish classical, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 253
+    },
+    {
+      "id": "polish_choir",
+      "name": "Polish choir",
+      "family": "classical",
+      "recipe": "classic mid-690s polish choir, art Music, western modern branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 163
+    },
+    {
+      "id": "school_choir",
+      "name": "School choir",
+      "family": "classical",
+      "recipe": "classic school choir, art Music, western modern branch. cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 397
+    },
+    {
+      "id": "spanish_renaissance",
+      "name": "Spanish renaissance",
+      "family": "classical",
+      "recipe": "classic spanish renaissance, art Music, western early branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 160
+    },
+    {
+      "id": "string_orchestra",
+      "name": "String orchestra",
+      "family": "classical",
+      "recipe": "classic string orchestra, art Music, western common practice branch. silver wound lamb gut core carpathian spruce European maple sycamore maple violin orchestral, silver wound lamb gut core carpathian spruce eastern European source European maple general viola classical, silver wound lamb gut core carpathian spruce European maple sycamore maple cello, silver wound lamb gut core carpathian spruce European maple sycamore maple double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 540
+    },
+    {
+      "id": "spanish_classical_piano",
+      "name": "Spanish classical piano",
+      "family": "classical",
+      "recipe": "classic spanish classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "russian_contemporary_classical",
+      "name": "Russian contemporary classical",
+      "family": "classical",
+      "recipe": "classic russian contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 241
+    },
+    {
+      "id": "russian_modern_classical",
+      "name": "Russian modern classical",
+      "family": "classical",
+      "recipe": "classic russian modern classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 235
+    },
+    {
+      "id": "early_music_choir",
+      "name": "Early music choir",
+      "family": "classical",
+      "recipe": "classic early music choir, art Music, western common practice branch. antiphonal double choir alternating choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 220
+    },
+    {
+      "id": "german_choir",
+      "name": "German choir",
+      "family": "classical",
+      "recipe": "classic german choir, art Music, western common practice branch. antiphonal double choir alternating choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 215
+    },
+    {
+      "id": "finnish_choir",
+      "name": "Finnish choir",
+      "family": "classical",
+      "recipe": "classic early-2020s finnish choir, art Music, western modern branch. antiphonal double choir alternating choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 219
+    },
+    {
+      "id": "french_orchestra",
+      "name": "French orchestra",
+      "family": "classical",
+      "recipe": "classic mid-2020s french orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 491
+    },
+    {
+      "id": "german_orchestra",
+      "name": "German orchestra",
+      "family": "classical",
+      "recipe": "classic early-2020s german orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 493
+    },
+    {
+      "id": "french_opera",
+      "name": "French opera",
+      "family": "classical",
+      "recipe": "classic late-2010s french opera, art Music, western common practice branch. cold pressed light felt practice grade 18 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 249
+    },
+    {
+      "id": "german_opera",
+      "name": "German opera",
+      "family": "classical",
+      "recipe": "classic early-2020s german opera, art Music, western common practice branch. cold pressed light felt practice grade 18 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 250
+    },
+    {
+      "id": "french_renaissance",
+      "name": "French renaissance",
+      "family": "classical",
+      "recipe": "classic french renaissance, art Music, western common practice branch. four voice polyphonic regional choir ensemble, low dynamic level renaissance soloistic lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 274
+    },
+    {
+      "id": "german_renaissance",
+      "name": "German renaissance",
+      "family": "classical",
+      "recipe": "classic early-2010s german renaissance, art Music, western common practice branch. polyrhythmic vocal layering independent cycles choir ensemble, silbermann saxon canonical central German Baroque early 18th century quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 431
+    },
+    {
+      "id": "oxford_choir",
+      "name": "Oxford choir",
+      "family": "classical",
+      "recipe": "classic oxford choir, art Music, western modern branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 154
     }
   ]
 }

@@ -1,0 +1,147 @@
+{
+  "id": "french_orchestra",
+  "name": "French orchestra",
+  "family": "classical",
+  "lineage": "French orchestra is represented by Orchestre Philharmonique de Radio France — Dvořák Serenade for Strings, 12 December 2024. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s french orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 modern setup viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup cello, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 491,
+  "score": 70.415,
+  "config": {
+    "traditions": [
+      "french_orchestra"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "orch_strings": 0.6719999999999999,
+          "orch_top_wood": 2.6365,
+          "orch_back_wood": 2.8280000000000003,
+          "orch_varnish": 2.744,
+          "orch_setup_period": 2.8152500000000003,
+          "orch_bow": 0.546,
+          "orch_bow_stick": 3.1200000000000006,
+          "orch_articulation": 0.357,
+          "orch_rosin": 4.5
+        }
+      },
+      {
+        "id": "viola_classical",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "viola_size": "viola_15_inch",
+          "viola_strings": "viola_tungsten_wound_c",
+          "viola_top_wood": "viola_carpathian_spruce",
+          "viola_back_wood": "viola_european_maple_general",
+          "viola_varnish": "viola_cremonese_pre_1750",
+          "viola_setup_period": "viola_modern_setup",
+          "viola_bow_stick": "viola_pernambuco",
+          "viola_rosin": "viola_bernardel_rosin"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "viola_size": 0.784,
+          "viola_strings": 0.6479999999999999,
+          "viola_top_wood": 2.6365,
+          "viola_back_wood": 2.8280000000000003,
+          "viola_varnish": 2.744,
+          "viola_setup_period": 2.8152500000000003,
+          "viola_bow_stick": 3.1200000000000006,
+          "viola_rosin": 4.5
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "bernardel_rosin_cello",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "cello_strings": 0.6517499999999999,
+          "cello_top_wood": 2.6365,
+          "cello_back_wood": 2.8280000000000003,
+          "cello_varnish": 2.744,
+          "cello_setup_period": 2.8152500000000003,
+          "cello_bow_grip": 1.3,
+          "cello_rosin": 4.5,
+          "cello_bow_stick": 3.1200000000000006
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "synthetic_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 0.72525,
+          "upright_play": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "violin_orchestral": [
+        "bowed_technique"
+      ],
+      "viola_classical": [
+        "bowed_technique"
+      ],
+      "cello": [
+        "bowed_technique"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "upright_play": "arco_upright"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
