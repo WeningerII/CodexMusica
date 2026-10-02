@@ -96,8 +96,17 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: judged: 53 more coarse passes, 12 more schema-only satisfactions (none
 #: audible) and 6 violations. H STILL HOLDS: 2 of 43 schema-only
 #: satisfactions (4.7%) are AUDIBLE and 41 (95.3%) are not.
+#: REPINNED 2026-10-02 -> (949, 2, 21), THE BOUND WORDS (`MISSING.md` M-317,
+#: owner ruling; superseded (949, 2, 41) kept above). A mandated pair stands
+#: in a schema only through an instance covering its two end words. The
+#: control holds: 949 + 23 + 40 = 1012 judged against 52 refused,
+#: `battery.py`'s repin to the pair. The coarse passes and the two audible
+#: rescues do not move; the 20 schema-only satisfactions that left were all
+#: NOT audible -- they held through other words of the two lines -- and they
+#: are 20 of the battery's 25 new violations. H STILL HOLDS: 2 of 23
+#: schema-only satisfactions (8.7%) are AUDIBLE and 21 (91.3%) are not.
 PINNED = {
-    "sonnets": (949, 2, 41),
+    "sonnets": (949, 2, 21),
 }
 
 

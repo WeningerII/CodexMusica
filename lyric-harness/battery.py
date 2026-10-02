@@ -387,6 +387,21 @@ def whitman_battery():
 # date is the dictionary's limit, not a judgement: CMUdict gives
 # `temperate` no -ate reading. The exact partition is in
 # quality/production_relation_oracle.json (`audit_spans.py --write-oracle`).
+# REPINNED 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner: "go with
+# your recommendation on the bound words"). Layer: band -- WHERE a schema
+# must hold for a mandated pair: at the two words the group binds (a letter
+# scheme binds each line's last word), not anywhere in the two lines.
+# ~~judged 1007, refused 57, violations 15~~ -> judged 1012, refused 52,
+# violations 40. 25 pairs newly violate and NONE leaves the violated set:
+# 20 held only through other words of their lines (age/pilgrimage through
+# `Resembling`, die/dignity through `to`/`The` read as one reading, were/bear
+# through `When`, ...), and 5 refused only because an undecided word
+# elsewhere on the line held them open (herd/beard 12, forth/worth 72 and
+# 102, accidents/intents 114, ornaments/rents 140) and are now judged. In
+# General American none of the 25 end-word pairs stands in any relation:
+# they are the period's rhymes (-age, -ity, word/afford) and the declared
+# dialect does not hear them. Measured per (sonnet, line_i, line_j) against
+# the same tree with the binding dropped.
 from quality.battery_pin import EXPECTED  # noqa: E402
 
 

@@ -404,10 +404,17 @@ def test_nothing_was_lost_on_the_sonnets():
     # (buriest, erst/bristly, ill-us'd, Alack, million'd/sharp'st, profan'd)
     # and 1 (sonnet 72 forth/worth, parechesis) has more reading
     # combinations than `relations.READING_COMBO_CAP` tries.
-    check("57 pairs refuse: 50 lexical gaps, 0 reading disagreements, 7 "
-          "unresolved schema answers (~~128 = 50 + 53 + 25~~, any-reading "
-          "rule 2026-10-01)",
-          ref == battery.EXPECTED["refused"] == 50 + 0 + 7,
+    # REPINNED 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner
+    # ruling), MEASURED by this loop: ~~57 = 50 + 0 + 7~~ -> 52 = 50 lexical
+    # gaps + 0 reading disagreements + 2 unresolved schema answers. A group
+    # is judged at the words it binds, so an unread word elsewhere in the
+    # lines holds a pair open only when a span covering the bound word also
+    # reaches it: sonnet 1 ornament/content (`buriest`, mosaic/enjambed) and
+    # sonnet 95 privilege/edge (`ill-us'd`). The other five are judged.
+    check("52 pairs refuse: 50 lexical gaps, 0 reading disagreements, 2 "
+          "unresolved schema answers (~~57 = 50 + 0 + 7~~, bound words "
+          "2026-10-02)",
+          ref == battery.EXPECTED["refused"] == 50 + 0 + 2,
           "Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage")
     # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
     # identity coda_agreement. The count that matters to THIS test is
@@ -422,9 +429,12 @@ def test_nothing_was_lost_on_the_sonnets():
           viol == battery.EXPECTED["violations"], str(viol))
     # REPINNED 2026-09-24: ~~958~~ -> 936 = 1064 - 128, the same cause.
     # REPINNED 2026-10-01: ~~936~~ -> 1007 = 1064 - 57, the any-reading rule.
-    check("the judged denominator is 1007 (~~958~~, ~~936~~), and every "
-          "mandated pair is accounted for",
-          judged == battery.EXPECTED["judged"] == 1007 and judged + ref == mandated,
+    # REPINNED 2026-10-02: ~~1007~~ -> 1012 = 1064 - 52, the bound words
+    # (`MISSING.md` M-317): five pairs held open only by an undecided word
+    # elsewhere on the line are judged.
+    check("the judged denominator is 1012 (~~958~~, ~~936~~, ~~1007~~), and "
+          "every mandated pair is accounted for",
+          judged == battery.EXPECTED["judged"] == 1012 and judged + ref == mandated,
           f"{judged}: a violation RATE is "
           f"{battery.EXPECTED['violations']}/{battery.EXPECTED['judged']} = "
           f"{battery.EXPECTED['violations']/battery.EXPECTED['judged']:.1%}")

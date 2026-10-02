@@ -3497,7 +3497,8 @@ def test_a_whole_song_schema_is_asked_last():
     asked, real = [], RT.resolve_line_pair
 
     def stub(answers):
-        def spy(schema, stream, pair, build, cap=RT.READING_COMBO_CAP):
+        def spy(schema, stream, pair, build, cap=RT.READING_COMBO_CAP,
+                bound=None):
             asked.append(schema.name)
             return answers[schema.name]
         return spy

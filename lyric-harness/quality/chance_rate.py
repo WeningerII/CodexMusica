@@ -538,11 +538,13 @@ def _answered(lines, phon, RF, lex=None, decl=None):
     an admitted coarse relation at its cut, or any registry schema. Every
     pair is asked both; neither is a rescue for the other.
 
-    THE SCHEMA HALF READS TWO WHOLE LINES (any word of each), which is the
-    reading the GENERATORS take (`recover`, `--cliques`). Since 2026-10-02 a
-    mandated group is judged at the words it BINDS (`MISSING.md` M-317), a
-    narrower door, so this arm's `mandated` rate is the pre-M-317 door's and
-    is kept, pinned, as that record (doctrine 17)."""
+    THE SCHEMA HALF READS TWO WHOLE LINES (any word of each). Since
+    2026-10-02 a mandated group is judged at the words it BINDS (`MISSING.md`
+    M-317), a narrower door, and `recover` reads its line-end edges the same
+    way, so this arm's `mandated` rate is the pre-M-317 door's and is kept,
+    pinned, as that record (doctrine 17). ~~which is the reading the
+    GENERATORS take (`recover`, `--cliques`)~~ -- `--cliques` reads the
+    rhyme graph alone (M-145), and `recover` binds its end words."""
     n = len(lines)
     got = set(RF.whole_vocabulary_pairs(list(lines), phon))
     if lex is not None:
