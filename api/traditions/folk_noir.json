@@ -3,14 +3,14 @@
   "name": "Folk noir (contemporary dark chamber-folk songwriter tradition)",
   "family": "vernacular",
   "lineage": "Contemporary dark chamber-folk songwriter tradition centered around Marissa Nadler (six-album catalog from Ballads of Living and Dying 2004 through Strangers 2016), Espers (Greg Weeks / Meg Baird / Helena Espvall, Philadelphia), and the broader Kemado / Mexican Summer / Hexham Head circle — with Victorian, Pre-Raphaelite, surrealist-poetry (Nadler set Pablo Neruda on her debut), and cinematic-noir literary roots; the term was originally coined by Tony Wakeford for Sol Invictus to distance from the neofolk umbrella, but contemporary usage names the Nadler-Espers chamber-folk lineage. Distinct from gothic_americana (Southern Gothic / Pentecostal roots) and from neofolk-apocalyptic (Current 93, Death in June, post-industrial / Romantic-traditionalism lineage)",
-  "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music american romanticism spanish baroque. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red norway spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 687,
-  "score": 302.255,
+  "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music american romanticism barockinterpreten. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 693,
+  "score": 275.74,
   "config": {
     "traditions": [
       "folk_noir",
       "american_romanticism",
-      "spanish_baroque"
+      "barockinterpreten"
     ],
     "instruments": [
       {
@@ -24,48 +24,48 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_hall_reverb_long",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
         },
         "scores": {
-          "voice_register": 18.799999999999994,
-          "voice_quality": 14.429999999999993,
+          "voice_register": 18.649999999999995,
+          "voice_quality": 13.389999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.25,
-          "voice_articulation": 20.019999999999996,
-          "voice_microtone": 19.954999999999995,
+          "voice_articulation": 14.68999999999999,
+          "voice_microtone": 15.274999999999991,
           "voice_tradition": 23.68499999999999,
-          "voice_mechanism_compound": 3.705,
-          "voice_estill_quality": 7.580000000000001,
-          "voice_speech_song": 23.139999999999997,
-          "voice_ensemble_config": 19.694999999999997,
-          "voice_ornament_system": 2.825,
-          "voice_pitch_organization": 3.245,
-          "voice_processing_chain": 2.875,
-          "voice_multitrack_stack": 1.2349999999999999
+          "voice_mechanism_compound": 3.4,
+          "voice_estill_quality": 6.505000000000001,
+          "voice_speech_song": 19.109999999999992,
+          "voice_ensemble_config": 14.819999999999991,
+          "voice_ornament_system": 2.4450000000000003,
+          "voice_pitch_organization": 3.745,
+          "voice_processing_chain": 2.725,
+          "voice_multitrack_stack": 1.3
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "string_tuning": "open_d",
+          "string_tuning": "open_g",
           "top_wood": "sitka_om",
           "back_sides": "mahogany_bs_om",
           "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 0.26,
+          "string_tuning": 0.39,
           "top_wood": 0.825,
           "back_sides": 0.39,
-          "string_acoustic": 2.7900000000000005,
+          "string_acoustic": 3.2900000000000005,
           "acoustic_om_technique": 22.339999999999996
         }
       },
@@ -89,8 +89,8 @@
           "piano_hammer": 4.59,
           "piano_rim": 7.205,
           "piano_soundboard": 6.24,
-          "piano_pinblock": 3.1,
-          "piano_plate": 3.875,
+          "piano_pinblock": 2.6,
+          "piano_plate": 4.025,
           "piano_pitch_standard": 3.7700000000000005
         }
       },
@@ -99,24 +99,24 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "cello_strings": "pistoy_gut_cello",
-          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "bosnian_flamed_maple_cello",
           "cello_varnish": "cremonese_pre_1750_varnish_cello",
           "cello_setup_period": "modern_setup_cello",
           "cello_bow_grip": "french_bow_grip",
           "cello_rosin": "pirastro_cellisto_rosin",
-          "cello_bow_stick": "snakewood_stick_cello"
+          "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
           "bowed_technique": 2.8,
           "cello_strings": 2.55,
-          "cello_top_wood": 4.21,
-          "cello_back_wood": 4.71,
-          "cello_varnish": 4.835000000000001,
+          "cello_top_wood": 4.085,
+          "cello_back_wood": 4.035,
+          "cello_varnish": 3.055,
           "cello_setup_period": 3.4699999999999998,
           "cello_bow_grip": 1.3,
           "cello_rosin": 3.185,
-          "cello_bow_stick": 4.475
+          "cello_bow_stick": 3.5100000000000002
         }
       },
       {

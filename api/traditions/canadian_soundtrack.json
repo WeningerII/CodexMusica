@@ -1,0 +1,99 @@
+{
+  "id": "canadian_soundtrack",
+  "name": "Canadian soundtrack",
+  "family": "vernacular",
+  "lineage": "Ice Locus — Breath of the Loci Soundtrack. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic canadian soundtrack, functional Song. shakuhachi, doepfer eurorack canonical 1995 present small format standardization modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 240,
+  "score": 1.576,
+  "config": {
+    "traditions": [
+      "canadian_soundtrack"
+    ],
+    "instruments": [
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "one_eight",
+          "shaku_technique": "meri_kari",
+          "shakuhachi_body_material": "shakuhachi_madake_canonical",
+          "shakuhachi_lineage": "shakuhachi_kinko"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "shaku_length": -0.05,
+          "shaku_technique": 0.1365,
+          "shakuhachi_body_material": 0,
+          "shakuhachi_lineage": 0
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "mod_voltage_source": 0,
+          "mod_patch_density": 0,
+          "mod_lineage": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "shakuhachi": [
+        "wind_articulation",
+        "shaku_length",
+        "shaku_technique",
+        "shakuhachi_body_material",
+        "shakuhachi_lineage"
+      ],
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "shaku_length": "one_eight",
+      "shaku_technique": "meri_kari",
+      "shakuhachi_body_material": "shakuhachi_madake_canonical",
+      "shakuhachi_lineage": "shakuhachi_kinko",
+      "electronic_technique": "electronic_pad_drone",
+      "mod_voltage_source": "mod_sequencer",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

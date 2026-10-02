@@ -5,7 +5,7 @@
   "lineage": "This archival discovery label includes Bustan Abraham alongside modern instrumental and spiritual-folk performers. Bustan Abraham’s oud-led ensemble work offers a specific collaborative branch rather than a universal ethnic or religious formula.",
   "recipe": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 421,
-  "score": 20.368,
+  "score": 20.37,
   "config": {
     "traditions": [
       "israeli_folk"
@@ -69,7 +69,7 @@
           "bendir_head": "bendir_synthetic_modern"
         },
         "scores": {
-          "bendir_snares": 3.11775,
+          "bendir_snares": 3.12,
           "bendir_context": 0.39,
           "bendir_shell_wood": 2.34,
           "bendir_head": 1.3

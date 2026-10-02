@@ -1,0 +1,62 @@
+{
+  "id": "burkinabe_traditional",
+  "name": "Burkinabe traditional",
+  "family": "vernacular",
+  "lineage": "Bambara balafon ensemble — Bobo-Dioulasso: Balas. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic burkinabe traditional, improv On Frame. buzzy natural material resonance calabash gourd balafon. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 2.6,
+  "config": {
+    "traditions": [
+      "burkinabe_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "balafon",
+        "slots": {
+          "balafon_tuning": "balafon_susu",
+          "balafon_resonator": "balafon_gourd"
+        },
+        "scores": {
+          "balafon_tuning": 1.3,
+          "balafon_resonator": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "balafon": [
+        "balafon_tuning",
+        "balafon_resonator"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "balafon_tuning": "balafon_susu",
+      "balafon_resonator": "balafon_gourd"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
