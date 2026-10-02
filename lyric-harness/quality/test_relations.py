@@ -3601,6 +3601,35 @@ def test_a_remembered_edge_is_the_evaluated_one():
           f"{sum(map(len, warm_edges))} against {sum(map(len, cold_edges))}")
     check("every whole-song verdict is the uncached one", warm == cold,
           f"{[n for n in names if warm[n] != cold[n]]}")
+    # A stream read under one combination of readings opens no memo slot:
+    # its declaration is unique to the combination, and on the 18-line
+    # capacity draft those slots evicted the draft's own (2026-10-02).
+    st = build(lines)
+    word = next(((li, ti) for li, toks in enumerate(st.lexical_tokens or ())
+                 for ti, w in enumerate(toks) if w.lower() == "the"), None)
+    combos, _ = (RT.reading_combos(st, {word}) if word is not None
+                 else (None, False))
+    pinned = RT.pinned_phonology(st, combos[0]) if combos else None
+    saved = os.environ.get("LYRIC_PAIR_MEMO")
+    try:
+        os.environ["LYRIC_PAIR_MEMO"] = "1"
+        RT.pair_memo_clear()
+        trial = (RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"],
+                                    RT.build_stream(lines, pinned,
+                                                    declaration={
+                                                        "language": "eng"}))
+                 if pinned is not None else "unbuilt")
+        own = RT._pair_memo_slot(RT.REGISTRY["chain rhyme (rap)"], st)
+    finally:
+        if saved is None:
+            os.environ.pop("LYRIC_PAIR_MEMO", None)
+        else:
+            os.environ["LYRIC_PAIR_MEMO"] = saved
+        RT.pair_memo_clear()
+    check("a stream read under one combination of readings opens no memo "
+          "slot, and the draft's own stream still does",
+          pinned is not None and trial is None and own is not None,
+          f"pinned built: {pinned is not None}, trial slot: {trial!r:.40}")
 
 
 # ---------------------------------------------------------------------------
