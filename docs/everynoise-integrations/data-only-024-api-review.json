@@ -1,0 +1,3152 @@
+{
+  "baseline_commit": "627dc64e1e9ff0eba85e2bcc03e797fd7840b955",
+  "reviewed_artifact": "/workspace/CodexMusica/api after parent-confirmed build job4564 success",
+  "status": "pass_with_explicitly_reviewed_original_solver_drift",
+  "source_preservation": {
+    "old_traditions": 4938,
+    "unchanged_old_payloads": 4919,
+    "old_source_identity_changes": [],
+    "missing_old_traditions": [],
+    "old_instrument_payloads_identical": 1471,
+    "old_instrument_changes_excluding_index": [],
+    "all_old_actual_app_cards": {
+      "instruments": {
+        "old_count": 1471,
+        "missing": [],
+        "changed": []
+      },
+      "traditions": {
+        "old_count": 4938,
+        "missing": [],
+        "changed": []
+      }
+    }
+  },
+  "old_generated_changes": {
+    "changed_payloads": 19,
+    "recipe_changes": 8,
+    "material_slot_changes": 28,
+    "score_only_payloads": 9,
+    "hidden_material_slot_payloads": 2,
+    "protected_slot_changes": [],
+    "environment_changes": [],
+    "instrument_roster_changes": [],
+    "validated_selected_slots_in_all_changed_payloads": 543,
+    "variant_errors": []
+  },
+  "new_100": {
+    "id_set_exactly_matches_frozen": true,
+    "count": 100,
+    "compiled_source_identity_roster_environment_errors": [],
+    "candidate_parts_checked": 3459,
+    "applicable_source_pins_retained_and_runtime_protected": 3324,
+    "applicability_note": "Flat source pins apply only where the selected variant exists on that instrument. Eight drum UI construction/cymbal parts can be absent where all choices are explicit-only and no source pin supplies them; original compiler deliberately does not auto-select these. No fabricated absence failure or forced pin of a variant from another instrument.",
+    "rows": [
+      {
+        "id": "deep_german_punk",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "deep_gothic_post_punk",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "digital_subtractive",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "belly_dance",
+        "instruments": [
+          "voice",
+          "oud",
+          "qanun",
+          "electric_violin",
+          "violin_orchestral",
+          "oboe",
+          "electric_bass",
+          "bongos",
+          "congas",
+          "darbuka",
+          "zills_sagat",
+          "claves"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bard",
+        "instruments": ["voice", "acoustic_guitar_dread", "digital_subtractive"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bardcore",
+        "instruments": ["voice", "celtic_harp", "tin_whistle", "recorder"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "barnalog",
+        "instruments": ["voice", "acoustic_guitar_dread"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "barnasogur",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "barnemusikk",
+        "instruments": ["voice", "acoustic_guitar_dread", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "barnsagor",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "barockinterpreten",
+        "instruments": ["harpsichord"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "basel_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bases_de_freestyle",
+        "instruments": ["sampler_drum_machine"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "batak",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bath_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "acoustic_guitar_dread",
+          "electric_bass",
+          "saxophone",
+          "trumpet",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "baton_rouge_indie",
+        "instruments": [
+          "voice",
+          "acoustic_guitar_dread",
+          "banjo_5_string",
+          "violin_orchestral",
+          "upright_bass",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "batswana_traditional",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bay_area_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bboy",
+        "instruments": ["sampler_drum_machine"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "beat_poetry",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "beatboxing",
+        "instruments": [
+          "voice",
+          "vocal_percussion_voice",
+          "acoustic_guitar_dread",
+          "digital_subtractive"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "beatdown",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "beatlesque",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "acoustic_guitar_dread",
+          "electric_bass",
+          "digital_subtractive",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "beats",
+        "instruments": ["sampler_drum_machine"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "belarusian_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "digital_subtractive",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "belfast_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "belgian_experimental",
+        "instruments": ["baritone_electric", "modular_synth", "sampler_drum_machine"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "belgian_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "belgian_new_wave",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "digital_subtractive",
+          "sampler_classic"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "belo_horizonte_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bemani",
+        "instruments": ["grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bergamo_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "digital_subtractive",
+          "sampler_drum_machine",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bergen_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "tonewheel_organ",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bern_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bernu_dziesmas",
+        "instruments": ["voice", "grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bible",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "binaural",
+        "instruments": ["mellotron", "digital_subtractive"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "birdsong",
+        "instruments": ["sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "birmingham_indie",
+        "instruments": ["voice", "electric_guitar_humbucker"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "birthday",
+        "instruments": ["grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bisaya_indie",
+        "instruments": ["voice", "analog_poly_synth", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "black_n_roll",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "black_comedy",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "black_death",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "sampler_drum_machine"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "black_noise",
+        "instruments": ["electric_guitar_humbucker", "voice", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "black_sludge",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "black_thrash",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "blackened_crust",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "blasmusik",
+        "instruments": ["trumpet", "trombone", "tuba"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "boeremusiek",
+        "instruments": [
+          "concertina",
+          "accordion",
+          "grand_piano",
+          "electric_bass",
+          "harmonica",
+          "acoustic_guitar_dread",
+          "pump_organ_harmonium",
+          "violin_orchestral"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bohol_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "boom_bap_brasileiro",
+        "instruments": ["voice", "sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bornehistorier",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bornesange",
+        "instruments": ["voice", "acoustic_guitar_dread"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bosnian_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bossa_nova_cover",
+        "instruments": ["voice", "acoustic_guitar_dread"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "boston_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "boy_soprano",
+        "instruments": ["voice", "pipe_organ"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "braindance",
+        "instruments": ["analog_poly_synth", "drum_machine_analog"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brasilia_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brass_band_brasileiro",
+        "instruments": [
+          "trumpet",
+          "trombone",
+          "saxophone_section_tenor_baritone",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brass_quintet",
+        "instruments": ["trumpet", "french_horn", "trombone", "tuba"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brazilian_boogie",
+        "instruments": ["voice", "electric_bass", "drum_kit", "analog_poly_synth"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brazilian_experimental",
+        "instruments": ["electric_guitar_humbucker", "grand_piano", "clarinet", "pipe_organ"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brazilian_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "rhodes_electric",
+          "tonewheel_organ"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brighton_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brisbane_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bristol_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "analog_poly_synth"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "british_children_s_music",
+        "instruments": ["voice", "acoustic_guitar_dread"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "british_comedy",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "british_electroacoustic",
+        "instruments": ["sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "british_experimental",
+        "instruments": ["grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "british_soundtrack",
+        "instruments": ["grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "britpop_revival",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit", "cello"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brno_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "broken_transmission",
+        "instruments": ["sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "brooklyn_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bruneian_indie",
+        "instruments": ["voice", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bubblegrunge",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "buffalo_ny_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bulgarian_experimental",
+        "instruments": ["electric_guitar_humbucker", "sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bulgarian_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "analog_poly_synth"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "burkinabe_traditional",
+        "instruments": ["balafon"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "burundian_traditional",
+        "instruments": ["voice", "inanga"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "bury_st_edmunds_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "calgary_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "analog_poly_synth",
+          "sampler_drum_machine"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cambridgeshire_indie",
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canadian_ccm",
+        "instruments": ["voice", "acoustic_guitar_om"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canadian_comedy",
+        "instruments": ["voice"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canadian_electropop",
+        "instruments": ["voice", "analog_poly_synth", "analog_mono_synth", "sampler_drum_machine"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canadian_experimental",
+        "instruments": ["modular_synth", "sampler_classic"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canadian_indie",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "analog_poly_synth",
+          "grand_piano"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canadian_indigenous_music",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit",
+          "analog_poly_synth"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canadian_latin",
+        "instruments": ["voice", "grand_piano"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canadian_soundtrack",
+        "instruments": ["shakuhachi", "modular_synth"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canberra_indie",
+        "instruments": ["voice", "grand_piano", "electric_bass", "drum_kit", "cello", "flute"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cancion_infantil_latinoamericana",
+        "instruments": ["voice", "acoustic_guitar_dread", "upright_bass"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cancion_infantil_mexicana",
+        "instruments": [
+          "voice",
+          "electric_guitar_humbucker",
+          "saxophone",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cancoes_infantis",
+        "instruments": [
+          "voice",
+          "grand_piano",
+          "acoustic_guitar_dread",
+          "electric_guitar_humbucker",
+          "electric_bass",
+          "drum_kit"
+        ],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "cantautora_argentina",
+        "instruments": ["voice", "acoustic_guitar_dread"],
+        "source_pin_parts": true,
+        "error_count": 0
+      },
+      {
+        "id": "canzone_siciliane",
+        "instruments": ["voice", "acoustic_guitar_dread"],
+        "source_pin_parts": true,
+        "error_count": 0
+      }
+    ]
+  },
+  "indexes": {
+    "traditions": {
+      "baseline_count": 4938,
+      "current_count": 5038,
+      "old_items_changed": [],
+      "added_ids": [
+        "bard",
+        "bardcore",
+        "barnalog",
+        "barnasogur",
+        "barnemusikk",
+        "barnsagor",
+        "barockinterpreten",
+        "basel_indie",
+        "bases_de_freestyle",
+        "batak",
+        "bath_indie",
+        "baton_rouge_indie",
+        "batswana_traditional",
+        "bay_area_indie",
+        "bboy",
+        "beat_poetry",
+        "beatboxing",
+        "beatdown",
+        "beatlesque",
+        "beats",
+        "belarusian_indie",
+        "belfast_indie",
+        "belgian_experimental",
+        "belgian_indie",
+        "belgian_new_wave",
+        "belly_dance",
+        "belo_horizonte_indie",
+        "bemani",
+        "bergamo_indie",
+        "bergen_indie",
+        "bern_indie",
+        "bernu_dziesmas",
+        "bible",
+        "binaural",
+        "birdsong",
+        "birmingham_indie",
+        "birthday",
+        "bisaya_indie",
+        "black_comedy",
+        "black_death",
+        "black_n_roll",
+        "black_noise",
+        "black_sludge",
+        "black_thrash",
+        "blackened_crust",
+        "blasmusik",
+        "boeremusiek",
+        "bohol_indie",
+        "boom_bap_brasileiro",
+        "bornehistorier",
+        "bornesange",
+        "bosnian_indie",
+        "bossa_nova_cover",
+        "boston_indie",
+        "boy_soprano",
+        "braindance",
+        "brasilia_indie",
+        "brass_band_brasileiro",
+        "brass_quintet",
+        "brazilian_boogie",
+        "brazilian_experimental",
+        "brazilian_indie",
+        "brighton_indie",
+        "brisbane_indie",
+        "bristol_indie",
+        "british_children_s_music",
+        "british_comedy",
+        "british_electroacoustic",
+        "british_experimental",
+        "british_soundtrack",
+        "britpop_revival",
+        "brno_indie",
+        "broken_transmission",
+        "brooklyn_indie",
+        "bruneian_indie",
+        "bubblegrunge",
+        "buffalo_ny_indie",
+        "bulgarian_experimental",
+        "bulgarian_indie",
+        "burkinabe_traditional",
+        "burundian_traditional",
+        "bury_st_edmunds_indie",
+        "calgary_indie",
+        "cambridgeshire_indie",
+        "canadian_ccm",
+        "canadian_comedy",
+        "canadian_electropop",
+        "canadian_experimental",
+        "canadian_indie",
+        "canadian_indigenous_music",
+        "canadian_latin",
+        "canadian_soundtrack",
+        "canberra_indie",
+        "cancion_infantil_latinoamericana",
+        "cancion_infantil_mexicana",
+        "cancoes_infantis",
+        "cantautora_argentina",
+        "canzone_siciliane",
+        "deep_german_punk",
+        "deep_gothic_post_punk"
+      ]
+    },
+    "instruments": {
+      "baseline_count": 1471,
+      "current_count": 1472,
+      "old_items_changed": [],
+      "added_ids": ["zills_sagat"]
+    }
+  },
+  "original_engine_unchanged_proof": {
+    "scripts/search.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+    },
+    "scripts/score.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "cd3171659c29186d298fba27f0b600635c624f6a246b81810d8dccb85f11aa2c"
+    },
+    "scripts/translate.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "43af50cd7d656ade2f3247f89861326b6803081228c1edd57db8d5f7cdb42a8d"
+    },
+    "scripts/_loader.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365"
+    },
+    "scripts/_merge.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c"
+    }
+  },
+  "individual_old_output_reviews": [
+    {
+      "id": "adelaide_indie",
+      "changed_keys": ["score", "recipe", "recipe_chars", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["adelaide_indie"],
+      "traditions_after": ["adelaide_indie"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "body_wood",
+          "before": "mahogany_maple_cap",
+          "after": "alder_h",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "finish",
+          "before": "nitro_hum",
+          "after": "oil_satin_hum",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "short_scale_b",
+          "after": "extra_long_b",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretted",
+          "after": "fretless",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic early-2010s adelaide indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2010s adelaide indie, distorted Rock, alternative branch. solo with instrumental accompaniment. humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "adelaide_indie": {
+          "before": [
+            {
+              "id": "alternative_rock",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "shoegaze",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "grunge",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "math_rock_post_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "slowcore",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "sadcore",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "madchester_baggy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "slacker_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "funk_metal",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "modern_indie_rock_2010s",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "bath_indie",
+              "weight": 0.8666666666666666,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "baton_rouge_indie",
+              "weight": 0.8666666666666666,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "bay_area_indie",
+              "weight": 0.8666666666666666,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "shoegaze",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "alternative_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "grunge",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "math_rock_post_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "slowcore",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "sadcore",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "madchester_baggy",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "material_recipe_and_slots",
+      "visible_change": "Drops single-lead single-track no-stacking phrase; electric-bass mahogany becomes rock-canon descriptor. Four material generated choices changed: guitar wood/finish, bass scale/fretlessness."
+    },
+    {
+      "id": "african_percussion",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["african_percussion"],
+      "traditions_after": ["african_percussion"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic african percussion, groove Percussion. djembe. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic african percussion, groove Percussion. djembe. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "african_percussion": {
+          "before": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "afro_cuban_percussion",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "accordion",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "ai",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "albanian_alternative",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "belly_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "afro_cuban_percussion",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "birdsong",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "birthday",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    },
+    {
+      "id": "afro_psych",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["afro_psych"],
+      "traditions_after": ["afro_psych"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-1970s afro psych, distorted Rock. unprocessed natural acoustic. humbucker electric guitar, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-1970s afro psych, distorted Rock. unprocessed natural acoustic. humbucker electric guitar, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "afro_psych": {
+          "before": [
+            {
+              "id": "rap_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bangladeshi_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "argentine_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "arkansas_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "armenian_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bangla_gojol",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "rap_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indie",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indigenous_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bangladeshi_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "argentine_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "arkansas_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "armenian_indie",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bangla_gojol",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    },
+    {
+      "id": "atmospheric_post_rock",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["atmospheric_post_rock"],
+      "traditions_after": ["atmospheric_post_rock"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretless",
+          "after": "fretted",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic atmospheric post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_after": "classic atmospheric post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "neighbor_changes": {
+        "atmospheric_post_rock": {
+          "before": [
+            {
+              "id": "belgian_post_rock",
+              "weight": 0.8666666666666666,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "malaysian_post_rock",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "cinematic_post_rock",
+              "weight": 0.7999999999999999,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "american_post_rock",
+              "weight": 0.7999999999999999,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "krautrock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "post_rock_extended",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "experimental_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "nintendocore",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "rock_in_opposition",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kosmische",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "belgian_post_rock",
+              "weight": 0.8666666666666666,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "malaysian_post_rock",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "cinematic_post_rock",
+              "weight": 0.7999999999999999,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "krautrock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "post_rock_extended",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "experimental_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "nintendocore",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "rock_in_opposition",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kosmische",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "ambient_post_rock",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "material_generated_slots_no_visible_recipe_change",
+      "visible_change": "Recipe identical but unprotected bass frettedness changes fretless to fretted; material config change acknowledged."
+    },
+    {
+      "id": "bahai",
+      "changed_keys": ["score", "recipe", "recipe_chars", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["bahai"],
+      "traditions_after": ["bahai"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "grand_piano_size",
+          "before": "grand_7_foot",
+          "after": "grand_9_foot",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic early-2020s bah\u00e1\u2019\u00ed music, ritual Devotional. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2020s bah\u00e1\u2019\u00ed music, ritual Devotional. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "bahai": {
+          "before": [
+            {
+              "id": "classic_norwegian_pop",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "classic_czech_pop",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "afrikaans_gospel",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "cape_verdean_funana_maritime",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "cantautora_mexicana",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "canadian_ccm",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "classic_norwegian_pop",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "classic_czech_pop",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "afrikaans_gospel",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "cape_verdean_funana_maritime",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "cantautora_mexicana",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "material_recipe_and_slots",
+      "visible_change": "Asian spruce hokkaido source grand-piano descriptor surfaces; generated unprotected grand size changes7ft to9ft."
+    },
+    {
+      "id": "boduberu",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["boduberu"],
+      "traditions_after": ["boduberu"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern boduberu, groove Percussion. maldivian, single leader group response. three drummers boduberu drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern boduberu, groove Percussion. maldivian, single leader group response. three drummers boduberu drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "neighbor_changes": {
+        "boduberu": {
+          "before": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dene_handgame",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "aleke",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "thaara_jehun",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "dhandi_jehun",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "belly_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dene_handgame",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "aleke",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "thaara_jehun",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    },
+    {
+      "id": "bosavi_ilib_kuwo",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["bosavi_ilib_kuwo"],
+      "traditions_after": ["bosavi_ilib_kuwo"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern ilib kuwo, groove Percussion. kundu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern ilib kuwo, groove Percussion. kundu. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "neighbor_changes": {
+        "bosavi_ilib_kuwo": {
+          "before": [
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7714285714285714,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mwinoghe",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "banda_linda_polyphony",
+              "weight": 0.07142857142857142,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "banda_dakpa_polyphony",
+              "weight": 0.07142857142857142,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kulintang",
+              "weight": 0.0625,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7714285714285714,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "belly_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "mwinoghe",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "banda_linda_polyphony",
+              "weight": 0.07142857142857142,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "banda_dakpa_polyphony",
+              "weight": 0.07142857142857142,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    },
+    {
+      "id": "danish_folk",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["danish_folk"],
+      "traditions_after": ["danish_folk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "neighbor_changes": {
+        "danish_folk": {
+          "before": [
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "israeli_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "romanian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "traditional_bluegrass",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bluegrass_fiddle",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "scottish_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "finnish_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "baltic_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "israeli_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "romanian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "burkinabe_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "traditional_bluegrass",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bluegrass_fiddle",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "scottish_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "finnish_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "baltic_folk",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    },
+    {
+      "id": "ecm_style_jazz",
+      "changed_keys": ["score", "recipe", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["ecm_style_jazz", "canadian_classical", "caucasian_classical"],
+      "traditions_after": ["ecm_style_jazz", "canadian_classical", "caucasian_classical"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "renner_blue_hammer",
+          "after": "renner_standard_hammer",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "dadgad",
+          "after": "drop_d",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "neck_wood",
+          "before": "mahogany_neck",
+          "after": "maple",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic European late-1960s ecm-style jazz, improv On Frame, American jazz branch, western modern art music, ambient experimental electric canadian classical caucasian classical. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, steel carpathian spruce European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, vibraphone, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese legato jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright alder pau ferro single coil electric guitar. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "recipe_after": "classic European late-1960s ecm-style jazz, improv On Frame, American jazz branch, western modern art music, ambient experimental electric canadian classical caucasian classical. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, steel carpathian spruce European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, vibraphone, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese legato jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright alder pau ferro single coil electric guitar. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "neighbor_changes": {
+        "ecm_style_jazz": {
+          "before": [
+            {
+              "id": "macedonian_electronic",
+              "weight": 1.0833333333333333,
+              "srcs": ["crossref", "axis"]
+            },
+            {
+              "id": "minimalist",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "les_six_french",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "second_viennese_school",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "neoclassicism_interwar",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "darmstadt_school_total_serialism",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "polish_avant_garde_sonorism",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "holy_minimalism",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "spectralism",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "new_complexity",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ],
+          "after": [
+            {
+              "id": "minimalist",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "les_six_french",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "second_viennese_school",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "neoclassicism_interwar",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "darmstadt_school_total_serialism",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "polish_avant_garde_sonorism",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "holy_minimalism",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "spectralism",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "new_complexity",
+              "weight": 1,
+              "srcs": ["crossref"]
+            },
+            {
+              "id": "microtonal_composition",
+              "weight": 1,
+              "srcs": ["crossref"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "material_recipe_and_slots",
+      "visible_change": "Piano loses modern-bright phrase and gains diaphragmatic descriptor; hammer changes Renner blue to standard; guitar DADGAD becomes dropD and neck mahogany becomes maple (latter slots not directly visible)."
+    },
+    {
+      "id": "folk_noir",
+      "changed_keys": ["score", "recipe", "recipe_chars", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["folk_noir", "american_romanticism", "spanish_baroque"],
+      "traditions_after": ["folk_noir", "american_romanticism", "barockinterpreten"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "after": "voice_multitrack_octave_double_self",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_bel_canto",
+          "after": "voice_ornament_dhrupad_meend_andolan",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "part": "string_tuning",
+          "before": "open_d",
+          "after": "open_g",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "cello",
+          "part": "cello_bow_stick",
+          "before": "snakewood_stick_cello",
+          "after": "pernambuco_stick_cello",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "cello",
+          "part": "cello_top_wood",
+          "before": "norway_spruce_alpine_cello",
+          "after": "carpathian_spruce_cello",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music american romanticism spanish baroque. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red norway spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_after": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music american romanticism barockinterpreten. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "neighbor_changes": {
+        "barockinterpreten": {
+          "before": [],
+          "after": [
+            {
+              "id": "symphonic",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "string_quartet",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "hyperion_classical_aesthetic",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "anglican_choral_cathedral",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "manhattan_chamber_loft",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "british_brass_band",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "classical_period_18c",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "early_romantic_19c",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "late_romantic_19c",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "russian_five",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "causal_review": "After american_romanticism is already stapled, new barockinterpreten and existing spanish_baroque both have distance 9; lexicographic tie-break selects barockinterpreten.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "material_recipe_and_slots"
+    },
+    {
+      "id": "garage_rock_revival_2000s",
+      "changed_keys": ["score", "recipe", "recipe_chars", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["garage_rock_revival_2000s", "crust_punk", "acoustic_punk"],
+      "traditions_after": ["garage_rock_revival_2000s", "crust_punk", "deep_german_punk"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_connemara_unaccompanied",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "before": "voice_ensemble_gang_vocal_unison",
+          "after": "voice_ensemble_four_plus_polyphony",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "japanese_min_yo_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_equal_tempered_12",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_opera",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk acoustic punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_after": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk deep german punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "neighbor_changes": {
+        "deep_german_punk": {
+          "before": [],
+          "after": [
+            {
+              "id": "punk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "hardcore_punk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "post_punk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "garage_punk_60s",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "proto_punk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "anarcho_punk_crass",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "crust_punk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "d_beat_swedish",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "powerviolence",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "folk_punk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "causal_review": "After crust_punk is already stapled, new deep_german_punk at axis distance 9 becomes distortedRock.punk representative instead of acoustic_punk at distance 10.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "material_recipe_and_slots"
+    },
+    {
+      "id": "gothic_americana",
+      "changed_keys": ["score", "recipe", "recipe_chars", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["gothic_americana", "texas_country_folk_storyteller", "neofolk"],
+      "traditions_after": [
+        "gothic_americana",
+        "texas_country_folk_storyteller",
+        "new_weird_america"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_pythagorean",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "autoharp",
+          "part": "acoustic_technique",
+          "before": "acoustic_strummed_ringing",
+          "after": "acoustic_drone_modal",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "hurdy_gurdy",
+          "part": "hurdy_buzz",
+          "before": "chien_active",
+          "after": "chien_off",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "baritone_electric_pickup",
+          "before": "baritone_single_coil_jaguar",
+          "after": "baritone_p90",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "baritone_electric_scale",
+          "before": "baritone_30_scale",
+          "after": "baritone_28_scale",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "baritone_electric_strings",
+          "before": "baritone_nickel_plated",
+          "after": "baritone_stainless_heavy",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "electric_technique",
+          "before": "electric_clean_strummed",
+          "after": "electric_arpeggiated_clean",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller neofolk. thick, breath veiled tone, wide pitch sway, interlocked note trading. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, gut double stops fiddle, folk steel modern canonical 36 37 string set autoharp, open d tuning martin lifespan sealed travis picked dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 30 inch plus baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_after": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller new weird america. thick, breath veiled tone, wide pitch sway, interlocked note trading. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, gut double stops fiddle, folk autoharp, open d tuning martin lifespan sealed travis picked dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "neighbor_changes": {},
+      "causal_review": "New beat_poetry at axis distance 6 displaces neofolk at distance 8 as representative of balladPoetry.angloSingerSong. The unchanged hill climber then prefers existing new_weird_america from freakFolk branch.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "material_recipe_and_slots"
+    },
+    {
+      "id": "indonesian_r_and_b",
+      "changed_keys": ["score", "recipe", "recipe_chars", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["indonesian_r_and_b"],
+      "traditions_after": ["indonesian_r_and_b"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic indonesian r&b, functional Song, soul R&B branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, digital subtractive, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic indonesian r&b, functional Song, soul R&B branch. solo with instrumental accompaniment, single lead single track no stacking. basswood humbucker electric guitar, digital subtractive, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "indonesian_r_and_b": {
+          "before": [
+            {
+              "id": "kenyan_r_and_b",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "retro_soul",
+              "weight": 0.8666666666666666,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "southern_soul",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "northern_soul_motown",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "philly_soul_intl",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "classic_rb",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "modern_rb",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "contemporary_rb_late_90s_2000s",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dc_go_go",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "new_jack_swing",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "kenyan_r_and_b",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "southern_soul",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "northern_soul_motown",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "philly_soul_intl",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "classic_rb",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "modern_rb",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "contemporary_rb_late_90s_2000s",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dc_go_go",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "new_jack_swing",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "neo_soul_classic",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "recipe_descriptor_surfacing_only",
+      "visible_change": "Existing selected humbucker guitar body receives surfaced basswood descriptor; no selected slot change."
+    },
+    {
+      "id": "israeli_folk",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["israeli_folk"],
+      "traditions_after": ["israeli_folk"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "neighbor_changes": {
+        "israeli_folk": {
+          "before": [
+            {
+              "id": "danish_folk",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "romanian_folk",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "baltic_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kosovan_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "mazandarani_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "danish_folk",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "romanian_folk",
+              "weight": 0.825,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "macedonian_folk",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bandoneon",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "burkinabe_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "baltic_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kosovan_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "mazandarani_folk",
+              "weight": 0.125,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    },
+    {
+      "id": "kenyan_r_and_b",
+      "changed_keys": ["score", "recipe", "recipe_chars", "config"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["kenyan_r_and_b"],
+      "traditions_after": ["kenyan_r_and_b"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic kenyan r&b, functional Song, soul R&B branch. solo with instrumental accompaniment, single lead single track no stacking. humbucker electric guitar, la bella flats Detroit soul bass canon fingerstyle locked electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic kenyan r&b, functional Song, soul R&B branch. solo with instrumental accompaniment, single lead single track no stacking. basswood humbucker electric guitar, la bella flats Detroit soul bass canon fingerstyle locked electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "neighbor_changes": {
+        "kenyan_r_and_b": {
+          "before": [
+            {
+              "id": "indonesian_r_and_b",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "retro_soul",
+              "weight": 0.8666666666666666,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "southern_soul",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "northern_soul_motown",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "philly_soul_intl",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "classic_rb",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "modern_rb",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "contemporary_rb_late_90s_2000s",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dc_go_go",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "new_jack_swing",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ],
+          "after": [
+            {
+              "id": "indonesian_r_and_b",
+              "weight": 1.2,
+              "srcs": ["sibling", "axis"]
+            },
+            {
+              "id": "southern_soul",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "northern_soul_motown",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "philly_soul_intl",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "classic_rb",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "modern_rb",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "contemporary_rb_late_90s_2000s",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "dc_go_go",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "new_jack_swing",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "neo_soul_classic",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "recipe_descriptor_surfacing_only",
+      "visible_change": "Existing selected humbucker guitar body receives surfaced basswood descriptor; no selected slot change."
+    },
+    {
+      "id": "rap_rock",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["rap_rock"],
+      "traditions_after": ["rap_rock"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "before": "alnico_2_h",
+          "after": "alnico_8_h",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "recipe_after": "classic modern rap rock, distorted Rock. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. sampler, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning humbucker electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, 500-series boutique pre. 24-bit digital.",
+      "neighbor_changes": {
+        "rap_rock": {
+          "before": [
+            {
+              "id": "afro_psych",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bronx_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_old_school_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_underground_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_indigenous_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "afro_psych",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indie",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "canadian_indigenous_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bronx_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_old_school_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_underground_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "canadian_indigenous_hip_hop",
+              "weight": 0.5,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "material_generated_slots_no_visible_recipe_change",
+      "visible_change": "Recipe identical but unprotected humbucker magnet changes Alnico2 toAlnico8; material config change acknowledged."
+    },
+    {
+      "id": "terchova_music",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["terchova_music"],
+      "traditions_after": ["terchova_music"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern music of terchov\u00e1, groove Percussion. group vocals, live take. double stops fiddle, small body bowed two strings terchova two string bass. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern music of terchov\u00e1, groove Percussion. group vocals, live take. double stops fiddle, small body bowed two strings terchova two string bass. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "neighbor_changes": {
+        "terchova_music": {
+          "before": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kiribati_ruoia",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kiribati_bino",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "nganasan_keingeirsya",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "boedra",
+              "weight": 0.16666666666666666,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "belly_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kiribati_ruoia",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kiribati_bino",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "nganasan_keingeirsya",
+              "weight": 0.25,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    },
+    {
+      "id": "vanuatu_water_drumming",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["vanuatu_water_drumming"],
+      "traditions_after": ["vanuatu_water_drumming"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern vanuatu women\u2019s water music, groove Percussion. cupped hands water struck interlocking water percussion water percussion. beach. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern vanuatu women\u2019s water music, groove Percussion. cupped hands water struck interlocking water percussion water percussion. beach. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "neighbor_changes": {
+        "vanuatu_water_drumming": {
+          "before": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tchiloli_music",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kulintang",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "asturian_gaita",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "thai_classical",
+              "weight": 0.07142857142857142,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "wayapi_tule",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "belly_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "tchiloli_music",
+              "weight": 0.1,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kulintang",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "asturian_gaita",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    },
+    {
+      "id": "wayapi_tule",
+      "changed_keys": ["score", "config"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["wayapi_tule"],
+      "traditions_after": ["wayapi_tule"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-1970s way\u00e3pi tule ensemble suites, groove Percussion. group vocals, live take. reed ensemble interlocking tule clarinets. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic late-1970s way\u00e3pi tule ensemble suites, groove Percussion. group vocals, live take. reed ensemble interlocking tule clarinets. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "neighbor_changes": {
+        "wayapi_tule": {
+          "before": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kiribati_ruoia",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kiribati_bino",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bosavi_koluba",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "banda_linda_polyphony",
+              "weight": 0.07142857142857142,
+              "srcs": ["axis"]
+            }
+          ],
+          "after": [
+            {
+              "id": "bulgarian_dance_traditional",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "vanuatu_water_drumming",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "boduberu",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "bosavi_ilib_kuwo",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "terchova_music",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "african_percussion",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "belly_dance",
+              "weight": 0.7,
+              "srcs": ["sibling"]
+            },
+            {
+              "id": "kiribati_ruoia",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "kiribati_bino",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            },
+            {
+              "id": "bosavi_koluba",
+              "weight": 0.08333333333333333,
+              "srcs": ["axis"]
+            }
+          ]
+        }
+      },
+      "causal_review": "Original catalog-wide neighbor list changed; unchanged scoreVariant neighbor-bias modifies variant scores and, where winning scores cross, unprotected selections. Source/extras and engine unchanged. Exact neighbor lists retained.",
+      "scope_decision": "Reviewed original-solver generated drift; no old source-card change, protected pin replacement, instrument addition/removal or environment change.",
+      "change_type": "score_bookkeeping_only"
+    }
+  ],
+  "conclusion": "Approved data/API consistency and preservation of all old authored source/imported cards. The unchanged solver produces19 reviewed legacy generated-payload differences, including28 material unprotected slot changes and8 visible recipes, due to original global neighbor and crossRef candidate selection. These are acknowledged generated behavior changes, not dismissed as cosmetic. No protected pin/environment/roster mutation or shared engine change. No API/source/snapshot edits performed by reviewer.",
+  "artifact_sha256": {
+    "api/all.json": "b61af125b5753a97b468d40cbab3923eb2d0cb8b67e20d7fa70f13744910c089",
+    "api/traditions/index.json": "4b1339d99889b97e5b43e72211a89dc073951463626920c66a8c4282ff968a0a",
+    "api/instruments/index.json": "ab9bd0b92c5ddbac81f6f2b4f186685ba06cbac710fc890e1cc9be36f722f027",
+    "references/05_traditions.js": "c85c827096073f8198c399166dbcbf387750c18fb76667fd61bfd953315be0bd",
+    "references/02_instruments.js": "94e645a71a7165e5d2ea4b9c1f1e1a7721c8632d6a7f0926e6bd76f3657c71dc"
+  },
+  "supporting_reports": [
+    "/tmp/batch024/regression-drift-review.json",
+    "/tmp/batch024/api-validation-details.json",
+    "/tmp/batch024/neighbors-baseline.json",
+    "/tmp/batch024/neighbors-current.json"
+  ]
+}

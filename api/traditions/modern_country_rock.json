@@ -5,7 +5,7 @@
   "lineage": "Modern country rock is represented here by Old Dominion — selected guitar-band core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic modern country rock, functional Song, country rock branch. Fender tweed amp American 50s amp tweed breakup basswood alnico humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 395,
-  "score": 76.84,
+  "score": 77.428,
   "config": {
     "traditions": [
       "modern_country_rock"
@@ -31,15 +31,15 @@
         "scores": {
           "electric_technique": 0.7,
           "amp_make": 13.227999999999998,
-          "body_wood": 2.6399999999999997,
+          "body_wood": 2.6715,
           "neck_wood": 0,
           "fretboard": 0.01125,
-          "pickup_magnet": 2.3,
-          "pickup_winding": 2.3,
+          "pickup_magnet": 2.3314999999999997,
+          "pickup_winding": 2.3314999999999997,
           "string_material": 0.252,
-          "bridge": 1.3975,
-          "scale_length": 2.6399999999999997,
-          "string_gauge": 1.3975,
+          "bridge": 1.5025,
+          "scale_length": 2.6715,
+          "string_gauge": 1.5025,
           "finish": 0,
           "string_tuning": 0.39
         }
@@ -59,9 +59,9 @@
         "scores": {
           "amp_make": 13.227999999999998,
           "body_wood": 0,
-          "pickup_config": 2.3,
-          "string_type": 13.451,
-          "scale_length_b": 2.3,
+          "pickup_config": 2.3314999999999997,
+          "string_type": 13.64,
+          "scale_length_b": 2.3314999999999997,
           "fretted_or_not": 0.09749999999999998,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0

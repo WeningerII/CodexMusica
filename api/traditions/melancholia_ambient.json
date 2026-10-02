@@ -3,25 +3,25 @@
   "name": "Melancholia (contemporary melancholic neoclassical-ambient)",
   "family": "electronic",
   "lineage": "Post-2005 European neoclassical-ambient current shaped in Reykjavík, Berlin and Leipzig by Jóhann Jóhannsson, Nils Frahm, Ólafur Arnalds and the Erased Tapes and Type catalogues — slow felted piano and close-miked string quartet writing over tape-saturated drones, 50-70 BPM or unpulsed, diatonic minor loops with suspended fourths, and mechanical noise (hammer felt, pedal, room hum) retained as a deliberate timbral layer",
-  "recipe": "classic mid-2000s melancholia, experimental Elec, ambient branch, western modern art music, lofi experimental electric neo-classical canadian classical. pedal resonant legato upright piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, sustained pad granular sustained pad analog poly synth, mellotron m4000d modern digital reissue post 2007 polyester base quarter inch iron oxide canonical mellotron mellotron, pedal resonant legato pump organ harmonium. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 721,
-  "score": 229.96,
+  "recipe": "classic mid-2000s melancholia, experimental Elec, ambient branch, western modern art music, lofi experimental electric neo-classical avant-garde. prepared upright piano, synthetic sitka spruce European maple sycamore maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, sustained pad granular sustained pad analog poly synth, mellotron m4000d modern digital reissue post 2007 polyester base quarter inch iron oxide canonical mellotron mellotron, pedal resonant legato pump organ harmonium. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 696,
+  "score": 208.17,
   "config": {
     "traditions": [
       "melancholia_ambient",
       "neo_classical",
-      "canadian_classical"
+      "avant_garde"
     ],
     "instruments": [
       {
         "id": "upright_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
+          "keyboard_technique": "keyboard_avant_prepared",
           "upright_use": "upright_studio",
           "upright_piano_size": "upright_piano_spinet"
         },
         "scores": {
-          "keyboard_technique": 7.049999999999999,
+          "keyboard_technique": 8.3,
           "upright_use": 1.69,
           "upright_piano_size": 1.17
         }
@@ -31,7 +31,7 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "orch_strings": "synthetic_orch",
-          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
@@ -41,16 +41,16 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5.9,
+          "bowed_technique": 4.275,
           "orch_strings": 1.035,
-          "orch_top_wood": 7.14,
-          "orch_back_wood": 13.015,
-          "orch_varnish": 11.625,
-          "orch_setup_period": 13.875,
+          "orch_top_wood": 6.85,
+          "orch_back_wood": 11.39,
+          "orch_varnish": 10,
+          "orch_setup_period": 12.25,
           "orch_bow": 0.78,
-          "orch_bow_stick": 13.075,
+          "orch_bow_stick": 11.45,
           "orch_articulation": 0.39,
-          "orch_rosin": 14.07
+          "orch_rosin": 12.445
         }
       },
       {
@@ -67,15 +67,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 5.9,
+          "bowed_technique": 4.275,
           "cello_strings": 3.055,
-          "cello_top_wood": 7.14,
-          "cello_back_wood": 13.015,
-          "cello_varnish": 11.625,
-          "cello_setup_period": 13.875,
-          "cello_bow_grip": 2.9899999999999998,
-          "cello_rosin": 11.82,
-          "cello_bow_stick": 13.075
+          "cello_top_wood": 6.015,
+          "cello_back_wood": 11.39,
+          "cello_varnish": 10,
+          "cello_setup_period": 12.25,
+          "cello_bow_grip": 2.145,
+          "cello_rosin": 10.195,
+          "cello_bow_stick": 11.45
         }
       },
       {
@@ -88,7 +88,7 @@
         "scores": {
           "electronic_technique": 10.35,
           "granular_use": 0.195,
-          "granular_synth_source": 2.71
+          "granular_synth_source": 2.8600000000000003
         }
       },
       {
@@ -111,14 +111,14 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "mellotron_voice": "mellotron_strings",
-          "mellotron_context": "mellotron_indie",
+          "mellotron_context": "mellotron_prog",
           "mellotron_model": "mellotron_m4000d_modern",
           "mellotron_tape_material": "mellotron_polyester_tape_canonical"
         },
         "scores": {
           "keyboard_technique": 0.2,
           "mellotron_voice": 0.585,
-          "mellotron_context": 2.585,
+          "mellotron_context": 1.3,
           "mellotron_model": 4.355,
           "mellotron_tape_material": 1.3650000000000002
         }
@@ -131,8 +131,8 @@
           "pump_organ_stops": "pump_organ_bourdon_stop"
         },
         "scores": {
-          "keyboard_technique": 7.049999999999999,
-          "pump_organ_construction": 12.479999999999997,
+          "keyboard_technique": 5.425,
+          "pump_organ_construction": 13.584999999999997,
           "pump_organ_stops": 1.3
         }
       }

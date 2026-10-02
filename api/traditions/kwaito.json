@@ -3,14 +3,14 @@
   "name": "Kwaito",
   "family": "global",
   "lineage": "South African post-apartheid (1994-onward) township urban dance music codified through Boom Shaka, Brenda Fassie (her late-career kwaito turn), Trompies, M_du Masilela, Arthur Mafokate, TKZee — slower-tempo (90-110 BPM) derivation of house music with Zulu and Tsotsitaal language vocals and characteristic shouted-and-rapped delivery; precursor to the post-2010 amapiano genre",
-  "recipe": "classic Southern African modern kwaito, mc Rhythm, Afro-diasporic branch, African dance electronic dance amapiano south african electronic. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, analog poly synth, monosynth acid bass. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
-  "recipe_chars": 425,
-  "score": 124.87,
+  "recipe": "classic Southern African modern kwaito, mc Rhythm, Afro-diasporic branch, African dance electronic dance amapiano afrikaans gqom. thick, breath veiled tone, straight onset, interlocked note trading. TR-909, analog poly synth, monosynth acid bass. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 415,
+  "score": 122.385,
   "config": {
     "traditions": [
       "kwaito",
       "amapiano",
-      "south_african_electronic"
+      "afrikaans_gqom"
     ],
     "instruments": [
       {
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.29,
-          "voice_articulation": 10.659999999999995,
-          "voice_microtone": 10.464999999999991,
-          "voice_tradition": 22.509999999999998,
-          "voice_mechanism_compound": 3.7700000000000005,
-          "voice_estill_quality": 2.925000000000001,
-          "voice_speech_song": 10.659999999999995,
-          "voice_ensemble_config": 10.789999999999994,
+          "voice_articulation": 11.569999999999993,
+          "voice_microtone": 11.374999999999991,
+          "voice_tradition": 20.01,
+          "voice_mechanism_compound": 2.47,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 12.609999999999994,
+          "voice_ensemble_config": 11.894999999999992,
           "voice_ornament_system": 1.6249999999999998,
-          "voice_pitch_organization": 1.2899999999999996,
-          "voice_processing_chain": 10.910000000000002,
-          "voice_multitrack_stack": 7.995
+          "voice_pitch_organization": 1.7899999999999996,
+          "voice_processing_chain": 7.545,
+          "voice_multitrack_stack": 7.150000000000001
         }
       },
       {

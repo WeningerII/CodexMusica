@@ -5,7 +5,7 @@
   "lineage": "Cosmic post-rock is represented here by God Is An Astronaut. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic cosmic post-rock, distorted Rock, experimental branch. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 332,
-  "score": 57.06,
+  "score": 57.144,
   "config": {
     "traditions": [
       "cosmic_post_rock"
@@ -48,7 +48,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
-          "body_wood": "mahogany_b",
+          "body_wood": "swamp_ash_b",
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "extra_long_b",
@@ -58,7 +58,7 @@
         },
         "scores": {
           "amp_make": 6.954999999999999,
-          "body_wood": 0.126,
+          "body_wood": 0.21,
           "pickup_config": 0.1785,
           "string_type": 16.575,
           "scale_length_b": 0.273,

@@ -1,0 +1,74 @@
+{
+  "id": "432hz",
+  "name": "432Hz",
+  "family": "global",
+  "lineage": "432Hz is represented by Gian Marco La Serra — Two Lullabies for a Little Girl. Authored contemporary solo grand-piano realization of one source-labelled 432Hz piano release. Existing piano_pitch_standard=a_432_alternative carries the A=432 reference; twelve_tet denotes interval temperament, not a competing A=440 reference. Exact construction, room, chain, technique and axes are authored choices; artist-reported tuning has not been independently measured. No medical or therapeutic claims are imported.",
+  "recipe": "classic 432hz, experimental Elec, ambient branch. no chemical hardener t rivet 17 ply hard rock maple Asian spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 226,
+  "score": 20.404,
+  "config": {
+    "traditions": [
+      "432hz"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_avant_prepared",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "abel_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
+        },
+        "scores": {
+          "keyboard_technique": 3.7,
+          "grand_piano_size": 0.3045,
+          "grand_piano_brand": 1.168,
+          "piano_hammer": 1.7,
+          "piano_rim": 2.0549999999999997,
+          "piano_soundboard": 2.128,
+          "piano_pinblock": 2.1755,
+          "piano_plate": 1.2999999999999998,
+          "piano_pitch_standard": 5.872999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "piano_pitch_standard": "a_432_alternative"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

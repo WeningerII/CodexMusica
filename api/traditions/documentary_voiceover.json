@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
         },
         "scores": {
           "voice_register": 2.535,

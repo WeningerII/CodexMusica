@@ -1,0 +1,573 @@
+{
+  "baseline": "627dc64",
+  "review_scope": "Three serial targeted original-solver computations on baseline-src and current references after piano/cymbal new-card corrections; no full concurrent regression, no edits to snapshots/code.",
+  "finding": "Expected original catalog-wide crossRef representative selection and hill-climb drift; not mutation of old source or imported app cards. Material generated slot changes are explicitly acknowledged, all unprotected and valid.",
+  "mechanism_references": [
+    "scripts/search.js:262 traditionStapleMoves one candidate per parent by axes-distance/lexical tie break, excludes already stapled ids",
+    "scripts/search.js:381 search hill-climb and final score refresh",
+    "scripts/search.js:617 only pin_parts=true or explicit opts pins are protected",
+    "scripts/score.js:319 catalog-wide neighbor scoring remains original"
+  ],
+  "engine_hashes": {
+    "scripts/search.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+    },
+    "scripts/score.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "cd3171659c29186d298fba27f0b600635c624f6a246b81810d8dccb85f11aa2c"
+    },
+    "scripts/translate.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "43af50cd7d656ade2f3247f89861326b6803081228c1edd57db8d5f7cdb42a8d"
+    },
+    "scripts/_loader.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365"
+    },
+    "scripts/_merge.js": {
+      "unchanged_from_627dc64": true,
+      "sha256": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c"
+    }
+  },
+  "all_old_app_cards_comparison": {
+    "instruments": {
+      "old_count": 1471,
+      "missing": [],
+      "changed": []
+    },
+    "traditions": {
+      "old_count": 4938,
+      "missing": [],
+      "changed": []
+    }
+  },
+  "variant_validation": {
+    "checked": 146,
+    "errors": []
+  },
+  "fixtures": [
+    {
+      "id": "garage_rock_revival_2000s",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "baseline_matches_snapshot": true,
+      "seed_slot_values_identical": true,
+      "seed_metadata_note": "Search refreshes shared score bookkeeping; raw post-search seed score dictionaries can differ. Seed slot selections and initial total scores are identical.",
+      "source_pin_parts": false,
+      "runtime_pinned": {},
+      "source_parts_retained": true,
+      "actual_app_cards_identical": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_traditions": ["garage_rock_revival_2000s", "crust_punk", "acoustic_punk"],
+      "current_traditions": ["garage_rock_revival_2000s", "crust_punk", "deep_german_punk"],
+      "mechanism": "After crust_punk is already stapled, new deep_german_punk at axis distance 9 becomes distortedRock.punk representative instead of acoustic_punk at distance 10.",
+      "visible_descriptor_changes": [
+        "acoustic punk -> deep german punk; remaining displayed wording unchanged"
+      ],
+      "all_material_generated_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "japanese_min_yo_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_opera",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ensemble_config",
+          "before": "voice_ensemble_gang_vocal_unison",
+          "after": "voice_ensemble_four_plus_polyphony",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_connemara_unaccompanied",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_equal_tempered_12",
+          "runtime_protected": false
+        }
+      ],
+      "baseline_output": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk acoustic punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "current_output": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk deep german punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, natural material resonance calfskin sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "baseline_trace": [
+        {
+          "score": 165.92,
+          "desc": "seed"
+        },
+        {
+          "score": 240.62999999999997,
+          "desc": "staple tradition: + crust_punk"
+        },
+        {
+          "score": 266.415,
+          "desc": "staple tradition: + acoustic_punk"
+        },
+        {
+          "score": 271.415,
+          "desc": "remove aesthetic: vintage_revival_purism"
+        },
+        {
+          "score": 274.0375,
+          "desc": "swap electric_guitar_single_coil.electric_technique: electric_power_chord \u2192 electric_palm_muted_chug"
+        },
+        {
+          "score": 275.6275,
+          "desc": "swap voice.voice_ensemble_config: voice_ensemble_four_plus_polyphony \u2192 voice_ensemble_gang_vocal_unison"
+        },
+        {
+          "score": 276.785,
+          "desc": "swap voice.voice_tradition: flamenco_jondo_tradition \u2192 japanese_min_yo_tradition"
+        },
+        {
+          "score": 277.63,
+          "desc": "swap electric_bass.body_wood: mahogany_b \u2192 alder_b"
+        },
+        {
+          "score": 278.13,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_fall_off_400_cents \u2192 voice_pitch_meantone_quarter_comma"
+        },
+        {
+          "score": 278.33,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_none \u2192 voice_ornament_andean_huayno"
+        },
+        {
+          "score": 278.385,
+          "desc": "swap drum_kit.drumhead: hydraulic \u2192 calfskin_drum"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 165.92,
+          "desc": "seed"
+        },
+        {
+          "score": 240.62999999999997,
+          "desc": "staple tradition: + crust_punk"
+        },
+        {
+          "score": 276.545,
+          "desc": "staple tradition: + deep_german_punk"
+        },
+        {
+          "score": 281.545,
+          "desc": "remove aesthetic: vintage_revival_purism"
+        },
+        {
+          "score": 283.58000000000004,
+          "desc": "swap voice.voice_tradition: flamenco_jondo_tradition \u2192 scottish_gaelic_taladh_tradition"
+        },
+        {
+          "score": 284.73,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_fall_off_400_cents \u2192 voice_pitch_equal_tempered_12"
+        },
+        {
+          "score": 285.575,
+          "desc": "swap electric_bass.body_wood: mahogany_b \u2192 alder_b"
+        },
+        {
+          "score": 286.1975,
+          "desc": "swap electric_guitar_single_coil.electric_technique: electric_power_chord \u2192 electric_palm_muted_chug"
+        },
+        {
+          "score": 286.7825,
+          "desc": "swap voice.voice_estill_quality: voice_estill_nasal_twang \u2192 voice_estill_opera"
+        },
+        {
+          "score": 287.33750000000003,
+          "desc": "swap drum_kit.drumhead: hydraulic \u2192 calfskin_drum"
+        },
+        {
+          "score": 287.7925,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_none \u2192 voice_ornament_connemara_unaccompanied"
+        }
+      ]
+    },
+    {
+      "id": "gothic_americana",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "baseline_matches_snapshot": true,
+      "seed_slot_values_identical": true,
+      "seed_metadata_note": "Search refreshes shared score bookkeeping; raw post-search seed score dictionaries can differ. Seed slot selections and initial total scores are identical.",
+      "source_pin_parts": false,
+      "runtime_pinned": {},
+      "source_parts_retained": true,
+      "actual_app_cards_identical": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_traditions": ["gothic_americana", "texas_country_folk_storyteller", "neofolk"],
+      "current_traditions": [
+        "gothic_americana",
+        "texas_country_folk_storyteller",
+        "new_weird_america"
+      ],
+      "mechanism": "New beat_poetry at axis distance 6 displaces neofolk at distance 8 as representative of balladPoetry.angloSingerSong. The unchanged hill climber then prefers existing new_weird_america from freakFolk branch.",
+      "visible_descriptor_changes": [
+        "neofolk -> new weird america",
+        "autoharp loses steel modern canonical 36 37 string set descriptors",
+        "baritone loses Marshall JCM800 amp and30inchplus phrasing; gains28.625inch bassVI canon andP90Gretsch descriptors"
+      ],
+      "all_material_generated_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_meantone_quarter_comma",
+          "after": "voice_pitch_pythagorean",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "autoharp",
+          "part": "acoustic_technique",
+          "before": "acoustic_strummed_ringing",
+          "after": "acoustic_drone_modal",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "hurdy_gurdy",
+          "part": "hurdy_buzz",
+          "before": "chien_active",
+          "after": "chien_off",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "electric_technique",
+          "before": "electric_clean_strummed",
+          "after": "electric_arpeggiated_clean",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "baritone_electric_scale",
+          "before": "baritone_30_scale",
+          "after": "baritone_28_scale",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "baritone_electric_strings",
+          "before": "baritone_nickel_plated",
+          "after": "baritone_stainless_heavy",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "baritone_electric_pickup",
+          "before": "baritone_single_coil_jaguar",
+          "after": "baritone_p90",
+          "runtime_protected": false
+        }
+      ],
+      "baseline_output": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller neofolk. thick, breath veiled tone, wide pitch sway, interlocked note trading. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, gut double stops fiddle, folk steel modern canonical 36 37 string set autoharp, open d tuning martin lifespan sealed travis picked dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 30 inch plus baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "current_output": "classic North American mid-1990s gothic americana, functional Song, americana branch, anglo singer song ballad poetry texas country-folk storyteller new weird america. thick, breath veiled tone, wide pitch sway, interlocked note trading. wood 3 ply maple Gibson mastertone canon mahogany open back canon banjo 5 string, gut double stops fiddle, folk autoharp, open d tuning martin lifespan sealed travis picked dreadnought acoustic wood body spider bridge aluminum resonator national canon medium heavy resonator 28 625 inch bass vi canon p90 Gretsch canon baritone electric guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy. denver gothic basement studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "baseline_trace": [
+        {
+          "score": 209.355,
+          "desc": "seed"
+        },
+        {
+          "score": 277.84499999999997,
+          "desc": "staple tradition: + texas_country_folk_storyteller"
+        },
+        {
+          "score": 344.09750000000014,
+          "desc": "staple tradition: + neofolk"
+        },
+        {
+          "score": 351.2525000000001,
+          "desc": "swap voice.voice_microtone: tempered_voice \u2192 maqam_inflected"
+        },
+        {
+          "score": 351.83750000000015,
+          "desc": "swap baritone_electric.baritone_electric_pickup: baritone_p90 \u2192 baritone_single_coil_jaguar"
+        },
+        {
+          "score": 352.35750000000013,
+          "desc": "swap voice.voice_processing_chain: voice_processing_unprocessed \u2192 voice_processing_melodyne_microtuned"
+        },
+        {
+          "score": 352.8725000000001,
+          "desc": "swap baritone_electric.baritone_electric_scale: baritone_28_scale \u2192 baritone_30_scale"
+        },
+        {
+          "score": 353.0950000000001,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_sub_semitone_third_glide \u2192 voice_pitch_meantone_quarter_comma"
+        },
+        {
+          "score": 353.2825000000001,
+          "desc": "swap autoharp.acoustic_technique: acoustic_drone_modal \u2192 acoustic_strummed_ringing"
+        },
+        {
+          "score": 353.4525000000001,
+          "desc": "swap resonator_guitar.resonator_technique: resonator_bottleneck_slide_fingerpicked \u2192 resonator_lap_steel_position"
+        },
+        {
+          "score": 353.5125000000001,
+          "desc": "swap baritone_electric.baritone_use: baritone_metal \u2192 baritone_surf"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 209.355,
+          "desc": "seed"
+        },
+        {
+          "score": 277.84499999999997,
+          "desc": "staple tradition: + texas_country_folk_storyteller"
+        },
+        {
+          "score": 335.51,
+          "desc": "staple tradition: + new_weird_america"
+        },
+        {
+          "score": 342.42,
+          "desc": "swap voice.voice_microtone: tempered_voice \u2192 maqam_inflected"
+        },
+        {
+          "score": 344.24,
+          "desc": "swap voice.voice_processing_chain: voice_processing_unprocessed \u2192 voice_processing_melodyne_microtuned"
+        },
+        {
+          "score": 345.505,
+          "desc": "swap baritone_electric.electric_technique: electric_clean_strummed \u2192 electric_arpeggiated_clean"
+        },
+        {
+          "score": 346.505,
+          "desc": "swap hurdy_gurdy.hurdy_buzz: chien_active \u2192 chien_off"
+        },
+        {
+          "score": 347.34499999999997,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_sub_semitone_third_glide \u2192 voice_pitch_pythagorean"
+        },
+        {
+          "score": 347.59999999999997,
+          "desc": "swap baritone_electric.baritone_electric_strings: baritone_nickel_plated \u2192 baritone_stainless_heavy"
+        },
+        {
+          "score": 347.77,
+          "desc": "swap resonator_guitar.resonator_technique: resonator_bottleneck_slide_fingerpicked \u2192 resonator_lap_steel_position"
+        },
+        {
+          "score": 347.83,
+          "desc": "swap baritone_electric.baritone_use: baritone_metal \u2192 baritone_surf"
+        }
+      ]
+    },
+    {
+      "id": "folk_noir",
+      "source_unchanged": true,
+      "extras_unchanged": true,
+      "baseline_matches_snapshot": true,
+      "seed_slot_values_identical": true,
+      "seed_metadata_note": "Search refreshes shared score bookkeeping; raw post-search seed score dictionaries can differ. Seed slot selections and initial total scores are identical.",
+      "source_pin_parts": false,
+      "runtime_pinned": {},
+      "source_parts_retained": true,
+      "actual_app_cards_identical": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_traditions": ["folk_noir", "american_romanticism", "spanish_baroque"],
+      "current_traditions": ["folk_noir", "american_romanticism", "barockinterpreten"],
+      "mechanism": "After american_romanticism is already stapled, new barockinterpreten and existing spanish_baroque both have distance 9; lexicographic tie-break selects barockinterpreten.",
+      "visible_descriptor_changes": [
+        "spanish baroque -> barockinterpreten",
+        "cello norway spruce -> carpathian spruce"
+      ],
+      "all_material_generated_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_bel_canto",
+          "after": "voice_ornament_dhrupad_meend_andolan",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "after": "voice_multitrack_octave_double_self",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "part": "string_tuning",
+          "before": "open_d",
+          "after": "open_g",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "cello",
+          "part": "cello_top_wood",
+          "before": "norway_spruce_alpine_cello",
+          "after": "carpathian_spruce_cello",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "cello",
+          "part": "cello_bow_stick",
+          "before": "snakewood_stick_cello",
+          "after": "pernambuco_stick_cello",
+          "runtime_protected": false
+        }
+      ],
+      "baseline_output": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music american romanticism spanish baroque. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red norway spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "current_output": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music american romanticism barockinterpreten. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "baseline_trace": [
+        {
+          "score": 211.73,
+          "desc": "seed"
+        },
+        {
+          "score": 237.38749999999993,
+          "desc": "staple tradition: + american_romanticism"
+        },
+        {
+          "score": 286.6349999999999,
+          "desc": "staple tradition: + spanish_baroque"
+        },
+        {
+          "score": 291.0949999999999,
+          "desc": "swap cello.cello_back_wood: hard_rock_maple_cello_back \u2192 bosnian_flamed_maple_cello"
+        },
+        {
+          "score": 295.2299999999999,
+          "desc": "swap cello.cello_varnish: modern_synthetic_varnish_cello \u2192 cremonese_pre_1750_varnish_cello"
+        },
+        {
+          "score": 298.3649999999999,
+          "desc": "swap grand_piano.piano_pinblock: asian_multi_laminate_pinblock \u2192 standard_multi_laminate_pinblock"
+        },
+        {
+          "score": 299.5399999999999,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_jingju_role \u2192 voice_ornament_bel_canto"
+        },
+        {
+          "score": 300.44499999999994,
+          "desc": "swap cello.cello_setup_period: baroque_setup_cello \u2192 modern_setup_cello"
+        },
+        {
+          "score": 301.3049999999999,
+          "desc": "swap grand_piano.piano_pitch_standard: a_415_baroque \u2192 a_442_european"
+        },
+        {
+          "score": 301.9299999999999,
+          "desc": "swap cello.cello_top_wood: carpathian_spruce_cello \u2192 norway_spruce_alpine_cello"
+        },
+        {
+          "score": 302.2549999999999,
+          "desc": "swap voice.voice_vibrato: terminal_vibrato \u2192 slow_vibrato"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 211.73,
+          "desc": "seed"
+        },
+        {
+          "score": 237.38749999999993,
+          "desc": "staple tradition: + american_romanticism"
+        },
+        {
+          "score": 260.3499999999999,
+          "desc": "staple tradition: + barockinterpreten"
+        },
+        {
+          "score": 264.13499999999993,
+          "desc": "swap cello.cello_back_wood: hard_rock_maple_cello_back \u2192 bosnian_flamed_maple_cello"
+        },
+        {
+          "score": 266.7699999999999,
+          "desc": "swap grand_piano.piano_pinblock: asian_multi_laminate_pinblock \u2192 standard_multi_laminate_pinblock"
+        },
+        {
+          "score": 269.0449999999999,
+          "desc": "swap grand_piano.piano_pitch_standard: a_415_baroque \u2192 a_442_european"
+        },
+        {
+          "score": 271.2749999999999,
+          "desc": "swap cello.cello_setup_period: baroque_setup_cello \u2192 modern_setup_cello"
+        },
+        {
+          "score": 273.4799999999999,
+          "desc": "swap cello.cello_varnish: modern_synthetic_varnish_cello \u2192 cremonese_pre_1750_varnish_cello"
+        },
+        {
+          "score": 274.2749999999999,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_jingju_role \u2192 voice_ornament_dhrupad_meend_andolan"
+        },
+        {
+          "score": 274.81499999999994,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_M0_pulse_borrowed \u2192 voice_mechanism_tahrir_tekye_chain"
+        },
+        {
+          "score": 275.3349999999999,
+          "desc": "swap voice.voice_vibrato: terminal_vibrato \u2192 slow_vibrato"
+        },
+        {
+          "score": 275.54499999999996,
+          "desc": "swap cello.cello_bow_stick: snakewood_stick_cello \u2192 pernambuco_stick_cello"
+        },
+        {
+          "score": 275.67499999999995,
+          "desc": "swap acoustic_guitar_om.string_tuning: open_d \u2192 open_g"
+        },
+        {
+          "score": 275.73999999999995,
+          "desc": "swap voice.voice_multitrack_stack: voice_multitrack_late_1980s_reverb_saturated_bus \u2192 voice_multitrack_octave_double_self"
+        }
+      ]
+    }
+  ],
+  "current_outputs_match_initial_failure_log": true,
+  "decision": "Source-card preservation requirement passes. Targeted snapshot updates are technically explainable under unchanged original solver; full old API delta still requires independent review after artifact build. No snapshots accepted or changed by this reviewer.",
+  "supporting_files": [
+    "/tmp/batch024/drift-baseline.json",
+    "/tmp/batch024/drift-current.json",
+    "/tmp/batch024/candidates-baseline.json",
+    "/tmp/batch024/candidates-current.json"
+  ]
+}

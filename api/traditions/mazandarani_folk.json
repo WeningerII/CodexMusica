@@ -1,0 +1,66 @@
+{
+  "id": "mazandarani_folk",
+  "name": "Mazandarani folk",
+  "family": "vernacular",
+  "lineage": "Mazandarani folk: Hoseyn Tayyebi — Instrumental Music: Pieces from Laleva Repertoire I (Mahoor, 2003). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic early-2000s mazandarani folk, drone Modal, wind pipe branch. canonical 20th century Persian radif ney. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 209,
+  "score": 3.109,
+  "config": {
+    "traditions": [
+      "mazandarani_folk"
+    ],
+    "instruments": [
+      {
+        "id": "ney",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "ney_use": "ney_persian_classical",
+          "ney_pitch": "ney_kerdaniye",
+          "ney_body_material": "ney_metal_brass",
+          "ney_lineage": "ney_hassan_kassai"
+        },
+        "scores": {
+          "wind_articulation": 1.17,
+          "ney_use": 0.363,
+          "ney_pitch": 0.1365,
+          "ney_body_material": 0.39,
+          "ney_lineage": 1.05
+        }
+      }
+    ],
+    "pinned": {
+      "ney": [
+        "ney_pitch"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "ney_pitch": "ney_kerdaniye"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

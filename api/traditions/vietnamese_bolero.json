@@ -3,27 +3,27 @@
   "name": "Vietnamese Bolero (Nhạc Vàng)",
   "family": "global",
   "lineage": "Slow sentimental Vietnamese popular song crystallized in Saigon from the late 1950s through 1975 by writers such as Trúc Phương, Lam Phương and Trần Thiện Thanh, using the Latin bolero's slow duple pulse and dotted bongo-and-guitar rhythm under minor-mode, pentatonically inflected melodies, guitar phím lõm scalloped-fret bends, and a high, nasal, heavy-vibrato solo vocal; banned in the North after 1975 and sustained on cassette by the overseas diaspora.",
-  "recipe": "classic Southeast Asian 1957-1959 vietnamese bolero, functional Song, east Asian pop branch, tropical song functional song, chanson fado ballad poetry french musette. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, mahogany la bella flats Detroit soul bass canon sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, dan bau, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, nasal reedy soprano saxophone. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 759,
-  "score": 221.235,
+  "recipe": "classic Southeast Asian 1957-1959 vietnamese bolero, functional Song, east Asian pop branch, tropical song functional song, chanson fado ballad poetry éntekhno. extended whistle, breath veiled tone, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string guitar, mahogany la bella flats Detroit soul bass canon sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, dan bau, open slap hand drum bongos, nasal reedy soprano saxophone. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 724,
+  "score": 220.495,
   "config": {
     "traditions": [
       "vietnamese_bolero",
       "chanson",
-      "french_musette"
+      "entehno"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,28 +34,28 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 6.670000000000003,
-          "voice_quality": 17.419999999999995,
+          "voice_register": 6.630000000000001,
+          "voice_quality": 13.389999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.485,
-          "voice_articulation": 19.824999999999996,
-          "voice_microtone": 19.889999999999993,
-          "voice_tradition": 7.669999999999999,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 3.9000000000000004,
-          "voice_speech_song": 25.804999999999996,
-          "voice_ensemble_config": 19.434999999999995,
+          "voice_articulation": 20.409999999999997,
+          "voice_microtone": 21.77499999999999,
+          "voice_tradition": 8.115,
+          "voice_mechanism_compound": 3.9,
+          "voice_estill_quality": 3.7050000000000005,
+          "voice_speech_song": 28.274999999999995,
+          "voice_ensemble_config": 20.019999999999996,
           "voice_ornament_system": 3.9000000000000012,
           "voice_pitch_organization": 6.599999999999999,
-          "voice_processing_chain": 6.549999999999999,
-          "voice_multitrack_stack": 4.094999999999999
+          "voice_processing_chain": 6.05,
+          "voice_multitrack_stack": 3.4450000000000003
         }
       },
       {
         "id": "classical_nylon_string_guitar",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
+          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
@@ -63,9 +63,9 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 5.9750000000000005,
+          "acoustic_technique": 5.28,
           "string_tuning": 0,
-          "top_wood_classical": 7.215,
+          "top_wood_classical": 6.37,
           "bracing_classical": 0.78,
           "string_classical": 0.975,
           "attack_technique_cl": 0.69
@@ -87,7 +87,7 @@
           "amp_make": 2.275,
           "body_wood": 1.3800000000000001,
           "pickup_config": 0.65,
-          "string_type": 2.21,
+          "string_type": 2.4050000000000002,
           "scale_length_b": 0.735,
           "fretted_or_not": 0,
           "bass_technique": 1.145,
@@ -102,7 +102,7 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 18.46,
+          "drum_technique": 19.694999999999997,
           "drumhead": 4.95,
           "drum_kit_kick_pedal": 0
         }
@@ -113,13 +113,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 6.515000000000001,
+          "electronic_technique": 5.865,
           "poly_archetypes": 1,
           "poly_voices": 1,
-          "poly_maker_lineage": 0.78
+          "poly_maker_lineage": 0.585
         }
       },
       {
@@ -137,15 +137,15 @@
         "id": "bongos",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "bongos_skin": "bongos_mule_hide",
+          "bongos_skin": "bongos_synth",
           "bongos_context": "bongos_son",
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
           "percussion_technique": 3.185,
-          "bongos_skin": 1.17,
+          "bongos_skin": 0.345,
           "bongos_context": 0.39,
-          "bongos_shell_wood": 1.2349999999999999
+          "bongos_shell_wood": 0.39
         }
       },
       {
@@ -160,12 +160,12 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 0.69,
+          "wind_articulation": -0.035,
           "sax_size": 1.545,
           "sax_reed": 0.435,
           "sax_body_alloy": -0.035,
           "sax_mouthpiece": 0.78,
-          "sax_technique": 0.69,
+          "sax_technique": -0.035,
           "sax_maker_school": 0.345
         }
       }

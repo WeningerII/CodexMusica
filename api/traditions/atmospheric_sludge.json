@@ -1,0 +1,133 @@
+{
+  "id": "atmospheric_sludge",
+  "name": "Atmospheric sludge",
+  "family": "rock",
+  "lineage": "Atmospheric sludge: Reserve de Marche — The Last Twenty Years (2012). Source explicitly identifies a Moscow instrumental atmospheric-sludge trio (guitar/bass/drums). Unlike existing atmospheric_post_metal, anchored to Cult of Luna’s vocal and sustained-keyboard ensemble and authored clean arpeggiation, this selected branch has no singer or keyboard, and models distorted guitar riffs. It also differs from Alizam’s vocal/classical-string atmospheric-doom branch. The category overlaps post-metal; the documented trio branch and its selected roles provide the narrower distinction. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic early-2010s atmospheric sludge, distorted Rock, sludge branch. basswood low output no compression riff driven humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 325,
+  "score": 32.576,
+  "config": {
+    "traditions": [
+      "atmospheric_sludge"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "low_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 3.5045,
+          "amp_make": -0.07,
+          "body_wood": 4.419999999999999,
+          "neck_wood": 0.063,
+          "fretboard": 0.0945,
+          "pickup_magnet": 0.0315,
+          "pickup_winding": 1.431625,
+          "string_material": 0.037125,
+          "bridge": 1.3,
+          "scale_length": 4.419999999999999,
+          "string_gauge": 1.3,
+          "finish": 0.024375,
+          "string_tuning": 0.14287499999999997
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": -0.07,
+          "body_wood": 0.1575,
+          "pickup_config": 0.0315,
+          "string_type": 8.11075,
+          "scale_length_b": 0.252,
+          "fretted_or_not": 0.0315,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 6.25,
+          "drumhead": 1.263,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "bass_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "drum_kit_kick_pedal"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_fuzz_riff",
+      "string_tuning": "standard_tuning",
+      "amp_make": "amp_modern_modeling",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "drum_kit_kick_pedal": "dk_kick_single_felt"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

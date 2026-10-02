@@ -4521,7 +4521,7 @@ await check('validation: actionable errors', () => {
   {
     // (2) A model that asks a question before any recipe exists: the turn's
     // own search hit seeds the recipe so far, and the question is kept.
-    const { out } = await drive((_b, hop) =>
+    const { out, requests } = await drive((_b, hop) =>
       hop === 0
         ? [fcall('search_catalog', { query: 'delta blues' })]
         : [{ text: 'Which fiddle — Appalachian or Cajun?' }]
@@ -4533,7 +4533,17 @@ await check('validation: actionable errors', () => {
         const last = out.calls.at(-1);
         assert.equal(last.name, 'start_recipe');
         assert.equal(last.by_server, true);
-        assert.equal(out.stoppedDetail.finish.tradition, 'delta_blues');
+        // Assert against the executed search, since new catalog labels can
+        // change which equally scored tradition is returned first.
+        const search = requests[1].contents
+          .flatMap((c) => c.parts)
+          .find((part) => part.functionResponse?.name === 'search_catalog')
+          ?.functionResponse.response;
+        const hits = search?.items?.filter((item) => item.type === 'tradition') ?? [];
+        assert.ok(hits.length > 0, 'the executed search returned traditions to seed');
+        const best = hits.reduce((first, hit) => (hit.matched > first.matched ? hit : first));
+        assert.equal(out.stoppedDetail.finish.tradition, best.id);
+        assert.deepEqual(last.args.traditions, [best.id]);
         assert.equal(out.reply, `Which fiddle — Appalachian or Cajun?\n\n${last.recipe}`);
         assert.match(out.stoppedDetail.note, /^The model answered before a recipe was started/);
         assert.ok(Array.isArray(out.workspace?.cards) && out.workspace.cards.length > 0);

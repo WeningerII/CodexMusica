@@ -5,7 +5,7 @@
   "lineage": "Kosovan folk: Shaqir Hoti — instrumental kaval core of Zakon burri e ka pasë on KOSOVEIRA (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic mid-2010s kosovan folk, drone Modal, wind pipe branch. melodic kaval. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 176,
-  "score": 5.973,
+  "score": 5.942,
   "config": {
     "traditions": [
       "kosovan_folk"
@@ -20,7 +20,7 @@
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 5.8365,
+          "wind_articulation": 5.805000000000001,
           "kaval_region": 0.105,
           "kaval_context": 0.0315,
           "kaval_body_wood": 0

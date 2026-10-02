@@ -1,0 +1,83 @@
+{
+  "id": "viking_folk",
+  "name": "Viking folk",
+  "family": "vernacular",
+  "lineage": "Viking folk is represented by Danheim — Lifa & Dauðr, Dauðr section (Hringrás, 2019). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+  "recipe": "classic late-2010s viking folk, drone Modal, string branch. estonian Swedish four string drone under melody steel modern tagelharpa, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 240,
+  "score": 28.874,
+  "config": {
+    "traditions": [
+      "viking_folk"
+    ],
+    "instruments": [
+      {
+        "id": "tagelharpa",
+        "slots": {
+          "bowed_technique": "bowed_rough_drone",
+          "tagelharpa_form": "tagelharpa_talharpa",
+          "tagelharpa_context": "tagelharpa_drone_melody",
+          "tagelharpa_string_material": "tagelharpa_steel_modern",
+          "tagelharpa_body_wood": "tagelharpa_birch_carved"
+        },
+        "scores": {
+          "bowed_technique": 9.0795,
+          "tagelharpa_form": 1.8199999999999998,
+          "tagelharpa_context": 3.9,
+          "tagelharpa_string_material": 1.6045,
+          "tagelharpa_body_wood": 0.504
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": 3.523,
+          "sampler_bit_depth": 1.69,
+          "sampler_workflow": 1.5230000000000001,
+          "sampler_classic_context": 5.329999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "tagelharpa": [
+        "bowed_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_rough_drone"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "andean_flute",
+  "name": "Andean flute",
+  "family": "vernacular",
+  "lineage": "Andean flute: Aymara quena player — San Lorenzo Quena Music, Folkways anthology track34. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic andean flute, drone Modal, wind pipe branch. quena. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 158,
+  "score": 1.07,
+  "config": {
+    "traditions": [
+      "andean_flute"
+    ],
+    "instruments": [
+      {
+        "id": "quena",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "quena_material": "quena_bone",
+          "quena_pitch": "quena_quenacho"
+        },
+        "scores": {
+          "wind_articulation": 0.26,
+          "quena_material": 0.5145,
+          "quena_pitch": 0.2955
+        }
+      }
+    ],
+    "pinned": {
+      "quena": [
+        "wind_articulation"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_folk_melodic"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

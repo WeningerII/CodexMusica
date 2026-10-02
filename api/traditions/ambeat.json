@@ -1,0 +1,124 @@
+{
+  "id": "ambeat",
+  "name": "Ambeat",
+  "family": "vernacular",
+  "lineage": "Ambeat: konb — Lantern Floating. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic ambeat, experimental Elec, ambient branch. sustained pad digital subtractive, sampler drum machine, yellow brass canonical 70 30 bach stradivarius trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 262,
+  "score": 9.731,
+  "config": {
+    "traditions": [
+      "ambeat"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_pop"
+        },
+        "scores": {
+          "electronic_technique": 4.6495,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 2.5
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0,
+          "sample_swing": -0.035,
+          "sample_processing": 0.0315
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_cool_lyrical",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 0.2815,
+          "brass_size": 0.273,
+          "trumpet_mouthpiece": 0.7,
+          "brass_mute": 0,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 1.0605000000000002,
+          "trumpet_maker_school": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "electronic_technique",
+        "digital_subtractive_context"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "digital_subtractive_context": "digital_subtractive_pop",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "wind_articulation": "wind_cool_lyrical",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_3c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_classical_legato",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_yamaha_xeno"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

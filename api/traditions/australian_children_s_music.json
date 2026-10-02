@@ -1,0 +1,165 @@
+{
+  "id": "australian_children_s_music",
+  "name": "Australian children's music",
+  "family": "vernacular",
+  "lineage": "Australian children's music: The Wiggles — documented guitar, keytar, drums and vocal roles. Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+  "recipe": "classic australian children's music, functional Song, pop rock branch. thick, interlocked note trading, equal tempered, single source phonation. nickel bronze modern blend strummed open chord ringing overtones dreadnought acoustic guitar, digital subtractive, pre muffled edge muffled sticks backbeat drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 409,
+  "score": 52.097,
+  "config": {
+    "traditions": [
+      "australian_children_s_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 7.291500000000002,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.09449999999999999,
+          "voice_articulation": 5.785,
+          "voice_microtone": 7.300000000000001,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 7.2195,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.2285000000000001,
+          "voice_ornament_system": 1.17,
+          "voice_pitch_organization": 0.231,
+          "voice_processing_chain": 0.08549999999999999,
+          "voice_multitrack_stack": 3.9,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "nickel_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 4.1725,
+          "string_tuning": 0,
+          "top_wood": 0.3465,
+          "back_sides": 0.105,
+          "string_acoustic": 1.3
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_pop"
+        },
+        "scores": {
+          "electronic_technique": -0.07,
+          "va_archetypes": 0.105,
+          "digital_subtractive_context": 3.004
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 3.7815,
+          "drumhead": 3.9415,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_quality",
+        "voice_vibrato",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning"
+      ],
+      "digital_subtractive": [
+        "electronic_technique",
+        "digital_subtractive_context"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "drum_technique": "sticks_rock",
+      "electronic_technique": "electronic_pad_drone",
+      "digital_subtractive_context": "digital_subtractive_pop",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

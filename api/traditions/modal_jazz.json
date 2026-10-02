@@ -3,14 +3,14 @@
   "name": "Modal jazz",
   "family": "jazz",
   "lineage": "Late-1950s onward jazz subgenre dispensing with rapid bebop chord-changes in favor of static modal frameworks — Miles Davis Kind of Blue (1959), Coltrane Impressions and the McCoy Tyner / Elvin Jones quartet years, Bill Evans modal trio voicings, Wayne Shorter, Herbie Hancock",
-  "recipe": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal arab folk nordic folk. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 681,
-  "score": 160.01,
+  "recipe": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal viking folk arab folk. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 666,
+  "score": 164.205,
   "config": {
     "traditions": [
       "modal_jazz",
-      "arab_folk",
-      "nordic_folk"
+      "viking_folk",
+      "arab_folk"
     ],
     "instruments": [
       {
@@ -28,8 +28,8 @@
           "wind_articulation": 4,
           "sax_size": 4.450000000000001,
           "sax_reed": 0.3,
-          "sax_body_alloy": 14.999999999999998,
-          "sax_mouthpiece": 0.845,
+          "sax_body_alloy": 16.25,
+          "sax_mouthpiece": 0.7649999999999999,
           "sax_technique": 14.429999999999998,
           "sax_maker_school": 12.799999999999999
         }
@@ -61,23 +61,23 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_441_japanese"
+          "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 2.2500000000000004,
           "grand_piano_size": 0.195,
           "grand_piano_brand": 0.435,
-          "piano_hammer": 1.8849999999999998,
-          "piano_rim": 2.2749999999999995,
-          "piano_soundboard": 1.6899999999999997,
-          "piano_pinblock": 1.335,
-          "piano_plate": 0.975,
-          "piano_pitch_standard": 3.575
+          "piano_hammer": 2.745,
+          "piano_rim": 3.7150000000000003,
+          "piano_soundboard": 3.3150000000000004,
+          "piano_pinblock": 3.2350000000000003,
+          "piano_plate": 2.24,
+          "piano_pitch_standard": 4.425000000000001
         }
       },
       {
@@ -99,8 +99,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 19.792499999999997,
-          "drumhead": 14.999999999999998,
+          "drum_technique": 15.664999999999996,
+          "drumhead": 16.25,
           "drum_kit_kick_pedal": 0
         }
       }

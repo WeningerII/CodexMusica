@@ -3,14 +3,14 @@
   "name": "Russian kolybelnaya (колыбельная, cradle song)",
   "family": "global",
   "lineage": "Russian cradle-song tradition continuous from peasant-folksong rural practice through 19th-century romance art-song setting (Mussorgsky, Tchaikovsky) into Soviet-era and post-Soviet domestic practice",
-  "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song lemko folk anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 341,
-  "score": 75.512,
+  "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song lemko folk american romanticism. thick, breath veiled tone, slow rate, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 316,
+  "score": 70.885,
   "config": {
     "traditions": [
       "russian_kolybelnaya",
       "lemko_folk",
-      "anglican_choral_cathedral"
+      "american_romanticism"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.2499999999999998,
-          "voice_quality": 9.425000000000002,
+          "voice_register": 0.85,
+          "voice_quality": 7.280000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.5275,
-          "voice_articulation": 10.01,
-          "voice_microtone": 11.179999999999994,
-          "voice_tradition": 7.345000000000001,
-          "voice_mechanism_compound": 2.5349999999999997,
-          "voice_estill_quality": 1.4949999999999997,
-          "voice_speech_song": 16.184999999999995,
-          "voice_ensemble_config": 10.075,
-          "voice_ornament_system": 1.1049999999999995,
-          "voice_pitch_organization": 2.19,
-          "voice_processing_chain": 3.835,
-          "voice_multitrack_stack": 2.4049999999999994
+          "voice_vibrato": 2.44,
+          "voice_articulation": 9.815,
+          "voice_microtone": 10.984999999999994,
+          "voice_tradition": 5.85,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 17.029999999999998,
+          "voice_ensemble_config": 9.49,
+          "voice_ornament_system": 1.1949999999999998,
+          "voice_pitch_organization": 2.1949999999999994,
+          "voice_processing_chain": 2.3399999999999994,
+          "voice_multitrack_stack": 1.5599999999999996
         }
       }
     ],

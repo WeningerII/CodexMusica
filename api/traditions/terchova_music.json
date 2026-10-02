@@ -5,7 +5,7 @@
   "lineage": "Terchová music; selected small bowed-string ensemble and group singing, retaining the distinctive small two-string bass. The fiddle card represents the upper-string section; the alternative accordion ensemble is not combined here.",
   "recipe": "classic modern music of terchová, groove Percussion. group vocals, live take. double stops fiddle, small body bowed two strings terchova two string bass. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 233,
-  "score": 17.579,
+  "score": 17.841,
   "config": {
     "traditions": [
       "terchova_music"
@@ -25,8 +25,8 @@
           "bowed_technique": 3.0815000000000006,
           "fiddle_strings": 0,
           "fiddle_bow": 0,
-          "fiddle_mute": 0,
-          "fiddle_articulation": 0.024375,
+          "fiddle_mute": 0.273,
+          "fiddle_articulation": 0,
           "fiddle_string_configuration": 0
         }
       },
@@ -38,7 +38,7 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "terchova_two_string_bass_form": 5.409624999999999
+          "terchova_two_string_bass_form": 5.385249999999999
         }
       },
       {
@@ -73,11 +73,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 5.495374999999999,
+          "voice_ensemble_config": 5.47,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 3.768
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 3.7994999999999997
         }
       }
     ],

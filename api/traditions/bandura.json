@@ -1,0 +1,62 @@
+{
+  "id": "bandura",
+  "name": "Bandura music",
+  "family": "vernacular",
+  "lineage": "Bandura music: Julian Kytasty — Kozachok, Songs of Truth (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic mid-2020s bandura music, improv On Frame, string improv branch. drone and chord epic bandura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 200,
+  "score": 5.56,
+  "config": {
+    "traditions": [
+      "bandura"
+    ],
+    "instruments": [
+      {
+        "id": "bandura",
+        "slots": {
+          "bandura_form": "bandura_kyiv",
+          "bandura_repertoire": "bandura_duma",
+          "bandura_string_material": "bandura_gut"
+        },
+        "scores": {
+          "bandura_form": 0.9099999999999999,
+          "bandura_repertoire": 3.9,
+          "bandura_string_material": 0.75
+        }
+      }
+    ],
+    "pinned": {
+      "bandura": [
+        "bandura_form"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bandura_form": "bandura_kyiv"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

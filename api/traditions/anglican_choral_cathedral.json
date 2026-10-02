@@ -5,7 +5,7 @@
   "lineage": "English Anglican cathedral choral foundation tradition — a continuous liturgical-music transmission across the cathedral and collegiate-chapel foundations of the Church of England (including the choral foundations at King's College Cambridge, St Paul's London, Westminster Abbey, and the cathedral cities) — characterized by daily evensong service, Anglican-chant psalmody, anthem repertoire, and the boy-treble-led mixed-adult-male voicing convention",
   "recipe": "classic European early-1950s anglican cathedral-choral recording tradition, art Music, western common practice branch, christian gospel anglican choral, western early art music anglican choral evensong historically-informed performance recording. thick, breath veiled tone, straight note core, interlocked note trading. silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, choir cathedral satb. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 687,
-  "score": 148.297,
+  "score": 148.627,
   "config": {
     "traditions": [
       "anglican_choral_cathedral",
@@ -42,7 +42,7 @@
           "voice_articulation": 11.764999999999993,
           "voice_microtone": 10.72499999999999,
           "voice_tradition": 9.0025,
-          "voice_mechanism_compound": 3.5249999999999995,
+          "voice_mechanism_compound": 3.6749999999999994,
           "voice_estill_quality": 5.427500000000001,
           "voice_speech_song": 10.919999999999993,
           "voice_ensemble_config": 12.999999999999993,
@@ -77,11 +77,11 @@
         "id": "choir_cathedral_satb",
         "slots": {
           "voicing": "satb_with_boys",
-          "repertoire": "baroque_choral"
+          "repertoire": "renaissance_polyphony"
         },
         "scores": {
-          "voicing": 7.174999999999999,
-          "repertoire": 0.39
+          "voicing": 7.549999999999999,
+          "repertoire": 0.195
         }
       }
     ],

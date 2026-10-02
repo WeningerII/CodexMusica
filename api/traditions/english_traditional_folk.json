@@ -3,14 +3,14 @@
   "name": "Traditional English folk",
   "family": "global",
   "lineage": "The vernacular song and dance repertoire of rural England as documented by Cecil Sharp, Ralph Vaughan Williams and the Folk-Song Society from 1898 and re-recorded from source singers in the 1950s by Peter Kennedy and Alan Lomax — unaccompanied strophic ballads in Dorian and Mixolydian modes sung in a straight, forward-placed voice with minimal vibrato, plus melodeon- and fiddle-led morris and country-dance tunes and pub harmony carolling.",
-  "recipe": "classic Northern European mid-1950s traditional english folk, ballad Poetry, English broadside branch, anglo singer song britfolk, atlantic Southeast Asian shanty british folk revival dark folk. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, melodic straight melodeon diatonic, steel reeds canonical anglo straight concertina anglo, drone like fiddle, shallow shell one handed tabor. uk folk revival club 60s. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 673,
-  "score": 278.928,
+  "recipe": "classic Northern European mid-1950s traditional english folk, ballad Poetry, English broadside branch, anglo singer song britfolk, atlantic Southeast Asian shanty british folk revival string folk. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, melodic straight melodeon diatonic, steel reeds canonical anglo straight concertina anglo, drone like fiddle, shallow shell one handed tabor. uk folk revival club 60s. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 675,
+  "score": 264.105,
   "config": {
     "traditions": [
       "english_traditional_folk",
       "british_folk_revival",
-      "dark_folk"
+      "string_folk"
     ],
     "instruments": [
       {
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
-          "voice_register": 15.7,
-          "voice_quality": 13.194999999999997,
+          "voice_register": 16.2,
+          "voice_quality": 14.949999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.42,
-          "voice_articulation": 21.84,
-          "voice_microtone": 23.789999999999996,
-          "voice_tradition": 22.97,
-          "voice_mechanism_compound": 6.5649999999999995,
-          "voice_estill_quality": 7.8,
-          "voice_speech_song": 28.535,
-          "voice_ensemble_config": 25.414999999999996,
-          "voice_ornament_system": 8.945,
-          "voice_pitch_organization": 1.7099999999999997,
-          "voice_processing_chain": 4.809999999999999,
-          "voice_multitrack_stack": 3.7375
+          "voice_articulation": 19.955000000000002,
+          "voice_microtone": 20.41,
+          "voice_tradition": 22.384999999999998,
+          "voice_mechanism_compound": 4.68,
+          "voice_estill_quality": 6.76,
+          "voice_speech_song": 27.105,
+          "voice_ensemble_config": 22.490000000000002,
+          "voice_ornament_system": 8.75,
+          "voice_pitch_organization": 1.5599999999999998,
+          "voice_processing_chain": 3.7399999999999993,
+          "voice_multitrack_stack": 2.195
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 5.9799999999999995,
-          "choir_polyphonic_configuration": 2.73,
-          "choir_regional_canonical_configuration": 2.6650000000000005,
-          "choir_ensemble_repertoire": 2.9899999999999998
+          "choir_size": 4.484999999999999,
+          "choir_polyphonic_configuration": 2.535,
+          "choir_regional_canonical_configuration": 2.5300000000000002,
+          "choir_ensemble_repertoire": 2.795
         }
       },
       {
@@ -75,9 +75,9 @@
           "melodeon_diatonic_context": "melodeon_diatonic_morris"
         },
         "scores": {
-          "free_reed_technique": 13.879999999999999,
-          "melodeon_rows": 9.62,
-          "melodeon_diatonic_context": 2.3699999999999997
+          "free_reed_technique": 14.379999999999999,
+          "melodeon_rows": 9.879999999999999,
+          "melodeon_diatonic_context": 2.2199999999999998
         }
       },
       {
@@ -90,11 +90,11 @@
           "concertina_anglo_reed": "concertina_anglo_steel_reeds"
         },
         "scores": {
-          "free_reed_technique": 13.879999999999999,
-          "concertina_anglo_config": 1.6899999999999997,
-          "concertina_anglo_context": 2.3699999999999997,
+          "free_reed_technique": 14.379999999999999,
+          "concertina_anglo_config": 1.4949999999999999,
+          "concertina_anglo_context": 2.2199999999999998,
           "concertina_anglo_maker_school": -0.175,
-          "concertina_anglo_reed": 3.705
+          "concertina_anglo_reed": 3.5100000000000002
         }
       },
       {
@@ -103,15 +103,15 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "plain_lamb_gut_fiddle",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "sul_pont",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 10.995,
+          "bowed_technique": 11.344999999999999,
           "fiddle_strings": 0.585,
           "fiddle_bow": 0.345,
-          "fiddle_mute": 0.21,
+          "fiddle_mute": 0.65,
           "fiddle_articulation": 0.195,
           "fiddle_string_configuration": 0
         }
@@ -122,13 +122,13 @@
           "tabor_form": "tabor_english_morris",
           "tabor_context": "tabor_pipe_and_tabor",
           "tabor_snare": "tabor_snare_resonant",
-          "tabor_heads": "tabor_calfskin_slack"
+          "tabor_heads": "tabor_synthetic_heads"
         },
         "scores": {
           "tabor_form": 8.2,
-          "tabor_context": 9.03,
-          "tabor_snare": 3.2499999999999996,
-          "tabor_heads": 0.12999999999999998
+          "tabor_context": 8.655,
+          "tabor_snare": 2.875,
+          "tabor_heads": 0.32499999999999996
         }
       }
     ],

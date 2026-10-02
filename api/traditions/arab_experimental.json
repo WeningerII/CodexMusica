@@ -1,0 +1,148 @@
+{
+  "id": "arab_experimental",
+  "name": "Arab experimental",
+  "family": "electronic",
+  "lineage": "Arab experimental: Kareem Samara — Prayer for Rain (2020). Select the positively named pitched and electronic core; unspecified percussion is not assigned a guessed instrument. No source-session singer headcount is asserted. Sampler workflow, exact piano preparations and granular sample source are authored. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic early-2020s arab experimental, experimental Elec, ambient branch. walnut ribs canonical mid tier pyramid nylon arab school oud, prepared piano, glitched textural sampler, glitched textural granular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 311,
+  "score": 35.766,
+  "config": {
+    "traditions": [
+      "arab_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.15000000000000002,
+          "oud_school": 0.441,
+          "oud_strings": 0,
+          "oud_pick": 0.1365,
+          "oud_body_wood": 1.2285000000000001,
+          "oud_soundboard_wood": 0.9555000000000002,
+          "oud_string_material": 2.6
+        }
+      },
+      {
+        "id": "prepared_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "prepared_piano_object": "prepared_piano_felt",
+          "prepared_piano_zone": "prepared_piano_middle",
+          "prepared_piano_instrument": "prepared_piano_grand"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "prepared_piano_object": 0,
+          "prepared_piano_zone": 0,
+          "prepared_piano_instrument": 0.3045
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 9.617999999999999,
+          "sampler_archetypes": -0.035,
+          "sampler_bit_depth": 0.4515,
+          "sampler_workflow": 9.45,
+          "sampler_classic_context": 0.8925000000000001
+        }
+      },
+      {
+        "id": "granular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "granular_use": "granular_ambient",
+          "granular_synth_source": "granular_synth_sampled"
+        },
+        "scores": {
+          "electronic_technique": 9.617999999999999,
+          "granular_use": 0.168,
+          "granular_synth_source": 0.1575
+        }
+      }
+    ],
+    "pinned": {
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick"
+      ],
+      "prepared_piano": [
+        "prepared_piano_object",
+        "prepared_piano_zone",
+        "prepared_piano_instrument"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ],
+      "granular_synth": [
+        "electronic_technique",
+        "granular_use",
+        "granular_synth_source"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_glitch_textural",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_microsampling_glitch",
+      "sampler_classic_context": "sampler_classic_post",
+      "granular_use": "granular_ambient",
+      "granular_synth_source": "granular_synth_sampled",
+      "prepared_piano_object": "prepared_piano_felt",
+      "prepared_piano_zone": "prepared_piano_middle",
+      "prepared_piano_instrument": "prepared_piano_grand",
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_plastic"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

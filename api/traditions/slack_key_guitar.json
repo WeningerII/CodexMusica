@@ -5,7 +5,7 @@
   "lineage": "Hawaiian fingerstyle guitar idiom developed after Mexican paniolo vaqueros brought guitars to the islands in the 1830s, kept largely within families until Gabby Pahinui's 1946 recordings and the 1970s Renaissance releases on Panini — the six strings slackened to open major or wahine tunings (taro-patch G, F-wahine, C-mauna-loa), thumb holding an alternating bass while the fingers pick melody above, chimed natural harmonics, slides and hammered ornaments imitating vocal ʻiʻi, at unhurried tempi in loose rubato.",
   "recipe": "classic North American mid-1830s slack-key guitar, improv On Frame, string improv branch, anglo singer song laurel canyon, string drone modal arab folk. thick, breath veiled tone, straight note core, interlocked note trading. open g tuning steel silk fingerpicked acoustic open g tuning parlor classic steel silk fingerpicked parlor acoustic guitar, fingerpicked koa ukulele, upright bass. honolulu hawaiian slack key lanai. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 519,
-  "score": 148.595,
+  "score": 148.54,
   "config": {
     "traditions": [
       "slack_key_guitar",
@@ -23,7 +23,7 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 4.222500000000001,
+          "string_tuning": 4.0600000000000005,
           "top_wood": 0.21,
           "back_sides": 0.21,
           "string_acoustic": 1.69,
@@ -41,7 +41,7 @@
         },
         "scores": {
           "acoustic_technique": 7.965,
-          "string_tuning": 4.222500000000001,
+          "string_tuning": 4.0600000000000005,
           "top_wood_parlor": 0.21,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 1.69
@@ -81,9 +81,9 @@
           "voice_speech_song": 14.949999999999996,
           "voice_ensemble_config": 10.009999999999998,
           "voice_ornament_system": 2.7300000000000004,
-          "voice_pitch_organization": 6.415000000000001,
-          "voice_processing_chain": 5.039999999999999,
-          "voice_multitrack_stack": 4.9350000000000005
+          "voice_pitch_organization": 6.460000000000001,
+          "voice_processing_chain": 5.129999999999999,
+          "voice_multitrack_stack": 5.025
         }
       },
       {
@@ -107,7 +107,7 @@
         },
         "scores": {
           "upright_strings": 0.5399999999999999,
-          "upright_play": 0.18
+          "upright_play": 0.22499999999999998
         }
       }
     ],

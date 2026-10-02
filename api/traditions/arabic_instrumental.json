@@ -1,0 +1,76 @@
+{
+  "id": "arabic_instrumental",
+  "name": "Arabic instrumental",
+  "family": "global",
+  "lineage": "Arabic instrumental: Chris Stephens — Oud Solo: Maqam Bayati Taqsim (2018). One expressly solo instrumental oud work is selected. Twelve-tone equal temperament is an authored generation baseline rather than a transcription of the source’s maqam intonation or modulations. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+  "recipe": "classic late-2010s arabic instrumental, improv On Frame, Persian arab improv branch. pyramid nylon arab school oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 214,
+  "score": 5.919,
+  "config": {
+    "traditions": [
+      "arabic_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_maple_body",
+          "oud_soundboard_wood": "oud_lebanese_cedar_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.10500000000000001,
+          "oud_school": 1.365,
+          "oud_strings": 1.4069999999999996,
+          "oud_pick": 0.105,
+          "oud_body_wood": 0.609,
+          "oud_soundboard_wood": 0.588,
+          "oud_string_material": 1.95
+        }
+      }
+    ],
+    "pinned": {
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_plastic"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

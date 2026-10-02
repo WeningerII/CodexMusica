@@ -3,14 +3,14 @@
   "name": "Lowercase",
   "family": "electronic",
   "lineage": "Formulated around 1998-2004 by Steve Roden in Los Angeles, Bernhard Gunter in Germany and Richard Chartier and the 12k and Line labels in New York — extreme-quiet composition built from close-miked microsound (paper, water, insects, small objects) and digital silence, presented near the noise floor at levels that force the listener to raise playback volume, with long silences, no beat, no harmony and near-total absence of dynamic gesture.",
-  "recipe": "classic mid-2000s lowercase, experimental Elec, ambient branch, idm glitch experimental electric, musique concrete experimental electric laptronica. glitched textural granular glitched textural modular synth, prepared piano, glass harmonica, rin singing bowl, glitched textural sampler. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 401,
-  "score": 141.538,
+  "recipe": "classic mid-2000s lowercase, experimental Elec, ambient branch, idm glitch experimental electric, musique concrete experimental electric laptronica abstract. glitched textural granular glitched textural modular synth, prepared piano, glass harmonica, rin singing bowl, glitched textural sampler. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 410,
+  "score": 116.618,
   "config": {
     "traditions": [
       "lowercase_music",
       "laptronica",
-      "ambient_idm"
+      "abstract"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 24.742812500000003,
+          "electronic_technique": 19.7428125,
           "granular_use": 0.585,
-          "granular_synth_source": 9.685000000000002
+          "granular_synth_source": 7.475000000000001
         }
       },
       {
@@ -56,15 +56,15 @@
         "id": "modular_synth",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "mod_voltage_source": "mod_keyboard",
+          "mod_voltage_source": "mod_sequencer",
           "mod_patch_density": "mod_dense_patch",
           "mod_lineage": "mod_doepfer_eurorack"
         },
         "scores": {
-          "electronic_technique": 24.742812500000003,
-          "mod_voltage_source": 0.65,
-          "mod_patch_density": 3.79,
-          "mod_lineage": -0.5950000000000001
+          "electronic_technique": 19.7428125,
+          "mod_voltage_source": 0.7200000000000001,
+          "mod_patch_density": 2.9899999999999998,
+          "mod_lineage": -0.35
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "rin_size": 1.345,
-          "rin_strike": 0.49499999999999994,
+          "rin_strike": 0.9950000000000001,
           "rin_cushion": 0
         }
       },
@@ -90,11 +90,11 @@
           "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 24.742812500000003,
-          "sampler_archetypes": 2.185,
+          "electronic_technique": 19.7428125,
+          "sampler_archetypes": 1.3849999999999998,
           "sampler_bit_depth": 0.585,
-          "sampler_workflow": 24.8,
-          "sampler_classic_context": 20.750000000000004
+          "sampler_workflow": 19.800000000000004,
+          "sampler_classic_context": 19
         }
       }
     ],

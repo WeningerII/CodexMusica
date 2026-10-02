@@ -1,0 +1,154 @@
+{
+  "id": "australian_electropop",
+  "name": "Australian electropop",
+  "family": "electronic",
+  "lineage": "Australian electropop: Parralox — Artificial (2017). Representative authored present-day recording arrangement for a documented branch. Sources establish musical roles, category and locality. Exact hardware, construction, technique settings, room, signal chain, temperament and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics. Single lead voice, single-source phonation and accompanied/unaccompanied ensemble settings are transparent authored reductions of the documented singing role, not claims about the source singer count, live lineup, harmony arrangement or recording layers.",
+  "recipe": "classic late-2010s australian electropop, functional Song, synthpop branch. thick, interlocked note trading, equal tempered, single source phonation. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular synth, ernie ball slinky electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 381,
+  "score": 50.08,
+  "config": {
+    "traditions": [
+      "australian_electropop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_single_source",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 7.967999999999998,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.1365,
+          "voice_articulation": 5.265,
+          "voice_microtone": 8.049999999999997,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 6.768,
+          "voice_estill_quality": 1.1049999999999998,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.0605,
+          "voice_ornament_system": 1.5315,
+          "voice_pitch_organization": 0.1365,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 4.991999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_simple_patch",
+          "mod_lineage": "mod_buchla_west_coast"
+        },
+        "scores": {
+          "electronic_technique": 0.7999999999999998,
+          "mod_voltage_source": 0.8999999999999999,
+          "mod_patch_density": 0.3465,
+          "mod_lineage": 1.885
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "ernie_ball_slinky_bass",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretless",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 2.6650000000000005,
+          "body_wood": 0.3045,
+          "pickup_config": 0.1995,
+          "string_type": 4.875,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 1.105,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_quality",
+        "voice_vibrato",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "modular_synth": [
+        "electronic_technique",
+        "mod_lineage"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "voice_vibrato": "straight_tone",
+      "voice_microtone": "tempered_voice",
+      "bass_technique": "fingerstyle_locked",
+      "electronic_technique": "electronic_modular_patch",
+      "mod_lineage": "mod_buchla_west_coast",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

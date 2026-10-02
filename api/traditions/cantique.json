@@ -5,7 +5,7 @@
   "lineage": "French-language devotional hymn tradition of France, Quebec, Brittany and Francophone Africa and the Caribbean, formalized in seventeenth- and eighteenth-century parish collections and diffused through nineteenth-century cantique books — strophic verse-and-refrain settings in duple or triple metre, sung in unison or simple parts by congregation and choir over harmonium or pipe organ, with syllabic text-setting in vernacular French rather than Latin.",
   "recipe": "classic European early-1950s cantique, ritual Devotional, christian gospel branch, christian gospel anglican choral, Celtic British praise song anglican choral evensong welsh moliannu and cerdd dant. thick, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part antiphonal double choir alternating kakhetian three voice two soloists choral drone choir ensemble, cavaille coll paris canonical French symphonic late 19th century romantic zinc canonical large pedal pipes late 19th century cost efficient werckmeister iii canonical bach era well temperament pneumatic canonical late 19th century romantic pipe organ, pump organ harmonium. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 764,
-  "score": 216.026,
+  "score": 215.765,
   "config": {
     "traditions": [
       "cantique",
@@ -41,7 +41,7 @@
           "voice_vibrato": 2.015,
           "voice_articulation": 17.614999999999995,
           "voice_microtone": 17.874999999999993,
-          "voice_tradition": 12.595999999999997,
+          "voice_tradition": 12.322999999999997,
           "voice_mechanism_compound": 3.7645,
           "voice_estill_quality": 7.175000000000002,
           "voice_speech_song": 19.954999999999995,
@@ -62,7 +62,7 @@
         },
         "scores": {
           "choir_size": 1.95,
-          "choir_polyphonic_configuration": 2.158,
+          "choir_polyphonic_configuration": 2.17,
           "choir_regional_canonical_configuration": 4.81,
           "choir_ensemble_repertoire": 6.369999999999999
         }
