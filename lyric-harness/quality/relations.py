@@ -759,6 +759,56 @@ def line_status_from(text_lines, predicate, label):
     return tuple(label if predicate(l) else "" for l in text_lines)
 
 
+
+#: Per-line readings shared by the streams of ONE any-reading search
+#: (`_line_read_scope`), else None. A search rebuilds the whole draft once per
+#: combination of readings while pinning words on two lines; every other line
+#: reads exactly as before, and re-deriving its syllables was a third of the
+#: search's time (M-317). Scoped to one search, never process-wide: a caller
+#: may change what the lexicon reads between searches (`test_g2p.py` patches
+#: the transcriber), and a stale reading would be served to it.
+_ACTIVE_LINE_READS = None
+
+
+class _line_read_scope:
+    """`with _line_read_scope():` -- share line readings across the streams
+    built inside it. Nested scopes reuse the outer one."""
+    def __enter__(self):
+        global _ACTIVE_LINE_READS
+        self._prev = _ACTIVE_LINE_READS
+        if _ACTIVE_LINE_READS is None:
+            _ACTIVE_LINE_READS = {}
+        return self
+
+    def __exit__(self, *exc):
+        global _ACTIVE_LINE_READS
+        _ACTIVE_LINE_READS = self._prev
+        return False
+
+
+def _line_read_key(phon, line_phon, raw, words):
+    """-> the key a line's readings are shared under inside a scope, or None
+    (no scope, or a phonology whose reading of a line this cannot spell).
+    The key holds what the line's tokens are read through: the phonology's
+    type and settings, the lexicon's entries, and every occurrence reading
+    declared for THIS line."""
+    if _ACTIVE_LINE_READS is None:
+        return None
+    lex = getattr(line_phon, "lexicon", None)
+    rows = getattr(getattr(phon, "lexicon", None), "pronunciations", ()) or ()
+    try:
+        pins = tuple(sorted(json.dumps(r, sort_keys=True, default=repr)
+                            for r in rows if r.get("line") == raw))
+        return (type(line_phon).__name__,
+                getattr(line_phon, "fallback", None),
+                getattr(line_phon, "readings", None),
+                id(getattr(lex, "entries", None)),
+                getattr(lex, "strip_parens", None),
+                raw, tuple(words), pins)
+    except (TypeError, AttributeError):
+        return None
+
+
 def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                  declaration=None, hyphen_continues=True, stanzas=None,
                  line_status=None, exclude_status=(), stanza_source=""):
@@ -870,13 +920,23 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                 if sy:
                     read.append((ti, w, sy))
         else:
-            for ti, w in enumerate(words):
-                token_phon = line_phon.for_token(ti) if hasattr(line_phon, "for_token") else line_phon
-                sy = token_phon.syllabify(w)
-                if sy:
-                    read.append((ti, w, sy))
-                else:
-                    unreadable.append((li, ti, w))
+            lk = _line_read_key(phon, line_phon, raw, words)
+            hit = _ACTIVE_LINE_READS.get(lk) if lk is not None else None
+            if hit is not None:
+                read.extend(hit[0])
+                unreadable.extend((li, ti, w) for ti, w in hit[1])
+            else:
+                miss = []
+                for ti, w in enumerate(words):
+                    token_phon = line_phon.for_token(ti) if hasattr(line_phon, "for_token") else line_phon
+                    sy = token_phon.syllabify(w)
+                    if sy:
+                        read.append((ti, w, sy))
+                    else:
+                        unreadable.append((li, ti, w))
+                        miss.append((ti, w))
+                if lk is not None:
+                    _ACTIVE_LINE_READS[lk] = (list(read), miss)
         # A declared boundary is lexical, even when its token cannot be read.
         # Moving the boundary to the nearest readable token certifies a
         # different line (cat qzxqzx / hat was a false perfect rhyme).
@@ -9387,20 +9447,21 @@ def resolve_line_pair(schema, stream, pair, build, cap=READING_COMBO_CAP,
     if not combos:
         return None, None
     saw_none = not complete
-    for combo in combos:
-        phon2 = pinned_phonology(stream, combo)
-        if phon2 is None:
-            return None, None
-        got2 = line_pairs_for(schema, build(phon2), keep_refusal=True,
-                              requested_pairs={pair}, bound=bmap)
-        if isinstance(got2, Refusal):
-            saw_none = True
-            continue
-        v2 = got2.verdict(pair)
-        if v2 is True:
-            return True, reading_witness(combo)
-        if v2 is None:
-            saw_none = True
+    with _line_read_scope():
+        for combo in combos:
+            phon2 = pinned_phonology(stream, combo)
+            if phon2 is None:
+                return None, None
+            got2 = line_pairs_for(schema, build(phon2), keep_refusal=True,
+                                  requested_pairs={pair}, bound=bmap)
+            if isinstance(got2, Refusal):
+                saw_none = True
+                continue
+            v2 = got2.verdict(pair)
+            if v2 is True:
+                return True, reading_witness(combo)
+            if v2 is None:
+                saw_none = True
     return (None if saw_none else False), None
 
 
@@ -9431,20 +9492,22 @@ def pair_satisfies_any(schema, stream, at_a, at_b, build,
     if not combos:
         return None, None
     saw_none = not complete
-    for combo in combos:
-        phon2 = pinned_phonology(stream, combo)
-        if phon2 is None:
-            return None, None
-        s2 = build(phon2)
-        ta = _remap_token(stream, s2, at_a[0], at_a[1])
-        tb = _remap_token(stream, s2, at_b[0], at_b[1])
-        if ta is None or tb is None:
-            return None, None
-        r = pair_satisfies(schema, s2, (at_a[0], ta), (at_b[0], tb), chans)
-        if r is True:
-            return True, reading_witness(combo)
-        if r is not False:
-            saw_none = True
+    with _line_read_scope():
+        for combo in combos:
+            phon2 = pinned_phonology(stream, combo)
+            if phon2 is None:
+                return None, None
+            s2 = build(phon2)
+            ta = _remap_token(stream, s2, at_a[0], at_a[1])
+            tb = _remap_token(stream, s2, at_b[0], at_b[1])
+            if ta is None or tb is None:
+                return None, None
+            r = pair_satisfies(schema, s2, (at_a[0], ta), (at_b[0], tb),
+                               chans)
+            if r is True:
+                return True, reading_witness(combo)
+            if r is not False:
+                saw_none = True
     return (None if saw_none else False), None
 
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",

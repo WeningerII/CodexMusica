@@ -1071,6 +1071,12 @@ def field_memo_clear():
         _FIELD_MEMO_TALLY[k] = 0
 
 
+#: `Reviser._bound_token_schemas`' answers, keyed on the pair's own two lines
+#: (M-317). Bounded like `relations._RESOLVE_MEMO`, oldest out first.
+_BOUND_TOKEN_MEMO = {}
+_BOUND_TOKEN_MEMO_CAP = 50_000
+
+
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
@@ -2860,13 +2866,26 @@ class Reviser:
                                          build)
         _, st, build = box
         sat, und = {}, []
+        # An answer at two bound tokens reads only their two lines, so it is
+        # remembered under the pair's own lines (`relations.
+        # _local_stream_digest`): a trial draft that moved another line asks
+        # nothing again (M-317).
+        ld = R._local_stream_digest(st, (i, j))
         for name in sorted(R.REGISTRY):
             sch = R.REGISTRY[name]
             if (sch.normative in ("forbidden", "deprecated")
                     or not R.pair_bindable(sch)):
                 continue
-            ans, wit = R.pair_satisfies_any(sch, st, (i - 1, ti), (j - 1, tj),
-                                            build)
+            mk = ("bound-token", ld, name, i, j, ti, tj) if ld else None
+            got = _BOUND_TOKEN_MEMO.get(mk) if mk else None
+            if got is None:
+                got = R.pair_satisfies_any(sch, st, (i - 1, ti), (j - 1, tj),
+                                           build)
+                if mk:
+                    if len(_BOUND_TOKEN_MEMO) >= _BOUND_TOKEN_MEMO_CAP:
+                        _BOUND_TOKEN_MEMO.pop(next(iter(_BOUND_TOKEN_MEMO)))
+                    _BOUND_TOKEN_MEMO[mk] = got
+            ans, wit = got
             if isinstance(ans, R.Refusal):
                 continue
             if ans is True:
