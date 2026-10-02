@@ -23,6 +23,7 @@ import { performance } from 'node:perf_hooks';
 import { requestContext, withExecutionContext } from './execution_context.js';
 import { createOperationBudget, paidLedger } from './paid_budget.js';
 import { loadChatSecret } from './job_store.js';
+import { encodeInterviewWire } from './state_codec.js';
 import { lyricContext, taskDomain } from './task_contract.js';
 import { runKeyOf } from './run_store.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
@@ -447,7 +448,7 @@ export async function createChatRouter({
     try {
       // Never wrap an earlier worker journal in a current semantic envelope.
       assertContinuationSemantics(cp.connector_semantic_identity);
-      wire = encodeState(cp);
+      wire = decl.writer === 'interview' ? encodeInterviewWire(cp) : encodeState(cp);
     } catch {
       return null;
     }

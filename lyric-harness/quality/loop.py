@@ -635,6 +635,13 @@ class AnchorSlot:
     offered: tuple
     calls: tuple = ()
     slot: object = None
+    #: THE ONE-MOVE MENU (LOOP_REDESIGN.md §2.4, §2.8 G; 2026-10-02): the
+    #: words this member could bind on at its place while every other line
+    #: keeps its words — `Reviser.member_place_field`, i.e. a line question's
+    #: own offer. None when it was not computed (the group-first path, where
+    #: the pivot's field was already empty), a tuple (possibly empty) when it
+    #: was.
+    one_move: object = None
 
 
 @dataclass
@@ -742,6 +749,18 @@ class GroupBrief:
     prior: object = None
     whole_repair: bool = False
     mandate_description: str = ""
+    #: WHICH PATH ASKED THIS GROUP (LOOP_REDESIGN.md §2.4, C13): "escalation"
+    #: after the pivot's own line question failed, "group_first" when the
+    #: pivot's field was empty and the group was asked before any line
+    #: question. The prompt's rule-3 sentence and its menus differ by path.
+    path: str = ""
+    #: On the escalation path, the pivot's own line-question lists, as
+    #: materialized on this draft (S10): what the grader enforces now.
+    pivot_line_offered: tuple = ()
+    pivot_line_forbidden: tuple = ()
+    #: "L<n>'s line question (attempt k, round r)" when that question was
+    #: asked on this same draft, else "" (S10).
+    pivot_line_question: str = ""
 
     def proposal_for(self, line_no):
         """-> (text, proposed word, slot) for one member, or `None`.
@@ -1321,7 +1340,8 @@ def _slot_for(mandate, group_index, line):
 
 
 def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
-               assume, profile, propose_group, whole=()):
+               assume, profile, propose_group, whole=(), escalated=False,
+               pivot_question=""):
     """THE JOINT BACKTRACK — rewrite a WHOLE mandated group at once.
 
     ~~Bounded to groups of exactly two.~~ **WIDENED 2026-08-24
@@ -1560,10 +1580,22 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                                               exclude=(m_current,),
                                               profile=profile)
                           if m_other else ([], []))
+                # THE ONE-MOVE MENU (LOOP_REDESIGN.md §2.4, §2.8 G). On the
+                # escalation path the pivot's own line question already
+                # failed; a member whose coupled menu is empty is shown the
+                # words a line question would offer it with every other line
+                # (the pivot included) keeping its words. On the group-first
+                # path nothing is added, and the prompt says so.
+                _one = None
+                if escalated and not _mf:
+                    _pf1 = reviser.member_place_field(
+                        list(lines), mandate, m_line, gi, profile=profile,
+                        blueprint=blueprint)
+                    _one = tuple(_pf1.offered) if _pf1 is not None else ()
                 _anchors.append(AnchorSlot(
                     line_no=m_line, text=lines[m_line - 1], word="",
                     offered=tuple(_mf), calls=tuple(m_other),
-                    slot=_slot_for(mandate, gi, m_line)))
+                    slot=_slot_for(mandate, gi, m_line), one_move=_one))
             got = propose_group(GroupBrief(
                 pivot_line_no=b.line_no, pivot_text=b.text,
                 pivot_word="", pivot_offered=(),
@@ -1572,7 +1604,13 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 brief=b, lines=tuple(lines), attempt=attempt,
                 reasons=reasons, whole=whole,
                 prior=(_prior_g(members, _round)
-                       if _prior_g is not None else None)))
+                       if _prior_g is not None else None),
+                path="escalation" if escalated else "group_first",
+                pivot_line_offered=(tuple(getattr(b, "candidates", ()) or ())
+                                    if escalated else ()),
+                pivot_line_forbidden=(tuple(getattr(b, "forbidden_modal", ()) or ())
+                                      if escalated else ()),
+                pivot_line_question=pivot_question if escalated else ""))
             attempt += 1
             if got is not None:
                 tried += 1
@@ -1641,7 +1679,13 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     brief=b, lines=tuple(lines), attempt=attempt,
                     reasons=reasons, whole=whole,
                     prior=(_prior_g(members, _round)
-                           if _prior_g is not None else None)))
+                           if _prior_g is not None else None),
+                    path="escalation" if escalated else "group_first",
+                    pivot_line_offered=(tuple(getattr(b, "candidates", ()) or ())
+                                        if escalated else ()),
+                    pivot_line_forbidden=(tuple(getattr(b, "forbidden_modal", ()) or ())
+                                          if escalated else ()),
+                    pivot_line_question=pivot_question if escalated else ""))
                 attempt += 1
                 if got is None:
                     continue
@@ -1780,8 +1824,83 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                        asked=bool(asked)), lines
 
 
+# ---------------------------------------------------------------------------
+# THE SAVED POSITION (LOOP_REDESIGN.md §2.0 and §2.8 A; 2026-10-02).
+# ---------------------------------------------------------------------------
+# A deferred run used to be resumed by replaying every answer from round one,
+# re-verifying each — measured at ~94% of one call, and growing with every
+# answer (defect 1). The loop now keeps its POSITION in one live dict that a
+# recording proposer registers through `propose.position(live)`, and a run is
+# resumed from it with `revise_loop(..., resume=position)`. The unit of
+# resumption is one line's work in the round's pass: within a unit no question
+# is asked after an accepted answer, so every question in it is asked against
+# the unit's starting draft (`_try_tier1`/`_try_tier2` return on acceptance).
+
+
+class CursorMismatch(ValueError):
+    """The saved position does not reproduce on this draft and mandate; the
+    caller falls back to a full replay (never a guess)."""
+
+
+def _cursor_key(before, after, targeted):
+    import hashlib
+    h = lambda ls: hashlib.sha256("\n".join(ls).encode("utf-8")).hexdigest()
+    return [h(before), h(after),
+            None if targeted is None else sorted(int(t) for t in targeted)]
+
+
+class _VerdictCache:
+    """A reviser proxy that remembers this unit's verdicts so a resumed unit
+    never re-verifies an answer it already judged (A6). It keeps exactly what
+    the loop reads off a verdict on the deferred path: `accepted` and
+    `reasons`. Everything else is the inner reviser's."""
+
+    def __init__(self, inner, cache, live, tally=None):
+        self._inner, self._cache, self._live = inner, cache, live
+        self._tally = tally
+
+    def __getattr__(self, name):
+        return getattr(self._inner, name)
+
+    def verify(self, before, after, mandate=None, targeted=None, **kw):
+        key = _cursor_key(before, after, targeted)
+        hit = self._cache.get(repr(key))
+        if hit is not None:
+            return {"accepted": hit["accepted"], "reasons": list(hit["reasons"])}
+        res = self._inner.verify(before, after, mandate, targeted=targeted, **kw)
+        if self._tally is not None:
+            self._tally["miss"] = self._tally.get("miss", 0) + 1
+        row = {"accepted": bool(res["accepted"]),
+               "reasons": [str(r) for r in (res.get("reasons") or ())]}
+        self._cache[repr(key)] = row
+        self._live.setdefault("unit_verdicts", []).append(
+            [key, row["accepted"], row["reasons"]])
+        return res
+
+
+def _attempt_to(a):
+    return [a.line_no, a.tier, bool(a.accepted), a.tried, a.reason,
+            list(a.touched), bool(a.asked)]
+
+
+def _attempt_from(v):
+    return LineAttempt(int(v[0]), int(v[1]), bool(v[2]), int(v[3]), str(v[4]),
+                       tuple(int(x) for x in v[5]), bool(v[6]))
+
+
+def _round_to(r):
+    return [r.round_no, [_attempt_to(a) for a in r.attempts],
+            list(r.fixed_lines), list(r.resolved_elsewhere)]
+
+
+def _round_from(v):
+    return RoundResult(int(v[0]), [_attempt_from(a) for a in v[1]],
+                       [int(x) for x in v[2]], [int(x) for x in v[3]])
+
+
 def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
-                assume=None, profile=None, propose=None, propose_group=None):
+                assume=None, profile=None, propose=None, propose_group=None,
+                resume=None):
     """Drive `reviser.brief`/`verify` to convergence. -> `LoopResult`.
 
     `reviser` is a caller-supplied `Reviser` (its `.rdecl` supplies
@@ -1885,7 +2004,15 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # the result without the call site in view.
     input_n, input_fp = len(lines), draft_fingerprint(lines)
     _checkpoint = getattr(propose, "checkpoint", None)
-    if _checkpoint is not None:
+    # THE PASS-BY HOOK (LOOP_REDESIGN.md §2.2 option B, owner's ruling
+    # 2026-10-02). A proposer that recorded an answer the walk then passes by
+    # without judging is TOLD so, with the reason and the line(s) whose
+    # acceptance caused it. The walk itself is unchanged: the hook only
+    # reports a skip the walk already made.
+    _skipped = getattr(propose, "skipped", None)
+    # A resumed run emits its own entry checkpoint on the cursor's draft
+    # (below); "started" on the INPUT draft would regress `accepted_lines`.
+    if _checkpoint is not None and not isinstance(resume, dict):
         _checkpoint(lines, 0, "started")
     rounds = []
     # A BARREN ROUND UNDER ONE ATTEMPT PER LINE IS NOT YET NO PROGRESS
@@ -1900,9 +2027,49 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # it did: the re-ask has already spent the reasons inside the round,
     # and `--attempts=0` asks nothing and stops honestly on the first.
     _barren, _barren_cap = 0, (2 if rdecl.attempts_per_line == 1 else 1)
-    for round_no in (itertools.count(1) if rdecl.max_rounds is None
-                     else range(1, rdecl.max_rounds + 1)):
+    # THE SAVED POSITION (see `CursorMismatch` above). Only a proposer that
+    # registers `position` gets it — the deferred writer; nothing changes for
+    # any other caller.
+    _position = getattr(propose, "position", None)
+    _unit_started = getattr(propose, "unit_started", None)
+    _live, _unit_cache = {}, {}
+    if _position is not None:
+        reviser = _VerdictCache(reviser, _unit_cache, _live,
+                                getattr(propose, "verify_tally", None))
+        _position(_live)
+    _resume = resume if isinstance(resume, dict) else None
+    _start = 1
+    if _resume is not None:
+        lines = list(_resume["draft"])
+        rounds = [_round_from(r) for r in _resume.get("rounds", ())]
+        _barren = int(_resume.get("barren", 0))
+        _start = int(_resume["round"])
+        # THE ENTRY CHECKPOINT (§2.8 B, B8): before any expensive work, so
+        # every call that starts leaves a state behind.
         if _checkpoint is not None:
+            _checkpoint(lines, _start, "resumed")
+    for round_no in (itertools.count(_start) if rdecl.max_rounds is None
+                     else range(_start, rdecl.max_rounds + 1)):
+        # RESUMING INSIDE THIS ROUND'S PASS: the round-opening code below runs
+        # exactly as it did, on the round's OPENING draft, so it rebuilds the
+        # same flagged set, `judged_open`, pass and `whole`; the bookkeeping
+        # is then restored and the walk continues at the saved unit.
+        _here = (_resume if _resume is not None
+                 and _resume.get("phase") == "pass"
+                 and int(_resume["round"]) == round_no else None)
+        _resume = None
+        if _here is not None:
+            _cursor_draft = list(lines)
+            lines = list(_here.get("round_draft") or _cursor_draft)
+        _round_draft = list(lines)
+        if _position is not None and _here is None:
+            _live.clear()
+            _live.update(phase="round_open", round=round_no, draft=list(lines),
+                         rounds=[_round_to(r) for r in rounds],
+                         barren=_barren)
+            if _unit_started is not None:
+                _unit_started()
+        if _checkpoint is not None and _here is None:
             _checkpoint(lines, round_no, "grading")
         briefs = reviser.brief(lines, mandate, profile=profile,
                                blueprint=blueprint, subdivision=subdivision,
@@ -1987,6 +2154,15 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             subdivision=subdivision, assume=assume)["whole"])
 
         attempts, fixed_this_round, touched = [], [], set()
+        # Which accepted unit rewrote a line, and the lines the most recent
+        # acceptance touched: the `by` of every pass-by record this round.
+        # Between two re-briefs only one unit's acceptance lies, because the
+        # re-brief fires on the first line after any acceptance.
+        _touched_by, _last_accept = {}, ()
+
+        def _skip(line_no, why, by):
+            if _skipped is not None:
+                _skipped(line_no, 0, round_no, why, by)
         resolved_elsewhere = []
         # THE DRAFT `briefs` AND `whole` WERE BUILT ON. Every accepted
         # proposal below rebinds `lines`, so this is how the loop knows its
@@ -2007,8 +2183,52 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         pass_briefs = ([b for b in flagged
                         if any(f.severity == "flag" or f.code in pursue
                                for f in b.findings)] if judged_open else flagged)
-        for b in pass_briefs:
+        _at = 0
+        if _here is not None:
+            if ([x.line_no for x in pass_briefs] != [int(x) for x in _here["pass"]]
+                    or bool(judged_open) != bool(_here["judged_open"])):
+                raise CursorMismatch(
+                    "the saved position's round does not reproduce on this "
+                    "draft and mandate")
+            lines = _cursor_draft
+            attempts = [_attempt_from(a) for a in _here.get("attempts", ())]
+            fixed_this_round = [int(x) for x in _here.get("fixed", ())]
+            touched = {int(x) for x in _here.get("touched", ())}
+            resolved_elsewhere = [int(x) for x in _here.get("resolved", ())]
+            _touched_by = {int(k): tuple(int(x) for x in v)
+                           for k, v in (_here.get("touched_by") or {}).items()}
+            _last_accept = tuple(int(x) for x in _here.get("last_accept", ()))
+            _at = int(_here["at"])
+            _unit_cache.clear()
+            for key, acc, why in _here.get("unit_verdicts", ()):
+                _unit_cache[repr(key)] = {"accepted": bool(acc),
+                                          "reasons": list(why)}
+        for _idx, b in enumerate(pass_briefs):
+            if _idx < _at:
+                continue
+            if _position is not None:
+                _carried = (list(_here.get("unit_verdicts", ()))
+                            if _here is not None and _idx == _at else [])
+                if not _carried:
+                    _unit_cache.clear()
+                _live.clear()
+                _live.update(
+                    phase="pass", round=round_no, at=_idx,
+                    **{"pass": [x.line_no for x in pass_briefs]},
+                    judged_open=bool(judged_open), draft=list(lines),
+                    round_draft=(None if _round_draft == lines
+                                 else list(_round_draft)),
+                    touched=sorted(touched), fixed=list(fixed_this_round),
+                    resolved=list(resolved_elsewhere),
+                    attempts=[_attempt_to(a) for a in attempts],
+                    rounds=[_round_to(r) for r in rounds], barren=_barren,
+                    touched_by={str(k): list(v) for k, v in _touched_by.items()},
+                    last_accept=list(_last_accept),
+                    unit_verdicts=_carried)
+                if _unit_started is not None:
+                    _unit_started()
             if b.line_no in touched:
+                _skip(b.line_no, "rewritten", _touched_by.get(b.line_no, ()))
                 continue
             # ===========================================================
             # RE-BRIEF WHEN THE DRAFT HAS MOVED — FIXED 2026-08-16.
@@ -2078,6 +2298,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     # it. Recorded rather than skipped in silence — and NOT
                     # as a failed `LineAttempt`, because no attempt was made.
                     resolved_elsewhere.append(b.line_no)
+                    _skip(b.line_no, "closed", _last_accept)
                     continue
                 b = still_open[b.line_no]
             elif latest_open is not None:
@@ -2095,6 +2316,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 # simply stopped asking it.
                 if b.line_no not in latest_open:
                     resolved_elsewhere.append(b.line_no)
+                    _skip(b.line_no, "closed", _last_accept)
                     continue
                 b = latest_open[b.line_no]
             # Materialize only the imminent writer question. The assessed
@@ -2128,6 +2350,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 b = _materialize(b)
             if b is None:
                 resolved_elsewhere.append(_selected_line)
+                _skip(_selected_line, "no_finding", ())
                 continue
             # A single fixed partner can empty a bounded field just as a
             # conjunction can. Ask the declared group writer first in both
@@ -2174,6 +2397,10 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
                     subdivision, assume, profile, propose_group, whole)
+                if attempt.accepted:
+                    # Its own line answer, if one is on record, was never
+                    # judged: the group rewrite closed it first.
+                    _skip(b.line_no, "rewritten", attempt.touched)
                 if not attempt.accepted:
                     # M-256: an empty bounded menu does not prove a line
                     # unrepairable. A declined/rejected group cannot consume
@@ -2259,9 +2486,16 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                         attempt.touched, asked=attempt.asked)
                 elif not attempt.accepted:
                     attempts.append(attempt)
+                    # The pivot's line question was asked on THIS draft (a
+                    # rejected answer does not move it), so the group question
+                    # may cite it; if it was never asked, it says so (S10).
+                    _pq = (f"L{b.line_no}'s line question (attempt "
+                           f"{max(attempt.tried, 1)}, round {round_no})"
+                           if attempt.asked else "")
                     attempt, lines = _try_tier2(
                         reviser, b, lines, mandate, rdecl, blueprint,
-                        subdivision, assume, profile, propose_group, whole)
+                        subdivision, assume, profile, propose_group, whole,
+                        escalated=True, pivot_question=_pq)
                     attempt = LineAttempt(
                         attempt.line_no, attempt.tier, attempt.accepted,
                         attempt.tried,
@@ -2274,6 +2508,9 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     _checkpoint(lines, round_no, "accepted")
                 fixed_this_round.extend(attempt.touched)
                 touched.update(attempt.touched)
+                _last_accept = tuple(attempt.touched)
+                for _t in attempt.touched:
+                    _touched_by[_t] = _last_accept
         rounds.append(RoundResult(round_no, attempts,
                                   sorted(fixed_this_round),
                                   sorted(resolved_elsewhere)))

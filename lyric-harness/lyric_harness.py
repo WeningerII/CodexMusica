@@ -7589,7 +7589,19 @@ JOURNAL_BYTES = 448 * 1024
 JOURNAL_LINE_CHARS = 200
 
 
+#: STATE KEYS MEASURED OUTSIDE THE WORKER JOURNAL'S CAPACITY
+#: (LOOP_REDESIGN.md §2.8 C, 2026-10-02). `dispositions` is the record of
+#: batch answers the walk passed by without judging (option B, owner's
+#: ruling). Counting it here would move where a batch is trimmed and where a
+#: run stops at JOURNAL_CAPACITY, which option B promised not to change. It is
+#: bounded by construction (at most one short row per recorded answer) and the
+#: connector's decoded-state bound (STATE_DECODED_BYTES) still covers it.
+JOURNAL_OUTSIDE_KEYS = ("dispositions", "cursor")
+
+
 def _journal_bytes(value):
+    if isinstance(value, dict) and any(k in value for k in JOURNAL_OUTSIDE_KEYS):
+        value = {k: v for k, v in value.items() if k not in JOURNAL_OUTSIDE_KEYS}
     return len(json.dumps(value, ensure_ascii=False,
                           separators=(",", ":")).encode("utf-8"))
 
@@ -7666,6 +7678,50 @@ def _journal_stop(error, machine=None, plan=None):
                   presentation_text=text, **(machine or {}))
     print(text)
     sys.exit(3)
+
+
+_SCORER_IDENTITY = None
+
+
+def _scorer_identity():
+    """-> sha256 over everything that decides a verdict here: this file, every
+    non-test module under `quality/`, the pronouncing dictionary, the
+    top-level data tables, and the Python version.
+
+    THE CLI'S TWIN OF THE CONNECTOR'S `continuationSemanticIdentity`
+    (LOOP_REDESIGN.md §2.0.1, judge 1 of round 1, A4). A saved position is
+    trusted only under the scorer that took it: a cursor taken before a
+    harness or lexicon change would otherwise resume acceptances the current
+    `verify` never judged. On any mismatch the run replays from round 1, as
+    every run did before the cursor existed. Computed once per process.
+    """
+    global _SCORER_IDENTITY
+    if _SCORER_IDENTITY is not None:
+        return _SCORER_IDENTITY
+    import hashlib
+    here = os.path.dirname(os.path.abspath(__file__))
+    paths = [os.path.join(here, "lyric_harness.py"),
+             os.path.join(here, "cmudict.dict")]
+    for root, dirs, files in os.walk(os.path.join(here, "quality")):
+        dirs[:] = sorted(d for d in dirs
+                         if d not in ("archive", "__pycache__")
+                         and not d.startswith("."))
+        paths += [os.path.join(root, f) for f in sorted(files)
+                  if f.endswith(".py") and not f.startswith("test_")]
+    data = os.path.join(here, "data")
+    if os.path.isdir(data):
+        paths += [os.path.join(data, f) for f in sorted(os.listdir(data))
+                  if os.path.isfile(os.path.join(data, f))]
+    h = hashlib.sha256(sys.version.encode("utf-8"))
+    for p in paths:
+        h.update(os.path.relpath(p, here).encode("utf-8") + b"\0")
+        try:
+            with open(p, "rb") as fh:
+                h.update(hashlib.sha256(fh.read()).digest())
+        except OSError:
+            h.update(b"<missing>")
+    _SCORER_IDENTITY = h.hexdigest()
+    return _SCORER_IDENTITY
 
 
 def _defer_state(path):
@@ -7921,6 +7977,48 @@ def _defer_proposer(path, lines=None):
     last_grej = {}
     active_group_attempt = None
     active_group_question = None
+    # THE PASS-BY RECORD (LOOP_REDESIGN.md §2.2 option B, §2.8 D; owner's
+    # ruling 2026-10-02). A batch answer the walk passes by without judging —
+    # its finding already closed, its line already rewritten by an accepted
+    # group or return, or no finding left on it — was written nowhere, and
+    # the connector folded it as `unknown` forever. One row per such answer,
+    # in its OWN list: never `outcomes`, so `last_rej`, the round history and
+    # every question's bytes are exactly what they were.
+    st["dispositions"] = [d for d in (st.get("dispositions") or [])
+                          if isinstance(d, dict)]
+    _disp_at = {(int(d["line"]), int(d["attempt"]),
+                 None if d.get("round") is None else int(d["round"])): i
+                for i, d in enumerate(st["dispositions"])
+                if "line" in d and "attempt" in d}
+
+    def skipped(line_no, attempt, round_no, why, by=()):
+        """The loop passed `line_no` without judging the answer on record
+        for it. Written only when there IS such an answer; idempotent."""
+        k = (int(line_no), int(attempt),
+             None if round_no is None else int(round_no))
+        if k not in ones and (k[0], k[1], None) not in ones:
+            return
+        entry = {"line": k[0], "attempt": k[1], "round": k[2],
+                 "disposition": "not_applied", "why": str(why),
+                 "by": sorted({int(x) for x in (by or ())})}
+        i = _disp_at.get(k)
+        if i is None:
+            _disp_at[k] = len(st["dispositions"])
+            st["dispositions"].append(entry)
+        else:
+            st["dispositions"][i] = entry
+
+    # THE SAVED POSITION, PROPOSER SIDE (LOOP_REDESIGN.md §2.0, §2.8 A-B).
+    # The loop keeps its position in a live dict (`position`) and says when a
+    # unit starts (`unit_started`). The bookkeeping a resumed unit must start
+    # from is taken THERE, because the unit re-runs on resume: the hit count,
+    # the stale keys, batch staleness, and the rejection history by REFERENCE
+    # into `outcomes` / `group_outcomes` (§2.8 A1). `new` counts verdicts
+    # written for the first time this call and `verify` the verifies actually
+    # run, so `replayed_answers` = verify - new is 0 on a resume.
+    box = {"live": None, "unit": None, "resume": None, "strip": None,
+           "new": 0, "verify": {"miss": 0}, "run_key": None, "scorer": None}
+    _rej_idx, _grej_idx = {}, {}
 
     def record(line_no, attempt, round_no, text, accepted, reasons):
         entry = {"line": int(line_no), "attempt": int(attempt),
@@ -7938,14 +8036,17 @@ def _defer_proposer(path, lines=None):
         if i is None:
             _outcome_at[k] = len(st["outcomes"])
             st["outcomes"].append(entry)
+            box["new"] += 1
         else:
             st["outcomes"][i] = entry
         if accepted:
             last_rej.pop(entry["line"], None)
+            _rej_idx.pop(entry["line"], None)
         else:
             last_rej[entry["line"]] = {"round": entry["round"],
                                        "text": text,
                                        "reasons": entry["reasons"]}
+            _rej_idx[entry["line"]] = _outcome_at[k]
 
     def _suspend(kind, record, prompt):
         pending = {"kind": kind, "record": record, "prompt": prompt,
@@ -7960,6 +8061,9 @@ def _defer_proposer(path, lines=None):
         reserve = count * (200 * 4 + 16) * 6 + _journal_answer_reserve(count)
         _journal_admit(trial, reserve, lines=st["accepted_lines"], path=path, prior=st)
         st["pending"] = pending
+        _snap = _snapshot()
+        if _snap is not None:
+            st["cursor"] = _snap
         raise _NeedProposal(kind, record, prompt)
 
     def _prior(brief, attempt):
@@ -8090,6 +8194,7 @@ def _defer_proposer(path, lines=None):
                 chosen.pop()
 
     propose.prefetch = prefetch
+    propose.skipped = skipped
     propose.record = record
 
     def propose_group(group_brief):
@@ -8130,13 +8235,16 @@ def _defer_proposer(path, lines=None):
         if i is None:
             _goutcome_at[k] = len(st["group_outcomes"])
             st["group_outcomes"].append(entry)
+            box["new"] += 1
         else:
             st["group_outcomes"][i] = entry
         if accepted:
             last_grej.pop(_m, None)
+            _grej_idx.pop(_m, None)
         else:
             last_grej[_m] = {"round": entry["round"], "text": entry["text"],
                              "reasons": entry["reasons"]}
+            _grej_idx[_m] = _goutcome_at[k]
 
     def _prior_group(members, round_no):
         """-> the LAST ROUND's rejection of this exact group, or None — the
@@ -8153,10 +8261,107 @@ def _defer_proposer(path, lines=None):
     propose_group.record = record_group
     propose_group.prior = _prior_group
 
+    def _prefix_digest(k1, k2):
+        import hashlib
+        return hashlib.sha256(json.dumps(
+            [st.get("input_draft"), st["answered"]["propose"][:k1],
+             st["answered"]["propose_group"][:k2]],
+            sort_keys=True, ensure_ascii=False,
+            separators=(",", ":")).encode("utf-8")).hexdigest()
+
+    def position(live):
+        box["live"] = live
+
+    def unit_started():
+        box["unit"] = {
+            "tally_hit": tally["hit"],
+            "stale": [list(x) for x in tally["stale"]],
+            "batch_stale": [[list(k), bool(v)] for k, v in batch_stale.items()],
+            "rej": [[int(ln), int(i)] for ln, i in _rej_idx.items()],
+            "grej": [[list(m), int(i)] for m, i in _grej_idx.items()]}
+
+    def _snapshot():
+        """-> the cursor to save now, or None before the loop has a unit."""
+        if box["live"] is None or box["unit"] is None:
+            return None
+        import copy as _copy
+        snap = {"version": 1, "loop": _copy.deepcopy(box["live"])}
+        snap.update(_copy.deepcopy(box["unit"]))
+        k1 = len(st["answered"]["propose"])
+        k2 = len(st["answered"]["propose_group"])
+        snap.update(k1=k1, k2=k2, digest=_prefix_digest(k1, k2),
+                    run_key=box["run_key"], scorer=box["scorer"])
+        return snap
+
+    def bind(run_key, scorer, use=True, strip=None):
+        """Decide, once, whether this call resumes from the saved position.
+        The cursor is used only when it was taken under the same run (argv
+        and input contents) and the same scorer, and the journal still
+        begins with the answers it was taken against; otherwise the run
+        replays from round 1 and says why (`cursor_stripped`)."""
+        nonlocal replaying
+        box["run_key"], box["scorer"] = run_key, scorer
+        if not use:
+            box["strip"] = strip
+            return None
+        # The connector strips an untrusted cursor before the harness sees the
+        # state and names why (`seal`, `key_unavailable`): reported as is.
+        _connector_strip = st.pop("cursor_strip", None)
+        if _connector_strip:
+            st.pop("cursor", None)
+            box["strip"] = str(_connector_strip)
+            return None
+        cur = st.get("cursor")
+        if not isinstance(cur, dict) or not isinstance(cur.get("loop"), dict):
+            box["strip"] = "missing" if st["answered"]["propose"] or \
+                st["answered"]["propose_group"] else None
+            return None
+        try:
+            k1, k2 = int(cur["k1"]), int(cur["k2"])
+            ok_digest = (k1 <= len(st["answered"]["propose"])
+                         and k2 <= len(st["answered"]["propose_group"])
+                         and cur.get("digest") == _prefix_digest(k1, k2))
+        except (KeyError, TypeError, ValueError):
+            ok_digest = False
+        if not ok_digest:
+            box["strip"] = "digest"
+            return None
+        if cur.get("run_key") != run_key or cur.get("scorer") != scorer:
+            box["strip"] = "run_key"
+            return None
+        tally["hit"] = int(cur.get("tally_hit", 0))
+        tally["stale"][:] = [tuple(x) for x in cur.get("stale", ())]
+        batch_stale.clear()
+        batch_stale.update({tuple(k): bool(v)
+                            for k, v in cur.get("batch_stale", ())})
+        last_rej.clear(); _rej_idx.clear()
+        for ln, i in cur.get("rej", ()):
+            o = st["outcomes"][int(i)]
+            _rej_idx[int(ln)] = int(i)
+            last_rej[int(ln)] = {"round": o.get("round"), "text": o.get("text"),
+                                 "reasons": list(o.get("reasons") or ())}
+        last_grej.clear(); _grej_idx.clear()
+        for m, i in cur.get("grej", ()):
+            o = st["group_outcomes"][int(i)]
+            _grej_idx[tuple(int(x) for x in m)] = int(i)
+            last_grej[tuple(int(x) for x in m)] = {
+                "round": o.get("round"), "text": o.get("text"),
+                "reasons": list(o.get("reasons") or ())}
+        # §2.8 B: the draft is never regressed. Until the walk's draft
+        # reaches `accepted_lines`, only the cursor advances.
+        replaying = list(cur["loop"].get("draft") or ()) != st["accepted_lines"]
+        box["resume"] = cur["loop"]
+        return cur["loop"]
+
+    propose.position = position
+    propose.unit_started = unit_started
+    propose.verify_tally = box["verify"]
+
     def disclosure(done=False):
         n = len(ones) + len(groups)
-        head = (f"  PROPOSER: defer:{path} — {n} answer(s) already given, "
-                f"replayed in order")
+        head = (f"  PROPOSER: defer:{path} — {n} answer(s) already given; "
+                f"the run resumes from its saved position, or replays its "
+                f"journal in order when that position cannot be trusted")
         if not done:
             head += ("; nothing outside this process is reached, and "
                      "the loop SUSPENDS at the first unanswered request "
@@ -8208,8 +8413,21 @@ def _defer_proposer(path, lines=None):
         nonlocal replaying
         if replaying:
             if list(current) != st["accepted_lines"]:
+                # §2.8 B / B5: behind the frontier only the cursor advances;
+                # `accepted_lines` and every progress field keep their
+                # furthest values, so a kill here never regresses the draft.
+                _snap = _snapshot()
+                if _snap is not None:
+                    st["cursor"] = _snap
+                    print("  lyric checkpoint: " + json.dumps(
+                        dict(st, transport_token=os.environ.get(
+                            "LYRIC_CONTROL_TOKEN")),
+                        ensure_ascii=False, separators=(",", ":")), flush=True)
                 return
             replaying = False
+        _snap = _snapshot()
+        if _snap is not None:
+            st["cursor"] = _snap
         trial = dict(st, accepted_lines=list(current), round=round_no, status=status)
         if status != "finished":
             for key in ("final_draft", "coverage", "stop", "exit"):
@@ -8224,7 +8442,14 @@ def _defer_proposer(path, lines=None):
 
     propose.checkpoint = checkpoint
     propose.checkpoint_state = st
-    disclosure.record = lambda: {"stale_answers": len(tally["stale"])}
+    disclosure.record = lambda: {
+        "stale_answers": len(tally["stale"]),
+        # Unpublished test markers (LOOP_REDESIGN.md §2.8 H): verifies run
+        # this call for answers judged in an earlier call — 0 on a resume.
+        "replayed_answers": max(0, box["verify"]["miss"] - box["new"]),
+        "cursor_resumed": box["resume"] is not None,
+        "cursor_stripped": box["strip"]}
+    disclosure.bind = bind
     disclosure.state = st                    # the verb writes it on suspension
     return propose, propose_group, disclosure
 
@@ -13220,14 +13445,39 @@ def main():
                 _rm_key = RM.run_key(sys.argv[1:],
                                      input_paths=(args[1], bp_path))
                 rv_loop, say_memo = RM.wrap(rv, _rm_key, len(lines))
+                # THE SAVED POSITION (LOOP_REDESIGN.md §2.0): a deferred run
+                # resumes where its last call stopped when the cursor was
+                # taken under this run and this scorer; otherwise it replays
+                # from round 1 and says why. A cursor that does not reproduce
+                # (`CursorMismatch`) is dropped and the run replays.
+                _bind = getattr(say_proposer, "bind", None)
+                _resume_at = (_bind(_rm_key, _scorer_identity())
+                              if _bind is not None and _rm_key is not None
+                              else None)
                 try:
-                    result = LP.revise_loop(rv_loop, lines, scheme,
-                                            blueprint=bp_path,
-                                            subdivision=subdivision,
-                                            assume=assume,
-                                            profile=rv_profile,
-                                            propose=propose,
-                                            propose_group=propose_group)
+                    try:
+                        result = LP.revise_loop(rv_loop, lines, scheme,
+                                                blueprint=bp_path,
+                                                subdivision=subdivision,
+                                                assume=assume,
+                                                profile=rv_profile,
+                                                propose=propose,
+                                                propose_group=propose_group,
+                                                resume=_resume_at)
+                    except LP.CursorMismatch:
+                        propose, propose_group, say_proposer = _resolve_proposer(
+                            propose_spec, lines=lines, checkpoint_key=_rm_key)
+                        _b2 = getattr(say_proposer, "bind", None)
+                        if _b2 is not None:
+                            _b2(_rm_key, _scorer_identity(), use=False,
+                                strip="mismatch")
+                        result = LP.revise_loop(rv_loop, lines, scheme,
+                                                blueprint=bp_path,
+                                                subdivision=subdivision,
+                                                assume=assume,
+                                                profile=rv_profile,
+                                                propose=propose,
+                                                propose_group=propose_group)
                 except _JournalCapacity as e:
                     _journal_stop(e, machine=_lyric_run_record(say_memo, say_proposer,
                                   finish_plan if cmd == "finish" else None),

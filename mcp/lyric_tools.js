@@ -48,6 +48,8 @@ import {
   assertContinuationCapacity,
   continuationSemanticIdentity,
   CONNECTOR_DECLARATION_BYTES,
+  encodeInterviewWire,
+  verifyInterviewCursor,
 } from './state_codec.js';
 import {
   RunStore,
@@ -430,6 +432,32 @@ function foldedOne(asked, answer, st) {
   };
 }
 
+// THE FOLD, BY JOURNAL DIFF (LOOP_REDESIGN.md §2.2 option B and §2.8 D;
+// owner's ruling 2026-10-02). It used to read only the incoming
+// `pending.answer`, so a batch member the walk had not reached yet came back
+// `unknown` / `unverified`, and its eventual verdict was never published at
+// all (defect 2, reproduced in Phase 1). Now every call compares the records
+// in the state it RETURNS with those in the state it was handed:
+//   - every new or changed outcome, group outcome or pass-by disposition is
+//     published, by the call that wrote it, as `accepted`, `rejected` or
+//     `not_applied` (source `outcome`);
+//   - every answer on record with no record yet is published as `pending`,
+//     waiting on the question now asked, or on the next call when the run
+//     stopped before reaching it (source `waiting`).
+// One row is an object, as a single answer's fold always was; several are an
+// array, as a batch's always was. `unknown` remains only for a row this cannot
+// match, which no state minted by this connector produces.
+const _lineKey = (o) => `${o.line}|${o.attempt ?? 0}|${o.round ?? ''}`;
+const _groupKey = (o) =>
+  `${(o.members || []).map(Number).join(',')}|${o.round ?? ''}|${o.attempt ?? ''}|${o.question_sha256 ?? ''}`;
+const _lines = (ns) => (ns && ns.length ? ns.map((n) => `L${n}`).join(', ') : 'an earlier line');
+const WHY_NOT_APPLIED = {
+  closed: (by) =>
+    `not judged: its finding was already closed by the accepted rewrite of ${_lines(by)}`,
+  rewritten: (by) => `not judged: this line was rewritten by the accepted rewrite of ${_lines(by)}`,
+  no_finding: () => 'not judged: no finding stands on this line in the current draft',
+};
+
 function foldedOf(prevStateText, st) {
   let prev;
   try {
@@ -437,34 +465,103 @@ function foldedOf(prevStateText, st) {
   } catch {
     return null;
   }
-  const pend = prev && typeof prev === 'object' ? prev.pending : null;
-  if (!pend || typeof pend !== 'object') return null;
-  if (pend.answer == null || pend.answer === '') return null;
-  const asked = askedOf(pend);
-  if (!asked) return null;
-  if (asked.kind === 'propose_batch') {
-    // One record per member (M-236); the member's own answer is the row the
-    // harness folded, read back off the replay file.
-    const recs = Array.isArray(pend.record?.records) ? pend.record.records : [];
-    const folded = Array.isArray(st?.answered?.propose) ? st.answered.propose : [];
-    return recs.map((r) => {
-      const one = {
-        kind: 'propose',
-        line: r.line,
-        attempt: r.attempt ?? 0,
-        round: r.round ?? null,
-      };
-      const rec = folded.find(
-        (f) =>
-          f &&
-          f.line === one.line &&
-          (f.attempt ?? 0) === one.attempt &&
-          (f.round ?? null) === one.round
-      );
-      return foldedOne(one, rec && typeof rec.text === 'string' ? rec.text : pend.answer, st);
+  if (!prev || typeof prev !== 'object' || !st || typeof st !== 'object') return null;
+  const list = (x, k) => (x && Array.isArray(x[k]) ? x[k].filter((o) => o && typeof o === 'object') : []);
+  const before = (k, keyOf) => new Map(list(prev, k).map((o) => [keyOf(o), JSON.stringify(o)]));
+  const answers = new Map(list(st.answered, 'propose').map((r) => [_lineKey(r), r]));
+  const groupAnswers = new Map(list(st.answered, 'propose_group').map((r) => [_groupKey(r), r]));
+  const rows = [];
+  const clip = (t) => (typeof t === 'string' ? t : JSON.stringify(t ?? '')).slice(0, 300);
+  const reasonsOf = (o) => (Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : []);
+  const seenOut = before('outcomes', _lineKey);
+  const recorded = new Set();
+  for (const o of list(st, 'outcomes')) {
+    const k = _lineKey(o);
+    recorded.add(k);
+    if (seenOut.get(k) === JSON.stringify(o)) continue;
+    rows.push({
+      kind: 'propose',
+      line: o.line,
+      attempt: o.attempt ?? 0,
+      round: o.round ?? null,
+      answer: clip(o.text),
+      verdict: o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown',
+      reasons: reasonsOf(o),
+      source: 'outcome',
     });
   }
-  return foldedOne(asked, pend.answer, st);
+  const seenGroup = before('group_outcomes', _groupKey);
+  const groupRecorded = new Set();
+  for (const o of list(st, 'group_outcomes')) {
+    const k = _groupKey(o);
+    groupRecorded.add(k);
+    if (seenGroup.get(k) === JSON.stringify(o)) continue;
+    rows.push({
+      kind: 'propose_group',
+      members: (o.members || []).map(Number),
+      attempt: o.attempt ?? null,
+      round: o.round ?? null,
+      question_sha256: o.question_sha256 ?? null,
+      answer: clip(o.text),
+      verdict: o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown',
+      reasons: reasonsOf(o),
+      source: 'outcome',
+    });
+  }
+  const seenDisp = before('dispositions', _lineKey);
+  for (const d of list(st, 'dispositions')) {
+    const k = _lineKey(d);
+    recorded.add(k);
+    if (seenDisp.get(k) === JSON.stringify(d)) continue;
+    const why = WHY_NOT_APPLIED[d.why] || (() => 'not judged');
+    rows.push({
+      kind: 'propose',
+      line: d.line,
+      attempt: d.attempt ?? 0,
+      round: d.round ?? null,
+      answer: clip(answers.get(k)?.text),
+      verdict: 'not_applied',
+      reasons: [why(Array.isArray(d.by) ? d.by : [])],
+      by: Array.isArray(d.by) ? d.by.map(Number) : [],
+      source: 'outcome',
+    });
+  }
+  const asked = st.pending && typeof st.pending === 'object' ? askedOf(st.pending) : null;
+  const waitingOn = asked ? asked.members || asked.lines || (asked.line != null ? [asked.line] : []) : [];
+  const waiting = waitingOn.length
+    ? `pending: waiting on ${_lines(waitingOn)}, the question asked now`
+    : 'pending: the run stopped before reaching it; continue with no answer';
+  for (const [k, r] of answers) {
+    if (recorded.has(k)) continue;
+    rows.push({
+      kind: 'propose',
+      line: r.line,
+      attempt: r.attempt ?? 0,
+      round: r.round ?? null,
+      answer: clip(r.text),
+      verdict: 'pending',
+      reasons: [waiting],
+      waiting_on: waitingOn.map(Number),
+      source: 'waiting',
+    });
+  }
+  for (const [k, r] of groupAnswers) {
+    if (groupRecorded.has(k)) continue;
+    rows.push({
+      kind: 'propose_group',
+      members: (r.members || []).map(Number),
+      attempt: r.attempt ?? null,
+      round: r.round ?? null,
+      question_sha256: r.question_sha256 ?? null,
+      answer: clip(Array.isArray(r.new) ? r.new.join('\n') : r.text),
+      verdict: 'pending',
+      reasons: [waiting],
+      waiting_on: waitingOn.map(Number),
+      source: 'waiting',
+    });
+  }
+  if (!rows.length) return null;
+  return rows.length === 1 ? rows[0] : rows;
 }
 
 // A short fingerprint of the draft a call carried, so the cycles of one song
@@ -864,6 +961,10 @@ function verdictOf(r) {
   if (r.code === 2 && record.status === 'refused' && typeof record.refusal === 'string')
     v.refusal = record.refusal;
   if (typeof record.memo_state === 'string') v.memo_state = record.memo_state;
+  // Why a saved position could not be used, when one existed (owner's ruling
+  // 2026-10-02, Q5; LOOP_REDESIGN.md §2.0). `replayed_answers` and
+  // `cursor_resumed` stay in the harness's own record, unpublished.
+  if (typeof record.cursor_stripped === 'string') v.cursor_stripped = record.cursor_stripped;
   for (const key of ['memo_hit', 'memo_asked', 'stale_answers', 'plan_lines'])
     if (Number.isInteger(record[key]) && record[key] >= 0) v[key] = record[key];
   const findings = Array.isArray(record.findings)
@@ -2323,6 +2424,9 @@ export function registerLyricTools(server, tool) {
                       'JOURNAL_CAPACITY: this journal is a recovery artifact and cannot resume. Keep it and its final_draft or accepted_lines. An identical restart may hit the same limit; reduce the requested scope explicitly before independent new_run work.'
                     );
                   if (field === 'state') {
+                    // The seal is checked first, over the state exactly as it
+                    // was returned (LOOP_REDESIGN.md §2.0.1).
+                    verifyInterviewCursor(decoded);
                     if (!decoded.connector_declarations || !Array.isArray(decoded.input_draft))
                       throw refuse(
                         'CONTINUATION_INVALID: interview state lacks original input and declarations; preserve it as a recovery artifact.'
@@ -2604,7 +2708,7 @@ export function registerLyricTools(server, tool) {
                   `DECLARATION_CAPACITY: writer declarations exceed ${CONNECTOR_DECLARATION_BYTES} UTF-8 bytes. Measurement tools still accept their documented payload limits; no writer was started.`
                 );
               const encodeInterview = (state) =>
-                encodeState({
+                encodeInterviewWire({
                   ...state,
                   input_draft: a.draft,
                   connector_declarations: declarationsOf(a),
@@ -2672,11 +2776,17 @@ export function registerLyricTools(server, tool) {
                 if (currentCheckpoint)
                   if (writer === 'interview') result.state = encodeInterview(currentCheckpoint);
                   else result.checkpoint = encodeState(currentCheckpoint);
+                let capacityState = writer === 'interview' ? currentCheckpoint : null;
                 try {
-                  result.state = encodeInterview(JSON.parse(await readFile(statePath, 'utf8')));
+                  capacityState = JSON.parse(await readFile(statePath, 'utf8'));
+                  result.state = encodeInterview(capacityState);
                 } catch (error) {
                   if (error.code !== 'ENOENT') throw error;
                 }
+                // Every verdict this call wrote is published, on every branch
+                // that returns a state (LOOP_REDESIGN.md §2.8 D).
+                if (writer === 'interview' && capacityState)
+                  result.folded = foldedOf(a.state, capacityState);
                 const saved = RUNS.put(runKey, {
                   status: 'journal_capacity',
                   draft: exactDraft,
@@ -2766,7 +2876,7 @@ export function registerLyricTools(server, tool) {
                         path: typeof r.path === 'string' ? r.path : null,
                         ms: typeof r.ms === 'number' ? r.ms : null,
                         ...Object.fromEntries(
-                          ['memo_state', 'memo_hit', 'memo_asked', 'stale_answers', 'plan_lines']
+                          ['memo_state', 'memo_hit', 'memo_asked', 'stale_answers', 'plan_lines', 'cursor_stripped']
                             .filter((key) => suspendedVerdict[key] !== undefined)
                             .map((key) => [key, suspendedVerdict[key]])
                         ),
@@ -2900,6 +3010,10 @@ export function registerLyricTools(server, tool) {
                 if (uncertainProposal) other.uncertain_proposal = true;
                 if (writer === 'interview') other.state = encodeInterview(currentCheckpoint);
                 else other.checkpoint = encodeState(currentCheckpoint);
+                // A call that ends without a question (a kill, or a safe-point
+                // stop) still publishes the verdicts it wrote, and every answer
+                // it did not reach as pending (LOOP_REDESIGN.md §2.8 D).
+                if (writer === 'interview') other.folded = foldedOf(a.state, currentCheckpoint);
                 other.final_draft = exactDraft;
                 other.replay_draft = a.draft;
                 if (resumable) {

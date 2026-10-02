@@ -1176,9 +1176,16 @@ await check('validation: actionable errors', () => {
     // which line any of them answered or whether verify took it. The verdict
     // originally was inferred from the next question. A batched answer may
     // still be unvisited, so only its actual outcome now supplies a verdict.
+    // REPINNED 2026-10-02 (LOOP_REDESIGN.md §2.2 option B, owner's ruling):
+    // ~~stays unknown~~ — an answer on record with no outcome is now `pending`
+    // (source `waiting`), and the fold reads the RETURNED state's journal, so
+    // each synthetic state below carries the `answered` row the harness
+    // writes. The invariant is unchanged: no next question, attempt budget or
+    // stop ever manufactures `accepted` or `rejected`.
     await check(
-      'a folded answer without an outcome stays unknown despite the next question or attempt budget',
+      'a folded answer without an outcome is pending, never guessed, despite the next question or attempt budget',
       () => {
+        const ans3 = { answered: { propose: [{ line: 3, attempt: 0, round: 1, text: 'a new line' }] } };
         const prompt2 =
           "REVISE ONE LINE — L3 of a 20-line draft.\n\nATTEMPT\n  This is ATTEMPT 2 of this line's retry budget.\n  The PREVIOUS attempt was REJECTED. The grader's reasons, verbatim:\n    - L3 took the modal candidate 'higher'\n    - L3 wants six beats, got 7\n  Do not send back something the same reason would reject again.\n\nTHE LINE TO REVISE\n  L3: x\n";
         const prev = JSON.stringify({
@@ -1192,6 +1199,7 @@ await check('validation: actionable errors', () => {
         const rejected = VI.foldedOf(
           prev,
           {
+            ...ans3,
             pending: {
               kind: 'propose',
               record: { line: 3, attempt: 1, round: 1 },
@@ -1200,25 +1208,25 @@ await check('validation: actionable errors', () => {
           },
           3
         );
-        assert.equal(rejected.verdict, 'unknown');
+        assert.equal(rejected.verdict, 'pending'); // was 'unknown' before 2026-10-02
         assert.equal(rejected.line, 3);
         assert.equal(rejected.attempt, 0);
         assert.equal(rejected.answer, 'a new line');
-        assert.deepEqual(rejected.reasons, []);
-        assert.equal(rejected.source, 'unverified');
+        assert.deepEqual(rejected.waiting_on, [3]);
+        assert.equal(rejected.source, 'waiting'); // was 'unverified' before 2026-10-02
         // Moving to another question while attempts remain proves no outcome.
         const accepted = VI.foldedOf(
           prev,
-          { pending: { kind: 'propose', record: { line: 7, attempt: 0, round: 1 }, prompt: '' } },
+          { ...ans3, pending: { kind: 'propose', record: { line: 7, attempt: 0, round: 1 }, prompt: '' } },
           3
         );
-        assert.equal(accepted.verdict, 'unknown');
-        assert.deepEqual(accepted.reasons, []);
+        assert.equal(accepted.verdict, 'pending'); // was 'unknown'
+        assert.deepEqual(accepted.reasons, ['pending: waiting on L7, the question asked now']);
         // Nor can a stop or a larger admitted budget manufacture acceptance.
         for (const budget of [0, 1, 2, 3, 4, 5, 6]) {
-          const unvisited = VI.foldedOf(prev, { pending: null }, budget);
-          assert.equal(unvisited.verdict, 'unknown');
-          assert.equal(unvisited.source, 'unverified');
+          const unvisited = VI.foldedOf(prev, { ...ans3, pending: null }, budget);
+          assert.equal(unvisited.verdict, 'pending'); // was 'unknown'
+          assert.equal(unvisited.source, 'waiting'); // was 'unverified'
         }
         // The budget's LAST attempt cannot be told from the state: UNKNOWN, never guessed.
         const last = JSON.stringify({
@@ -1227,10 +1235,13 @@ await check('validation: actionable errors', () => {
         assert.equal(
           VI.foldedOf(
             last,
-            { pending: { kind: 'propose', record: { line: 9, attempt: 0, round: 1 } } },
+            {
+              answered: { propose: [{ line: 3, attempt: 2, round: 1, text: 'z' }] },
+              pending: { kind: 'propose', record: { line: 9, attempt: 0, round: 1 } },
+            },
             3
           ).verdict,
-          'unknown'
+          'pending' // was 'unknown'
         );
         // A tier-2 group answer is UNKNOWN (its verify path is not the tier-1 re-ask).
         const grp = JSON.stringify({
@@ -1240,10 +1251,14 @@ await check('validation: actionable errors', () => {
             answer: 'L3: a\nL7: b',
           },
         });
-        const g = VI.foldedOf(grp, { pending: null }, 3);
+        const g = VI.foldedOf(
+          grp,
+          { answered: { propose_group: [{ members: [3, 7], round: 2, new: ['a', 'b'] }] }, pending: null },
+          3
+        );
         assert.equal(g.kind, 'propose_group');
         assert.deepEqual(g.members, [3, 7]);
-        assert.equal(g.verdict, 'unknown');
+        assert.equal(g.verdict, 'pending'); // was 'unknown'
         // No answer folded (a fresh call, or an unanswered re-ask): no record.
         assert.equal(
           VI.foldedOf(
@@ -1476,9 +1491,12 @@ await check('validation: actionable errors', () => {
           );
           assert.equal(waiting[0].verdict, 'rejected');
           assert.equal(waiting[0].source, 'outcome');
-          assert.equal(waiting[1].verdict, 'unknown');
-          assert.equal(waiting[1].source, 'unverified');
-          assert.deepEqual(waiting[1].reasons, []);
+          // REPINNED 2026-10-02 (option B): ~~'unknown' / 'unverified', no reasons~~
+          assert.equal(waiting[1].verdict, 'pending');
+          assert.equal(waiting[1].source, 'waiting');
+          assert.deepEqual(waiting[1].reasons, [
+            'pending: the run stopped before reaching it; continue with no answer',
+          ]);
         }
         // The record wins over the derivation on a single question too: the
         // budget's last attempt is no longer unknown when the harness wrote it.
@@ -1498,9 +1516,13 @@ await check('validation: actionable errors', () => {
         assert.equal(one.verdict, 'rejected');
         assert.equal(one.source, 'outcome');
         assert.equal(
-          VI.foldedOf(last, { pending: null }, 1).verdict,
-          'unknown',
-          'without the record, the last attempt of a budget of one is unknown, as M-235 pinned'
+          VI.foldedOf(
+            last,
+            { answered: { propose: [{ line: 3, attempt: 0, round: 1, text: 'z' }] }, pending: null },
+            1
+          ).verdict,
+          'pending',
+          'without the record, the last attempt of a budget of one is pending (~~unknown~~ until 2026-10-02), never guessed, as M-235 pinned'
         );
         assert.equal(VI.outcomeAt({ outcomes: [] }, 3, 0, 1), null);
       }
@@ -1514,10 +1536,13 @@ await check('validation: actionable errors', () => {
           record: { members: [3, 7, 9], round: 2 },
           answer: 'L3: a\nL7: b\nL9: c',
         };
+        // The [3,7] row predates this call, so it is in the state the call
+        // was handed too; the fold publishes what THIS call wrote (2026-10-02).
+        const earlier = { members: [3, 7], round: 2, accepted: true, reasons: [] };
         const st = {
           pending: null,
           group_outcomes: [
-            { members: [3, 7], round: 2, accepted: true, reasons: [] },
+            earlier,
             {
               members: [3, 7, 9],
               round: 2,
@@ -1527,7 +1552,7 @@ await check('validation: actionable errors', () => {
             },
           ],
         };
-        const g = VI.foldedOf(JSON.stringify({ pending: pend }), st, 1);
+        const g = VI.foldedOf(JSON.stringify({ pending: pend, group_outcomes: [earlier] }), st, 1);
         assert.equal(g.kind, 'propose_group');
         assert.deepEqual(g.members, [3, 7, 9]);
         assert.equal(g.verdict, 'rejected', 'the record wins');
@@ -1541,10 +1566,15 @@ await check('validation: actionable errors', () => {
           null,
           'members are ordered, as the mandate orders them'
         );
-        // Without a row the answer is UNKNOWN, as M-235 pinned — never guessed.
-        const none = VI.foldedOf(JSON.stringify({ pending: pend }), { pending: null }, 1);
-        assert.equal(none.verdict, 'unknown');
-        assert.deepEqual(none.reasons, []);
+        // Without a row the answer is PENDING (~~UNKNOWN~~ until 2026-10-02,
+        // LOOP_REDESIGN.md §2.2) — never guessed, as M-235 pinned.
+        const none = VI.foldedOf(
+          JSON.stringify({ pending: pend }),
+          { answered: { propose_group: [{ members: [3, 7, 9], round: 2, new: ['a', 'b', 'c'] }] }, pending: null },
+          1
+        );
+        assert.equal(none.verdict, 'pending');
+        assert.equal(none.source, 'waiting');
       }
     );
     await check(
@@ -5078,6 +5108,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_session_repairs.mjs': 'offline session workflow and Rich rendering regressions',
       'mcp/test_high_report.mjs':
         'native connector regressions for the high-severity report repairs, executed by CI (test:connector:live)',
+      'mcp/test_loop_redesign.mjs':
+        'the revise-loop redesign at the connector (seal, fold, cursor_stripped), executed by CI (test:connector:live)',
       'mcp/qualify_session_workflow.mjs': 'operator-run session qualification and evidence writer',
       'mcp/IMAGE_RELEASE.md': 'immutable image promotion operator documentation',
       'mcp/LYRICS_RUNTIME.md': 'operator documentation',

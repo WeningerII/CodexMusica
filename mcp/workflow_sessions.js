@@ -12,6 +12,7 @@ import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
   assertContinuationSemantics,
   continuationSemanticIdentity,
+  encodeInterviewWire,
   encodeState,
   recoverState,
 } from './state_codec.js';
@@ -551,7 +552,8 @@ export class WorkflowSessions {
     }
     assertContinuationSemantics(progress.connector_semantic_identity);
     const declarations = progress.connector_declarations;
-    const wire = encodeState(progress);
+    // Sealed like every interview state (LOOP_REDESIGN.md §2.8 F).
+    const wire = encodeInterviewWire(progress);
     session.native.continuation = {
       seed: declarations.seed,
       args: {
