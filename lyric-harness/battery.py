@@ -262,7 +262,8 @@ def whitman_battery():
 # WHICH LAYER MOVED: the DEFAULT, and nothing else. On the owner's ruling
 # ("put all 77 in the default now", `MISSING.md` M-116, the second half of
 # the instruction whose first half widened the admit set above), a mandated
-# pair that declares no relation is satisfied when its two lines stand in
+# pair that declares no relation is satisfied when ~~its two lines~~ its two
+# END WORDS (AMENDED 2026-10-02, `MISSING.md` M-317) stand in
 # ANY schema the vocabulary names — judged by ONE shared function,
 # `relations.whole_vocabulary_pairs`, consulted by `check_scheme` and
 # `quality.revise.grade` alike so the two readers cannot drift. Ingestion,

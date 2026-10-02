@@ -4432,7 +4432,9 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     # EVERY MANDATED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY, ALWAYS.
     # The schemas are not a rescue for pairs the coarse chain charged: each
     # mandated pair's relation set is the coarse relations it stands in PLUS
-    # every schema its two lines stand in, and the pair is satisfied when
+    # every schema its two END WORDS stand in (a letter scheme binds each
+    # line's last word; M-317, owner ruling 2026-10-02), and the pair is
+    # satisfied when
     # that set holds any relation the declaration admits. A declaration
     # that NARROWED `decl.admit` has said which coarse relations count; the
     # schema names are still recorded for every pair.
@@ -4443,9 +4445,13 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     if _asked:
         from quality import phonology as _PH
         from quality.relations import whole_vocabulary_pairs as _WVP
+        # A letter scheme binds each line's LAST word, and a pair stands in
+        # a schema only through an instance covering both (owner ruling
+        # 2026-10-02) -- the binding `quality.revise.grade` passes.
         _wvp = _WVP(list(lines), _PH.get("eng"),
                     bearing={x for pr in mandated for x in pr},
-                    requested_pairs=_asked)
+                    requested_pairs=_asked,
+                    bound={pr: (-1, -1) for pr in _asked})
         from quality.relations import REGISTRY as _REG
         for pr in sorted(_asked):
             if pr in _wvp:

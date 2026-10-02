@@ -2252,8 +2252,11 @@ class Reviser:
         # second half of the instruction whose first half widened the admit
         # set to all four classes on 2026-08-22 (`MISSING.md` M-116, task
         # #86). A mandated pair that declared NO relation and NO structure is
-        # satisfied when its two lines stand in ANY schema the vocabulary
-        # names, judged by the SAME instrument the declared route uses —
+        # satisfied when ~~its two lines~~ THE TWO WORDS ITS GROUP BINDS
+        # stand in ANY schema the vocabulary names (AMENDED 2026-10-02 by
+        # owner ruling, `MISSING.md` M-317: two lines relating at words the
+        # group does not bind no longer satisfy it), judged by the SAME
+        # instrument the declared route uses —
         # `relations.line_pairs_for` over one shared stream — so there is no
         # second judge to drift from (doctrine 1). Declaring a relation
         # remains the NARROWING move and is untouched: a group that says
@@ -2269,7 +2272,7 @@ class Reviser:
         # relation, read here and by `brief()`.
         # EVERY GRADED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY — not
         # only the pairs the coarse relations failed. Each verdict's relation
-        # set gains every schema its two lines stand in; in a group whose
+        # set gains every schema its BOUND WORDS stand in; in a group whose
         # route is open (nothing narrowed or declared), a pair is satisfied
         # when ANY relation in that set holds.
         _open = [v for v in verdicts if self.schema_route_open(m, v["group"])]
@@ -2283,18 +2286,38 @@ class Reviser:
                   if _verdicts_only else verdicts)
         if _asked:
             from quality import relations as _RF
-            _wvp = _RF.whole_vocabulary_pairs(
-                lines, self._relation_phonology(), sections=sections,
-                bearing={ln - 1 for g in m.groups for ln in g
-                         if 1 <= ln <= len(lines)},
-                requested_pairs={tuple(sorted(v["lines"]))
-                                 for v in _asked},
-                # A trial grade reads pass/fail only: stop asking a pair
-                # once one satisfier holds it (the answer cannot move).
-                settle=_verdicts_only)
+            # THE BOUND WORDS (owner ruling 2026-10-02): a group binds a
+            # word on each line (its slot; the last word by default), and a
+            # pair stands in a schema only through an instance covering both
+            # bound words. Two groups can bind one line pair at different
+            # words, so each distinct binding of a pair is asked on its own.
+            _rounds = []
+            for v in _asked:
+                i, j = sorted(v["lines"])
+                b = (_SL.token_of(m.slot_of(v["group"], i)),
+                     _SL.token_of(m.slot_of(v["group"], j)))
+                for rnd in _rounds:
+                    if rnd.get((i, j), b) == b:
+                        rnd[(i, j)] = b
+                        v["_round"] = rnd
+                        break
+                else:
+                    _rounds.append({(i, j): b})
+                    v["_round"] = _rounds[-1]
+            _wvps = {}
+            for rnd in _rounds:
+                _wvps[id(rnd)] = _RF.whole_vocabulary_pairs(
+                    lines, self._relation_phonology(), sections=sections,
+                    bearing={ln - 1 for g in m.groups for ln in g
+                             if 1 <= ln <= len(lines)},
+                    requested_pairs=set(rnd),
+                    # A trial grade reads pass/fail only: stop asking a pair
+                    # once one satisfier holds it (the answer cannot move).
+                    settle=_verdicts_only, bound=rnd)
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
             for v in _asked:
+                _wvp = _wvps[id(v.pop("_round"))]
                 _hit = sorted(_wvp.get(tuple(sorted(v["lines"]))) or ())
                 v["schemas"] = _hit
                 v["relations"] = sorted(set(v["relations"]) | set(_hit))
@@ -2312,6 +2335,27 @@ class Reviser:
                     if v["why"] and "REPEAT" not in v["relations"]:
                         v["why"] = None
                 elif v["why"] and "REPEAT" not in v["relations"]:
+                    # A GROUP BOUND AWAY FROM THE LINE END (owner ruling
+                    # 2026-10-02, the bound words): most schemas stand only
+                    # at the line's last word, so the instance route above
+                    # cannot reach a head or `T<n>` word with them. Each
+                    # schema one token can bind is also asked AT the two
+                    # bound words (`pair_satisfies_any`, the declared-token
+                    # route's judge, any-reading rule and all).
+                    _tsat, _tund = self._bound_token_schemas(
+                        _RF, m, v, lines, sections, first=_verdicts_only)
+                    if _tsat:
+                        v["schemas"] = sorted(set(v["schemas"]) | set(_tsat))
+                        v["relations"] = sorted(set(v["relations"])
+                                                | set(_tsat))
+                        v["satisfied_by"] = sorted(set(v["satisfied_by"])
+                                                   | set(v["admitted"])
+                                                   | set(_tsat))
+                        if any(_tsat.values()):
+                            v["readings"] = {n: w for n, w in _tsat.items()
+                                             if w}
+                        v["why"] = None
+                        continue
                     # Refuse only on an undecided schema that COULD satisfy
                     # the group: a disowned one (forbidden / deprecated)
                     # never satisfies, so its indecision cannot move the
@@ -2341,6 +2385,7 @@ class Reviser:
                             v["readings"] = _rsat
                             v["why"] = None
                             continue
+                    _undecided = sorted(set(_undecided) | set(_tund))
                     if _undecided:
                         i, j = v["lines"]
                         k = v["group"]
@@ -2767,6 +2812,65 @@ class Reviser:
                                "cannot state a return")})
         return out
 
+    def _bound_token_schemas(self, R, m, v, lines, sections, first=False):
+        """-> ({schema: witness}, [undecided schemas]) for a verdict whose
+        group binds a word away from either line's end, asked AT the two
+        bound words; ({}, []) for an end-to-end pair, which the instance
+        route already answers at the words it binds.
+
+        Every schema one token can bind (`relations.pair_bindable`) that the
+        registry does not disown is judged by `relations.pair_satisfies_any`
+        at the bound tokens -- the judge the declared-token route uses, so
+        the default and a declared `schema:` relation read a slot alike. A
+        witness is the readings that satisfied it ([] when the dictionary's
+        first reading did). `first` stops at the first schema that holds.
+        A schema the judge leaves at None (an anchor with no referent in the
+        bound word, which the any-reading search could not supply) does not
+        apply to these words: it does not hold, and it holds nothing open,
+        as the instance route forms no instance there.
+        """
+        k = v["group"]
+        i, j = v["lines"]
+        si, sj = m.slot_of(k, i), m.slot_of(k, j)
+        if _SL.is_default(si) and _SL.is_default(sj):
+            return {}, []
+        ti, tj = _SL.token_of(si), _SL.token_of(sj)
+        if ti is None or tj is None:
+            return {}, []
+        box = getattr(self, "_bound_tok_box", None)
+        key = (tuple(lines), tuple(sections) if sections else None,
+               tuple(sorted({ln - 1 for g in m.groups for ln in g
+                             if 1 <= ln <= len(lines)})))
+        if box is None or box[0] != key:
+            def _b(ph):
+                st = R.build_stream(
+                    lines, ph, sections=sections,
+                    stanzas=R.stanzas_from_sections(sections),
+                    stanza_source="declared_sections" if sections else "",
+                    declaration={"language": "eng"})
+                if key[2]:
+                    R.mark_refrain_tail(st, lines=list(key[2]))
+                return st
+            build = R.cached_builder(_b)
+            box = self._bound_tok_box = (key, build(self._relation_phonology()),
+                                         build)
+        _, st, build = box
+        sat, und = {}, []
+        for name in sorted(R.REGISTRY):
+            sch = R.REGISTRY[name]
+            if (sch.normative in ("forbidden", "deprecated")
+                    or not R.pair_bindable(sch)):
+                continue
+            ans, wit = R.pair_satisfies_any(sch, st, (i - 1, ti), (j - 1, tj),
+                                            build)
+            if isinstance(ans, R.Refusal):
+                continue
+            if ans is True:
+                sat[name] = list(wit or ())
+                if first:
+                    break
+        return sat, und
+
     def _schema_satisfies(self, lines, m, pairs, sections=None, among=None):
         """Do ALL these mandated line pairs stand in some registered schema?
 
@@ -2814,11 +2918,13 @@ class Reviser:
             from quality import relations as _RF
             if len(hit) > 8:
                 hit.clear()
+            # Cross pairs of two end-rhyme groups: their bound words are the
+            # line ends, as `grade()` binds a default group's.
             hit[key] = _RF.whole_vocabulary_pairs(
                 lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in getattr(m, "groups", ())
                          for ln in g if 1 <= ln <= len(lines)},
-                requested_pairs=asked)
+                requested_pairs=asked, bound={p: (-1, -1) for p in asked})
         wvp = hit[key]
         return all(tuple(sorted(p)) in wvp for p in pairs)
 
@@ -4669,7 +4775,8 @@ class Reviser:
             # time of `test_revise.py` §24, whose field this is.
             wvp = _RL.whole_vocabulary_pairs(carriers, phon,
                                              requested_pairs={(1, 2)},
-                                             schemas=found)
+                                             schemas=found,
+                                             bound={(1, 2): (-1, -1)})
             found &= set(wvp.get((1, 2)) or ())
         out = frozenset(found)
         store[("end-pair",) + key] = out

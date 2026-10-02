@@ -1257,7 +1257,7 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    'Declare ONE rhyme relation every mandated group must stand in, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (membership: a perfect rhyme stands in class:RHYME and class:ASSONANCE, and in class:CONSONANCE only when it closes on a consonant — heart/start does, sky/fly does not), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, every pair is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and a group is satisfied when its pairs stand in at least one; each pair\'s relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Planning draws no relation. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas.'
+    'Declare ONE rhyme relation every mandated group must stand in, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:); overlapping bare names refuse. class: is a coarse relation (membership: a perfect rhyme stands in class:RHYME and class:ASSONANCE, and in class:CONSONANCE only when it closes on a consonant — heart/start does, sky/fly does not), type: is the named-cell engine, and schema: is a registry schema, which requires the complete declared figure and its placement. An intra-line figure cannot stand in for a pair of lines; missing topology or placement refuses instead of accepting partial edges. With no declaration, every pair is judged against EVERY relation — each coarse relation at its own cut and every registry schema — and a group is satisfied when, for each pair, the two words the group binds stand in at least one (another word in the line relating does not count); each pair\'s relations are all reported, and unresolved obligations are disclosed; an unsupported shape never counts as success. Planning draws no relation. Declaring one narrows the requirement to that relation. An unknown name refuses and the refusal lists the declarable names by namespace; for one pair, lyric_types reports its type names, coarse relations and registry schemas.'
   );
 
 const functionsField = z
@@ -3271,7 +3271,8 @@ export function lyricInstructions({ kitchen = false } = {}) {
       : 'you write every line — the service never writes lyrics for an outside caller. ') +
     'A pair stands in EVERY relation its sound supports (a perfect rhyme is also assonance, and consonance when ' +
     'it closes on a consonant; rime riche is also rhyme): the default judges every pair against every coarse ' +
-    'relation and every registry schema, and a group is satisfied when its pairs stand in at least one; planning ' +
+    'relation and every registry schema, and a group is satisfied when the words it binds stand in at least ' +
+    'one (another word in the line relating does not count); planning ' +
     'draws none. Full figures and refused obligations remain explicit. The working order that produces ' +
     'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you want the shape ' +
     'to be (`want`, a filter) and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
