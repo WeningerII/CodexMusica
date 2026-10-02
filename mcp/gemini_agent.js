@@ -1165,6 +1165,28 @@ function carryState(prev, toolName, args, verdict, surface) {
       decl: declarationArgs(args),
     };
   }
+  // A STOPPED OR KILLED INTERVIEW RUN IS CARRIED TOO (LOOP_REDESIGN.md §2.8 F,
+  // R6). An exit-5 stop or a killed call returns `interrupted` with the run's
+  // sealed `state` and no question; the next call continues it with no answer,
+  // so it is carried as resumable exactly as a kitchen checkpoint is.
+  if (verdict?.status === 'interrupted' && typeof verdict[STATE_PROPERTY] === 'string') {
+    return {
+      key,
+      seed: typeof args.seed === 'number' ? args.seed : null,
+      resumable: true,
+      state: verdict[STATE_PROPERTY],
+      ...(typeof verdict.run_id === 'string' ? { run_id: verdict.run_id } : {}),
+      ...(Array.isArray(verdict.replay_draft)
+        ? { draft: verdict.replay_draft, replay_draft: verdict.replay_draft }
+        : Array.isArray(args.draft)
+          ? { draft: args.draft }
+          : Array.isArray(prev?.draft)
+            ? { draft: prev.draft }
+            : {}),
+      final_draft: verdict.final_draft ?? prev?.final_draft,
+      decl: declarationArgs(args),
+    };
+  }
   if (code === 4 && typeof verdict[STATE_PROPERTY] === 'string') {
     return {
       key,

@@ -295,6 +295,10 @@ const EXIT_MEANING = {
   2: 'REFUSED — the harness did not answer; the report names why',
   3: 'answered — at least one FLAG or banned pair stands; the report names the lines',
   4: "SUSPENDED — the loop is waiting for a writer's answer; neither a verdict nor a failure",
+  // A call nearing its deadline stops itself between steps instead of being
+  // killed (LOOP_REDESIGN.md §2.3b; owner ruling Q3, 2026-10-02). It asks
+  // nothing, so it is not a 4: an answer sent to it would be refused.
+  5: 'STOPPED at a safe point — resumable; continue with no answer',
 };
 
 // Every count, finding and loop record in a verdict is read off the
@@ -457,6 +461,52 @@ const WHY_NOT_APPLIED = {
   rewritten: (by) => `not judged: this line was rewritten by the accepted rewrite of ${_lines(by)}`,
   no_finding: () => 'not judged: no finding stands on this line in the current draft',
 };
+
+// WHERE A RUN STANDS, for the no-progress count (LOOP_REDESIGN.md §2.8 E;
+// owner ruling Q4, 2026-10-02). Two states are at the same position when the
+// saved position (phase, round, place in the pass, and the menus already built
+// for a question under construction), the number of verdict and pass-by
+// records, and the question pending are all the same. The count itself and
+// the seal are left out, so carrying the count never reads as progress.
+function positionOf(st) {
+  if (!st || typeof st !== 'object') return null;
+  const loop = st.cursor?.loop || {};
+  return JSON.stringify([
+    loop.phase ?? null,
+    loop.round ?? null,
+    loop.at ?? null,
+    Array.isArray(loop.menus) ? loop.menus.length : 0,
+    (st.outcomes || []).length,
+    (st.group_outcomes || []).length,
+    (st.dispositions || []).length,
+    st.pending ? { kind: st.pending.kind, record: st.pending.record } : null,
+  ]);
+}
+
+// -> the count of consecutive calls that ended without an answer and without
+// moving the run, carried in the state this call returns. Only an exit-5 stop
+// or a killed call is compared; any advance resets it to 0. Reported, never
+// refused: no call is ever turned away for it.
+function stallsOf(prevStateText, st) {
+  let prev;
+  try {
+    prev = typeof prevStateText === 'string' ? JSON.parse(prevStateText) : prevStateText;
+  } catch {
+    return 0;
+  }
+  if (!prev || typeof prev !== 'object') return 0;
+  const before = positionOf(prev);
+  return before !== null && before === positionOf(st)
+    ? (Number.isInteger(prev.stalls) && prev.stalls > 0 ? prev.stalls : 0) + 1
+    : 0;
+}
+
+const NO_PROGRESS_AT = 2;
+const noProgressNote = (n, st) =>
+  ` NO PROGRESS: ${n} calls in a row ended at the same position (` +
+  `${st?.cursor?.loop?.phase ?? 'the start'}, round ${st?.cursor?.loop?.round ?? '?'}, on a ` +
+  `${(st?.accepted_lines || []).length}-line draft). This draft does not fit one call on this ` +
+  'server; the run is kept and a further call is not refused.';
 
 function foldedOf(prevStateText, st) {
   let prev;
@@ -1613,6 +1663,8 @@ export const _verdictInternals = {
   groupOutcomeAt,
   askedOf,
   foldedOf,
+  positionOf,
+  stallsOf,
   outcomeAt,
   draftFp,
   draftFromText,
@@ -2087,8 +2139,10 @@ function reviseDescription({ kitchen = false } = {}) {
     'too predictable — and no song. Answer by calling lyric_revise again with only `answer` (exactly one ' +
     'line of song text) or `answers` (one {line, text} per asked line — the shape for a batch or a group ' +
     'question): the run keeps its declarations and the draft it opened on, and the call names the run the ' +
-    'way this connection carries it. Each call re-runs the loop from its record (deterministic, so the same ' +
-    'questions arrive in the same order). To start again on a different draft, grade that draft first, then ' +
+    'way this connection carries it. Each call resumes from its saved, sealed position, or replays its ' +
+    'record when that position cannot be trusted; the same questions arrive in the same order either way. ' +
+    'A call that nears its time limit stops between steps (exit 5) and the next call with no answer ' +
+    'continues it. To start again on a different draft, grade that draft first, then ' +
     'send it with `new_run: true`. ';
   const chat =
     'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the draft and the declarations; one call runs the ' +
@@ -2528,9 +2582,12 @@ export function registerLyricTools(server, tool) {
               // is the harness's OWN deferred-run state (its `answered` block is a
               // valid --propose=replay: file), so the revision is reproducible by
               // anyone holding the conversation — and it cannot be forged into a
-              // finished song, because every answer in it is REPLAYED through
-              // verify() on this call and the render below only ever comes from
-              // the verb's own run past a stop condition.
+              // finished song. A verdict is trusted only under this server's
+              // seal: an edited outcome, journal or saved position fails the
+              // seal, the position is dropped, and every answer is REPLAYED
+              // through verify() on this call (LOOP_REDESIGN.md §2.0.1). The
+              // render below only ever comes from the verb's own run past a
+              // stop condition.
               if (a.state != null) {
                 let st;
                 try {
@@ -2578,7 +2635,10 @@ export function registerLyricTools(server, tool) {
                 // a run capability. This string is request-local; the cached
                 // predecessor remains immutable until the accepted successor.
                 a.state = JSON.stringify(st);
-                await writeFile(statePath, JSON.stringify(st, null, 2) + '\n', 'utf8');
+                // The no-progress count is the connector's, read off `a.state`
+                // when this call ends; the harness never sees or returns it.
+                const { stalls: _stalls, ...forHarness } = st;
+                await writeFile(statePath, JSON.stringify(forHarness, null, 2) + '\n', 'utf8');
               } else if (a.answer != null || a.answers != null) {
                 throw refuse(
                   '`answer`/`answers` without `state` — the first call has no question to answer'
@@ -3008,6 +3068,16 @@ export function registerLyricTools(server, tool) {
                     ? 'interrupted'
                     : 'refused';
                 if (uncertainProposal) other.uncertain_proposal = true;
+                // THE NO-PROGRESS COUNT (§2.8 E). Compared only on a safe-point
+                // stop and a killed call; it rides in the sealed state.
+                if (writer === 'interview') {
+                  delete currentCheckpoint.stalls;
+                  if (r.code === 5 || r.timed_out || r.cancelled) {
+                    const stalls = stallsOf(a.state, currentCheckpoint);
+                    if (stalls > 0) currentCheckpoint.stalls = stalls;
+                    if (stalls >= NO_PROGRESS_AT) other.no_progress_calls = stalls;
+                  }
+                }
                 if (writer === 'interview') other.state = encodeInterview(currentCheckpoint);
                 else other.checkpoint = encodeState(currentCheckpoint);
                 // A call that ends without a question (a kill, or a safe-point
@@ -3029,6 +3099,8 @@ export function registerLyricTools(server, tool) {
                   });
                   other.run_id = saved.run_id;
                   other.run_revision = saved.revision;
+                  if (other.no_progress_calls)
+                    other.meaning += noProgressNote(other.no_progress_calls, currentCheckpoint);
                   other.meaning += uncertainProposal
                     ? ' The provider request may have completed but no answer was recorded. Automatic continuation is stopped. final_draft preserves accepted edits; replay_draft and checkpoint preserve the evidence. Existing new_run can start independent work from final_draft, with a possible additional provider charge.'
                     : ` Resume explicitly with run_id or ${writer === 'interview' ? 'state' : 'checkpoint'} under the same declarations; completed proposals are in that journal.`;

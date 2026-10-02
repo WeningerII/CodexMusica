@@ -91,7 +91,7 @@ export function verdictOf(result) {
 const CALLER_RESUME =
   / Resume explicitly with run_id or (?:state|checkpoint) under the same declarations; completed proposals are in that journal\./;
 const SESSION_RESUME =
-  ' Continue with lyric_revise, the latest session_id and no answer: the session carries this run and replays its journal. If that is stopped again, lyric_revise with recover_only: true exports the journal, and a new run can start from its accepted lines.';
+  ' Continue with lyric_revise, the latest session_id and no answer: the session carries this run and resumes from its saved position, or replays its journal when that position cannot be trusted. If that is stopped again, lyric_revise with recover_only: true exports the journal, and a new run can start from its accepted lines.';
 
 function visible(value) {
   if (Array.isArray(value)) return value.map(visible);

@@ -59,9 +59,10 @@ export function assertContinuationSemantics(identity) {
 // State keys measured OUTSIDE the worker journal's capacity, exactly as the
 // harness's JOURNAL_OUTSIDE_KEYS (lyric_harness.py): `dispositions` records
 // batch answers the walk passed by without judging (LOOP_REDESIGN.md §2.2
-// option B, §2.8 C). Counting it here would refuse a continuation the harness
+// option B, §2.8 C), `cursor` is the saved position, and `stalls` is the
+// connector's no-progress count (§2.8 E). Counting them here would refuse a continuation the harness
 // admitted. The decoded-state bound in encodeState below still covers it.
-export const WORKER_OUTSIDE_KEYS = Object.freeze(['dispositions', 'cursor', 'cursor_seal', 'cursor_strip']);
+export const WORKER_OUTSIDE_KEYS = Object.freeze(['dispositions', 'cursor', 'cursor_seal', 'cursor_strip', 'stalls']);
 
 export function assertContinuationCapacity(state) {
   const { connector_declarations, ...worker } = state;

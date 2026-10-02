@@ -3,9 +3,11 @@
 // lyric-harness/quality/test_loop_redesign.py; this file holds what only the
 // connector does: the seal on a saved position (§2.0.1, T7), the fold by
 // journal diff with the owner-approved verdicts (§2.2 option B, T3), and the
-// published `cursor_stripped` (Q5). Every check here fails on the connector
-// before the redesign: it had no seal, no `cursor_stripped`, and folded an
-// unreached batch answer as `unknown`.
+// published `cursor_stripped` (Q5), exit 5 and the no-progress count (§2.3b,
+// §2.8 E; Q3, Q4), and the website chat carrying a stopped run (§2.8 F, R6).
+// Every check here fails on the connector before the redesign: it had no
+// seal, no `cursor_stripped`, no exit 5, no `stallsOf`, folded an unreached
+// batch answer as `unknown`, and dropped an interrupted interview run.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
@@ -17,6 +19,7 @@ import {
   verifyInterviewCursor,
 } from './state_codec.js';
 import { _verdictInternals as VI } from './lyric_tools.js';
+import { _agentInternals as AI } from './gemini_agent.js';
 
 const sealedState = () => ({
   version: 1,
@@ -140,4 +143,60 @@ test('live: a continuation keeps a sealed cursor; a tampered one is reported and
     await client.close();
     await server.close();
   }
+});
+
+test('T5 (connector): the no-progress count rises only while the position stands still', () => {
+  const at = (n, extra = {}) => ({
+    accepted_lines: ['a', 'b'],
+    outcomes: [],
+    group_outcomes: [],
+    dispositions: [],
+    pending: null,
+    cursor: { loop: { phase: 'pass', round: 1, at: n, menus: [] } },
+    ...extra,
+  });
+  assert.equal(VI.EXIT_MEANING[5], 'STOPPED at a safe point — resumable; continue with no answer');
+  // Three calls ending at one position: 1, 2, 3 — and the count is carried in
+  // the state each call returns, so it is the incoming state's plus one.
+  let prev = at(0);
+  const counts = [];
+  for (let i = 0; i < 3; i++) {
+    const n = VI.stallsOf(JSON.stringify(prev), at(0));
+    counts.push(n);
+    prev = { ...at(0), stalls: n };
+  }
+  assert.deepEqual(counts, [1, 2, 3], 'one more per call that did not move');
+  // The count itself and the seal are not progress.
+  assert.equal(
+    VI.positionOf({ ...at(0), stalls: 7, cursor_seal: 'x' }),
+    VI.positionOf(at(0)),
+    'carrying the count never reads as an advance'
+  );
+  // Any advance resets it: the place in the pass, a menu built, a verdict.
+  const moved = [
+    at(1),
+    { ...at(0), cursor: { loop: { phase: 'pass', round: 1, at: 0, menus: [['k', 1]] } } },
+    { ...at(0), outcomes: [{ line: 1 }] },
+    { ...at(0), dispositions: [{ line: 3 }] },
+    { ...at(0), pending: { kind: 'propose', record: { line: 2 } } },
+  ];
+  for (const m of moved)
+    assert.equal(VI.stallsOf(JSON.stringify({ ...at(0), stalls: 2 }), m), 0, JSON.stringify(m).slice(0, 120));
+});
+
+test('R6: the website chat carries a stopped interview run as resumable', () => {
+  const surface = { stateTools: new Set(['lyric_revise']) };
+  const args = { seed: 7, draft: ['x', 'y'] };
+  const carried = AI.carryState(
+    null,
+    'lyric_revise',
+    args,
+    { exit_code: 5, status: 'interrupted', state: 'SEALED', run_id: 'r1', replay_draft: ['x', 'y'] },
+    surface
+  );
+  assert.ok(carried, 'the run is carried, not dropped');
+  assert.equal(carried.resumable, true);
+  assert.equal(carried.state, 'SEALED', 'the sealed state rides to the next call');
+  assert.equal(carried.run_id, 'r1');
+  assert.deepEqual(carried.draft, ['x', 'y']);
 });
