@@ -347,13 +347,27 @@ def test_ingestion():
 if __name__ == "__main__":
     if os.environ.get("LYRIC_MUTATE_ACTIVE") == "recursion-guard":
         sys.exit(0)
-    for fn in (test_sonnet_oracle_headline,
-               test_refusal_is_recorded_not_counted,
+    # THE QUICK SECTIONS FIRST, AND A FAILURE THERE ENDS THE RUN (2026-10-02).
+    # The headline runs the whole 152-sonnet battery, and under M18 (every
+    # UNRELATED pair mandated) that is ~12,800 mandated pairs, each failing
+    # pair searched over its readings: past the mutation sweep's 600 s bound,
+    # so the mutant read as a timeout and escalated to the whole tree.
+    # Section 3 names M18 and answers in a second; the battery's counts
+    # presuppose the mandate those sections pin, so it is not run over a
+    # mandate they have already refused.
+    for fn in (test_refusal_is_recorded_not_counted,
                test_scheme_mandate,
                test_transitivity_defect,
                test_value_layer,
                test_ingestion):
         fn()
+    if FAILURES:
+        print("=" * 70)
+        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
+        print("section 1 (the sonnet oracle's headline) was NOT run: the "
+              "sections above refuse the structure its counts rest on")
+        sys.exit(1)
+    test_sonnet_oracle_headline()
     print("=" * 70)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

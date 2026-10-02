@@ -2828,7 +2828,8 @@ def _cand_buckets(schema, a, stream, chans, idx, wild):
 
 
 def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
-                     skip_line_pairs, tally=None, requested_line_pairs=None):
+                     skip_line_pairs, tally=None, requested_line_pairs=None,
+                     prune=False):
     """Every pair `realise()` would evaluate, in `realise()`'s order.
 
     ONE definition of what a candidate is (doctrine 1).  The `seen`
@@ -2868,6 +2869,28 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
     requested_partners = None
     projected_buckets = {}
     bucket_lines = {}
+    # A REQUIRED LINE GAP IS READ HERE, BEFORE `evaluate()` (2026-10-02).
+    # `evaluate` returns None the moment a placement fails, so a pair two
+    # lines too far apart was a full call that could only answer nothing;
+    # `chain rhyme (rap)` paid one for every pair of a 31-line draft. The
+    # test is `Placement._raw`'s own, on the same head units. Only the
+    # EVALUATING pass prunes (`prune=True`): the pair guard's count stays
+    # the candidate count it has always been.
+    gap = next((p.args[0] for p in schema.placement
+                if p.kind == "line_gap_at_most" and p.polarity),
+               None) if prune else None
+    units = stream.units if gap is not None else None
+    # A SKIP SET IS PROJECTED LIKE A REQUEST (2026-10-02). With most line
+    # pairs held by a memo, visiting every skipped candidate one at a time
+    # was most of a warm call; each `a` now visits only its kept partner
+    # lines. A skipped pair is never evaluated and feeds no `seen` entry
+    # another pair reads, so only the tally -- which counts mirrored
+    # candidates BEFORE the skip -- could move, and it keeps the old path.
+    keep_partners = None
+    if skip_line_pairs and tally is None and requested_line_pairs is None:
+        import heapq
+        cand_lines = {row[2] for rows in bucket_meta.values() for row in rows}
+        keep_partners = {}
     if requested_line_pairs is not None:
         import heapq
         requested_partners = {}
@@ -2885,10 +2908,17 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                 if not remaining[a.idx]:
                     seen.pop(a.idx, None)
                 continue
+        elif keep_partners is not None:
+            partners = keep_partners.get(la)
+            if partners is None:
+                partners = keep_partners[la] = frozenset(
+                    lb for lb in cand_lines
+                    if la is None or lb is None or lb == la
+                    or (min(la, lb), max(la, lb)) not in skip_line_pairs)
         row_seen = seen.setdefault(a.idx, set())
         for v in buckets:
             candidates = bucket_meta[id(v)]
-            if requested_partners is not None:
+            if requested_partners is not None or keep_partners is not None:
                 key = (id(v), la)
                 if key not in projected_buckets:
                     # Index each shared bucket once instead of rescanning
@@ -2923,6 +2953,9 @@ def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
                     if (la != lb and la is not None and lb is not None
                             and (min(la, lb), max(la, lb)) in skip_line_pairs):
                         continue  # the memo carries it; see line_pairs_for
+                if gap is not None and not (
+                        0 < units[b_head].line - units[a_head].line <= gap):
+                    continue      # `evaluate` would answer None: placement
                 yield a, b, reversed_pair
         if not remaining[a.idx]:
             del seen[a.idx]
@@ -3110,7 +3143,8 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=None,
     out = []
     for a, b, reversed_pair in _candidate_pairs(
             schema, layout, stream, a_keys, b_keys, skip_line_pairs,
-            tally=tally, requested_line_pairs=requested_line_pairs):
+            tally=tally, requested_line_pairs=requested_line_pairs,
+            prune=True):
         inst = evaluate(schema, a, b, stream, chans)
         if inst is None:
             continue
@@ -7138,13 +7172,27 @@ class VocabularyPairResults(dict):
         `group_merges`) is not resolved again. `first_only` (a pass/fail
         caller) stops at the first schema that holds; the names after it are
         neither satisfied nor undecided in the answer, only unasked.
+
+        The pair-local schemas are asked first, and a whole-song one
+        (`pair_scope_representable` false) only while none of them has
+        held: every caller passes a pair once ANY schema holds, and a
+        whole-song schema re-reads the whole draft under every combination
+        of readings. On the 31-line capacity draft (seed 20260908) `chain
+        rhyme (rap)` took 55 of the grade's 67 resolving seconds, on pairs
+        another schema already held (2026-10-02). A whole-song schema left
+        unasked that way is absent from the answer, as under `first_only`.
         """
         pair = tuple(sorted(pair))
         if self._resolve_ctx is None:
             return {}, list(names)
         satisfied, still = {}, []
         full = self._full_resolve_key()
-        for name in names:
+        local = [n for n in names
+                 if pair_scope_representable(REGISTRY[n])]
+        whole = [n for n in names if n not in local]
+        for name in local + whole:
+            if satisfied and (first_only or name in whole):
+                break
             key = (full, pair, name) if full is not None else None
             hit = _RESOLVE_MEMO.get(key) if key is not None else None
             if hit is None:
@@ -7230,6 +7278,14 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None,
     if settle:
         if memo_key is not None:
             memo_key = memo_key + (("settle",),)
+        # A figure of one line's tokens or one line's template (`cynghanedd
+        # sain`, the tonal template) holds of a LINE and never of a pair:
+        # `line_pairs_for` returns it no pair and no undecided pair, so it
+        # cannot settle or unsettle one and is not asked here (2026-10-02;
+        # four sain figures were 70 of a 31-line revise's 443 seconds).
+        names = [n for n in names
+                 if figure_pair_representable(REGISTRY[n])
+                 or n in LINE_MEMBER_SHAPES]
         # Cheap first: a pair-local schema judges only the asked pairs, a
         # whole-song one re-reads the whole draft whatever is asked.
         names = ([n for n in names if pair_scope_representable(REGISTRY[n])]
@@ -8513,11 +8569,39 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
             if k in memo["store"]:
                 skip[(i, j)] = memo["store"][k]
         _PAIR_MEMO_TALLY["hit"] += len(skip)
-    out = realise(schema, stream, skip_line_pairs=set(skip) or None,
+    # THE EDGE MEMO (2026-10-02). A whole-song figure (`chain rhyme (rap)`'s
+    # forall) is assembled from every edge in the draft, so its VERDICT is
+    # not pair-local -- but each EDGE is, by the premise the pair memo above
+    # rests on. A trial grade changes one line, so the edges between two
+    # unchanged lines are taken from the memo and only the pairs touching a
+    # changed line are evaluated; the figure is still assembled whole. It
+    # holds whole edges, not verdicts, so a call asking for `causes` reads
+    # them off the served edges like any other.
+    edge_slot, reuse = None, {}
+    n_lines = len(stream.lines)
+    if (not pair_local
+            and n_lines * (n_lines - 1) // 2 <= PAIR_MEMO_CAP
+            and not ("stub_resolution" in schema.capabilities()
+                     and stream.supply("stub_resolution").state == "absent")):
+        edge_slot = _pair_memo_slot(schema, stream)
+    if edge_slot is not None:
+        sigs = sigs or [_line_sig(stream, i) for i in range(n_lines)]
+        edges = edge_slot.setdefault("edges", collections.OrderedDict())
+        for i in range(n_lines):
+            for j in range(i + 1, n_lines):
+                k = (i, j, sigs[i], sigs[j])
+                if k in edges:
+                    edges.move_to_end(k)
+                    reuse[(i, j)] = edges[k]
+        _EDGE_MEMO_TALLY["hit"] += len(reuse)
+    out = realise(schema, stream,
+                  skip_line_pairs=(set(skip) | set(reuse)) or None,
                   requested_line_pairs=(set(measured)
                       if pair_local and requested_pairs is not None else None))
     if isinstance(out, Refusal):
         return out if keep_refusal else frozenset()
+    if edge_slot is not None:
+        out = _edge_memo_merge(edge_slot["edges"], stream, sigs, out, reuse)
     if not pair_local:
         assemblies = assemble(schema, out, stream)
         if isinstance(assemblies, Refusal):
@@ -8662,6 +8746,59 @@ def pair_memo_clear():
     _PAIR_MEMO.clear()
     for k in _PAIR_MEMO_TALLY:
         _PAIR_MEMO_TALLY[k] = 0
+    for k in _EDGE_MEMO_TALLY:
+        _EDGE_MEMO_TALLY[k] = 0
+
+
+#: Line pairs whose edges `line_pairs_for` took from the edge memo (hit) or
+#: evaluated and recorded (miss). Kept apart from the pair memo's tally,
+#: whose figures the verbs print.
+_EDGE_MEMO_TALLY = {"hit": 0, "miss": 0}
+
+
+def _edge_memo_merge(edges, stream, sigs, fresh, reuse):
+    """-> `fresh` plus every remembered edge of the `reuse` pairs, rebuilt
+    on this stream; records each cross-line pair this call evaluated.
+
+    An edge is kept as (instance, (line, offset) per unit of each span), so
+    an unchanged line pair is served even where an edited earlier line has
+    shifted every later unit index. Same-line edges and edges whose line
+    cannot be read are never memoised: `realise` evaluates them every call.
+    """
+    pos = {u: (li, k) for li, ids in enumerate(stream.lines)
+           for k, u in enumerate(ids)}
+    by_pair, unkeyable = {}, set()
+    for inst in fresh:
+        la, lb = _span_line(inst.a, stream), _span_line(inst.b, stream)
+        if la is None or lb is None or la == lb:
+            continue
+        pair = (min(la, lb), max(la, lb))
+        try:
+            rel = (tuple(pos[u] for u in inst.a.idx),
+                   tuple(pos[u] for u in inst.b.idx))
+        except KeyError:
+            unkeyable.add(pair)
+            continue
+        by_pair.setdefault(pair, []).append((inst,) + rel)
+    n = len(stream.lines)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if (i, j) in reuse or (i, j) in unkeyable:
+                continue
+            edges[(i, j, sigs[i], sigs[j])] = tuple(by_pair.get((i, j), ()))
+            _EDGE_MEMO_TALLY["miss"] += 1
+    while len(edges) > PAIR_MEMO_CAP:
+        edges.popitem(last=False)
+    out = list(fresh)
+    for recs in reuse.values():
+        for inst, rel_a, rel_b in recs:
+            ia = tuple(stream.lines[li][k] for li, k in rel_a)
+            ib = tuple(stream.lines[li][k] for li, k in rel_b)
+            if ia != inst.a.idx or ib != inst.b.idx:
+                inst = replace(inst, a=replace(inst.a, idx=ia),
+                               b=replace(inst.b, idx=ib))
+            out.append(inst)
+    return out
 
 
 def pair_memo_disclosure():

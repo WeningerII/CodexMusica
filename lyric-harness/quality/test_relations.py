@@ -3475,6 +3475,134 @@ def test_a_remembered_reading_answer_is_the_computed_one():
     RT._RESOLVE_MEMO.clear()
 
 
+def test_a_whole_song_schema_is_asked_last():
+    """X9f. `resolve_readings` asks the pair-local schemas first and a
+    whole-song one only while none has held (2026-10-02): every caller
+    passes a pair once ANY schema holds, and on the 31-line capacity draft
+    `chain rhyme (rap)` cost 55 of the grade's 67 resolving seconds on pairs
+    another schema already held. The claims: the whole-song schema is not
+    asked once a pair-local one holds, it IS asked when none does, and its
+    answer is then reported as before.
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    local, whole = "internal rhyme", "chain rhyme (rap)"
+    check("the two names sit on either side of the line",
+          RT.pair_scope_representable(RT.REGISTRY[local])
+          and not RT.pair_scope_representable(RT.REGISTRY[whole]))
+    RT._WVP_MEMO.clear()
+    RT._RESOLVE_MEMO.clear()
+    w = RT.whole_vocabulary_pairs(("the cat sat down", "a hat fell down"),
+                                  PH.get("eng"))
+    asked, real = [], RT.resolve_line_pair
+
+    def stub(answers):
+        def spy(schema, stream, pair, build, cap=RT.READING_COMBO_CAP):
+            asked.append(schema.name)
+            return answers[schema.name]
+        return spy
+    try:
+        RT.resolve_line_pair = stub({local: (True, ["cat = K AE1 T"]),
+                                     whole: (None, None)})
+        held = w.resolve_readings((1, 2), [whole, local])
+        first = list(asked)
+        RT._RESOLVE_MEMO.clear()
+        asked.clear()
+        RT.resolve_line_pair = stub({local: (False, None),
+                                     whole: (True, ["hat = HH AE1 T"])})
+        fell = w.resolve_readings((1, 2), [whole, local])
+        second = list(asked)
+    finally:
+        RT.resolve_line_pair = real
+        RT._WVP_MEMO.clear()
+        RT._RESOLVE_MEMO.clear()
+    check("a pair-local schema that holds leaves the whole-song one unasked",
+          first == [local] and held == ({local: ["cat = K AE1 T"]}, []),
+          f"asked {first}, answered {held}")
+    check("with no pair-local schema holding, the whole-song one is asked "
+          "and its answer reported",
+          second == [local, whole]
+          and fell == ({whole: ["hat = HH AE1 T"]}, []),
+          f"asked {second}, answered {fell}")
+
+
+def test_a_remembered_edge_is_the_evaluated_one():
+    """X9e. `line_pairs_for` serves a whole-song figure's edges between two
+    unchanged lines from the edge memo (2026-10-02), evaluating only the
+    pairs that touch a changed line: a trial grade re-judged `chain rhyme
+    (rap)` over every pair of a 31-line draft, 2 s a call. The claims: the
+    memo is used, every edge it serves is the edge a fresh `realise` finds
+    -- after an edit that SHIFTS every later unit index -- and every
+    whole-song verdict is the uncached one.
+    """
+    import os
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ["the morning light fell over the river",
+             "i carried every question to the garden",
+             "we waited out the weather by the station",
+             "she wrote her answer slowly on the window",
+             "a cold wind took the paper from the harbor",
+             "the city hummed its warning through the mountain"]
+    edited = list(lines)
+    edited[1] = "i carried every beautiful question to the garden"
+    names = [n for n, s in RT.REGISTRY.items()
+             if RT.figure_pair_representable(s)
+             and not RT.pair_scope_representable(s)]
+
+    def build(ls):
+        return RT.build_stream(ls, phon, declaration={"language": "eng"})
+
+    def snap(res):
+        if isinstance(res, RT.Refusal):
+            return ("refused", res.missing, res.kind)
+        return (frozenset(res), frozenset(res.undecided))
+
+    def edges(res):
+        return sorted((e.a.idx, e.b.idx, e.a.origin, e.b.origin, e.verdict)
+                      for e in res)
+    seen, real = [], RT.assemble
+
+    def spy(schema, es, stream):
+        seen.append(edges(es))
+        return real(schema, es, stream)
+    saved = os.environ.get("LYRIC_PAIR_MEMO")
+    RT.assemble = spy
+    try:
+        os.environ["LYRIC_PAIR_MEMO"] = "1"
+        RT.pair_memo_clear()
+        for n in names:
+            RT.line_pairs_for(RT.REGISTRY[n], build(lines))
+        hits = RT._EDGE_MEMO_TALLY["hit"]
+        seen.clear()
+        warm = {n: snap(RT.line_pairs_for(RT.REGISTRY[n], build(edited)))
+                for n in names}
+        warm_edges, hits = list(seen), RT._EDGE_MEMO_TALLY["hit"] - hits
+        os.environ["LYRIC_PAIR_MEMO"] = "0"
+        seen.clear()
+        cold = {n: snap(RT.line_pairs_for(RT.REGISTRY[n], build(edited)))
+                for n in names}
+        cold_edges = list(seen)
+    finally:
+        RT.assemble = real
+        if saved is None:
+            os.environ.pop("LYRIC_PAIR_MEMO", None)
+        else:
+            os.environ["LYRIC_PAIR_MEMO"] = saved
+        RT.pair_memo_clear()
+    shifted = len(build(edited).lines[1]) != len(build(lines).lines[1])
+    check("the comparison examines served edges after a shifting edit",
+          bool(names) and hits > 0 and shifted
+          and any(e for e in cold_edges),
+          f"{len(names)} schema(s), {hits} pair(s) served, shifted {shifted}")
+    check("every edge the memo serves is the edge a fresh realise finds",
+          warm_edges == cold_edges,
+          f"{sum(map(len, warm_edges))} against {sum(map(len, cold_edges))}")
+    check("every whole-song verdict is the uncached one", warm == cold,
+          f"{[n for n in names if warm[n] != cold[n]]}")
+
+
 # ---------------------------------------------------------------------------
 # X10. The pair guard fires BEFORE `evaluate()` — M-244's cost, closed
 # ---------------------------------------------------------------------------
@@ -3634,12 +3762,16 @@ def test_the_pair_guard_refuses_before_it_evaluates():
     # count BEFORE de-duplication, so it is never below the exact count —
     # a cap between the two must NOT refuse, or the guard would have started
     # refusing inputs it used to answer.
+    # 2026-10-02 superseded: `spy.calls == exact`. The evaluating pass now
+    # skips a candidate whose required line gap fails, which `evaluate`
+    # answered None; `chain rhyme (rap)`'s only placement is that gap, so
+    # it evaluates exactly the candidates it keeps (1,403 of 2,961 here).
     with _EvaluateSpy() as spy:
         at_cap = R.realise(sch, st, keep="all", max_pairs=exact)
     check("a cap ABOVE the exact count and BELOW the bound answers in full, "
           "instance for instance — the bound alone never refuses",
           not isinstance(at_cap, R.Refusal) and repr(at_cap) == repr(ref)
-          and spy.calls == exact,
+          and spy.calls == len(ref) < exact,
           f"{spy.calls} evaluations, {len(at_cap)} instances")
     e = _raises(R.realise, sch, st, keep="all", max_pairs=exact - 1)
     check("...and one below the exact count refuses, as it did before",
@@ -3869,6 +4001,8 @@ if __name__ == "__main__":
     test_a_schema_subset_is_the_full_answer_restricted()
     test_a_settled_question_has_the_full_answer()
     test_a_remembered_reading_answer_is_the_computed_one()
+    test_a_whole_song_schema_is_asked_last()
+    test_a_remembered_edge_is_the_evaluated_one()
     test_the_pair_guard_refuses_before_it_evaluates()
     test_every_schema_judges_and_no_differ_only_excludes()
     print("=" * 66)
