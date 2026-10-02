@@ -90,33 +90,40 @@ _RETURNS = re.compile(r"'--returns=(.*?)'", re.S)
 #: written (doctrine 17).
 REGRADE_MOVED = {
     "keep_the_light.txt": (
-        (16, 14, 2),
+        (16, 16, 0),
+        "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): readings that disagreed are judged one whole reading at a time; every pair is judged (was (16, 14, 2)). "
         "2026-09-22, nucleus_agreement='licensed' (N-relation batch): near vowels no longer carry RHYME/ASSONANCE, so pairs whose permitted readings differ only in the vowel now disagree across readings and REFUSE: plea/quay and quay/tree (quay's two readings)"),
     "one_more.txt": (
-        (11, 10, 1),
+        (11, 11, 0),
+        "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): readings that disagreed are judged one whole reading at a time; every pair is judged (was (11, 10, 1)). "
         "2026-09-22, nucleus_agreement='licensed' (N-relation batch): near vowels no longer carry RHYME/ASSONANCE, so pairs whose permitted readings differ only in the vowel now disagree across readings and REFUSE: quay/Flee"),
     "stay_awake.txt": (
-        (16, 13, 3),
+        (16, 16, 0),
+        "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): readings that disagreed are judged one whole reading at a time; every pair is judged (was (16, 13, 3)). "
         "MOVED AGAIN 2026-09-22, nucleus_agreement='licensed' (N-relation batch): near vowels no longer carry RHYME/ASSONANCE, so pairs whose permitted readings differ only in the vowel now disagree across readings and REFUSE: Watch/Wash (was (16, 14, 2)). "
         "a75da39f, 2026-09-08: tower/sour differ across unresolved "
         "pronunciation readings; ember/summer's default relation stays "
         "unresolved in four schemas"),
     "long_bridge.txt": (
-        (46, 44, 2),
+        (46, 46, 0),
+        "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): readings that disagreed are judged one whole reading at a time; every pair is judged (was (46, 44, 2)). "
         "MOVED AGAIN 2026-09-22, nucleus_agreement='licensed' (N-relation batch): near vowels no longer carry RHYME/ASSONANCE, so pairs whose permitted readings differ only in the vowel now disagree across readings and REFUSE: aisle/file (was (46, 45, 1)). "
         "a75da39f, 2026-09-08: prayer/mare differ across unresolved "
         "pronunciation readings"),
     "wheat_mane.txt": (
-        (42, 41, 1),
+        (42, 42, 0),
+        "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): readings that disagreed are judged one whole reading at a time; every pair is judged (was (42, 41, 1)). "
         "a75da39f, 2026-09-08: Winds/skinned differ across unresolved "
         "pronunciation readings"),
     "matinee.txt": (
-        (116, 110, 6),
+        (116, 116, 0),
+        "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): readings that disagreed are judged one whole reading at a time; every pair is judged (was (116, 110, 6)). "
         "MOVED AGAIN 2026-09-22, nucleus_agreement='licensed' (N-relation batch): near vowels no longer carry RHYME/ASSONANCE, so pairs whose permitted readings differ only in the vowel now disagree across readings and REFUSE: swans/Response (was (116, 111, 5)). "
         "a75da39f, 2026-09-08: pear/Prayer/heir/flair and grace/Bass/vase "
         "differ across unresolved pronunciation readings"),
     "crooked_waltz.txt": (
-        (47, 24, 23),
+        (47, 47, 0),
+        "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): a small word at a declared slot is sung stressed on a whole dictionary reading, so the NO ANCHOR sites anchor, and readings that disagreed are judged one whole reading at a time; every pair is judged (was (47, 24, 23)). "
         "M-144, 2026-08-26: a declared slot resolving to NO ANCHOR is a "
         "REFUSAL and was counted as JUDGED. 12 of this song's 45 binding "
         "sites resolve to nothing the phonology can anchor (L1 `T5` is "
@@ -124,7 +131,8 @@ REGRADE_MOVED = {
         "2026-09-14 from ~~(47, 25, 22)~~: wide/Pylons' default relation "
         "stays unresolved in schema(s) (a75da39f, 2026-09-08)"),
     "the_frost_ledger.txt": (
-        (71, 35, 36),
+        (71, 71, 0),
+        "MOVED AGAIN 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): a small word at a declared slot is sung stressed on a whole dictionary reading, so the NO ANCHOR sites anchor, and readings that disagreed are judged one whole reading at a time; every pair is judged (was (71, 35, 36)). "
         "M-144, same cause and the larger share: 35 of 71 mandated pairs "
         "touch a binding site resolving to NO ANCHOR. MOVED AGAIN 2026-09-23 "
         "from ~~(71, 36, 35)~~ under nucleus_agreement='licensed': "

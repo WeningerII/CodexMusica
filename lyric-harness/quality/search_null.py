@@ -123,11 +123,39 @@ PER_K_BUCKETS = ((3, 4), (5, 8), (9, 16), (17, None))
 #: whole song-corpus arm, are a RECORD of the 2026-09-18 run: re-deriving
 #: them costs the full sweep per bucket over 206,114 song pairs, and a figure
 #: banked without its command is named as such rather than dressed as a pin.
+#:
+#: THE TWO SONNET ROWS RE-BANKED 2026-10-01, THE ANY-READING RULE (CLAUDE.md
+#: standing rule 5), each row whole from ONE run -- a population from today
+#: beside a crossover from 2026-09-18 would be the chimera `PINNED_SONNET`'s
+#: note refuses. Superseded values struck and kept (doctrine 17):
+#:   k=3-4   pairs ~~823~~ 813   crossover ~~0.7591~~ 0.7594   buys ~~-0.16~~ -0.17   NO, 4 of 10 (held)
+#:   k=5-8   pairs ~~220~~ 208   crossover ~~0.6410~~ 0.6428   buys ~~+4.40~~ +5.35   yes, 10 of 10 (held)
+#: WHY THE POPULATIONS MOVED, measured per pair: `line_anchors` now appends a
+#: small end word's dictionary-STRESSED readings after its demoted ones, so a
+#: line ending in one carries more span candidates and `search_k` (a product
+#: of the two sides' counts, no score involved) grows. 40 of the 1,108 pairs
+#: changed k, every one with a small end word (`the` 16, `of` 9, `or` 8, `it`
+#: 6, `a` 4, `and` 2): 10 left k=3-4 (8 to k=5-8, 2 to k=9-16) and 20 left
+#: k=5-8 (all to k=9-16) while those 8 entered it; 10 went k=9-16 -> k=17+,
+#: so k=9-16 went 50 -> 62 and k=17+ 2 -> 12. 35 of the 40 sit in units
+#: 168-186 (0-based), Gutenberg licence windows the unit reader admits (the
+#: pre-existing 187-window defect noted at `PINNED_SONNET`); 5 are sonnets.
+#: The mode the paragraph above quotes is now ~~74.3%~~ 73.4% at k=4 and the
+#: k=5-8 share ~~19.9%~~ 18.8%.
+#: HOW THE CROSSOVERS WERE RE-DERIVED, with the command banked this time:
+#: `quality/results/any_reading_pins_2026-10-01/RECEIPT.txt` carries the
+#: estimator (this module's sweep, both arms cut by each pair's realized k,
+#: crossover by linear interpolation of what the search buys over `THETAS`).
+#: It REPRODUCES THE 2026-09-18 ROWS TO THE DIGIT on that day's tree
+#: (6689dc2e) and on today's tree with the pre-ruling anchors forced, so the
+#: whole move is the ruling's. THE FINDING HOLDS: the modal bucket's crossover
+#: still sits ABOVE `theta_rhyme` 0.75 and the search buys nothing there. The
+#: song rows are untouched and remain the 2026-09-18 record.
 PER_K_CROSSOVER = {
-    ("sonnets", (3, 4)): {"pairs": 823, "crossover": 0.7591,
-                          "buys_pp": -0.16, "clears": "NO, 4 of 10"},
-    ("sonnets", (5, 8)): {"pairs": 220, "crossover": 0.6410,
-                          "buys_pp": +4.40, "clears": "yes, 10 of 10"},
+    ("sonnets", (3, 4)): {"pairs": 813, "crossover": 0.7594,
+                          "buys_pp": -0.17, "clears": "NO, 4 of 10"},
+    ("sonnets", (5, 8)): {"pairs": 208, "crossover": 0.6428,
+                          "buys_pp": +5.35, "clears": "yes, 10 of 10"},
     ("song", (3, 4)): {"pairs": 162711, "crossover": 0.6901,
                        "buys_pp": +0.13, "clears": "yes, 10 of 10"},
     ("song", (5, 8)): {"pairs": 35021, "crossover": 0.7261,
@@ -402,8 +430,8 @@ def main(argv):
               f"{rec['buys_pp']:>+10.2f}{rec['clears']:>16}")
     print(f"    below the first bucket: {below} pair(s), counted apart and "
           f"never folded in (doctrine 79)")
-    print("    the sonnet CROSSOVERS above are a RECORD of the 2026-09-18 "
-          "run; what --check")
+    print("    the sonnet CROSSOVERS above are a RECORD (re-banked 2026-10-01; "
+          "receipt in PER_K_CROSSOVER's note); what --check")
     print("    re-derives is the bucket POPULATIONS beside them, so a "
           "population that moves")
     print("    says the crossovers are stale rather than letting them read "

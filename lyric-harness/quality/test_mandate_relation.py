@@ -814,8 +814,13 @@ def test_the_drawable_pool_holds_through_the_grade_route():
           "arm is the check that reds on the whole-syllable `_seq` flatten "
           "(M-148 P1: [F,S,T] vs [L,S,T])",
           not wrong, wrong)
-    check("best~last refuses when permitted pronunciations differ on last's final T",
-          _sk("best", "last").startswith("REFUSED:"), _sk("best", "last"))
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): last's
+    # reading L AE1 S T carries the S-T cluster best ends on, and one reading
+    # holding is enough. superseded: "best~last refuses when permitted
+    # pronunciations differ on last's final T".
+    check("best~last is SATISFIED: one of last's own readings keeps the "
+          "final T, and the obligation needs only one",
+          _sk("best", "last") == "satisfied", _sk("best", "last"))
     check("`milk~walk` is VIOLATED — walk's L is silent in the declared "
           "dialect, so the spelling-skothending pair honestly fails the "
           "phonology the mandate grades through",
@@ -898,8 +903,12 @@ def test_the_type_judge_past_one_syllable():
           "`type:rime riche` — identical sound, different word, and "
           "length is nowhere in the definition",
           ask("type:rime riche", "cellar", "seller") is True)
-    check("flour/flower is unresolved when permitted syllable counts differ",
-          ask("type:rime riche", "flour", "flower") is None)
+    # 2026-10-01, THE ANY-READING RULE: flour read F L AW1 ER0 is the
+    # identical sound of flower, a different word. superseded: "flour/flower
+    # is unresolved when permitted syllable counts differ" (None).
+    check("flour/flower satisfies `type:rime riche` under flour's two-"
+          "syllable reading — identical sound, different word",
+          ask("type:rime riche", "flour", "flower") is True)
     check("...while the four monosyllable answers hold exactly as before",
           all(ask("type:rime riche", a, b) is True
               for a, b in (("rain", "reign"), ("rain", "rein"),

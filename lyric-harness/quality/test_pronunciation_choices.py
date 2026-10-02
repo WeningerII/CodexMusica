@@ -71,7 +71,10 @@ class PronunciationChoices(unittest.TestCase):
                     m = mandate([['1.T5', '2.end']], n_lines=2,
                                 default_relation='class:RHYME')
                     lines = [line, 'We follow the track']
-                    self.assertEqual(Reviser(lex=self.base).grade(lines, m)['pairs_refused'], 1)
+                    # Undeclared, `back` at T5 is no longer unanchorable: a
+                    # small word may be sung stressed (standing rule 5), so the
+                    # pair is judged rather than refused either way.
+                    self.assertEqual(Reviser(lex=self.base).grade(lines, m)['pairs_refused'], 0)
                     report = Reviser(lex=lex).grade(lines, m)
                     self.assertEqual(report['pairs_refused'], 0, report)
                     self.assertFalse(report['violations'], report)
@@ -143,10 +146,15 @@ class PronunciationChoices(unittest.TestCase):
         line = 'Feel the wind'
         lex = self.lex([choice(line, 3, 'wind', ['W', 'AY1', 'N', 'D'])])
         decl = lh.Declaration()
-        self.assertIsNone(RT.coarse_relation_consensus(self.base, line, 'What we find', decl, relation='RHYME'))
-        result = RT.coarse_relation_consensus(lex, line, 'What we find', decl, relation='RHYME')
+        # Unanimity (the instruments' rule) is still undecided on the bare
+        # spelling and decided once this occurrence declares a reading; the
+        # declaration does not leak to another line's `wind`. The graders'
+        # default asks whether ANY reading holds (standing rule 5): it does.
+        self.assertIsNone(RT.coarse_relation_consensus(self.base, line, 'What we find', decl, relation='RHYME', quantifier='unanimous'))
+        result = RT.coarse_relation_consensus(lex, line, 'What we find', decl, relation='RHYME', quantifier='unanimous')
         self.assertIsNotNone(result)
-        self.assertIsNone(RT.coarse_relation_consensus(lex, 'Hear the wind', 'What we find', decl, relation='RHYME'))
+        self.assertIsNone(RT.coarse_relation_consensus(lex, 'Hear the wind', 'What we find', decl, relation='RHYME', quantifier='unanimous'))
+        self.assertIs(RT.coarse_relation_consensus(self.base, line, 'What we find', decl, relation='RHYME'), True)
 
     def test_named_pair_reads_each_occurrence_independently(self):
         line = 'wind wind'
@@ -210,7 +218,11 @@ class PronunciationChoices(unittest.TestCase):
         m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
         result = Reviser(lex=self.lex([choice()])).verify(before, after, m, targeted={1})
         self.assertFalse(result['accepted'])
-        self.assertIn('prominence:L1', result['layer_coverage_regressions'])
+        # The regression this used to name, `prominence:L1`, was the deleted
+        # prominence band's obligation (owner ruling 2026-10-01, CLAUDE.md
+        # standing rule 5): no layer regresses now, and the retired reading
+        # is still recorded as retired, never as a regression.
+        self.assertEqual(result['layer_coverage_regressions'], [])
         self.assertNotIn('pronunciation:1', result['layer_coverage_regressions'])
         retired = next(row for row in result['coverage_after']['obligations']
                        if row['id'] == 'pronunciation:1')

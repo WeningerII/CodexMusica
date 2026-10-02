@@ -1,0 +1,152 @@
+RECEIPT — instrument pins moved by the any-reading rule, 2026-10-01
+(CLAUDE.md standing rule 5 and "AND THE PROMINENCE BAND IS DELETED TOO").
+The comparator pin is NOT this receipt's: see
+quality/results/comparator_repin_2026-10-01/curve-check.txt.
+
+WHAT THIS RECEIPT IS FOR. `quality/search_null.py`'s PER_K_CROSSOVER sonnet
+rows were banked on 2026-09-18 WITHOUT their command (that module says so).
+Their bucket POPULATIONS moved on this branch, so the rows are re-banked whole
+from one run, and the command is banked here so the figures are no longer a
+record nobody can re-derive (doctrine 20).
+
+THE ESTIMATOR. `search_null.py`'s own sweep — `sonnet_units`, `scheme_pairs`,
+`endword_only`, `SEED`, `REPLICATES`, `THETAS` — with BOTH arms cut by the
+`search_k` each pair realized (a permuted pair is bucketed by its own k). Per
+theta, lift = share at full search minus share at the k=1 restriction;
+"buys" = real lift minus the median null lift; the crossover is the linear
+interpolation of buys across the first sign change in `THETAS`; "clears" counts
+replicates whose null lift at 0.75 is below the real lift. Run from the tree
+under test as its working directory:
+
+    python3 per_k.py ROOT          the tree as shipped
+    python3 per_k.py ROOT weak     the same, with `line_anchors(small_end="weak")`
+                                   forced: the pre-ruling anchor set
+
+CONTROL. On 6689dc2e — the commit that banked the table — it reproduces every
+banked sonnet figure TO THE DIGIT (823 / 0.7591 / -0.16 / 4 of 10 and
+220 / 0.6410 / +4.40 / 10 of 10), and so does today's tree with the pre-ruling
+anchors forced. So the table had not moved between 2026-09-18 and this branch,
+and the whole move below is the ruling's.
+
+MECHANISM. `line_anchors` now appends a small end word's dictionary-STRESSED
+readings after its demoted ones (`anchors[0]` unmoved). A line ending in a
+small word carries more span candidates, so `search_k` (candidates_a x
+candidates_b; no score involved) grows. 40 of 1,108 pairs changed k, every one
+on a small end word (the 16, of 9, or 8, it 6, a 4, and 2): 8 moved
+k=3-4 -> 5-8, 2 moved k=3-4 -> 9-16, 20 moved k=5-8 -> 9-16 and 10 moved
+k=9-16 -> 17+. 35 of the 40 are in units 168-186 (0-based), Gutenberg licence
+text the unit reader admits (pre-existing, noted at PINNED_SONNET).
+
+RE-BANKED (sonnet rows only; the song rows stay the 2026-09-18 record):
+  k=3-4   pairs ~~823~~ 813   crossover ~~0.7591~~ 0.7594   buys ~~-0.16~~ -0.17   NO, 4 of 10
+  k=5-8   pairs ~~220~~ 208   crossover ~~0.6410~~ 0.6428   buys ~~+4.40~~ +5.35   yes, 10 of 10
+The M-135 finding holds: the modal bucket's crossover is still above
+theta_rhyme 0.75 and the search buys nothing there (test_spans.py section 3
+reads exactly that). The adopted scalar re-derives at 0.7170 against
+0.7236 before; `CROSSOVER = 0.72` is untouched and the gate (0.75 > 0.72)
+still holds. `PINNED_SONNET`'s ten lifts all move within `TOLERANCE_PP`.
+
+OTHER PINS MOVED IN THE SAME LOT, attributed per item in each file's note:
+  quality/audit_band_control.py   36/27/441/431 -> 43/33/442/432 (stressed
+                                  small-end readings in `infer_chains`;
+                                  forcing small_end="weak" restores the old
+                                  four exactly)
+  quality/schema_window.py        31 {2:29,1:2} -> 43 {2:40,1:3} (12
+                                  undecided-schema refusals resolved under
+                                  one whole reading; none left)
+  BACKLOG.md counters             sonnet battery 9/936 -> 15/1007 and the
+                                  symbol census 1644 -> 1653, by `--write`
+
+===================================================================== per_k.py
+"""Per-k-bucket crossover, search_null's own sweep cut by realized k.
+usage: per_k.py ROOT [weak]"""
+import sys, os, random, statistics as st
+ROOT = sys.argv[1]
+sys.path.insert(0, ROOT); os.chdir(ROOT)
+import lyric_harness as LH
+from quality import search_null as SN
+if len(sys.argv) > 2 and sys.argv[2] == "weak":
+    _o = LH.line_anchors
+    def _w(lex, text, promote=False, endpoint_pronunciations=None, small_end=None):
+        return _o(lex, text, promote=promote, endpoint_pronunciations=endpoint_pronunciations,
+                  small_end="weak" if small_end is None else small_end)
+    LH.line_anchors = _w
+lex = LH.Lexicon(); decl = LH.Declaration()
+units = SN.sonnet_units(lex)
+def scored(pairs):
+    out = []
+    for ca, cb, wa, wb in pairs:
+        s = LH.best_score(ca, cb, decl, wa, wb)
+        s2 = LH.best_score([SN.endword_only(ca)], [SN.endword_only(cb)], decl, wa, wb)
+        out.append((s["spans"]["search_k"] if s else 0, s["total"] if s else 0.0, s2["total"] if s2 else 0.0))
+    return out
+real = scored([p for u in units for p in SN.scheme_pairs(u)])
+reps = []
+for r in range(SN.REPLICATES):
+    rng = random.Random(SN.SEED + r); perm = []
+    for u in units:
+        sh = list(u); rng.shuffle(sh); perm += SN.scheme_pairs(sh)
+    reps.append(scored(perm))
+def inb(k, b):
+    lo, hi = b; return k >= lo and (hi is None or k <= hi)
+def lift(rows, th):
+    if not rows: return None
+    return 100 * (sum(a >= th for _, a, _ in rows) - sum(c >= th for _, _, c in rows)) / len(rows)
+print("total real pairs", len(real))
+for b in [None] + list(SN.PER_K_BUCKETS):
+    R = [x for x in real if b is None or inb(x[0], b)]
+    N = [[x for x in t if b is None or inb(x[0], b)] for t in reps]
+    if not R: continue
+    buys = {}
+    for th in SN.THETAS:
+        rl = lift(R, th); nl = [lift(t, th) for t in N if t]
+        buys[th] = (rl, st.median(nl), sum(rl > v for v in nl), len(nl))
+    cross = None
+    ths = list(SN.THETAS)
+    for a, c in zip(ths, ths[1:]):
+        ba = buys[a][0] - buys[a][1]; bc = buys[c][0] - buys[c][1]
+        if ba < 0 <= bc or ba <= 0 < bc:
+            cross = a + (c - a) * (-ba) / (bc - ba); break
+    rl, nm, wins, n = buys[0.75]
+    print(f"bucket {b}: real pairs {len(R)}, null pairs per rep {[len(t) for t in N][:3]}..., "
+          f"crossover {cross if cross is None else round(cross, 4)}, buys@0.75 {rl - nm:+.2f} pp, "
+          f"real>null in {wins} of {n}")
+    print("    buys by theta:", {th: round(v[0] - v[1], 2) for th, v in buys.items()})
+
+===================================================================== output
+=== 6689dc2e tree ===
+total real pairs 1108
+bucket None: real pairs 1108, null pairs per rep [1102, 1104, 1104]..., crossover 0.7236, buys@0.75 +1.03 pp, real>null in 10 of 10
+    buys by theta: {0.6: -2.77, 0.65: -1.76, 0.7: -0.92, 0.75: 1.03, 0.8: 1.76, 0.85: 2.12, 0.9: 2.34}
+bucket (3, 4): real pairs 823, null pairs per rep [812, 811, 819]..., crossover 0.7591, buys@0.75 -0.16 pp, real>null in 4 of 10
+    buys by theta: {0.6: -2.56, 0.65: -2.28, 0.7: -1.64, 0.75: -0.16, 0.8: 0.72, 0.85: 0.91, 0.9: 1.22}
+bucket (5, 8): real pairs 220, null pairs per rep [241, 246, 237]..., crossover 0.641, buys@0.75 +4.40 pp, real>null in 10 of 10
+    buys by theta: {0.6: -2.34, 0.65: 0.51, 0.7: 2.46, 0.75: 4.4, 0.8: 5.53, 0.85: 5.85, 0.9: 5.96}
+bucket (9, 16): real pairs 50, null pairs per rep [34, 36, 34]..., crossover 0.7096, buys@0.75 +6.93 pp, real>null in 8 of 10
+    buys by theta: {0.6: -1.65, 0.65: -1.72, 0.7: -1.65, 0.75: 6.93, 0.8: 7.39, 0.85: 8.0, 0.9: 6.0}
+bucket (17, None): real pairs 2, null pairs per rep [3, 0, 2]..., crossover 0.8, buys@0.75 -25.00 pp, real>null in 0 of 9
+    buys by theta: {0.6: -50.0, 0.65: -33.33, 0.7: -33.33, 0.75: -25.0, 0.8: 0.0, 0.85: 0.0, 0.9: 50.0}
+=== HEAD, small_end forced weak ===
+total real pairs 1108
+bucket None: real pairs 1108, null pairs per rep [1102, 1104, 1104]..., crossover 0.7236, buys@0.75 +1.03 pp, real>null in 10 of 10
+    buys by theta: {0.6: -2.77, 0.65: -1.76, 0.7: -0.92, 0.75: 1.03, 0.8: 1.76, 0.85: 2.12, 0.9: 2.34}
+bucket (3, 4): real pairs 823, null pairs per rep [812, 811, 819]..., crossover 0.7591, buys@0.75 -0.16 pp, real>null in 4 of 10
+    buys by theta: {0.6: -2.56, 0.65: -2.28, 0.7: -1.64, 0.75: -0.16, 0.8: 0.72, 0.85: 0.91, 0.9: 1.22}
+bucket (5, 8): real pairs 220, null pairs per rep [241, 246, 237]..., crossover 0.641, buys@0.75 +4.40 pp, real>null in 10 of 10
+    buys by theta: {0.6: -2.34, 0.65: 0.51, 0.7: 2.46, 0.75: 4.4, 0.8: 5.53, 0.85: 5.85, 0.9: 5.96}
+bucket (9, 16): real pairs 50, null pairs per rep [34, 36, 34]..., crossover 0.7096, buys@0.75 +6.93 pp, real>null in 8 of 10
+    buys by theta: {0.6: -1.65, 0.65: -1.72, 0.7: -1.65, 0.75: 6.93, 0.8: 7.39, 0.85: 8.0, 0.9: 6.0}
+bucket (17, None): real pairs 2, null pairs per rep [3, 0, 2]..., crossover 0.8, buys@0.75 -25.00 pp, real>null in 0 of 9
+    buys by theta: {0.6: -50.0, 0.65: -33.33, 0.7: -33.33, 0.75: -25.0, 0.8: 0.0, 0.85: 0.0, 0.9: 50.0}
+=== HEAD, shipped ===
+total real pairs 1108
+bucket None: real pairs 1108, null pairs per rep [1102, 1104, 1104]..., crossover 0.717, buys@0.75 +1.26 pp, real>null in 10 of 10
+    buys by theta: {0.6: -2.32, 0.65: -1.45, 0.7: -0.65, 0.75: 1.26, 0.8: 1.89, 0.85: 2.25, 0.9: 2.34}
+bucket (3, 4): real pairs 813, null pairs per rep [801, 800, 811]..., crossover 0.7594, buys@0.75 -0.17 pp, real>null in 4 of 10
+    buys by theta: {0.6: -2.41, 0.65: -2.37, 0.7: -1.67, 0.75: -0.17, 0.8: 0.73, 0.85: 0.92, 0.9: 1.23}
+bucket (5, 8): real pairs 208, null pairs per rep [229, 235, 224]..., crossover 0.6428, buys@0.75 +5.35 pp, real>null in 10 of 10
+    buys by theta: {0.6: -3.12, 0.65: 0.53, 0.7: 3.17, 0.75: 5.35, 0.8: 6.32, 0.85: 6.19, 0.9: 6.3}
+bucket (9, 16): real pairs 62, null pairs per rep [48, 48, 43]..., crossover 0.7101, buys@0.75 +4.27 pp, real>null in 8 of 10
+    buys by theta: {0.6: 1.95, 0.65: 1.37, 0.7: -1.08, 0.75: 4.27, 0.8: 6.29, 0.85: 7.62, 0.9: 4.84}
+bucket (17, None): real pairs 12, null pairs per rep [12, 10, 14]..., crossover 0.85, buys@0.75 +8.10 pp, real>null in 7 of 10
+    buys by theta: {0.6: 4.05, 0.65: 15.0, 0.7: 9.52, 0.75: 8.1, 0.8: 0.0, 0.85: 0.0, 0.9: 8.33}

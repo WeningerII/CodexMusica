@@ -192,3 +192,77 @@ def for_member(lex, line, member, endpoint=-1):
                                 if start <= i < start+len(tokens)}
     # A one-token member is also consumed through bare-word adapter methods.
     return for_token(out, 0) if len(tokens) == 1 else out
+
+
+# THE ANY-READING RULE's occurrence helpers (owner ruling 2026-10-01). The
+# relation judge (`quality/relations.py`) pins one whole dictionary reading
+# per cause token as an occurrence reading and asks again; these map its
+# stream tokens onto the `line_tokens` coordinate occurrence readings are
+# declared in, and build the declared rows. They live here, beside
+# `validate_choices`, because relations.py imports nothing from
+# `lyric_harness` (its P10 close).
+
+def _occurrence_key(word):
+    from lyric_harness import fold_apostrophes
+    return fold_apostrophes(str(word)).lower().strip("'\".,;:!?()[]")
+
+
+def occurrence_position(words, t, other_words):
+    """The t-th token of `words` -> the same word's index in `other_words`
+    (matched by text and by how many times it occurred before), or None."""
+    if t < 0:
+        t = len(words) + t
+    if not (0 <= t < len(words)):
+        return None
+    target = _occurrence_key(words[t])
+    k = sum(1 for w in words[:t] if _occurrence_key(w) == target)
+    hits = [j for j, w in enumerate(other_words) if _occurrence_key(w) == target]
+    return hits[k] if k < len(hits) else None
+
+
+def occurrence_readings(lex, line, words, t):
+    """-> (1-based line token, word, [distinct whole readings]) for the t-th
+    of `words` in `line`, or None when it cannot be located or has no reading.
+    A token the writer already declared answers only the declared reading."""
+    from lyric_harness import line_tokens
+    lt = line_tokens(line, strip_parens=lex.strip_parens)
+    j = occurrence_position(words, t, lt)
+    if j is None:
+        return None
+    tok, word = j + 1, lt[j]
+    for row in getattr(lex, "pronunciations", ()) or ():
+        if row["line"] == line and row["token"] == tok:
+            return tok, word, [list(row["phones"])]
+    uniq = []
+    for p in lex.pronunciation_variants(word):
+        if list(p) not in uniq:
+            uniq.append(list(p))
+    return (tok, word, uniq) if uniq else None
+
+
+def pin_readings(lex, occurrences, source):
+    """A copy of `lex` with each (line, token, word, phones) declared as an
+    occurrence reading beside the writer's own, or None if one is invalid."""
+    from lyric_harness import fold_apostrophes
+    rows = [dict(r) for r in (getattr(lex, "pronunciations", ()) or ())]
+    taken = {(r["line"], r["token"]) for r in rows}
+    for line, tok, word, phones in occurrences:
+        if (line, tok) in taken:
+            continue
+        key = fold_apostrophes(word).lower()
+        rows.append({"line": line, "token": tok, "word": word,
+                     "phones": list(phones),
+                     "basis": ("dictionary" if list(phones) in
+                               [list(e) for e in lex.entries.get(key, ())]
+                               else "declared"),
+                     "source": source})
+        taken.add((line, tok))
+    pinned = copy.copy(lex)
+    for attr in ("_pronunciation_line", "_pronunciation_tokens",
+                 "_pronunciation_choice"):
+        pinned.__dict__.pop(attr, None)
+    try:
+        pinned.pronunciations = validate_choices(rows, lex)
+    except ValueError:
+        return None
+    return pinned

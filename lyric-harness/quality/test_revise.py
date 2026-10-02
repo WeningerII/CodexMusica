@@ -1416,9 +1416,29 @@ def test_the_collision_set_is_partitioned_not_silenced():
           # every merge it NAMES becomes the form; it promises nothing about
           # merges it is silent on, and asserting otherwise made this check
           # a hostage to how many merges the comparator happens to find.
-          got.count("GROUPS_DECLARED_RETURN") == 3
-          and "GROUPS_DECLARED_RETURN" in got,
-          f"{got} -- A/E, C/G and D/H are declared; B[14,16]/F[34,36] cross-"
+          #
+          # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing
+          # rule 5): a collision is charged only when EVERY reading triggers
+          # it, and L15's `again` has a reading (AH0 G EH1 N) that does not
+          # reach the collision cut against any of plain/rain/flame/name
+          # (`Reviser._collides_however_sung`). So 15~35, 15~39, 15~34 and
+          # 15~36 are no longer collisions, and C/G (and the derived C/F)
+          # are no longer merges at all: the returns list still NAMES C/G,
+          # but the graph has nothing there to convert. Every merge it names
+          # that the graph still finds -- A/E and D/H -- becomes the form,
+          # and F/G, which it does not name, stays DERIVED. MEASURED: merges
+          # A/E, D/H, F/G (was A/E, C/F, C/G, D/H, F/G). superseded:
+          # GROUPS_DECLARED_RETURN count == 3 (A/E, C/G, D/H).
+          got.count("GROUPS_DECLARED_RETURN") == 2
+          and got.count("MANDATE_GROUPS_INDISTINGUISHABLE") == 1
+          and sorted(f.message.split(" are the same")[0] for f in dins["whole"]
+                     if f.code == "GROUPS_DECLARED_RETURN")
+          == ["groups A [13, 17] and E [33, 37]",
+              "groups D [18, 20] and H [38, 40]"],
+          f"{got} -- A/E and D/H are declared and still merge; C/G is "
+          f"declared but no longer merges (L15 'again' has a reading that "
+          f"collides with neither 'plain' nor 'rain'); F/G is not declared "
+          f"and stays derived. B[14,16]/F[34,36] cross-"
           f"collides with NEITHER of its counterparts at all (L14 ends "
           f"'night', L34 ends 'flame' -- not even an accidental near-rhyme), "
           f"so it never reaches `group_merges`'s gate in either reading. The "
@@ -2449,18 +2469,30 @@ def test_scope_reaches_the_collision_loop():
     # (1) THE MEASUREMENT THIS TEST EXISTS FOR. Before the fix these two runs
     # were BYTE-IDENTICAL: same 73 collisions, same 97 per-line findings, same
     # messages -- a declared coordinate changing nothing at all.
+    # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5):
+    # a collision is charged only when EVERY reading of both end words
+    # reaches the collision cut (`Reviser._collides_however_sung`), and 12
+    # of the 73 pairs end on a word with several readings, one of which does
+    # not: L15 `again` (AH0 G EH1 N / AH0 G EY1 N) against frame, name, can,
+    # flame, plain, name and rain; L7 `can` (K AE1 N / K AH0 N) against sum;
+    # and L27 `fall` (F AO1 L / F AA1 L) against wall, wall, floor and
+    # door. 8 of the 12 touched a line outside the
+    # scope (L1/L15, L3/L15, L7/L15, L7/L41, L9/L27, L25/L27, L27/L29,
+    # L27/L31) and 4 sat inside it (L15 against L34/L35/L36/L39). No pair
+    # joined. superseded: 73 collisions, 49 UNDECLARED.
     und = [c for c in rep_s["collisions"] if c.get("undeclared")]
     check("the scoped run marks the collisions that touch a line the mandate "
           "does not speak about",
-          len(rep_s["collisions"]) == 73 and len(und) == 49,
+          len(rep_s["collisions"]) == 61 and len(und) == 41,
           f"{len(und)} of {len(rep_s['collisions'])} collisions are "
           f"UNDECLARED; the mandate speaks about {len(scoped.scope)} of 41 "
           f"lines. Before 2026-08-13 `grade()`'s collision loop never asked "
-          f"`Mandate.scope` at all and this was 0 of 73")
+          f"`Mandate.scope` at all and this was 0 of 73 (~~49 of 73~~ "
+          f"before 2026-10-01's any-reading rule)")
     check("and the UNSCOPED mandate marks none of them — the default path is "
           "the one every production mandate takes",
           not any(c.get("undeclared") for c in rep_p["collisions"])
-          and len(rep_p["collisions"]) == 73)
+          and len(rep_p["collisions"]) == 61)
 
     # (2) RELABEL, NEVER DELETE (doctrine 24). The SET is the same set.
     check("the collision SET is unchanged by the scope — same 73 pairs",
@@ -2474,10 +2506,15 @@ def test_scope_reaches_the_collision_loop():
                                for f in fs if f.code in COLLISION_FINDINGS)
     by_s = collections.Counter(f.code for fs in ins_s["per_line"].values()
                                for f in fs if f.code in COLLISION_FINDINGS)
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the 8
+    # out-of-scope pairs that no longer collide under every reading (see
+    # the first check of this section) leave the fourth code with them.
+    # MEASURED: unscoped 32+21+8 = 61 -> scoped 41 UNDECLARED + 10 + 6 + 4.
+    # superseded: COLLISION_UNDECLARED == 49.
     check("every collision finding the scoped run drops it RE-EMITS under the "
           "fourth code — the partition is exact, nothing is silenced",
           sum(by_p.values()) == sum(by_s.values())
-          and by_s["COLLISION_UNDECLARED"] == 49
+          and by_s["COLLISION_UNDECLARED"] == 41
           and by_p["COLLISION_UNDECLARED"] == 0,
           f"unscoped {dict(by_p)}  ->  scoped {dict(by_s)}")
     # REPINNED 2026-09-24, #375's N-relation model: ~~(25, 20, 4)~~ ->
@@ -2486,14 +2523,21 @@ def test_scope_reaches_the_collision_loop():
     # (AE~EH rounded up) and is CONSONANCE alone under "licensed", so its
     # collision is a NEAR_COLLISION now. MEASURED on this tree and on #375's
     # parent 1f9678e6, the 49 pair for pair. Still all three kinds.
+    # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5):
+    # ~~(24, 21, 4)~~ -> (22, 15, 4). The 8 out-of-scope pairs that left the
+    # set were 2 rhymes (L9/L27 and L25/L27, wall ~ fall: `fall` also reads
+    # F AA1 L) and 6 near-relations (L1/L15, L3/L15, L7/L15, L7/L41,
+    # L27/L29, L27/L31); no repeat moved, and no pair changed kind. Still
+    # all three kinds.
     check("...and it is drawn from ALL THREE relation types, so the code is "
           "not a rename of one of them",
           (by_p["SCHEME_COLLISION"] - by_s["SCHEME_COLLISION"],
            by_p["NEAR_COLLISION"] - by_s["NEAR_COLLISION"],
            by_p["REPEAT_ACROSS_GROUPS"] - by_s["REPEAT_ACROSS_GROUPS"])
-          == (24, 21, 4),
-          "24 rhymes + 21 near-relations + 4 repeats = the 49 "
-          "(~~25 + 20 + 4~~ before 2026-09-24's licensed nucleus)")
+          == (22, 15, 4),
+          "22 rhymes + 15 near-relations + 4 repeats = the 41 "
+          "(~~24 + 21 + 4 = 49~~ before 2026-10-01's any-reading rule; "
+          "~~25 + 20 + 4~~ before 2026-09-24's licensed nucleus)")
 
     # (3) WHAT THE FINDING SAYS. `FREE` is the word doctrine 28 exists to keep
     # apart from UNDECLARED, and the old rendering printed exactly it: a line
@@ -2520,11 +2564,17 @@ def test_scope_reaches_the_collision_loop():
 
     # (4) SAID ONCE, ABOUT THE MANDATE. Doctrine 1: state the assumption.
     disc = [f for f in ins_s["whole"] if f.code == "MANDATE_SCOPE_DECLARED"]
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the two
+    # counts follow the 12 pairs that no longer collide under every reading
+    # -- 4 inside the scope (L15's `again` against L34/L35/L36/L39) and 8
+    # outside it. MEASURED: "of its 61 collision(s), 20 are inside that
+    # scope and 41 touch a line it does not speak about". superseded: 24
+    # inside, 49 outside, of 73.
     check("the scope itself is disclosed once, with the two counts kept "
           "SEPARATE (doctrine 79)",
           len(disc) == 1 and "16 of 41" in disc[0].message
-          and "24 are inside that scope" in disc[0].message
-          and "49 touch a line it does not speak about" in disc[0].message,
+          and "20 are inside that scope" in disc[0].message
+          and "41 touch a line it does not speak about" in disc[0].message,
           disc[0].message if disc else "not emitted")
     check("and an unscoped mandate discloses nothing, because it has nothing "
           "to disclose — it speaks about every line",
@@ -3377,20 +3427,51 @@ def test_substituted_end_word_reaches_the_loop():
     # BAND_UNJUDGED is a different layer speaking about the same token for
     # its own reason, and pinning it in the set is what keeps a THIRD
     # arrival on this line from passing silently.
+    # 2026-10-01: the prominence band is DELETED (owner ruling, CLAUDE.md
+    # standing rule 5), so its BAND_UNJUDGED note no longer arrives here.
+    # superseded: codes == {SUBSTITUTED_END_WORD, BAND_UNJUDGED,
+    # UNREADABLE_END_WORD}.
     check("the literal unreadable endpoint is disclosed alongside the "
-          "substituted anchor and unjudged band",
-          codes == {"SUBSTITUTED_END_WORD", "BAND_UNJUDGED",
-                    "UNREADABLE_END_WORD"}, sorted(codes))
+          "substituted anchor, and no band speaks about the token",
+          codes == {"SUBSTITUTED_END_WORD", "UNREADABLE_END_WORD"},
+          sorted(codes))
 
     from quality.loop import revise_loop
+    # 2026-10-01, CLAUDE.md standing rule 5: on `m12` the draft no longer
+    # holds a text-dependent unknown. Its two were L1/L2's bay~pier
+    # (SCHEME_UNREADABLE: "unresolved in schema(s)" internal rhyme, head
+    # rhyme and four more, while the lines' readings disagreed -- `beyond`
+    # has three; judged now under one reading) and L3's BAND_UNJUDGED (the
+    # prominence band is deleted). L4,
+    # the only unreadable line, is FREE under `m12`, so nothing the mandate
+    # asks is unanswered and the run certifies. MEASURED: success, 0 rounds,
+    # 1 mandated = 1 judged + 0 refused. superseded: no_progress after 1
+    # round with L1/L2/L3 unjudged and coverage uncertified.
     lr = revise_loop(R, draft, m12)
+    check("on the free-L4 mandate nothing the mandate asks is unknown any "
+          "more, so the run stops SUCCESS and certifies",
+          lr.stop_reason == "success" and len(lr.rounds) == 0
+          and lr.unresolved == [] and lr.coverage["certified"] is True
+          and (lr.coverage["pairs_mandated"], lr.coverage["pairs_judged"],
+               lr.coverage["pairs_refused"]) == (1, 1, 0),
+          f"{lr.stop_reason}, {len(lr.rounds)} round(s)")
+    # The subject, rebuilt so it still has a genuine unknown to act on: L3
+    # and L4 mandated together, so L4's unreadable `zong` -- a word no
+    # dictionary reads, still a refusal under rule 5 -- holds the pair
+    # unjudged. MEASURED: no_progress after 1 round, L4 unresolved and
+    # unjudged with notes only, rhyme:3:4 refused, coverage uncertified.
+    m34 = SC.mandate([[1, 2], [3, 4]], n_lines=4)
+    lr34 = revise_loop(R, draft, m34)
     check("text-dependent unknowns receive a repair pass without turning "
           "notes into violations or certifying incomplete coverage",
-          lr.stop_reason == "no_progress" and len(lr.rounds) == 1
-          and lr.unresolved == lr.unresolved_unjudged and bool(lr.unresolved)
-          and not any(f.severity == 'flag' for b in lr.unresolved for f in b.findings)
-          and lr.coverage["certified"] is False,
-          f"{lr.stop_reason}, {len(lr.rounds)} round(s)")
+          lr34.stop_reason == "no_progress" and len(lr34.rounds) == 1
+          and lr34.unresolved == lr34.unresolved_unjudged
+          and [b.line_no for b in lr34.unresolved] == [4]
+          and not any(f.severity == 'flag' for b in lr34.unresolved
+                      for f in b.findings)
+          and lr34.coverage["certified"] is False,
+          f"{lr34.stop_reason}, {len(lr34.rounds)} round(s), unresolved "
+          f"{[b.line_no for b in lr34.unresolved]}")
 
     # -- NON-DISCRIMINATING, and it is the input a reader reaches for first -
     check("NON-DISCRIMINATING: a fully readable draft emits nothing, so the "
@@ -3469,16 +3550,47 @@ def test_uncovered_bars_reaches_the_loop_not_only_fit():
     from quality.loop import revise_loop
     shipped = revise_loop(R, _UB_LINES, m, blueprint=_UB_BLUEPRINT,
                           subdivision=sub)
-    check("uncovered bars remain whole-draft notes; text-dependent unknowns "
-          "are retained and the unfilled setting still prevents certification",
-          shipped.stop_reason == "no_progress"
-          and shipped.unresolved == shipped.unresolved_unjudged
-          and bool(shipped.unresolved)
-          and not any(f.severity == 'flag' for b in shipped.unresolved for f in b.findings)
+    # 2026-10-01, CLAUDE.md standing rule 5: the text-dependent unknowns
+    # this draft held were L3/L4's BAND_UNJUDGED notes, and the prominence
+    # band is deleted, so no line stays open. What the draft cannot give is
+    # still whole-draft -- meter counts on L3/L4 that are lower bounds -- so
+    # the loop finishes every line and stops UNCERTIFIED rather than
+    # SUCCESS. MEASURED: uncertified after 1 round, unresolved [], refused
+    # obligations meter:COUNT_IS_A_LOWER_BOUND:L3/L4. superseded:
+    # no_progress after 2 rounds with L3/L4 unresolved and unjudged.
+    check("uncovered bars remain whole-draft notes and hold no line open; "
+          "the coverage the draft cannot give still prevents certification",
+          shipped.stop_reason == "uncertified"
+          and shipped.unresolved == []
           and shipped.coverage.get("certified") is False
-          and any(f.code == "UNCOVERED_BARS" for f in shipped.whole),
+          and any(f.code == "UNCOVERED_BARS" for f in shipped.whole)
+          and not any(f.severity == "flag" for f in shipped.whole
+                      if f.code == "UNCOVERED_BARS"),
           f"{shipped.stop_reason}, {len(shipped.rounds)} round(s), "
           f"whole={[f.code for f in shipped.whole]}")
+    # The subject's other half, rebuilt so it still has a genuine unknown:
+    # the same blueprint with L4 ending on a word no dictionary reads, so
+    # the ABAB pair L2/L4 is refused (rule 5 never guesses an unreadable
+    # word). MEASURED: no_progress after 2 rounds, L4 unresolved and
+    # unjudged with notes only, UNCOVERED_BARS still whole-draft notes.
+    import copy
+    _ub_q = copy.deepcopy(_UB_BLUEPRINT)
+    _ub_q["lines"][3]["text"] = ("and one more sail went drifting toward "
+                                 "the qzzxv")
+    unread = revise_loop(R, [l["text"] for l in _ub_q["lines"]], m,
+                         blueprint=_ub_q, subdivision=sub)
+    check("uncovered bars remain whole-draft notes; text-dependent unknowns "
+          "are retained and the unfilled setting still prevents certification",
+          unread.stop_reason == "no_progress"
+          and unread.unresolved == unread.unresolved_unjudged
+          and [b.line_no for b in unread.unresolved] == [4]
+          and not any(f.severity == 'flag' for b in unread.unresolved
+                      for f in b.findings)
+          and unread.coverage.get("certified") is False
+          and any(f.code == "UNCOVERED_BARS" for f in unread.whole),
+          f"{unread.stop_reason}, {len(unread.rounds)} round(s), "
+          f"unresolved {[b.line_no for b in unread.unresolved]}, "
+          f"whole={[f.code for f in unread.whole]}")
 
     _orig = RV.Reviser._meter_findings
 
@@ -4331,11 +4443,17 @@ def test_a_refusal_speaks_for_one_group_not_the_pair():
           "(M-149b)")
     R46 = Reviser()
 
-    # ONE pair, two questions: group A binds L1's FIRST token — `the`, a
-    # word the phonology cannot anchor, so A's reading is REFUSED — and
-    # group B binds the same two lines at their ends, where mat~hat answers
-    # cleanly. B's question must survive A's refusal.
-    f1 = ["the cat sat on the mat", "he tipped his fine new hat"]
+    # ONE pair, two questions: group A binds L1's FIRST token — `qzzxv`, a
+    # word no dictionary reads, so the slot has no anchor and A's reading is
+    # REFUSED — and group B binds the same two lines at their ends, where
+    # mat~hat answers cleanly. B's question must survive A's refusal.
+    # 2026-10-01, CLAUDE.md standing rule 5: a small word may be sung
+    # stressed, so the old first token `the` now ANCHORS (DH AH1) and A is
+    # judged, which left no refusal for this section to be about (measured:
+    # refusals [], counts (2, 2, 0)). The fixture's first word is now one
+    # the phonology genuinely cannot anchor. superseded: L1 = "the cat sat
+    # on the mat", with `the` refused as unanchorable.
+    f1 = ["qzzxv cat sat on the mat", "he tipped his fine new hat"]
     g1 = R46.grade(f1, SC.mandate([["1.T1", 2], [1, 2]], n_lines=2))
     check("the sibling group IS judged — B has a verdict on the pair whose "
           "other group was refused, where the pair-keyed set skipped it",
@@ -5211,9 +5329,20 @@ def test_a_slot_offer_names_only_words_the_slot_can_anchor():
     bad = [w for w in f.offered if not R._anchors_at(draft[1], f.slot, w)]
     check("every offered word anchors at T3 when spliced in — the grade "
           "could judge each of them", bad == [], bad)
-    check("`on`, the word the run was offered first, is named as one the "
-          "grader could not judge there, not offered",
-          "on" not in f.offered and "on" in f.grader_refused,
+    # 2026-10-01, CLAUDE.md standing rule 5: a small word may be sung
+    # stressed, so `on` anchors at T3 on its stressed reading AA1 N and the
+    # grade JUDGES the spliced pair (measured: dawn/on judged, 0 refused).
+    # Offering it first is no longer the defect; the screen still holds,
+    # because the same predicate refuses a word no dictionary reads.
+    # MEASURED: offered ['on', 'sean', 'von', ...], grader_refused ().
+    # superseded: `on` not offered and named in `grader_refused`.
+    check("`on`, the word the run was offered first, now anchors at T3 sung "
+          "stressed, so it is offered rather than named as one the grader "
+          "could not judge — and the anchor predicate still refuses a word "
+          "no dictionary reads",
+          "on" in f.offered and "on" not in f.grader_refused
+          and R._anchors_at(draft[1], f.slot, "on")
+          and not R._anchors_at(draft[1], f.slot, "qzzxv"),
           (list(f.offered)[:6], f.grader_refused))
     check("control: a content word the slot does anchor is still offered",
           "swan" in f.offered, list(f.offered)[:12])

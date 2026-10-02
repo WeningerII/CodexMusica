@@ -1,16 +1,16 @@
 {
-  "fingerprint": "6a0dd9c1004ebf2a02d618479687b6198a6cbb1fba6c9d39fb485e7c8f408d94",
+  "fingerprint": "d8f5a5b15e172aa574eb4a1f5b830ec61b22771a6cfdf9c8bf691103de4aba8f",
   "parts": {
     "Declaration()": "054feccad3ba480d1116f1758bb0022e58f1bb850a68b70d74c42b0f638b38ca",
     "_couplet_pairs": "942c42ed7326bedcc27b0e8b42671b4094c225d7b5773fec1227c3350c8e5a86",
     "cmudict.dict": "449bfdeafc1c748d11f822c78b4a77981a82635f5f6b7729253a9790d3683b85",
     "features.py": "80e6fb9f6df23662f16f61819eb4ee40f55e5fda0974ae20ef92db3e70888db1",
-    "lyric_harness.py closure": "8043667708985a381cb4d24293ff87871d41564b4bf04bf132c10eb83d56011d",
+    "lyric_harness.py closure": "be56f0e3b4b0bcdf4ec291a9af690749241d5b36aa34e9d69db1eb66ade76485",
     "opensubtitles_en_50k.tsv": "1869ef3c76633403756cd7922c98599567e5a6f1a3f2c6e8eac0b894b955dc09",
     "predictability_frac": "b786e21a6e2d17e283a1829d21f6365524e72c51deaf2b148423d866f778c8c9"
   },
-  "pinned_on": "2026-09-26",
-  "verdict": "RESULT: HOLDS \u2014 the owner's batched re-pin (the spaced-enclitic joiner wired into line_tokens/raw_final_token/Lexicon.transcribe with 't and 'n struck from ENCLITICS; nucleus_agrees' docstring corrected) moved 1 of 7 inputs, the lyric_harness.py closure. The predictability memo was rebuilt from nothing over twelve shards (8,536 items, 37,194 CPU-s): length_curve_calibration.py check --rows HOLDS on all 5 curves, all 8,536 items' five statistics equal the rows banked at 1e2d0c2dc62c exactly, and song_profile_calibration.py --check (song and short) reproduces every shipped constant. Nothing moved; nothing re-adopted. Still open: held-out E2 on short fires (+2.95).",
-  "verified_by": "quality/results/comparator_repin_2026-09-26/curve-check.txt",
+  "pinned_on": "",
+  "verdict": "RESULT: HOLDS \u2014 the any-reading ruling (SPELLING_ALIASES mic->mike appended to Lexicon; line_anchors offers a small end word stressed after its demoted reading) moved 1 of 7 inputs, the lyric_harness.py closure. The predictability memo was rebuilt from nothing over twelve shards (8,536 items): length_curve_calibration.py check --rows HOLDS on all 5 curves, all twelve row files are byte-identical to those banked at 6a0dd9c1004e, and song_profile_calibration.py --check (song and short) reproduces every shipped constant. Nothing moved; nothing re-adopted. Still open: held-out E2 on short fires (+2.95).",
+  "verified_by": "quality/results/comparator_repin_2026-10-01/curve-check.txt",
   "version": 1
 }

@@ -1100,6 +1100,32 @@ class Reviser:
         self._anchor_cache = {}
         self._pronunciation_origin = None
 
+    def _collides_however_sung(self, lines, i, j, s, profile):
+        """A COLLISION IS A PROHIBITION (owner ruling 2026-10-01): it is
+        charged only when every way of singing the two end words collides.
+        The matrix score maximises over readings, which is right for a rhyme
+        the song must have and wrong for one it must avoid, so a pair whose
+        end words have several readings (or end on a small word that may be
+        sung weak) is asked again with every combination required."""
+        from lyric_harness import fold_apostrophes, line_tokens, weak_token
+        ambiguous = False
+        for text in (lines[i], lines[j]):
+            words = line_tokens(text, strip_parens=self.lex.strip_parens)
+            if not words:
+                continue
+            key = fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
+            if (len(self.lex.entries.get(key, ())) > 1
+                    or weak_token(self.lex, key, phrase_final=True)):
+                ambiguous = True
+        if not ambiguous:
+            return True
+        from quality.rhyme_types import coarse_relation_consensus
+        return coarse_relation_consensus(
+            self.lex, lines[i], lines[j], self.decl,
+            relation=s["relations"], min_score=THETA_COLLISION,
+            profile=profile, promote=self._promote(),
+            quantifier="all") is not False
+
     def for_revision(self, lines):
         """Scope retirement to this input without changing its readings or caller."""
         if not getattr(self.lex, 'pronunciations', ()):
@@ -1749,6 +1775,24 @@ class Reviser:
         # stream, and takes the byte-identical old path — the same lazy
         # discipline the structure and named-relation routes above take.
         _sch_pairs, _stream, _R_ref = {}, None, None
+        _stream_marks, _pinned_build = [], {}
+
+        def _reading_build(_RRm):
+            # THE ANY-READING RULE's rebuild (owner, 2026-10-01): the same
+            # stream as `_grade_stream`, refrain-tail mark and all, under a
+            # phonology that pins one whole reading per cause token.
+            if "b" not in _pinned_build:
+                def _b(ph):
+                    st = _RRm.build_stream(
+                        lines, ph, sections=sections,
+                        stanzas=_RRm.stanzas_from_sections(sections),
+                        stanza_source="declared_sections" if sections else "",
+                        declaration={"language": "eng"})
+                    for _bl in _stream_marks:
+                        _RRm.mark_refrain_tail(st, lines=_bl)
+                    return st
+                _pinned_build["b"] = _RRm.cached_builder(_b)
+            return _pinned_build["b"]
 
         def _grade_stream(_RRm):
             # ONE stream builder for BOTH schema routes — the declared route
@@ -1800,6 +1844,7 @@ class Reviser:
                                        if 1 <= ln <= len(lines)})
                     if _bearing:
                         _R_mod.mark_refrain_tail(_stream, lines=_bearing)
+                        _stream_marks.append(_bearing)
                 for w in _schemas:
                     # Slotted pairs call pair_satisfies below. Enumerating a
                     # whole-song figure for those pairs was unused work (and
@@ -1919,6 +1964,9 @@ class Reviser:
                     refused.add((i, j, k))
                     unknown.update(((i, k), (j, k)))
                     continue
+            # The readings each declared relation was satisfied under, when
+            # it held only under one (CLAUDE.md standing rule 5).
+            _pair_readings = {}
             if "REPEAT" in rels and not any(_schema_name_of(_RT, w) for w in wants):
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
@@ -1947,6 +1995,7 @@ class Reviser:
                 # declared structure, if any. A refusal on any one refuses.
                 _refused_here = False
                 for want in wants:
+                    _rwit = None
                     # THE GROUP DECLARED WHAT RELATION IT WANTS. This is the
                     # coordinate `admits()` could never carry: `admits()` is ONE
                     # global set answering "what satisfies ANY mandate", so
@@ -2008,9 +2057,10 @@ class Reviser:
                             unknown.add((j, k))
                             _refused_here = True
                             break
-                        _out = _R_ref.pair_satisfies(
+                        _out, _rwit = _R_ref.pair_satisfies_any(
                             _R_ref.REGISTRY[_sch_name], _stream,
-                            (i - 1, _ti), (j - 1, _tj))
+                            (i - 1, _ti), (j - 1, _tj),
+                            _reading_build(_R_ref))
                         if isinstance(_out, _R_ref.Refusal):
                             refusals.append({
                                 "lines": (i, j),
@@ -2035,6 +2085,12 @@ class Reviser:
                                 position=_SL.position_of(slot_i or i),
                                 lines=(i, j), instances=_sch_pairs.get(want),
                                 member_phons=member_phons)
+                            if (ok is None and _sch_name and _stream is not None
+                                    and hasattr(_sch_pairs.get(want), "verdict")):
+                                ok, _rwit = _R_ref.resolve_line_pair(
+                                    _R_ref.declared_pair_schema(
+                                        _R_ref.REGISTRY[_sch_name]),
+                                    _stream, (i, j), _reading_build(_R_ref))
                         except _RT.RelationRefused as e:
                             refusals.append({
                                 "lines": (i, j),
@@ -2070,6 +2126,8 @@ class Reviser:
                         unknown.add((j, k))
                         _refused_here = True
                         break
+                    if ok and _rwit:
+                        _pair_readings[want] = _rwit
                     if not ok:
                         why = (f"does not satisfy the declared relation {want!r} "
                                + (f"— judged by the schema's own channels at the "
@@ -2172,6 +2230,8 @@ class Reviser:
                              # read exactly like one with nothing to say.
                              # A copy of the record, gating nothing.
                              "flags": list(s.get("flags") or []),
+                             **({"readings": _pair_readings}
+                                if _pair_readings and why is None else {}),
                              "why": why})
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration
@@ -2228,7 +2288,10 @@ class Reviser:
                 bearing={ln - 1 for g in m.groups for ln in g
                          if 1 <= ln <= len(lines)},
                 requested_pairs={tuple(sorted(v["lines"]))
-                                 for v in _asked})
+                                 for v in _asked},
+                # A trial grade reads pass/fail only: stop asking a pair
+                # once one satisfier holds it (the answer cannot move).
+                settle=_verdicts_only)
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
             for v in _asked:
@@ -2259,6 +2322,25 @@ class Reviser:
                                               or ())
                                   if _RF.REGISTRY[n].normative
                                   not in ("forbidden", "deprecated")]
+                    if _undecided and hasattr(_wvp, "resolve_readings"):
+                        # THE ANY-READING RULE (owner, 2026-10-01): an
+                        # undecided satisfier holds if some whole reading of
+                        # the words involved holds it; the readings are
+                        # recorded. What stays open is open for a reason
+                        # that is not a reading.
+                        _rsat, _undecided = _wvp.resolve_readings(
+                            v["lines"], _undecided,
+                            first_only=_verdicts_only)
+                        if _rsat:
+                            v["schemas"] = sorted(set(v["schemas"]) | set(_rsat))
+                            v["relations"] = sorted(set(v["relations"])
+                                                    | set(_rsat))
+                            v["satisfied_by"] = sorted(set(v["satisfied_by"])
+                                                       | set(v["admitted"])
+                                                       | set(_rsat))
+                            v["readings"] = _rsat
+                            v["why"] = None
+                            continue
                     if _undecided:
                         i, j = v["lines"]
                         k = v["group"]
@@ -2455,7 +2537,8 @@ class Reviser:
                 if set(m.groups_of(i + 1)) & set(m.groups_of(j + 1)):
                     continue
                 s = matrix[i][j]
-                if s["total"] >= THETA_COLLISION:
+                if s["total"] >= THETA_COLLISION and self._collides_however_sung(
+                        lines, i, j, s, profile):
                     # The CLASSIFICATION comes from `requirement()` — the
                     # mandate's own five-value answer, so this loop and the
                     # grader cannot drift about what UNDECLARED means. The
@@ -2939,133 +3022,42 @@ class Reviser:
     # -- the calibrated bands ----------------------------------------------
 
     def _band_findings(self, lines, runs_out=None, coverage_out=None):
-        """-> {line_no: [Finding]}. The ADOPTED meter bands, enforced.
+        """-> {} — NO BAND IS ENFORCED, and this method only discloses.
 
-        `runs_out` (M-115): pass a dict and it is filled with
-        {line_no: (longest prominent run, longest weak run)} for EVERY
-        line, read off the same `LineUnits` the counts are — the
-        adjacency the band cannot see, captured here so the caller does
-        not pay a second full read of the draft. Never a Finding and
-        never charged: whether a stress clot or a weak string is a
-        defect is a band question needing its own corpus measurement,
-        stated as an FPR (doctrine 22), and until that calibration
-        exists the runs are disclosed and nothing more.
+        BOTH CALIBRATED BANDS ARE GONE. The owner deleted the syllable band
+        (DENSITY [5, 12]) on 2026-09-28 and the prominence band
+        (PROMINENCE [2, 7], `PROMINENCE_OUT_OF_BAND` and its `BAND_UNJUDGED`
+        note) on 2026-10-01, outright and with no replacement: each was the
+        5th-95th percentile of 139,694 lines of mostly 17th-19th-century
+        hymns, ballads and verse, enforced as pass/fail on every song
+        whatever its tune, tempo or style. Whether a line's stresses fit the
+        MUSIC is still judged where the music is declared -- the meter checks
+        against a blueprint's bars (`fit.py`: `PROMINENCE_EXCEEDS_HEADS`,
+        `SLOTS_EXCEEDED`). `meter_bands.ADOPTED` keeps the measured figures
+        as a measurement; nothing grades against them.
 
-        PROMINENCE [2, 7] prominent/line. ~~DENSITY [5, 12] syllables/line~~
-        is NOT enforced: the owner deleted the syllable band 2026-09-28 (a
-        sung line may be one syllable or a hundred), with no replacement;
-        `meter_bands.ADOPTED` still carries the measured figure as a
-        measurement. The prominence band was
-        measured over 139,694 sung English lines, adopted by the
-        registered rule (quality/RESULTS_METER_BANDS_READER.md), shipped as
-        `meter_bands.ADOPTED`, and re-derived against the corpus by
-        `python3 quality/meter_bands.py --check` so drift fails loud. Out of
-        band in EITHER direction is a per-line FLAG: too much and too little
-        are both refused, which is the whole reason these are bands and not
-        directions — a directional pursuit converges on empty lines or
-        stress-cram and fights the uniformity checks (the second sitting's
-        founding argument, recorded in METER_BANDS_PREREGISTRATION.md).
-
-        THE READER IS THE CALIBRATION'S READER, by registered condition:
-        `meter_bands.reader(ADOPTED_READER)` — the eng phonology with the
-        declared G2P fallback — through the same `fit.read_line` seam the
-        sweep used. Enforcing [5, 12] through any other reader would enforce
-        a different instrument's numbers.
-
-        NEEDS NO BLUEPRINT AND NO SUBDIVISION. The bands are pigeonhole
-        counts of the TEXT — no placement, no meter, no isochrony anywhere
-        in their derivation — so unlike `_meter_findings` this check runs on
-        every inspect, and its silence genuinely means clean.
-
-        A LINE THE READER CANNOT FULLY READ IS JUDGED ASYMMETRICALLY
-        (doctrine 79, the lower-bound rule): every count on such a line is a
-        LOWER BOUND, so a count already ABOVE the ceiling is a violation no
-        missing token can undo — that flags, with the refusal named in the
-        evidence — while a count below the floor proves nothing, and the
-        line gets a BAND_UNJUDGED note naming the channel and the tokens
-        instead of a flag it might not deserve. An undecided prominence
-        reading is the same shape one channel narrower: syllables still
-        judge both ways, prominence only upward.
+        `runs_out` (M-115) is still filled with {line_no: (longest prominent
+        run, longest weak run)} for every line -- a disclosure the CLI
+        prints beside the song, never a Finding and never charged.
+        `coverage_out` is accepted and left untouched: there is no band
+        obligation left to answer or refuse.
         """
+        if runs_out is None:
+            return {}
         from quality import meter_bands as MB
         phon = MB.reader(MB.ADOPTED_READER)
         if getattr(self.lex, "pronunciations", ()):
             from quality.phonology.eng import English
-            # Preserve the calibrated fallback for undeclared tokens.
             import copy
             reader_lex = copy.copy(FT._english_lexicon(
                 strip_parens=self.lex.strip_parens, fallback=phon.fallback))
             reader_lex.pronunciations = self.lex.pronunciations
             phon = English(fallback=phon.fallback, lexicon=reader_lex)
-        # THE SYLLABLE BAND IS GONE (owner ruling 2026-09-28): the 5-12
-        # syllables-per-line rule and its DENSITY_OUT_OF_BAND flag are
-        # deleted, not replaced. A sung line may be one syllable or a
-        # hundred. The prominence band below is a separate rule and stays.
-        p_lo, p_hi = MB.ADOPTED["PROMINENCE"]
-        basis = (f"band adopted at reader {MB.ADOPTED_READER!r} over "
-                 f"139,694 corpus lines (RESULTS_METER_BANDS_READER.md; "
-                 f"re-derive: python3 quality/meter_bands.py --check)")
-        per = {}
         for i, text in enumerate(lines):
-            ln = i + 1
-            lu = FT.read_line(text, phon=phon, strip_parens=self.lex.strip_parens)
-            syl, prom = lu.syllables, len(lu.prominent)
-            undecided = len(lu.prominence_undecided)
-            if runs_out is not None:
-                runs_out[ln] = lu.prominence_runs
-            refused = [r.token for r in lu.refused]
-            complete = not refused and bool(lu.units)
-            fs = []
-            prom_certain = complete and not undecided
-            if coverage_out is not None:
-                coverage_out.append(
-                    {"id": f"prominence:L{ln}", "layer": "prominence", "line": ln,
-                     "status": "answered" if prom_certain or prom > p_hi else "refused"})
-            # M-115: the runs beside the count, on the finding a diluting
-            # repair is aimed at — "and the" strung as padding shows up
-            # here as the weak run the count cannot see.
-            _rp, _rw = lu.prominence_runs
-            _adj = (f" Adjacency, disclosed and uncalibrated: longest "
-                    f"stress run {_rp}, longest weak run {_rw} — the "
-                    f"band counts and cannot hear a clot or padding "
-                    f"(M-115).")
-            if prom_certain and not (p_lo <= prom <= p_hi):
-                fs.append(Finding(
-                    "PROMINENCE_OUT_OF_BAND", "flag",
-                    f"{prom} prominent syllable(s) — outside the calibrated "
-                    f"[{p_lo}, {p_hi}] band for a sung English line",
-                    f"{basis}. Too few and too many are both refused, for "
-                    f"the reason above." + _adj, [ln]))
-            elif not prom_certain and prom > p_hi:
-                fs.append(Finding(
-                    "PROMINENCE_OUT_OF_BAND", "flag",
-                    f"at least {prom} prominent syllable(s) — already over "
-                    f"the calibrated [{p_lo}, {p_hi}] band on what could be "
-                    f"read with certainty",
-                    f"{basis}. A lower bound over the ceiling is a "
-                    f"violation no refused token or undecided reading can "
-                    f"undo." + _adj, [ln]))
-            if not complete or undecided:
-                why = []
-                if refused:
-                    why.append(f"{len(refused)} token(s) unread: "
-                               + ", ".join(refused[:4])
-                               + ("…" if len(refused) > 4 else ""))
-                if not lu.units:
-                    why.append("no unit read at all")
-                if undecided:
-                    why.append(f"{undecided} prominence reading(s) "
-                               f"undecided")
-                fs.append(Finding(
-                    "BAND_UNJUDGED", "note",
-                    "this line's band verdicts are partial — counts are "
-                    "lower bounds, so only over-the-ceiling could be judged",
-                    f"{'; '.join(why)}. {basis}. A refusal is not a pass "
-                    f"(doctrine 20) and not a violation (doctrine 79); it "
-                    f"is said here so silence stays meaningful.", [ln]))
-            if fs:
-                per[ln] = fs
-        return per
+            lu = FT.read_line(text, phon=phon,
+                              strip_parens=self.lex.strip_parens)
+            runs_out[i + 1] = lu.prominence_runs
+        return {}
 
     # -- section function ---------------------------------------------------
 
@@ -4152,16 +4144,11 @@ class Reviser:
             _function_coverage = [{"id": layer + ":draft", "layer": layer,
                                    "status": "not_requested"}
                                   for layer in ("function", "shape")]
-        # The calibrated bands run UNCONDITIONALLY — no blueprint, no
-        # subdivision, no mandate in their derivation, so unlike the meter
-        # block above there is no opt-in coordinate to disclose and their
-        # silence genuinely means the draft's lines sit inside what 139,694
-        # sung English lines do (see `_band_findings`).
+        # No calibrated band is enforced any more (owner rulings 2026-09-28
+        # and 2026-10-01; see `_band_findings`): it only fills the M-115
+        # stress-run disclosure below.
         _prom_runs, _coverage_rows = {}, list(_function_coverage)
-        for ln, fs in self._band_findings(lines, runs_out=_prom_runs,
-                                        coverage_out=_coverage_rows).items():
-            for f in fs:
-                add(ln, f)
+        self._band_findings(lines, runs_out=_prom_runs)
         # `blueprint_declared` is NOT a Finding. Meter/function are an OPT-IN
         # third source (see this method's own docstring) and omitting them is
         # the ordinary, common case, not a defect on the draft -- so it does

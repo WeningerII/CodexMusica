@@ -9,12 +9,13 @@ Declaration-driven rhyme, meter, and song-structure engine. The model
 proposes; these tools grade. Target: MCP server beside Codex Musica —
 Codex Musica describes the recording, this disciplines the words.
 
-## FOUR STANDING RULES FROM THE OWNER — read before proposing any architecture
+## FIVE STANDING RULES FROM THE OWNER — read before proposing any architecture
 
 Recorded 2026-08-17, verbatim intent, after ~~both~~ THE FIRST TWO were violated
 in one session. These outrank any inference a session draws from the code.
 **Rule 4 was added 2026-09-16**, from the owner's instruction during the
-length-curve repin; it was not violated first, it was anticipated.
+length-curve repin; it was not violated first, it was anticipated. **Rule 5
+was added 2026-10-01** (the list was enumerated first: four items, 1-4).
 
 **THE COUNT IN THIS HEADING WAS WRONG TWICE, AND BOTH ARE RECORDED RATHER THAN
 QUIETLY CORRECTED (doctrine 58: a recorded COUNT is a threshold nobody wrote
@@ -206,6 +207,35 @@ stale.
    see** and each of those discarded a ~2.4-CPU-hour memo and took the
    nightly's bounded slice with it. The 3 that remain are the ones this rule
    is about, and they still cost the full recomputation — so BATCH THEM.
+
+5. **A WORD PASSES IF ANY WAY OF SINGING IT WORKS.** Owner, 2026-10-01,
+   verbatim: *"this is to check to see if the word we're using has a
+   pronunciation that works at all aren't we? what does it matter if multiple
+   pronunciations work? shouldn't it be that the checker is going to look for
+   whether or not a pronunciation works not which pronunciation works?"*
+   A check the song must PASS (a mandated rhyme, a declared relation, a slot
+   anchor) holds when ONE whole dictionary reading of each word involved
+   holds it; a check the song must AVOID (a collision) is charged only when
+   EVERY reading triggers it. Readings are whole dictionary pronunciations,
+   never channels stitched from two (`quality/relations.py`, "THE
+   ANY-READING RULE"), and a schema verdict that rests on one names it
+   (`readings` on the grade's verdict, "held under one reading" on the
+   screen; the coarse class route does not yet name its reading). A small
+   word (`WEAK_ALWAYS`/`WEAK_NONFINAL`) may be sung stressed or unstressed:
+   at a declared token it anchors on a whole dictionary reading that carries
+   a stress (`sung_alt`, `quality/slots.py`), so `in`, `the`, `a` and `and`
+   anchor wherever they stand. Readings past `relations.READING_COMBO_CAP`
+   combinations stay undecided rather than half-searched.
+   What this does NOT license: guessing a word the dictionary cannot read
+   (that is still a refusal), or a measurement instrument changing its
+   population (`coarse_relation_consensus(quantifier="unanimous")` keeps
+   the instruments' rule). The same day the owner deleted the prominence
+   band [2, 7] with no replacement (*"yes, cut the 2-7 rule too"*), as the
+   5-12 syllable band was deleted on 2026-09-28, and asked for `mic`
+   (`lyric_harness.SPELLING_ALIASES`). A session that turns "the readings
+   disagree" back into a refusal, or brings back a fixed stress count per
+   line, is reversing a ruling — `quality/phonology/__init__.py`
+   commitment 4 and doctrine 46 carry the struck text.
 
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One
@@ -1525,6 +1555,13 @@ one line limit kept, `propose.MAX_LINE_CHARS` characters (a syllable is at
 least one character), and a declared melody is not held to it.
 `meter_bands.ADOPTED` still carries the measured `DENSITY` figure as a
 measurement, which nothing enforces.
+**AND THE PROMINENCE BAND IS DELETED TOO (owner ruling 2026-10-01), with no
+replacement:** *"yes, cut the 2-7 rule too"*. `PROMINENCE_OUT_OF_BAND` and its
+`BAND_UNJUDGED` note no longer exist, so the paragraph above describes a gate
+that is gone: `_band_findings` now returns nothing and only fills the
+stress-run disclosure (M-115). Whether a line's stresses fit the MUSIC is
+judged where the music is declared — `fit.py` against a blueprint's bars.
+`meter_bands.ADOPTED` keeps the measured `PROMINENCE` figure as a measurement.
 
 **THE LOOP IS AUTOMATED: quality/loop.py, tests in test_loop.py.**
 `brief`/`verify` graded one round at a time by hand; `revise_loop(reviser,
@@ -3329,6 +3366,10 @@ from the first run — do not drift from these either:**, merged into one run.)
    a claim it never states.
 
 46. **A function-word list is part of a phonology, not an optimisation.**
+   ~~Welsh penultimate stress makes every monosyllable stressed~~ **(AMENDED
+   2026-10-01, standing rule 5: in English a listed small word MAY be weak,
+   never MUST be — a slot or a rhyme that needs it stressed may read it so,
+   and the default reading every count was calibrated on stays weak.)**
    Welsh penultimate stress makes every monosyllable stressed, so without a
    PROCLITIC list cynghanedd lusg "answers" the definite article `y`. The
    English engine has always had WEAK_ALWAYS for the same reason. Any new

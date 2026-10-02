@@ -240,7 +240,11 @@ class KitchenVerificationReceipts(unittest.TestCase):
         from quality.schemes import mandate
         cls.r = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, max_rounds=2))
         cls.m = mandate('AA', n_lines=2, default_relation='class:ASSONANCE')
-        cls.before = ['The elephant elephant elephant elephant elephant elephant elephant stove',
+        # L1 ends on a word no dictionary reads, so the mandated pair is
+        # unjudged and L1 is briefed for repair; the answer reads and
+        # assonates. (The prominence band flagged L1 until the owner deleted
+        # it 2026-10-01.)
+        cls.before = ['My kettle whistles by the qzzxv',
                       'Your fingers brush my heavy coat']
         cls.after = ['My kettle whistles by the stove', cls.before[1]]
 
@@ -364,6 +368,11 @@ class KitchenVerificationReceipts(unittest.TestCase):
     def test_actual_group_repair_is_verified_and_applied_by_the_loop(self):
         from quality.loop import revise_loop
         groups = []
+        # A real flag the group backtrack answers: door/coat share no
+        # nucleus, so L2 carries SCHEME_VIOLATION; the line writer declines
+        # and the group writer moves L1 to `stove`. (An unjudged pair, the
+        # class fixture, is repaired line by line, never by the backtrack.)
+        before = ['My kettle whistles by the door', self.before[1]]
         with tempfile.TemporaryDirectory() as tmp, \
              patch.dict(os.environ, {'LYRIC_CHECKPOINT_PATH': str(Path(tmp)/'cp')}), \
              contextlib.redirect_stdout(io.StringIO()):
@@ -371,8 +380,8 @@ class KitchenVerificationReceipts(unittest.TestCase):
                 groups.append(tuple(brief.members))
                 return [self.after[n - 1] for n in brief.members]
             one, two = LH._checkpoint_proposer(lambda *a, **k: None, group_writer,
-                                               self.before, 'cfg', 'fake')
-            result = revise_loop(self.r, list(self.before), self.m,
+                                               before, 'cfg', 'fake')
+            result = revise_loop(self.r, list(before), self.m,
                                  propose=one, propose_group=two)
             self.assertTrue(groups)
             self.assertEqual(result.lines, self.after)
@@ -419,12 +428,17 @@ class KitchenVerificationReceipts(unittest.TestCase):
         from quality.loop import _try_tier1
         from quality.schemes import mandate
         import hashlib
-        before = ['The elephant elephant elephant elephant elephant elephant elephant ' + word
-                  for word in ['stove', 'coat', 'rain', 'stone']]
+        # Every line ends on an unreadable word inside a mandated pair, so
+        # each is briefed and each answer reads; rain/gate assonate. (The
+        # prominence band flagged all four until the owner deleted it
+        # 2026-10-01.)
+        before = ['My kettle whistles by the qzzxv', 'Your fingers brush my heavy qzzxw',
+                  'The window shakes beneath the heavy qzzxy',
+                  'His folded paper rests upon the qzzxz']
         answers = ['My kettle whistles by the stove', 'Your fingers brush my heavy coat',
                    'The window shakes beneath the heavy rain',
-                   'His folded paper rests upon the stone']
-        m = mandate([[1, 2]], n_lines=4, default_relation='class:ASSONANCE')
+                   'His folded paper rests upon the gate']
+        m = mandate([[1, 2], [3, 4]], n_lines=4, default_relation='class:ASSONANCE')
         calls = []
         def writer(b, *args, **kwargs):
             calls.append(b.line_no)
@@ -563,9 +577,11 @@ class DeferredAuditRegressions(unittest.TestCase):
         from quality.revise import Reviser, ReviseDeclaration
         from quality.loop import _try_tier2
         from quality.schemes import mandate
-        # One-word lines: each carries one stress, so the prominence band
-        # flags every line (the deleted syllable band used to).
-        lines = ['Cat', 'Cat', 'Dog']
+        # L1/L2 end on a word no dictionary reads, so every mandated pair
+        # is unjudged and every line is briefed. (The prominence band
+        # flagged them until the owner deleted it 2026-10-01; the syllable
+        # band before that.)
+        lines = ['Qzzxv', 'Qzzxv', 'Dog']
         m = mandate([[1, 3], [1, 2]], n_lines=3, returns=[[1, 2]],
                     default_relation='class:ASSONANCE')
         rv = Reviser(rdecl=ReviseDeclaration(max_rounds=2, attempts_per_line=1,
@@ -607,7 +623,7 @@ class DeferredAuditRegressions(unittest.TestCase):
         from quality.revise import Reviser, ReviseDeclaration
         from quality.loop import _try_tier2
         from quality.schemes import mandate
-        lines = ['Cat', 'Cat', 'Dog', 'The empty room is still']
+        lines = ['Qzzxv', 'Qzzxv', 'Dog', 'The empty room is still']
         m = mandate([[1, 3]], n_lines=4, returns=[[1, 2]],
                     default_relation='class:ASSONANCE')
         rv = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, backtrack_width=1))

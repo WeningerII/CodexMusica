@@ -395,10 +395,19 @@ def test_nothing_was_lost_on_the_sonnets():
     # readings and refuses (39 -> 53; cf. regrade_verdicts.py), and more
     # pairs reach schemas that cannot decide (17 -> 25). The 50 lexical gaps
     # are CMUdict's and do not move. battery.EXPECTED already carries 128.
-    check("128 pairs refuse: 50 lexical gaps, 53 reading disagreements, 25 "
-          "unresolved schema answers (~~106 = 50 + 39 + 17~~, licensed "
-          "nucleus 2026-09-24)",
-          ref == battery.EXPECTED["refused"] == 50 + 53 + 25,
+    # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5),
+    # MEASURED per pair against main: ~~128 = 50 + 53 + 25~~ -> 57 = 50
+    # lexical gaps + 0 reading disagreements + 7 unresolved schema answers.
+    # A mandated pair now holds if ANY whole reading holds it, so readings
+    # that disagree are no longer a refusal at all; of the 7 schema answers
+    # still open, 6 sit on lines carrying a word CMUdict cannot read
+    # (buriest, erst/bristly, ill-us'd, Alack, million'd/sharp'st, profan'd)
+    # and 1 (sonnet 72 forth/worth, parechesis) has more reading
+    # combinations than `relations.READING_COMBO_CAP` tries.
+    check("57 pairs refuse: 50 lexical gaps, 0 reading disagreements, 7 "
+          "unresolved schema answers (~~128 = 50 + 53 + 25~~, any-reading "
+          "rule 2026-10-01)",
+          ref == battery.EXPECTED["refused"] == 50 + 0 + 7,
           "Unknown pronunciation/schema answers remain outside rhyme failures and judged coverage")
     # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
     # identity coda_agreement. The count that matters to THIS test is
@@ -412,9 +421,10 @@ def test_nothing_was_lost_on_the_sonnets():
           f"(was 73 at theta_coda 0.60, 81 at scalar coda_agreement)",
           viol == battery.EXPECTED["violations"], str(viol))
     # REPINNED 2026-09-24: ~~958~~ -> 936 = 1064 - 128, the same cause.
-    check("the judged denominator is 936 (~~958~~), and every mandated pair "
-          "is accounted for",
-          judged == battery.EXPECTED["judged"] == 936 and judged + ref == mandated,
+    # REPINNED 2026-10-01: ~~936~~ -> 1007 = 1064 - 57, the any-reading rule.
+    check("the judged denominator is 1007 (~~958~~, ~~936~~), and every "
+          "mandated pair is accounted for",
+          judged == battery.EXPECTED["judged"] == 1007 and judged + ref == mandated,
           f"{judged}: a violation RATE is "
           f"{battery.EXPECTED['violations']}/{battery.EXPECTED['judged']} = "
           f"{battery.EXPECTED['violations']/battery.EXPECTED['judged']:.1%}")

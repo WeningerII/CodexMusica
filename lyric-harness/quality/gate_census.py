@@ -665,7 +665,6 @@ DISPOSITION = {
     "SHARED_SUFFIX": "PROMOTED",
 
     # --- quality/revise.py: almost none of these is about the DRAFT.
-    "BAND_UNJUDGED": "REFUSAL",
     "SCHEME_UNREADABLE": "REFUSAL",
     "COLLISION_CUT_IS_SCALAR_ONLY": "DISCLOSURE",
     "MANDATE_EXCUSED_BY_OVERLAP": "DISCLOSURE",
@@ -803,7 +802,11 @@ def by_disposition(c=None):
 # REPINNED 2026-09-28: the owner deleted the 5-12 syllables-per-line rule
 # with no replacement, and its flag `DENSITY_OUT_OF_BAND` went with it. One
 # gated code leaves; no other code or disposition moves: 77/25/52 -> 76/24/52.
-PINNED = {'codes': 76, 'gated': 24, 'disclosed_only': 52, 'undecidable': 0,
+# REPINNED 2026-10-01: the owner deleted the prominence band [2, 7] with no
+# replacement. Its flag `PROMINENCE_OUT_OF_BAND` (gated) and its refusal
+# note `BAND_UNJUDGED` (disclosed) went with it; no other code or disposition
+# moves: 76/24/52 -> 74/23/51.
+PINNED = {'codes': 74, 'gated': 23, 'disclosed_only': 51, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

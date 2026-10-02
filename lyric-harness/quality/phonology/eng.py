@@ -6,8 +6,11 @@ PRODUCTION READING POLICY (2026-09-08, H-07)
 The registered adapter retains all CMUdict pronunciations. Agreeing channels
 stay definite; differing channels are knowledge sets; incompatible syllable
 counts refuse alignment. `English(readings="first")` is an explicit historical
-policy for controlled comparisons, not the production default. Scalar scheme
-and revision graders separately require unanimous endpoint-reading verdicts.
+policy for controlled comparisons, not the production default. ~~Scalar scheme
+and revision graders separately require unanimous endpoint-reading verdicts.~~
+Since 2026-10-01 (owner ruling, CLAUDE.md standing rule 5) the graders ask
+whether ANY whole reading holds an obligation, and charge a prohibition only
+when every reading triggers it; the measurement instruments keep unanimity.
 
 WHY THIS FILE EXISTS AND WHY IT IS LATE
 
