@@ -1884,5 +1884,9 @@
       "path": "data-only-028-ui-baseline-review.json",
       "sha256": "23e01bc25f54560cde96cfc14019e3cd236ae58f08657374f4eec2ca849ddaea"
     }
-  ]
+  ],
+  "artifact_freshness_correction": {
+    "report": "data-only-028-freshness-correction.json",
+    "status": "Generated repository HTML corrected; exact-head CI required for new commit"
+  }
 }
