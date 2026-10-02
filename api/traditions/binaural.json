@@ -1,0 +1,95 @@
+{
+  "id": "binaural",
+  "name": "Binaural",
+  "family": "electronic",
+  "lineage": "Skeleton Beach — Binaural Beat Experimentation Volume One (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic early-2020s binaural, functional Song. mellotron, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 177,
+  "score": 3.55,
+  "config": {
+    "traditions": [
+      "binaural"
+    ],
+    "instruments": [
+      {
+        "id": "mellotron",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "mellotron_voice": "mellotron_strings",
+          "mellotron_context": "mellotron_indie",
+          "mellotron_model": "mellotron_m400_canonical",
+          "mellotron_tape_material": "mellotron_polyester_tape_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "mellotron_voice": 0,
+          "mellotron_context": -0.05,
+          "mellotron_model": 0.25,
+          "mellotron_tape_material": 0.3
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_pop"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 3.25
+        }
+      }
+    ],
+    "pinned": {
+      "mellotron": [
+        "keyboard_technique",
+        "mellotron_voice",
+        "mellotron_context",
+        "mellotron_model",
+        "mellotron_tape_material"
+      ],
+      "digital_subtractive": [
+        "electronic_technique",
+        "va_archetypes",
+        "digital_subtractive_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "mellotron_voice": "mellotron_strings",
+      "mellotron_context": "mellotron_indie",
+      "mellotron_model": "mellotron_m400_canonical",
+      "mellotron_tape_material": "mellotron_polyester_tape_canonical",
+      "electronic_technique": "electronic_pad_drone",
+      "va_archetypes": "nord_lead",
+      "digital_subtractive_context": "digital_subtractive_pop"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

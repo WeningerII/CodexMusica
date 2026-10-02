@@ -1,5 +1,5 @@
 {
-  "count": 1471,
+  "count": 1472,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8826,6 +8826,12 @@
       "name": "Scottish pipe-band snare drum",
       "family": "percussion",
       "href": "instruments/pipe_band_snare.json"
+    },
+    {
+      "id": "zills_sagat",
+      "name": "Zills / sagat (Middle Eastern finger cymbals)",
+      "family": "percussion",
+      "href": "instruments/zills_sagat.json"
     }
   ]
 }

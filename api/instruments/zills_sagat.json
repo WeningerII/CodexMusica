@@ -1,0 +1,84 @@
+{
+  "id": "zills_sagat",
+  "name": "Zills / sagat (Middle Eastern finger cymbals)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "zills finger cymbals",
+  "parts": [
+    {
+      "id": "zills_sagat_articulation",
+      "name": "Finger-cymbal articulation",
+      "variants": [
+        {
+          "id": "zills_sagat_open_ringing",
+          "default": true,
+          "name": "Open ringing finger-cymbal strikes",
+          "descriptors": [
+            "open-ringing",
+            "finger-cymbal-strikes"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "zills_sagat_damped_short",
+          "name": "Damped short finger-cymbal clicks",
+          "descriptors": [
+            "damped-short",
+            "finger-cymbal-clicks"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zills_sagat_articulation",
+      "name": "Finger-cymbal articulation",
+      "variants": [
+        {
+          "id": "zills_sagat_open_ringing",
+          "default": true,
+          "name": "Open ringing finger-cymbal strikes",
+          "descriptors": [
+            "open-ringing",
+            "finger-cymbal-strikes"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "zills_sagat_damped_short",
+          "name": "Damped short finger-cymbal clicks",
+          "descriptors": [
+            "damped-short",
+            "finger-cymbal-clicks"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

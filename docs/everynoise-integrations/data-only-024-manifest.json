@@ -1,0 +1,744 @@
+{
+  "required_predecessor": "627dc64e1e9ff0eba85e2bcc03e797fd7840b955",
+  "expected_additions": 100,
+  "expected_traditions": 5038,
+  "expected_instruments": 1472,
+  "ids": [
+    "deep_german_punk",
+    "deep_gothic_post_punk",
+    "belly_dance",
+    "bard",
+    "bardcore",
+    "barnalog",
+    "barnasogur",
+    "barnemusikk",
+    "barnsagor",
+    "barockinterpreten",
+    "basel_indie",
+    "bases_de_freestyle",
+    "batak",
+    "bath_indie",
+    "baton_rouge_indie",
+    "batswana_traditional",
+    "bay_area_indie",
+    "bboy",
+    "beat_poetry",
+    "beatboxing",
+    "beatdown",
+    "beatlesque",
+    "beats",
+    "belarusian_indie",
+    "belfast_indie",
+    "belgian_experimental",
+    "belgian_indie",
+    "belgian_new_wave",
+    "belo_horizonte_indie",
+    "bemani",
+    "bergamo_indie",
+    "bergen_indie",
+    "bern_indie",
+    "bernu_dziesmas",
+    "bible",
+    "binaural",
+    "birdsong",
+    "birmingham_indie",
+    "birthday",
+    "bisaya_indie",
+    "black_n_roll",
+    "black_comedy",
+    "black_death",
+    "black_noise",
+    "black_sludge",
+    "black_thrash",
+    "blackened_crust",
+    "blasmusik",
+    "boeremusiek",
+    "bohol_indie",
+    "boom_bap_brasileiro",
+    "bornehistorier",
+    "bornesange",
+    "bosnian_indie",
+    "bossa_nova_cover",
+    "boston_indie",
+    "boy_soprano",
+    "braindance",
+    "brasilia_indie",
+    "brass_band_brasileiro",
+    "brass_quintet",
+    "brazilian_boogie",
+    "brazilian_experimental",
+    "brazilian_indie",
+    "brighton_indie",
+    "brisbane_indie",
+    "bristol_indie",
+    "british_children_s_music",
+    "british_comedy",
+    "british_electroacoustic",
+    "british_experimental",
+    "british_soundtrack",
+    "britpop_revival",
+    "brno_indie",
+    "broken_transmission",
+    "brooklyn_indie",
+    "bruneian_indie",
+    "bubblegrunge",
+    "buffalo_ny_indie",
+    "bulgarian_experimental",
+    "bulgarian_indie",
+    "burkinabe_traditional",
+    "burundian_traditional",
+    "bury_st_edmunds_indie",
+    "calgary_indie",
+    "cambridgeshire_indie",
+    "canadian_ccm",
+    "canadian_comedy",
+    "canadian_electropop",
+    "canadian_experimental",
+    "canadian_indie",
+    "canadian_indigenous_music",
+    "canadian_latin",
+    "canadian_soundtrack",
+    "canberra_indie",
+    "cancion_infantil_latinoamericana",
+    "cancion_infantil_mexicana",
+    "cancoes_infantis",
+    "cantautora_argentina",
+    "canzone_siciliane"
+  ],
+  "equivalent_labels": [
+    {
+      "source_label": "bgm",
+      "source_url": "https://everynoise.com/engenremap-bgm.html",
+      "suggested_id": "bgm",
+      "allocation_ordinal": 2875,
+      "allocation_group_id": "115",
+      "target_id": "background_music",
+      "status": "equivalent_not_an_addition",
+      "reason": "Unqualified BGM expands directly to background music; existing background_music record covers this functional category. Do not invent a narrower geographic qualifier.",
+      "sources": [
+        {
+          "url": "https://usa.yamaha.com/files/download/other_assets/8/797818/psre453_ew400_en_om_a0.pdf",
+          "title": "Yamaha PSR-E453/PSR-EW400 manual",
+          "support_notes": "Manufacturer explicitly expands BGM as Background Music in playback heading.",
+          "checked_date": "2026-10-02",
+          "access_method": "Official manual indexed excerpt"
+        }
+      ],
+      "allocation_group_sha256": "c43d35414839cee83ebb6c7a3e3f71b15351bef09c8f7e783dd7c28d0417a692"
+    },
+    {
+      "source_label": "c64",
+      "source_url": "https://everynoise.com/engenremap-c64.html",
+      "suggested_id": "c64",
+      "allocation_ordinal": 2942,
+      "allocation_group_id": "118",
+      "outcome": "semantic_equivalent",
+      "target_id": "c64_sid_music",
+      "rationale": "Existing Commodore64 SID music record explicitly covers MOS6581/8580 game-music practice and names Chris Huelsbeck. His primary SID Anthology confirms original C64 hardware recordings. Bare c64 label does not establish another category.",
+      "sources": [
+        {
+          "url": "https://chrishuelsbeck.bandcamp.com/album/sid-anthology-vol-1",
+          "title": "Chris Huelsbeck — SID Anthology Vol1",
+          "support_notes": "Artist documents original Commodore64 hardware recording and SID chip selection. Existing c64_sid_music includes this composer and exact practice.",
+          "checked_date": "2026-10-02"
+        }
+      ]
+    }
+  ],
+  "scope": "100 actual genre additions and one standalone zills instrument; existing source records, defaults, engine, workflows and test logic unchanged.",
+  "allocation_manifest_sha256": "246ac5b37a638fa6a72627d55fad57cc6a04e4a0d34f968694bbf6eba63c61c7",
+  "source_packet_sha256": {
+    "held-verified": "fd32e602205ea52ae40ec4768e50c8c29318dfb43650107653a38a98d5b2b137",
+    "recovered-verified": "15384d29ba863d79944e9973159b8564a28b846fe48a31dcd8a9aae72fb42271",
+    "root-verified": "110dbb1c263491707c238e387dc4bc0792c4695e98a431ce789dfb9b868fa4c7",
+    "group116": "967854b4068a66871a2795899458f947e8b011f9dc2020cf3f9b504ec3b9480c",
+    "group116-supplement": "90ab574e572002f49a790953e7a5b2ee0054271c53121c0e21c9ee8e2a4eeafc",
+    "group117": "1b0d44ac89f47454c93138deaba7826a1ddec0022931fd65d41a242b14565d52",
+    "group118": "fda4494fceb23dcdf20e203cdddbff473c2b6e26c0abb50588a6f2df14011a6d",
+    "group119": "bfec6e5445e1c2ef4f3881984bc019af3d7464c39f2f8ebdc113d7ff9910c7d1"
+  },
+  "coordinator_amendments": [
+    {
+      "id": "bible",
+      "field": "signature_tokens",
+      "before": ["spoken"],
+      "after": ["speech-derived"],
+      "reason": "Use existing classified sonic vocabulary only, with narrated source grounding."
+    },
+    {
+      "id": "birdsong",
+      "field": "geo.region",
+      "before": "Sub-Saharan Africa",
+      "after": "Africa",
+      "reason": "Canonical existing atlas editorial bucket; coordinate and geographic scope unchanged."
+    },
+    {
+      "id": "black_comedy",
+      "field": "signature_tokens",
+      "before": ["spoken"],
+      "after": ["speech-derived"],
+      "reason": "Use existing classified sonic vocabulary only, with narrated source grounding."
+    },
+    {
+      "id": "black_thrash",
+      "field": "geo.region",
+      "before": "Oceania",
+      "after": "Oceania & Pacific",
+      "reason": "Canonical existing atlas editorial bucket; coordinate and geographic scope unchanged."
+    },
+    {
+      "id": "boeremusiek",
+      "field": "geo.region",
+      "before": "Sub-Saharan Africa",
+      "after": "Africa",
+      "reason": "Canonical existing atlas editorial bucket; coordinate and geographic scope unchanged."
+    },
+    {
+      "id": "boom_bap_brasileiro",
+      "field": "geo.region",
+      "before": "South America",
+      "after": "Latin America & Caribbean",
+      "reason": "Canonical existing atlas editorial bucket; coordinate and geographic scope unchanged."
+    },
+    {
+      "id": "bornehistorier",
+      "field": "signature_tokens",
+      "before": ["spoken"],
+      "after": ["speech-derived"],
+      "reason": "Use existing classified sonic vocabulary only, with narrated source grounding."
+    },
+    {
+      "id": "brisbane_indie",
+      "field": "geo.region",
+      "before": "Oceania",
+      "after": "Oceania & Pacific",
+      "reason": "Canonical existing atlas editorial bucket; coordinate and geographic scope unchanged."
+    },
+    {
+      "id": "burkinabe_traditional",
+      "field": "geo.region",
+      "before": "Sub-Saharan Africa",
+      "after": "Africa",
+      "reason": "Canonical existing atlas editorial bucket; coordinate and geographic scope unchanged."
+    },
+    {
+      "id": "burundian_traditional",
+      "field": "geo.region",
+      "before": "Sub-Saharan Africa",
+      "after": "Africa",
+      "reason": "Canonical existing atlas editorial bucket; coordinate and geographic scope unchanged."
+    },
+    {
+      "id": "bemani",
+      "field": "tradition.parts.grand_piano_size",
+      "before": "grand_7_foot",
+      "after": "grand_9_foot",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "bernu_dziesmas",
+      "field": "tradition.parts.grand_piano_size",
+      "before": "grand_7_foot",
+      "after": "grand_9_foot",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "brazilian_experimental",
+      "field": "tradition.parts.grand_piano_size",
+      "before": "grand_7_foot",
+      "after": "grand_9_foot",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "british_experimental",
+      "field": "tradition.parts.grand_piano_size",
+      "before": "grand_7_foot",
+      "after": "grand_9_foot",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "british_soundtrack",
+      "field": "tradition.parts.grand_piano_size",
+      "before": "grand_7_foot",
+      "after": "grand_9_foot",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "britpop_revival",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "brno_indie",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "brooklyn_indie",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "bruneian_indie",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "bubblegrunge",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "buffalo_ny_indie",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "bulgarian_indie",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "bury_st_edmunds_indie",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "calgary_indie",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    },
+    {
+      "id": "cambridgeshire_indie",
+      "field": "tradition.parts.cymbal_finish",
+      "before": "hand_hammered",
+      "after": "traditional_finish",
+      "reason": "Independent material/model coherence review; new authored defaults only."
+    }
+  ],
+  "final_entry_sha256_canonical": {
+    "deep_german_punk": "758e5f403115aa7563fca52b54f4b60bec43b32c27167d83740341a61edf328c",
+    "deep_gothic_post_punk": "3452126535f90ad97d7f6cf5c877355a6320788674f12443df2d3553312b5a2f",
+    "belly_dance": "689e3d6709824754a894e7310d38a92f9bfb767617aa58e28ec6ec3cfbdda788",
+    "bard": "8f1010b3fa44551511a083541ccd716bd45cd7ca2c5bf3728d9433f37b247e4d",
+    "bardcore": "5814620b4a8e93a6e21141ac9d8d8191487eb0ddd8eed49fdb21971c9344721b",
+    "barnalog": "8323d9c71c738e19e3c75a360d6c057e69ed7dbcebaa105da5c006caf16c2a78",
+    "barnasogur": "5a56ac3d4274ca095e19e33d321f33f3b351e34f6aafaaf2c4caa7d870859162",
+    "barnemusikk": "f5a490c66865b4a327f830851b4d1540cc91158dfb882b815af91ed33f10e99a",
+    "barnsagor": "e316090fe6e5a3ca992ca5ce5e5465d393db827ff895e27be6b3b2986ed867b4",
+    "barockinterpreten": "641c790ddf99d4c5739a0d9819a06dfe1d7e783450bef1ef415b243edc91acd4",
+    "basel_indie": "af62f3e7a83461ee80be8174906f41eb78e8c3d8705fd7aa4ac2b9751fac849c",
+    "bases_de_freestyle": "c1c90111cd5b52c7d96b884095efd0ac1caf4f68f771b14b2f252e750db823a3",
+    "batak": "aa7da81493e1a31284d1d9995174a5f2008573c7d2416ac0f638cd0bc948887f",
+    "bath_indie": "3a249d5ae38cc676d824b2f9c475795b19e7d695b072c0a92e5f1c279eec27f5",
+    "baton_rouge_indie": "380d64a94ff4b3d4234167a1f5f3b0e9bb3d4c134d622ae0c493af89db5d4c57",
+    "batswana_traditional": "3d378e97c60aa1ed39c7103a7f43e91150474150355a38460d6403515d2e1b16",
+    "bay_area_indie": "a8413d50e3bbc90e19839f4db4644f02ceb923f63fcbe5e535fce95582d44010",
+    "bboy": "e02a00d8cbd81717329effc78cd3eaa659aa8ce9253fd301e834da0312d56da4",
+    "beat_poetry": "e73f6eae5ef2980ac05a3fdbb5ccb0c7ac5d9de8be5b81b9f9a0d07e6648cb40",
+    "beatboxing": "eeebcfa0304d0b8ec98309d2546b850aca2c5c7ab6b0f188f83748bd19dfa31f",
+    "beatdown": "a436b614c33eee84ae68f3b1f80766a7a8f6529bc21192112d9676deb0449228",
+    "beatlesque": "ce2eb7323a4c6c73e2d84c37cc6e5b0096741cccbaf3187041fa1b1b6b080752",
+    "beats": "ce5c4b443f178fcc47f66c1354fa070efab1378dcd64d46152da60baa7775f72",
+    "belarusian_indie": "bbd594eba18118d353b4316e961324b1d51c64f2849c6aa6db54a80187575e4d",
+    "belfast_indie": "c74e39ad69e90a89c3b0991e2849fb3b0e7960208a0b7cb23c85485e389c4752",
+    "belgian_experimental": "b80b022f4ec74481cc692b33886a0dae1c294d7419a0296bdb25dbc78e22b177",
+    "belgian_indie": "887a41d6b286fe79f47adce642bb8afab02284d07380c9a9686fb87381cb92ad",
+    "belgian_new_wave": "a68abaa0710fb56f5a3c303a9eabfeeba2e51b9e3a99217d70c31d976c6ad5f3",
+    "belo_horizonte_indie": "1505ddad8c2428ed55da5c24408049286a7303018db1772d96718a1cce577c8e",
+    "bemani": "5d1a1fb6dd6fa31bffca21f3d03b3d92fb9c498c6633ff374ffa92ab9a82b4c1",
+    "bergamo_indie": "5610f828fdc2ee0404c0dc63e2c3ef5d8672aba22da3a36b0629ea6c7212ba10",
+    "bergen_indie": "ca5df838ba6e208ab4e6b940327ec3f3f9f1e7df0d6b1200e34596027cf0dee7",
+    "bern_indie": "40a2244e4a849d9b5149c1f361ee59e80e32622e9bdb7ac72e0bd9111f1cf4e9",
+    "bernu_dziesmas": "69fe178f3494d1b073f939406ce47a5484b2d13ced647763312845af851e383c",
+    "bible": "2b08a38f169a6d1ba9ec4254908087ac9f90aebf008d7f93526fef52cee5e996",
+    "binaural": "844cce2b16ab8bad57a782d27bb9c023824401a55807c7151370c160bce952c7",
+    "birdsong": "296aafe74e10183d33f0b5e2faacf8f00a3d22ff4c9d42f06ae62f759d9756ca",
+    "birmingham_indie": "92364431433055d486fcf98019e8b377b4881f3cd8f819c3f8491856c7b9727a",
+    "birthday": "d31d7433cf3e1e231b7874e9d8edf8494356134d3e8f08f9585333d510c04265",
+    "bisaya_indie": "5cc515d1965141b8dcb43f7f58c183c7e001b8ed3b79b4d7db3cc54f474de4fd",
+    "black_n_roll": "c0200f9843777de074ea186d22594443595f9796036a68a3cf361d58b85042c9",
+    "black_comedy": "3159bd939b628c079aaf457384cb7ebf1c26234a7ac21c3a4346af8d37bc1a1f",
+    "black_death": "cffccea7572c84ba12cf3de368080b7d63323aa7cd9aba333afb9d6c949ebff7",
+    "black_noise": "3c2a5aa0192e001a26f378595531f930d2a84a564efda2ea6332be2191514715",
+    "black_sludge": "7d1c86671ec2d47aeb7f4bd9c04afb0a1381360404cd52bfe2bf3aa538127ac1",
+    "black_thrash": "e99bec8fa6a3ce43de605692ceacf5ed2d9805ca66ce7f5da025c3354325be96",
+    "blackened_crust": "72a88f0048a483240052f6328a29a06ca53cbe824477b7a98db21943dac00a9b",
+    "blasmusik": "8abb0ff7ddeb9a4cb1cbc610263a271abc3e9389e7179fb820df6a217fde451e",
+    "boeremusiek": "b368027da3789b25ffdad8d560827c349886beebc7a2d4fa9e1a9250aaf57013",
+    "bohol_indie": "57589cbfc83247dad53a65f588d46878f9b8a3029513190fbdc8639ccb2c82c3",
+    "boom_bap_brasileiro": "a3b6387d7034f515b2245e5c0a41d45d9a3f9a340defc66c2dbea7a88ab66a6e",
+    "bornehistorier": "ec5143c25a2d65fc55b1c06b86418eb21bfc7b3d81ede050cdd37ea2c5c4991b",
+    "bornesange": "104fcdf2e1d3a89215e319f892116f13d10e39c6a41540fff48c2a997ff25b02",
+    "bosnian_indie": "b1fba0ed06109fd6cf42fe24251ff501ad29ad86a4f0b48b77201a5430f7b670",
+    "bossa_nova_cover": "4e970559bdb42d8fcc481d994bfa82d1bcab4d5c326b9340fe58c0b1e44e586c",
+    "boston_indie": "db466a3469cd619c0b6e5f928ab5980494f03392a491dce46f69fbb975e82e52",
+    "boy_soprano": "d417e68f6350f16c9b9bcf979cd9807a7634acba4888578a500c198acb08d0e6",
+    "braindance": "33b467d0566066cd1736cea303cfde6fba8d862e508d3381ca189fed404f518a",
+    "brasilia_indie": "20e302b0f9c7e97ba449e086f40dcdf489d9cffb88f6019b1ddecaa23b9115b3",
+    "brass_band_brasileiro": "8bea73813c427a6da5bb2e04e2f0377469a0ad5c93970043efef27c3935d3b52",
+    "brass_quintet": "283e300ca7fb50353d19aef4312304ea0764b3d3f288eef5560ae739315d2f03",
+    "brazilian_boogie": "fe937abebb6e06b09773292e2f1ecb20fc11fd9948148c15d99d579140b46038",
+    "brazilian_experimental": "40d5ac4b7226429e123c96dfdb043453d16cbee39448bc6871ea79ca59fec785",
+    "brazilian_indie": "a5f4610d2e7829009f094c0d780fa3a4ecfec587db5914f5d643f589593f1d8b",
+    "brighton_indie": "01b7e947ccb7d048d492151b1b561fa36f6d60ae131bc87efd6d2e5ea2df93e4",
+    "brisbane_indie": "7ca6e2c45645de3fbbd5cc9760ee998863f21545e1458c21f4f42580e5db5158",
+    "bristol_indie": "e6ee7a3bab84fb9aba086009a445d1f30318123b31a439ce8f2dfe90b489bdab",
+    "british_children_s_music": "b76933139e4e161ccc9c6cadf928e8de0f2218651026754544125a928467bf30",
+    "british_comedy": "40e7e21d459b3761cc68013e97ad606ed133962dfb5da12a0d1fc1dc7a48f1f3",
+    "british_electroacoustic": "7a61571bedc9e61166ab220d92424be88476830551adc0d44d99652d9de4ac98",
+    "british_experimental": "6248b7e1764a81ff780c958637d27094688765461ac243687edab51d298a88fd",
+    "british_soundtrack": "f79c66b53786a59bf789874229c116b9b176b5f50b116f6a22729954721d8b95",
+    "britpop_revival": "fabc3b271c218bb9e05011a23a1fdcdd9dd166e0ea3770eca0faaff09cd15ad6",
+    "brno_indie": "d82bf8ca2112972aae0a518925630845b2b92797effba5ea513bba15c0c49046",
+    "broken_transmission": "85c65c7a2923c331d513d2d663d489f0e98f089aca0136cd883ba829d361d997",
+    "brooklyn_indie": "6dc3d7c13f473f6401f6ad7d25467dc3c0f18e90015fe7afde5aec76eeae076e",
+    "bruneian_indie": "dccb22de7de38ad5fb2885990a88a737128924b4d28026c73f6351463dd7e603",
+    "bubblegrunge": "a7a3bea54e4c850c9132e08f8f4ebac701f410d46f971b6d18725ebb21d50acb",
+    "buffalo_ny_indie": "516a1e591b87422823bc1b418c229c58854f24ad74c257035edc7a23f4dee8eb",
+    "bulgarian_experimental": "0a1c5813e40bd8ef522eea66de9037c1dbb5993b5067acba2b13c1e2a6a60cbf",
+    "bulgarian_indie": "3cbf1cfb66451329c0f35a61dca1a306d2783b94f8d9a2274adf82eaf2e862fe",
+    "burkinabe_traditional": "85f9df456d4ca5a341d98205448b25dc5f18d5d93528526d79f46ff92b339c70",
+    "burundian_traditional": "dafc69fe782de6b13fa2378ac79442705b9e97c35a3a57149c0c9602eb28e7d5",
+    "bury_st_edmunds_indie": "f59ebb6f3439e75325f6f58b174803b0261e949fbf6c744e1208f5ae8c431d07",
+    "calgary_indie": "3cfb0d83e175b5522c431880867d331f7de1bce0522394369917fda659aa3033",
+    "cambridgeshire_indie": "84fdfb714987513cb90328196a06324324f304a48857e664ca3271d8de2ad90c",
+    "canadian_ccm": "df6c95dc04e8b01fe3d65f8a4e529b5057bcf92ecc8b25ff0c34fe5b38b3868b",
+    "canadian_comedy": "efb3ba3070517b63965e976b7ce077a05f3b04a4d1a858dfa1873b3eb1ab0486",
+    "canadian_electropop": "b9bbe314f02f7feb5c8b82e68146e834a93a11c998316deb1c538e844af6ac8f",
+    "canadian_experimental": "eafffcf6a185069bc0c25ac9d5426d876c7d98906e26916b5aa2e570326165f6",
+    "canadian_indie": "31999a1dc76089c071c89083487a981b40e2e8f373eac3ae2d28c0c0c12da642",
+    "canadian_indigenous_music": "20301dfd024fd02c0f73e8c69a0da95fa0dc592f191265d1300a7ec839576d2a",
+    "canadian_latin": "527de1c5c06620d2f942ee264cd407b618fb8245af10caab5b11bcf3f7776369",
+    "canadian_soundtrack": "7bd3e2b7357e3ba098a23b484d3789c1c36f7edc8ad95d7ea503a23f25bea149",
+    "canberra_indie": "0b019d4185ddb962f61c347422b0d21b928ee9dacdea9f60cb89142bd9e504b7",
+    "cancion_infantil_latinoamericana": "7d0985605911020c237c60044314976bc48274022d6ac082b50dad32b4437763",
+    "cancion_infantil_mexicana": "0fd37162ec307519858a9569ce709749d95597fa5fac60d2b8c115117f34003e",
+    "cancoes_infantis": "c5f11b24d255b03f1142f7e953a47138d111c96b86eaa885fa1353b1ab689f27",
+    "cantautora_argentina": "baddd28e3dbf9e03ff65811597167fbe9f3c0008603a6a639930fa2d5ca1d2e7",
+    "canzone_siciliane": "576ced9850d59a1b917966e3f59791da3fed073e83737a5debceb0750f97a484"
+  },
+  "hash_method": "UTF-8 JSON, sort_keys=True, ensure_ascii=False, comma/colon separators.",
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "zills_sagat",
+        "name": "Zills / sagat (Middle Eastern finger cymbals)",
+        "family": "percussion",
+        "class": "idiophone",
+        "axes": {
+          "pitchFix": -1,
+          "sustain": 0,
+          "polyphony": -1,
+          "harmonicity": -2,
+          "register": 1,
+          "range": -2,
+          "articulation": 2,
+          "transduction": -2,
+          "dynamics": 1
+        },
+        "short": "zills finger cymbals",
+        "parts": [
+          {
+            "id": "zills_sagat_articulation",
+            "name": "Finger-cymbal articulation",
+            "variants": [
+              {
+                "id": "zills_sagat_open_ringing",
+                "default": true,
+                "name": "Open ringing finger-cymbal strikes",
+                "descriptors": ["open-ringing", "finger-cymbal-strikes"],
+                "match_tokens": ["metallic", "percussive-attack"]
+              },
+              {
+                "id": "zills_sagat_damped_short",
+                "name": "Damped short finger-cymbal clicks",
+                "descriptors": ["damped-short", "finger-cymbal-clicks"],
+                "match_tokens": ["metallic", "percussive-attack"]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "id": "zills_sagat",
+        "name": "Zills / sagat (Middle Eastern finger cymbals)",
+        "kind": "instrument",
+        "source": "primary_rights_verified_instrument_context",
+        "source_page": "https://www.metmuseum.org/art/collection/search/501003",
+        "source_title": "Sagat(zills),89.4.382a–d",
+        "photographer_credit": "The Metropolitan Museum of Art; Crosby Brown Collection,1889",
+        "image_url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/501003/2300988/main-image",
+        "thumb_url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/501003/2300988/main-image",
+        "license": "CC0",
+        "license_raw": "CC0 1.0 Public Domain Dedication",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "credit": "The Metropolitan Museum of Art; Crosby Brown Collection,1889, Sagat(zills),89.4.382a–d, CC0 1.0 Public Domain Dedication",
+        "matched_label": "Museum-identified Syrian sagat(zills),shown as a four-piece finger-cymbal set; generic historical object context,not recording provenance.",
+        "match_confidence": "high"
+      },
+      "photo": {
+        "manifest": {
+          "id": "zills_sagat",
+          "name": "Zills / sagat (Middle Eastern finger cymbals)",
+          "kind": "instrument",
+          "source": "primary_rights_verified_instrument_context",
+          "source_page": "https://www.metmuseum.org/art/collection/search/501003",
+          "source_title": "Sagat(zills),89.4.382a–d",
+          "photographer_credit": "The Metropolitan Museum of Art; Crosby Brown Collection,1889",
+          "image_url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/501003/2300988/main-image",
+          "thumb_url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/501003/2300988/main-image",
+          "license": "CC0",
+          "license_raw": "CC0 1.0 Public Domain Dedication",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "credit": "The Metropolitan Museum of Art; Crosby Brown Collection,1889, Sagat(zills),89.4.382a–d, CC0 1.0 Public Domain Dedication",
+          "matched_label": "Museum-identified Syrian sagat(zills),shown as a four-piece finger-cymbal set; generic historical object context,not recording provenance.",
+          "match_confidence": "high"
+        },
+        "rights": {
+          "source_page": "https://www.metmuseum.org/art/collection/search/501003",
+          "source_title": "Sagat(zills),89.4.382a–d",
+          "photographer_credit": "The Metropolitan Museum of Art; Crosby Brown Collection,1889",
+          "license": "CC0",
+          "license_raw": "CC0 1.0 Public Domain Dedication",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "credit": "The Metropolitan Museum of Art; Crosby Brown Collection,1889, Sagat(zills),89.4.382a–d, CC0 1.0 Public Domain Dedication",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Historical image used unchanged. Public-domain/CC0 reuse; credit and source retained. No share-alike requirement applies."
+        },
+        "full": {
+          "requested_url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/501003/2300988/main-image",
+          "status": "downloaded_and_verified",
+          "http_status": 200,
+          "content_type": "image/jpeg",
+          "bytes": 62799,
+          "sha256": "8b5657a7f9d14c942311dfe2e9cf2cc6ab82493c7cf241e4a8d48f36bac7d3aa",
+          "dimensions": [1200, 675],
+          "checked_date": "2026-10-02"
+        },
+        "thumbnail": {
+          "requested_url": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/501003/2300988/main-image",
+          "status": "downloaded_and_verified",
+          "http_status": 200,
+          "content_type": "image/jpeg",
+          "bytes": 62799,
+          "sha256": "8b5657a7f9d14c942311dfe2e9cf2cc6ab82493c7cf241e4a8d48f36bac7d3aa",
+          "dimensions": [1200, 675],
+          "checked_date": "2026-10-02"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "observation": "Four small metal finger cymbals arranged as two overlapping pairs on a grey background; raised centers,central holes and surface wear are visible."
+        },
+        "delivery_note": "The same verified downloaded image serves full and thumbnail roles. No separate resized-byte transfer is claimed.",
+        "revalidation": {
+          "checked_date": "2026-10-02",
+          "rights": "Met object501003 freshly rechecked: Sagat(zills), Syrian, Idiophone-Concussion, Public Domain. Historical exactURL/SHA256/dimensions/visual receipts retained."
+        }
+      },
+      "dependency_rationale": "Needed by positively credited finger-cymbal role of belly_dance ordinal1956. Existing ching is Thai/Khmer and is not an equivalent sagat/zills record. New own part is isolated to the new instrument; no shared family-part edit proposed."
+    }
+  ],
+  "photo_audit": "100 tradition images plus zills: exact inherited verified byte/hash/dimension/visual receipts, freshly checked primary rights and applicable instrumental context. No fresh download or new personal visual inspection claimed. Network photo transfers blocked by proxy; no unverified new image accepted. Source packet receipts retained verbatim and exact URL equivalence checked; prior photographs unchanged.",
+  "runtime_review_artifact": "data-only-024-runtime-review.json",
+  "validation_status": "All stated local checks passed; required exact-head CI pending. Original pipeline and engine unchanged.",
+  "continuation_cursor": {
+    "allocation_group_id": "119",
+    "next_ordinal": 2967,
+    "next_exact_label": "cape breton indie",
+    "note": "Earlier unresolved labels remain in routing ledger; four reviewed119 carryovers reserved for025."
+  },
+  "source_sha256": {
+    "references/02_instruments.js": "94e645a71a7165e5d2ea4b9c1f1e1a7721c8632d6a7f0926e6bd76f3657c71dc",
+    "references/05_traditions.js": "c85c827096073f8198c399166dbcbf387750c18fb76667fd61bfd953315be0bd",
+    "references/06_extras.js": "70452493e7031d65dddaae759bf308cc3da0ebe7420c1377215ba49eca1262a3",
+    "references/_image_manifest.json": "4b2d4e69e4196fee548b3a58071b2866e8ffb17b005094ed9f772b23f95bb15b",
+    "references/_tradition_signatures.json": "3731d353604d439f4329db304c2830b6c8237583446894de362f98cd1abff045",
+    "data/geo.json": "f03ed11902f4c2a2fc5ecbde4783dbf1e55bc094844cbbf1000d0d3baffe2baa"
+  },
+  "baseline_sha256": {
+    "references/02_instruments.js": "052a883e8a486f528b3d6004663f0e174e21488a94b9a6cf2b9e5fde66a5c34a",
+    "references/05_traditions.js": "20c9b73863adc135a67856af2c392d8666dbd58c83c40a8b9ef0db61a0cb39f5",
+    "references/06_extras.js": "cfee828ab18663219a7406550190c90175f5ce66c144c550f14796c4340d65ed",
+    "references/_image_manifest.json": "3af0e0f1b5aea1ecc5127b349863fb1cd6fbcb44fb9265e29f15dd3e9e21fb71",
+    "references/_tradition_signatures.json": "be10aa1de25977926dea25869ae3d66cc68bee5c17aadaaf0765a5c94c354b07",
+    "data/geo.json": "a38497e2f3aae25d9c979805ff4c7c5ac5aecbfdd5a49eb41b1442be1c1401ee"
+  },
+  "append_only_scope_proof": {
+    "predecessor": "627dc64e1e9ff0eba85e2bcc03e797fd7840b955",
+    "head": "627dc64e1e9ff0eba85e2bcc03e797fd7840b955",
+    "frozen_sha256": "a833be116e9e56e8470d7c510dd3110e5a4bff9ac2b64fa31fa06ddb8a06800f",
+    "counts": {
+      "raw_traditions_old_unchanged": 4938,
+      "raw_instruments_old_unchanged": 1471,
+      "old_extras_unchanged": 4938,
+      "merged_instruments_old_unchanged": 1471,
+      "data/geo.json_old_keys": 4938,
+      "references/_tradition_signatures.json_old_keys": 2916,
+      "old_images_unchanged": 6359,
+      "new_images": 101
+    },
+    "additions": 100,
+    "instrument_additions": ["zills_sagat"],
+    "runtime_independent": {
+      "cards": 337,
+      "effective_parts": 3459,
+      "flat_pins": 3216,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "zills": {
+      "id": "zills_sagat",
+      "name": "Zills / sagat (Middle Eastern finger cymbals)",
+      "family": "percussion",
+      "class": "idiophone",
+      "axes": {
+        "pitchFix": -1,
+        "sustain": 0,
+        "polyphony": -1,
+        "harmonicity": -2,
+        "register": 1,
+        "range": -2,
+        "articulation": 2,
+        "transduction": -2,
+        "dynamics": 1
+      },
+      "short": "zills finger cymbals",
+      "parts": [
+        {
+          "id": "zills_sagat_articulation",
+          "name": "Finger-cymbal articulation",
+          "variants": [
+            {
+              "id": "zills_sagat_open_ringing",
+              "default": true,
+              "name": "Open ringing finger-cymbal strikes",
+              "descriptors": ["open-ringing", "finger-cymbal-strikes"],
+              "match_tokens": ["metallic", "percussive-attack"]
+            },
+            {
+              "id": "zills_sagat_damped_short",
+              "name": "Damped short finger-cymbal clicks",
+              "descriptors": ["damped-short", "finger-cymbal-clicks"],
+              "match_tokens": ["metallic", "percussive-attack"]
+            }
+          ]
+        }
+      ],
+      "_ownParts": [
+        {
+          "id": "zills_sagat_articulation",
+          "name": "Finger-cymbal articulation",
+          "variants": [
+            {
+              "id": "zills_sagat_open_ringing",
+              "default": true,
+              "name": "Open ringing finger-cymbal strikes",
+              "descriptors": ["open-ringing", "finger-cymbal-strikes"],
+              "match_tokens": ["metallic", "percussive-attack"]
+            },
+            {
+              "id": "zills_sagat_damped_short",
+              "name": "Damped short finger-cymbal clicks",
+              "descriptors": ["damped-short", "finger-cymbal-clicks"],
+              "match_tokens": ["metallic", "percussive-attack"]
+            }
+          ]
+        }
+      ]
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent VM evaluates raw predecessor and worktree tables; original merge applied to both. Original seeder effective pins compared with valid explicit overrides, default:true only, and per-instrument chain_amp resolution. Image identity is kind+id.",
+      "zills": "Met object501003 freshly read: Sagat(zills), Syrian, brass/bronze, Idiophone-Concussion, Public Domain. New own articulation part isolated; appropriate open-ringing/damped-short alternatives. Historical image receipt retained, no new byte download claimed.",
+      "docs": "Reviewed diff AGENTS,README,SKILL,index,atlas,package,connector docs,llms: catalog counts only; llms tradition count awaits build_discovery. No modified workflow,test,engine or shared family-part source.",
+      "limitation": "Source semantics independently reviewed for118/119; other allocations rely on separate peer reports. Full API/regression/exact-head CI still separate required gates."
+    }
+  },
+  "local_checks": {
+    "passed": [
+      "reference validation5038/1472",
+      "new actualapp/connector100×4format parity",
+      "all old4938importedcards and1471instrumentcards unchanged",
+      "signatures",
+      "duplicates",
+      "frozen descriptorDF check",
+      "prefaces79/79",
+      "slotpicks4/4",
+      "apprecipes56/56",
+      "app/nodeequivalence8/8",
+      "historicalEveryNoise pilot",
+      "audit",
+      "lint",
+      "full originalAPI build jobs2 671.4seconds",
+      "staticAPI contracts5038/1472",
+      "HTML andatlas artifacts rebuilt",
+      "full recipe regression1149/1149 after three individually reviewed snapshots",
+      "fullatlas gate",
+      "documentation counters/paths/commands/behaviors",
+      "geography first96+second24 published traditions",
+      "format check",
+      "Independent all4938oldAPI and100newAPI preservation review"
+    ],
+    "pending": ["required exact-head CI including realbrowser andartifactfreshness"],
+    "superseded_attempts": "Initial regression1146/1149 failed; three changes individually reviewed and only those snapshots updated. Initial API process completed from pre-correction source while finalbuild was running; earlyAPI contract saw15 stale rows and is not counted passed. Final jobs2 build completed exit0 and later contract passed."
+  },
+  "snapshot_review_artifact": "data-only-024-snapshot-review.json",
+  "snapshot_review_status": "Three individually reviewed solver-neighbor changes accepted; complete1149/1149 serial rerun passed.",
+  "full_primary_api": {
+    "traditions": 5038,
+    "instruments": 1472,
+    "failed": 0,
+    "jobs": 2,
+    "seconds": 671.4,
+    "contract_pass": true
+  },
+  "complete_recipe_suite": {
+    "fixtures": 1149,
+    "passed": 1149,
+    "exit_code": 0,
+    "serial": true
+  },
+  "publication_schedule": "One fully generated/reviewed data-only tree; merge only after requiredCI passes exacthead. Realbrowser andartifactfreshness gates remain requiredCI.",
+  "prior_api_review": {
+    "artifact": "data-only-024-api-review.json",
+    "changed_payloads": 19,
+    "recipe_changes": 8,
+    "unprotected_generated_slot_changes": 28,
+    "protected_pin_changes": 0,
+    "environment_changes": 0,
+    "roster_changes": 0,
+    "unchanged_old_instrument_payloads": 1471
+  },
+  "independent_reviews": [
+    "data-only-024-append-only-review.json",
+    "data-only-024-runtime-pin-review.json",
+    "data-only-024-runtime-review.json",
+    "data-only-024-snapshot-review.json",
+    "data-only-024-api-review.json"
+  ]
+}
