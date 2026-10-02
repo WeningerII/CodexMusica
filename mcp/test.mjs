@@ -8358,9 +8358,20 @@ try {
       0,
       'check answers at the brief verb exit even with unjudged pairs'
     );
-    assert.equal(plain.certified, false, 'sun/silver is unjudged under the broad default');
-    assert.equal(plain.coverage.certified, false);
-    assert.deepEqual(plain.coverage.refused_obligations, ['rhyme:3:4:1']);
+    // REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule
+    // 5; measured, as test_verbs.py §39): sun/silver is JUDGED under the
+    // broad default now — no whole reading of the two words holds any
+    // relation — so the plain run certifies with a SCHEME_VIOLATION on
+    // [3, 4], and the declared alliteration below is still what removes it.
+    // superseded: certified false, refused_obligations ['rhyme:3:4:1'].
+    assert.equal(plain.certified, true, 'sun/silver is judged under the broad default');
+    assert.equal(plain.coverage.certified, true);
+    assert.deepEqual(plain.coverage.refused_obligations, []);
+    assert.deepEqual(
+      plain.findings.filter((f) => f.severity === 'flag').map((f) => [f.code, f.locations]),
+      [['SCHEME_VIOLATION', [3, 4]]],
+      'and judged a violation under the default'
+    );
     const structured = await callText('lyric_check', {
       lines: stLines,
       groups: '1,2;3,4',
