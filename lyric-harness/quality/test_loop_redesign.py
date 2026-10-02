@@ -71,6 +71,9 @@ Sections:
      partway never regresses the accepted lines; three kills at one step
      end at one position (what the connector counts as `no_progress_calls`)
      and a call with time still finishes the same run.
+  8. A group question's menus are built across calls (§2.8 E, S11): a stop
+     before the second member's one-move menu keeps the first, and the next
+     call builds only the missing one, to the same fields.
 """
 
 import copy
@@ -996,11 +999,12 @@ def test_safe_point_stops():
                              ("before a menu", _first(base, "menu"))):
             if where is not None:
                 stops.append((label, where))
-        check(f"{name}: the uninterrupted run builds menus member by member "
-              f"({between!r} twice in a row somewhere), so a stop between "
-              f"them can be placed",
-              _first_between(base, between) is not None,
-              str([c["steps"] for c in base])[:400])
+        if between == "menu":
+            check(f"{name}: the uninterrupted run builds a batch's menus "
+                  f"member by member ('menu' twice in a row), so a stop "
+                  f"between them can be placed",
+                  _first_between(base, between) is not None,
+                  str([c["steps"] for c in base])[:400])
         for label, (call, k) in stops:
             run = _inproc(lines, mand, rd, plan={call: (k, False)})
             got = (_prompts(run), _summary(run[-1]["result"]))
@@ -1029,6 +1033,42 @@ def test_safe_point_stops():
                 check(f"{name}: ...the stopped state keeps the menu already "
                       f"built for the first member ({built} saved)",
                       built >= 1)
+
+
+def test_group_menus_resume_member_by_member():
+    """§2.8 E (S11), at the mechanism: a group question's one-move menus are
+    built through the loop's own reviser proxy, one costly step per member,
+    and saved by draft. A stop before the second member's menu keeps the
+    first; a fresh proxy that loads the saved menus builds only the second,
+    and both equal the uninterrupted ones. None of this fixture's whole runs
+    asks a group question whose members both need a menu, so it is driven
+    here directly."""
+    lines, mand = LIVE, _m(LIVE_GROUPS, 4, "class:RHYME")
+    R = Reviser()
+    want = [R.member_place_field(list(lines), mand, ln, gi)
+            for ln, gi in ((1, 0), (3, 2))]
+    live = {}
+    first = LP._VerdictCache(R, {}, live, deadline=_StopAt(2))
+    got1 = first.member_place_field(list(lines), mand, 1, 0)
+    try:
+        first.member_place_field(list(lines), mand, 3, 2)
+        stopped = False
+    except LP.SafePointStop as stop:
+        stopped = stop.step == "member menu"
+    saved = json.loads(json.dumps(first.menus_on(lines)))
+    check("a stop falls before the second member's menu, and the first "
+          "member's menu is saved", stopped and len(saved) == 1,
+          f"stopped {stopped}, saved {len(saved)}")
+    built = []
+    second = LP._VerdictCache(R, {}, {}, deadline=_StopAt(None))
+    second.load_menus(saved)
+    got = [second.member_place_field(list(lines), mand, ln, gi)
+           for ln, gi in ((1, 0), (3, 2))]
+    built = second._deadline.steps
+    check("...the next call builds only the missing menu (one costly step)",
+          built == ["member menu"], str(built))
+    check("...and both menus equal the uninterrupted ones, field for field",
+          got1 == want[0] and got == want, "menus differ")
 
 
 def test_kills_keep_the_run():
@@ -1102,6 +1142,7 @@ if __name__ == "__main__":
                  test_resume_equals_replay,
                  test_resume_through_the_verb,
                  test_safe_point_stops,
-                 test_kills_keep_the_run)
+                 test_kills_keep_the_run,
+                 test_group_menus_resume_member_by_member)
     sys.exit(run_sections(_SECTIONS, "TEST_LOOP_REDESIGN_SHARD", FAILS,
                           "ALL PASS"))
