@@ -5,7 +5,7 @@
   "lineage": "Classic dutch pop is represented here by Dick van Altena and Marcel Smulders — Seasons in the Sun acoustic core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic classic dutch pop, functional Song, pop rock branch. unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 258,
-  "score": 16.148,
+  "score": 16.117,
   "config": {
     "traditions": [
       "classic_dutch_pop"
@@ -21,7 +21,7 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 13.036,
+          "acoustic_technique": 13.0045,
           "string_tuning": 0,
           "top_wood": 0.39,
           "back_sides": 0.063,

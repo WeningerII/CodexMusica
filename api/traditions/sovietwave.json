@@ -3,29 +3,29 @@
   "name": "Sovietwave",
   "family": "electronic",
   "lineage": "Russian- and Ukrainian-language internet synth genre that coalesced on VKontakte and Bandcamp circa 2013-2016 around Хмурый (Khmury), Маяк, and СOSMORTUS, built from slow 90-110 BPM analog-poly-synth arpeggios, string-machine pads, LinnDrum-style gated snares, and sampled Soviet television, cosmonaut-broadcast and newsreel speech, with sparse Russian vocals or none at all, expressing nostalgia for a Soviet space-age future that never arrived.",
-  "recipe": "classic 2013-2016 sovietwave, experimental Elec, retro aesthetic branch, ambient experimental electric, pop rock synthpop metropopolis new romanticism. thick, breath veiled tone, slow rate, interlocked note trading. singing lead analog poly singing lead analog mono synth, string machine, classic source linndrum, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 510,
-  "score": 251.36,
+  "recipe": "classic 2013-2016 sovietwave, experimental Elec, retro aesthetic branch, ambient experimental electric, pop rock synthpop ambient techno ambient house. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly analog mono synth, sustained pad string machine, classic source linndrum, field textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 512,
+  "score": 187.925,
   "config": {
     "traditions": [
       "sovietwave",
-      "metropopolis",
-      "new_romantic"
+      "ambient_techno",
+      "ambient_house"
     ],
     "instruments": [
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 17.650000000000002,
-          "poly_archetypes": 3.4600000000000004,
-          "poly_voices": 0.30000000000000004,
-          "poly_maker_lineage": -0.28
+          "electronic_technique": 7.610000000000001,
+          "poly_archetypes": 0.9099999999999999,
+          "poly_voices": 0.32999999999999996,
+          "poly_maker_lineage": -1.435
         }
       },
       {
@@ -37,27 +37,27 @@
           "sm_voicing": "sm_cellos"
         },
         "scores": {
-          "electronic_technique": 1.9849999999999997,
-          "sm_voice_count": 2.4050000000000002,
-          "sm_chorus": 2.195,
+          "electronic_technique": 7.610000000000001,
+          "sm_voice_count": 2.8600000000000003,
+          "sm_chorus": 2.8449999999999998,
           "sm_voicing": 0.8450000000000001
         }
       },
       {
         "id": "analog_mono_synth",
         "slots": {
-          "electronic_technique": "electronic_lead_line",
+          "electronic_technique": "electronic_acid_squelch",
           "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "minimoog",
-          "mono_maker_lineage": "mono_korg_kato"
+          "mono_maker_lineage": "mono_arp_pearlman"
         },
         "scores": {
-          "electronic_technique": 17.650000000000002,
+          "electronic_technique": 5.25,
           "mono_oscillator": 0.30000000000000004,
-          "mono_filter": 1.4300000000000002,
-          "mono_archetypes": 1.885,
-          "mono_maker_lineage": -1.085
+          "mono_filter": 2.035,
+          "mono_archetypes": 1.04,
+          "mono_maker_lineage": -1.435
         }
       },
       {
@@ -65,11 +65,11 @@
         "slots": {
           "linndrum_voice": "linndrum_snare",
           "linndrum_context": "linndrum_hiphop_sample",
-          "linndrum_production_origin": "linndrum_lm_2_canonical"
+          "linndrum_production_origin": "linndrum_lm_1_earlier"
         },
         "scores": {
-          "linndrum_voice": 2,
-          "linndrum_context": 2.425,
+          "linndrum_voice": 1.25,
+          "linndrum_context": 2.125,
           "linndrum_production_origin": -0.1750000000000001
         }
       },
@@ -77,17 +77,17 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
-          "sampler_archetypes": "roland_s750",
+          "sampler_archetypes": "emu_emax",
           "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 5.690000000000001,
-          "sampler_archetypes": 1.5549999999999997,
-          "sampler_bit_depth": 1.9899999999999998,
-          "sampler_workflow": 6.815000000000001,
-          "sampler_classic_context": 24.049999999999997
+          "electronic_technique": 11.240000000000002,
+          "sampler_archetypes": 0.30000000000000004,
+          "sampler_bit_depth": 1.04,
+          "sampler_workflow": 11.940000000000003,
+          "sampler_classic_context": 24.082499999999996
         }
       },
       {
@@ -99,34 +99,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 23.009999999999994,
-          "voice_quality": 7.540000000000001,
+          "voice_register": 4.635000000000001,
+          "voice_quality": 7.930000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.21,
-          "voice_articulation": 19.564999999999998,
-          "voice_microtone": 21.824999999999996,
-          "voice_tradition": 15.219999999999999,
-          "voice_mechanism_compound": 4.029999999999999,
-          "voice_estill_quality": 3.2500000000000004,
-          "voice_speech_song": 24.569999999999993,
-          "voice_ensemble_config": 20.539999999999992,
-          "voice_ornament_system": 0.35,
-          "voice_pitch_organization": 1.6249999999999998,
-          "voice_processing_chain": 7.295,
-          "voice_multitrack_stack": 5.915
+          "voice_vibrato": 2.8600000000000003,
+          "voice_articulation": 14.299999999999995,
+          "voice_microtone": 14.49499999999999,
+          "voice_tradition": 13.812500000000002,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 1.885,
+          "voice_speech_song": 17.09499999999999,
+          "voice_ensemble_config": 14.884999999999994,
+          "voice_ornament_system": 0.45499999999999996,
+          "voice_pitch_organization": 0.9449999999999998,
+          "voice_processing_chain": 10.045000000000002,
+          "voice_multitrack_stack": 1.7549999999999994
         }
       }
     ],

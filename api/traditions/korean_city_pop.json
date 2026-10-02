@@ -5,7 +5,7 @@
   "lineage": "Seoul urban-pop strain of roughly 1983-1992, running from Kim Hyun-sik and Lee Moon-sae through Kim Wan-sun, Bit-gwa Sogeum, Sanullim's late records and arranger Kim Myung-gon — Korean-language songwriting set to imported AOR and funk-pop harmony, played by Seoul session bands on Rhodes, DX7, slap electric bass and gated LinnDrum or acoustic kit at 95-115 BPM, with saxophone obbligati, chorused clean guitar and a slightly drier, more mid-forward mix than its Tokyo counterpart because of smaller domestic studios and cassette-first distribution.",
   "recipe": "classic North American mid-1980s korean city pop, functional Song, east Asian pop branch, pop rock yacht rock, pop rock synthpop metropopolis. thick, breath veiled tone, straight onset, interlocked note trading. neoprene rubber tips canonical Rhodes stage suitcase mid 1970s close pickup gap more bark dirt block chord rhodes electric, yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, classic source linn electronics lm 2 linndrum canonical 1982 1984 8 bit sample rom linndrum, nickel silver bright projecting yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
   "recipe_chars": 997,
-  "score": 553.413,
+  "score": 551.835,
   "config": {
     "traditions": [
       "korean_city_pop",
@@ -38,17 +38,17 @@
           "voice_quality": 5.785,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.27525,
+          "voice_vibrato": 7.089999999999999,
           "voice_articulation": 21.06,
-          "voice_microtone": 53.51775,
-          "voice_tradition": 39.992000000000004,
+          "voice_microtone": 53.475,
+          "voice_tradition": 39.305,
           "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 3.965,
           "voice_speech_song": 26.585,
           "voice_ensemble_config": 22.425,
           "voice_ornament_system": 8.75,
           "voice_pitch_organization": 1.3349999999999997,
-          "voice_processing_chain": 15.057749999999999,
+          "voice_processing_chain": 15.014999999999997,
           "voice_multitrack_stack": 9.3925
         }
       },
@@ -66,7 +66,7 @@
           "keyboard_technique": 32.16,
           "rhodes_model": 5.525,
           "rhodes_use": 5.005,
-          "rhodes_tine_material": -0.2800000000000001,
+          "rhodes_tine_material": -0.31000000000000016,
           "rhodes_hammer_tip": 3.640000000000001,
           "rhodes_pickup_position": 2.715
         }
@@ -82,7 +82,7 @@
         },
         "scores": {
           "electronic_technique": 33.85,
-          "fm_algorithm": 3.63025,
+          "fm_algorithm": 3.4450000000000003,
           "fm_modulator_ratio": 0,
           "fm_polyphony": 1.235,
           "fm_model_lineage": 24.764999999999997
@@ -104,7 +104,7 @@
           "amp_make": 12.479999999999997,
           "body_wood": 3.12,
           "pickup_config": 1.04,
-          "string_type": 23.3345,
+          "string_type": 23.36,
           "scale_length_b": 2.73,
           "fretted_or_not": 0.65,
           "bass_technique": 19.395,
@@ -129,8 +129,8 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 34.55525,
-          "amp_make": 11.210249999999998,
+          "electric_technique": 34.37,
+          "amp_make": 11.024999999999999,
           "body_wood": 2.925,
           "neck_wood": 2.925,
           "fretboard": 2.875,
@@ -154,7 +154,7 @@
         "scores": {
           "linndrum_voice": 3.125,
           "linndrum_context": 1.8199999999999998,
-          "linndrum_production_origin": 3.12
+          "linndrum_production_origin": 3.105
         }
       },
       {
@@ -175,7 +175,7 @@
           "sax_body_alloy": 3.215,
           "sax_mouthpiece": 0.39,
           "sax_technique": 2.795,
-          "sax_maker_school": 1.625
+          "sax_maker_school": 1.58
         }
       },
       {

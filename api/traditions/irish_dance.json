@@ -1,0 +1,138 @@
+{
+  "id": "irish_dance",
+  "name": "Irish dance",
+  "family": "vernacular",
+  "lineage": "Irish dance is represented by Lúnasa — contemporary instrumental dance-tune core. One documented branch receives an authored present-day studio realization.",
+  "recipe": "classic irish dance, improv On Frame, Celtic traditional branch. silver wound lamb gut core fiddle, breathy dance driving irish wooden flute, full band boxwood pre 1900 historical Irish cane arundo donax canonical Irish leather canonical Irish bellows fed philadelphia canonical wide bore Irish American uilleann pipes, dreadnought acoustic guitar, upright bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 463,
+  "score": 43.824,
+  "config": {
+    "traditions": [
+      "irish_dance"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "silver_wound_lamb_gut_fiddle",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "sul_pont",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 3.7315,
+          "fiddle_strings": 1.055,
+          "fiddle_bow": 0.105,
+          "fiddle_mute": 1.105,
+          "fiddle_articulation": 0.378,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "irish_wooden_flute",
+        "slots": {
+          "irish_wooden_flute_pattern": "irish_wooden_flute_keyless_folk",
+          "irish_wooden_flute_keys": "irish_wooden_flute_four_key",
+          "irish_wooden_flute_idiom": "irish_wooden_flute_sligo",
+          "irish_wooden_flute_material": "irish_wooden_flute_cocuswood"
+        },
+        "scores": {
+          "irish_wooden_flute_pattern": 4.95,
+          "irish_wooden_flute_keys": 1.885,
+          "irish_wooden_flute_idiom": 10.104999999999999,
+          "irish_wooden_flute_material": -0.05
+        }
+      },
+      {
+        "id": "uilleann_pipes",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "uilleann_set": "full_set",
+          "uilleann_pipes_pitch": "uilleann_pipes_flat",
+          "uilleann_chanter_wood": "uilleann_boxwood_pre_1900",
+          "uilleann_reed": "uilleann_cane_canonical",
+          "uilleann_bag": "uilleann_leather_canonical",
+          "uilleann_lineage": "uilleann_taylor_egan"
+        },
+        "scores": {
+          "wind_articulation": 3.805,
+          "uilleann_set": 2.9899999999999998,
+          "uilleann_pipes_pitch": 1.95,
+          "uilleann_chanter_wood": 2.6,
+          "uilleann_reed": 2.6,
+          "uilleann_bag": 2.6,
+          "uilleann_lineage": 2.6
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 0,
+          "top_wood": 0.37124999999999997,
+          "back_sides": 0.22049999999999997,
+          "string_acoustic": 0.4485
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "synthetic_upright",
+          "upright_play": "slap_upright"
+        },
+        "scores": {
+          "upright_strings": 0.03525,
+          "upright_play": 0.4095
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "bowed_technique": "bowed_celtic_session"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Interactive score composed for game hardware, from the 1980 arcade and 1983-1994 console chip era — Koichi Sugiyama, Nobuo Uematsu, Koji Kondo and Yuzo Koshiro writing three-to-eight-voice PSG and FM parts under strict polyphony and memory limits — through the CD and streamed-audio era after 1995; the persistent markers are short seamlessly loopable cues, fast arpeggiated pseudo-chords standing in for missing voices, wide leaps and rapid modal modulation to stay memorable at 120-160 BPM, and layered or branching arrangements that respond to player state.",
   "recipe": "classic Asian mid-1980s video game music, experimental Elec, retro aesthetic branch, pop rock synthpop, western modern art music metropopolis post-minimalism. yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm singing lead wavetable oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, singing lead digital subtractive, field textural sampler, plain gut lamb gut whole lamb method sitka spruce hard rock maple violin orchestral, yamaha xeno modern Japanese heavy one piece matched to monette horn legato trumpet, synthetic timpani, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble. bedroom. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 897,
-  "score": 228.58,
+  "score": 224.065,
   "config": {
     "traditions": [
       "video_game_music",
@@ -41,7 +41,7 @@
         "scores": {
           "electronic_technique": 9.959999999999999,
           "wt_position": 2.4050000000000002,
-          "wt_family": 2.08,
+          "wt_family": 1.8850000000000002,
           "wt_polyphony": 1.3
         }
       },
@@ -69,7 +69,7 @@
         },
         "scores": {
           "electronic_technique": 9.959999999999999,
-          "va_archetypes": 0.45499999999999996,
+          "va_archetypes": 0.35,
           "digital_subtractive_context": 21.97
         }
       },
@@ -84,8 +84,8 @@
         },
         "scores": {
           "electronic_technique": 4.575,
-          "sampler_archetypes": 4.54,
-          "sampler_bit_depth": 3.575,
+          "sampler_archetypes": 4.09,
+          "sampler_bit_depth": 3.185,
           "sampler_workflow": 5.25,
           "sampler_classic_context": 25.024999999999995
         }
@@ -97,11 +97,11 @@
           "orch_strings": "plain_lamb_gut_violin",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
-          "orch_varnish": "french_polish_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
-          "orch_articulation": "arco_orch",
+          "orch_articulation": "sul_pont_orch",
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
@@ -109,12 +109,12 @@
           "orch_strings": 1.2799999999999998,
           "orch_top_wood": 8.379999999999999,
           "orch_back_wood": 10.27,
-          "orch_varnish": 5.325,
-          "orch_setup_period": 7.3100000000000005,
+          "orch_varnish": 5.25,
+          "orch_setup_period": 6.95,
           "orch_bow": 0.65,
-          "orch_bow_stick": 5.5,
+          "orch_bow_stick": 5.2,
           "orch_articulation": 0.65,
-          "orch_rosin": 7.285
+          "orch_rosin": 6.085000000000001
         }
       },
       {
@@ -131,11 +131,11 @@
         "scores": {
           "wind_articulation": 1.25,
           "brass_size": 0.65,
-          "trumpet_mouthpiece": 6.0649999999999995,
+          "trumpet_mouthpiece": 6.215,
           "brass_mute": 1.25,
           "trumpet_technique": 1.25,
-          "trumpet_bell_metal": 0.435,
-          "trumpet_maker_school": 2.73
+          "trumpet_bell_metal": 0.195,
+          "trumpet_maker_school": 2.43
         }
       },
       {
@@ -147,8 +147,8 @@
         },
         "scores": {
           "percussion_technique": 1.625,
-          "timpani_size": 1.2349999999999999,
-          "timpani_head": 2.08
+          "timpani_size": 0.95,
+          "timpani_head": 1.735
         }
       },
       {
@@ -161,9 +161,9 @@
         },
         "scores": {
           "choir_size": 8.58,
-          "choir_polyphonic_configuration": 2.9899999999999998,
+          "choir_polyphonic_configuration": 2.675,
           "choir_regional_canonical_configuration": 3.6399999999999997,
-          "choir_ensemble_repertoire": 2.7649999999999997
+          "choir_ensemble_repertoire": 2.66
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "North American and northern-European bedroom-to-label electronic pop of 2011-2016 — Purity Ring, Grimes, Chvrches and Sylvan Esso — built at 90-125 BPM on pitched vocal samples, reverb-drenched bell and marimba-timbre synth leads, sub-bass and trap-derived hi-hat rolls under a high, breathy, heavily reverbed and layered female lead, arrangements assembled in the box with almost no acoustic sourcing and no live drum performance.",
   "recipe": "classic mid-2010s etherpop, experimental Elec, pop experimental branch, pop rock synthpop, ambient experimental electric, lofi experimental electric shiver pop wonky pop. thick, breath veiled tone, fast rate, interlocked note trading. lead plus third fifth 3 part stack heavy bus compression glue post 2010 multitrack vocal stack, singing lead wavetable glitched textural granular singing lead analog poly synth, sampler drum machine, high-gain-saturation sub bass monosynth acid bass, glockenspiel. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 607,
-  "score": 288.136,
+  "score": 286.638,
   "config": {
     "traditions": [
       "etherpop",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 31.074999999999992,
+          "voice_register": 30.93999999999999,
           "voice_quality": 5.200000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.65,
           "voice_articulation": 19.11,
           "voice_microtone": 29.799999999999997,
-          "voice_tradition": 27.129999999999995,
+          "voice_tradition": 27.429999999999996,
           "voice_mechanism_compound": 2.145,
           "voice_estill_quality": 2.85875,
           "voice_speech_song": 23.464999999999996,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.3999999999999995,
           "voice_pitch_organization": 3.5100000000000016,
           "voice_processing_chain": 8.459375,
-          "voice_multitrack_stack": 6.638124999999999
+          "voice_multitrack_stack": 6.759999999999999
         }
       },
       {
@@ -76,7 +76,7 @@
         "scores": {
           "electronic_technique": 23.809374999999996,
           "wt_position": 2.9899999999999998,
-          "wt_family": 2.4093750000000003,
+          "wt_family": 2.2593750000000004,
           "wt_polyphony": 2.535
         }
       },
@@ -104,10 +104,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 6.890000000000001,
-          "wave_acid": 2.3643750000000003,
+          "electronic_technique": 6.845000000000001,
+          "wave_acid": 2.169375,
           "filter_acid": 2.169375,
-          "accent_acid": 0.135
+          "accent_acid": 0.09
         }
       },
       {
@@ -118,9 +118,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 12.065,
-          "granular_use": 0.24,
-          "granular_synth_source": 5.813124999999999
+          "electronic_technique": 11.825,
+          "granular_use": 0,
+          "granular_synth_source": 5.273125
         }
       },
       {
@@ -129,12 +129,12 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
           "electronic_technique": 23.809374999999996,
           "poly_archetypes": 5.330000000000001,
-          "poly_voices": 0.54,
+          "poly_voices": 0.21,
           "poly_maker_lineage": -1.435
         }
       },

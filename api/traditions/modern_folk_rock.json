@@ -5,7 +5,7 @@
   "lineage": "Modern folk rock is represented here by Houndmouth — From the Hills Below the City era. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic modern folk rock, functional Song, folk rock branch. marshall plexi amp British rock amp basswood alnico clean humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 377,
-  "score": 94.741,
+  "score": 94.898,
   "config": {
     "traditions": [
       "modern_folk_rock"
@@ -115,7 +115,7 @@
           "voice_ensemble_config": 0.18,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.29474999999999996,
+          "voice_processing_chain": 0.4515,
           "voice_multitrack_stack": 0.063
         }
       },

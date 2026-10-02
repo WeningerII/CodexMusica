@@ -5,7 +5,7 @@
   "lineage": "Classic italian pop is represented here by Edoardo Bennato — La fata solo performance. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic classic italian pop, functional Song, pop rock branch. solo with instrumental accompaniment. strummed open chord ringing overtones dreadnought acoustic guitar, harmonica. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 279,
-  "score": 17.679,
+  "score": 17.483,
   "config": {
     "traditions": [
       "classic_italian_pop"
@@ -21,9 +21,9 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 12.286,
+          "acoustic_technique": 12.2545,
           "string_tuning": 0,
-          "top_wood": 0.2955,
+          "top_wood": 0.1905,
           "back_sides": 0.063,
           "string_acoustic": 0.3045
         }
@@ -64,7 +64,7 @@
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.18
+          "voice_multitrack_stack": 0.225
         }
       },
       {
@@ -82,7 +82,7 @@
           "harmonica_comb": -0.035,
           "harmonica_reed": -0.035,
           "harmonica_technique": -0.1,
-          "harmonica_maker_school": 0.42,
+          "harmonica_maker_school": 0.315,
           "harmonica_tuning": 0.9814999999999999
         }
       }

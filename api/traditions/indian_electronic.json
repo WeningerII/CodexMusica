@@ -1,0 +1,103 @@
+{
+  "id": "indian_electronic",
+  "name": "Indian electronic",
+  "family": "electronic",
+  "lineage": "Indian electronic is represented by Charanjit Singh — Synthesizing: Ten Ragas to a Disco Beat. One documented branch receives an authored present-day studio realization.",
+  "recipe": "classic indian electronic, electronic Dance. analog poly synth, monosynth acid bass, TR-808. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 193,
+  "score": 1.105,
+  "config": {
+    "traditions": [
+      "indian_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "poly_archetypes": "jupiter_8",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_roland_jupiter"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "poly_archetypes": 0,
+          "poly_voices": 0.0225,
+          "poly_maker_lineage": 0.5814999999999999
+        }
+      },
+      {
+        "id": "monosynth_acid_bass",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "wave_acid": "saw_acid",
+          "filter_acid": "opening_acid",
+          "accent_acid": "subtle_accent_acid"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "wave_acid": 0,
+          "filter_acid": 0,
+          "accent_acid": 0
+        }
+      },
+      {
+        "id": "drum_machine_808",
+        "slots": {
+          "tr808_voice": "tr808_kick_long",
+          "drum_machine_808_context": "drum_machine_808_rb",
+          "tr808_production_origin": "tr808_tr_8s_modern"
+        },
+        "scores": {
+          "tr808_voice": -0.035,
+          "drum_machine_808_context": 0.246,
+          "tr808_production_origin": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_maker_lineage"
+      ],
+      "monosynth_acid_bass": [
+        "electronic_technique"
+      ],
+      "drum_machine_808": [
+        "tr808_voice"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "poly_archetypes": "jupiter_8",
+      "poly_maker_lineage": "poly_roland_jupiter",
+      "tr808_voice": "tr808_kick_long"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

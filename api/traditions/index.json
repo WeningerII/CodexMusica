@@ -1,5 +1,5 @@
 {
-  "count": 4238,
+  "count": 4338,
   "items": [
     {
       "id": "honky_tonk",
@@ -25428,6 +25428,606 @@
       "name": "Hungarian pop",
       "family": "pop",
       "href": "traditions/hungarian_pop.json"
+    },
+    {
+      "id": "classic_moroccan_pop",
+      "name": "Classic moroccan pop",
+      "family": "pop",
+      "href": "traditions/classic_moroccan_pop.json"
+    },
+    {
+      "id": "classic_portuguese_pop",
+      "name": "Classic portuguese pop",
+      "family": "pop",
+      "href": "traditions/classic_portuguese_pop.json"
+    },
+    {
+      "id": "classic_punjabi_pop",
+      "name": "Classic punjabi pop",
+      "family": "pop",
+      "href": "traditions/classic_punjabi_pop.json"
+    },
+    {
+      "id": "classic_romanian_pop",
+      "name": "Classic romanian pop",
+      "family": "pop",
+      "href": "traditions/classic_romanian_pop.json"
+    },
+    {
+      "id": "classic_russian_pop",
+      "name": "Classic russian pop",
+      "family": "pop",
+      "href": "traditions/classic_russian_pop.json"
+    },
+    {
+      "id": "classic_sinhala_pop",
+      "name": "Classic sinhala pop",
+      "family": "pop",
+      "href": "traditions/classic_sinhala_pop.json"
+    },
+    {
+      "id": "classic_sudanese_pop",
+      "name": "Classic sudanese pop",
+      "family": "pop",
+      "href": "traditions/classic_sudanese_pop.json"
+    },
+    {
+      "id": "classic_tunisian_pop",
+      "name": "Classic tunisian pop",
+      "family": "pop",
+      "href": "traditions/classic_tunisian_pop.json"
+    },
+    {
+      "id": "collage_pop",
+      "name": "Collage pop",
+      "family": "pop",
+      "href": "traditions/collage_pop.json"
+    },
+    {
+      "id": "country_pop",
+      "name": "Country pop",
+      "family": "pop",
+      "href": "traditions/country_pop.json"
+    },
+    {
+      "id": "cypriot_pop",
+      "name": "Cypriot pop",
+      "family": "pop",
+      "href": "traditions/cypriot_pop.json"
+    },
+    {
+      "id": "czsk_viral_pop",
+      "name": "Czsk viral pop",
+      "family": "pop",
+      "href": "traditions/czsk_viral_pop.json"
+    },
+    {
+      "id": "deep_acoustic_pop",
+      "name": "Deep acoustic pop",
+      "family": "pop",
+      "href": "traditions/deep_acoustic_pop.json"
+    },
+    {
+      "id": "deep_brazilian_pop",
+      "name": "Deep brazilian pop",
+      "family": "pop",
+      "href": "traditions/deep_brazilian_pop.json"
+    },
+    {
+      "id": "deep_indie_pop",
+      "name": "Deep indie pop",
+      "family": "pop",
+      "href": "traditions/deep_indie_pop.json"
+    },
+    {
+      "id": "dogri_pop",
+      "name": "Dogri pop",
+      "family": "pop",
+      "href": "traditions/dogri_pop.json"
+    },
+    {
+      "id": "dutch_idol_pop",
+      "name": "Dutch idol pop",
+      "family": "pop",
+      "href": "traditions/dutch_idol_pop.json"
+    },
+    {
+      "id": "ethiopian_pop",
+      "name": "Ethiopian pop",
+      "family": "pop",
+      "href": "traditions/ethiopian_pop.json"
+    },
+    {
+      "id": "experimental_pop",
+      "name": "Experimental pop",
+      "family": "pop",
+      "href": "traditions/experimental_pop.json"
+    },
+    {
+      "id": "finnish_idol_pop",
+      "name": "Finnish idol pop",
+      "family": "pop",
+      "href": "traditions/finnish_idol_pop.json"
+    },
+    {
+      "id": "french_folk_pop",
+      "name": "French folk pop",
+      "family": "pop",
+      "href": "traditions/french_folk_pop.json"
+    },
+    {
+      "id": "gabonese_pop",
+      "name": "Gabonese pop",
+      "family": "pop",
+      "href": "traditions/gabonese_pop.json"
+    },
+    {
+      "id": "gambian_pop",
+      "name": "Gambian pop",
+      "family": "pop",
+      "href": "traditions/gambian_pop.json"
+    },
+    {
+      "id": "ghanaian_pop",
+      "name": "Ghanaian pop",
+      "family": "pop",
+      "href": "traditions/ghanaian_pop.json"
+    },
+    {
+      "id": "greenlandic_pop",
+      "name": "Greenlandic pop",
+      "family": "pop",
+      "href": "traditions/greenlandic_pop.json"
+    },
+    {
+      "id": "guinean_pop",
+      "name": "Guinean pop",
+      "family": "pop",
+      "href": "traditions/guinean_pop.json"
+    },
+    {
+      "id": "guyanese_pop",
+      "name": "Guyanese pop",
+      "family": "pop",
+      "href": "traditions/guyanese_pop.json"
+    },
+    {
+      "id": "hausa_pop",
+      "name": "Hausa pop",
+      "family": "pop",
+      "href": "traditions/hausa_pop.json"
+    },
+    {
+      "id": "hazaragi_pop",
+      "name": "Hazaragi pop",
+      "family": "pop",
+      "href": "traditions/hazaragi_pop.json"
+    },
+    {
+      "id": "hmong_pop",
+      "name": "Hmong pop",
+      "family": "pop",
+      "href": "traditions/hmong_pop.json"
+    },
+    {
+      "id": "icelandic_pop",
+      "name": "Icelandic pop",
+      "family": "pop",
+      "href": "traditions/icelandic_pop.json"
+    },
+    {
+      "id": "idol",
+      "name": "Idol",
+      "family": "pop",
+      "href": "traditions/idol.json"
+    },
+    {
+      "id": "idol_kayo",
+      "name": "Idol kayo",
+      "family": "pop",
+      "href": "traditions/idol_kayo.json"
+    },
+    {
+      "id": "igbo_pop",
+      "name": "Igbo pop",
+      "family": "pop",
+      "href": "traditions/igbo_pop.json"
+    },
+    {
+      "id": "indie_dream_pop",
+      "name": "Indie dream pop",
+      "family": "pop",
+      "href": "traditions/indie_dream_pop.json"
+    },
+    {
+      "id": "indie_psych_pop",
+      "name": "Indie psych-pop",
+      "family": "pop",
+      "href": "traditions/indie_psych_pop.json"
+    },
+    {
+      "id": "indonesian_city_pop",
+      "name": "Indonesian city pop",
+      "family": "pop",
+      "href": "traditions/indonesian_city_pop.json"
+    },
+    {
+      "id": "indonesian_folk_pop",
+      "name": "Indonesian folk pop",
+      "family": "pop",
+      "href": "traditions/indonesian_folk_pop.json"
+    },
+    {
+      "id": "indonesian_indie_pop",
+      "name": "Indonesian indie pop",
+      "family": "pop",
+      "href": "traditions/indonesian_indie_pop.json"
+    },
+    {
+      "id": "indonesian_pop",
+      "name": "Indonesian pop",
+      "family": "pop",
+      "href": "traditions/indonesian_pop.json"
+    },
+    {
+      "id": "industrial_pop",
+      "name": "Industrial pop",
+      "family": "pop",
+      "href": "traditions/industrial_pop.json"
+    },
+    {
+      "id": "inuit_pop",
+      "name": "Inuit pop",
+      "family": "pop",
+      "href": "traditions/inuit_pop.json"
+    },
+    {
+      "id": "irish_pop",
+      "name": "Irish pop",
+      "family": "pop",
+      "href": "traditions/irish_pop.json"
+    },
+    {
+      "id": "italian_adult_pop",
+      "name": "Italian adult pop",
+      "family": "pop",
+      "href": "traditions/italian_adult_pop.json"
+    },
+    {
+      "id": "italian_indie_pop",
+      "name": "Italian indie pop",
+      "family": "pop",
+      "href": "traditions/italian_indie_pop.json"
+    },
+    {
+      "id": "italian_pop",
+      "name": "Italian pop",
+      "family": "pop",
+      "href": "traditions/italian_pop.json"
+    },
+    {
+      "id": "j_idol",
+      "name": "J-idol",
+      "family": "pop",
+      "href": "traditions/j_idol.json"
+    },
+    {
+      "id": "japanese_alternative_pop",
+      "name": "Japanese alternative pop",
+      "family": "pop",
+      "href": "traditions/japanese_alternative_pop.json"
+    },
+    {
+      "id": "japanese_bedroom_pop",
+      "name": "Japanese bedroom pop",
+      "family": "pop",
+      "href": "traditions/japanese_bedroom_pop.json"
+    },
+    {
+      "id": "japanese_dance_pop",
+      "name": "Japanese dance pop",
+      "family": "pop",
+      "href": "traditions/japanese_dance_pop.json"
+    },
+    {
+      "id": "japanese_dream_pop",
+      "name": "Japanese dream pop",
+      "family": "pop",
+      "href": "traditions/japanese_dream_pop.json"
+    },
+    {
+      "id": "japanese_indie_pop",
+      "name": "Japanese indie pop",
+      "family": "pop",
+      "href": "traditions/japanese_indie_pop.json"
+    },
+    {
+      "id": "jazz_pop",
+      "name": "Jazz pop",
+      "family": "pop",
+      "href": "traditions/jazz_pop.json"
+    },
+    {
+      "id": "jewish_pop",
+      "name": "Jewish pop",
+      "family": "pop",
+      "href": "traditions/jewish_pop.json"
+    },
+    {
+      "id": "kannada_pop",
+      "name": "Kannada pop",
+      "family": "pop",
+      "href": "traditions/kannada_pop.json"
+    },
+    {
+      "id": "kashmiri_pop",
+      "name": "Kashmiri pop",
+      "family": "pop",
+      "href": "traditions/kashmiri_pop.json"
+    },
+    {
+      "id": "korean_dream_pop",
+      "name": "Korean dream pop",
+      "family": "pop",
+      "href": "traditions/korean_dream_pop.json"
+    },
+    {
+      "id": "australian_dance",
+      "name": "Australian dance",
+      "family": "electronic",
+      "href": "traditions/australian_dance.json"
+    },
+    {
+      "id": "belarusian_electronic",
+      "name": "Belarusian electronic",
+      "family": "electronic",
+      "href": "traditions/belarusian_electronic.json"
+    },
+    {
+      "id": "boston_electronic",
+      "name": "Boston electronic",
+      "family": "electronic",
+      "href": "traditions/boston_electronic.json"
+    },
+    {
+      "id": "brazilian_edm",
+      "name": "Brazilian edm",
+      "family": "electronic",
+      "href": "traditions/brazilian_edm.json"
+    },
+    {
+      "id": "canadian_electronic",
+      "name": "Canadian electronic",
+      "family": "electronic",
+      "href": "traditions/canadian_electronic.json"
+    },
+    {
+      "id": "czech_electronic",
+      "name": "Czech electronic",
+      "family": "electronic",
+      "href": "traditions/czech_electronic.json"
+    },
+    {
+      "id": "dark_synthpop",
+      "name": "Dark synthpop",
+      "family": "electronic",
+      "href": "traditions/dark_synthpop.json"
+    },
+    {
+      "id": "japanese_viral_pop",
+      "name": "Japanese viral pop",
+      "family": "pop",
+      "href": "traditions/japanese_viral_pop.json"
+    },
+    {
+      "id": "k_pop_ballad",
+      "name": "K-pop ballad",
+      "family": "pop",
+      "href": "traditions/k_pop_ballad.json"
+    },
+    {
+      "id": "kenyan_pop",
+      "name": "Kenyan pop",
+      "family": "pop",
+      "href": "traditions/kenyan_pop.json"
+    },
+    {
+      "id": "kokborok_pop",
+      "name": "Kokborok pop",
+      "family": "pop",
+      "href": "traditions/kokborok_pop.json"
+    },
+    {
+      "id": "korean_pop",
+      "name": "Korean pop",
+      "family": "pop",
+      "href": "traditions/korean_pop.json"
+    },
+    {
+      "id": "deep_idm",
+      "name": "Deep idm",
+      "family": "electronic",
+      "href": "traditions/deep_idm.json"
+    },
+    {
+      "id": "french_synthpop",
+      "name": "French synthpop",
+      "family": "pop",
+      "href": "traditions/french_synthpop.json"
+    },
+    {
+      "id": "early_synthpop",
+      "name": "Early synthpop",
+      "family": "pop",
+      "href": "traditions/early_synthpop.json"
+    },
+    {
+      "id": "belgian_electronic",
+      "name": "Belgian electronic",
+      "family": "electronic",
+      "href": "traditions/belgian_electronic.json"
+    },
+    {
+      "id": "bristol_electronic",
+      "name": "Bristol electronic",
+      "family": "electronic",
+      "href": "traditions/bristol_electronic.json"
+    },
+    {
+      "id": "bulgarian_electronic",
+      "name": "Bulgarian electronic",
+      "family": "electronic",
+      "href": "traditions/bulgarian_electronic.json"
+    },
+    {
+      "id": "chinese_electronic",
+      "name": "Chinese electronic",
+      "family": "electronic",
+      "href": "traditions/chinese_electronic.json"
+    },
+    {
+      "id": "christian_dance",
+      "name": "Christian dance",
+      "family": "electronic",
+      "href": "traditions/christian_dance.json"
+    },
+    {
+      "id": "cologne_electronic",
+      "name": "Cologne electronic",
+      "family": "electronic",
+      "href": "traditions/cologne_electronic.json"
+    },
+    {
+      "id": "colombian_electronic",
+      "name": "Colombian electronic",
+      "family": "electronic",
+      "href": "traditions/colombian_electronic.json"
+    },
+    {
+      "id": "croatian_electronic",
+      "name": "Croatian electronic",
+      "family": "electronic",
+      "href": "traditions/croatian_electronic.json"
+    },
+    {
+      "id": "cuban_electronic",
+      "name": "Cuban electronic",
+      "family": "electronic",
+      "href": "traditions/cuban_electronic.json"
+    },
+    {
+      "id": "danish_electro",
+      "name": "Danish electro",
+      "family": "electronic",
+      "href": "traditions/danish_electro.json"
+    },
+    {
+      "id": "danish_electronic",
+      "name": "Danish electronic",
+      "family": "electronic",
+      "href": "traditions/danish_electronic.json"
+    },
+    {
+      "id": "dark_disco",
+      "name": "Dark disco",
+      "family": "electronic",
+      "href": "traditions/dark_disco.json"
+    },
+    {
+      "id": "icelandic_electronic",
+      "name": "Icelandic electronic",
+      "family": "electronic",
+      "href": "traditions/icelandic_electronic.json"
+    },
+    {
+      "id": "indian_electronic",
+      "name": "Indian electronic",
+      "family": "electronic",
+      "href": "traditions/indian_electronic.json"
+    },
+    {
+      "id": "irish_experimental_electronic",
+      "name": "Irish experimental electronic",
+      "family": "electronic",
+      "href": "traditions/irish_experimental_electronic.json"
+    },
+    {
+      "id": "italian_electronica",
+      "name": "Italian electronica",
+      "family": "electronic",
+      "href": "traditions/italian_electronica.json"
+    },
+    {
+      "id": "japanese_edm",
+      "name": "Japanese edm",
+      "family": "electronic",
+      "href": "traditions/japanese_edm.json"
+    },
+    {
+      "id": "japanese_electronic",
+      "name": "Japanese electronic",
+      "family": "electronic",
+      "href": "traditions/japanese_electronic.json"
+    },
+    {
+      "id": "japanese_idm",
+      "name": "Japanese idm",
+      "family": "electronic",
+      "href": "traditions/japanese_idm.json"
+    },
+    {
+      "id": "korean_electronic",
+      "name": "Korean electronic",
+      "family": "electronic",
+      "href": "traditions/korean_electronic.json"
+    },
+    {
+      "id": "dusseldorf_electronic",
+      "name": "Dusseldorf electronic",
+      "family": "electronic",
+      "href": "traditions/dusseldorf_electronic.json"
+    },
+    {
+      "id": "finnish_electro",
+      "name": "Finnish electro",
+      "family": "electronic",
+      "href": "traditions/finnish_electro.json"
+    },
+    {
+      "id": "finnish_electronic",
+      "name": "Finnish electronic",
+      "family": "electronic",
+      "href": "traditions/finnish_electronic.json"
+    },
+    {
+      "id": "deep_neo_synthpop",
+      "name": "Deep neo-synthpop",
+      "family": "pop",
+      "href": "traditions/deep_neo_synthpop.json"
+    },
+    {
+      "id": "german_dance",
+      "name": "German dance",
+      "family": "electronic",
+      "href": "traditions/german_dance.json"
+    },
+    {
+      "id": "irish_dance",
+      "name": "Irish dance",
+      "family": "vernacular",
+      "href": "traditions/irish_dance.json"
+    },
+    {
+      "id": "finnish_edm",
+      "name": "Finnish edm",
+      "family": "electronic",
+      "href": "traditions/finnish_edm.json"
+    },
+    {
+      "id": "experimental_synth",
+      "name": "Experimental synth",
+      "family": "electronic",
+      "href": "traditions/experimental_synth.json"
     }
   ]
 }

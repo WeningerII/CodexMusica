@@ -3,14 +3,14 @@
   "name": "Darkside Jungle",
   "family": "electronic",
   "lineage": "London 1992-93 reaction against happy hardcore, driven by 4hero, Doc Scott, Goldie's Metalheadz circle and Reinforced Records — 155-165 BPM breakbeats stripped of piano and diva hooks, replaced by minor-key horror-film pads, detuned Reese basslines, reversed cymbals and sparse dread-laden atmospheres cut to dubplate.",
-  "recipe": "classic Western European early-1990s darkside jungle, bass System, uk soundsystem branch, idm glitch experimental electric, techno electronic dance live coding. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. glitched textural sampler, sampler drum machine, sub bass analog poly synth, sub bass monosynth acid bass, turntable. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
-  "recipe_chars": 505,
-  "score": 182.527,
+  "recipe": "classic Western European early-1990s darkside jungle, bass System, uk soundsystem branch, idm glitch experimental electric, techno electronic dance birmingham techno. breath veiled tone, straight note core, interlocked note trading, neutral third half flat. glitched textural sampler, sampler drum machine, sub bass analog poly synth, monosynth acid bass, turntable. brent black community studio london. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 506,
+  "score": 177.142,
   "config": {
     "traditions": [
       "darkside_jungle",
       "glitch_hop",
-      "live_coding"
+      "birmingham_techno"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_hiphop"
         },
         "scores": {
-          "electronic_technique": 14.57,
+          "electronic_technique": 11.695,
           "sampler_archetypes": 2.6650000000000005,
           "sampler_bit_depth": 0.75,
-          "sampler_workflow": 14.375,
-          "sampler_classic_context": 16.2825
+          "sampler_workflow": 11.5,
+          "sampler_classic_context": 16.2175
         }
       },
       {
@@ -41,7 +41,7 @@
         "scores": {
           "electronic_technique": 1.7650000000000001,
           "sample_bitdepth": 0.75,
-          "sample_swing": 8,
+          "sample_swing": 9.5,
           "sample_processing": 3.25
         }
       },
@@ -63,16 +63,16 @@
       {
         "id": "monosynth_acid_bass",
         "slots": {
-          "electronic_technique": "electronic_bass_sub",
+          "electronic_technique": "electronic_acid_squelch",
           "wave_acid": "saw_acid",
           "filter_acid": "closed_acid",
-          "accent_acid": "subtle_accent_acid"
+          "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 5.78,
+          "electronic_technique": 5.949999999999999,
           "wave_acid": 0,
-          "filter_acid": 1.15,
-          "accent_acid": 0
+          "filter_acid": 1.65,
+          "accent_acid": 0.15
         }
       },
       {
@@ -89,40 +89,40 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "mix_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 0.024999999999999967,
-          "voice_quality": 4.940000000000001,
+          "voice_register": 0,
+          "voice_quality": 3.6400000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3649999999999998,
-          "voice_articulation": 14.429999999999996,
-          "voice_microtone": 17.159999999999993,
-          "voice_tradition": 9.425,
-          "voice_mechanism_compound": 3.769999999999999,
-          "voice_estill_quality": 3.185,
-          "voice_speech_song": 14.039999999999996,
-          "voice_ensemble_config": 14.169999999999996,
-          "voice_ornament_system": 2.4050000000000002,
-          "voice_pitch_organization": 2.0149999999999997,
-          "voice_processing_chain": 18.25,
-          "voice_multitrack_stack": 3.802500000000001
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 14.364999999999997,
+          "voice_microtone": 17.09499999999999,
+          "voice_tradition": 8.125000000000002,
+          "voice_mechanism_compound": 4.855,
+          "voice_estill_quality": 2.275,
+          "voice_speech_song": 13.974999999999994,
+          "voice_ensemble_config": 13.649999999999995,
+          "voice_ornament_system": 3.16,
+          "voice_pitch_organization": 2.5350000000000006,
+          "voice_processing_chain": 17.375,
+          "voice_multitrack_stack": 3.347500000000001
         }
       }
     ],
