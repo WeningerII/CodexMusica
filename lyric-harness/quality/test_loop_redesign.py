@@ -58,6 +58,19 @@ Sections:
      (b) T7 on the CLI: an edited earlier answer falls back to replay with
          `cursor_stripped: digest`; a changed run (another argv) falls back
          with `run_key`; neither reaches a different result than a replay.
+  6. A call that nears its deadline stops at a safe point (§2.3b, §2.8 E;
+     T4). A `Deadline` that stops before the k-th costly step — a POSITION,
+     never a time — is placed before a call's first grade, between two
+     members' menus of a batch or group question, between an answer and its
+     verdict, and before a menu. Each stop leaves a saved position; the next
+     call, with no answer, resumes and re-verifies nothing; and every
+     question is byte-identical to the uninterrupted run's. Before the
+     redesign `revise_loop` took no deadline, so this fails there.
+  7. A killed call keeps the run (§2.3c-d; T5): the next call resumes from
+     the last checkpoint and re-verifies nothing; a full replay killed
+     partway never regresses the accepted lines; three kills at one step
+     end at one position (what the connector counts as `no_progress_calls`)
+     and a call with time still finishes the same run.
 """
 
 import copy
@@ -801,6 +814,284 @@ def test_resume_through_the_verb():
           and rec.get("cursor_resumed") is False, str(rec)[:300])
 
 
+# ---------------------------------------------------------------------------
+# 6-7. Safe-point stops and kills, with the real deferred proposer in-process
+# ---------------------------------------------------------------------------
+
+class _Kill(Exception):
+    """A simulated kill: the call dies before the step, and only what it has
+    already printed survives (the connector keeps its last checkpoint)."""
+
+
+class _StopAt(LP.Deadline):
+    """Stops (or kills) before the k-th costly step of ONE call. A position,
+    never a time: the tests assert where a run stopped, not how long it
+    took (§2.3b, B11). With k None it never stops and only logs the steps."""
+
+    def __init__(self, k=None, kill=False):
+        super().__init__(None)
+        self.k, self.kill, self.n, self.steps = k, kill, 0, []
+
+    def should_stop(self):
+        self.n += 1
+        if self.k is not None and self.n == self.k:
+            if self.kill:
+                raise _Kill(self.n)
+            return True
+        return False
+
+    def step(self, name, fn, *a, **kw):
+        self.steps.append(name)
+        return super().step(name, fn, *a, **kw)
+
+
+def _position(st):
+    """The connector's `positionOf`, read off a state (§2.8 E)."""
+    loop = (st.get("cursor") or {}).get("loop") or {}
+    pend = st.get("pending")
+    return json.dumps([loop.get("phase"), loop.get("round"), loop.get("at"),
+                       len(loop.get("menus") or ()),
+                       len(st.get("outcomes") or ()),
+                       len(st.get("group_outcomes") or ()),
+                       len(st.get("dispositions") or ()),
+                       None if not pend else {"kind": pend.get("kind"),
+                                              "record": pend.get("record")}],
+                      sort_keys=True)
+
+
+def _inproc(lines, mand, rd, plan=None, strip=(), calls=200):
+    """Drive a deferred conversation in-process with the real `defer:`
+    proposer, the way the verb and the connector do: one proposer per call,
+    bound to the run, the state file written on a question or a stop, and on
+    a kill only the last printed checkpoint kept. `plan` maps a call index to
+    (k, kill); `strip` names the calls whose saved position is deleted first.
+    -> list of per-call dicts."""
+    import contextlib
+    import io
+    import lyric_harness as LH
+    plan = plan or {}
+    d = tempfile.mkdtemp(prefix="loop-redesign-inproc-")
+    path = os.path.join(d, "state.json")
+
+    def read():
+        with open(path) as fh:
+            return json.load(fh)
+
+    def write(st):
+        with open(path, "w") as fh:
+            json.dump(st, fh, indent=2)
+    out = []
+    for call in range(calls):
+        if call in strip and os.path.exists(path):
+            st = read()
+            st.pop("cursor", None)
+            write(st)
+        before = read() if os.path.exists(path) else None
+        k, kill = plan.get(call, (None, False))
+        dl = _StopAt(k, kill)
+        buf = io.StringIO()
+        rec = {"call": call, "steps": dl.steps, "before": before}
+        with contextlib.redirect_stdout(buf):
+            propose, propose_group, disc = LH._defer_proposer(
+                path, lines=list(lines))
+            resume = disc.bind("t45-run", "t45-scorer")
+            disc.set_deadline(dl)
+            try:
+                res = LP.revise_loop(Reviser(rdecl=rd), list(lines), mand,
+                                     propose=propose,
+                                     propose_group=propose_group,
+                                     resume=resume, deadline=dl)
+                rec.update(kind="done", result=res)
+            except LH._NeedProposal as need:
+                write(disc.state)
+                rec.update(kind="asked", prompt=need.prompt)
+            except LP.SafePointStop as stop:
+                disc.stopped(stop.step)
+                write(disc.state)
+                rec.update(kind="stopped", step=stop.step)
+            except _Kill:
+                cps = [json.loads(ln.split("lyric checkpoint:", 1)[1])
+                       for ln in buf.getvalue().splitlines()
+                       if "lyric checkpoint:" in ln]
+                if cps:
+                    st = cps[-1]
+                    st.pop("transport_token", None)
+                    write(st)
+                rec.update(kind="killed", checkpoints=len(cps))
+        rec["record"] = disc.record()
+        rec["after"] = read() if os.path.exists(path) else None
+        out.append(rec)
+        if rec["kind"] == "done":
+            return out
+        if rec["kind"] == "asked":
+            st = read()
+            pend = st["pending"]
+            cur = st["accepted_lines"]
+            r = pend["record"]
+            if pend["kind"] == "propose":
+                pend["answer"] = " ".join(cur[r["line"] - 1].split()[::-1])
+            else:
+                asked = ([x["line"] for x in r["records"]]
+                         if pend["kind"] == "propose_batch" else r["members"])
+                pend["answer"] = "\n".join(
+                    f"L{n}: " + (" ".join(cur[n - 1].split()[1:])
+                                 if cur[n - 1].startswith("and ")
+                                 else "and " + cur[n - 1]) for n in asked)
+            write(st)
+    raise AssertionError(f"the conversation did not end in {calls} calls")
+
+
+def _summary(r):
+    return (list(r.lines), r.stop_reason,
+            [(x.round_no, [(a.line_no, a.tier, a.accepted, a.reason)
+                           for a in x.attempts],
+              x.fixed_lines, x.resolved_elsewhere) for x in r.rounds])
+
+
+def _prompts(run):
+    return [c["prompt"] for c in run if c["kind"] == "asked"]
+
+
+def _first_between(run, name):
+    """-> (call, k) of the first step `name` whose previous step in the same
+    call was also `name` — a stop between two members' menus — or None."""
+    for c in run:
+        for i in range(1, len(c["steps"])):
+            if c["steps"][i] == name and c["steps"][i - 1] == name:
+                return c["call"], i + 1
+    return None
+
+
+def _first(run, name, skip_calls=0):
+    for c in run[skip_calls:]:
+        if name in c["steps"]:
+            return c["call"], c["steps"].index(name) + 1
+    return None
+
+
+def test_safe_point_stops():
+    print("\n6. a call that nears its deadline stops at a safe point and the "
+          "next call finishes the same run (§2.3b, §2.8 E; T4)")
+    cases = (("ANAPHORA batch", ANAPHORA, _m("AABBCCDD", 8, "class:RHYME"),
+              RV.ReviseDeclaration(max_rounds=2, attempts_per_line=1,
+                                   backtrack_width=0), "menu"),
+             ("COUPLET group", COUPLET, _m("AA", 2, "class:RHYME"),
+              RV.ReviseDeclaration(max_rounds=2, attempts_per_line=1,
+                                   backtrack_width=1), "member menu"),
+             ("LIVE group", LIVE, _m(LIVE_GROUPS, 4, "class:RHYME"),
+              RV.ReviseDeclaration(max_rounds=2, attempts_per_line=1,
+                                   backtrack_width=1), "member menu"))
+    for name, lines, mand, rd, between in cases:
+        try:
+            base = _inproc(lines, mand, rd)
+        except TypeError as e:          # no `deadline` before the redesign
+            check(f"{name}: revise_loop takes a deadline", False, str(e))
+            continue
+        want = (_prompts(base), _summary(base[-1]["result"]))
+        stops = [("before the call's first grade", (1, 1))]
+        for label, where in (("between two members' menus",
+                              _first_between(base, between)),
+                             ("between an answer and its verdict",
+                              _first(base, "verdict", skip_calls=1)),
+                             ("before a menu", _first(base, "menu"))):
+            if where is not None:
+                stops.append((label, where))
+        check(f"{name}: the uninterrupted run builds menus member by member "
+              f"({between!r} twice in a row somewhere), so a stop between "
+              f"them can be placed",
+              _first_between(base, between) is not None,
+              str([c["steps"] for c in base])[:400])
+        for label, (call, k) in stops:
+            run = _inproc(lines, mand, rd, plan={call: (k, False)})
+            got = (_prompts(run), _summary(run[-1]["result"]))
+            st = next((c for c in run if c["kind"] == "stopped"), None)
+            check(f"{name}: a stop {label} (call {call}, step {k}) exits "
+                  f"stopped, and the stopped state holds a saved position",
+                  st is not None and bool((st["after"] or {}).get("cursor")),
+                  str([c["kind"] for c in run]))
+            if st is None:
+                continue
+            nxt = run[run.index(st) + 1]
+            check(f"{name}: ...the next call, with no answer, resumes from "
+                  f"it and re-verifies nothing",
+                  nxt["record"].get("cursor_resumed") is True
+                  and nxt["record"].get("replayed_answers") == 0,
+                  str(nxt["record"]))
+            check(f"{name}: ...and every question is byte-identical to the "
+                  f"uninterrupted run's, with the same draft, stop and "
+                  f"rounds ({len(want[0])} questions)",
+                  got == want,
+                  f"{len(got[0])} vs {len(want[0])} questions; "
+                  f"{got[1][1]} vs {want[1][1]}")
+            if label == "between two members' menus":
+                built = len(((st["after"].get("cursor") or {}).get("loop")
+                             or {}).get("menus") or ())
+                check(f"{name}: ...the stopped state keeps the menu already "
+                      f"built for the first member ({built} saved)",
+                      built >= 1)
+
+
+def test_kills_keep_the_run():
+    print("\n7. a killed call keeps the run; repeated kills at one position "
+          "are reported, never refused (§2.3c-d, §2.8 E; T5)")
+    lines, mand = AABB, _m("AABB", 4, "class:RHYME")
+    rd = RV.ReviseDeclaration(max_rounds=3, attempts_per_line=1,
+                              backtrack_width=1)
+    try:
+        base = _inproc(lines, mand, rd)
+    except TypeError as e:
+        check("revise_loop takes a deadline", False, str(e))
+        return
+    want = (_prompts(base), _summary(base[-1]["result"]))
+    # (a) a kill between an answer and its verdict, then a no-answer call
+    where = _first(base, "verdict", skip_calls=1)
+    call, k = where
+    run = _inproc(lines, mand, rd, plan={call: (k, True)})
+    killed = run[call]
+    nxt = run[call + 1]
+    check("a call killed before judging an answer leaves a checkpoint with a "
+          "saved position", killed["kind"] == "killed"
+          and bool((killed["after"] or {}).get("cursor")),
+          str(killed["kind"]))
+    check("...the next call resumes from it and re-verifies nothing (T2's "
+          "count)", nxt["record"].get("cursor_resumed") is True
+          and nxt["record"].get("replayed_answers") == 0, str(nxt["record"]))
+    check("...and the run asks the same questions and ends the same way",
+          (_prompts(run), _summary(run[-1]["result"])) == want)
+    # (b) a full replay killed partway keeps the furthest draft (B5)
+    call2 = max(c["call"] for c in base if c["kind"] == "asked")
+    replay_steps = len(base[call2]["steps"])
+    run = _inproc(lines, mand, rd, plan={call2: (max(2, replay_steps // 2), True)},
+                  strip={call2})
+    killed = run[call2]
+    inc = (killed["before"] or {}).get("accepted_lines")
+    check("a full replay killed partway keeps the incoming accepted lines "
+          "(never a draft from behind the frontier) and a saved position",
+          killed["kind"] == "killed"
+          and (killed["after"] or {}).get("accepted_lines") == inc
+          and bool((killed["after"] or {}).get("cursor")),
+          f"{killed['kind']}; {(killed['after'] or {}).get('accepted_lines')} "
+          f"vs {inc}")
+    check("...and the next call resumes from the replay's position to the "
+          "same end", run[call2 + 1]["record"].get("cursor_resumed") is True
+          and (_prompts(run), _summary(run[-1]["result"])) == want)
+    # (c) three kills at the same step leave the same position three times —
+    # what the connector counts as `no_progress_calls` — and a fourth call
+    # with time to spare still finishes the run: nothing is refused.
+    call3 = 1
+    run = _inproc(lines, mand, rd,
+                  plan={call3: (1, True), call3 + 1: (1, True),
+                        call3 + 2: (1, True)})
+    pos = [_position(run[c]["after"]) for c in (call3, call3 + 1, call3 + 2)]
+    check("three calls killed before their first grade end at one position "
+          "(the connector reports `no_progress_calls`)",
+          all(run[c]["kind"] == "killed" for c in (call3, call3 + 1, call3 + 2))
+          and len(set(pos)) == 1, str(pos)[:300])
+    check("...and the next call, with time, advances and finishes the same "
+          "run", _position(run[call3 + 3]["after"]) != pos[0]
+          and (_prompts(run), _summary(run[-1]["result"])) == want)
+
+
 if __name__ == "__main__":
     # Dealt and timed through `quality/shard.py`, the one idiom (M-244):
     # TEST_LOOP_REDESIGN_SHARD=k/n runs the sections whose index is k-1 mod n.
@@ -809,6 +1100,8 @@ if __name__ == "__main__":
                  test_every_batch_answer_has_a_standing,
                  test_group_questions_offer_words,
                  test_resume_equals_replay,
-                 test_resume_through_the_verb)
+                 test_resume_through_the_verb,
+                 test_safe_point_stops,
+                 test_kills_keep_the_run)
     sys.exit(run_sections(_SECTIONS, "TEST_LOOP_REDESIGN_SHARD", FAILS,
                           "ALL PASS"))

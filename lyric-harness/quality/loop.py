@@ -1853,21 +1853,80 @@ class _VerdictCache:
     """A reviser proxy that remembers this unit's verdicts so a resumed unit
     never re-verifies an answer it already judged (A6). It keeps exactly what
     the loop reads off a verdict on the deferred path: `accepted` and
-    `reasons`. Everything else is the inner reviser's."""
+    `reasons`. Everything else is the inner reviser's.
 
-    def __init__(self, inner, cache, live, tally=None):
+    IT ALSO HOLDS THE CALL'S SAFE POINTS AND SAVED MENUS (§2.3b, §2.8 A3, E).
+    Every costly call — a grade, a verdict, a menu — goes through `deadline`,
+    which may stop the run before it starts. A menu (`brief` with
+    `target_lines`, `member_place_field`) is kept by the draft it was built
+    on, so a batch or a group question whose menus take more than one call is
+    built across calls, member by member, to the same bytes."""
+
+    def __init__(self, inner, cache, live, tally=None, deadline=None):
         self._inner, self._cache, self._live = inner, cache, live
         self._tally = tally
+        self._deadline = deadline
+        self._menus = {}
 
     def __getattr__(self, name):
         return getattr(self._inner, name)
+
+    def _gate(self, name, fn, *a, **kw):
+        if self._deadline is None:
+            return fn(*a, **kw)
+        return self._deadline.step(name, fn, *a, **kw)
+
+    def menus_on(self, lines):
+        """-> the saved menus built on this exact draft, for the cursor."""
+        h = _draft_key(lines)
+        return [[k, e] for k, (dk, e, _o) in self._menus.items() if dk == h]
+
+    def load_menus(self, rows):
+        for k, e in rows or ():
+            try:
+                self._menus[k] = (json_key_draft(k), e, _menu_decode(e))
+            except (TypeError, KeyError, AttributeError, ValueError):
+                continue
+
+    def _menu(self, key, lines, name, fn, *a, **kw):
+        hit = self._menus.get(key)
+        if hit is not None:
+            return hit[2]
+        out = self._gate(name, fn, *a, **kw)
+        try:
+            enc = _menu_encode(out)
+            if _menu_decode(enc) == out:
+                self._menus[key] = (_draft_key(lines), enc, out)
+                self._live.setdefault("menus", []).append([key, enc])
+        except (TypeError, KeyError, AttributeError, ValueError):
+            pass
+        return out
+
+    def brief(self, lines, mandate, *a, target_lines=None, **kw):
+        if target_lines is None:
+            return self._gate("grade", self._inner.brief, lines, mandate,
+                              *a, **kw)
+        key = repr(("brief", _draft_key(lines),
+                    sorted(int(t) for t in target_lines)))
+        return self._menu(key, lines, "menu", self._inner.brief, lines,
+                          mandate, *a, target_lines=target_lines, **kw)
+
+    def inspect(self, *a, **kw):
+        return self._gate("grade", self._inner.inspect, *a, **kw)
+
+    def member_place_field(self, lines, mandate, line, group_index, **kw):
+        key = repr(("member", _draft_key(lines), int(line), int(group_index)))
+        return self._menu(key, lines, "member menu",
+                          self._inner.member_place_field, lines, mandate,
+                          line, group_index, **kw)
 
     def verify(self, before, after, mandate=None, targeted=None, **kw):
         key = _cursor_key(before, after, targeted)
         hit = self._cache.get(repr(key))
         if hit is not None:
             return {"accepted": hit["accepted"], "reasons": list(hit["reasons"])}
-        res = self._inner.verify(before, after, mandate, targeted=targeted, **kw)
+        res = self._gate("verdict", self._inner.verify, before, after, mandate,
+                         targeted=targeted, **kw)
         if self._tally is not None:
             self._tally["miss"] = self._tally.get("miss", 0) + 1
         row = {"accepted": bool(res["accepted"]),
@@ -1876,6 +1935,135 @@ class _VerdictCache:
         self._live.setdefault("unit_verdicts", []).append(
             [key, row["accepted"], row["reasons"]])
         return res
+
+
+class SafePointStop(Exception):
+    """The call's time is nearly up, so the loop stopped BETWEEN two steps
+    (LOOP_REDESIGN.md §2.3b; exit 5, owner ruling Q3, 2026-10-02). Nothing
+    was half-built: the saved position, the verdicts and the menus already
+    made this call resume it. `step` names the call that was not started."""
+
+    def __init__(self, step):
+        super().__init__(step)
+        self.step = step
+
+
+class Deadline:
+    """When a call must stop, read off an injectable clock (§2.3b, B11).
+
+    `at` is the moment the call is killed, in the clock's own seconds. A step
+    is one gated reviser call (a grade, a verdict, or a menu). The loop stops
+    before a step when the time left is less than the longest step so far
+    plus `stop_cost`, the measured cost of stopping itself (the harness times
+    its own checkpoint and state write). No constant is declared: both terms
+    are measured in the call that uses them. A test passes its own clock and
+    asserts WHERE the run stopped, never how long it took."""
+
+    def __init__(self, at, clock=None):
+        import time
+        self.at = at
+        self.clock = clock if clock is not None else time.time
+        self.longest = 0.0
+        self.stop_cost = 0.0
+
+    def should_stop(self):
+        return (self.at is not None
+                and self.at - self.clock() < self.longest + self.stop_cost)
+
+    def step(self, name, fn, *a, **kw):
+        if self.should_stop():
+            raise SafePointStop(name)
+        t = self.clock()
+        try:
+            return fn(*a, **kw)
+        finally:
+            self.longest = max(self.longest, self.clock() - t)
+
+
+def _draft_key(lines):
+    import hashlib
+    return hashlib.sha256("\n".join(lines).encode("utf-8")).hexdigest()
+
+
+# A SAVED MENU IS THE OBJECT ITSELF, NOT A SUMMARY OF IT (§2.8 A3). A menu is a
+# `Brief` or a `SlotField` built by `brief(target_lines=...)` or
+# `member_place_field`, and the prompt is rendered from every field of it, so
+# it is saved whole and restored whole. Only dataclasses defined in this
+# harness are rebuilt, by setting their saved attributes directly: no
+# constructor runs and no other type can be named. A menu that does not come
+# back equal to itself is not saved; it is rebuilt, which gives the same
+# bytes because a menu is a pure function of the draft and the mandate.
+def _menu_encode(o):
+    import dataclasses
+    import math
+    if o is None or isinstance(o, (bool, str)):
+        return o
+    if isinstance(o, int):
+        return o
+    if isinstance(o, float):
+        if not math.isfinite(o):
+            return {"$f": repr(o)}
+        return o
+    if isinstance(o, list):
+        return [_menu_encode(x) for x in o]
+    if isinstance(o, tuple):
+        return {"$t": [_menu_encode(x) for x in o]}
+    if isinstance(o, frozenset):
+        return {"$fs": [_menu_encode(x) for x in sorted(o, key=repr)]}
+    if isinstance(o, set):
+        return {"$s": [_menu_encode(x) for x in sorted(o, key=repr)]}
+    if isinstance(o, dict):
+        return {"$d": [[_menu_encode(k), _menu_encode(v)] for k, v in o.items()]}
+    if dataclasses.is_dataclass(o) and not isinstance(o, type):
+        cls = type(o)
+        attrs = (vars(o) if hasattr(o, "__dict__")
+                 else {f.name: getattr(o, f.name) for f in dataclasses.fields(o)})
+        return {"$dc": f"{cls.__module__}:{cls.__qualname__}",
+                "a": {k: _menu_encode(v) for k, v in attrs.items()}}
+    raise TypeError(f"a menu holds a {type(o).__name__}, which is not saved")
+
+
+def json_key_draft(key):
+    """-> the draft hash inside a saved menu's key (`repr` of a tuple)."""
+    import ast
+    return ast.literal_eval(key)[1]
+
+
+def _menu_class(name):
+    import dataclasses
+    mod, _, qual = name.partition(":")
+    if not (mod.startswith("quality.") or mod in ("lyric_harness", "__main__")):
+        raise TypeError(f"{name} is not a harness type")
+    obj = sys.modules.get(mod)
+    if obj is None:
+        raise TypeError(f"{name}: module not loaded")
+    for part in qual.split("."):
+        obj = getattr(obj, part)
+    if not (isinstance(obj, type) and dataclasses.is_dataclass(obj)):
+        raise TypeError(f"{name} is not a dataclass")
+    return obj
+
+
+def _menu_decode(v):
+    if v is None or isinstance(v, (bool, str, int, float)):
+        return v
+    if isinstance(v, list):
+        return [_menu_decode(x) for x in v]
+    if "$f" in v:
+        return float(v["$f"])
+    if "$t" in v:
+        return tuple(_menu_decode(x) for x in v["$t"])
+    if "$fs" in v:
+        return frozenset(_menu_decode(x) for x in v["$fs"])
+    if "$s" in v:
+        return {_menu_decode(x) for x in v["$s"]}
+    if "$d" in v:
+        return {_menu_decode(k): _menu_decode(x) for k, x in v["$d"]}
+    cls = _menu_class(v["$dc"])
+    obj = cls.__new__(cls)
+    for k, x in v["a"].items():
+        object.__setattr__(obj, k, _menu_decode(x))
+    return obj
 
 
 def _attempt_to(a):
@@ -1900,8 +2088,12 @@ def _round_from(v):
 
 def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 assume=None, profile=None, propose=None, propose_group=None,
-                resume=None):
+                resume=None, deadline=None):
     """Drive `reviser.brief`/`verify` to convergence. -> `LoopResult`.
+
+    `deadline` (a `Deadline`, deferred writer only) lets a call that nears
+    its time limit stop between two steps with `SafePointStop` rather than be
+    killed mid-step; the saved position resumes it (LOOP_REDESIGN.md §2.3b).
 
     `reviser` is a caller-supplied `Reviser` (its `.rdecl` supplies
     `max_rounds`/`attempts_per_line`/`backtrack_width`) so a caller can tune
@@ -2035,9 +2227,12 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     _live, _unit_cache = {}, {}
     if _position is not None:
         reviser = _VerdictCache(reviser, _unit_cache, _live,
-                                getattr(propose, "verify_tally", None))
+                                getattr(propose, "verify_tally", None),
+                                deadline=deadline)
         _position(_live)
     _resume = resume if isinstance(resume, dict) else None
+    if _resume is not None and _position is not None:
+        reviser.load_menus(_resume.get("menus"))
     _start = 1
     if _resume is not None:
         lines = list(_resume["draft"])
@@ -2066,7 +2261,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             _live.clear()
             _live.update(phase="round_open", round=round_no, draft=list(lines),
                          rounds=[_round_to(r) for r in rounds],
-                         barren=_barren)
+                         barren=_barren, menus=reviser.menus_on(lines))
             if _unit_started is not None:
                 _unit_started()
         if _checkpoint is not None and _here is None:
@@ -2224,7 +2419,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     rounds=[_round_to(r) for r in rounds], barren=_barren,
                     touched_by={str(k): list(v) for k, v in _touched_by.items()},
                     last_accept=list(_last_accept),
-                    unit_verdicts=_carried)
+                    unit_verdicts=_carried, menus=reviser.menus_on(lines))
                 if _unit_started is not None:
                     _unit_started()
             if b.line_no in touched:

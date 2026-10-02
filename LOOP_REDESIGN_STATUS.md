@@ -33,6 +33,24 @@ written and waiting for its tests to run.
 - A test that expects the first call to return a question (exit 4) within 600 s would still not get one. It would get exit 5, and the question about four calls later.
 - The speedups now on the base (`880b3c05`…`50c3a6d4`) act on that menu work directly. The re-timing will say by how much.
 
+### Re-timing on the merged tree (coordinator's request)
+
+One continuation's parts, 24-line fixture, `--relation=class:RHYME`, alone on
+the box. The "before" rows were taken at `84bac53e`, whose base was PR #460
+before `880b3c05`. The "after" rows are at `bb5e606b`, this branch with the
+base merged.
+
+| commit | run | re-brief | verify | next question's exact menu | total |
+|---|---|---|---|---|---|
+| `84bac53e` | cold | 25.8 s | 22.5 s (lower bound: rule 3's field not built) | 197.6 s (0 words) | 249.1 s |
+| `84bac53e` | warm | 22.1 s | 23.5 s (same lower bound) | 160.5 s | 209.6 s |
+| `bb5e606b` | cold | 10.6 s | 26.2 s (the real `verify` after step 1) | **171.7 s (0 words)** | 211.9 s |
+| `bb5e606b` | warm | 2.7 s | 5.5 s (same) | **143.7 s** | 155.1 s |
+
+- The base's speedups take the menu down by **13% cold** and **10% warm**. It still offers 0 words, and it is still most of the call.
+- The re-brief got much faster, especially warm.
+- The two `verify` columns are not the same measurement. The `84bac53e` rows patched `verify` to skip rule 3's field. The `bb5e606b` rows time the real `verify`, which after step 1 builds no menu but does build rule 3's field.
+
 ### Validation of steps 1-4 (run alone, no edits in flight)
 
 Code under test: this branch at `d31dfbb4` (steps 1-4), before the base-branch merge.

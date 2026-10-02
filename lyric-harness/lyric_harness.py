@@ -8410,6 +8410,28 @@ def _defer_proposer(path, lines=None):
     replaying = st["accepted_lines"] != list(lines or ())
 
     def checkpoint(current, round_no, status, **extra):
+        """Print a checkpoint. The call's FIRST one (`started`/`resumed`) is
+        also written to the state file and timed when a deadline is set:
+        a safe-point stop does exactly those two writes, so their measured
+        cost is the `stop_cost` the deadline keeps clear (§2.3b, B12)."""
+        dl = box.get("deadline")
+        if dl is None or status not in ("started", "resumed"):
+            return _checkpoint_now(current, round_no, status, **extra)
+        t0 = dl.clock()
+        _checkpoint_now(current, round_no, status, **extra)
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(st, fh, indent=2)
+            fh.write("\n")
+        dl.stop_cost = max(dl.stop_cost, dl.clock() - t0)
+
+    def stopped(step):
+        """A safe-point stop (exit 5): the last checkpoint holds the stop
+        position, and the verb writes the same state to the file."""
+        live = box["live"] or {}
+        draft = list(live.get("draft") or st["accepted_lines"])
+        _checkpoint_now(draft, live.get("round", st.get("round", 0)), "stopped")
+
+    def _checkpoint_now(current, round_no, status, **extra):
         nonlocal replaying
         if replaying:
             if list(current) != st["accepted_lines"]:
@@ -8450,6 +8472,8 @@ def _defer_proposer(path, lines=None):
         "cursor_resumed": box["resume"] is not None,
         "cursor_stripped": box["strip"]}
     disclosure.bind = bind
+    disclosure.stopped = stopped
+    disclosure.set_deadline = lambda d: box.__setitem__("deadline", d)
     disclosure.state = st                    # the verb writes it on suspension
     return propose, propose_group, disclosure
 
@@ -13461,6 +13485,26 @@ def main():
                 _resume_at = (_bind(_rm_key, _scorer_identity())
                               if _bind is not None and _rm_key is not None
                               else None)
+                # THE SAFE POINT (LOOP_REDESIGN.md §2.3b; exit 5, owner
+                # ruling Q3, 2026-10-02). A deferred run that knows when its
+                # call will be killed stops BETWEEN two steps instead. The
+                # deadline is the one the connector already sets for every
+                # call; nothing here declares a limit of its own.
+                _deadline = None
+                _dl_env = os.environ.get("LYRIC_REQUEST_DEADLINE_MS")
+                if _dl_env and propose_spec.startswith("defer:"):
+                    try:
+                        _dl_at = float(_dl_env) / 1000
+                    except ValueError:
+                        _dl_at = math.nan
+                    if math.isfinite(_dl_at):
+                        _deadline = LP.Deadline(_dl_at)
+
+                def _arm(proposer):
+                    _set = getattr(proposer, "set_deadline", None)
+                    if _set is not None and _deadline is not None:
+                        _set(_deadline)
+                _arm(say_proposer)
                 try:
                     try:
                         result = LP.revise_loop(rv_loop, lines, scheme,
@@ -13470,7 +13514,8 @@ def main():
                                                 profile=rv_profile,
                                                 propose=propose,
                                                 propose_group=propose_group,
-                                                resume=_resume_at)
+                                                resume=_resume_at,
+                                                deadline=_deadline)
                     except LP.CursorMismatch:
                         propose, propose_group, say_proposer = _resolve_proposer(
                             propose_spec, lines=lines, checkpoint_key=_rm_key)
@@ -13478,13 +13523,15 @@ def main():
                         if _b2 is not None:
                             _b2(_rm_key, _scorer_identity(), use=False,
                                 strip="mismatch")
+                        _arm(say_proposer)
                         result = LP.revise_loop(rv_loop, lines, scheme,
                                                 blueprint=bp_path,
                                                 subdivision=subdivision,
                                                 assume=assume,
                                                 profile=rv_profile,
                                                 propose=propose,
-                                                propose_group=propose_group)
+                                                propose_group=propose_group,
+                                                deadline=_deadline)
                 except _JournalCapacity as e:
                     _journal_stop(e, machine=_lyric_run_record(say_memo, say_proposer,
                                   finish_plan if cmd == "finish" else None),
@@ -13516,6 +13563,33 @@ def main():
                                   **_lyric_run_record(say_memo, say_proposer,
                                                      finish_plan if cmd == "finish" else None))
                     sys.exit(4)
+                except LP.SafePointStop as stop:
+                    # EXIT 5 — STOPPED AT A SAFE POINT. Not a 4: nothing is
+                    # asked, and an answer sent to this state would be
+                    # refused. Not a 2: the harness did not fail to answer,
+                    # it ran out of time between two steps and kept
+                    # everything it had done (LOOP_REDESIGN.md §2.3b).
+                    say_proposer.stopped(stop.step)
+                    path = propose_spec.split(":", 1)[1]
+                    with open(path, "w", encoding="utf-8") as fh:
+                        json.dump(say_proposer.state, fh, indent=2)
+                        fh.write("\n")
+                    print(f"\n  STOPPED at a safe point — this call's time was "
+                          f"nearly up, so the loop stopped before its next "
+                          f"step ({stop.step}) instead of being killed in the "
+                          f"middle of it. Nothing is lost: the saved "
+                          f"position, the verdicts and the menus already "
+                          f"built are in {path}.")
+                    print(say_memo())
+                    print(f"  Run the SAME command again with no answer to "
+                          f"continue.\n")
+                    _lyric_result(status="stopped", exit=5,
+                                  stopped_before=stop.step,
+                                  final_draft=list(say_proposer.state.get(
+                                      "accepted_lines") or ()),
+                                  **_lyric_run_record(say_memo, say_proposer,
+                                                     finish_plan if cmd == "finish" else None))
+                    sys.exit(5)
                 except _PR_unavailable as e:
                     # THE FAR SIDE OF THE `call:` SEAM COULD NOT BE REACHED
                     # (M-254). Not a line the writer declined — that parses
