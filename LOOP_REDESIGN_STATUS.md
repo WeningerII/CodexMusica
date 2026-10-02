@@ -1,20 +1,67 @@
 # Revise-loop redesign — status
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
-Last update: 2026-10-02, **Phase 1 closed; Phase 2 (the debate) starting.**
-All four defects are reproduced and scaling is measured at 24, 60 and 104
-lines. One supplementary figure is still running (the 104-line acceptance
-check without menus). The debate does not depend on it.
+Last update: 2026-10-02. **Phase 2: the debate has run. The design did not
+pass as it stood, and it now waits on the owner. WORK IS STOPPED** until a
+message answers the questions below.
+
+## QUESTION FOR THE OWNER
+
+Seven questions. Each changes what a song is judged on, or the connector's
+published contract, so the design cannot settle it. The full facts and my
+recommendations are in `lyric-harness/quality/LOOP_REDESIGN.md` §6. In short:
+
+1. **Batch answers: which order?**
+   - **A.** Judge every member's answer before asking anything new. Every answer gets a verdict at once. But this can change which lines are accepted (independent lines can share a cross-line finding), and on long songs the writer waits through about one call per member.
+   - **B.** Keep today's order and acceptance. Report each answer not yet judged as `pending: waiting on L<i>` (and `not_applied` with the reason when an earlier line already closed its finding).
+   - My recommendation: **B**.
+2. **May the published `folded` field carry new verdict values** (`pending`, `not_applied`) beside accepted / rejected / unknown? Without them the defect cannot be fixed honestly.
+3. **May the harness and connector publish a new exit code 5**, "stopped at a safe point; continue with no answer", so a call nearing its deadline stops cleanly instead of being killed? If no, kills still keep the run through the saved position.
+4. **May `lyric_revise` results report `no_progress_calls`** when two or more calls in a row make no progress? It is a report only, the call is never refused, and no limit is added.
+5. **May `lyric_revise` results report `cursor_stripped: <reason>`** when a saved position could not be used and the run fell back to full replay?
+6. **May the published `lyric_revise` description change** from "each call re-runs the loop from its record" to "each call resumes from its saved, sealed position, or replays its record when that position cannot be trusted; the same questions arrive in the same order either way"?
+7. Two scope questions:
+   - (a) Is it acceptable that the model-writer (kitchen) path keeps full replay, so defects 1 and 3 remain there for now?
+   - (b) Even with every fix here, no 100-line continuation has been shown to fit one 600 s call. One cold grade of the 104-line fixture took 1,307 s (266 s under a declared relation). The per-pair memo covers a whole draft only up to 91 lines. Should this branch also size that memo to the draft, or does that stay under M-240 as its own change?
 
 ## Current phase
 
-**Phase 2 — design and debate.** No production code has changed.
+**Phase 2: design and debate.** No production code has changed.
 
-A design draft is already written, marked pre-debate:
-`lyric-harness/quality/LOOP_REDESIGN.md`. It is not built, and it will be
-revised with the findings below before the debate runs.
+- The design is at **version 2**: `lyric-harness/quality/LOOP_REDESIGN.md`. It takes in every change from the debate's first round, and §5 records the debate.
+- The debate ran 2026-10-02 (Workflow `loop-redesign-debate`, run `wf_57ba5db3-882`): 3 opponents, 1 defender, 2 judges, all read-only and checking against the code.
+- **37 objections** (5 blocking, 25 major, 7 minor). The defender conceded 35 and named 2 as the owner's.
+- **Both judges ruled that version 1 does not pass as is.** Every objection is now either answered by a change in version 2 or named as an owner question.
+- The full record is in `lyric-harness/quality/loop_redesign_phase1/debate_round1.json`.
 
-## What I did
+**What the debate changed most:**
+
+- The saved position (the "cursor") needed more state than version 1 listed:
+  - the rejection history that question bytes depend on;
+  - the input draft's ownership of declared pronunciations;
+  - the round's `judged_open`;
+  - the whole-draft repair phase;
+  - batch staleness;
+  - already-judged verdicts, so they are never re-verified.
+- The seal must cover the whole state, not only the cursor. On the CLI, the cursor is bound to the run's inputs and the scorer's identity.
+- Version 1 marked killed calls as interrupted operations. That is **withdrawn**: it changed a tested contract. A killed call now keeps the run through the sealed position in its last checkpoint.
+- **Withdrawn** as wrong: "batch order moves *when*, never *whether*" (it can change which lines are accepted, hence Q1); "a 100-line declared song fits a call" (not shown); and §2.5's batch-size fix (it already exists since `c91bca12`).
+- **Corrected in my own Phase 1 report:** the 60- and 104-line "couplet" songs were really 4-member groups, because the scheme letters past Z were case-folded. The growth finding stands.
+
+**What the debate could not break:**
+
+- the unit boundary the saved position rests on (within one line's work, no question follows an acceptance);
+- that `verify` can skip its unread offer menus with rule 3 kept exactly;
+- that the safe-point stop adds no cap.
+
+## After the owner answers
+
+1. Version 3 of the design records the answers.
+2. A second, shorter debate round checks version 3 against the code.
+3. The pre-build measurements in `LOOP_REDESIGN.md` §4.3 run: state bytes, one full 104-line continuation, one menu at 60/104 lines, genuine couplet curves.
+4. Only then Phase 3, the build.
+
+## What I did (Phase 1)
 
 - Read `lyric-harness/CLAUDE.md` (the five standing rules, the loop section,
   test discipline) and the song-run reports on `claude/songrun-20-ballad` and
@@ -73,7 +120,11 @@ checkpoint it wrote was round 1, `grading`. By the profile, it was building
 offer menus for every line in the first batch. It was stopped by my session's
 time limit. I did not run it at 60 or 104 lines.
 
-### Replay curves on pasted couplet songs
+### Replay curves on pasted songs
+
+(Corrected after the debate: the 24-line song is real couplets. The 60- and
+104-line songs are 4-member groups, because their scheme letters ran past Z
+and were case-folded. The growth stands.)
 
 Connector defaults, one relation declared (`class:RHYME`), one cold process
 per call.
@@ -129,38 +180,3 @@ So on this box a 100-line song with a declared relation fits a call, and one
 on the undeclared default does not. The declared 104-line report was
 4,167,870 bytes, 26,434 under the connector's 4 MiB output cap.
 
-## What this changes in the design draft
-
-- **Resume from a saved position** still removes the growth (defect 1).
-- **But at 104 lines one cold whole grade alone is 1,307 s**, more than twice
-  the 600 s call deadline. So the per-answer verification cost must come down
-  too, or a long song cannot take even one answer per call. Two measured
-  levers:
-  1. `verify` should stop building offer menus it does not read. It needs a
-     yes/no for one word. This must be exactly equivalent, pinned by a test
-     that compares verdicts.
-  2. The rest is the grader's own whole-draft cost. The per-pair memo that
-     makes warm re-grading cheap holds 4,096 rows per schema, which its own
-     comment says covers a whole draft **only up to 91 lines**. The edge memo
-     switches off past the same size. That cost is the open M-240. The design
-     will state this floor plainly at each length rather than claim to fix it.
-
-## Next
-
-1. `LOOP_REDESIGN.md` now carries all of the above, plus two new parts:
-   - 2.6: `verify` stops building menus it does not read;
-   - 2.7: the floor the design does not remove, including the livelock that
-     one over-deadline verification causes.
-2. **The debate workflow is running** (started 2026-10-02): three independent
-   opponents (A: equivalence and correctness; B: trust, connector, kills and
-   owner boundaries; C: batch, menus, size, and whether long songs are
-   actually served), one defender, two independent judges. All are read-only.
-   Every objection must be answered, or the design changes.
-3. Record the debate's outcome in `LOOP_REDESIGN.md` §5, then build only if
-   it passes.
-
-## Open questions
-
-None for the owner yet. One will likely come: whether the per-pair memo bound
-(4,096 rows, set aside under M-240) may be sized to the draft. Changing it is
-"a behaviour change with its own record". I will put it to the debate first.

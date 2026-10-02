@@ -1,18 +1,20 @@
 # The revise loop, redesigned for long songs
 
-Status: **DRAFT — Phase 2, before the debate.** Nothing here is built yet.
-Written 2026-10-02 on branch `claude/revise-loop-redesign`.
+Status: **DRAFT v2 — after debate round 1. It does not pass yet.** Seven
+questions are the owner's decision (§6), and work has stopped until they are answered.
+Nothing here is built. Written 2026-10-02 on branch `claude/revise-loop-redesign`.
 
 The owner's words: *"the biggest problem is 100+ line songs"*, and *"a new
 revise loop requires a debate workflow for verification, not song runs"*.
 
-This file has five parts:
+This file has six parts:
 
 1. what was measured before anything was designed;
-2. the design: one central change and four fixes;
-3. what stays the same;
-4. what it costs, and the tests that must fail on the old code and pass on the new;
-5. the debate's record.
+2. the design, version 2, after the debate;
+3. what stays the same, and what would change in the connector's published contract;
+4. what it costs, what must still be measured before building, and the tests that must fail on the old code and pass on the new;
+5. the debate's record;
+6. the questions for the owner.
 
 Every figure here comes from a command run on this branch. The commands are in
 `quality/loop_redesign_phase1/` (scratch measurement scripts kept so the
@@ -92,9 +94,16 @@ One whole-draft grade (`song`, cold), alone on the box except where noted:
 an exact offer menu for every independent open line. My session's time limit
 stopped it. It was not run at 60 or 104 lines.
 
-**Replay curves at three lengths.** These use pasted couplet songs, which
-declare one relation (`class:RHYME`), under connector defaults, one cold
-process per call:
+**Replay curves at three lengths.** These use pasted songs that declare one
+relation (`class:RHYME`), under connector defaults, one cold process per call.
+
+**CORRECTED IN THE DEBATE (C4).** The 24-line song is 12 real couplets
+(AABB…L). The 60- and 104-line songs are not: their schemes ran past `Z` into
+lowercase letters, which the mandate case-folds. So L1 is grouped with L2, L53
+and L54, and those two curves measure **4-member groups**, not couplets.
+~~These use pasted couplet songs~~. The growth they show stands. What they
+measure is 4-member groups. Genuine couplet fixtures at 60 and 104 lines are
+on the pre-build list (§4.3).
 
 | lines | seconds per call (answers on record) |
 |---|---|
@@ -132,9 +141,11 @@ A 60-second profile of the warm unpatched check puts **100% of samples** under
 
 `verify` builds and grades the changed line's whole offer menu. It then reads
 three fields from that brief: `slot`, `forbidden_incumbent`, and
-`forbidden_modal`. Only the last needs the menu, and rule 3 asks one question
-of it: is the new word on it (`revise.py` around `verify`, `modal_hits` /
-`modal_kept`).
+`forbidden_modal`. ~~Only the last needs the menu~~ (corrected in the debate,
+A9): both `forbidden_incumbent` and `forbidden_modal` are set only inside the
+offers block (`revise.py`, `brief`). Rule 3 asks of them whether each changed
+line's new word, and each kept incumbent, is on the forbidden list (`revise.py`,
+`verify`, `modal_hits` / `modal_kept`). §2.6 gives the exact rule.
 
 With the menus gone, what remains is the whole-draft re-inspection. 68% of its
 samples are in `relations.whole_vocabulary_pairs`. That is the
@@ -148,414 +159,581 @@ memo). The comment files the scaling question under M-240, which is open.
 
 ---
 
-## 2. The design
+## 2. The design, version 2
 
-### 2.0 The one change everything else rests on: resume from a saved position, not by replay
+Version 1 went to a debate: three opponents, a defender, two judges, all
+checking against the code (§5). This version takes in every change the
+defender conceded and the judges accepted, and every further change the
+judges required.
+
+Where a change needs the owner's ruling, the text says so and points to §6.
+Those parts are **not** design until the owner rules.
+
+### 2.0 The central change: resume from a saved position, not by replay
 
 Today a deferred run's state is a **journal**: the input draft and every answer
-ever given. A continuation re-runs `revise_loop` from round 1 on the input
-draft and replays every answer, re-verifying each, to rebuild the loop's
-position.
+ever given. A continuation re-runs `revise_loop` from round 1 on the input draft
+and replays every answer. That rebuilds each line's offer menu and re-verifies
+each answer, just to get back to where the last call stopped (§1.2: about 94% of
+one measured call).
 
-The redesign adds the **position** to the state, as a field called `cursor`. A
-continuation then starts where the last call stopped.
+The redesign adds the loop's **position** to the state, as a field called
+`cursor`. A continuation starts there.
 
-The journal stays, complete, for audit and for the fallback below.
+The journal stays complete, as the fallback and the audit.
 
-**What the cursor holds.** This is everything `revise_loop` keeps between
-lines, read off `quality/loop.py`:
+**The unit, and why it is sound.** The cursor marks a position between *units*.
+A unit is the work on one line of the round's pass, or one attempt of the
+whole-draft repair. Within one unit, no question is asked after an accepted
+answer:
 
-- `draft`: the draft as the loop now holds it, with its fingerprint.
-- `round`, plus the **pass**: the line numbers of this round's pass, in the order the round opened with. The pass is computed once at round open, on the round-opening draft, so it must be stored rather than re-derived.
-- `at`: the index in the pass of the line whose work is in progress (its "unit").
-- `unit_draft`: the draft when that unit started.
-- the round's own bookkeeping: `touched`, `fixed_this_round`, `resolved_elsewhere`, the `LineAttempt`s so far.
-- the finished rounds (`RoundResult`s) and the barren-round counter, because `_close` and the `no_progress` stop read them.
-- `journal_digest`: a hash of the journal prefix the cursor was taken against, so a cursor cannot be paired with a different journal.
+- `_try_tier1` returns on its first acceptance (`loop.py:1150-1153`);
+- every exit of `_try_tier2` does the same (`:1458-1461`, `:1600-1603`, `:1675-1678`);
+- group-first falls through to tier 1 only when `not attempt.accepted` (`:2186`);
+- the escalation runs only on `not attempt.accepted` (`:2262`);
+- the whole-draft repair `break`s on acceptance (`:1956-1960`).
 
-Things the loop also holds but that are *re-derived* rather than stored,
-because each is a pure function of the draft and the mandate:
+Opponent A checked every path and could not break this (§5). So every question
+inside a unit is asked against the unit's starting draft.
 
-- the round's `briefs`;
-- `whole` (the whole-draft findings);
-- `brief_lines` / `latest_open`.
+**What the cursor holds.** Stored, and covered by the seal (§2.0.1):
 
-The loop already re-derives all of these whenever the draft has moved
-(the M-210 re-brief).
+| field | why |
+|---|---|
+| `phase`: `{pass, at: i}` or `{global, attempt: k}` (and `{batch_fold, …}` if the owner picks §2.2 option A) | where the loop is. The whole-draft repair is not a pass index (A3). |
+| `round`, and the round's **pass**: its line numbers in order | computed once on the round-opening draft, so it cannot be re-derived later |
+| `judged_open` for the round | also computed on the round-opening draft, and read for every re-briefed line (`loop.py:2007-2009`, `:2068-2072`) (A3) |
+| `touched`, `fixed_this_round`, `resolved_elsewhere` | the round's bookkeeping |
+| the finished rounds and the barren-round counter | `_close` and the `no_progress` stop read them. Stored **by reference** into `outcomes` / `group_outcomes`, plus only the strings that cannot be re-derived (A7). |
+| the unit's **judged verdicts** (references into `outcomes`) and its **materialized menu inputs** (the offered and forbidden lists the question was rendered with) | so an answer already judged is never re-verified, and a menu already built is never rebuilt (A6) |
+| each open batch's `batch_stale` verdict, its origin draft's fingerprint, and the running stale count | so the M-183 stale disclosure matches a full replay exactly (A5) |
+| the current draft, as a fingerprint plus a flag when it equals `accepted_lines`, else in full | no second copy of the draft in the common case (A7) |
+| `journal_digest` over the whole journal | so later answers are still looked up after a resume (B5) |
 
-**What a continuation does with it.**
+Re-derived on resume, not stored:
 
-1. Re-brief `unit_draft`.
-2. Enter the round at `at`.
-3. Re-run only the unit in progress. Inside the unit, the deferred proposer still answers from the journal, but the only answers it is asked for are this unit's own:
-   - its tier-1 attempts;
-   - its tier-2 walk, which is bounded by `backtrack_width`.
+- the round's `briefs` and `whole`, from the current draft and the mandate;
+- the defer proposer's rejection history (`last_rej`, `last_grej`). These are rebuilt from `outcomes` / `group_outcomes` by the same rule the `record` hooks apply: the latest (round, attempt) per line or member tuple, dropped if accepted. Question bytes depend on these maps, and a group answer is looked up by a hash of its question, so they must match full replay exactly (A1).
 
-   Answers to earlier lines are never looked up. Their effect is already in `draft`, and their records are already in the round's history.
+**The input draft still owns two things (A2).** The resume entry takes both the
+state's `input_draft` and the cursor's draft. It scopes the reviser with
+`for_revision(input_draft)`, which is where declared pronunciations get their
+origin and so where coverage and certification are judged. It also computes
+`LoopResult.input_n` / `input_fingerprint` from the input, exactly as a full
+replay does.
 
-A continuation's cost becomes:
+**Entering at the cursor (A3, B8).** On a cursor resume, the defer proposer:
 
-- one brief of the current draft;
-- the current unit's bounded replay;
-- the verification of the new answer(s);
-- building the next question.
+1. sets `replaying = False`;
+2. emits one checkpoint on the cursor draft, **before** the re-brief or any other expensive work, so that every call that starts leaves a state behind;
+3. re-briefs and enters the loop at the cursor.
 
-None of that grows with the number of answers on record.
+**What a continuation costs (A6).** One re-brief of the current draft, plus one
+`verify` per **new** answer, plus one exact menu for the next question. Nothing
+here grows with the number of answers on record. §2.7 says what that floor is at
+100 lines.
 
-**Why a unit, and not a finer position.** Inside a unit the loop is nested
-(`_try_tier1`'s attempt loop, `_try_tier2`'s pivot walk). Storing a position
-inside those would mean rewriting both as resumable state machines. A unit's
-replay is already bounded by the declared budget (`attempts_per_line` and
-`backtrack_width`), so it does not grow with the song. A rejected answer does
-not move the draft, so re-running a unit from `unit_draft` reaches the same
-place.
+**The fallback is full replay, and it must still make progress (B5).** A state
+falls back to replay from round 1, exactly as today, when:
 
-**The claim this rests on: within one unit, no question is asked after an
-accepted answer.** `_try_tier1` returns on its first acceptance
-(`loop.py:1151`). `_try_tier2` returns on its first acceptance (`:1459`,
-`:1601`, `:1676`). The unit's only two-tier sequences continue after a
-*non*-acceptance:
+- it has no cursor (minted before this change);
+- the seal fails;
+- the journal digest mismatches;
+- the CLI run key or scorer identity has changed (§2.0.1).
 
-- tier 1, then the escalation to tier 2;
-- tier 2 first, then the fall-through to tier 1.
+On a long song a full replay is exactly what gets killed. So during a fallback
+replay the harness computes the cursor at every unit boundary, as it does live,
+and emits it in the checkpoint **in its own fields**. It never overwrites
+`accepted_lines` or any other progress field: those stay at their furthest
+recorded values. The connector's kill branch publishes `accepted_lines` as
+`final_draft`, and a checkpoint written mid-replay must not hand back a draft
+missing edits the writer already had accepted (both judges, B5). A replay
+killed partway therefore leaves a sealed cursor at its furthest point, and the
+next call continues from there.
 
-So every question inside a unit is asked against `unit_draft`, and the unit
-ends at its first acceptance.
+Telling the caller *that* the cursor was stripped, and why, needs a new
+published field. That is owner question 5 (§6).
 
-**The fallback is today's behaviour.** A state with no cursor is replayed from
-round 1, exactly as now. That covers:
+**Scope (A11).** The cursor applies only to the interview (`defer:`) journal.
+The model-writer checkpoint journal replays by index, and its published
+`resume_proof` asserts the whole prefix was replayed. It keeps full replay
+unchanged. **Defects 1 and 3 therefore remain on the model-writer path.** This
+design does not claim to fix them there (owner question 7a).
 
-- legacy states;
-- a cursor whose `journal_digest` does not match;
-- a connector state whose seal fails (§2.0.1).
+**Old states (C6).**
 
-So old states keep working, and full replay remains the audit: anyone can
-still replay a journal from the input draft and must reach the same result.
+- Connector states minted before this change are refused with `CONTINUATION_MIGRATION_REQUIRED`, as any source change already causes today.
+- CLI journals that hold a recorded group answer will have that group question asked again once, because §2.4 changes the group prompt's bytes and a group answer is looked up by a hash of them.
 
-**The equivalence this rests on, and the test that holds it.** Resuming from a
-cursor must reach exactly what a full replay of the same journal reaches:
+~~Old states keep working exactly as now.~~
 
-- the same questions, byte for byte;
-- the same verdicts;
-- the same final `LoopResult`.
-
-That is the main test (§4.2, T1). It is checked at every call boundary of
-scripted runs, not only at the end.
-
-#### 2.0.1 Who may hand in a cursor
+#### 2.0.1 Who may hand in a cursor: the seal
 
 Today the replay is the only authority over what was accepted. A forged
-`accepted_lines` in a caller-held state changes nothing, because the replay
-re-verifies every answer from the input draft.
+`accepted_lines` changes nothing, because replay re-verifies every answer. A
+cursor is trusted, so in a caller-held state it must be unforgeable.
 
-A cursor is trusted, so it must not be forgeable where the caller holds the
-state. `verify` enforces rules that a final grade alone does not; for example,
-rule 3 rejects a line that *takes* a modal candidate word.
+- **What is sealed (A4, B1).** The MAC covers a canonical serialization of the whole decoded worker state except `pending.answer`. That includes `input_draft`, `connector_declarations`, `connector_semantic_identity`, `connector_run_ref`, `answered`, `outcomes`, `group_outcomes`, the cursor, and the effective revise declaration (attempts, backtrack, max_rounds, offered, modal_exclusion, pursue, allow_net_new). A seal over the cursor alone would let a caller keep the cursor while changing the declarations or input underneath it.
+- **Where it is sealed (B4).** One function, `sealInterview(state)` in `mcp/lyric_tools.js`, called from every place a state is minted:
+  - the suspend (exit 4), finish, kill / generic `other`, and journal-capacity branches;
+  - `workflow_sessions.resumeSnapshot`, which today encodes a job-store checkpoint directly.
+- **The key (A10).** Derived as `HMAC(loadChatSecret(), 'lyric-cursor-v1')`, loaded once per process in `lyric_tools.js` and shared by `server_http` and `server_stdio`. Chat envelopes and cursors never share a key.
+  - In production the secret is persisted at `/data/lyrics/chat-secret.key` on a single instance (`render.yaml`, `production-config.json`, `job_store.js:131-149`), so sealed cursors survive restarts (opponent B, §5).
+  - Local and stdio servers without a key file get a per-process key, so each restart costs one full replay. That replay now makes progress (above).
+  - A damaged key file does not fail `lyric_revise`. Sealing is disabled for the process and every state falls back to replay.
+- **The CLI (A4, judge 1).** The file is the user's own and is not sealed. But the cursor is bound to:
+  - the run key: argv, plus content hashes of the draft, the blueprint and every declaration file, such as `--pronunciations`;
+  - a scorer identity equivalent to the connector's `continuationSemanticIdentity` (source, assets, manifest, runtime).
 
-- **The CLI** (`--propose=defer:PATH`): the file is the user's own, as the defer state is today. The harness trusts the cursor it reads.
-- **The connector**: the connector seals the cursor when it returns a state. It uses an HMAC with its existing server secret (`CHAT_SECRET` / `CHAT_SECRET_FILE`, `mcp/job_store.js`) over the cursor and the journal digest. When a state comes back in, the connector checks the seal:
-  - **valid seal**: the cursor is passed to the harness;
-  - **missing or wrong seal**: the connector strips the cursor, and the harness falls back to full replay. That is slower, never wrong.
-
-  Session callers never see the state, so their cursors are always sealed by the same server. A server restart with a fresh random secret only costs one slow replay.
+  On any mismatch the harness ignores the cursor and does a full replay, with M-183's stale disclosure. "Run the SAME command again" with a changed flag, an edited file or an updated harness can then never resume a position computed under other inputs.
 
 ### 2.1 Defect 1 (replay growth): fixed by 2.0
 
-No further change. State bytes still grow with the journal, by the answer
-text and its outcome. That growth is linear and small next to the question
-text the state already carries.
+Per-call cost no longer depends on answers on record. State bytes still grow
+with the journal. The cursor is stored by reference so it does not duplicate
+`outcomes` or the draft (A7). It is maintained identically in cursor and
+full-replay modes, so admission sees the same bytes either way.
 
-### 2.2 Defect 2 (batch answers with no verdict): judge every member's answer before asking anything new
+~~That growth is linear and small.~~ Withdrawn until measured (B10). State
+bytes against `JOURNAL_WORK_BYTES` (384 KiB, the working ceiling, not the
+448 KiB hard one) at 24, 60 and 104 lines are on the pre-build list (§4.3).
 
-**Today.** A batch member is judged only when the loop's walk reaches it.
-Under one attempt per line, a rejected earlier member escalates to a group
-question immediately, and the call suspends on that question before later
-members are judged. A member whose finding an earlier acceptance closed is
-never judged at all (`resolved_elsewhere`).
+### 2.2 Defect 2 (batch answers with no verdict): the owner chooses (owner questions 1 and 2)
 
-**Change.** When a batch answer is folded, every member's first answer is
-judged before anything else is asked:
+The debate showed that version 1's claim "this moves *when* a member is judged,
+never *whether*" is false (C2).
 
-1. Members are judged in pass order.
-2. Each is judged against the draft as the members before it left it, with accepted members applied.
+`prefetch` chooses batch members as independent through `_related`, which reads
+only group members, return members and the first rhyme partner
+(`lyric_harness.py:8009-8033`). Findings measured across many lines, such as
+`ANAPHORA_OVERLOAD`, couple lines `_related` calls independent. `verify`'s
+"fixed" diff keys on each finding's full locations. So judging member j before
+member i's follow-up can change which lines are accepted, and the final draft.
 
-Then the walk returns to the first member that needs a follow-up (a re-ask, or
-the tier-2 escalation) and continues as today.
+There are two honest options.
 
-A member whose finding was closed by an earlier member's accepted line gets a
-recorded outcome: not applied, and why. It is not left "unknown".
+- **Option A: judge every member's answer before asking anything new.** This is version 1's §2.2.
+  - It changes which lines can be accepted relative to today's walk order.
+  - It costs about one call per member before the next question on long songs. At 60 lines one menu-free cold verify took 574.7 s (§1.3), so a 12-member batch answer would take about 12 "continue with no answer" calls before the writer sees the first follow-up (C8). That is an estimate from measured parts, not a measurement.
+  - If chosen, the batch fold becomes its own cursor phase, `{batch_fold, batch_id, verdicts, post_draft_fp, followups}`. Verdicts are recorded once and never re-judged. Follow-ups run as units whose starting draft is the post-fold draft (C1).
+- **Option B: keep today's walk order, and report every unjudged member honestly.**
+  - When a call suspends on a follow-up while later members still hold unjudged answers, each of those members is reported as `pending: waiting on L<i>`, and `not_applied` (with the reason) when an earlier acceptance closed its finding.
+  - Today's latency and today's acceptance order are unchanged.
 
-**Why this is safe.**
+Either option needs new verdict values in the published `folded` field (C9).
+`record` stores only a boolean `accepted` (`lyric_harness.py:7925-7929`), and
+`foldedOne` maps anything else to `unknown` (`mcp/lyric_tools.js:409-421`).
 
-- Batch members are chosen to be independent (`prefetch` / `_related`: no member's groups, return classes or first rhyme partner touch another's).
-- Every acceptance is still a whole-draft `verify` against the draft as it stands.
+Either way, a test is added in which two `_related`-independent members share
+an `ANAPHORA_OVERLOAD` finding.
 
-So the change moves *when* a member is judged, never *whether a wrong line can
-be accepted*.
+### 2.3 Defect 3 (killed continuations)
 
-**What changes for the writer.**
+**(a) Per-call cost stops growing (2.0).** A retry after a kill costs about what
+the killed call cost: one re-brief, the new answers' verifies, and the next
+menu. It does not re-verify judged answers (A6).
 
-- Every answer in a batch comes back with a verdict.
-- Follow-up questions for rejected members come after all the verdicts, not in between.
+**(b) The loop stops itself at a safe point.** The harness already receives its
+deadline as `LYRIC_REQUEST_DEADLINE_MS` on both the warm and cold paths
+(`python_bridge.js:381`, `:474-479`; `worker.py:56`). The kitchen proposer
+already reads it. Opponent B could not show that this adds a cap (§5).
 
-**What it costs.** One `verify` per member, in the same call. On a long song,
-a large batch could take longer than one call's deadline. §2.3's safe-point
-stop covers this: the state is saved after each judged member.
+- **Where it may stop (B7, C6).** Only *before* judging an answer, opening a batch, starting a menu, or adding the next member to a batch under construction. Never in the middle of building a question. Whether a call stops depends on time; what any question contains never does. It stays a pure function of the draft, the mandate and the journal, so group-question hashes match full replay.
+- **Batch construction is resumable (judge 1, B7).** The cursor records the batch under construction: the members chosen so far and each one's materialized menu inputs, keyed by draft fingerprint. A call that stops between members is continued by the next call, which builds the same batch. Membership follows the same deterministic rules and the same journal-capacity trimming. Without this, a batch whose menus take longer than one call could never be asked. §1.3 measured the 24-line fixture's first batch at more than 31 minutes.
+- **When it stops (B12).** It stops when the time left is less than the longest step so far **plus** the measured cost of stopping itself. The harness times its own state write and checkpoint print the first time it does them in a call. Before that, it estimates the write from the state's size and the write rate measured at its first checkpoint. No constant is declared, and the bridge is not changed.
+- **Tests do not read the wall clock (B11, C14).** The safe-point check reads an injectable clock: a `deadline` object passed to `revise_loop`, real time in production. Tests drive a fake clock with fixed per-step costs and assert the stop *position* in the cursor, never seconds.
+- **The stop needs a result shape.** A safe-point stop has no pending question. Exit 4 would invite an answer the next call refuses, so a new outcome is needed. That is owner question 3 (§6).
 
-### 2.3 Defect 3 (killed continuations): stop cleanly before the deadline, and make a kill recoverable
+**(c) A killed call keeps the run (B2, B3).** ~~Version 1 marked killed revises
+as interrupted operations.~~ Withdrawn: that changes a tested contract and is not
+needed.
 
-Three parts.
+- Killed revises stay `completed`, with the existing "continue with lyric_revise, the latest session_id and no answer" next step.
+- Their `state` is the last checkpoint, which now carries a sealed cursor.
+- The entry checkpoint (2.0) comes before the re-brief, so a call is exposed only for the re-brief itself.
+- A kill that produced no new checkpoint leaves the session's previous sealed continuation in place, and the next no-answer call resumes from it.
 
-**(a) Per-call cost no longer grows (2.0).** The self-reinforcing kill is
-gone: a retry after a kill costs about what the killed call cost, not more.
+**(d) A run that cannot advance is reported, never refused (B8, C10).**
 
-**(b) The loop stops itself at a safe point.** The harness already receives
-its deadline as `LYRIC_REQUEST_DEADLINE_MS` (`mcp/python_bridge.js`), but only
-the kitchen's Gemini proposer reads it.
+- Progress means the journal digest advanced (a new question was asked or a new verdict recorded), or the cursor position advanced.
+- On a kill with no new checkpoint, the connector re-seals the *incoming* state with `stalls + 1`, and the session layer stores it, so the count survives restarts and caller-held states.
+- At 2 or more, the result says so: the step in progress, the draft size, and that this draft does not fit one call on this server.
+- The call is never refused, so no limit is added (standing rule 2).
+- Publishing that count is owner question 4 (§6).
 
-The loop will check it at **safe points**:
+### 2.4 Defect 4 (empty group menus): narrowed to what actually gains (C5, C13)
 
-- after each judged answer;
-- before building each question's menu;
-- before adding each member to a batch.
+The debate showed most of version 1's one-move menus would be empty or
+repeated:
 
-It stops when the time left is shorter than the longest single step it has
-taken so far in this call. That threshold is measured in-process, not a
-declared number.
+- A line enters group-first only when its tier-1 OFFERED list is empty (`loop.py:2104-2107`), so the pivot's one-move menu is empty by construction there. That was every question measured at 60 and 104 lines.
+- In a group of three or more, a member's one-move menu must answer partners that do not rhyme with each other, so it is usually empty.
+- `brief` builds no Brief for a member without per-line findings (`revise.py:5811`).
 
-On stopping, it writes the state (cursor and journal) and returns
-`status: "interrupted"` with the same "continue with no answer" instruction
-the connector already gives.
+What remains, and is real:
 
-A batch being assembled when the deadline nears is asked with the members
-built so far. The code already allows that today, when the journal reaches
-capacity: the omitted members are asked later. Replay does not need to
-reproduce the batch's makeup, because answers are keyed per line.
+- **The non-pivot member on the escalation path gets its one-move menu.** These are the words at its bound place that answer every group bound there while the other members keep their current words. It is computed by tier 1's own call (`brief(target_lines={member})`, `declared_offer`), and it is the couplet case that defect 4 reproduced.
+- **The pivot on the escalation path:** the offered and forbidden lists from its line question are reprinted from the cursor (no rebuild), or named by reference in words true in this prompt, such as "the words L2's line question offered (attempt 1, round 1)". Never "above": the group question is a separate prompt (judge 2).
+- **The group-first path:** §2.4 adds nothing, and the prompt says so.
+- **A member with no Brief** prints its own sentence ("no single-line finding on L<n>; no one-move menu was computed"), not "(none offered)".
+- **Rule 3's text in the group prompt** branches on the path. On group-first it keeps today's "empty by construction" sentence. On escalation it says the pivot's forbidden list from its line question still binds, and names it (C13).
+- **Labels** are worded through `slot_phrase` / `word_name`, so a slot-placement mandate reads correctly.
+- **Menu presence** is a pure function of the draft and the mandate. A safe point may stop the call before a group question is built, but never builds it with a menu missing (C6).
 
-**(c) A kill that still happens loses at most the step in progress.**
+Cost: one exact menu per escalated non-pivot member. One menu was never measured
+at 60 or 104 lines. That is on the pre-build list (§4.3).
 
-- The harness emits a resumable checkpoint (cursor and journal) after every judged answer. Today's interview checkpoint carries no position.
-- The connector already returns the last checkpoint as `state` on a kill. With a cursor in it, the no-answer continuation resumes cheaply.
-- The session layer records such a result as an interrupted operation (`resumable: true`), not `completed`, so `resume_operation` works.
-- `get_operation`'s own description already promises this ("interrupted: when resumable is true, call resume_operation"). Today's behaviour breaks that promise; the fix makes the description true.
+### 2.5 ~~Print a batch question's shared blocks once~~ — withdrawn (C7)
 
-**Re-sending an answer the server already holds** stays a refusal. The
-refusal text changes to name what happened: the answer is on record, with its
-verdict, so continue with no answer.
+That already exists. `render_batch` has printed the whole draft and the
+whole-draft findings once since commit `c91bca12` (2026-10-01). Phase 1's
+103,921-byte batch was measured with that fix in place.
 
-### 2.4 Defect 4 (empty group menus): offer each member the words that answer the group if the others stay
+What still repeats per member is different:
 
-**Today.** A group question's menus are searched only against a member's
-*other* groups (`_try_tier2`: `joint_field(other_calls)` for the pivot,
-`joint_field(m_other)` for each anchor).
+- the offered and forbidden lists;
+- the enforced-rules block, about 980 bytes;
+- cross-line finding evidence such as `ANAPHORA_OVERLOAD`, about 2 KB per member on long songs.
 
-A word bound by one group, which is every plain couplet, has no other groups.
-So nothing is searched and the menu is empty. M-205 recorded this as
-deliberate: the pivot "may take ANY word".
+That is a separate item: re-measure, then decide.
 
-**Change.** Where a member's coupled menu is empty, the question also prints
-that member's **one-move menu**: the words at its bound place that answer
-every group bound there *while every other member keeps its current word*.
+### 2.6 `verify` stops building offer menus it does not read (A8, A9, B9)
 
-This is exactly tier 1's OFFERED list. It is computed by the same call
-(`brief(target_lines={member})`, `declared_offer`, the same judge the verdict
-uses), and it is labelled for what it is: "if L1 keeps 'stove', L2 could end
-on: …".
+**Today.** `Reviser.verify` calls `brief(before, …, target_lines=changed)` with
+offers on. That builds and grades the changed lines' whole offer menus.
+Measured, the menus are about two-thirds of a warm check on the same line
+(261.1 s against 89.4 s) and about 94% on another line (1,832.4 s against
+112.1 s) (§1.3).
 
-**Why this is honest.**
+**What `verify` reads from that brief:**
 
-- Every word in a one-move menu is already verified to answer the group with the others held.
-- `verify` still judges whatever comes back.
-- Nothing is invented, and no coupled search is claimed that was not run.
-- The M-205 sentence stays true; the brief now also says what single-member moves exist.
+- `slot`;
+- `forbidden_incumbent`;
+- `forbidden_modal`.
 
-**What it costs.** One exact brief per member whose coupled menu is empty: for
-a couplet, two menus. This is the same cost as asking each member a tier-1
-question. Each menu is built only if a safe point (2.3b) allows it.
+Both `forbidden_*` fields are set only inside the offers block (A9).
 
-**What it does not do.** It does not search coupled pairs for a free pivot
-(new words for *both* lines at once). That search has no bound in the code
-today, and adding one would be a new limit. It is named here as not done.
+**Change.** `verify` asks `brief` for no offers and computes rule 3's answer
+directly, with exactly the branch structure the field uses (A8). For each
+changed line:
 
-### 2.5 (Separate, and put to the debate) the size of a batch question on a long song
+1. If the line has no `wants and groups`, there is no modal head and no incumbent field. Rule 3 does not apply, as today.
+2. Otherwise, at the line's primary place: `forbidden_incumbent = _incumbent(lines, ln, b.slot)`.
+3. If the place has no call words, the head is empty.
+4. Otherwise, compute the raw `joint_field_screened` forbidden head on those call words, with the incumbent excluded.
+5. **When the place's relation is not explicit** (the undeclared default), that raw head *is* `forbidden_modal`, with no filter.
+6. **When it is explicit**, `forbidden_modal` is the head filtered through `declared_offer`.
+7. The question is then asked of **every changed line's new word and every kept incumbent**: is it in the raw head, and either the relation is not explicit or `declared_offer([word])` keeps it?
 
-This is not one of the four defects, but it is the next long-song wall:
+Version 1's single predicate would have let through raw-head words that fail
+`declared_offer` on the undeclared default. That loosens rule 3, which is a
+change to what a song is judged on. This version does not.
 
-- in Phase 1, a 12-line batch question was 103,921 bytes;
-- song run B's 15-line batch was 264,759 characters, too large for the client to display.
+**The open question from version 1 is settled by the code.** `declared_offer`'s
+verdict on one word does not depend on the other words in its list:
 
-Each member's brief repeats the whole draft, every whole-draft finding, and
-the grader's rules.
+- the forbidden-list call passes no `limit` (`revise.py:6025-6027`);
+- `dict.fromkeys` only removes duplicates;
+- the baseline is a function of `lines` and the groups alone (`revise.py:4396-4402`).
 
-**Change.** A batch question prints the shared blocks once, then each member's
-own block. This is rendering only: the same facts, once.
+T8 pins this.
 
-Whether this belongs in this change or in its own is a question for the
-debate.
+**What it does not change.** What is accepted. Rule 3 rejects exactly what it
+rejects today, on both branches.
 
-### 2.6 (Found in Phase 1) `verify` stops building offer menus it does not read
+### 2.7 The floor this design does not remove
 
-**Today.** `Reviser.verify` calls `self.brief(before, …, target_lines=changed)`
-with the default `include_offers=True`. That builds the changed line's whole
-candidate field (`joint_field_screened`) and grades every offered and every
-forbidden word through `declared_offer`. It does this to learn three things:
+After 2.0 and 2.6, a continuation still pays one re-brief, one `verify` per new
+answer, and one exact menu for the next question.
 
-- the line's `slot`;
-- its `forbidden_incumbent`, a word read off the line;
-- whether the new bound word is in `forbidden_modal`.
+On the fixture drafts:
 
-Rule 3 rejects a revision that *takes* a modal candidate. Measured above, this
-menu is about two-thirds of a warm acceptance check on the 24-line fixture
-(261.1 s against 89.4 s).
+- a cold whole grade: 97.8 s at 24 lines, 324.8 s at 60, **1,307.3 s at 104** (undeclared default);
+- the same 104-line draft under a declared relation: 266.1 s;
+- a cold menu-free verify: 162.8 s at 24 lines and 574.7 s at 60.
 
-**Change.** `verify` asks `brief` for no offers. It then answers rule 3 for the
-one new word directly, with the same two steps the field takes:
+~~A 100-line song with a declared relation fits a call.~~ Withdrawn (C3). A call
+is more than one grade. **No measured figure yet shows any 100-line
+continuation, declared or not, finishing inside 600 s.** One full continuation
+(re-brief + verify + next exact menu) on the declared 104-line draft, alone on
+the box, cold and warm, is on the pre-build list (§4.3).
 
-1. Is the word in the raw modal head of these call words? (`joint_field_screened`'s forbidden split, on the same calls and exclusion.)
-2. If so, does it pass `declared_offer` for this place, on its own?
+**The number of calls grows with the song (C4).**
 
-`forbidden_modal` is exactly that head, filtered through `declared_offer`. So
-"word ∈ forbidden_modal" and "word ∈ head and the word passes `declared_offer`
-alone" are the same predicate. One difference has to be checked: whether
-`declared_offer`'s per-word verdict can depend on the other words in its input
-list. If it can (it carries a `limit` and a baseline computed once), this
-equivalence fails. The debate must settle that from the code, and the build
-pins it by test.
+- On the long fixtures every question was group-first, and the batch door is closed to group-first lines.
+- So each open line costs at least one group question plus one tier-1 fall-through: two calls. The same 4-member group is asked again once per pivot.
+- **Nothing in this design reduces that count.** It removes the growth in each call's cost, not the number of calls.
+- A calls-per-song estimate (open lines × 2 × the measured per-call time) goes here once §4.3's figures exist.
 
-**Test (T8).** Over every draft and revision pair in `quality/test_revise.py` /
-`test_loop.py` / `test_verbs.py` that reaches `verify`, plus the Phase 1
-fixtures, the new `verify` returns the same dict as the old one, key for key,
-including `reasons` text and `modal_endword_unchanged`. A mutant that drops
-the rule 3 check must fail it.
+**The grader's cost is the wall.**
 
-**What it does not change.** What is accepted. Rule 3 still rejects exactly
-what it rejects today.
+- The per-pair memo that makes warm re-grading cheap holds `PAIR_MEMO_CAP = 4_096` rows per schema slot. That covers a whole draft only up to 91 lines, and the edge memo switches off past the same size (`relations.py`).
+- The undeclared default, which judges each group against the whole relation vocabulary, cost about 4.9 times the declared relation at 104 lines (1,307.3 s against 266.1 s).
+- The declared 104-line report was 4,167,870 bytes, 26,434 under the connector's 4 MiB output cap. M-240's note 5 records that a report grows with the square of the line count.
 
-### 2.7 (Found in Phase 1) The floor this design does not remove, stated plainly
-
-After 2.0 and 2.6, a continuation still pays:
-
-- one whole-draft re-inspection per answer it judges;
-- one exact menu for the question it asks next.
-
-On the fixture drafts, a cold whole grade costs 97.8 s at 24 lines, 324.8 s at
-60, and **1,307.3 s at 104**. A cold acceptance check without menus costs
-162.8 s at 24 and 574.7 s at 60.
-
-**So at about 100 lines, on this box, a call that starts cold cannot judge even
-one answer inside a 600 s deadline.** Warm calls are cheaper only while the
-per-pair memo holds the draft, which is up to 91 lines.
-
-Two ways through, neither in this design without a ruling:
-
-1. **Size the per-pair memo to the draft** instead of the fixed
-   `PAIR_MEMO_CAP = 4_096`. The bound would be derived (rows ≥ the draft's
-   pair count), not removed. Memory cost would be measured first. Its comment
-   says changing it "is a behaviour change with its own record". It belongs to
-   M-240, and to the owner.
-2. **Make the whole-draft re-inspection incremental**: recompute only the
-   findings a changed line can reach. That is the grader's own work (M-240),
-   not the loop's.
-
-**What 2.3(b)'s safe points can and cannot do here.**
-
-- They stop a call *between* steps.
-- They cannot stop one *inside* a single verification.
-- A fresh call has no measured step yet, so it starts its first verification.
-
-If that one verification takes longer than the whole deadline, the call is
-killed mid-step. The kill takes the warm worker and its memos, so the next call
-is cold again and the same thing happens. **That is a livelock, not slow
-progress.**
-
-The design must not hide this. When a run is stopped twice at the same cursor
-with no step completed, the state says so: `status: "interrupted"` plus
-`no_step_completed: true`, naming the step and the draft size. A caller is told
-that this draft does not fit one call on this server. A third identical
-attempt is never presented as progress.
-
-**Where the line falls, measured.** The same 104-line fixture draft was graded
-twice. Only the relation differed: the plan's groups and returns are
-identical with and without `--relation=class:RHYME`, which was checked.
-
-| lines | undeclared default (every relation) | declared `class:RHYME` |
-|---|---|---|
-| 24 | 97.8 s | 35.0 s |
-| 104 | 1,307.3 s | **266.1 s** |
-
-The declared runs shared the 4 cores with three other measurements; the
-undeclared 104-line run shared them with two. So the gap is, if anything,
-understated.
-
-The planner draws no relation (the N-relation model, 2026-09-22), so a planned
-song judged on the default pays the left-hand column. So on this box, with
-this design:
-
-- a 100-line song **with a declared relation** fits a call: one grade in about
-  4.4 minutes;
-- a 100-line song on the **undeclared default** does not, until M-240 brings
-  that grade under the deadline or the deadline changes.
-
-A second wall sits beside it. The declared 104-line report was 4,167,870
-bytes, which is 26,434 bytes under the connector's 4 MiB `MAX_OUTPUT_BYTES`.
-M-240's note 5 already records that a report grows with the square of the
-line count. A slightly longer song meets the output cap even when the time
-fits.
-
-Whether the default should cost less is the grader's question and the owner's,
-not the loop's. Nothing here changes what the default judges.
-
-This file says that rather than claim the loop is fixed for every 100-line
-song.
+Sizing the memo to the draft, or making the whole-draft re-inspection
+incremental, is the grader's work under M-240 and the owner's ruling (owner
+question 7b). It is not this design's. Until one of them lands, this file does
+not claim the loop is fixed for 100-line songs.
 
 ---
 
-## 3. What stays the same
+## 3. What stays the same, and what would change in the published contract
 
-- **What a song is judged on.** No check is added, removed or loosened:
-  - `verify` decides every acceptance, exactly as now;
-  - the stop conditions are the same;
-  - `MANDATORY_PURSUE` is the same;
-  - the final grade is the same.
-- **The bound-word rule (M-317)** and every relation judgment.
-- **The writer contracts** `propose(...)` and `propose_group(...)`, and the answer formats (`L<n>: text`).
-- **The journal.** It stays complete and replayable from the input draft. Full replay remains both the fallback and the audit.
-- **The connector's tool arguments and result fields.** `state`, `answers`, `run_id`, `run_revision`, `recover_only` and `new_run` keep their meanings. The changes add a field inside the state, populate `folded` verdicts that were `unknown`, and make an interrupted run resumable as `get_operation` already says it is.
-- **No cap or limit is added.**
-  - The safe-point stop reads the deadline the connector already sets.
-  - The one-move menus use the same offer machinery tier 1 uses, with no new bound.
-- **Standing rule 1.** Nothing here touches the recipe engine.
+**Stays the same:**
 
-## 4. Costs and tests
+- **What a song is judged on.** `verify` decides every acceptance. Rule 3 rejects exactly what it rejects today (2.6). The stop conditions, `MANDATORY_PURSUE` and the final grade are unchanged.
+  - The one exception would be §2.2 option A, which can change which lines are accepted. That is why it goes to the owner.
+- The bound-word rule (M-317) and every relation judgment.
+- The writer contracts `propose(...)` / `propose_group(...)` and the answer formats.
+- The journal: complete, replayable from the input draft, and the fallback and audit.
+- Killed revises stay `completed`, with today's next step (2.3c). Operation-level status is unchanged.
+- The model-writer checkpoint journal and its `resume_proof` (2.0, scope).
+- No cap or limit is added. The safe-point stop reads a deadline the connector already sets. The no-progress count reports and never refuses.
+- Standing rule 1: nothing touches the recipe engine.
 
-### 4.1 Costs
+**Would change in the published contract. Not built unless the owner rules yes (§6):**
 
-- **State bytes:** the cursor adds the current draft, the pass list and the round history (`LineAttempt` summaries). It is measured in Phase 3 against the 448 KiB journal ceiling.
-- **Per-call time:** no longer depends on answers on record (2.0). A batch answer costs one `verify` per member (2.2). A group question costs up to one exact brief per member (2.4).
-- **Code:**
-  - `quality/loop.py`: the cursor, the resume entry point, batch-first judging, safe points;
-  - `lyric_harness.py`: `_defer_proposer` (cursor in and out, the resumable checkpoint);
-  - `quality/propose.py`: one-move menus, and 2.5 if kept;
-  - `mcp/lyric_tools.js`, `mcp/workflow_sessions.js`: the seal, interrupted-as-resumable.
+1. New `folded` verdict values: `pending` and/or `not_applied` (2.2).
+2. A harness exit code and status for a safe-point stop, routed through the existing interrupted branch (2.3b).
+3. A result field reporting calls that made no progress (2.3d).
+4. The published `lyric_revise` description. It says each call "re-runs the loop from its record (deterministic, so the same questions arrive in the same order)" (`mcp/lyric_tools.js:1989-1990`). That would become: each call resumes from its saved, sealed position, or replays its record when the position cannot be trusted, and the same questions arrive in the same order either way. The forgery reasoning at `:2423-2429` would be restated to rest on the seal plus the replay fallback.
+5. A result field naming why a cursor was stripped (2.0).
 
-### 4.2 Tests (each must fail on the old code and pass on the new)
+**Writer-facing prompt text changes** (not result fields): the group question's
+menus and rule-3 sentence (2.4). Because a group answer is looked up by a hash
+of its question, CLI journals with recorded group answers have those questions
+asked again once (2.0, old states).
 
-- **T1 — resume equals replay.** Scripted runs (pasted couplets, the planner fixture at 24 lines, groups and batches present) are driven call by call twice: once resuming from the cursor, once with the cursor stripped (full replay). Every question's bytes, every outcome and the final `LoopResult` must be identical.
-- **T2 — a continuation's cost does not grow.** On a fixed state, the number of `verify` calls a continuation makes is independent of answers on record. This is counted through the reviser, not timed. Old code: grows by one per answer. New code: constant.
-- **T3 — every batch answer gets a verdict.** The AABB reproduction: after the batch answer, `outcomes` holds L2 and L4, and the connector's `folded` shows no `unknown` row.
-- **T4 — a deadline stop is clean.** With `LYRIC_REQUEST_DEADLINE_MS` set near, the run stops at a safe point with a cursor. The no-answer continuation then finishes the same run T1 finishes.
-- **T5 — a kill is resumable.** The session reproduction from 1.1:
-  - the killed operation reads `interrupted` and `resumable: true`;
-  - `resume_operation` succeeds;
-  - the continuation is not killed again at the same budget.
-- **T6 — group questions offer one-move menus.** The couplet reproduction: the group question lists L2's one-move words (the same 4 tier 1 offered) and L1's, each labelled.
-- **T7 — the seal.** A connector state with an edited cursor falls back to full replay and reaches the same result. An unedited one resumes.
+## 4. Costs, pre-build measurements, and tests
 
-Plus the repo's own checks:
+### 4.1 Code touched
 
-- `quality/suite_sweep.py --only` for `test_loop`, `test_revise`, `test_verbs`, `test_replay_memo`, `test_production_journal`;
-- `node mcp/test.mjs` and the continuation suites (`test_run_continuation.mjs`, `test_deferred_continuation.mjs`, `test_continuation_audit.mjs`).
+- `quality/loop.py`: the cursor, the resume entry, safe points with an injectable clock, the batch-construction position, and §2.2 per the owner's choice.
+- `lyric_harness.py`: `_defer_proposer`, covering:
+  - cursor in and out;
+  - the entry checkpoint;
+  - checkpoints during fallback replay that do not regress `accepted_lines`;
+  - rebuilding `last_rej` / `last_grej`;
+  - the CLI run key and scorer-identity binding.
+- `quality/revise.py`: `verify`'s offer-less rule 3 (2.6).
+- `quality/propose.py`: the group prompt's menus and rule-3 text (2.4).
+- `mcp/lyric_tools.js`: `sealInterview`, the cursor key, the stall count, EXIT_MEANING if ruled.
+- `mcp/workflow_sessions.js`: `resumeSnapshot` sealing, and storing a re-sealed state after a stall.
+- Checked for exit-code and field assumptions: `mcp/lyric_workflow.js`, `mcp/client.js`, `mcp/verdict_view.js`, `mcp/python_bridge.js`.
+
+### 4.2 Tests: each must fail on the old code and pass on the new
+
+- **T1, resume equals replay.** Scripted runs are driven call by call twice: resuming from the cursor, and with the cursor stripped. Every question's bytes, `question_sha256`, outcome, `stale_answers`, proposer disclosure and final `LoopResult` must be identical.
+  - The resume arm asserts the cursor path was really taken: no stripped-cursor reason, and the verify count per call equals the number of new answers. That fails on the old code, which has no cursor (C11).
+  - Fixtures: a pasted 24-line couplet song, and a 6-line planner fixture that asks a question within the test budget. The 24-line planner fixture is not runnable in CI (§1.3).
+  - Required scripts:
+    - a tier-1 line and a group question each re-asked after a previous-round rejection (A1);
+    - a `--pronunciations` run where an accepted rewrite removes a declared occurrence (A2);
+    - a suspension inside the whole-draft repair, and a round that opened with `judged_open` false (A3);
+    - a suspension on a later batch member after an earlier one was accepted (A5);
+    - under §2.2 option A, a mid-fold cursor (C1).
+- **T2, cost does not grow.** The number of `verify` calls in a continuation equals the number of new answers, whatever is on record. This is counted, not timed. Old code: grows by one per answer.
+- **T3, batch verdicts.** The AABB reproduction. After the batch answer no `folded` row is `unknown`. It includes a member whose finding an earlier acceptance closed. The exact values follow the owner's ruling.
+- **T4, deadline stop.** A fake clock stops the run at a safe point, including mid-batch-construction. The finished batch is byte-identical to the uninterrupted one, and the no-answer continuation finishes the same run T1 finishes.
+- **T5, kills.**
+  - After a simulated kill, the no-answer continuation resumes from the cursor (T2's count).
+  - A kill before the resumed call's first checkpoint leaves the previous sealed cursor in force (B3).
+  - A full replay killed partway yields a sealed cursor, and its `final_draft` equals the incoming `accepted_lines` (B5).
+  - Three kills during the re-brief yield the no-progress report (B8).
+  - The kill is simulated by the fake clock and a stop file, never by a timing budget.
+- **T6, group menus.** The couplet escalation case lists L1's one-move words. The group-first, three-member and escalation-pivot cases each assert their exact printed lines (C5).
+- **T7, the seal.** One case per sealed field: edit it, keep the seal, and the run falls back to replay with the right reason and reaches the replayed result. Also a resume through `resume_operation` and a session continuation (B4), and a CLI case that changes only the scorer identity (A4).
+- **T8, `verify` is unchanged.** Over every draft and revision pair in `test_revise.py`, `test_loop.py`, `test_verbs.py` that reaches `verify`, plus the Phase 1 fixtures, the new `verify` returns the same dict, key for key, `reasons` byte for byte. It must cover:
+  - an explicit-relation pair;
+  - an undeclared-default pair where a revision takes a raw-head word that `declared_offer` refuses;
+  - a line with no `wants`;
+  - `MODAL_DRAFT`, whose kept incumbent is in its own head;
+  - a multi-line `changed` set.
+
+  A mutant that always filters, and one that drops rule 3, must each fail it.
+- **Coupling test (C2).** Two `_related`-independent batch members sharing an `ANAPHORA_OVERLOAD` finding, under whichever §2.2 option is ruled.
+- Plus the repo's own checks: `quality/suite_sweep.py --only` for `test_loop`, `test_revise`, `test_verbs`, `test_replay_memo`, `test_production_journal`; `node mcp/test.mjs`; the continuation suites.
+
+### 4.3 To measure before building, alone on the box
+
+1. State bytes against `JOURNAL_WORK_BYTES` (384 KiB) at 24, 60 and 104 lines (A7, B10).
+2. One full continuation (re-brief + verify + next exact menu) on the declared 104-line draft, cold and warm (C3). This is recorded once as the long-song acceptance figure; it is not a CI test (C12).
+3. One exact menu at 60 and 104 lines (C5).
+4. Replay curves on genuine couplet fixtures at 60 and 104 lines (C4).
+5. §2.2's calls-to-next-question at 24, 60 and 104 lines from measured verify times (C8).
+6. (Supplementary, still running at this writing) the menu-free acceptance check at 104 lines.
+
+---
 
 ## 5. The debate
 
-(Not yet run.)
+### 5.1 How it was run
+
+Run 2026-10-02 as a Workflow (`loop-redesign-debate`, run `wf_57ba5db3-882`)
+against version 1 of this file. Six independent agents took part. All of them
+were read-only: no file writes, no song runs, nothing over about two minutes.
+Each was told to cite code as `path:line`.
+
+- **Three opponents,** each told to refute from the code, each with its own lens:
+  - A: equivalence and correctness;
+  - B: trust, the connector, kills and owner boundaries;
+  - C: batch, menus, size, and whether long songs are actually served.
+- **One defender,** who had to answer every objection: rebut it from the code, concede it with a concrete change, or name it as the owner's decision.
+- **Two judges,** each independent, who opened the cited lines themselves and ruled on every objection: answered, the design must change, or an owner question.
+
+### 5.2 The outcome
+
+- **37 objections** were raised: 5 blocking, 25 major, 7 minor.
+- **The defender** conceded 35, named 2 as the owner's, and rebutted 0.
+- **Both judges ruled that version 1 does not pass as is** (`passes_as_is: false`).
+- **Judge 1** wrote that "the defender's concessions answer 26 of the 32 objections". That is its own count: 37 were raised. It required further design changes on A4, B5, B7, B8 and C10, and sent B6, C2 and C9 to the owner.
+- **Judge 2:** "Every change the design needs is now named, but the design cannot pass as is." It required further changes on B5 and C5, and sent B6, B7, B8, C2 and C9, plus B5's new field, to the owner.
+
+**What changed between version 1 and version 2.** Every concession and every
+judge's further requirement is now in §2–§4, cited by objection id. Where the
+two judges differed:
+
+- On A4, C5 and C10 one judge ruled answered and the other required more. Version 2 takes the stricter ruling each time: the CLI scorer identity (A4), no "above" in a prompt (C5), and the stall count re-sealed on a kill with no checkpoint (C10, B8).
+- On B7 and B8, one judge required a design change and the other sent the point to the owner. Version 2 makes the design change and also puts the published part to the owner (§6).
+
+**What the opponents could not break** (their own words, abridged):
+
+- **A:** the unit boundary. "Within one unit, no question is asked after an accepted answer. I checked it on every path. … So the unit boundary is sound. The failures are in what a unit's questions depend on (A1-A5), not in where it ends." Also: `declared_offer`'s verdict on one word does not depend on the other words in its list.
+- **B:** "I could not break the claim that the safe-point stop adds no cap." Also: in production the sealing key is persisted, so a sealed cursor survives restarts. And "a missing cursor falls back to today's code path."
+- **C:** a batch cut short does not have to be replayed with the same members, because answers are keyed per line.
+
+**What the debate found wrong in version 1's own Phase 1 reporting,** now corrected in §1:
+
+- the 60- and 104-line "couplet" songs are 4-member groups (C4);
+- `verify` needs the offers block for `forbidden_incumbent` too, not only `forbidden_modal` (A9).
+
+### 5.3 Every objection and its ruling
+
+The claim column is each objection's first sentence. The full objections,
+evidence, answers and rulings, verbatim, are in
+`quality/loop_redesign_phase1/debate_round1.json`.
+
+| id | severity | § | claim | defender | judge 1 | judge 2 |
+|---|---|---|---|---|---|---|
+| A1 | blocking | 2.0 | The cursor leaves out the defer proposer's rejection history (`last_rej` / `last_grej`). | concede | answered | answered |
+| A2 | major | 2.0 | `revise_loop` captures two things from the INPUT draft at entry, and the cursor stores neither: the input identity in `LoopResult`, and the pronunciation origin that coverage is judged against. | concede | answered | answered |
+| A3 | major | 2.0 | Three more pieces of loop state are missing from the cursor's 'everything revise_loop keeps between lines'. | concede | answered | answered |
+| A4 | major | 2.0.1 | The seal covers only the cursor and the journal digest. | concede | design must change | answered |
+| A5 | major | 2.0 | Resuming in the middle of a batch makes the connector-visible `stale_answers` count, and the M-183 'state file was reused on an edited draft' warning, differ from a full replay. | concede | answered | answered |
+| A6 | major | 2.0 | The per-call cost is understated. | concede | answered | answered |
+| A7 | major | 2.1 | 'State bytes ... | concede | answered | answered |
+| A8 | blocking | 2.6 | 'forbidden_modal is exactly that head, filtered through declared_offer' holds only when the place's relation is `_explicit`. | concede | answered | answered |
+| A9 | major | 2.6 | The premise that verify needs offers only for `forbidden_modal` is false. | concede | answered | answered |
+| A10 | minor | 2.0.1 | 'its existing server secret (CHAT_SECRET / CHAT_SECRET_FILE)' is not the connector's secret. | concede | answered | answered |
+| A11 | minor | 2.0 | The design does not say whether the cursor applies to the checkpoint (model-writer) journal. | concede | answered | answered |
+| B1 | blocking | 2.0.1 | The seal does not cover enough of the state to keep today's guarantee. | concede | answered | answered |
+| B2 | blocking | 2.3 | Recording a killed revise as an interrupted operation is a change to the connector contract, and it reverses a recent, tested decision. | concede | answered | answered |
+| B3 | major | 2.3 / 2.7 | Under the session change, any kill before the first checkpoint of the killed operation would lose the run, which is worse than today. | concede | answered | answered |
+| B4 | major | 2.0.1 | The design names one place where states are sealed, "when it returns a state". | concede | answered | answered |
+| B5 | major | 2.0 / 2.0.1 / 2.7 | "Slower, never wrong" understates the fallback. | concede | design must change | design must change |
+| B6 | major | 2.3(b) / 3 | The new harness outcome, "status: interrupted" with no question pending, needs an exit code and a connector branch, and the design specifies neither. | owner | owner question | owner question |
+| B7 | major | 3 | 'What stays the same' leaves out two published statements that the design makes false. | concede | design must change | owner question |
+| B8 | major | 2.7 / 2.3(b) | The livelock rule is not well defined, and it misses a livelock the design itself creates. | concede | design must change | owner question |
+| B9 | major | 2.6 / 3 | The rule-3 equivalence is stated as one predicate, and as written it would loosen rule 3, which changes what a song is judged on. | concede | answered | answered |
+| B10 | minor | 4.1 / 2.1 | The state-size cost is checked against the wrong ceiling and called "small" without a measurement. | concede | answered | answered |
+| B11 | minor | 4.2 | Several tests cannot catch the failures that matter, or they depend on timing. | concede | answered | answered |
+| B12 | minor | 2.3(b) | The stop threshold leaves no time to finish the call. | concede | answered | answered |
+| C1 | blocking | 2.2 | 2.2 contradicts the invariant 2.0 rests on. | concede | answered | answered |
+| C2 | major | 2.2 | Choosing members as independent does NOT keep member j's verdict the same when it is judged before member i's follow-up. | concede | owner question | owner question |
+| C3 | major | 2.7 | 'A 100-line song with a declared relation fits a call: one grade in about 4.4 minutes' does not follow from the figures. | concede | answered | answered |
+| C4 | major | 2.7 | The long-song measurements never touch the batch path that 2.2 and 2.5 change, and the design never estimates how many calls a 100-line song needs. | concede | answered | answered |
+| C5 | major | 2.4 | One-move menus are empty, or repeat what was already shown, on exactly the long-song paths. | concede | answered | design must change |
+| C6 | major | 2.4 | Gating menus behind safe points makes group-question bytes depend on the clock, and those bytes are part of the replay key. | concede | answered | answered |
+| C7 | major | 2.5 | 2.5 proposes something that already exists. | concede | answered | answered |
+| C8 | major | 2.2 | The cost of 2.2 is understated where it matters. | concede | answered | answered |
+| C9 | major | 2.2 | The 'not applied' outcome has no representation that keeps T3 true without changing the connector's contract. | owner | owner question | owner question |
+| C10 | major | 2.7 | The livelock report cannot be produced as specified. | concede | design must change | answered |
+| C11 | major | 4.2 | T1 and T7 cannot fail on the old code, which breaks the plan's own rule that each test must fail on the old code and pass on the new (doctrine 48). | concede | answered | answered |
+| C12 | major | 4.2 | No proposed test would fail if the owner's actual complaint stays unfixed. | concede | answered | answered |
+| C13 | minor | 2.4 | The proposed label and the existing group prompt contradict each other once a pivot menu is printed. | concede | answered | answered |
+| C14 | minor | 4.2 | T4 and T5 depend on timing. | concede | answered | answered |
+
+### 5.4 Is the debate passed?
+
+**No, not yet.**
+
+- Every objection is either answered by a change now in version 2, or named as an owner question.
+- Version 2 itself has not been put back to the judges.
+- Under the rule the coordinator set (an owner decision stops work until it is answered), the next steps are, in order:
+  1. the owner answers §6;
+  2. version 3 records the answers;
+  3. a second, shorter debate round checks version 3 against the code;
+  4. only then the build (Phase 3).
+
+---
+
+## 6. Questions for the owner
+
+Each of these changes what a song is judged on, or the connector's published
+contract. The design cannot settle them. Each is answerable on its own. The
+recommendation is mine, and the facts behind it are in the sections named.
+
+**Q1. Batch answers: which order? (§2.2; objections C2, C8, C9)**
+
+A writer who answers a batch of lines today gets a verdict only on the first
+member before the next question. The rest show `unknown`.
+
+- **A.** Judge every member before asking anything new.
+  - Every answer gets a verdict at once.
+  - But this can change which lines are accepted and the final draft, because lines the batch treats as independent can share a cross-line finding such as `ANAPHORA_OVERLOAD`.
+  - On long songs the writer waits through about one call per member before the next question. That is an estimate from measured parts: at 60 lines one acceptance check took 574.7 s cold.
+- **B.** Keep today's order and acceptance exactly. Report each member not yet judged as `pending: waiting on L<i>`, and one whose finding an earlier acceptance closed as `not_applied`, with the reason.
+
+**Recommendation: B.** It answers the defect ("no verdict on each answer") with
+a true statement for every answer, changes nothing about what is accepted, and
+keeps today's speed.
+
+**Q2. May `folded` publish new verdict values? (§2.2; objection C9)**
+
+Under either option above, `pending` (B) and/or `not_applied` (A or B) would be
+new values beside `accepted` / `rejected` / `unknown`.
+
+- Each would be carried by an outcome with `accepted: null` and a `why` string.
+- Without new values, the defect cannot be fixed honestly. The only alternatives are calling an unjudged answer `rejected`, which is false, or leaving it `unknown`.
+
+**Q3. May the harness and connector publish a new exit code for "stopped at a safe point"? (§2.3b; objection B6)**
+
+A call nearing its deadline would stop cleanly between steps instead of being
+killed. It has no question to ask, so exit 4 ("answer this") is wrong for it.
+
+- **Proposed:** exit 5, "STOPPED at a safe point — resumable; continue with no answer".
+- It would be routed through the existing interrupted branch: status `interrupted`, sealed `state`, `run_id`, the existing continue-with-no-answer text for session callers.
+- If no: the loop does not stop itself. It is killed as today, and a kill still keeps the run through the sealed cursor in the last checkpoint (§2.3c).
+
+**Q4. May `lyric_revise` results publish a count of calls that made no progress? (§2.3d; objections B8, C10)**
+
+When the same position is reached on two or more consecutive calls, the result
+would carry `no_progress_calls: n`, the step in progress, the draft size, and
+"this draft does not fit one call on this server".
+
+- It is reported only. **The call is never refused**, so no limit is added.
+- Without it, a 100-line song that cannot finish one step per call loops silently. Phase 1 measured one cold whole grade of the 104-line undeclared fixture at 1,307 s against a 600 s deadline.
+
+**Q5. May `lyric_revise` results publish why a saved position was not used? (§2.0; objection B5)**
+
+When a resume falls back to full replay, the result would name the reason:
+`cursor_stripped: missing | seal | digest | run_key | key_unavailable`.
+
+- Without it, a caller cannot tell a slow fallback replay from the fast path.
+
+**Q6. May the published `lyric_revise` description change? (§3 item 4; objection B7)**
+
+- **Today:** "Each call re-runs the loop from its record (deterministic, so the same questions arrive in the same order)."
+- **Proposed:** "Each call resumes from its saved, sealed position, or replays its record when that position cannot be trusted; the same questions arrive in the same order either way."
+- The forgery reasoning in the code (`mcp/lyric_tools.js:2423-2429`) would be restated to rest on the seal plus the replay fallback.
+- This text is what callers rely on, so it is yours to change.
+
+**Q7. The model-writer path, and the grader's wall (§2.0 scope; §2.7; objection A11; M-240)**
+
+- (a) The saved position applies only to the interview (`defer:`) journal. The model-writer (kitchen) checkpoint journal keeps full replay and its published `resume_proof`. **Defects 1 and 3 remain on that path.** Is that acceptable for this change, with the model-writer path a separate item?
+- (b) Even with every fix here, no 100-line continuation has yet been shown to fit one 600 s call. The grader is the wall:
+  - one cold grade of the 104-line fixture took 1,307 s on the undeclared default, and 266 s under a declared relation;
+  - the per-pair memo that makes re-grading cheap covers a whole draft only up to 91 lines (`PAIR_MEMO_CAP = 4_096`), and changing it is "a behaviour change with its own record" (M-240).
+
+  Should this branch also take on sizing that memo to the draft? Or does that stay under M-240 as its own change?
