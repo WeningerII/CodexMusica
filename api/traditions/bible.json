@@ -5,7 +5,7 @@
   "lineage": "David Suchet — NIV Old Testament narration (2015). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic mid-2010s bible, functional Song. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 178,
-  "score": 1.098,
+  "score": 1.008,
   "config": {
     "traditions": [
       "bible"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.39,
+          "voice_speech_song": 0.354,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.708,
+          "voice_multitrack_stack": 0.654,
           "voice_tessitura": 0
         }
       }

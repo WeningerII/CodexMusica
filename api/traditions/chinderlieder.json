@@ -3,9 +3,9 @@
   "name": "Chinderlieder",
   "family": "vernacular",
   "lineage": "Silberbüx — documented three-member Swiss German children’s-song core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic chinderlieder, functional Song. grand piano, electric bass, dark musical bronze bell bronze drum kit, dreadnought acoustic guitar, ukulele. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 239,
-  "score": 5.433,
+  "recipe": "classic chinderlieder, nursery Rhyme, European branch. grand piano, electric bass, dark musical bronze bell bronze drum kit, dreadnought acoustic guitar, ukulele. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 254,
+  "score": 6.704,
   "config": {
     "traditions": [
       "chinderlieder"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.273,
+          "voice_ensemble_config": 0.0315,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.46799999999999997,
-          "voice_multitrack_stack": 0,
+          "voice_processing_chain": 0.33899999999999997,
+          "voice_multitrack_stack": 0.0315,
           "voice_tessitura": 0
         }
       },
@@ -68,8 +68,8 @@
         "scores": {
           "keyboard_technique": 0.7,
           "grand_piano_size": 0.3,
-          "grand_piano_brand": 0.1905,
-          "piano_hammer": -0.07,
+          "grand_piano_brand": 0.105,
+          "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,
           "piano_pinblock": -0.1,
@@ -91,7 +91,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.0315,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -116,16 +116,16 @@
           "cymbal_finish": "traditional_finish"
         },
         "scores": {
-          "drum_technique": -0.035,
+          "drum_technique": -0.05,
           "drumhead": 0,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.054,
+          "shell_wood": 0.0315,
           "shell_thickness": 0,
-          "bearing_edges": 0.054,
+          "bearing_edges": 1.5329999999999997,
           "snare_wires": 0,
           "cymbal_alloy": 1.4299999999999997,
-          "cymbal_hammering": 0.704,
-          "cymbal_lathing": 0.6499999999999999,
+          "cymbal_hammering": 0.8449999999999999,
+          "cymbal_lathing": 0.7865,
           "cymbal_finish": 0
         }
       },
@@ -143,7 +143,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.05,
-          "string_acoustic": 0.054
+          "string_acoustic": 0
         }
       },
       {
@@ -154,7 +154,7 @@
           "ukulele_wood": "ukulele_koa"
         },
         "scores": {
-          "ukulele_size": -0.1,
+          "ukulele_size": -0.07,
           "ukulele_style": -0.05,
           "ukulele_wood": -0.035
         }

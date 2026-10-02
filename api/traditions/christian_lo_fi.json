@@ -3,9 +3,9 @@
   "name": "Christian lo-fi",
   "family": "vernacular",
   "lineage": "Tyler James Cook — My Wonderful Lord, The Lo-Fi Hymnal (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2020s christian lo-fi, functional Song. yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 260,
-  "score": 1.766,
+  "recipe": "classic early-2020s christian lo-fi, ritual Devotional, christian gospel branch. yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 1.645,
   "config": {
     "traditions": [
       "christian_lo_fi"
@@ -22,8 +22,8 @@
         "scores": {
           "electronic_technique": -0.07,
           "rompler_preset_bank": -0.05,
-          "rompler_context": -0.05,
-          "rompler_lineage": 1.9364999999999999
+          "rompler_context": -0.035,
+          "rompler_lineage": 1.7999999999999998
         }
       }
     ],

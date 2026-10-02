@@ -5,7 +5,7 @@
   "lineage": "Piano-led, jazz-adjacent blues that formed in 1940s Los Angeles and Oakland among Texas and Oklahoma migrants and was codified by Charles Brown, Johnny Moore's Three Blazers, Lowell Fulson, Pee Wee Crayton and Percy Mayfield — small combos of piano, clean electric guitar, upright bass, brushed drums and occasional tenor sax, slow 12/8 club ballads and relaxed shuffles at 60-120 BPM, extended seventh and ninth voicings, and an intimate, unhurried crooned vocal.",
   "recipe": "classic Los Angeles mid-1940s west coast blues, functional Song, blues electric branch, American jazz smooth vocal, crooners functional song dinner jazz adult standards. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 809,
-  "score": 392.98,
+  "score": 392.95,
   "config": {
     "traditions": [
       "west_coast_blues",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 28.494999999999997,
+          "voice_register": 28.449999999999996,
           "voice_quality": 10.724999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.6,
+          "voice_vibrato": 13.51,
           "voice_articulation": 26.520000000000007,
           "voice_microtone": 26.130000000000006,
           "voice_tradition": 18.687499999999996,
           "voice_mechanism_compound": 1.8849999999999996,
-          "voice_estill_quality": 2.11,
+          "voice_estill_quality": 2.02,
           "voice_speech_song": 32.11000000000001,
           "voice_ensemble_config": 26.195000000000007,
           "voice_ornament_system": 1.3495,
-          "voice_pitch_organization": 1.24,
+          "voice_pitch_organization": 1.195,
           "voice_processing_chain": 5.654999999999999,
           "voice_multitrack_stack": 4.225
         }
@@ -71,7 +71,7 @@
           "grand_piano_brand": 2.145,
           "piano_hammer": 4.615,
           "piano_rim": 4.615,
-          "piano_soundboard": 2.0749999999999997,
+          "piano_soundboard": 2.2699999999999996,
           "piano_pinblock": -0.05,
           "piano_plate": 0.78,
           "piano_pitch_standard": 1.365
@@ -106,7 +106,7 @@
           "bridge": 0.845,
           "scale_length": 2.145,
           "finish": 0.045,
-          "string_tuning": 5.334999999999999,
+          "string_tuning": 5.184999999999999,
           "single_coil_pickup_construction": 0
         }
       },
@@ -123,7 +123,7 @@
         },
         "scores": {
           "wind_articulation": 1.9035,
-          "sax_size": 2.6395,
+          "sax_size": 2.8345,
           "sax_reed": 1.6495,
           "sax_body_alloy": 13.874999999999998,
           "sax_mouthpiece": 1.4995,

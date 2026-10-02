@@ -30286,7 +30286,7 @@
     {
       "id": "bogor_indie",
       "name": "Bogor Indie",
-      "family": "pop_rock",
+      "family": "rock_punk",
       "href": "traditions/bogor_indie.json"
     },
     {
@@ -30328,13 +30328,13 @@
     {
       "id": "cello",
       "name": "Cello",
-      "family": "vernacular",
+      "family": "global",
       "href": "traditions/cello.json"
     },
     {
       "id": "cello_ensemble",
       "name": "Cello ensemble",
-      "family": "vernacular",
+      "family": "classical",
       "href": "traditions/cello_ensemble.json"
     },
     {
@@ -30352,7 +30352,7 @@
     {
       "id": "chakra",
       "name": "Chakra",
-      "family": "vernacular",
+      "family": "global",
       "href": "traditions/chakra.json"
     },
     {
@@ -30418,7 +30418,7 @@
     {
       "id": "charango",
       "name": "Charango",
-      "family": "vernacular",
+      "family": "classical",
       "href": "traditions/charango.json"
     },
     {
@@ -30430,13 +30430,13 @@
     {
       "id": "charlottesville_indie",
       "name": "Charlottesville indie",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/charlottesville_indie.json"
     },
     {
       "id": "charred_death",
       "name": "Charred death",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/charred_death.json"
     },
     {
@@ -30514,7 +30514,7 @@
     {
       "id": "chinese_experimental",
       "name": "Chinese experimental",
-      "family": "global",
+      "family": "electronic",
       "href": "traditions/chinese_experimental.json"
     },
     {
@@ -30532,7 +30532,7 @@
     {
       "id": "chip_hop",
       "name": "Chip hop",
-      "family": "vernacular",
+      "family": "hip_hop",
       "href": "traditions/chip_hop.json"
     },
     {
@@ -30544,7 +30544,7 @@
     {
       "id": "christchurch_indie",
       "name": "Christchurch indie",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/christchurch_indie.json"
     },
     {
@@ -30592,7 +30592,7 @@
     {
       "id": "cincinnati_indie",
       "name": "Cincinnati indie",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/cincinnati_indie.json"
     },
     {
@@ -30718,7 +30718,7 @@
     {
       "id": "concepcion_indie",
       "name": "Concepción indie",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/concepcion_indie.json"
     },
     {
@@ -30736,7 +30736,7 @@
     {
       "id": "contrabass",
       "name": "Contrabass",
-      "family": "vernacular",
+      "family": "global",
       "href": "traditions/contrabass.json"
     },
     {
@@ -30748,7 +30748,7 @@
     {
       "id": "cork_indie",
       "name": "Cork indie",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/cork_indie.json"
     },
     {
@@ -30784,13 +30784,13 @@
     {
       "id": "crossover_prog",
       "name": "Crossover prog",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/crossover_prog.json"
     },
     {
       "id": "cruise",
       "name": "Cruise",
-      "family": "vernacular",
+      "family": "electronic",
       "href": "traditions/cruise.json"
     },
     {
@@ -30802,7 +30802,7 @@
     {
       "id": "cymraeg",
       "name": "Cymraeg",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/cymraeg.json"
     },
     {
@@ -30814,7 +30814,7 @@
     {
       "id": "czech_psychedelic",
       "name": "Czech psychedelic",
-      "family": "vernacular",
+      "family": "rock_punk",
       "href": "traditions/czech_psychedelic.json"
     },
     {

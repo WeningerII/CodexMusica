@@ -1,11 +1,11 @@
 {
   "id": "chakra",
   "name": "Chakra",
-  "family": "vernacular",
+  "family": "global",
   "lineage": "Sonic Yogi — Singing Bowl Love (2017), Sacral Chakra branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic late-2010s chakra, functional Song. himalayan singing bowl. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 166,
-  "score": 0,
+  "recipe": "classic late-2010s chakra, experimental Elec, ambient branch. himalayan singing bowl. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 184,
+  "score": 0.84,
   "config": {
     "traditions": [
       "chakra"
@@ -18,8 +18,8 @@
           "singing_bowl_technique": "singing_bowl_rim_rubbed"
         },
         "scores": {
-          "singing_bowl_form": 0,
-          "singing_bowl_technique": 0
+          "singing_bowl_form": 0.4095,
+          "singing_bowl_technique": 0.4305
         }
       }
     ],

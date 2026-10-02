@@ -5,7 +5,7 @@
   "lineage": "Vocal jazz is represented here by Tony Bennett and Bill Evans — The Tony Bennett/Bill Evans Album (1975). This is a documented branch with an authored present-day studio realization.",
   "recipe": "classic mid-1970s vocal jazz, improv On Frame, smooth vocal branch. solo with instrumental accompaniment. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 283,
-  "score": 9.558,
+  "score": 9.805,
   "config": {
     "traditions": [
       "vocal_jazz"
@@ -44,10 +44,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 2.08,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.168,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.037125,
-          "voice_multitrack_stack": 0.3
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.39
         }
       },
       {
@@ -70,7 +70,7 @@
           "piano_hammer": 1.885,
           "piano_rim": 1.885,
           "piano_soundboard": -0.035,
-          "piano_pinblock": 0.24275000000000002,
+          "piano_pinblock": 0.237125,
           "piano_plate": -0.035,
           "piano_pitch_standard": 2.015
         }

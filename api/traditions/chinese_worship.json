@@ -3,9 +3,9 @@
   "name": "Chinese worship",
   "family": "sacred",
   "lineage": "Stream of Praise — With All My Love, Piano Series 2 (2008), instrumental piano core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
-  "recipe": "classic late-2000s chinese worship, functional Song. grand piano. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 157,
-  "score": -0.469,
+  "recipe": "classic late-2000s chinese worship, ritual Devotional, christian gospel branch. grand piano. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 184,
+  "score": -0.038,
   "config": {
     "traditions": [
       "chinese_worship"
@@ -26,8 +26,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0,
-          "grand_piano_brand": 0.1365,
+          "grand_piano_size": 0.294,
+          "grand_piano_brand": 0.273,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.1,

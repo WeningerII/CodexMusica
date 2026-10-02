@@ -3,9 +3,9 @@
   "name": "Celtic harp",
   "family": "vernacular",
   "lineage": "Philip Boulding — Celtic Holiday (2005). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2000s celtic harp, ballad Poetry. celtic harp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 157,
-  "score": -0.1,
+  "recipe": "classic mid-2000s celtic harp, art Music. celtic harp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 153,
+  "score": 0.597,
   "config": {
     "traditions": [
       "celtic_harp"
@@ -20,8 +20,8 @@
         },
         "scores": {
           "acoustic_technique": -0.1,
-          "celtic_harp_levers": 0,
-          "celtic_harp_strings": 0
+          "celtic_harp_levers": 0.054,
+          "celtic_harp_strings": 0.6435
         }
       }
     ],

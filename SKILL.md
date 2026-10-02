@@ -130,7 +130,7 @@ Facts that bite if you miss them:
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 1377/5138) — a top-level genre bucket, NOT an
+  pop_rock`; `global` dominates at 1379/5138) — a top-level genre bucket, NOT an
   instrument family.
 - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and

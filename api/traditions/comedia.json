@@ -3,9 +3,9 @@
   "name": "Comedia",
   "family": "vernacular",
   "lineage": "Bobby Comedia — Los Espermatozoides Son Fascinantes (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
-  "recipe": "classic late-2010s comedia, functional Song. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 143,
-  "score": 0.498,
+  "recipe": "classic late-2010s comedia, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 165,
+  "score": 1.086,
   "config": {
     "traditions": [
       "comedia"
@@ -43,11 +43,11 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.108,
-          "voice_ensemble_config": 0,
+          "voice_speech_song": 0.28650000000000003,
+          "voice_ensemble_config": 0.168,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.2415,
           "voice_multitrack_stack": 0.39,
           "voice_tessitura": 0
         }

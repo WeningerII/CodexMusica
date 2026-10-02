@@ -3,9 +3,9 @@
   "name": "Christian a cappella",
   "family": "vernacular",
   "lineage": "Acappella Ministries — Praise & Harmony training-disc quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic christian a cappella, functional Song. group vocals. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 159,
-  "score": 0.683,
+  "recipe": "classic christian a cappella, ritual Devotional, christian gospel branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 172,
+  "score": 0.137,
   "config": {
     "traditions": [
       "christian_a_cappella"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.546,
+          "voice_ensemble_config": 0.1365,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.1365,
+          "voice_multitrack_stack": 0,
           "voice_tessitura": 0
         }
       }

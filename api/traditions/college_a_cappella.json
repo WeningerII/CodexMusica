@@ -5,7 +5,7 @@
   "lineage": "Yale Whiffenpoofs — collegiate fourteen-singer ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic college a cappella, functional Song. group vocals, live take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 168,
-  "score": 3.141,
+  "score": 3.071,
   "config": {
     "traditions": [
       "college_a_cappella"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.4605,
-          "voice_ensemble_config": 1.627,
+          "voice_speech_song": 0.2445,
+          "voice_ensemble_config": 1.69,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 1.054,
+          "voice_multitrack_stack": 1.1365,
           "voice_tessitura": 0
         }
       }

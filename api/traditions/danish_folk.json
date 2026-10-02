@@ -5,7 +5,7 @@
   "lineage": "Danish folk includes inherited dance tunes and contemporary roots ensembles. Trio Mio’s documented Scandinavian practice supplies this selected modern branch: fiddle, piano and guitar working between composed tunes and improvisation.",
   "recipe": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 384,
-  "score": 27.401,
+  "score": 27.75,
   "config": {
     "traditions": [
       "danish_folk"
@@ -22,10 +22,10 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.39,
+          "bowed_technique": 0.38649999999999995,
           "fiddle_strings": 1.1365,
           "fiddle_bow": 2.668,
-          "fiddle_mute": 0.51175,
+          "fiddle_mute": 0.63075,
           "fiddle_articulation": 0.0225,
           "fiddle_string_configuration": 0
         }
@@ -44,15 +44,15 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.05,
+          "keyboard_technique": -0.035,
           "grand_piano_size": 0.01125,
           "grand_piano_brand": 1.3565,
           "piano_hammer": 2.66,
-          "piano_rim": 2.814,
-          "piano_soundboard": 2.9442500000000003,
-          "piano_pinblock": 2.7935000000000003,
+          "piano_rim": 2.8064999999999998,
+          "piano_soundboard": 3.08075,
+          "piano_pinblock": 2.93,
           "piano_plate": 2.5865,
-          "piano_pitch_standard": 3.5855
+          "piano_pitch_standard": 3.5455
         }
       },
       {
@@ -61,14 +61,14 @@
           "acoustic_technique": "acoustic_flatpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "maple_bs",
+          "back_sides": "koa_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.07,
           "string_tuning": 0,
           "top_wood": 0.3,
-          "back_sides": 0.017499999999999998,
+          "back_sides": 0.01125,
           "string_acoustic": 1.14775
         }
       }

@@ -3,14 +3,14 @@
   "name": "Dreampunk",
   "family": "electronic",
   "lineage": "Named around 2016 by the Dream Catalogue label under HKE in the wake of the 2 8 1 4 records, dreampunk slows vaporwave's sample logic into 60-80 BPM or beatless long-form ambient — heavily reverbed and time-stretched synth pads, dial-tone and rain field recordings, distant Mandarin or Japanese speech samples, tape hiss and cassette wow — arranged as continuous album-length dystopian-city atmospheres.",
-  "recipe": "classic mid-2010s dreampunk, experimental Elec, retro aesthetic branch, ambient experimental electric, lofi experimental electric lo-fi beats j-ambient. glitched textural granular sustained pad analog poly synth, sustained pad digital subtractive, tape replay keyboard, field textural sampler. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 410,
-  "score": 106.384,
+  "recipe": "classic mid-2010s dreampunk, experimental Elec, retro aesthetic branch, ambient experimental electric, lofi experimental electric j-ambient dark ambient. glitched textural granular sustained pad analog poly synth, sustained pad digital subtractive, tape replay keyboard, field textural sampler. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 411,
+  "score": 111.359,
   "config": {
     "traditions": [
       "dreampunk",
-      "lofi_beats",
-      "j_ambient"
+      "j_ambient",
+      "dark_ambient"
     ],
     "instruments": [
       {
@@ -21,9 +21,9 @@
           "granular_synth_source": "granular_synth_field"
         },
         "scores": {
-          "electronic_technique": 13.815000000000003,
+          "electronic_technique": 12.94,
           "granular_use": 0.24,
-          "granular_synth_source": 7.9300000000000015
+          "granular_synth_source": 8.515
         }
       },
       {
@@ -34,9 +34,9 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 11.6595,
-          "va_archetypes": 0.0495,
-          "digital_subtractive_context": 11.829999999999997
+          "electronic_technique": 12.3095,
+          "va_archetypes": 0.195,
+          "digital_subtractive_context": 12.415000000000001
         }
       },
       {
@@ -47,8 +47,8 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 0.04999999999999999,
-          "tape_voice": 0.49324999999999997,
+          "keyboard_technique": -0.1,
+          "tape_voice": 0.195,
           "tape_state": 0.15874999999999997
         }
       },
@@ -59,29 +59,29 @@
           "sampler_archetypes": "akai_s1000",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_hiphop"
+          "sampler_classic_context": "sampler_classic_industrial"
         },
         "scores": {
-          "electronic_technique": 13.815000000000003,
+          "electronic_technique": 12.94,
           "sampler_archetypes": 2.875,
-          "sampler_bit_depth": 1.3854999999999997,
-          "sampler_workflow": 17.161375000000003,
-          "sampler_classic_context": 13.974999999999998
+          "sampler_bit_depth": 1.04,
+          "sampler_workflow": 16.436374999999998,
+          "sampler_classic_context": 16.5
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 11.6595,
-          "poly_archetypes": 0.49324999999999997,
-          "poly_voices": 0.62325,
-          "poly_maker_lineage": -0.6300000000000001
+          "electronic_technique": 12.3095,
+          "poly_archetypes": 0.45499999999999996,
+          "poly_voices": 0.195,
+          "poly_maker_lineage": -0.7350000000000001
         }
       }
     ],

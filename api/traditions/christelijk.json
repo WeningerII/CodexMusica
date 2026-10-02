@@ -3,9 +3,9 @@
   "name": "Christelijk",
   "family": "vernacular",
   "lineage": "Psalmen voor Nu — Licht, kom tevoorschijn (2013), published guitar-score realization. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic early-2010s christelijk, functional Song. solo with instrumental accompaniment. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 215,
-  "score": 0.833,
+  "recipe": "classic early-2010s christelijk, ritual Devotional, christian gospel branch. solo with instrumental accompaniment. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 0.696,
   "config": {
     "traditions": [
       "christelijk"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.6825000000000001,
+          "voice_ensemble_config": 0.546,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,

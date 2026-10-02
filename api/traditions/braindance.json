@@ -5,7 +5,7 @@
   "lineage": "NimrodConDr — Summer of Machines (2025). Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
   "recipe": "classic mid-2020s braindance, functional Song. analog poly synth, drum machine analog. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 178,
-  "score": 0.63,
+  "score": 0.45,
   "config": {
     "traditions": [
       "braindance"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": -0.1,
           "poly_archetypes": 0,
-          "poly_voices": 0.39,
+          "poly_voices": 0.3,
           "poly_maker_lineage": -0.05
         }
       },
@@ -35,7 +35,7 @@
           "shuffle_quantize": "shuffle_low"
         },
         "scores": {
-          "kick_voice": 0.39,
+          "kick_voice": 0.3,
           "snare_voice": 0,
           "hat_voice": 0,
           "shuffle_quantize": 0

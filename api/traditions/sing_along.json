@@ -5,7 +5,7 @@
   "lineage": "Anglo-American and Northern European communal singing practice of parlour, pub, campfire and civic hall, formalized commercially by mid-twentieth-century broadcast and record formats such as Mitch Miller's Sing Along with Mitch (1958-66) and the British pub singalong LP — strophic familiar songs in easy singing keys at steady 90-130 BPM, unison or simple thirds harmony, a piano or accordion holding a plain oom-pah or block-chord accompaniment, deliberately short repeated choruses and printed or shouted lyric cues so untrained voices can join instantly.",
   "recipe": "classic late-1950s sing-along, drinking Song, European branch, anglo American protest song, European nursery rhyme barnmusik american folk-revival protest song. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu choir ensemble, block chord upright piano, melodic straight piano accordion, walnut warmer than maple mid tier light steel clawhammer canon banjo 5 string, tambourine orch. parlor. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
   "recipe_chars": 681,
-  "score": 189.684,
+  "score": 189.677,
   "config": {
     "traditions": [
       "sing_along",
@@ -41,9 +41,9 @@
           "voice_vibrato": 1.56,
           "voice_articulation": 17.874999999999996,
           "voice_microtone": 15.794999999999993,
-          "voice_tradition": 10.49775,
+          "voice_tradition": 10.434999999999999,
           "voice_mechanism_compound": 2.34,
-          "voice_estill_quality": 3.22525,
+          "voice_estill_quality": 3.2350000000000003,
           "voice_speech_song": 24.179999999999996,
           "voice_ensemble_config": 17.159999999999997,
           "voice_ornament_system": 1.56,
@@ -61,9 +61,9 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 6.9952499999999995,
+          "choir_size": 7.05,
           "choir_polyphonic_configuration": 1.54,
-          "choir_regional_canonical_configuration": 5.755249999999999,
+          "choir_regional_canonical_configuration": 5.81,
           "choir_ensemble_repertoire": 2.535
         }
       },
@@ -97,7 +97,7 @@
         "id": "banjo_5_string",
         "slots": {
           "banjo_back": "open_back",
-          "tone_ring": "wood_ring",
+          "tone_ring": "tubaphone",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
@@ -112,8 +112,8 @@
           "tone_ring": 0.195,
           "banjo_head": 16.38,
           "banjo_pot": 0.195,
-          "banjo_play": 0.3125,
-          "banjo_rim_wood": 1.1302499999999998,
+          "banjo_play": 0.195,
+          "banjo_rim_wood": 1.0949999999999998,
           "banjo_neck_wood": 1.045,
           "banjo_strings": 1.045,
           "banjo_bridge": 0.045,
@@ -123,11 +123,11 @@
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_jingle": "tambourine_orch_mixed",
           "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.3,
+          "tambourine_orch_jingle": 0.39,
           "tambourine_orch_context": 0.3
         }
       }

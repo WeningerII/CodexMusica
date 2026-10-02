@@ -1,11 +1,11 @@
 {
   "id": "cello_ensemble",
   "name": "Cello ensemble",
-  "family": "vernacular",
+  "family": "classical",
   "lineage": "The 12 Cellists of the Berliner Philharmoniker — Klengel Hymnus formation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic cello ensemble, art Music. European maple bosnian source flamed figure pirastro cellisto cello specific cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 217,
-  "score": 3.64,
+  "recipe": "classic cello ensemble, art Music. norway spruce European alpine European maple bosnian source flamed figure cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 214,
+  "score": 23.569,
   "config": {
     "traditions": [
       "cello_ensemble"
@@ -25,15 +25,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": -0.05,
+          "bowed_technique": 2.5,
           "cello_strings": 0.054,
-          "cello_top_wood": -0.1,
-          "cello_back_wood": 1.56,
-          "cello_varnish": -0.1,
-          "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.31950000000000006,
-          "cello_rosin": 2.1315000000000004,
-          "cello_bow_stick": -0.10500000000000001
+          "cello_top_wood": 2.45,
+          "cello_back_wood": 4.7955000000000005,
+          "cello_varnish": 2.45,
+          "cello_setup_period": 2.504,
+          "cello_bow_grip": 1.3,
+          "cello_rosin": 4.713,
+          "cello_bow_stick": 2.8020000000000005
         }
       }
     ],

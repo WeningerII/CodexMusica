@@ -2,8 +2,8 @@
   "reviewer": "research_119",
   "review_type": "Independent final integrated source/default/scope and original app preservation review",
   "baseline": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
-  "head": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
-  "frozen_sha256": "0e30b15d1925f7573d80b93565f1475be7e19d1bcda04c5aae55b4256c97e7c2",
+  "head": "71497eb12be1e2327526fe5ca513d5835d5dd611",
+  "frozen_sha256": "2a7781868dac1fbdbec8f5125b5e51c4980deb9dd8f98cc410a9f4ab2a1565a4",
   "status": "pass_source_defaults_and_preservation",
   "counts": {
     "old_traditions_unchanged": 5038,
@@ -1077,127 +1077,5 @@
   "app_snapshot_paths": {
     "baseline": "/tmp/batch025/baseline-app-pins.json",
     "current": "/tmp/batch025/current-app-pins-review119.json"
-  },
-  "baseline_rebind": {
-    "old_commit": "33a0824a0538b1205e54445122fdf1daa5fe636e",
-    "new_commit": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
-    "identical_tree": "6609d3346398b29f25fb0d87902893dfa228c173",
-    "old_frozen_sha256": "41f06caca5d6a6737c3a572b9ae519fbaeccab8748aaa4eeec5939112bd0b9e6",
-    "only_change": "required_predecessor",
-    "proof": "Replacing only new predecessor string with old reconstructs byte-exact original reviewed frozen hash; git tree IDs identical."
-  },
-  "atlas_metadata_rebind": {
-    "previous_frozen_sha256": "d4c57e4fec90ff642fc85defd8c3ffd7abaa607dcaee61f199c11e736d880eb4",
-    "new_frozen_sha256": "0e30b15d1925f7573d80b93565f1475be7e19d1bcda04c5aae55b4256c97e7c2",
-    "modified_new_geo_rows": 14,
-    "coordinate_changes": 0,
-    "region_changes": 3,
-    "label_changes": 12,
-    "proof": "Reversed exactly14 logged geo amendments and removed their log records; serialization reproduces byte-exact previously reviewed frozen hash. Thus all non-geo entry fields including source, extras, instruments, pins, photos and coordinates unchanged. Current repo geo matches14 amended rows; all5038 prior geo rows unchanged. Previously hashed API aggregate, tradition/instrument indexes and source files remain byte-identical.",
-    "amendments": [
-      {
-        "id": "kurdish_pop",
-        "field": "geo",
-        "before": [41.008, 28.978, "Istanbul", "Middle East & North Africa"],
-        "after": [41.008, 28.978, "Istanbul", "Middle East"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "chamame_brasilero",
-        "field": "geo",
-        "before": [
-          -20.47,
-          -54.62,
-          "Campo Grande, Mato Grosso do Sul scene",
-          "Latin America & Caribbean"
-        ],
-        "after": [-20.47, -54.62, "Campo Grande", "Latin America & Caribbean"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "channel_islands_indie",
-        "field": "geo",
-        "before": [49.18, -2.11, "St Helier, Jersey", "Europe"],
-        "after": [49.18, -2.11, "St Helier", "Europe"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "chant_basque",
-        "field": "geo",
-        "before": [43.33, -1.32, "Macaye, Basque Country", "Europe"],
-        "after": [43.33, -1.32, "Macaye", "Europe"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "children_s_story",
-        "field": "geo",
-        "before": [34.501, -85.282, "Paradise Garden, Summerville", "North America"],
-        "after": [34.501, -85.282, "Paradise Garden (Summerville)", "North America"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "chinese_worship",
-        "field": "geo",
-        "before": [33.745, -117.826, "Tustin, California — ministry base", "North America"],
-        "after": [33.745, -117.826, "Tustin (ministry base)", "North America"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "christian_lo_fi",
-        "field": "geo",
-        "before": [34.17, -80.06, "Lamar, South Carolina", "North America"],
-        "after": [34.17, -80.06, "Lamar", "North America"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "cleveland_indie",
-        "field": "geo",
-        "before": [41.499, -81.694, "Cleveland, Ohio", "North America"],
-        "after": [41.499, -81.694, "Cleveland", "North America"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "cocuk_masallari",
-        "field": "geo",
-        "before": [39.0, 35.0, "Türkiye", "West Asia"],
-        "after": [39.0, 35.0, "Türkiye", "Middle East"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "cocuk_sarkilari",
-        "field": "geo",
-        "before": [40.99, 29.03, "Kadıköy, Istanbul", "West Asia"],
-        "after": [40.99, 29.03, "Kadıköy", "Middle East"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "college_a_cappella",
-        "field": "geo",
-        "before": [41.308, -72.928, "New Haven, Connecticut", "North America"],
-        "after": [41.308, -72.928, "New Haven", "North America"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "color_noise",
-        "field": "geo",
-        "before": [43.073, -89.401, "Madison, Wisconsin", "North America"],
-        "after": [43.073, -89.401, "Madison", "North America"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "columbus_ohio_indie",
-        "field": "geo",
-        "before": [39.961, -82.999, "Columbus, Ohio", "North America"],
-        "after": [39.961, -82.999, "Columbus", "North America"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      },
-      {
-        "id": "convent",
-        "field": "geo",
-        "before": [39.61, -94.6, "Gower, Missouri community", "North America"],
-        "after": [39.61, -94.6, "Gower (community)", "North America"],
-        "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
-      }
-    ]
   }
 }

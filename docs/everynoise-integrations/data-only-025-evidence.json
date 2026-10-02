@@ -2517,7 +2517,7 @@
       "tradition": {
         "id": "bogor_indie",
         "name": "Bogor Indie",
-        "family": "pop_rock",
+        "family": "rock_punk",
         "lineage": "Texpack — Courageous EP (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -2581,7 +2581,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.alternative",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -4327,7 +4327,7 @@
       "tradition": {
         "id": "cello",
         "name": "Cello",
-        "family": "vernacular",
+        "family": "global",
         "lineage": "Oliver Barrett — Yuaols (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["cello"],
         "room": "treated_studio",
@@ -4353,7 +4353,7 @@
         }
       },
       "extras": {
-        "parent": "experimentalElec",
+        "parent": "improvOnFrame.jamFree",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -4518,7 +4518,7 @@
       "tradition": {
         "id": "cello_ensemble",
         "name": "Cello ensemble",
-        "family": "vernacular",
+        "family": "classical",
         "lineage": "The 12 Cellists of the Berliner Philharmoniker — Klengel Hymnus formation. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["cello"],
         "room": "treated_studio",
@@ -4729,7 +4729,7 @@
         }
       },
       "extras": {
-        "parent": "balladPoetry",
+        "parent": "artMusic",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -4968,7 +4968,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -5223,7 +5223,7 @@
       "tradition": {
         "id": "chakra",
         "name": "Chakra",
-        "family": "vernacular",
+        "family": "global",
         "lineage": "Sonic Yogi — Singing Bowl Love (2017), Sacral Chakra branch. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["himalayan_singing_bowl"],
         "room": "treated_studio",
@@ -5242,7 +5242,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "experimentalElec.ambient",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -7543,7 +7543,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -7914,7 +7914,7 @@
       "tradition": {
         "id": "charango",
         "name": "Charango",
-        "family": "vernacular",
+        "family": "classical",
         "lineage": "Greg Nicolett — Solidarity, Solo Charango Version (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["charango"],
         "room": "treated_studio",
@@ -7936,7 +7936,7 @@
         }
       },
       "extras": {
-        "parent": "balladPoetry",
+        "parent": "artMusic",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -8391,7 +8391,7 @@
       "tradition": {
         "id": "charlottesville_indie",
         "name": "Charlottesville indie",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "Breakers — In Search of an Exit (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -8455,7 +8455,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.alternative",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -8675,7 +8675,7 @@
       "tradition": {
         "id": "charred_death",
         "name": "Charred death",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "Dollhaver — Skin Branch (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -8739,7 +8739,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.metal.death",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -9023,7 +9023,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.alternative",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -10108,7 +10108,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "spokenWord.narration",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -10350,7 +10350,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.alternative",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -10599,7 +10599,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "experimentalElec.lofi",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -10795,7 +10795,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "improvOnFrame.americanJazz.smoothVocal",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -11245,7 +11245,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "experimentalElec.ambient",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -11479,7 +11479,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "nurseryRhyme.european",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -11982,7 +11982,7 @@
       "tradition": {
         "id": "chinese_experimental",
         "name": "Chinese experimental",
-        "family": "global",
+        "family": "electronic",
         "lineage": "Li Yilei — 之 / OF (2021), synth/violin/guqin core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
         "instruments": ["analog_poly_synth", "violin_orchestral", "guqin"],
         "room": "treated_studio",
@@ -12018,7 +12018,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "experimentalElec.musiqueConcrete",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -12424,7 +12424,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -12600,7 +12600,7 @@
       "tradition": {
         "id": "chip_hop",
         "name": "Chip hop",
-        "family": "vernacular",
+        "family": "hip_hop",
         "lineage": "Mode 7 — Game Boy 6 in 1 (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "sampler_classic"],
         "room": "treated_studio",
@@ -12639,7 +12639,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "mcRhythm.experimental",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -13024,7 +13024,7 @@
       "tradition": {
         "id": "christchurch_indie",
         "name": "Christchurch indie",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "PATIENTS — documented Christchurch lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -13088,7 +13088,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.alternative",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -13352,7 +13352,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -13574,7 +13574,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -13833,7 +13833,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -14107,7 +14107,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -14326,7 +14326,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -14582,7 +14582,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -14968,7 +14968,7 @@
       "tradition": {
         "id": "cincinnati_indie",
         "name": "Cincinnati indie",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "Old City — Cincinnati indie-rock trio. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -15032,7 +15032,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.alternative",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -15278,7 +15278,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "groovePercussion.americanMarching",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -15895,7 +15895,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -16464,7 +16464,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "spokenWord.stagePerformance",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -16864,7 +16864,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "spokenWord.narration",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -17849,7 +17849,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "experimentalElec.ambient",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -18249,7 +18249,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "spokenWord.stagePerformance",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -18434,7 +18434,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "spokenWord.stagePerformance",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -19067,7 +19067,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "nurseryRhyme.subSaharanAfrican",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -19261,7 +19261,7 @@
       "tradition": {
         "id": "concepcion_indie",
         "name": "Concepción indie",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "Sujetos Ficticios — Suerte de principiante (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -19325,7 +19325,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.alternative",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -19569,7 +19569,7 @@
         }
       },
       "extras": {
-        "parent": "balladPoetry",
+        "parent": "improvOnFrame",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -20059,7 +20059,7 @@
       "tradition": {
         "id": "contrabass",
         "name": "Contrabass",
-        "family": "vernacular",
+        "family": "global",
         "lineage": "Carl Baugher — Carco (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["double_bass"],
         "room": "treated_studio",
@@ -20086,7 +20086,7 @@
         }
       },
       "extras": {
-        "parent": "experimentalElec",
+        "parent": "improvOnFrame.jamFree",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -20287,7 +20287,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "ritualDevotional.christianGospel",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -20467,7 +20467,7 @@
       "tradition": {
         "id": "cork_indie",
         "name": "Cork indie",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "The Last Vinci — 15 Minutes At A Time (2026). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -20531,7 +20531,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.alternative",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -22210,7 +22210,7 @@
       "tradition": {
         "id": "crossover_prog",
         "name": "Crossover prog",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "Murky Red — Time Doesn’t Matter (2012), vocal/guitar-band core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -22274,7 +22274,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.progressiveRock",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -22498,7 +22498,7 @@
       "tradition": {
         "id": "cruise",
         "name": "Cruise",
-        "family": "vernacular",
+        "family": "electronic",
         "lineage": "DJ Tobzy Imole Giwa — CRUISE BEAT (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["sampler_classic", "digital_subtractive", "sampler_drum_machine"],
         "room": "treated_studio",
@@ -22525,7 +22525,7 @@
         }
       },
       "extras": {
-        "parent": "experimentalElec",
+        "parent": "electronicDance.africanDance",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -22918,7 +22918,7 @@
       "tradition": {
         "id": "cymraeg",
         "name": "Cymraeg",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "BOI — Tragwyddoldeb (2021), Welsh-language rock core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -22982,7 +22982,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.regional",
         "axes": {
           "harm": 0,
           "pitch": 0,
@@ -23402,7 +23402,7 @@
       "tradition": {
         "id": "czech_psychedelic",
         "name": "Czech psychedelic",
-        "family": "vernacular",
+        "family": "rock_punk",
         "lineage": "Marcel Gidote’s Holy Crab — 2024 Jazzchange live band core. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
         "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
@@ -23466,7 +23466,7 @@
         }
       },
       "extras": {
-        "parent": "functionalSong",
+        "parent": "distortedRock.experimental",
         "axes": {
           "harm": 0,
           "pitch": 0,

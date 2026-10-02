@@ -5,7 +5,7 @@
   "lineage": "New Orleans street-parade practice in which the hired brass band is the first line and the following neighborhood crowd is the second, formalized through 19th-century Afro-Creole benevolent and social aid and pleasure club funerals and Sunday parades and still weekly in Treme and Central City — bass drum with attached cymbal marking a syncopated three-over-two street beat, snare rolling loose press patterns, sousaphone walking a two-beat bassline, trumpets and trombones riffing hymns and pop tunes over roughly 90-110 BPM, with the crowd's handclaps, whistles and dance steps as an active layer.",
   "recipe": "classic modern second line, carnival Processional, American south branch, American marching groove percussion, American jazz early man's orchestra new orleans jazz. eb bass brass band sousaphone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, double bass rapid double strokes bass pipe band flourishing kevlar aramid extreme tension tenor drum, traditional mellow brass tambourine orch, hand clap. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 771,
-  "score": 153.54,
+  "score": 152.715,
   "config": {
     "traditions": [
       "second_line",
@@ -38,7 +38,7 @@
         "scores": {
           "wind_articulation": 8.809999999999999,
           "brass_size": 0,
-          "trumpet_mouthpiece": 12.81,
+          "trumpet_mouthpiece": 12.435,
           "brass_mute": 0.39,
           "trumpet_technique": 8.809999999999999,
           "trumpet_bell_metal": 3.835,
@@ -82,9 +82,9 @@
           "sax_size": 1.045,
           "sax_reed": 0.195,
           "sax_body_alloy": 12,
-          "sax_mouthpiece": 0.15,
+          "sax_mouthpiece": 0.195,
           "sax_technique": 11.625,
-          "sax_maker_school": 10.76
+          "sax_maker_school": 10.385
         }
       },
       {
@@ -107,9 +107,9 @@
           "tenor_drum_shell": "tenor_drum_muffled_cloth"
         },
         "scores": {
-          "tenor_drum_form": 8.190000000000001,
+          "tenor_drum_form": 8.16,
           "tenor_drum_head": 2.4699999999999998,
-          "tenor_drum_beater": 2.4099999999999993,
+          "tenor_drum_beater": 2.3199999999999994,
           "tenor_drum_shell": 5.04
         }
       },

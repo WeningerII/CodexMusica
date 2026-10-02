@@ -217,6 +217,498 @@
       "before": [39.61, -94.6, "Gower, Missouri community", "North America"],
       "after": [39.61, -94.6, "Gower (community)", "North America"],
       "reason": "Apply existing atlas place-only label and canonical region policy; coordinates unchanged."
+    },
+    {
+      "id": "bogor_indie",
+      "field": "tradition.family",
+      "before": "pop_rock",
+      "after": "rock_punk",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "bogor_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.alternative",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cello",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "global",
+      "reason": "Source explicitly solo acoustic free improvisation; experimental-electronic root contradicts no-electronics documented scope.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cello",
+      "field": "extras.parent",
+      "before": "experimentalElec",
+      "after": "improvOnFrame.jamFree",
+      "reason": "Source explicitly solo acoustic free improvisation; experimental-electronic root contradicts no-electronics documented scope.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cello_ensemble",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "classical",
+      "reason": "Twelve-cellist orchestral chamber formation and Klengel repertoire; current artMusic parent appropriate, vernacular family is misleading for this selected concert-art model.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "ceske_chvaly",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chakra",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "global",
+      "reason": "Instrumental singing-bowl meditative listening; no lyric/song-form. Ambient is listening/soundscape placement, not a claim electronically generated bowls. Existing world_meditation precedent.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chakra",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "experimentalElec.ambient",
+      "reason": "Instrumental singing-bowl meditative listening; no lyric/song-form. Ambient is listening/soundscape placement, not a claim electronically generated bowls. Existing world_meditation precedent.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chant_religieux",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "charlottesville_indie",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "charlottesville_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.alternative",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "charred_death",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Source expressly black/death-metal crossover; functional-song root misses defining metal branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "charred_death",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.metal.death",
+      "reason": "Source expressly black/death-metal crossover; functional-song root misses defining metal branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chattanooga_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.alternative",
+      "reason": "Sources explicitly shoegaze/grunge or shoegaze/post-punk electric indie band; alternative-rock branch rather than generic song-form.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "children_s_story",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "spokenWord.narration",
+      "reason": "Documented spoken children narration with pure spoken voice; not verse-chorus song.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chilean_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.alternative",
+      "reason": "Sources explicitly shoegaze/grunge or shoegaze/post-punk electric indie band; alternative-rock branch rather than generic song-form.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chill_beats",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "experimentalElec.lofi",
+      "reason": "Instrumental sampler beat-tape listening production; no song-form evidence. Existing lo-fi-production node matches scope.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chill_groove",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "improvOnFrame.americanJazz.smoothVocal",
+      "reason": "Source expressly smooth-jazz crossover, named sax/guitar/bass; existing node includes smooth jazz, not necessarily singing.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chillsynth",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "experimentalElec.ambient",
+      "reason": "Contemplative analog-synth space soundscape model; existing ambient/drone branch fits documented selected practice.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chinderlieder",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "nurseryRhyme.european",
+      "reason": "Source school/family Swiss German children songs rather than ordinary adult pop; existing regional childhood-song node.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chinese_experimental",
+      "field": "tradition.family",
+      "before": "global",
+      "after": "electronic",
+      "reason": "Documented sound-poem composition involving synth, acoustic instruments, sampled voice and environmental recordings; not functional song.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chinese_experimental",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "experimentalElec.musiqueConcrete",
+      "reason": "Documented sound-poem composition involving synth, acoustic instruments, sampled voice and environmental recordings; not functional song.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chinese_worship",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chip_hop",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "hip_hop",
+      "reason": "Explicit rapper and sampled game-composition beat production; rhythmic-verse branch, not generic functional song.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "chip_hop",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "mcRhythm.experimental",
+      "reason": "Explicit rapper and sampled game-composition beat production; rhythmic-verse branch, not generic functional song.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "christchurch_indie",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "christchurch_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.alternative",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "christelijk",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "christian_a_cappella",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "christian_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "christian_lo_fi",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "christian_music",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "christian_uplift",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cincinnati_indie",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cincinnati_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.alternative",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "circus",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "groovePercussion.americanMarching",
+      "reason": "Source traditional American circus-march repertoire performed on calliope. Closest existing functional march node; no assertion of percussion or full marching band in this solo realization.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "classic_praise",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "clean_comedy",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "spokenWord.stagePerformance",
+      "reason": "Documented live stand-up comedy; not a sung humorous-song model.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cocuk_masallari",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "spokenWord.narration",
+      "reason": "Documented spoken children narration with pure spoken voice; not verse-chorus song.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "color_noise",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "experimentalElec.ambient",
+      "reason": "Layered color-noise listening playback has no song or lyric architecture; ambient sound branch avoids implying harsh industrial performance.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "comedia",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "spokenWord.stagePerformance",
+      "reason": "Documented live stand-up comedy; not a sung humorous-song model.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "comedienne",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "spokenWord.stagePerformance",
+      "reason": "Documented live stand-up comedy; not a sung humorous-song model.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "comptine_africaine",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "nurseryRhyme.subSaharanAfrican",
+      "reason": "Source publisher explicitly early-childhood comptines from Burkina Faso; existing African childhood-song node.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "concepcion_indie",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "concepcion_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.alternative",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "contrabass",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "global",
+      "reason": "Source explicitly solo acoustic free improvisation; experimental-electronic root contradicts no-electronics documented scope.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "contrabass",
+      "field": "extras.parent",
+      "before": "experimentalElec",
+      "after": "improvOnFrame.jamFree",
+      "reason": "Source explicitly solo acoustic free improvisation; experimental-electronic root contradicts no-electronics documented scope.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "convent",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "ritualDevotional.christianGospel",
+      "reason": "Selected source scope explicitly Christian prayer, hymn, praise, worship, or monastic devotional repertoire. Existing Christian gospel/liturgical node is primary purpose; electronic/pop technique alone does not override it.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cork_indie",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cork_indie",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.alternative",
+      "reason": "Source positively identifies independent/alternative electric rock band; existing alternative/indie-rock node fits the documented branch.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "crossover_prog",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Explicit progressive/classic-rock crossover source; precise existing progressive-rock node.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "crossover_prog",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.progressiveRock",
+      "reason": "Explicit progressive/classic-rock crossover source; precise existing progressive-rock node.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cruise",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "electronic",
+      "reason": "Lagos cruise/freebeat uptempo programmed dance hybrid; primary club/dance branch rather than headphone-oriented experimental root.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cruise",
+      "field": "extras.parent",
+      "before": "experimentalElec",
+      "after": "electronicDance.africanDance",
+      "reason": "Lagos cruise/freebeat uptempo programmed dance hybrid; primary club/dance branch rather than headphone-oriented experimental root.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cymraeg",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Source selected contemporary Welsh-language rock; regional-rock placement describes selected practice without assigning language an intrinsic sound.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "cymraeg",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.regional",
+      "reason": "Source selected contemporary Welsh-language rock; regional-rock placement describes selected practice without assigning language an intrinsic sound.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "czech_psychedelic",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "rock_punk",
+      "reason": "Explicit psychedelic rock/kraut/jazz band branch; experimental-rock node fits source instead of generic song-form.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "czech_psychedelic",
+      "field": "extras.parent",
+      "before": "functionalSong",
+      "after": "distortedRock.experimental",
+      "reason": "Explicit psychedelic rock/kraut/jazz band branch; experimental-rock node fits source instead of generic song-form.",
+      "independent_review": "data-only-025-taxonomy-review.json"
+    },
+    {
+      "id": "celtic_harp",
+      "field": "extras.parent",
+      "before": "balladPoetry",
+      "after": "artMusic",
+      "reason": "Independent119 resolved source scope: broad concert art or tune-frame variation; no unsupported narrower lineage. See taxonomy review."
+    },
+    {
+      "id": "charango",
+      "field": "extras.parent",
+      "before": "balladPoetry",
+      "after": "artMusic",
+      "reason": "Independent119 resolved source scope: broad concert art or tune-frame variation; no unsupported narrower lineage. See taxonomy review."
+    },
+    {
+      "id": "charango",
+      "field": "tradition.family",
+      "before": "vernacular",
+      "after": "classical",
+      "reason": "Independent119 resolved source scope: broad concert art or tune-frame variation; no unsupported narrower lineage. See taxonomy review."
+    },
+    {
+      "id": "concertina",
+      "field": "extras.parent",
+      "before": "balladPoetry",
+      "after": "improvOnFrame",
+      "reason": "Independent119 resolved source scope: broad concert art or tune-frame variation; no unsupported narrower lineage. See taxonomy review."
     }
   ],
   "instrument_dependencies": [],
@@ -356,18 +848,18 @@
     "malawian_pop": "62d5401533f09d22ef2ec7049c2590c937c17496be2ee7dfc936a9fa40b20986",
     "maltese_pop": "bbbed0968810361f74f26727e57a526e61912b38f487fbd0fad1036dd332f38d",
     "math_pop": "50cba433fbbb5c5b96bb06b75fe617c334f4b8a6748e2d3ce397a9bfc1414bd8",
-    "bogor_indie": "9d68321273ec263ed9880f390e0202b79646818da1bd7fb682e000873bc0e6a5",
+    "bogor_indie": "7b8eeba0bf6b7bdfbaa0a24c392f748722412dade3765ce98da54da62832a233",
     "cape_breton_indie": "ce7d6e61f78793d7b191a2e7d9660f0313c19d54e8528217f9e5d431d73b2cd1",
     "cape_town_indie": "1a19868316d666bcb9c9e67f9ccfc3478d91d2d311806fe68e4c38d35e90ff2b",
     "cardiff_indie": "4e1f29fc9cb70f832dd19efa4e063bd454860ea0df31d4a4900cb8c20d735fa0",
     "cascadia_psych": "a4fce3918d3c3dcee1a1ba7c971e8922489ca41e3c4aea1aaf66ebf602a9b0d1",
     "cdmx_indie": "68e15ebc28830a59b4b363e5c9588d12643ea53b693698186e64b8e4ecaf9af9",
     "cdo_indie": "385ae90335c02a8ace73d95dc127ef63278efff7a727f9ab6ee1bab538a382c5",
-    "cello": "f7579e8503b63184190c40678a4e134356e9b7f175e48282f60bc383ea7e9342",
-    "cello_ensemble": "053a06d08b02600e9027535bd2c232cd1c2c99ccde9341e1a01f1b572af7cc6d",
-    "celtic_harp": "96210acba63ba20a5b568fe3eaf674fcbbace15f50b15852443805a768e3e713",
-    "ceske_chvaly": "7221b1d27ba2f4b08272a1085cbc987ef5a13f9cd7b11fad01b1395eea632115",
-    "chakra": "f2838062a340acb87e1be28817f498cbbca136cec63df989b89110c6302d5604",
+    "cello": "01f9f7270d6f9afeb419fa26e1a8a97028aabc6643daed8310f5b8a639f7941b",
+    "cello_ensemble": "459733d8d4c61ff32f86595601c5c2e0fd9362af947c78d4c38c6fe5757bb251",
+    "celtic_harp": "9888045f9f1195751bdde0cd0a95e1b3ec18228715408fd6420c4120f2e8d954",
+    "ceske_chvaly": "14316da1b56ff2468fac53e0287a58a4d790e7a43b2a260fe7623704f2d75db6",
+    "chakra": "a9fd5ffcc816cd849daeda2451d995afd4b2be2cbd2416b603a5f0ad8cc16762",
     "chamame_brasilero": "fa6edb724078555ad48aea8c005abd13a6af5b02e73ef85dab882b7ed79cb807",
     "chamber_psych": "97aa80d9b3882cefb86378a915f1332b5f0f1e9edf9400fd439502cdcebd25bc",
     "channel_islands_indie": "9a316d66a8a96eec0395d9a16c2a95216cb6a61e5e386a41cedc17e55be79baf",
@@ -376,82 +868,82 @@
     "chanson_quebecois": "009a1adcc93cea723b198193d0756b4c97b5874062b2f88199176488437954c1",
     "chanson_virale": "29564d6bd7c777a81d82e02a3ec7b07e49efd7fcbc81b1105df666b9a06784c2",
     "chant_basque": "e19de2ad9fca2e206e9c4cda520fab099419cf921ab4f970bb8cdc27c74c8ac1",
-    "chant_religieux": "440a29b09b2753bece1dd36027935a0cd04864487ca4d64432f2ce9273d685e4",
+    "chant_religieux": "c6135c4bb95f50fda9abff8219463d17d8f8bc5786741f86d3c46f12e61b4df9",
     "chapman_stick": "5236e1397d5738d99d43808154fce82d95bd95be937decae53aa92a306ecd535",
-    "charango": "799544fd7df35f984c6b39d6fe0536eb61a9e41f0de03128831d0b5ce2d8572f",
+    "charango": "ef4b9c41009110f77aea7f38fce1c4b921d96a4db1342653d3f15aefe1ff14fb",
     "charlotte_nc_indie": "cfc6cbf43d2d7d32042ab5525c2c15d60374277f2e4c80abf0a1d392420cc7f7",
-    "charlottesville_indie": "73d986c122cf04d9c991ed840ebd365f62505de66f13815969a6d75ae7e09fff",
-    "charred_death": "389f83f855c300e356c50a3bf08e80ad953437b6d69a8e1486e8519cbc81e29c",
-    "chattanooga_indie": "a2b8974112cdeba09ef8c0ef057b2381d6a8c35c38bdec78449ffd10f64d0bcc",
+    "charlottesville_indie": "cb31ec26c6a27225f45a7d89c6fd4ade6b7dafd38f819dc8cb92d28a4ae9d999",
+    "charred_death": "2be70fcf0acc60b2880d694e008c8ba1d89fb6ba80e0b43bdf87a9028bb9f05b",
+    "chattanooga_indie": "a434c31a3863bbecd8e08bf7816537db91eb4741ba0e062aaccd59d16271e144",
     "chennai_indie": "9208857a7166d51e9c2e5fe0c34487ff77c706a4dd93db04f28add6443bca813",
     "chicago_indie": "ce02af7365ab9cb879c0eb5067ba7133a6f84882f720f10d8054f09458ab5538",
     "chihuahua_indie": "a55a8c3272a4fbf7d5010354570c68bddfbcf9d08fb5c3ba4b9dc71d43b85493",
-    "children_s_story": "c0290eea4071ca5baa0126fe86ef3199dd2b9a13ab03fd4de762c31f27a692be",
-    "chilean_indie": "b09825244520449eca4aba8e98308004f50d906a4acd541ccb7b2e992070b760",
-    "chill_beats": "c2682180c4ce54e4c064e6115207403516c558a739426d7107bf3e7d485e43d2",
-    "chill_groove": "1c5a7b8642f662fc6c2f2c911137e973c6edc37d126ee7dc8596668e840b5252",
+    "children_s_story": "161fad39b1d7613146c816e75e7ede097a78930f004301723a778a1e8264b172",
+    "chilean_indie": "c09a9c589149264ca60ffa184186bd9b0d23ea3013f17164bbe21a0986754755",
+    "chill_beats": "4acf6f6bfe7a98177e7022955541c090937b79d87b76253477cdbafe886e0b04",
+    "chill_groove": "89364f340ad7a5c5c4dd84add1319da383be1bde285a1acb7847833ec931dc39",
     "chill_guitar": "b3ca923af6fbf4332be6b1268e6dfd12fd83715f0afc67b1c6140192bb99a31b",
-    "chillsynth": "0001a416a4c0965c7a1e194e871f2ca94555f92f3263dd24e843cf4119eb259b",
-    "chinderlieder": "3af4efaa72a48cd5d18ab82f2c23d34cdaa3a81722894c4b50d3025c2338e4c7",
+    "chillsynth": "58177f150232567296f11396475824e543c1dcac993e1c14d573907c22766b3b",
+    "chinderlieder": "37b9a037eae0b91e88512162bfdda5ee0a5a3e45117896be66ea83ee1660d21d",
     "chinese_audiophile": "94aeb121553ccef19c12c26c8da4178157973aaf27cd9ff69fffd87f8f9de927",
-    "chinese_experimental": "482f5e75621d531712ff2c7ca0a78e27e1e6bb699a0c158e5e210b6fa1af4e1f",
+    "chinese_experimental": "0e4436fcec5b5efae9596aef26b46fb499d4f7516361279eb58e191ff0e57f88",
     "chinese_new_year": "22ea72bc196afb8e4174fd6f5529c42338f02bf46ed351b262bb2ee6b30108e5",
-    "chinese_worship": "6dfbe8f82a75dd6a87c2ecafdc1ddda2e97925fd5a331c30b24400086fe24f15",
-    "chip_hop": "54c21706e0dd865eef5359437de4d8c0d2481b6e7a034fd9d7f55f2459dde3f2",
+    "chinese_worship": "4b74019e008866e8cbdf961064d7133c541c35069472a529c939a572d2163cc3",
+    "chip_hop": "1356f42b983775e3582cda5c8cef5c4490011eeccc1d635e2b2ecf323060cb63",
     "choro_contemporaneo": "512bc8219c3beef44f4ef2918b5cac2a3ad23084781918729f5c0715c2d03063",
-    "christchurch_indie": "204d5fb65d6dc15d8656c6edc8491077d6c0fb8aa0ea5d353ed29988075295d5",
-    "christelijk": "ca821055bad35b7cee51ec887cd85fd4c240168a8d6cfb2d97942d02979503b9",
-    "christian_a_cappella": "e9d599724c405e24a4008c372f7ccefd3ceaa4341d52066c9ffd6f904248d37f",
-    "christian_indie": "2b934c4f2ec331ff5c1d291afec8555d5d65ab35abc152e62a70138ce1adf7c0",
-    "christian_lo_fi": "e932e1dc3efa1348fab956d4e39449b5423e60c3b99f4e85f4b2ba09a7514a3c",
-    "christian_music": "19506abc2aed808bb3810c428b8bd5f3972d3e46234f90a86e17a9d265a6d677",
-    "christian_uplift": "2cfdec4d2609cf1aeb65c8f5f1c4ab326518ab1e5741b6afd22215f4951530cc",
+    "christchurch_indie": "310c200f538158c0034ec9d27363cbea05ea8131bba4b8820139c1c7cede129d",
+    "christelijk": "ad660affea76e7d2dab432c9cd595f7f62cf7d080580168469f44ce1c945f963",
+    "christian_a_cappella": "6c7897829b93c6cc945e9200abb68c291415528142a411b09ecf2b30119818fe",
+    "christian_indie": "21ec4611d471af34676419a85cb0aa4b89fe5a5b8541cb115d5be3243f33be7a",
+    "christian_lo_fi": "2e970676b09b21da2d839a84769575e26c9095f1b3f9f841bff0e26191ed6aea",
+    "christian_music": "751a2e0bce3918dc54a4642158f9f246e89205d4effeec8dc6d90ad37116baac",
+    "christian_uplift": "7a08712ad1dead727369ce2107af541e006f8f54cf088ff474d34233cedeeafb",
     "christmas_instrumental": "b521da961976f6c0140379bd0ce6b057891144d4269e79dec07c0d7cca6c7045",
-    "cincinnati_indie": "714fc35312479a250b069bc1950e792eb6147d9d3267ab1af3b99859f2cf0542",
-    "circus": "b7c9fcdf52075defcabdf12b8f03ad18169f1bbe2c28fcf7836f51636e8cab27",
+    "cincinnati_indie": "82ed093183a5179f547131af1e30740af93d39dc60c87b996cf2d266916d0dda",
+    "circus": "5b5aed819fd7d641f33cb2252cdea079016c49a33e1f69488101fd698861949c",
     "clap_and_tap": "f7b4a2d41bd099fac11b57073bedd4b2afa662aac59ae6f28dde222b2995331f",
     "clarinet_ensemble": "77a29060105997dc803060edf360a58a290470b08bced5bce6696aa33642afee",
-    "classic_praise": "8a121d8e6470a56e595d6dfabecd034233bbf899780b634c45bc7025d47e7d99",
+    "classic_praise": "35dfe866d4a5e2fc803018b93575319d8dd4143a4b343af79f38342f23e0f9c9",
     "classic_schlager": "b0ed0401ec46461512eaeb800dbc4f6c5f8123b868091baaef496d6d054eded6",
     "classify": "e74f22cfcda7a3dcb58e7c0e16d5a29cfa8466ab2e770bd6f8d1c4f336cdc93c",
-    "clean_comedy": "1fc38a4be3c12bbd4d3c32ba14fb7c2559b4bbfc1cad3187f8c882e75026a4a1",
+    "clean_comedy": "06ef4fba935dc5b8af4a2e723c7b446a5f56aa57ef8f0b3ad95bc3867bf1969c",
     "cleveland_indie": "758295d57ce21e334ba719839b73a169183b298778de3ab941f4530c4ae3802a",
-    "cocuk_masallari": "01532cfe9395bb19da7eb556719b183af268b3768b37a5e37a24b6dd48b07abc",
+    "cocuk_masallari": "037600f77e39df7cd3a1246b87df396161da9097d76ab9d952cd89f808274e3e",
     "cocuk_sarkilari": "5126f24b96fda6bcc3744b18123b15483fc00f2f656ac9d723bca2ec06d3211a",
     "college_a_cappella": "ac666d255c8564e80f95f1275a2089e47c4d1890cf4ce545aa53917ac5b2c280",
     "cologne_indie": "33217726fb2f51f5648866e3c29c0d6b7b4089f0d6b91639f2316fee6d71e8f0",
     "colombian_indie": "81f81c30573c8622d6fc5cee517389ea51928c47ebd9c4160c39c9f0a8c75ef6",
-    "color_noise": "0afeb108dc4e6a61ed924f7dd8eb91b36a3b5cd4dfcc5ad1861a78b6466c98fa",
+    "color_noise": "9e054a37d89edca52b0f32762bc850e2bdec188c99a3da24128e813d706e2a37",
     "columbus_ohio_indie": "0ce65b4d9fd1249024fa240f2c6ba192b23e9d06ecf8996ab6aa52d10786e7ad",
-    "comedia": "8108e8d64ed7a1c49ee4bc7e311a204ae309ee6ee2f10b0bdd61516c908f7b72",
-    "comedienne": "cba48409a942db6a674b8d09bc7c87b7b20b8ef0c493b2384f664791f7cfd38f",
+    "comedia": "8ae5ad721b4b778639755e350b66e3d2a67149e871a99c6a73b9c99587ad4aa1",
+    "comedienne": "c45f609e9469cd6d5800612f58f60aef9464f1b020e10ff4e2f899b144c59400",
     "comic": "f396f6f440989c2dc0fda3c271feaf826e6995532a66eaf12c4485155dda0322",
     "commons": "6a1d3c5d9adccb7cdcf96f60d57603f6553dd62e0bac4dffa9c8f19387a2341c",
-    "comptine_africaine": "dbc0f1ad67d00060c63729abaec1e9348db0e6e38a0365d0e1edb8103c4b1c83",
-    "concepcion_indie": "266d74889ace01ccebf794b160e477993d2f9bf7d873c463fbc658eb59cfe114",
-    "concertina": "c1baedd5a65434f166a20e710aa7399a804162f531191bceae7dfa83baa643ce",
+    "comptine_africaine": "7a10782e29ca76ff03bd4132c45fcc5d4be3939f388101612328ffefd94d5d48",
+    "concepcion_indie": "7e8f03b4e1c54b53dbb9436ebaec6f5435970530c1e5b9b750c7bfe64371295d",
+    "concertina": "3ac747889edd3b192d0baa6f4e75b374e4edaa3bf1b4705a109f1b1106a7e52c",
     "connecticut_indie": "ff7a8d4f48b5467d75171b25432445b8a79e420a1d146310da7af3ed0aa529eb",
-    "contrabass": "fcadc42772b982073a4784f250c8a705812cbd98c8de6cd4433d795f71e66674",
-    "convent": "cf18394a63af173bde0038dc3385546e269ff4013dd81f8c86937db37d0583e0",
-    "cork_indie": "0cf775fd7a98a140e5b2e1147851c6d6419272b908ef3528c44d6d22d6a139ea",
+    "contrabass": "9c51ab0eabe67fba427404170482ea60ca53aa82d8aa3f36f163a0a2f7e85fc2",
+    "convent": "8eb9a69259c643addcd91d684b81d7dd4c7896b94115943e2854c25660c6fffd",
+    "cork_indie": "3b9d8a6d9aba1d62d195f55ec3669751592c8c51e117eb15b2cb1cb072485b12",
     "cornwall_indie": "3eb64dc9eecc440ed458faf9157995904d0e2f7935bd0bd7169c778738f13786",
     "cosmic_american": "f04d0f9f4e4c26170e04bae2f001729db12afb7e97b57cae264014d5889b1b38",
     "countrygaze": "c558e8267c486d045fd31c8a98f2cd9338145e9ec8897ada3039b59a76eb9067",
     "coventry_indie": "6b689e79a4c7f151cfdf81430359067f95d8a650d0b0401a11da059432d2a382",
     "croatian_indie": "18bc1e0da1d7e7c29de576d79d493d5de28264434b039ae7ca6d10294ef5c7fa",
-    "crossover_prog": "95e8707af80fc56e4cbed358c374def77d08ea9afdee0e4083729b82160a047c",
-    "cruise": "9da1b18762fdeb6fa800661a98d898fa2ba93f79e379619c250ca83ce9b6f514",
+    "crossover_prog": "68ea83b8b7be41f0461f31f9b7853698409e698d8d305c2eb20d5a0210ce18d0",
+    "cruise": "cb24deda57417d6f0b196cb5afb08c97dfed356ea676c2b86dd9180020e8fb99",
     "cyberpunk": "70a00ffddd19e79ed5aa77066c7c0d554f32424bf19be7277dc236678baccb8d",
-    "cymraeg": "6984c42f21507989df378c547ebc693005bb71bedcaad5bff5c9e4eafb8c771f",
+    "cymraeg": "c1c0fcefb2c7b411cdbbead4186d17f3374bbd7fc0deb0add9d4243cfbdfcf1e",
     "czech_experimental": "b19ff4e730154afb9a5e43452626d13a497a0511bf57457cfa7b4bfb0dc8401d",
-    "czech_psychedelic": "5c4dc58f5af40bdee98245bbd907a6cec3e73220b3b31c0026a02ec31471329d",
+    "czech_psychedelic": "eeebf430f0056b3635941590ef0e3cdb1f175eeb6454f3e5ecd0c39152243871",
     "dainuojamoji_poezija": "ba1d24847671f901d9c35d2847d463515c7250588fac02346b967545e185326d",
     "danish_electropop": "3c0883fa7441f1cc1c50e6acdade15d61cf980c67026b06256de3e258fb74ed8"
   },
   "hash_method": "SHA256 of UTF-8 JSON sorted keys, compact separators, ensure_ascii=False",
   "photo_audit": "100 tradition images use exact inherited verified byte/hash/dimension/visual receipts and freshly checked primary rights/context. Generic instrument or recording context is identified explicitly; no fresh download, personal inspection, artist/session portrayal or unverified new image is claimed. Prior photographs unchanged.",
   "runtime_review_artifact": "data-only-025-runtime-review.json",
-  "validation_status": "All stated local checks passed; required exact-head CI pending.",
+  "validation_status": "All stated local checks passed on taxonomy-corrected source; corrected exact-head CI pending.",
   "continuation_cursor": {
     "allocation_group_id": "126",
     "next_ordinal": 3126,
@@ -462,22 +954,23 @@
     "passed": 1149,
     "exit_code": 0,
     "serial": true,
-    "snapshot_updates": 0
+    "snapshot_updates": 4,
+    "reviewed_update_ids": ["dream_pop", "minimalist", "free_improvisation", "mexican_rondas"]
   },
   "full_primary_api": {
     "traditions": 5138,
     "instruments": 1472,
     "failed": 0,
     "jobs": 2,
-    "seconds": 674.4,
+    "seconds": 649.9,
     "contract_pass": true
   },
-  "snapshot_review_status": "All1149 snapshots unchanged; no snapshot update.",
+  "snapshot_review_status": "All1149 snapshots pass after four individually reviewed original-neighbor-scoring updates. See data-only-025-regression-review.json.",
   "publication_schedule": "One fully generated/reviewed data-only tree; merge only after requiredCI passes exacthead. Realbrowser andartifactfreshness gates remain requiredCI.",
   "source_sha256": {
     "references/02_instruments.js": "94e645a71a7165e5d2ea4b9c1f1e1a7721c8632d6a7f0926e6bd76f3657c71dc",
-    "references/05_traditions.js": "0e325d84d35b01d28f89ab7b57ca76b85124381706f8ea6bca0005f0021bd94c",
-    "references/06_extras.js": "360827ad1e530ab5f46a450871bc7e4bd61fb8f9608b036b9f58a4c561eb6bd5",
+    "references/05_traditions.js": "ac8b162a999ffba199c09cae1495f74f212cf439c25944ab6926bc24bbbde845",
+    "references/06_extras.js": "d2374b92422bffb81a83f2e5b351186222c195d02f42078977f4228021e678ff",
     "references/_image_manifest.json": "392ba2d66919c1cd13ded1b8d879f06c20f33a5bd9e6d56fb5eee4a03939768e",
     "references/_tradition_signatures.json": "48c3dba74eb554d3b467a1b1d39c7d67da8aae2ec1818e6f2d938414ff8f244b",
     "data/geo.json": "982da633b40f967c45f4d06f41f0f1b327a6597e22c3c17d2f19cf9ff6813fac"
@@ -492,8 +985,8 @@
   },
   "append_only_scope_proof": {
     "predecessor": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
-    "head": "f8eb34d76849211f1fc9b1ab5e7930a7e3ae6037",
-    "frozen_sha256": "0e30b15d1925f7573d80b93565f1475be7e19d1bcda04c5aae55b4256c97e7c2",
+    "head": "71497eb12be1e2327526fe5ca513d5835d5dd611",
+    "frozen_sha256": "2a7781868dac1fbdbec8f5125b5e51c4980deb9dd8f98cc410a9f4ab2a1565a4",
     "counts": {
       "raw_traditions_old_unchanged": 5038,
       "raw_instruments_old_unchanged": 1472,
@@ -587,46 +1080,53 @@
   "local_checks": {
     "passed": [
       "Reference validation5138/1472",
-      "100x4 actualapp/connector parity",
+      "100x4actualapp/connectorparity",
       "all5038 prior imported cards and1472instrumentdefaults unchanged",
-      "recipe snapshots1149/1149 unchanged",
       "prefaces79/79",
       "slotpicks4/4",
       "apprecipes56/56",
       "browserNodeequivalence8/8",
       "signature attribution and mirror",
-      "duplicate gate",
+      "duplicates",
       "frozen descriptorDF",
-      "historicalEveryNoise pilot",
       "audit",
       "lint",
-      "fullAPI build2workers674.4seconds",
-      "StaticAPI contracts5138/1472",
+      "fullAPI2workers649.9seconds",
+      "StaticAPIcontracts5138/1472",
       "HTML/atlas/discovery rebuilt",
-      "fullatlas gate",
-      "documentation counters/paths/commands/behaviors",
+      "fullatlasgate",
+      "independentfullAPIreview5038prior+100new",
+      "45newtaxonomyrecordchangesonly verified",
+      "recipe snapshots1149/1149 after4reviewedupdates",
+      "docs counters/commands/paths/behaviors",
       "geography first96+second24 published traditions",
-      "independent fullAPI review5038 prior +100new",
-      "format check"
+      "formatcheck"
     ],
-    "pending": ["required exact-head CI including realbrowser andartifactfreshness"],
-    "superseded_attempts": "Atlas initial gate failed15 new data policy violations across14 rows; corrected new labels/regions only, coordinates unchanged; fullatlas rerun passed."
+    "pending": ["corrected exact-headCI includingrealbrowser/artifactfreshness"],
+    "superseded_attempts": "Initial71497 greenCI superseded by45new-row taxonomy corrections. Four of1149regression outputs changed under original neighbor scoring; all traced and reviewed before targeted updates. Initialdocs check required global-family count1377→1379 aftertwo newentries recategorized; counter corrected."
   },
   "prior_api_review": {
     "artifact": "data-only-025-api-review.json",
-    "changed_payloads": 19,
-    "recipe_changes": 2,
-    "unprotected_generated_slot_changes": 0,
-    "protected_pin_changes": 0,
-    "environment_changes": 0,
-    "roster_changes": 0,
+    "changed_payloads": 64,
+    "recipe_changes": 14,
+    "material_slot_changes": 66,
+    "score_only_payloads": 42,
+    "hidden_material_slot_payloads": 8,
+    "protected_slot_changes": [],
+    "environment_changes": [],
+    "instrument_roster_changes": [],
+    "validated_selected_slots_in_all_changed_payloads": 1923,
+    "variant_errors": [],
     "unchanged_old_instrument_payloads": 1472,
-    "explanation": "Original neighbor scoring changed19 scores; unchanged voice renderer threshold hides solo-accompaniment phrase in2 while identical ensemble selection retained."
+    "explanation": "Taxonomy corrections alter neighboring candidates under original unchanged scoring. All64derived payload changes independently reviewed, including66unprotected slot changes. Zero protected-pin/environment/roster changes; all1923 selectedvariants resolve."
   },
   "independent_reviews": [
     "data-only-025-append-only-review.json",
     "data-only-025-runtime-pin-review.json",
     "data-only-025-runtime-review.json",
-    "data-only-025-api-review.json"
+    "data-only-025-api-review.json",
+    "data-only-025-taxonomy-review.json",
+    "data-only-025-taxonomy-change-review.json",
+    "data-only-025-regression-review.json"
   ]
 }

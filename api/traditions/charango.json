@@ -1,11 +1,11 @@
 {
   "id": "charango",
   "name": "Charango",
-  "family": "vernacular",
+  "family": "classical",
   "lineage": "Greg Nicolett — Solidarity, Solo Charango Version (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
-  "recipe": "classic mid-2010s charango, ballad Poetry. charango. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 151,
-  "score": 0.55,
+  "recipe": "classic mid-2010s charango, art Music. andean classical charango. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 164,
+  "score": 2.109,
   "config": {
     "traditions": [
       "charango"
@@ -22,10 +22,10 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.05,
-          "charango_back": 0,
-          "charango_top_wood": 0.3,
-          "charango_strings": 0.3,
-          "charango_string_material": 0
+          "charango_back": 0.063,
+          "charango_top_wood": 0.375,
+          "charango_strings": 1.69,
+          "charango_string_material": 0.0315
         }
       }
     ],
