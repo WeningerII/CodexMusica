@@ -48,9 +48,7 @@
           "cyclicity": 1
         },
         "description": "The artist’s album identifies the accordion duo and tags accordeon, French and musette. Its official profile specifies two accordions; SACEM independently labels the 1998 La Vie en Rose version instrumental. Production, settings and axes are authored modern choices.",
-        "exemplars": [
-          "Accordéon Mélancolique — La Vie en Rose, L’imparfait du Cœur (1998)"
-        ],
+        "exemplars": ["Accordéon Mélancolique — La Vie en Rose, L’imparfait du Cœur (1998)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -158,9 +156,7 @@
         "count_basis": "SACEM’s version history explicitly identifies Accordéon Mélancolique’s 1998 La Vie en Rose as instrumental, corroborating the two-accordion artist description.",
         "decision": "Instrumental selected version; no singer card.",
         "scope": "Only the 1998 instrumental La Vie en Rose accordion-duo version is selected. One ensemble-configured accordion card describes the shared instrument class, not a lone player. The duo’s later small-orchestra productions and spoken concert interludes are excluded.",
-        "evidence_urls": [
-          "https://accordeonmelancolique.bandcamp.com/album/limparfait-du-coeur"
-        ]
+        "evidence_urls": ["https://accordeonmelancolique.bandcamp.com/album/limparfait-du-coeur"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. Only the 1998 instrumental La Vie en Rose accordion-duo version is selected. One ensemble-configured accordion card describes the shared instrument class, not a lone player. The duo’s later small-orchestra productions and spoken concert interludes are excluded.",
@@ -310,9 +306,7 @@
         "count_basis": "The primary label’s selected-version title explicitly establishes solo accordion.",
         "decision": "Instrumental selected version; no singer card.",
         "scope": "An experimental solo-accordion branch, distinct from the melodic duo realization selected for accordeon, concert accordion bands and Polish chamber-accordion repertoire. The authored bellows setting does not reconstruct every extended technique on the original release.",
-        "evidence_urls": [
-          "https://creativesources.bandcamp.com/album/rumeur-for-solo-accordion"
-        ]
+        "evidence_urls": ["https://creativesources.bandcamp.com/album/rumeur-for-solo-accordion"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. An experimental solo-accordion branch, distinct from the melodic duo realization selected for accordeon, concert accordion bands and Polish chamber-accordion repertoire. The authored bellows setting does not reconstruct every extended technique on the original release.",
@@ -331,12 +325,7 @@
         "name": "Accordion band",
         "family": "global",
         "lineage": "Accordion band is represented by Concertino Accordion Band — documented seven-accordion concert ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
-        "instruments": [
-          "accordion",
-          "electric_bass",
-          "grand_piano",
-          "drum_kit"
-        ],
+        "instruments": ["accordion", "electric_bass", "grand_piano", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -373,9 +362,7 @@
           "cyclicity": 1
         },
         "description": "The instrument maker’s artist profile documents seven accordionists, a bass player, pianist and drummer, and the ensemble’s concert practice under Chișinău’s Organ Hall. Its repertoire spans classical music, jazz and tango. Production, settings and axes are authored modern choices.",
-        "exemplars": [
-          "Concertino Accordion Band — documented seven-accordion concert ensemble"
-        ],
+        "exemplars": ["Concertino Accordion Band — documented seven-accordion concert ensemble"],
         "status": "documented",
         "crossRefs": []
       },
@@ -394,12 +381,7 @@
       "neighbor_distinction": "The maker-documented seven-accordion concert lineup is selected. The one accordion card with ensemble technique represents the shared instrumental class, not one player. Later five-accordion/violin configurations and guest-singer productions are separate branches; broadly credited bass is realized with an authored electric-bass card.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "accordion",
-          "electric_bass",
-          "grand_piano",
-          "drum_kit"
-        ],
+        "reused_instruments": ["accordion", "electric_bass", "grand_piano", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -717,11 +699,7 @@
       "neighbor_distinction": "A representative arrangement of the directly interviewed artist’s vocal-over-beat practice is selected, not a reconstruction of Ricky Opi Beat or a count of any sampled voices. Sampler and virtual-analog cards are authored implementations of the documented sampled/electronic production roles; no MPC, Nord or other artist hardware is asserted.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "sampler_drum_machine",
-          "digital_subtractive"
-        ],
+        "reused_instruments": ["voice", "sampler_drum_machine", "digital_subtractive"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -819,12 +797,7 @@
         "name": "Afro psych",
         "family": "popular",
         "lineage": "Afro psych is represented by Ngozi Family — Gate Crash '78, album ensemble documented by Now-Again’s 2026 release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -910,12 +883,7 @@
       "neighbor_distinction": "The credited trio’s original album material, first commercially released in 2026, supplies the selected Zamrock branch. Three distinct singers support a group model; that does not establish that all three sing throughout every track. The 2026 release date is not the session date. Creator-playlist membership classifies the discovery artist, not these particular sessions.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -986,19 +954,13 @@
         "note": "The creator playlist directly lists Ngozi Family with Paul Ngozi (row 8); actual Gate Crash ensemble roles come independently from the licensed label release."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Paul Ngozi",
-          "Tommy Mwale",
-          "Chrissy Zebby Tembo"
-        ],
+        "credited_selected_singers": ["Paul Ngozi", "Tommy Mwale", "Chrissy Zebby Tembo"],
         "selected_count": 3,
         "plural_ensemble_evidence": false,
         "count_basis": "Primary release credits identify these distinct human singers; overdubs by one performer do not add another singer.",
         "decision": "Distinct human vocal ensemble model.",
         "scope": "The credited trio’s original album material, first commercially released in 2026, supplies the selected Zamrock branch. Three distinct singers support a group model; that does not establish that all three sing throughout every track. The 2026 release date is not the session date. Creator-playlist membership classifies the discovery artist, not these particular sessions.",
-        "evidence_urls": [
-          "https://ngozifamily.bandcamp.com/album/gate-crash-78"
-        ]
+        "evidence_urls": ["https://ngozifamily.bandcamp.com/album/gate-crash-78"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. The credited trio’s original album material, first commercially released in 2026, supplies the selected Zamrock branch. Three distinct singers support a group model; that does not establish that all three sing throughout every track. The 2026 release date is not the session date. Creator-playlist membership classifies the discovery artist, not these particular sessions.",
@@ -1063,9 +1025,7 @@
           "cyclicity": 2
         },
         "description": "The São Paulo artist/label release identifies an instrumental Brazilian/African fusion and afrobeat category. Credits explicitly include trumpet, trombone, tenor and baritone saxophones, guitars, keyboards, bass and drums, alongside unspecified percussion. Production, settings and axes are authored modern choices.",
-        "exemplars": [
-          "Bixiga 70 — III (2015), documented instrumental album core"
-        ],
+        "exemplars": ["Bixiga 70 — III (2015), documented instrumental album core"],
         "status": "documented",
         "crossRefs": []
       },
@@ -1346,9 +1306,7 @@
         "count_basis": "The selected version is explicitly for piano four hands. It is an instrumental score realization; the two human performer credits do not become vocalists.",
         "decision": "Instrumental selected version; no singer card.",
         "scope": "This is an authored piano realization of one documented AI-composed work, not a model of every AI music process, synthetic voices or the album’s orchestral works. The piano card expresses one instrument played four-hands. Composition provenance is not confused with sound-source hardware or the modern recording chain.",
-        "evidence_urls": [
-          "https://tec.gob.ar/alritmodelaciencia-inteligencia-artificial/"
-        ]
+        "evidence_urls": ["https://tec.gob.ar/alritmodelaciencia-inteligencia-artificial/"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. This is an authored piano realization of one documented AI-composed work, not a model of every AI music process, synthetic voices or the album’s orchestral works. The piano card expresses one instrument played four-hands. Composition provenance is not confused with sound-source hardware or the modern recording chain.",
@@ -1505,9 +1463,7 @@
         "count_basis": "The selected concert segment has a complete four-accordion/electronic-keyboard player roster. The choir’s separate congratulatory Sto lat and the band’s 1979 singers are explicitly outside this selected instrumental segment.",
         "decision": "Instrumental selected version; no singer card.",
         "scope": "The 2019 four-accordion and electronic-keyboard rendition of Tritsch-Tratsch Polka is selected. A single accordion ensemble card represents the common instrumental class; the electronic keyboard is an authored virtual-analog realization of the broadly credited keyboard role. Earlier bass-accordion lineups, vocalists and the separate choir tribute are excluded by source/version boundaries.",
-        "evidence_urls": [
-          "https://koninskafundacjakultury.pl/40-lat-koninskich-akordeonistow/"
-        ]
+        "evidence_urls": ["https://koninskafundacjakultury.pl/40-lat-koninskich-akordeonistow/"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. The 2019 four-accordion and electronic-keyboard rendition of Tritsch-Tratsch Polka is selected. A single accordion ensemble card represents the common instrumental class; the electronic keyboard is an authored virtual-analog realization of the broadly credited keyboard role. Earlier bass-accordion lineups, vocalists and the separate choir tribute are excluded by source/version boundaries.",
@@ -1699,13 +1655,7 @@
         "name": "Alaska indie",
         "family": "popular",
         "lineage": "Alaska indie is represented by Wiley Post — documented full-band configuration (official artist biography). Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "cello",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "cello", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -1890,12 +1840,7 @@
         "name": "Albanian alternative",
         "family": "popular",
         "lineage": "Albanian alternative is represented by Into Thin Air — Blame the Milky Way feat. Bojken Lako (Fibonacci Sequence EP, 2018). Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -1969,12 +1914,7 @@
       "neighbor_distinction": "Only the 2018 EP’s first track is selected. Use recording-era drummer Ledio Bilali; do not substitute the current bio’s Eugen Herri or infer voices for the other tracks.",
       "model_policy": "Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -2050,9 +1990,7 @@
         "count_basis": "Distinct singers explicitly credited by the primary artist release. Self-overdubs are not counted as extra people.",
         "decision": "One credited singer: authored solo realization.",
         "scope": "Only the 2018 EP’s first track is selected. Use recording-era drummer Ledio Bilali; do not substitute the current bio’s Eugen Herri or infer voices for the other tracks.",
-        "evidence_urls": [
-          "https://intothinair.bandcamp.com/album/fibonacci-sequence-ep"
-        ]
+        "evidence_urls": ["https://intothinair.bandcamp.com/album/fibonacci-sequence-ep"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent every positively documented instrument class in the selected branch, not exact musician headcount. The humbucker guitar is an authored present-day realization of the credited guitar role. Only the 2018 EP’s first track is selected. Use recording-era drummer Ledio Bilali; do not substitute the current bio’s Eugen Herri or infer voices for the other tracks.",
@@ -2071,12 +2009,7 @@
         "name": "Albany NY indie",
         "family": "popular",
         "lineage": "Albany NY indie is represented by Glass Pony — Portraits (track 6 of Glass Pony, 2019). Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -2148,12 +2081,7 @@
       "neighbor_distinction": "Only track 6 Portraits is selected. Track-qualified acoustic guitar, keyboards, rainstick and Picarazzi vocal roles fall outside this branch. Dewey’s vocal credit is unqualified while the immediately following rainstick credit is qualified to tracks 2 and 4; duet is an authored realization of the credited singers, not a transcription of overlap.",
       "model_policy": "Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -2408,9 +2336,7 @@
         "count_basis": "Distinct singers explicitly credited by the primary artist release. Self-overdubs are not counted as extra people.",
         "decision": "Two credited singers: authored duet realization.",
         "scope": "The selected 2019 album ensemble is modeled as a present-day arrangement. No claim that both singers perform on every individual track or that the original was recorded in one take.",
-        "evidence_urls": [
-          "https://theordinarythings.bandcamp.com/album/stories"
-        ]
+        "evidence_urls": ["https://theordinarythings.bandcamp.com/album/stories"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent every positively documented instrument class in the selected branch, not exact musician headcount. The humbucker guitar is an authored present-day realization of the credited guitar role. The virtual-analog card is an authored realization of the credited synthesizer role, not an assertion of its synthesis engine. The selected 2019 album ensemble is modeled as a present-day arrangement. No claim that both singers perform on every individual track or that the original was recorded in one take.",
@@ -2429,12 +2355,7 @@
         "name": "Alternative CCM",
         "family": "popular",
         "lineage": "Alternative CCM is represented by Sparrows Rising — Lullaby (So Close, 2016). Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "violin_orchestral",
-          "grand_piano",
-          "electric_bass"
-        ],
+        "instruments": ["voice", "violin_orchestral", "grand_piano", "electric_bass"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -2503,12 +2424,7 @@
       "neighbor_distinction": "Only Lullaby’s positively credited roles are modeled. Its violin/piano and bass credits are track-specific; no generic rock drums or guitar is added from the wider CCM label.",
       "model_policy": "Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "violin_orchestral",
-          "grand_piano",
-          "electric_bass"
-        ],
+        "reused_instruments": ["voice", "violin_orchestral", "grand_piano", "electric_bass"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -2749,11 +2665,7 @@
         "note": "This American early-music performance branch is the Massachusetts vocal trio reading of Ockeghem’s track-2 rondeau, identified by the recording’s exact roster."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Kim Leeds",
-          "Jason McStoots",
-          "Sumner Thompson"
-        ],
+        "credited_selected_singers": ["Kim Leeds", "Jason McStoots", "Sumner Thompson"],
         "selected_count": 3,
         "count_basis": "Distinct singers explicitly credited by the primary artist release. Self-overdubs are not counted as extra people.",
         "decision": "Three distinct credited singers, realized as one group-voice card.",
@@ -2780,12 +2692,7 @@
         "name": "American Oi",
         "family": "popular",
         "lineage": "American Oi is represented by Form Rank — Brutality (track 3 of Form Rank, 2022). Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -2857,12 +2764,7 @@
       "neighbor_distinction": "Track 3 Brutality excludes track 2 saxophone and guest-bass tracks 2,6,7,10. The recording’s explicit Joaquin Moreno drum credit supersedes the general current-lineup drum credit; no backing singer is invented.",
       "model_policy": "Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -3327,9 +3229,7 @@
           "cyclicity": 1
         },
         "description": "The Lima artist documents an Andean quena-and-guitar song branch, with one credited singer and a second guitarist. Exact hardware, production, tuning, technique, vocal-take model and axes are authored modern choices.",
-        "exemplars": [
-          "Kike Pinto — Guitarrita Mía / Rosa Desnuda (2017 two-song release)"
-        ],
+        "exemplars": ["Kike Pinto — Guitarrita Mía / Rosa Desnuda (2017 two-song release)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -3423,9 +3323,7 @@
         "count_basis": "Distinct singers explicitly credited by the primary artist release. Self-overdubs are not counted as extra people.",
         "decision": "One credited singer: authored solo realization.",
         "scope": "This vocal two-song release is selected deliberately; Andean flute is not treated as universally instrumental. Multiple vocal takes by Pinto do not become extra singers; two guitars remain one instrument-class card.",
-        "evidence_urls": [
-          "https://kikepinto.bandcamp.com/album/guitarrita-m-a-rosa-desnuda"
-        ]
+        "evidence_urls": ["https://kikepinto.bandcamp.com/album/guitarrita-m-a-rosa-desnuda"]
       },
       "instrument_role_audit": {
         "rationale": "Existing quena, voice and acoustic-guitar cards cover all credited roles. Dreadnought construction, quena pitch/material and equal-tempered baseline are authored present-day choices, not source hardware or a universal Andean tuning claim.",
@@ -3591,9 +3489,7 @@
         "count_basis": "Primary label explicitly credits a named choir; ensemble plurality is established without retaining student or youth roster names.",
         "decision": "Explicit choral ensemble: group voice realization, no exact headcount asserted.",
         "scope": "Select the recorded chorus-and-organ O hearken Thou, not its orchestral premiere version or other album works. Named choir establishes multiple singers without copying individual chorister names.",
-        "evidence_urls": [
-          "https://www.hyperion-records.co.uk/dc.asp?dc=D_CDA67593"
-        ],
+        "evidence_urls": ["https://www.hyperion-records.co.uk/dc.asp?dc=D_CDA67593"],
         "confirmed_ensemble_plurality": true
       },
       "instrument_role_audit": {
@@ -4103,9 +3999,7 @@
         "count_basis": "Positive primary-source identification of the selected instrumental configuration; not an inference from absent lyric text.",
         "decision": "Instrumental selected branch, no voice card.",
         "scope": "An anime-inspired solo-piano branch is selected; no claim of an official anime score, Japanese recording session, duet or original acoustic grand-piano hardware.",
-        "evidence_urls": [
-          "https://dbfiechter.bandcamp.com/album/anime-tales-ii"
-        ]
+        "evidence_urls": ["https://dbfiechter.bandcamp.com/album/anime-tales-ii"]
       },
       "instrument_role_audit": {
         "rationale": "A grand-piano card is an authored present-day acoustic realization of the explicitly documented solo-piano role. No voice or ensemble roles are inferred.",
@@ -4157,9 +4051,7 @@
           "cyclicity": 0
         },
         "description": "The composer’s anime-film score is represented by his officially documented piano-only ENCORE self-cover, distinct from its orchestral soundtrack realization. Exact hardware, production, tuning, technique, vocal-take model and axes are authored modern choices.",
-        "exemplars": [
-          "Joe Hisaishi — One Summer’s Day (ENCORE, UPCH-1142, 2002, track 3)"
-        ],
+        "exemplars": ["Joe Hisaishi — One Summer’s Day (ENCORE, UPCH-1142, 2002, track 3)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -4438,9 +4330,7 @@
         "count_basis": "Distinct singers explicitly credited by the primary artist release. Self-overdubs are not counted as extra people.",
         "decision": "One credited singer: authored solo realization.",
         "scope": "The 2019 album’s credited instrument classes are selected. No acoustic drum kit or additional singer is inferred; programmed drums and general sampling remain separate roles.",
-        "evidence_urls": [
-          "https://szarfaszuvizelet.bandcamp.com/album/gaoorgrind"
-        ]
+        "evidence_urls": ["https://szarfaszuvizelet.bandcamp.com/album/gaoorgrind"]
       },
       "instrument_role_audit": {
         "rationale": "Existing sampler_drum_machine represents drum programming and sampler_classic the separately credited sampling role. Digital subtractive synthesis is an authored implementation of the credited software synth; humbucker construction is an authored electric-guitar choice. No new instruments needed.",
@@ -4459,12 +4349,7 @@
         "name": "Ann Arbor indie",
         "family": "popular",
         "lineage": "Ann Arbor indie is represented by Failed Flowers — Failed Flowers (2016 album). Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -4542,12 +4427,7 @@
       "neighbor_distinction": "The 2016 Burch/Thomas lineup is selected; the earlier Autumn Wetli lineup and 2019 single are not substituted for its recording credits.",
       "model_policy": "Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Guitar construction, pickup design, keyboard engine, exact hardware, amplifiers, room, signal chain, playing settings, twelve-tone equal-tempered baseline, single-take vocal realization and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -5006,12 +4886,7 @@
         "name": "Argentine indie",
         "family": "global",
         "lineage": "Argentine indie is represented by Indómito Ser — En Vivo (2019 Casa Vruta performance). Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -5083,12 +4958,7 @@
       "neighbor_distinction": "Selected 2019 live quartet, not subsequent personnel or a claim covering all Argentine independent music.",
       "model_policy": "Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -5522,9 +5392,7 @@
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "Distinct credited vocalists support an authored live-group source model; no exact simultaneous tracking claim.",
         "scope": "Only track 2, 4am, is selected. Dobro, acoustic guitars and additional instrumentation on other tracks do not enter this arrangement; Athens means Georgia here.",
-        "evidence_urls": [
-          "https://whiteviolet.bandcamp.com/album/hiding-mingling-2"
-        ]
+        "evidence_urls": ["https://whiteviolet.bandcamp.com/album/hiding-mingling-2"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. Only track 2, 4am, is selected. Dobro, acoustic guitars and additional instrumentation on other tracks do not enter this arrangement; Athens means Georgia here.",
@@ -5543,12 +5411,7 @@
         "name": "Atlanta indie",
         "family": "global",
         "lineage": "Atlanta indie is represented by Scratch Offs — Tidal Wave (2023). Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -5620,12 +5483,7 @@
       "neighbor_distinction": "Selected Atlanta post-punk/indie band's 2023 album core. The broadly credited percussion is represented by the kit percussion model without inventing a specific auxiliary instrument.",
       "model_policy": "Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -5701,9 +5559,7 @@
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "One credited singer: solo accompanied with single-lead authored model.",
         "scope": "Selected Atlanta post-punk/indie band's 2023 album core. The broadly credited percussion is represented by the kit percussion model without inventing a specific auxiliary instrument.",
-        "evidence_urls": [
-          "https://scratchoffsatl.bandcamp.com/album/tidal-wave"
-        ]
+        "evidence_urls": ["https://scratchoffsatl.bandcamp.com/album/tidal-wave"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. Selected Atlanta post-punk/indie band's 2023 album core. The broadly credited percussion is represented by the kit percussion model without inventing a specific auxiliary instrument.",
@@ -5722,12 +5578,7 @@
         "name": "Auckland indie",
         "family": "global",
         "lineage": "Auckland indie is represented by Roulettes — Venus Burns (2017). Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -5799,12 +5650,7 @@
       "neighbor_distinction": "Selected 2015–2017 recorded trio, not the later two-person artist biography. The authored guitar hardware does not claim to identify the borrowed Ibanez mentioned in acknowledgments.",
       "model_policy": "Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -5899,12 +5745,7 @@
         "name": "Austindie",
         "family": "global",
         "lineage": "Austindie is represented by The Stayres — Duplex (2025). Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -5976,12 +5817,7 @@
       "neighbor_distinction": "Austindie is used as an Austin indie discovery label. The 2025 trio arrangement is selected; three distinct singing credits support vocal plurality, without claiming simultaneous tracking.",
       "model_policy": "Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -6052,11 +5888,7 @@
         "note": "The issuing Austin label identifies the Austin trio and indie-rock relationship, crediting Nicolai on guitar and singing, Darby on bass and singing, and Garaffa on drums and singing."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Mike Nicolai",
-          "Hunter Darby",
-          "Travis Garaffa"
-        ],
+        "credited_selected_singers": ["Mike Nicolai", "Hunter Darby", "Travis Garaffa"],
         "selected_count": 3,
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "Distinct credited vocalists support an authored live-group source model; no exact simultaneous tracking claim.",
@@ -6080,12 +5912,7 @@
         "name": "Atmospheric sludge",
         "family": "global",
         "lineage": "Atmospheric sludge is represented by Thrownness — Marrow EP (2024 recorded lineup). Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -6157,12 +5984,7 @@
       "neighbor_distinction": "Selected 2024 recorded quartet; later biography personnel and its extra bass-vocal credit are not imported. One source singer is documented for this EP.",
       "model_policy": "Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -6238,9 +6060,7 @@
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "One credited singer: solo accompanied with single-lead authored model.",
         "scope": "Selected 2024 recorded quartet; later biography personnel and its extra bass-vocal credit are not imported. One source singer is documented for this EP.",
-        "evidence_urls": [
-          "https://thrownnessofficial.bandcamp.com/album/marrow"
-        ]
+        "evidence_urls": ["https://thrownnessofficial.bandcamp.com/album/marrow"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. Selected 2024 recorded quartet; later biography personnel and its extra bass-vocal credit are not imported. One source singer is documented for this EP.",
@@ -6498,9 +6318,7 @@
           "cyclicity": 2
         },
         "description": "This Armenian-repertoire indie-rock project credits Tchakerian as the singer on track 5 and Mayfield on guitars, bass, synthesizer and drums. The artist places the project in Brooklyn. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
-        "exemplars": [
-          "Ghedtair Composite — Kele Kele, track 5 of Music from Armenia (2022)"
-        ],
+        "exemplars": ["Ghedtair Composite — Kele Kele, track 5 of Music from Armenia (2022)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -6600,9 +6418,7 @@
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "One credited singer: solo accompanied with single-lead authored model.",
         "scope": "An explicitly Armenian-repertoire diaspora indie branch, not a claim that the session took place in Armenia. Only track 5 is selected; archival speech, additional singers, trumpet and twelve-string guitar on other tracks are excluded.",
-        "evidence_urls": [
-          "https://ghedtaircomposite.bandcamp.com/album/music-from-armenia"
-        ]
+        "evidence_urls": ["https://ghedtaircomposite.bandcamp.com/album/music-from-armenia"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. An explicitly Armenian-repertoire diaspora indie branch, not a claim that the session took place in Armenia. Only track 5 is selected; archival speech, additional singers, trumpet and twelve-string guitar on other tracks are excluded.",
@@ -6786,9 +6602,7 @@
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "Distinct credited vocalists support an authored live-group source model; no exact simultaneous tracking claim.",
         "scope": "The 2018 recording lineup is selected rather than the current biography lineup. Drone texture is assigned to the authored guitar/keyboard arrangement without inventing an additional instrument; kit covers broadly credited percussion. Four distinct vocal performers are credited.",
-        "evidence_urls": [
-          "https://wellwishernj.bandcamp.com/album/this-is-fine"
-        ]
+        "evidence_urls": ["https://wellwishernj.bandcamp.com/album/this-is-fine"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. The 2018 recording lineup is selected rather than the current biography lineup. Drone texture is assigned to the authored guitar/keyboard arrangement without inventing an additional instrument; kit covers broadly credited percussion. Four distinct vocal performers are credited.",
@@ -7321,9 +7135,7 @@
         "count_basis": "The release explicitly credits a school vocal ensemble and a church choir; individual young performers are not copied.",
         "decision": "Explicitly credited vocal ensembles establish group plurality; exact total is unspecified.",
         "scope": "The 2019 album branch serves children and families. Explicit ensemble credits support vocal plurality without an exact singer count. Programming is production, not proof of a separate instrument. Adult soloists and unnamed ensemble categories suffice; no pupil roster is retained.",
-        "evidence_urls": [
-          "https://christopherjaensch.bandcamp.com/album/night-day"
-        ],
+        "evidence_urls": ["https://christopherjaensch.bandcamp.com/album/night-day"],
         "minimum_distinct_soloists": 2,
         "explicit_ensemble_plurality": "The release explicitly credits a school vocal ensemble and a church choir; individual young performers are not copied."
       },
@@ -7919,9 +7731,7 @@
           "cyclicity": 2
         },
         "description": "Glitterbeat describes the Golan-rooted brothers’ Arabic dance/disco project, quarter-tone keyboard melodies, guitar rhythm layers, and a combination of machine and acoustic drums. The label explicitly identifies track 11 as the album’s sole instrumental. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
-        "exemplars": [
-          "TootArd — Stone Heap of the Wild Cat, track 11 of Migrant Birds (2020)"
-        ],
+        "exemplars": ["TootArd — Stone Heap of the Wild Cat, track 11 of Migrant Birds (2020)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -8020,15 +7830,11 @@
         "count_basis": "Only Stone Heap of the Wild Cat is selected; the album’s sung tracks and larger live lineup are excluded. The source’s explicit instrumental designation supports omitting voice. The catalog maqam approximation preserves a microtonal possibility; exact synth type, guitar hardware, drum-machine engine and techniques are authored.",
         "decision": "Selected instrumental branch; no singer card.",
         "scope": "Only Stone Heap of the Wild Cat is selected; the album’s sung tracks and larger live lineup are excluded. The source’s explicit instrumental designation supports omitting voice. The catalog maqam approximation preserves a microtonal possibility; exact synth type, guitar hardware, drum-machine engine and techniques are authored.",
-        "evidence_urls": [
-          "https://tootard-glitterbeat.bandcamp.com/album/migrant-birds"
-        ]
+        "evidence_urls": ["https://tootard-glitterbeat.bandcamp.com/album/migrant-birds"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. Only Stone Heap of the Wild Cat is selected; the album’s sung tracks and larger live lineup are excluded. The source’s explicit instrumental designation supports omitting voice. The catalog maqam approximation preserves a microtonal possibility; exact synth type, guitar hardware, drum-machine engine and techniques are authored.",
-        "instrumental_evidence": [
-          "https://tootard-glitterbeat.bandcamp.com/album/migrant-birds"
-        ],
+        "instrumental_evidence": ["https://tootard-glitterbeat.bandcamp.com/album/migrant-birds"],
         "photo_context": "Generic electric-guitar context for the documented guitar role, realized by an authored humbucker guitar card; not the exemplar’s actual instrument, performer, place or session."
       }
     },
@@ -8103,9 +7909,7 @@
           "cyclicity": 2
         },
         "description": "The Brisbane duo’s release identifies its theatrical-comedy character and February 2014 studio version. Credits name Megarrity on ukulele and voice, Vincent on bass/piano/voice, van Dijk on violin and Eager on drums; the artist’s double-bass tag clarifies bass type. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
-        "exemplars": [
-          "Tyrone and Lesley — Gentlemen Songsters (February 2014 studio recording)"
-        ],
+        "exemplars": ["Tyrone and Lesley — Gentlemen Songsters (February 2014 studio recording)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -8206,9 +8010,7 @@
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "Distinct credited vocalists support an authored live-group source model; no exact simultaneous tracking claim.",
         "scope": "The February 2014 Gentlemen Songsters studio arrangement is selected rather than later duo shows or compilation takes. Two credited singers establish vocal plurality. Plucked double bass, bowed violin, drum-brush approach and piano technique are authored choices, not documented session techniques.",
-        "evidence_urls": [
-          "https://tyroneandlesley.bandcamp.com/album/gentlemen-songsters"
-        ]
+        "evidence_urls": ["https://tyroneandlesley.bandcamp.com/album/gentlemen-songsters"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. The February 2014 Gentlemen Songsters studio arrangement is selected rather than later duo shows or compilation takes. Two credited singers establish vocal plurality. Plucked double bass, bowed violin, drum-brush approach and piano technique are authored choices, not documented session techniques.",
@@ -8227,12 +8029,7 @@
         "name": "Turkish reggae",
         "family": "global",
         "lineage": "Turkish reggae is represented by Sattas Unplugged — announced JJ Pub Kanyon programme, 13 November 2026. An authored present-day recording arrangement based on the announced Sattas Unplugged programme at JJ Pub Kanyon, Istanbul, for 13 November 2026. As checked on 2 October 2026, this is a future programme announcement, not evidence that the concert occurred. Sources establish voice, guitar, keyboard and cajon roles. Acoustic steel-string guitar construction, digital keyboard realization, unsnared rear-port cajon, technique settings, equal-tempered baseline, room, chain and numeric axes are authored choices, not specified artist equipment or universal Turkish reggae traits.",
-        "instruments": [
-          "voice",
-          "acoustic_guitar_dread",
-          "digital_subtractive",
-          "cajon_peruano"
-        ],
+        "instruments": ["voice", "acoustic_guitar_dread", "digital_subtractive", "cajon_peruano"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -8284,9 +8081,7 @@
           "cyclicity": 2
         },
         "description": "Sattas’s announced Unplugged programme pairs Orcun Sunear’s voice with guitar, keyboard and cajon, distinct from its usual horn band. The label establishes the Istanbul band’s Turkish-language roots-reggae practice. This is a future announced programme; the recording arrangement, instrument construction, processing, tuning and axes are authored.",
-        "exemplars": [
-          "Sattas Unplugged — announced JJ Pub Kanyon programme, 13 November 2026"
-        ],
+        "exemplars": ["Sattas Unplugged — announced JJ Pub Kanyon programme, 13 November 2026"],
         "status": "documented",
         "crossRefs": []
       },
@@ -8392,9 +8187,7 @@
         "count_basis": "The specific official programme positively identifies one vocalist alongside instrumental roles; no additional singer is inferred from other lineups.",
         "decision": "One announced singer, solo-accompanied/single-lead authored realization.",
         "scope": "Only the announced Unplugged branch: one named vocalist with guitar, keyboard and cajon roles. The usual electric horn-band lineup, the 2025 Ciplak Kral single and its alto/tenor/baritone doubling, and guests from the 2017 festival are excluded. Four instrument/voice roles do not establish four distinct people. No claim is made that this future show occurred or was recorded.",
-        "evidence_urls": [
-          "https://www.biletix.com/performance/5JS29/001/TURKIYE/tr"
-        ]
+        "evidence_urls": ["https://www.biletix.com/performance/5JS29/001/TURKIYE/tr"]
       },
       "instrument_role_audit": {
         "rationale": "All four positively announced roles use existing catalog data. Source-unspecified regional cajon role avoids importing festejo or marinera. The unsnared box and keyboard implementation are explicitly authored, not claimed source hardware.",
@@ -8520,11 +8313,7 @@
         "note": "Primary artist/provider or original label identifies the category and selected branch."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Silvy De Bie",
-          "Billie Bentein",
-          "Enicé Mokamba"
-        ],
+        "credited_selected_singers": ["Silvy De Bie", "Billie Bentein", "Enicé Mokamba"],
         "selected_count": 3,
         "count_basis": "Artist lead-vocal identity plus contemporaneous provider’s two named backing singers. DJ/producer Wout is not counted as a singer.",
         "decision": "Three distinct credited singers support live_group/live_ensemble; no exact recorded take is asserted.",
@@ -8665,9 +8454,7 @@
           "cyclicity": 0
         },
         "description": "The Sydney artist page calls the album experimental minimalism and credits Matt Blackman with voice, guitar, synth and piano; Dave Ledlin with guitar; Adam Jesson with bass guitar; Matt Rossetti with drums. Construction, settings, chain, tuning baseline and axes are authored modern choices.",
-        "exemplars": [
-          "Purplene — Purplene (2004), core branch excluding tracks 4 and 6"
-        ],
+        "exemplars": ["Purplene — Purplene (2004), core branch excluding tracks 4 and 6"],
         "status": "documented",
         "crossRefs": []
       },
@@ -8943,18 +8730,12 @@
         "note": "The Sydney artist identifies an Australian East Coast psych-doom-pop practice. Album credits specify Julian Frese on bass guitar, Ally Gradon on voice and synths, Charlie Gradon on voice and drums, Dean McLeod on voice and guitars."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Ally Gradon",
-          "Charlie Gradon",
-          "Dean McLeod"
-        ],
+        "credited_selected_singers": ["Ally Gradon", "Charlie Gradon", "Dean McLeod"],
         "selected_count": 3,
         "count_basis": "Distinct people with explicit voice credits; overdubs do not increase the count.",
         "decision": "Documented distinct singers support an authored group/duet setting without asserting simultaneous session tracking.",
         "scope": "Selected contemporary four-piece psych-doom-pop album branch; not an arrangement for every Australian psychedelic act. Three distinct credited singers support the group model.",
-        "evidence_urls": [
-          "https://turtleskullmusic.bandcamp.com/album/being-here"
-        ]
+        "evidence_urls": ["https://turtleskullmusic.bandcamp.com/album/being-here"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected roles are mapped. Broad guitar, bass and keyboard credits use existing electric-guitar, electric-bass and virtual-analog keyboard cards as authored realizations, where present. Cards denote timbral roles rather than player counts.",
@@ -9153,12 +8934,7 @@
         "name": "Baja indie",
         "family": "global",
         "lineage": "Baja indie: Seguimos Aquí — Solamente (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and category. Exact construction, hardware, techniques, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist equipment claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -9230,12 +9006,7 @@
       "neighbor_distinction": "The selected Tijuana independent-rock single provides a Baja California branch. No instruments or vocalists from unrelated Baja artists are imported.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and category. Exact construction, hardware, techniques, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -9330,12 +9101,7 @@
         "name": "Baltimore indie",
         "family": "global",
         "lineage": "Baltimore indie: Body Thief — Speak In Hibernation (2015). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and category. Exact construction, hardware, techniques, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist equipment claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -9407,12 +9173,7 @@
       "neighbor_distinction": "Selected vocal guitar-band album branch. A broad instrumental tag does not erase the explicit vocalist credit; no second singer is inferred.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and category. Exact construction, hardware, techniques, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -9488,9 +9249,7 @@
         "count_basis": "Distinct people with explicit voice credits; overdubs do not increase the count.",
         "decision": "One singer in an accompanied model.",
         "scope": "Selected vocal guitar-band album branch. A broad instrumental tag does not erase the explicit vocalist credit; no second singer is inferred.",
-        "evidence_urls": [
-          "https://bodythief.bandcamp.com/album/speak-in-hibernation-2"
-        ]
+        "evidence_urls": ["https://bodythief.bandcamp.com/album/speak-in-hibernation-2"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected roles are mapped. Broad guitar, bass and keyboard credits use existing electric-guitar, electric-bass and virtual-analog keyboard cards as authored realizations, where present. Cards denote timbral roles rather than player counts.",
@@ -9636,9 +9395,7 @@
         "count_basis": "Primary release explicitly labels the music solo piano and credits the sole musical role as piano.",
         "decision": "Positively instrumental selected version; no voice card.",
         "scope": "Functional solo-piano accompaniment for ballet exercises; no ballet orchestra or singer inferred. Grand-piano construction is an authored implementation of the credited piano role.",
-        "evidence_urls": [
-          "https://robertsudall.bandcamp.com/album/improvisations-for-ballet-class"
-        ]
+        "evidence_urls": ["https://robertsudall.bandcamp.com/album/improvisations-for-ballet-class"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected roles are mapped. Broad guitar, bass and keyboard credits use existing electric-guitar, electric-bass and virtual-analog keyboard cards as authored realizations, where present. Cards denote timbral roles rather than player counts.",
@@ -9690,9 +9447,7 @@
           "cyclicity": 0
         },
         "description": "The Seattle publisher separately releases a piano backing track from its violin-and-piano edition of Empty Town, with composition credited to Toby Fox and arrangement to Patti Rudisill. Construction, settings, chain, tuning baseline and axes are authored modern choices.",
-        "exemplars": [
-          "Materia Editions — Empty Town (Piano Backing Track), 2020"
-        ],
+        "exemplars": ["Materia Editions — Empty Town (Piano Backing Track), 2020"],
         "status": "documented",
         "crossRefs": []
       },

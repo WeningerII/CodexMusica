@@ -308,9 +308,7 @@
         "count_basis": "The track-1 performer list and instrumental-poem discussion provide positive instrumental evidence, separately from the explicitly vocal credits on track 2.",
         "decision": "Instrumental selected core; no singer card.",
         "scope": "Only track 1, Horea oilor, is selected. Vocal feast songs, vocal wedding processions, party shouts, added drum parts on other tracks and later amplified ensembles are excluded. The chosen dreadnought and twelve-tone baseline are authored tools, not a reconstruction of zongoră setup.",
-        "evidence_urls": [
-          "https://folkways-media.si.edu/docs/folkways/artwork/UNES08310.pdf"
-        ]
+        "evidence_urls": ["https://folkways-media.si.edu/docs/folkways/artwork/UNES08310.pdf"]
       },
       "instrument_role_audit": {
         "rationale": "Two positively credited instrumental roles are mapped to existing fiddle and acoustic-guitar cards. No singer or percussion is imported from adjacent album tracks.",
@@ -329,13 +327,7 @@
         "name": "Puerto Rican folk",
         "family": "vernacular",
         "lineage": "Puerto Rican folk: Ecos de Borinquen — Jíbaro Hasta el Hueso: Mountain Music of Puerto Rico (2003), album ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-        "instruments": [
-          "voice",
-          "cuatro_pr",
-          "acoustic_guitar_dread",
-          "guiro",
-          "bongos"
-        ],
+        "instruments": ["voice", "cuatro_pr", "acoustic_guitar_dread", "guiro", "bongos"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -411,13 +403,7 @@
       "neighbor_distinction": "Representative album-level conjunto jíbaro arrangement. The two credited singers are not claimed to sing simultaneously on every track; the setting models an authored two-singer performance. Instrumental tracks, other Puerto Rican traditions such as bomba/plena, and larger modern arrangements are separate branches.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "cuatro_pr",
-          "acoustic_guitar_dread",
-          "guiro",
-          "bongos"
-        ],
+        "reused_instruments": ["voice", "cuatro_pr", "acoustic_guitar_dread", "guiro", "bongos"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -714,9 +700,7 @@
           "cyclicity": 0
         },
         "description": "Folkart labels Idem, idem as a Slovak folk song and provides a real-fujara rendition in A; its own organology locates this instrument in Podpoľanie. Construction, tuning, technique settings, chain and axes are authored modern choices.",
-        "exemplars": [
-          "Folkart Slovakia — Idem, idem, real-fujara MP3 demonstration in A"
-        ],
+        "exemplars": ["Folkart Slovakia — Idem, idem, real-fujara MP3 demonstration in A"],
         "status": "documented",
         "crossRefs": []
       },
@@ -984,9 +968,7 @@
         "note": "Folkways identifies this Slovenian polka as a yodeler with accordion, with track credits for lead voice and accordion."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "One unspecified yodeler credited by the label"
-        ],
+        "credited_selected_singers": ["One unspecified yodeler credited by the label"],
         "selected_count": 1,
         "count_basis": "The track identifies one yodeler/lead-vocal role with accordion; no backing singer or chorus is credited for this selection.",
         "decision": "Solo accompanied voice; single lead.",
@@ -1170,12 +1152,7 @@
         "name": "Rez country",
         "family": "vernacular",
         "lineage": "Rez country: Stateline — KUNM Studio Sessions, May 2019 lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -1254,12 +1231,7 @@
       "neighbor_distinction": "Only the May 2019 KUNM lineup is selected. Other Stateline lineups with another singer and broader powwow, ceremonial, acoustic or contemporary reservation-country practices are excluded. Two guitar roles use one shared timbre card, not a one-guitarist claim.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -1433,11 +1405,7 @@
       "neighbor_distinction": "Only the acoustic accompanied-ballad branch of the 1972 album is modeled. Instrumental tracks, the separately identified fuzz-box performance of The Sheepstealer, and later albums with additional musicians or hammered dulcimer are excluded.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "mountain_dulcimer",
-          "acoustic_guitar_dread"
-        ],
+        "reused_instruments": ["voice", "mountain_dulcimer", "acoustic_guitar_dread"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -1585,9 +1553,7 @@
           "cyclicity": 0
         },
         "description": "Havnatt’s early acoustic-guitar and single-vocal setting of Norwegian poetry represents a contemporary dark-folk branch of the rune-folk discovery cluster. Construction, tuning, technique settings, chain and axes are authored modern choices.",
-        "exemplars": [
-          "Havnatt — Myrulla, Havdøgn EP (2012 remaster of the early recording)"
-        ],
+        "exemplars": ["Havnatt — Myrulla, Havdøgn EP (2012 remaster of the early recording)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -2513,9 +2479,7 @@
           "cyclicity": 1
         },
         "description": "A bounded vocal-and-drum segment of the Kyiv quartet’s contemporary Ukrainian folk practice. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-        "exemplars": [
-          "DakhaBrakha — vocal-and-drum opening segment at WOMAD 2019"
-        ],
+        "exemplars": ["DakhaBrakha — vocal-and-drum opening segment at WOMAD 2019"],
         "status": "documented",
         "crossRefs": []
       },
@@ -2694,9 +2658,7 @@
           "cyclicity": 0
         },
         "description": "A voice-and-guitar branch of Hassan’s contemporary Sahrawi haul repertoire, bounded to the duet preserved on La Voz Indómita. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
-        "exemplars": [
-          "Mariem Hassan and Luis Giménez — Hajili Madiya (Malmö, 26 April 2013)"
-        ],
+        "exemplars": ["Mariem Hassan and Luis Giménez — Hajili Madiya (Malmö, 26 April 2013)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -3330,9 +3292,7 @@
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "One credited singer: solo accompanied with single-lead authored model.",
         "scope": "One documented toaster is modeled as a solo accompanied voice. Guitar and saxophone cards denote classes, not player counts. Excludes incidental flexatone and the track-specific guest lead-guitar role; no additional singers inferred.",
-        "evidence_urls": [
-          "https://radiorocksteady.bandcamp.com/album/toska-po-domu"
-        ]
+        "evidence_urls": ["https://radiorocksteady.bandcamp.com/album/toska-po-domu"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. One documented toaster is modeled as a solo accompanied voice. Guitar and saxophone cards denote classes, not player counts. Excludes incidental flexatone and the track-specific guest lead-guitar role; no additional singers inferred.",
@@ -3513,15 +3473,7 @@
         "note": "The artist page identifies Sant Climent de Llobregat, Catalunya and ska. Credits specify Xavi lead voice and six distinct backing singers, plus guitar, bass, saxophone and drums."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Xavi",
-          "Joel",
-          "Uri",
-          "Magí",
-          "Oriol",
-          "Albert",
-          "Facu"
-        ],
+        "credited_selected_singers": ["Xavi", "Joel", "Uri", "Magí", "Oriol", "Albert", "Facu"],
         "selected_count": 7,
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "Distinct credited vocalists support an authored live-group source model; no exact simultaneous tracking claim.",
@@ -4259,11 +4211,7 @@
         "note": "Malmö singer’s Swedish-language roots-reggae release credits Felisia Westberg and Isak Strand with backing voices; flute, guitar, bass, keyboard, sax, trombone, trumpet and drums are explicit."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Efia Abu",
-          "Felisia Westberg",
-          "Isak Strand"
-        ],
+        "credited_selected_singers": ["Efia Abu", "Felisia Westberg", "Isak Strand"],
         "selected_count": 3,
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "Distinct credited vocalists support an authored live-group source model; no exact simultaneous tracking claim.",
@@ -4537,9 +4485,7 @@
           "cyclicity": 2
         },
         "description": "Label describes British reggae; original album track 4 is credited to Dennison Joseph on lead vocals, bass, guitar and keyboards, created at Bass Line Studio in Bristol. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
-        "exemplars": [
-          "Talisman — Don’t Play with Fyah, Dennison Joseph title-track branch"
-        ],
+        "exemplars": ["Talisman — Don’t Play with Fyah, Dennison Joseph title-track branch"],
         "status": "documented",
         "crossRefs": []
       },
@@ -4638,9 +4584,7 @@
         "count_basis": "Source explicitly credits the listed distinct singers. One singer’s own overdubs do not become multiple people.",
         "decision": "One credited singer: solo accompanied with single-lead authored model.",
         "scope": "Original title track only (original credits track 4, not the separately added digital megamix numbering). Excludes the other lineup, Longhorns, group backing vocals and drummer assigned specifically to tracks 1,2,3,7. One singer’s multitracking remains one person.",
-        "evidence_urls": [
-          "https://sugarshackrecords.bandcamp.com/album/dont-play-with-fyah"
-        ]
+        "evidence_urls": ["https://sugarshackrecords.bandcamp.com/album/dont-play-with-fyah"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. Original title track only (original credits track 4, not the separately added digital megamix numbering). Excludes the other lineup, Longhorns, group backing vocals and drummer assigned specifically to tracks 1,2,3,7. One singer’s multitracking remains one person.",
@@ -4993,9 +4937,7 @@
         "count_basis": "Source documents the selected instrumental roles; the scope excludes vocal or guest branches.",
         "decision": "Selected instrumental branch; no singer card.",
         "scope": "Instrumental dub album only. No singer credited; unspecified auxiliary percussion and hand-drum types are not guessed. Tape echo and spring reverb are authored present-day choices, not a transcription of the historical mix.",
-        "evidence_urls": [
-          "https://thebreadwinners.bandcamp.com/album/tradition-disc-in-dub"
-        ]
+        "evidence_urls": ["https://thebreadwinners.bandcamp.com/album/tradition-disc-in-dub"]
       },
       "instrument_role_audit": {
         "rationale": "Only positively documented selected musical roles are represented. Existing humbucker guitar and virtual-analog keyboard cards are authored realizations of broadly credited guitar/keys, not claims about the source hardware. Cards represent instrument classes rather than exact player counts. Instrumental dub album only. No singer credited; unspecified auxiliary percussion and hand-drum types are not guessed. Tape echo and spring reverb are authored present-day choices, not a transcription of the historical mix.",
@@ -6537,9 +6479,7 @@
         "count_basis": "Source documents the selected instrumental roles; the scope excludes vocal or guest branches.",
         "decision": "Selected instrumental branch; no singer card.",
         "scope": "Sample-and-turntable instrumental production only. Horror-film samples do not establish new live singers or instrumentalists. Existing sampler is an authored hardware-class realization, not the exact SP404 model.",
-        "evidence_urls": [
-          "https://teppaztapes.bandcamp.com/album/eine-symphonie-des-grauens"
-        ]
+        "evidence_urls": ["https://teppaztapes.bandcamp.com/album/eine-symphonie-des-grauens"]
       },
       "instrument_role_audit": {
         "rationale": "Documented electronic source roles use existing cards as authored modern realizations; no sampled source is inferred to be a new live musician. Sample-and-turntable instrumental production only. Horror-film samples do not establish new live singers or instrumentalists. Existing sampler is an authored hardware-class realization, not the exact SP404 model.",
@@ -6776,9 +6716,7 @@
           "cyclicity": 1
         },
         "description": "The artist documents mainly improvised performances on restored vintage keyboards, produced by Geir Jenssen, with Tromsø locality. Creator archive explicitly classifies Biosphere under abstract. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
-        "exemplars": [
-          "Biosphere — Inland Delta, keyboard improvisation branch"
-        ],
+        "exemplars": ["Biosphere — Inland Delta, keyboard improvisation branch"],
         "status": "documented",
         "crossRefs": []
       },
@@ -7128,9 +7066,7 @@
           "cyclicity": 1
         },
         "description": "The official profile identifies the band’s Japanese ska identity and its instrumental core. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices. The official band roster’s simultaneous tenor and baritone saxophones are retained together in a fixed section; no uncredited soprano or alto range is added. Section articulation and numeric axes are authored model defaults.",
-        "exemplars": [
-          "Tokyo Ska Paradise Orchestra — instrumental band branch"
-        ],
+        "exemplars": ["Tokyo Ska Paradise Orchestra — instrumental band branch"],
         "status": "documented",
         "crossRefs": []
       },
@@ -7533,12 +7469,7 @@
       "neighbor_distinction": "The track-specific roster takes precedence over the general biography, whose additional backing-vocal and keyboard capabilities are not applied to this track. Three saxophones share one timbral card; unspecified percussion is omitted. The exact track’s one alto and two tenor saxophones are retained together in a fixed section. Only Solé Arredondo has the selected track’s lead-vocal credit; general-band backing-vocal capabilities are not imported.",
       "model_policy": "A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits. Fixed sax-section composition preserves positively documented ranges; short-note and legato alternatives are authored realizations, not claims that every source passage uses that articulation.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": ["saxophone_section_alto_two_tenors"],
         "new_parts": ["alto_two_tenor_section_articulation"],
         "new_variants": [
@@ -7687,9 +7618,7 @@
           "cyclicity": 1
         },
         "description": "Artist credits establish one guitar-playing singer on track 2 and explicitly delimit the other tracks’ guests. Bedroom-soul classification and San Francisco recording locality are explicit. Production, construction and technique defaults are authored modern choices.",
-        "exemplars": [
-          "Wes Leslie — Your Sister’s Apartment, Brooklyn, 2014, from Bedroom Soul"
-        ],
+        "exemplars": ["Wes Leslie — Your Sister’s Apartment, Brooklyn, 2014, from Bedroom Soul"],
         "status": "documented",
         "crossRefs": []
       },
@@ -8058,12 +7987,7 @@
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        -14.8619,
-        -40.8445,
-        "Vitória da Conquista",
-        "Latin America & Caribbean"
-      ],
+      "geo": [-14.8619, -40.8445, "Vitória da Conquista", "Latin America & Caribbean"],
       "geo_rationale": "Approximate primary-source-documented artist or recording locality, used as a representative anchor; not an exclusive origin or geographic boundary.",
       "signature_tokens": ["electric", "melodic"],
       "sources": [
@@ -8244,9 +8168,7 @@
           "cyclicity": 1
         },
         "description": "Artist track credits establish two singers, guitar, bass, keyboard/synth and loops; Brazilian-soul label and São Paulo recording location are explicit. Production, construction and technique defaults are authored modern choices.",
-        "exemplars": [
-          "Edu Camargo & Marina Sirabello — Saudade, track 9 of Infinito... E Além"
-        ],
+        "exemplars": ["Edu Camargo & Marina Sirabello — Saudade, track 9 of Infinito... E Além"],
         "status": "documented",
         "crossRefs": []
       },
@@ -8345,9 +8267,7 @@
         "count_basis": "Distinct positively credited singers in the selected branch; lead and backing parts by the same person are counted once.",
         "decision": "2 distinct credited singers; authored live ensemble realization, no extra people inferred from overdubs.",
         "scope": "Track 9 only. Two distinct singers are retained; backing parts do not imply extra singers. Broadly credited percussion remains untyped. Sampler represents the explicitly credited loop role, without claiming a specific source machine.",
-        "evidence_urls": [
-          "https://educamargo.bandcamp.com/track/saudade?action=download"
-        ]
+        "evidence_urls": ["https://educamargo.bandcamp.com/track/saudade?action=download"]
       },
       "instrument_role_audit": {
         "rationale": "Artist track credits establish two singers, guitar, bass, keyboard/synth and loops; Brazilian-soul label and São Paulo recording location are explicit.",
@@ -8428,9 +8348,7 @@
           "cyclicity": 1
         },
         "description": "Artist release directly supplies Canadian-blues classification, Kitchener recording place, one vocalist and guitar, keys, harmonica, bass, saxophone, trombone and drum roles. Production, construction and technique defaults are authored modern choices.",
-        "exemplars": [
-          "Stan Grizzle — Stan Grizzle & The Canadian Blues, 2017 album lineup"
-        ],
+        "exemplars": ["Stan Grizzle — Stan Grizzle & The Canadian Blues, 2017 album lineup"],
         "status": "documented",
         "crossRefs": []
       },
@@ -8532,9 +8450,7 @@
         "count_basis": "Distinct positively credited singers in the selected branch; lead and backing parts by the same person are counted once.",
         "decision": "One singer with instrumental accompaniment; single-lead authored recording choice.",
         "scope": "2017 album lineup only. Two guitars share a guitar-class card. Saxophone register is not specified by the source, so no source-register claim is made; no second sax range is inferred.",
-        "evidence_urls": [
-          "https://stangrizzle.bandcamp.com/album/stan-grizzle-the-canadian-blues"
-        ]
+        "evidence_urls": ["https://stangrizzle.bandcamp.com/album/stan-grizzle-the-canadian-blues"]
       },
       "instrument_role_audit": {
         "rationale": "Artist release directly supplies Canadian-blues classification, Kitchener recording place, one vocalist and guitar, keys, harmonica, bass, saxophone, trombone and drum roles.",
@@ -8896,9 +8812,7 @@
         "count_basis": "Distinct positively credited singers in the selected branch; lead and backing parts by the same person are counted once.",
         "decision": "2 distinct credited singers; authored live ensemble realization, no extra people inferred from overdubs.",
         "scope": "Core five-member lineup, excluding guest-vocal tracks 6/7/8/10. Two credited core singers are retained. Unspecified ancillary percussion is not assigned an invented type. Keyboard engine and accordion construction are authored choices.",
-        "evidence_urls": [
-          "https://locobeach.bandcamp.com/album/psychedelic-disco-cumbia"
-        ]
+        "evidence_urls": ["https://locobeach.bandcamp.com/album/psychedelic-disco-cumbia"]
       },
       "instrument_role_audit": {
         "rationale": "Release documents a New York cumbia-and-funk fusion with guitars, keyboards, accordion, bass, congas, timbales, drums and two core singers.",
@@ -9046,9 +8960,7 @@
         "count_basis": "Selection is explicitly the individually named instrumental piano/drum stems 9–14; this does not assert that the whole pack or genre has no vocals.",
         "decision": "No voice card in this strictly delimited instrumental-stem arrangement.",
         "scope": "This is the explicitly instrumental Heartbreaks stem branch, not the whole mixed sample pack or all dark R&B. Six named piano/drum stems (9–14) define the selection. End Choir and Interludes Vocals belong to different named kits and are not imported. Piano and sampled-drum cards are authored realizations; no sample audio is copied.",
-        "evidence_urls": [
-          "https://sephxyastudios.bandcamp.com/album/r-b-heartbreaks-sample-pack"
-        ]
+        "evidence_urls": ["https://sephxyastudios.bandcamp.com/album/r-b-heartbreaks-sample-pack"]
       },
       "instrument_role_audit": {
         "rationale": "Creator’s dark-R&B kit description and the named Heartbreaks piano/drum stem list support a producer-oriented instrumental branch, with London as the creator’s documented base. Layered one-shot playback is pinned so the kit does not inherit a pitched-kick descriptor absent from the selected hi-hat/rim/tom stems.",
@@ -9118,9 +9030,7 @@
           "cyclicity": 1
         },
         "description": "Smithsonian directly characterizes the release as deep Delta blues and documents one singer with acoustic guitar. Chicago is an artist-residence anchor, not a claim about the session site. Production, construction and technique defaults are authored modern choices.",
-        "exemplars": [
-          "David “Honeyboy” Edwards — Mississippi Delta Bluesman, solo acoustic songs"
-        ],
+        "exemplars": ["David “Honeyboy” Edwards — Mississippi Delta Bluesman, solo acoustic songs"],
         "status": "documented",
         "crossRefs": []
       },
@@ -9285,9 +9195,7 @@
           "cyclicity": 1
         },
         "description": "Producer credits two MC roles and a funk beat; creator map supplies the discovery-label connection through MC Magrinho. Florianópolis is the producer-base anchor, not a claim about origin of the wider category. Production, construction and technique defaults are authored modern choices.",
-        "exemplars": [
-          "DJ VM — BEAT WOW, credited MC Magrinho & MC GW version (4 December 2020)"
-        ],
+        "exemplars": ["DJ VM — BEAT WOW, credited MC Magrinho & MC GW version (4 December 2020)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -9416,13 +9324,7 @@
         "name": "Deep g funk",
         "family": "global",
         "lineage": "Deep g funk: Yogi & Woof — Comin Thru, original 2024 vocal single. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "talkbox",
-          "turntable",
-          "sampler_classic",
-          "sampler_drum_machine"
-        ],
+        "instruments": ["voice", "talkbox", "turntable", "sampler_classic", "sampler_drum_machine"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -9686,12 +9588,7 @@
       "neighbor_distinction": "The original Deep Shadows title recording is selected, not modern sample uses, the later Deeper Shadows treatment or the album’s separate instrumental Who Are You Trying To Fool. This authored arrangement realizes the label-described lead voice, vibes, piano and beat core; it does not claim an exhaustive historical session roster or absence of other accompaniment.",
       "model_policy": "Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "vibraphone",
-          "grand_piano",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "vibraphone", "grand_piano", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -9841,9 +9738,7 @@
           "cyclicity": 1
         },
         "description": "Label explicitly identifies the deep-r&b category, a London singer and pad/drum accompaniment, providing a bounded three-role core. Production, construction and technique defaults are authored modern choices.",
-        "exemplars": [
-          "Izabel — Discipline, 2024 single, documented voice/pad/drum core"
-        ],
+        "exemplars": ["Izabel — Discipline, 2024 single, documented voice/pad/drum core"],
         "status": "documented",
         "crossRefs": []
       },
@@ -9861,11 +9756,7 @@
       "neighbor_distinction": "Only the released Discipline single’s positively described voice, pad and drum core is modeled. Polyphonic analog synth and sample-based drums are authored realizations of those sound roles, not source-equipment claims. No additional player or backing singer is inferred.",
       "model_policy": "Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "analog_poly_synth",
-          "sampler_drum_machine"
-        ],
+        "reused_instruments": ["voice", "analog_poly_synth", "sampler_drum_machine"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -9940,9 +9831,7 @@
         "count_basis": "Distinct positively credited singers in the selected branch; lead and backing parts by the same person are counted once.",
         "decision": "One singer with instrumental accompaniment; single-lead authored recording choice.",
         "scope": "Only the released Discipline single’s positively described voice, pad and drum core is modeled. Polyphonic analog synth and sample-based drums are authored realizations of those sound roles, not source-equipment claims. No additional player or backing singer is inferred.",
-        "evidence_urls": [
-          "https://wearestereofox.bandcamp.com/track/discipline"
-        ]
+        "evidence_urls": ["https://wearestereofox.bandcamp.com/track/discipline"]
       },
       "instrument_role_audit": {
         "rationale": "Label explicitly identifies the deep-r&b category, a London singer and pad/drum accompaniment, providing a bounded three-role core.",
@@ -10045,12 +9934,7 @@
       "neighbor_distinction": "The named Sound Room lineup is the selected branch. Other singers and guests elsewhere on the press page are not imported. Bass construction is unspecified and an electric-bass card is an authored realization; no bowed technique is claimed.",
       "model_policy": "Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "grand_piano",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "grand_piano", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -10313,15 +10197,11 @@
         "count_basis": "Distinct positive singer credits in the selected source; self-overdubs are not additional singers.",
         "decision": "1 distinct singers in the selected model.",
         "scope": "Only the track-12 live branch is selected. Its explicit personnel exception removes Cotton’s organ and adds Caron’s second guitar. Two tenor saxophones are the same documented register, represented by one class card. No mixed-range sax section is claimed.",
-        "evidence_urls": [
-          "https://folkways-media.si.edu/docs/folkways/artwork/ARH00393.pdf"
-        ]
+        "evidence_urls": ["https://folkways-media.si.edu/docs/folkways/artwork/ARH00393.pdf"]
       },
       "instrument_role_audit": {
         "rationale": "The label’s co-producer explicitly connects the selected Misty Blue performance to deep Southern soul, with Webster singing and playing piano.",
-        "source_urls": [
-          "https://folkways-media.si.edu/docs/folkways/artwork/ARH00393.pdf"
-        ],
+        "source_urls": ["https://folkways-media.si.edu/docs/folkways/artwork/ARH00393.pdf"],
         "photo_context": "Generic grand-piano context for the credited piano role; not the artist’s actual piano, locality or session."
       }
     },
@@ -10336,12 +10216,7 @@
         "name": "Dutch blues",
         "family": "blues_gospel",
         "lineage": "Dutch blues is represented by The Damned and Dirty — self-titled 2012 acoustic-blues core. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-        "instruments": [
-          "voice",
-          "acoustic_guitar_dread",
-          "harmonica",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "acoustic_guitar_dread", "harmonica", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -10392,9 +10267,7 @@
           "cyclicity": 1
         },
         "description": "The artist documents a Dutch acoustic-blues album with two distinct singers, acoustic slide guitar, harmonica and drums. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
-        "exemplars": [
-          "The Damned and Dirty — self-titled 2012 acoustic-blues core"
-        ],
+        "exemplars": ["The Damned and Dirty — self-titled 2012 acoustic-blues core"],
         "status": "documented",
         "crossRefs": []
       },
@@ -10418,12 +10291,7 @@
       "neighbor_distinction": "Selected authored core of the 2012 release; not the present-day five-person band or expanded 2015 guest lineup. Drums are album-credited and occasional. No claim that every track uses all selected roles; bass mentioned only in general album prose is omitted from this credited core.",
       "model_policy": "Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "acoustic_guitar_dread",
-          "harmonica",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "acoustic_guitar_dread", "harmonica", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -10705,12 +10573,7 @@
         "name": "Finnish blues",
         "family": "blues_gospel",
         "lineage": "Finnish blues is represented by Jantso Jokelin — Spark of Luck (2024), solo acoustic-blues core. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-        "instruments": [
-          "voice",
-          "resonator_guitar",
-          "acoustic_guitar_dread",
-          "harmonica"
-        ],
+        "instruments": ["voice", "resonator_guitar", "acoustic_guitar_dread", "harmonica"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -10761,9 +10624,7 @@
           "cyclicity": 1
         },
         "description": "Jokelin’s documented Finnish acoustic-blues release provides a one-singer guitar-and-harmonica branch. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
-        "exemplars": [
-          "Jantso Jokelin — Spark of Luck (2024), solo acoustic-blues core"
-        ],
+        "exemplars": ["Jantso Jokelin — Spark of Luck (2024), solo acoustic-blues core"],
         "status": "documented",
         "crossRefs": []
       },
@@ -10781,12 +10642,7 @@
       "neighbor_distinction": "Role-selected reduction of the solo core, not an exhaustive album roster: unspecified percussion is outside the selected model. Banjo on Old Banjo Roll and double bass on Don’t Go There/Picaresque belong to named guest tracks and are not imported.",
       "model_policy": "Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "resonator_guitar",
-          "acoustic_guitar_dread",
-          "harmonica"
-        ],
+        "reused_instruments": ["voice", "resonator_guitar", "acoustic_guitar_dread", "harmonica"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -10862,15 +10718,11 @@
         "count_basis": "Distinct positive singer credits in the selected source; self-overdubs are not additional singers.",
         "decision": "1 distinct singers in the selected model.",
         "scope": "Role-selected reduction of the solo core, not an exhaustive album roster: unspecified percussion is outside the selected model. Banjo on Old Banjo Roll and double bass on Don’t Go There/Picaresque belong to named guest tracks and are not imported.",
-        "evidence_urls": [
-          "https://jantsojokelin.bandcamp.com/album/spark-of-luck"
-        ]
+        "evidence_urls": ["https://jantsojokelin.bandcamp.com/album/spark-of-luck"]
       },
       "instrument_role_audit": {
         "rationale": "Jokelin’s documented Finnish acoustic-blues release provides a one-singer guitar-and-harmonica branch.",
-        "source_urls": [
-          "https://jantsojokelin.bandcamp.com/album/spark-of-luck"
-        ],
+        "source_urls": ["https://jantsojokelin.bandcamp.com/album/spark-of-luck"],
         "photo_context": "Generic acoustic-guitar context for the credited acoustic guitar role; not the artist’s actual instrument, locality or session."
       }
     },
@@ -10945,9 +10797,7 @@
           "cyclicity": 1
         },
         "description": "The hosting institution identifies Som Bit’s Mexican afro-mex-funk branch and its five-person voice, guitar, keyboard, bass and drum lineup. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
-        "exemplars": [
-          "Som Bit — Sincopado/Cenart five-person live lineup (2025)"
-        ],
+        "exemplars": ["Som Bit — Sincopado/Cenart five-person live lineup (2025)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -11138,9 +10988,7 @@
           "cyclicity": 1
         },
         "description": "The Osnabrück-based artist’s documented blues quartet has two distinct vocalists plus guitar, keys, bass and drums. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
-        "exemplars": [
-          "Kai Strauss & The Electric Blues All-Stars — regular quartet"
-        ],
+        "exemplars": ["Kai Strauss & The Electric Blues All-Stars — regular quartet"],
         "status": "documented",
         "crossRefs": []
       },
@@ -11246,17 +11094,11 @@
         "count_basis": "Distinct positive singer credits in the selected source; self-overdubs are not additional singers.",
         "decision": "2 distinct singers in the selected model.",
         "scope": "Regular quartet only. The separately listed occasional saxophone/trumpet players and Vienna side-project session are excluded. The German scene label does not assign nationality or cultural lineage to every international band member.",
-        "evidence_urls": [
-          "https://www.kaistrauss.com/bio/",
-          "https://www.kaistrauss.com/band-2/"
-        ]
+        "evidence_urls": ["https://www.kaistrauss.com/bio/", "https://www.kaistrauss.com/band-2/"]
       },
       "instrument_role_audit": {
         "rationale": "The Osnabrück-based artist’s documented blues quartet has two distinct vocalists plus guitar, keys, bass and drums.",
-        "source_urls": [
-          "https://www.kaistrauss.com/bio/",
-          "https://www.kaistrauss.com/band-2/"
-        ],
+        "source_urls": ["https://www.kaistrauss.com/bio/", "https://www.kaistrauss.com/band-2/"],
         "photo_context": "Generic electric-guitar context for the credited guitar role and authored humbucker card; not the artist’s actual gear, performer, locality or session."
       }
     },
@@ -11331,9 +11173,7 @@
           "cyclicity": 1
         },
         "description": "The choir documents an Italian gospel practice with 60 choristers, a named tenor lead and a four-instrument band. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
-        "exemplars": [
-          "Sunshine Gospel Choir — regular choir and four-piece band"
-        ],
+        "exemplars": ["Sunshine Gospel Choir — regular choir and four-piece band"],
         "status": "documented",
         "crossRefs": []
       },
@@ -11644,15 +11484,11 @@
         "count_basis": "Distinct positive singer credits in the selected source; self-overdubs are not additional singers.",
         "decision": "4 distinct singers in the selected model.",
         "scope": "Selected regular album ensemble excludes the separately labeled guest backing singers on Breeze and Moonlight, Sly and Crystal Clear. Four distinct core singers justify group voice; multiple piano/guitar players map to class cards, not invented personnel counts.",
-        "evidence_urls": [
-          "https://humansoundsrecords.bandcamp.com/album/in-touch"
-        ]
+        "evidence_urls": ["https://humansoundsrecords.bandcamp.com/album/in-touch"]
       },
       "instrument_role_audit": {
         "rationale": "The releasing label identifies the indie R&B category, Halifax recording context and regular ensemble roles.",
-        "source_urls": [
-          "https://humansoundsrecords.bandcamp.com/album/in-touch"
-        ],
+        "source_urls": ["https://humansoundsrecords.bandcamp.com/album/in-touch"],
         "photo_context": "Generic electric-guitar context for the credited guitar role and authored humbucker card; not the artist’s actual gear, performer, locality or session."
       }
     },
@@ -11827,15 +11663,11 @@
         "count_basis": "Distinct positive singer credits in the selected source; self-overdubs are not additional singers.",
         "decision": "1 distinct singers in the selected model.",
         "scope": "Selected album role classes only. The primary source explicitly names kick drum, not a complete drum-kit complement, so one existing kick/bass-drum card is used. Its22-inch size and felt single pedal are authored realizations, not source-session measurements. Tonewheel organ and electric bass likewise realize broadly credited organ/bass. Auxiliary percussion remains unspecified outside the model. Only the identified lead singer is selected; self-overdubs do not prove additional singers.",
-        "evidence_urls": [
-          "https://milesfromnowhere.bandcamp.com/album/slow-down"
-        ]
+        "evidence_urls": ["https://milesfromnowhere.bandcamp.com/album/slow-down"]
       },
       "instrument_role_audit": {
         "rationale": "The artist’s indie-soul description establishes a Hamilton voice, acoustic guitar, organ, bass and explicitly named kick-drum branch. The model retains those typed roles; auxiliary percussion remains unspecified. Hardware, construction, settings, tuning and recording environment are authored present-day choices. Selected album role classes only. The primary source explicitly names kick drum, not a complete drum-kit complement, so one existing kick/bass-drum card is used. Its22-inch size and felt single pedal are authored realizations, not source-session measurements. Tonewheel organ and electric bass likewise realize broadly credited organ/bass. Auxiliary percussion remains unspecified outside the model. Only the identified lead singer is selected; self-overdubs do not prove additional singers.",
-        "source_urls": [
-          "https://milesfromnowhere.bandcamp.com/album/slow-down"
-        ],
+        "source_urls": ["https://milesfromnowhere.bandcamp.com/album/slow-down"],
         "photo_context": "Generic acoustic-guitar context for the credited acoustic guitar role; not the artist’s actual instrument, locality or session."
       },
       "source_role_correction": {
@@ -11856,12 +11688,7 @@
         "name": "Gospel singers",
         "family": "blues_gospel",
         "lineage": "Gospel singers is represented by The Blind Boys of Alabama — Motherless Child, Spirit of the Century (2001). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "upright_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "upright_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -11914,9 +11741,7 @@
           "cyclicity": 1
         },
         "description": "The releasing label documents the gospel-singing branch; official track credits resolve four singers, electric guitar, double bass and drums. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
-        "exemplars": [
-          "The Blind Boys of Alabama — Motherless Child, Spirit of the Century (2001)"
-        ],
+        "exemplars": ["The Blind Boys of Alabama — Motherless Child, Spirit of the Century (2001)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -11940,12 +11765,7 @@
       "neighbor_distinction": "Gospel singers is retained as the supplied broad performer-discovery label, not asserted as an independently bounded musical style. Only Motherless Child is selected; the oud and harmonica heard elsewhere on the album are not imported. The bass pizzicato setting is an authored recording choice; no bowed session technique is asserted.",
       "model_policy": "Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "upright_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "upright_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -12114,9 +11934,7 @@
           "cyclicity": 1
         },
         "description": "Templo Soul’s documented gospel band branch sits within the label-curated broad Groove Gospel grouping. The selected official session resolves all instrumental roles and one named vocalist. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
-        "exemplars": [
-          "Templo Soul — Teu Amor Não Falha, No Balanço do Louvor Vol.01 (2019)"
-        ],
+        "exemplars": ["Templo Soul — Teu Amor Não Falha, No Balanço do Louvor Vol.01 (2019)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -12310,9 +12128,7 @@
           "cyclicity": 1
         },
         "description": "The artist’s Papiamentu gospel repertoire and linked Psalm-27 recording establish the language/religious category. The video credits document the lead plus five backing singers, piano, acoustic/electric guitars and bass. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
-        "exemplars": [
-          "Cici Jacobino Isenia — Spera Riba Bo (Salmo 27), 2023 official video"
-        ],
+        "exemplars": ["Cici Jacobino Isenia — Spera Riba Bo (Salmo 27), 2023 official video"],
         "status": "documented",
         "crossRefs": []
       },
@@ -12468,12 +12284,7 @@
         "name": "Indonesian blues",
         "family": "blues_gospel",
         "lineage": "Indonesian blues: Gugun Blues Shelter, documented Gugun/Fajar/Bowie core trio. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "parts": {
           "voice_register": "voice_register_source_unspecified",
           "voice_quality": "voice_quality_source_unspecified",
@@ -12516,9 +12327,7 @@
           "cyclicity": 0
         },
         "description": "The artist profile identifies blues and Jakarta; its membership page credits Gugun as vocalist, Fajar on bass and Bowie on drums. The label documents the guitar/bass-led production. Core-trio configuration rather than a reproduction of GBSFEST or any earlier album lineup. Album horn guests are not asserted for this ensemble. The category is the local blues practice, not an ethnic claim.",
-        "exemplars": [
-          "Gugun Blues Shelter, documented Gugun/Fajar/Bowie core trio"
-        ],
+        "exemplars": ["Gugun Blues Shelter, documented Gugun/Fajar/Bowie core trio"],
         "status": "documented",
         "crossRefs": []
       },
@@ -12554,12 +12363,7 @@
       "neighbor_distinction": "Core-trio configuration rather than a reproduction of GBSFEST or any earlier album lineup. Album horn guests are not asserted for this ensemble. The category is the local blues practice, not an ethnic claim.",
       "model_policy": "Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -12668,12 +12472,7 @@
         "name": "Indonesian R&B",
         "family": "blues_gospel",
         "lineage": "Indonesian R&B: Destardy — Fall, track 2 of Kind of Soul. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "digital_subtractive",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "digital_subtractive", "drum_kit"],
         "parts": {
           "voice_register": "voice_register_source_unspecified",
           "voice_quality": "voice_quality_source_unspecified",
@@ -12977,9 +12776,7 @@
         "count_basis": "Distinct positively credited singers, not the number of tracks or overdubs.",
         "decision": "Solo accompanied, authored single-lead model.",
         "scope": "A voice-and-guitar arrangement of the positively credited core, not a claim that the original recording contains no other sounds. No national vocal technique is inferred.",
-        "evidence_urls": [
-          "https://maekenbeaver.bandcamp.com/album/point-of-view"
-        ]
+        "evidence_urls": ["https://maekenbeaver.bandcamp.com/album/point-of-view"]
       },
       "instrument_role_audit": {
         "rationale": "A voice-and-guitar arrangement of the positively credited core, not a claim that the original recording contains no other sounds. No national vocal technique is inferred.",
@@ -13154,11 +12951,7 @@
         "note": "Artist release tags include R&B and Japan; the Tokyo profile and album credits identify the ensemble."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Mariko Nii",
-          "YURINA da GOLD DIGGER",
-          "okan"
-        ],
+        "credited_selected_singers": ["Mariko Nii", "YURINA da GOLD DIGGER", "okan"],
         "selected_count": 3,
         "count_basis": "Distinct positively credited singers, not the number of tracks or overdubs.",
         "decision": "Authored live ensemble model for the documented distinct singers; this does not assert the original recording was made live.",
@@ -13257,11 +13050,7 @@
       "neighbor_distinction": "Original title-track credited live-instrument core, excluding Fluid Reprise and other tracks. Producer credits do not justify invented synth or drum-machine roles. The model is an authored trio arrangement rather than a complete session reconstruction.",
       "model_policy": "Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -13423,9 +13212,7 @@
           "cyclicity": 0
         },
         "description": "The artist explicitly identifies a Latin Funk band in Austin and provides release-wide personnel for voice, horns, rhythm section and percussion. Regular album ensemble excluding the additional track-1 guitar, saxophone and drum credits. Instrument cards represent credited classes, not player counts. Source gives no saxophone registers: the alto pin is an authored common-register realization, not a claim about the recording. Untyped auxiliary percussion is not converted into a guessed instrument.",
-        "exemplars": [
-          "Ex Romantika — Latin Funk Konnection, regular album ensemble"
-        ],
+        "exemplars": ["Ex Romantika — Latin Funk Konnection, regular album ensemble"],
         "status": "documented",
         "crossRefs": []
       },
@@ -13525,18 +13312,12 @@
         "note": "The artist explicitly identifies a Latin Funk band in Austin and provides release-wide personnel for voice, horns, rhythm section and percussion."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Iram Reyes",
-          "Yacellys Isabella",
-          "Caroline Crixell"
-        ],
+        "credited_selected_singers": ["Iram Reyes", "Yacellys Isabella", "Caroline Crixell"],
         "selected_count": 3,
         "count_basis": "Distinct positively credited singers, not the number of tracks or overdubs.",
         "decision": "Authored live ensemble model for the documented distinct singers; this does not assert the original recording was made live.",
         "scope": "Regular album ensemble excluding the additional track-1 guitar, saxophone and drum credits. Instrument cards represent credited classes, not player counts. Source gives no saxophone registers: the alto pin is an authored common-register realization, not a claim about the recording. Untyped auxiliary percussion is not converted into a guessed instrument.",
-        "evidence_urls": [
-          "https://exromantika.bandcamp.com/album/latin-funk-konnection"
-        ]
+        "evidence_urls": ["https://exromantika.bandcamp.com/album/latin-funk-konnection"]
       },
       "instrument_role_audit": {
         "rationale": "Regular album ensemble excluding the additional track-1 guitar, saxophone and drum credits. Instrument cards represent credited classes, not player counts. Source gives no saxophone registers: the alto pin is an authored common-register realization, not a claim about the recording. Untyped auxiliary percussion is not converted into a guessed instrument.",
@@ -14068,9 +13849,7 @@
         "count_basis": "Count of distinct positively credited vocal performers, not the number of overdub layers.",
         "decision": "Authored ensemble pin represents the credited singer count; recording method is an authored present-day default.",
         "scope": "Selected single by the Lecce-founded project, whose current page lists Bristol. The described choir texture does not establish additional distinct singers; only Lauryyn is credited on voice.",
-        "evidence_urls": [
-          "https://pukashellsbling.bandcamp.com/track/colosseum"
-        ]
+        "evidence_urls": ["https://pukashellsbling.bandcamp.com/track/colosseum"]
       },
       "instrument_role_audit": {
         "rationale": "All selected instrument classes have positive role evidence in the cited credits.",
@@ -14247,9 +14026,7 @@
         "count_basis": "Count of distinct positively credited vocal performers, not the number of overdub layers.",
         "decision": "Authored ensemble pin represents the credited singer count; recording method is an authored present-day default.",
         "scope": "A documented Copenhagen pop/R&B branch, not a pan-Scandinavian uniform sound. All vocal harmonies are credited to one performer, so no duet or choir count is inferred.",
-        "evidence_urls": [
-          "https://claudiacampagnol.bandcamp.com/track/dance-with-me"
-        ]
+        "evidence_urls": ["https://claudiacampagnol.bandcamp.com/track/dance-with-me"]
       },
       "instrument_role_audit": {
         "rationale": "All selected instrument classes have positive role evidence in the cited credits.",
@@ -14339,11 +14116,7 @@
       "neighbor_distinction": "Album-level credited ensemble. Only specifically documented instrumental roles are modeled; this is not a claim that uncredited production layers are absent. Sax register is unspecified by the source, so alto is an authored realization.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "saxophone"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "saxophone"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -14424,9 +14197,7 @@
         "count_basis": "Count of distinct positively credited vocal performers, not the number of overdub layers.",
         "decision": "Authored ensemble pin represents the credited singer count; recording method is an authored present-day default.",
         "scope": "Album-level credited ensemble. Only specifically documented instrumental roles are modeled; this is not a claim that uncredited production layers are absent. Sax register is unspecified by the source, so alto is an authored realization.",
-        "evidence_urls": [
-          "https://songstoglory.bandcamp.com/album/the-healing-tape-side-b"
-        ]
+        "evidence_urls": ["https://songstoglory.bandcamp.com/album/the-healing-tape-side-b"]
       },
       "instrument_role_audit": {
         "rationale": "All selected instrument classes have positive role evidence in the cited credits.",
@@ -14608,12 +14379,7 @@
         "name": "Swedish soul",
         "family": "blues_gospel",
         "lineage": "Swedish soul: Tingsek — Our Song, original Home album version. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-        "instruments": [
-          "voice",
-          "acoustic_guitar_dread",
-          "violin_orchestral",
-          "cello"
-        ],
+        "instruments": ["voice", "acoustic_guitar_dread", "violin_orchestral", "cello"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -14687,12 +14453,7 @@
       "neighbor_distinction": "The original Home album version is selected, not the later Helsingborg Symphony Orchestra version. Tingsek’s own backing-vocal credit does not add a second singer. Broad guitar construction is an authored choice.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "acoustic_guitar_dread",
-          "violin_orchestral",
-          "cello"
-        ],
+        "reused_instruments": ["voice", "acoustic_guitar_dread", "violin_orchestral", "cello"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -14946,18 +14707,12 @@
         "note": "Primary category and locality evidence is documented in sources; no cultural identity is inferred from a performer’s nationality."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Sofía Sobral",
-          "Julia Fons",
-          "Abril Olivera"
-        ],
+        "credited_selected_singers": ["Sofía Sobral", "Julia Fons", "Abril Olivera"],
         "selected_count": 3,
         "count_basis": "Count of distinct positively credited vocal performers, not the number of overdub layers.",
         "decision": "Authored ensemble pin represents the credited singer count; recording method is an authored present-day default.",
         "scope": "Selected track-specific lineup; album-wide acoustic guitar, percussion and baby-bass credits on other numbered tracks are not imported. This is one contemporary Buenos Aires R&B branch.",
-        "evidence_urls": [
-          "https://sophieyfactorp.bandcamp.com/track/juego-voraz"
-        ]
+        "evidence_urls": ["https://sophieyfactorp.bandcamp.com/track/juego-voraz"]
       },
       "instrument_role_audit": {
         "rationale": "All selected instrument classes have positive role evidence in the cited credits.",
@@ -15036,9 +14791,7 @@
           "cyclicity": 1
         },
         "description": "The producer’s Brazilian release explicitly describes the band as funk and R&B and lists one vocalist, guitar, bass, trumpet, saxophone and drums. The release and producer are anchored in São Paulo. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-        "exemplars": [
-          "Dinamite Combo — documented vocal band format on the 2023 DJ Hum release"
-        ],
+        "exemplars": ["Dinamite Combo — documented vocal band format on the 2023 DJ Hum release"],
         "status": "documented",
         "crossRefs": []
       },
@@ -15208,9 +14961,7 @@
           "cyclicity": 1
         },
         "description": "The duo’s own profile identifies Palmas, explicitly describes a blend of traditional sertanejo and sertanejo gospel, and credits both named members with voice and acoustic guitar. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-        "exemplars": [
-          "Cláudio & Márlon — documented vocal-and-guitar duo format"
-        ],
+        "exemplars": ["Cláudio & Márlon — documented vocal-and-guitar duo format"],
         "status": "documented",
         "crossRefs": []
       },
@@ -15487,9 +15238,7 @@
         "count_basis": "Count of distinct positively credited vocal performers, not the number of overdub layers.",
         "decision": "Authored ensemble pin represents the credited singer count; recording method is an authored present-day default.",
         "scope": "Selected 2025 single, distinct from an archival or universal soul arrangement. Generic keyboard and guitar construction defaults are authored; the sole credited vocalist is not counted twice for repeated vocal wording.",
-        "evidence_urls": [
-          "https://qmooremusic.bandcamp.com/track/kiss-your-lips-2"
-        ]
+        "evidence_urls": ["https://qmooremusic.bandcamp.com/track/kiss-your-lips-2"]
       },
       "instrument_role_audit": {
         "rationale": "All selected instrument classes have positive role evidence in the cited credits.",
@@ -15675,9 +15424,7 @@
         "count_basis": "Count of distinct positively credited vocal performers, not the number of overdub layers.",
         "decision": "Authored ensemble pin represents the credited singer count; recording method is an authored present-day default.",
         "scope": "Selected named instrument classes in the documented group format, not a reconstruction of a particular studio track or a playback version. General percussion credits do not identify further instrument types; the positively named pandeiro supplies this model’s hand-percussion role.",
-        "evidence_urls": [
-          "https://www.palcomp3.com.br/Restaurados2015/integrantes.htm"
-        ]
+        "evidence_urls": ["https://www.palcomp3.com.br/Restaurados2015/integrantes.htm"]
       },
       "instrument_role_audit": {
         "rationale": "All selected instrument classes have positive role evidence in the cited credits.",
@@ -15746,9 +15493,7 @@
           "cyclicity": 1
         },
         "description": "Frémeaux’s Gospel Vol. 3 booklet identifies the selected side as vocal and guitar by Blind Willie Harris, recorded in New Orleans around February 1929. Document Records independently credits his vocal/guitar role. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-        "exemplars": [
-          "Blind Willie Harris — Where He Leads Me I Will Follow (c. February 1929)"
-        ],
+        "exemplars": ["Blind Willie Harris — Where He Leads Me I Will Follow (c. February 1929)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -15855,9 +15600,7 @@
         "count_basis": "Count of distinct positively credited vocal performers, not the number of overdub layers.",
         "decision": "Authored ensemble pin represents the credited singer count; recording method is an authored present-day default.",
         "scope": "A present-day authored realization of one archival guitar-evangelist branch. No 1929 hardware or room reconstruction is asserted. This solo accompanied song does not import choirs or ensembles from other tracks in either compilation.",
-        "evidence_urls": [
-          "https://www.fremeaux.com/fr/3547-gospel-vol-3-3448960204422-fa044.html"
-        ]
+        "evidence_urls": ["https://www.fremeaux.com/fr/3547-gospel-vol-3-3448960204422-fa044.html"]
       },
       "instrument_role_audit": {
         "rationale": "All selected instrument classes have positive role evidence in the cited credits.",
@@ -16115,9 +15858,7 @@
           "cyclicity": 1
         },
         "description": "The ensemble’s official video uses the gospel and zimgospel labels. Credits specify lead voice, four soprano singers, three alto singers and three tenor singers, with keyboards, bass guitar, lead guitar, acoustic guitar and drums. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
-        "exemplars": [
-          "The Unveiled — Hallelujah Hossana (official December 2024 video)"
-        ],
+        "exemplars": ["The Unveiled — Hallelujah Hossana (official December 2024 video)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -16476,9 +16217,7 @@
           "cyclicity": 1
         },
         "description": "Keller identifies an acoustic cover and credits all vocals and guitar to himself; the artist page places his acoustic solo practice in Hillsborough Township, New Jersey. Production, settings and axes are authored modern choices.",
-        "exemplars": [
-          "Ryan Keller — Tenerife Sea (Ed Sheeran Cover), 2014 single"
-        ],
+        "exemplars": ["Ryan Keller — Tenerife Sea (Ed Sheeran Cover), 2014 single"],
         "status": "documented",
         "crossRefs": []
       },
@@ -16747,12 +16486,7 @@
         "name": "Adelaide indie",
         "family": "popular",
         "lineage": "Adelaide indie is represented by Console Warriors — The Jitterblood Mini EP (2013), release-credited ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -16826,12 +16560,7 @@
       "neighbor_distinction": "The release-specific 2011–2013 credits define this arrangement. The separate general biography lists additional backing-vocal capabilities but does not assign them to this EP; no extra singers are inferred. Humbucker body/pickup and amplification are authored choices for the credited rock-guitar role.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -16908,9 +16637,7 @@
         "count_basis": "Primary release credits identify these distinct human singers; overdubs by one performer do not add another singer.",
         "decision": "Solo accompanied, single-human lead model.",
         "scope": "The release-specific 2011–2013 credits define this arrangement. The separate general biography lists additional backing-vocal capabilities but does not assign them to this EP; no extra singers are inferred. Humbucker body/pickup and amplification are authored choices for the credited rock-guitar role.",
-        "evidence_urls": [
-          "https://consolewarriors.bandcamp.com/album/the-jitterblood-mini-ep"
-        ]
+        "evidence_urls": ["https://consolewarriors.bandcamp.com/album/the-jitterblood-mini-ep"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. The release-specific 2011–2013 credits define this arrangement. The separate general biography lists additional backing-vocal capabilities but does not assign them to this EP; no extra singers are inferred. Humbucker body/pickup and amplification are authored choices for the credited rock-guitar role.",
@@ -17260,9 +16987,7 @@
         "count_basis": "Primary release credits identify these distinct human singers; overdubs by one performer do not add another singer.",
         "decision": "Distinct two-human vocal ensemble model.",
         "scope": "The album-level credited ensemble supplies this Alabama indie-rock branch. The two distinct vocalists support an authored duet model, not a claim that both sing on every track. The unspecific keys credit is realized with an authored virtual-analog keyboard; no source make or mechanism is claimed.",
-        "evidence_urls": [
-          "https://loveratmusic.bandcamp.com/album/howl-at-the-moon"
-        ]
+        "evidence_urls": ["https://loveratmusic.bandcamp.com/album/howl-at-the-moon"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. The album-level credited ensemble supplies this Alabama indie-rock branch. The two distinct vocalists support an authored duet model, not a claim that both sing on every track. The unspecific keys credit is realized with an authored virtual-analog keyboard; no source make or mechanism is claimed.",
@@ -17427,9 +17152,7 @@
         "count_basis": "Primary release credits identify these distinct human singers; overdubs by one performer do not add another singer.",
         "decision": "Solo accompanied, single-human lead model.",
         "scope": "The individually credited acoustic song is selected; the artist’s broader rock, reggae and jazz practice does not add instruments here. Multiple recorded guitar or vocal layers remain one human performer. The modern authored tuning baseline does not assert the source’s concert pitch or reconstruct the album’s 432-Hz labeling.",
-        "evidence_urls": [
-          "https://casperace.bandcamp.com/track/agter-elke-glimlag"
-        ]
+        "evidence_urls": ["https://casperace.bandcamp.com/track/agter-elke-glimlag"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. The individually credited acoustic song is selected; the artist’s broader rock, reggae and jazz practice does not add instruments here. Multiple recorded guitar or vocal layers remain one human performer. The modern authored tuning baseline does not assert the source’s concert pitch or reconstruct the album’s 432-Hz labeling.",
@@ -17448,12 +17171,7 @@
         "name": "Adoracion",
         "family": "sacred",
         "lineage": "Adoracion is represented by Sovereign Grace Music — Todo lo que Creó el Rey (2025 single). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "acoustic_guitar_dread",
-          "electric_guitar_humbucker",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "acoustic_guitar_dread", "electric_guitar_humbucker", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -17506,9 +17224,7 @@
           "cyclicity": 1
         },
         "description": "The worship label credits Jonathan Jerez on voice/acoustic guitar, Fabrizio Rodulfo on electric guitar/backing voice, Sarah Jerez on backing voice, and drums. The Spanish devotional single and Louisville ministry locality are explicit. Production, settings and axes are authored modern choices.",
-        "exemplars": [
-          "Sovereign Grace Music — Todo lo que Creó el Rey (2025 single)"
-        ],
+        "exemplars": ["Sovereign Grace Music — Todo lo que Creó el Rey (2025 single)"],
         "status": "documented",
         "crossRefs": []
       },
@@ -17603,19 +17319,13 @@
         "note": "The worship label credits Jonathan Jerez on voice/acoustic guitar, Fabrizio Rodulfo on electric guitar/backing voice, Sarah Jerez on backing voice, and drums. The Spanish devotional single and Louisville ministry locality are explicit."
       },
       "vocal_count_audit": {
-        "credited_selected_singers": [
-          "Jonathan Jerez",
-          "Fabrizio Rodulfo",
-          "Sarah Jerez"
-        ],
+        "credited_selected_singers": ["Jonathan Jerez", "Fabrizio Rodulfo", "Sarah Jerez"],
         "selected_count": 3,
         "plural_ensemble_evidence": false,
         "count_basis": "Primary release credits identify these distinct human singers; overdubs by one performer do not add another singer.",
         "decision": "Three distinct human vocalists; authored live-group configuration with live-ensemble vocal setting.",
         "scope": "This Spanish-language worship single is one bounded adoración realization. Three distinct credited vocalists support a group setting; no additional bass or keys are inferred. Louisville marks the releasing worship ministry’s documented base, not the performers’ nationality or an asserted recording address.",
-        "evidence_urls": [
-          "https://sovereigngracemusic.bandcamp.com/track/todo-lo-que-cre-el-rey"
-        ]
+        "evidence_urls": ["https://sovereigngracemusic.bandcamp.com/track/todo-lo-que-cre-el-rey"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. This Spanish-language worship single is one bounded adoración realization. Three distinct credited vocalists support a group setting; no additional bass or keys are inferred. Louisville marks the releasing worship ministry’s documented base, not the performers’ nationality or an asserted recording address.",
@@ -17634,12 +17344,7 @@
         "name": "Aggro chileno",
         "family": "popular",
         "lineage": "Aggro chileno is represented by Rékiem — Unlike (1997), initial release-era quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
-        "instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "room": "treated_studio",
         "tuning": "twelve_tet",
         "chain_mic": "condenser_sdc",
@@ -17696,12 +17401,7 @@
         "status": "documented",
         "crossRefs": []
       },
-      "geo": [
-        -33.4489,
-        -70.6693,
-        "Santiago, Chile",
-        "Latin America & Caribbean"
-      ],
+      "geo": [-33.4489, -70.6693, "Santiago, Chile", "Latin America & Caribbean"],
       "geo_rationale": "Approximate anchor for the primary-source-documented artist or performance locality; not an exclusive genre origin, geographic boundary or exact studio coordinate.",
       "signature_tokens": ["electric", "melodic"],
       "sources": [
@@ -17716,12 +17416,7 @@
       "neighbor_distinction": "Only the debut-era quartet is selected. Later keyboard participation beginning in 2001, replacement musicians and subsequent recordings are excluded. The institution’s dated personnel entries establish one vocalist and three instrumental roles; the chosen humbucker body, amp, playing settings and studio are authored modern choices.",
       "model_policy": "Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
       "dependency_audit": {
-        "reused_instruments": [
-          "voice",
-          "electric_guitar_humbucker",
-          "electric_bass",
-          "drum_kit"
-        ],
+        "reused_instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
         "new_instruments": [],
         "new_parts": [],
         "new_variants": [],
@@ -17964,9 +17659,7 @@
         "count_basis": "The selected single is explicitly tagged instrumental rock, alongside its full named instrumental credits.",
         "decision": "Instrumental selected version; no singer card.",
         "scope": "The 2025 instrumental single supplies this afrobeat/fusion realization. The six identified instrument classes are retained; ancillary percussion is explicitly unspecified and is not guessed as congas, shakers or another named form. Synthesizer/programming is represented with an authored existing digital keyboard, not a claim of source hardware.",
-        "evidence_urls": [
-          "https://elephant-hump.bandcamp.com/track/thinn-jazz-single"
-        ]
+        "evidence_urls": ["https://elephant-hump.bandcamp.com/track/thinn-jazz-single"]
       },
       "instrument_role_audit": {
         "rationale": "Existing cards represent the positively documented musical roles; card counts describe timbre classes rather than the exact number of instrumental players. The 2025 instrumental single supplies this afrobeat/fusion realization. The six identified instrument classes are retained; ancillary percussion is explicitly unspecified and is not guessed as congas, shakers or another named form. Synthesizer/programming is represented with an authored existing digital keyboard, not a claim of source hardware.",
@@ -18004,23 +17697,13 @@
                 "name": "Coordinated short notes (authored default)",
                 "default": true,
                 "descriptors": ["short", "articulate"],
-                "match_tokens": [
-                  "wind-driven",
-                  "reed-driven",
-                  "ensemble",
-                  "articulated"
-                ]
+                "match_tokens": ["wind-driven", "reed-driven", "ensemble", "articulated"]
               },
               {
                 "id": "tenor_baritone_section_articulation_legato",
                 "name": "Coordinated legato (authored alternative)",
                 "descriptors": ["legato", "controlled"],
-                "match_tokens": [
-                  "wind-driven",
-                  "reed-driven",
-                  "ensemble",
-                  "sustained-tone"
-                ]
+                "match_tokens": ["wind-driven", "reed-driven", "ensemble", "sustained-tone"]
               }
             ]
           }
@@ -18133,23 +17816,13 @@
                 "name": "Coordinated short notes (authored default)",
                 "default": true,
                 "descriptors": ["short", "articulate"],
-                "match_tokens": [
-                  "wind-driven",
-                  "reed-driven",
-                  "ensemble",
-                  "articulated"
-                ]
+                "match_tokens": ["wind-driven", "reed-driven", "ensemble", "articulated"]
               },
               {
                 "id": "alto_two_tenor_section_articulation_legato",
                 "name": "Coordinated legato (authored alternative)",
                 "descriptors": ["legato", "controlled"],
-                "match_tokens": [
-                  "wind-driven",
-                  "reed-driven",
-                  "ensemble",
-                  "sustained-tone"
-                ]
+                "match_tokens": ["wind-driven", "reed-driven", "ensemble", "sustained-tone"]
               }
             ]
           }
