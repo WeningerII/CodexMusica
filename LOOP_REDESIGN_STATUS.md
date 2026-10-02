@@ -1,28 +1,25 @@
 # Revise-loop redesign — status
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
-Last update: 2026-10-02. **Phase 2: the debate has run. The design did not
-pass as it stood, and it now waits on the owner. WORK IS STOPPED** until a
-message answers the questions below.
+Last update: 2026-10-02. **The owner answered the seven questions.** The design
+is now version 3. Debate round 2 is next, and so are the pre-build
+measurements.
 
-## QUESTION FOR THE OWNER
+## OWNER'S ANSWERS (2026-10-02)
 
-Seven questions. Each changes what a song is judged on, or the connector's
-published contract, so the design cannot settle it. The full facts and my
-recommendations are in `lyric-harness/quality/LOOP_REDESIGN.md` §6. In short:
+The owner answered: *"Q1 B, Q2-Q6 yes, Q7a yes, 7b stays under M-240"*.
 
-1. **Batch answers: which order?**
-   - **A.** Judge every member's answer before asking anything new. Every answer gets a verdict at once. But this can change which lines are accepted (independent lines can share a cross-line finding), and on long songs the writer waits through about one call per member.
-   - **B.** Keep today's order and acceptance. Report each answer not yet judged as `pending: waiting on L<i>` (and `not_applied` with the reason when an earlier line already closed its finding).
-   - My recommendation: **B**.
-2. **May the published `folded` field carry new verdict values** (`pending`, `not_applied`) beside accepted / rejected / unknown? Without them the defect cannot be fixed honestly.
-3. **May the harness and connector publish a new exit code 5**, "stopped at a safe point; continue with no answer", so a call nearing its deadline stops cleanly instead of being killed? If no, kills still keep the run through the saved position.
-4. **May `lyric_revise` results report `no_progress_calls`** when two or more calls in a row make no progress? It is a report only, the call is never refused, and no limit is added.
-5. **May `lyric_revise` results report `cursor_stripped: <reason>`** when a saved position could not be used and the run fell back to full replay?
-6. **May the published `lyric_revise` description change** from "each call re-runs the loop from its record" to "each call resumes from its saved, sealed position, or replays its record when that position cannot be trusted; the same questions arrive in the same order either way"?
-7. Two scope questions:
-   - (a) Is it acceptable that the model-writer (kitchen) path keeps full replay, so defects 1 and 3 remain there for now?
-   - (b) Even with every fix here, no 100-line continuation has been shown to fit one 600 s call. One cold grade of the 104-line fixture took 1,307 s (266 s under a declared relation). The per-pair memo covers a whole draft only up to 91 lines. Should this branch also size that memo to the draft, or does that stay under M-240 as its own change?
+- **Q1, batch answers:** option B. Keep today's order and acceptance, and report every answer's standing.
+- **Q2-Q6:** yes. That covers:
+  - the new `folded` verdicts `pending` and `not_applied`;
+  - exit code 5 for a safe-point stop;
+  - the `no_progress_calls` and `cursor_stripped` result fields;
+  - the new `lyric_revise` description.
+- **Q7a:** yes. The model-writer path keeps full replay for now.
+- **Q7b:** the per-pair memo stays under M-240, not this branch.
+
+All are recorded in `lyric-harness/quality/LOOP_REDESIGN.md` §6, and each lands
+in the section it names.
 
 ## Current phase
 
