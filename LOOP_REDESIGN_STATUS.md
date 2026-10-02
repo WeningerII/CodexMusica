@@ -151,8 +151,11 @@ on the undeclared default does not. The declared 104-line report was
    - 2.6: `verify` stops building menus it does not read;
    - 2.7: the floor the design does not remove, including the livelock that
      one over-deadline verification causes.
-2. Run the debate workflow: three independent opponents, one defender, two
-   judges. Every objection must be answered, or the design changes.
+2. **The debate workflow is running** (started 2026-10-02): three independent
+   opponents (A: equivalence and correctness; B: trust, connector, kills and
+   owner boundaries; C: batch, menus, size, and whether long songs are
+   actually served), one defender, two independent judges. All are read-only.
+   Every objection must be answered, or the design changes.
 3. Record the debate's outcome in `LOOP_REDESIGN.md` §5, then build only if
    it passes.
 
