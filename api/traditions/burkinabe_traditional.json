@@ -5,7 +5,7 @@
   "lineage": "Bambara balafon ensemble — Bobo-Dioulasso: Balas. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic burkinabe traditional, improv On Frame. buzzy natural material resonance calabash gourd balafon. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 2.6,
+  "score": 2.663,
   "config": {
     "traditions": [
       "burkinabe_traditional"
@@ -18,8 +18,8 @@
           "balafon_resonator": "balafon_gourd"
         },
         "scores": {
-          "balafon_tuning": 1.3,
-          "balafon_resonator": 1.3
+          "balafon_tuning": 1.3315000000000001,
+          "balafon_resonator": 1.3315000000000001
         }
       }
     ],

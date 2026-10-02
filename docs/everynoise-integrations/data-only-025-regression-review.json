@@ -1,0 +1,938 @@
+{
+  "reviewer": "research_119",
+  "status": "PASS_EXPECTED_UNPROTECTED_ORIGINAL_SOLVER_DRIFT",
+  "baseline": "71497eb1",
+  "frozen_sha256": "2a7781868dac1fbdbec8f5125b5e51c4980deb9dd8f98cc410a9f4ab2a1565a4",
+  "method": "Four targeted before/after original-solver searches executed serially. Diagnostics expose unchanged getNeighbors in an in-memory module solely to observe output; no engine, snapshot or repository edits.",
+  "engine": {
+    "scripts/search.js": {
+      "unchanged": true,
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+    },
+    "scripts/score.js": {
+      "unchanged": true,
+      "sha256": "cd3171659c29186d298fba27f0b600635c624f6a246b81810d8dccb85f11aa2c"
+    },
+    "scripts/translate.js": {
+      "unchanged": true,
+      "sha256": "43af50cd7d656ade2f3247f89861326b6803081228c1edd57db8d5f7cdb42a8d"
+    },
+    "scripts/_loader.js": {
+      "unchanged": true,
+      "sha256": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365"
+    },
+    "scripts/_merge.js": {
+      "unchanged": true,
+      "sha256": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c"
+    },
+    "scripts/_seed_workspace.js": {
+      "unchanged": true,
+      "sha256": "223924a3ce0f08dd0302731cf815d712755dc906b3546986966765dc63ded58d"
+    },
+    "scripts/_recipe_stack.js": {
+      "unchanged": true,
+      "sha256": "b02bb4c770a2639657e5397ad4f36370e19e224098d308c6c5a67ea6434c72bc"
+    }
+  },
+  "all5138_app_import_cards_changed": [],
+  "fixtures": [
+    {
+      "id": "dream_pop",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["dream_pop", "alabama_indie", "albuquerque_indie"],
+      "current_staples": ["dream_pop", "bogor_indie", "alabama_indie"],
+      "mechanism": "bogor_indie moved into distortedRock.alternative. Axis distance5 beats existing alabama_indie/albuquerque_indie6, changing first staple and subsequent search context.",
+      "baseline_neighbors": [
+        {
+          "id": "shoegaze",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "alternative_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "grunge",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "math_rock_post_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "slowcore",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "sadcore",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "madchester_baggy",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "slacker_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "funk_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "modern_indie_rock_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "shoegaze",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "alternative_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "grunge",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "math_rock_post_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "slowcore",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "sadcore",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "madchester_baggy",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "slacker_rock",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "funk_metal",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "modern_indie_rock_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_talkbox",
+          "after": "voice_processing_vocoder_8_band",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock alabama indie albuquerque indie. thick, breath veiled tone, pure, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
+      "current_output": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bogor indie alabama indie. thick, breath veiled tone, pure, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, singing lead analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
+      "baseline_trace": [
+        {
+          "score": 235.08499999999998,
+          "desc": "seed"
+        },
+        {
+          "score": 256.84,
+          "desc": "staple tradition: + alabama_indie"
+        },
+        {
+          "score": 281.00749999999994,
+          "desc": "staple tradition: + albuquerque_indie"
+        },
+        {
+          "score": 282.91749999999996,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_sub_semitone_third_glide \u2192 voice_pitch_equal_tempered_12"
+        },
+        {
+          "score": 283.93249999999995,
+          "desc": "swap electric_guitar_single_coil.string_gauge: g_11 \u2192 g_10"
+        },
+        {
+          "score": 284.9074999999999,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_M0_pulse_borrowed \u2192 voice_mechanism_false_fold_distorted"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 235.08499999999998,
+          "desc": "seed"
+        },
+        {
+          "score": 260.5925,
+          "desc": "staple tradition: + bogor_indie"
+        },
+        {
+          "score": 282.3474999999999,
+          "desc": "staple tradition: + alabama_indie"
+        },
+        {
+          "score": 283.60749999999996,
+          "desc": "swap voice.voice_pitch_organization: voice_pitch_sub_semitone_third_glide \u2192 voice_pitch_equal_tempered_12"
+        },
+        {
+          "score": 284.62249999999995,
+          "desc": "swap electric_guitar_single_coil.string_gauge: g_11 \u2192 g_10"
+        },
+        {
+          "score": 285.59749999999997,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_M0_pulse_borrowed \u2192 voice_mechanism_false_fold_distorted"
+        },
+        {
+          "score": 285.68749999999994,
+          "desc": "swap voice.voice_processing_chain: voice_processing_talkbox \u2192 voice_processing_vocoder_8_band"
+        }
+      ]
+    },
+    {
+      "id": "minimalist",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["minimalist", "hauntology_aesthetic", "ambient_house"],
+      "current_staples": ["minimalist", "hauntology_aesthetic", "chakra"],
+      "mechanism": "chakra moved into experimentalElec.ambient, distance13 replacing ambient_house14 once hauntology_aesthetic12 is already selected. color_noise also enters at13 but lexical order chooses chakra.",
+      "baseline_neighbors": [
+        {
+          "id": "ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "drone_dark_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dark_ambient_industrial",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dungeon_synth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "darksynth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "witch_house_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "mallsoft",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "vapor_aesthetic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "hauntology_uk_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "melancholia_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "drone_dark_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dark_ambient_industrial",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "dungeon_synth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "darksynth",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "witch_house_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "mallsoft",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "vapor_aesthetic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "hauntology_uk_2010s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "melancholia_ambient",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "grand_piano_brand",
+          "before": "yamaha_cfx",
+          "after": "steinway_d",
+          "protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "renner_blue_hammer",
+          "after": "renner_standard_hammer",
+          "protected": false
+        },
+        {
+          "instrument": "analog_synth",
+          "part": "filter_topology",
+          "before": "transistor_ladder",
+          "after": "resonant_acid",
+          "protected": false
+        },
+        {
+          "instrument": "analog_synth",
+          "part": "modulation",
+          "before": "lfo_pitch",
+          "after": "no_mod",
+          "protected": false
+        },
+        {
+          "instrument": "bass_flute",
+          "part": "bass_flute_pitch",
+          "before": "bass_flute_contra_g",
+          "after": "bass_flute_c",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric hauntology ambient house. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "current_output": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric hauntology chakra. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "baseline_trace": [
+        {
+          "score": 60.555,
+          "desc": "seed"
+        },
+        {
+          "score": 61.81249999999999,
+          "desc": "staple tradition: + hauntology_aesthetic"
+        },
+        {
+          "score": 64.44250000000001,
+          "desc": "swap grand_piano.keyboard_technique: keyboard_classical_legato \u2192 keyboard_avant_prepared"
+        },
+        {
+          "score": 68.37750000000001,
+          "desc": "staple tradition: + ambient_house"
+        },
+        {
+          "score": 71.06250000000001,
+          "desc": "swap analog_synth.envelope: sustain_env \u2192 pad_env"
+        },
+        {
+          "score": 71.90750000000001,
+          "desc": "swap grand_piano.grand_piano_brand: bosendorfer \u2192 yamaha_cfx"
+        },
+        {
+          "score": 72.25750000000001,
+          "desc": "swap bass_flute.bass_flute_pitch: bass_flute_c \u2192 bass_flute_contra_g"
+        },
+        {
+          "score": 72.36250000000001,
+          "desc": "swap analog_synth.modulation: no_mod \u2192 lfo_pitch"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 60.555,
+          "desc": "seed"
+        },
+        {
+          "score": 61.81249999999999,
+          "desc": "staple tradition: + hauntology_aesthetic"
+        },
+        {
+          "score": 64.44250000000001,
+          "desc": "swap grand_piano.keyboard_technique: keyboard_classical_legato \u2192 keyboard_avant_prepared"
+        },
+        {
+          "score": 66.5425,
+          "desc": "staple tradition: + chakra"
+        },
+        {
+          "score": 67.9475,
+          "desc": "swap analog_synth.envelope: sustain_env \u2192 pad_env"
+        },
+        {
+          "score": 68.55250000000001,
+          "desc": "swap grand_piano.grand_piano_brand: bosendorfer \u2192 steinway_d"
+        },
+        {
+          "score": 69.15750000000001,
+          "desc": "swap analog_synth.filter_topology: transistor_ladder \u2192 resonant_acid"
+        },
+        {
+          "score": 69.2025,
+          "desc": "swap grand_piano.piano_hammer: renner_blue_hammer \u2192 renner_standard_hammer"
+        }
+      ]
+    },
+    {
+      "id": "free_improvisation",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["free_improvisation", "musique_concrete", "german_electronica"],
+      "current_staples": ["free_improvisation", "musique_concrete", "chinese_experimental"],
+      "mechanism": "chinese_experimental moved into experimentalElec.musiqueConcrete. After musique_concrete10 selected, it ties german_electronica at12 and wins lexical representative selection.",
+      "baseline_neighbors": [
+        {
+          "id": "musique_concrete",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "electroacoustic_composition",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "plunderphonics",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "acousmatic_music",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "soundscape_composition",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "tape_music",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "sound_art",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "acousmatic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "sound_collage",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "german_electronica",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "musique_concrete",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "electroacoustic_composition",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "plunderphonics",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "acousmatic_music",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "soundscape_composition",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "tape_music",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "sound_art",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "acousmatic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "sound_collage",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "german_electronica",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_stutter_edit",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "protected": false
+        },
+        {
+          "instrument": "saxophone",
+          "part": "sax_maker_school",
+          "before": "sax_keilwerth_german",
+          "after": "sax_yamaha_custom",
+          "protected": false
+        },
+        {
+          "instrument": "double_bass",
+          "part": "bass_back_wood",
+          "before": "european_maple_bass_back",
+          "after": "bosnian_flamed_maple_bass",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic European mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concr\u00e8te german electronica. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel carpathian spruce European maple sycamore maple Baroque setup double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, whale song waterphone. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "current_output": "classic European mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concr\u00e8te chinese experimental. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel carpathian spruce European maple bosnian source flamed figure double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, vocal whale song waterphone. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "baseline_trace": [
+        {
+          "score": 95.75500000000001,
+          "desc": "seed"
+        },
+        {
+          "score": 111.505,
+          "desc": "staple tradition: + musique_concrete"
+        },
+        {
+          "score": 112.84500000000001,
+          "desc": "staple tradition: + german_electronica"
+        },
+        {
+          "score": 116.19499999999998,
+          "desc": "swap voice.voice_tradition: sean_nos_tradition \u2192 microtonal_31tet_tradition"
+        },
+        {
+          "score": 117.31749999999998,
+          "desc": "swap saxophone.sax_body_alloy: rose_brass_sax \u2192 yellow_brass_sax"
+        },
+        {
+          "score": 118.34249999999999,
+          "desc": "swap double_bass.bass_rosin: nyman_bass_rosin \u2192 pop_kolstein_rosin"
+        },
+        {
+          "score": 118.7325,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_single_source \u2192 voice_mechanism_M0_pulse_borrowed"
+        },
+        {
+          "score": 119.12249999999999,
+          "desc": "swap saxophone.sax_maker_school: sax_yamaha_custom \u2192 sax_keilwerth_german"
+        },
+        {
+          "score": 119.49249999999999,
+          "desc": "swap double_bass.bass_back_wood: bosnian_flamed_maple_bass \u2192 european_maple_bass_back"
+        },
+        {
+          "score": 119.75250000000001,
+          "desc": "swap voice.voice_processing_chain: voice_processing_multiband_aggressive_broadcast \u2192 voice_processing_stutter_edit"
+        },
+        {
+          "score": 119.885,
+          "desc": "swap double_bass.bass_bow_stick: brazilwood_stick_bass \u2192 pernambuco_stick_bass"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 95.75500000000001,
+          "desc": "seed"
+        },
+        {
+          "score": 111.505,
+          "desc": "staple tradition: + musique_concrete"
+        },
+        {
+          "score": 126.9375,
+          "desc": "staple tradition: + chinese_experimental"
+        },
+        {
+          "score": 130.58,
+          "desc": "swap voice.voice_tradition: sean_nos_tradition \u2192 microtonal_31tet_tradition"
+        },
+        {
+          "score": 131.70250000000001,
+          "desc": "swap saxophone.sax_body_alloy: rose_brass_sax \u2192 yellow_brass_sax"
+        },
+        {
+          "score": 132.7275,
+          "desc": "swap double_bass.bass_rosin: nyman_bass_rosin \u2192 pop_kolstein_rosin"
+        },
+        {
+          "score": 132.86,
+          "desc": "swap double_bass.bass_bow_stick: brazilwood_stick_bass \u2192 pernambuco_stick_bass"
+        }
+      ]
+    },
+    {
+      "id": "mexican_rondas",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["mexican_rondas", "andean_matrimonio_huayno", "english_nursery_rhyme"],
+      "current_staples": ["mexican_rondas", "english_nursery_rhyme", "french_comptines"],
+      "mechanism": "chinderlieder moved into nurseryRhyme.european. Original getNeighbors returns10 weighted neighbors: added crossRef entrant chinderlieder replaces german_wiegenlied at the existing truncation boundary. Candidate leading representatives stay the same; neighbor-bias changes seed scores/one initial slot and hill-climb staple preference from Andean wedding to French nursery song.",
+      "baseline_neighbors": [
+        {
+          "id": "english_nursery_rhyme",
+          "weight": 1.1666666666666667,
+          "srcs": ["crossref", "axis"]
+        },
+        {
+          "id": "french_comptines",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "german_kinderlieder",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "italian_filastrocche",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "russian_poteshki",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "romanian_cantece_pentru_copii",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "barnmusik",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "muziek_voor_kinderen",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "spanish_nana",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "german_wiegenlied",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "english_nursery_rhyme",
+          "weight": 1.1666666666666667,
+          "srcs": ["crossref", "axis"]
+        },
+        {
+          "id": "french_comptines",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "german_kinderlieder",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "italian_filastrocche",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "russian_poteshki",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "romanian_cantece_pentru_copii",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "barnmusik",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "muziek_voor_kinderen",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "chinderlieder",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "spanish_nana",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "twang_voice",
+          "after": "aspirated_voice",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "delayed_vibrato",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "andean_quechua_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_oral_twang",
+          "after": "voice_estill_nasal_twang",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_flamenco_cante_jondo",
+          "protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_retune_10_50ms_natural",
+          "after": "voice_processing_harmonizer_ai_trained_stack",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic modern mexican rondas infantiles, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, americas wedding andean matrimonio huayno english nursery rhyme. thick, forward-resonance, straight note core, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "current_output": "classic modern mexican rondas infantiles, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, americas wedding english nursery rhyme french comptines. thick, breath veiled tone, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_trace": [
+        {
+          "score": 52.82,
+          "desc": "seed"
+        },
+        {
+          "score": 72.72749999999998,
+          "desc": "staple tradition: + andean_matrimonio_huayno"
+        },
+        {
+          "score": 93.27749999999997,
+          "desc": "staple tradition: + english_nursery_rhyme"
+        },
+        {
+          "score": 101.26249999999997,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_flamenco_cante_jondo \u2192 voice_ornament_andean_huayno"
+        },
+        {
+          "score": 108.59999999999998,
+          "desc": "swap voice.voice_estill_quality: voice_estill_nasal_twang \u2192 voice_estill_oral_twang"
+        },
+        {
+          "score": 113.85749999999997,
+          "desc": "swap voice.voice_tradition: scottish_gaelic_taladh_tradition \u2192 andean_quechua_tradition"
+        },
+        {
+          "score": 116.42749999999997,
+          "desc": "swap voice.voice_quality: aspirated_voice \u2192 twang_voice"
+        },
+        {
+          "score": 118.52749999999999,
+          "desc": "swap voice.voice_vibrato: delayed_vibrato \u2192 terminal_vibrato"
+        },
+        {
+          "score": 119.30749999999999,
+          "desc": "swap voice.voice_multitrack_stack: voice_multitrack_unison_double_take \u2192 voice_multitrack_pitched_sample_melodic_bed"
+        },
+        {
+          "score": 119.445,
+          "desc": "swap voice.voice_processing_chain: voice_processing_lo_fi_narrow_AM \u2192 voice_processing_retune_10_50ms_natural"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 52.8725,
+          "desc": "seed"
+        },
+        {
+          "score": 73.00249999999998,
+          "desc": "staple tradition: + english_nursery_rhyme"
+        },
+        {
+          "score": 101.54999999999998,
+          "desc": "staple tradition: + french_comptines"
+        },
+        {
+          "score": 102.58999999999999,
+          "desc": "swap voice.voice_processing_chain: voice_processing_lo_fi_narrow_AM \u2192 voice_processing_harmonizer_ai_trained_stack"
+        },
+        {
+          "score": 102.91999999999999,
+          "desc": "swap voice.voice_multitrack_stack: voice_multitrack_single_lead \u2192 voice_multitrack_pitched_sample_melodic_bed"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "decision": "Four targeted fixture updates are eligible: outputs reproduced and explained by corrected new025 taxonomy through original adjacency rules; no protected pin, old source, imported app card or environment changed. Material unpinned slot choices are explicitly listed. This is not an aesthetic endorsement of old solver choices, and does not authorize shared-engine changes. Full API comparison remains separate once build completes."
+}

@@ -1,0 +1,66 @@
+{
+  "id": "celtic_harp",
+  "name": "Celtic harp",
+  "family": "vernacular",
+  "lineage": "Philip Boulding — Celtic Holiday (2005). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2000s celtic harp, art Music. celtic harp. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 153,
+  "score": 0.597,
+  "config": {
+    "traditions": [
+      "celtic_harp"
+    ],
+    "instruments": [
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_gut"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "celtic_harp_levers": 0.054,
+          "celtic_harp_strings": 0.6435
+        }
+      }
+    ],
+    "pinned": {
+      "celtic_harp": [
+        "acoustic_technique",
+        "celtic_harp_levers",
+        "celtic_harp_strings"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "celtic_harp_levers": "lever_camac",
+      "celtic_harp_strings": "celtic_gut"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

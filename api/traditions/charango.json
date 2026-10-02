@@ -1,0 +1,74 @@
+{
+  "id": "charango",
+  "name": "Charango",
+  "family": "classical",
+  "lineage": "Greg Nicolett — Solidarity, Solo Charango Version (2014). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2010s charango, art Music. andean classical charango. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 164,
+  "score": 2.109,
+  "config": {
+    "traditions": [
+      "charango"
+    ],
+    "instruments": [
+      {
+        "id": "charango",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "charango_back": "charango_wood",
+          "charango_top_wood": "charango_cedar_top",
+          "charango_strings": "charango_5_double",
+          "charango_string_material": "charango_nylon_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.05,
+          "charango_back": 0.063,
+          "charango_top_wood": 0.375,
+          "charango_strings": 1.69,
+          "charango_string_material": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "charango": [
+        "plucked_traditional_technique",
+        "charango_back",
+        "charango_top_wood",
+        "charango_strings",
+        "charango_string_material"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "charango_back": "charango_wood",
+      "charango_top_wood": "charango_cedar_top",
+      "charango_strings": "charango_5_double",
+      "charango_string_material": "charango_nylon_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

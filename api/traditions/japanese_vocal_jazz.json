@@ -5,7 +5,7 @@
   "lineage": "Japanese vocal jazz: Kimiko Itoh — Blue Note Tokyo program, 21 November 2020. A documented branch is realized as an authored current studio arrangement.",
   "recipe": "classic early-2020s japanese vocal jazz, improv On Frame, smooth vocal branch. equal tempered, m1 with m0 pulse borrowing, nasal twang velar port open, small note groups per syllable. Japanese factory birch laminated maple laminated a 441 Japanese orchestral grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 453,
-  "score": 57.891,
+  "score": 57.975,
   "config": {
     "traditions": [
       "japanese_vocal_jazz"
@@ -44,10 +44,10 @@
           "voice_estill_quality": 0.585,
           "voice_speech_song": 1.6735,
           "voice_ensemble_config": 0.78,
-          "voice_ornament_system": 1.1447499999999997,
+          "voice_ornament_system": 1.1057499999999998,
           "voice_pitch_organization": 0.063,
           "voice_processing_chain": 0.064,
-          "voice_multitrack_stack": 0.0315
+          "voice_multitrack_stack": 0.1995
         }
       },
       {
@@ -68,7 +68,7 @@
           "grand_piano_size": 0.609,
           "grand_piano_brand": 0.633375,
           "piano_hammer": 2.005,
-          "piano_rim": 2.0012499999999998,
+          "piano_rim": 1.98175,
           "piano_soundboard": -0.035,
           "piano_pinblock": 0.2315,
           "piano_plate": -0.035,
@@ -115,11 +115,11 @@
         "scores": {
           "bowed_technique": -0.05,
           "cello_strings": 0.105,
-          "cello_top_wood": -0.03950000000000001,
+          "cello_top_wood": -0.035,
           "cello_back_wood": -0.035,
           "cello_varnish": -0.035,
           "cello_setup_period": -0.07,
-          "cello_bow_grip": 0.0615,
+          "cello_bow_grip": 0.0315,
           "cello_rosin": -0.05,
           "cello_bow_stick": -0.05
         }

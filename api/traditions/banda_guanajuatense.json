@@ -5,7 +5,7 @@
   "lineage": "Wind-band tradition of the Bajío state of Guanajuato consolidated after the 1870s municipal-band expansion, using a compact roster of clarinets, two trumpets, alto horn or trombone and tuba with tambora and platillos, playing sones abajeños, valses, marchas fúnebres and polkas at village fiestas in 2/4 and 3/4 with a lighter, more song-derived phrasing than the Sinaloan bandas.",
   "recipe": "classic mid-1870s banda guanajuatense, functional Song, Mexican branch, American marching groove percussion, andean carnival processional fife and drum corps banda militar. softer tone ebonite hard rubber klezmer tradition clarinet, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, bach 42 canonical American orchestral tenor bass trombone trombone, compact tuba brass piston valves American school besson sovereign British brass band tuba, double bass rapid double strokes bass drum, saxophone. adobe room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 631,
-  "score": 49.735,
+  "score": 49.78,
   "config": {
     "traditions": [
       "banda_guanajuatense",
@@ -118,7 +118,7 @@
           "sax_size": 0.95,
           "sax_reed": 0.195,
           "sax_body_alloy": 0.9099999999999999,
-          "sax_mouthpiece": 0.15,
+          "sax_mouthpiece": 0.195,
           "sax_technique": 0.585,
           "sax_maker_school": 0.345
         }

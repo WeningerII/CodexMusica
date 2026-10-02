@@ -5,7 +5,7 @@
   "lineage": "Acoustic guitar cover is represented by Gene Akimoff — Game of Thrones Titles Theme Cover, Classical Guitar Favorites (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
   "recipe": "classic late-2010s acoustic guitar cover, art Music. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 220,
-  "score": 6.338,
+  "score": 6.908,
   "config": {
     "traditions": [
       "acoustic_guitar_cover"
@@ -24,9 +24,9 @@
         "scores": {
           "acoustic_technique": -0.05,
           "string_tuning": 0,
-          "top_wood_classical": 0.016875,
-          "bracing_classical": 1.3875,
-          "string_classical": 1.73325,
+          "top_wood_classical": 0.037125,
+          "bracing_classical": 1.69,
+          "string_classical": 1.981125,
           "attack_technique_cl": 3.25
         }
       }
