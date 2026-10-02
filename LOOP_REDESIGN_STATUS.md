@@ -66,6 +66,40 @@ fixture, nor the 60-line empty menu (1,619.6 s).
   - This is the finest option, and a larger change to the search code itself.
   - I don't recommend designing it until B has been measured.
 
+### The measurement (owner: "measure all the options"), read-only, at `9e3ea028`
+
+The first deferred call of the 24-line seed-1 fixture: `finish --seed=1
+--lines=24 --attempts=3 --backtrack=1`, interview writer, no relation
+declared. It ran cold, alone on the box, with every costly step timed and each
+binding place of a menu timed separately. Only timers were wrapped around
+methods in that one process; the repository's code ran unchanged.
+`9e3ea028` has the same code as `58b59b28`.
+
+| order | step | place | seconds | words offered | ends at |
+|---|---|---|---|---|---|
+| 1 | grade (`brief`, no targets) | | 14.2 | | 16.9 s |
+| 2 | grade (`inspect`) | | 0.4 | | 17.3 s |
+| 3 | L1 menu: place | `1.T4` | 6.1 | 9 | 23.7 s |
+| 4 | L1 menu: place | end | **201.0** | 0 | 224.8 s |
+| 5 | L1 menu: place | `1.T2` | **173.6** | 0 | 398.3 s |
+| 6 | L1 menu: place | `1.headrime` | **225.2** | 0 | 623.6 s |
+| 7 | L1 menu: place | `1.T6` | 0.1 | 1 | 623.7 s |
+| 8 | L1 menu: place | `1.T3` | **240.7** | 0 | 864.3 s |
+| 9 | L1 menu: place | `1.T7` | 4.2 | 1 | 868.5 s |
+| | **L1 menu, whole** (today's one step) | | **851.3** | 0 (L1's offer list) | |
+| | **whole first call** | | **868.7** (exit 4, asks L1 alone) | | |
+
+**What the numbers say about A, B and C:**
+
+- **Today (A):** the one menu step is 851.3 s, longer than a 600 s call, so the call is always killed before it asks. This matches the coordinator's measurement.
+- **B (stop between places):** the largest single place is **240.7 s**, well inside a call.
+  - Run under today's stop rule, the first call would stop before place 6 (`1.headrime`) at about 398 s. That is the point where the time left (about 202 s) is less than the longest step so far (201.0 s) plus the cost of stopping.
+  - A second cold call would repeat the grades (about 17 s) and build places 6 to 9 (about 470 s), then ask the question at about **490 s**.
+  - So under B the first question arrives on the **second** call. That estimate adds up the measured steps; it has not been run.
+- **C (stop inside one place)** is not needed for this menu: no single place comes near a call.
+- Four of the seven places offer 0 words and cost 840.5 s between them. They are the whole-lexicon widening on an empty menu, the same cost as the 60-line finding.
+- The batch holds L1 alone, because every other line here shares a group with L1. The next menus come on later calls. They are being measured now (L2 and L3, the walk's next lines, the same way) and will be added here.
+
 **My recommendation: B, after one measurement.** First time each place of that
 line's menu separately on this fixture. That is a read-only measurement that
 changes no code. If every place fits well inside a call, build B. If one place
