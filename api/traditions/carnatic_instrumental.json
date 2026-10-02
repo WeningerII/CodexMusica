@@ -3,14 +3,14 @@
   "name": "Carnatic instrumental",
   "family": "classical",
   "lineage": "South Indian classical instrumental tradition spanning veena (Saraswathi veena, the South Indian fretted long-neck lute), Carnatic violin (held in vertical Carnatic posture, codified by Baluswami Dikshitar in the early 19th century), bansuri flute (Carnatic flute is distinct from Hindustani in tuning), nadaswaram (temple double-reed), mandolin (U. Shrinivas adaptation), and even saxophone (Kadri Gopalnath South Indian classical saxophone), all interpreting the same 72-melakarta-and-kriti repertoire as the vocal tradition",
-  "recipe": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri afghan traditional. thanjavur canonical south indian veena, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, extended concert stage thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 993,
-  "score": 335.525,
+  "recipe": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional carnatic kacheri. thanjavur canonical south indian veena, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, extended concert stage thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 974,
+  "score": 338.823,
   "config": {
     "traditions": [
       "carnatic_instrumental",
-      "carnatic_kacheri",
-      "afghan_traditional"
+      "indian_classical",
+      "carnatic_kacheri"
     ],
     "instruments": [
       {
@@ -18,19 +18,19 @@
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
           "veena_construction": "ottu",
-          "veena_resonator": "gourd_resonator",
+          "veena_resonator": "fiberglass_resonator",
           "veena_pluck": "wire_plectrum_veena",
           "veena_body_wood": "veena_jackwood_canonical",
           "veena_strings": "veena_steel_bronze_modern",
           "veena_lineage": "veena_thanjavur_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 15.75,
-          "veena_construction": 0.195,
-          "veena_resonator": 0.39,
-          "veena_pluck": 8.19,
+          "plucked_traditional_technique": 17,
+          "veena_construction": 0.24,
+          "veena_resonator": 0.195,
+          "veena_pluck": 8.84,
           "veena_body_wood": 0.585,
-          "veena_strings": 0.735,
+          "veena_strings": 0.195,
           "veena_lineage": 16.185
         }
       },
@@ -44,7 +44,7 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 8.19,
+          "mridangam_heads": 8.84,
           "mridangam_use": 0,
           "mridangam_shell_wood": 6.175,
           "mridangam_heads_material": 0.585,
@@ -58,22 +58,22 @@
           "ghatam_technique": "ghatam_full"
         },
         "scores": {
-          "ghatam_school": 0.845,
-          "ghatam_technique": 0.045
+          "ghatam_school": 0.39,
+          "ghatam_technique": 0
         }
       },
       {
         "id": "kanjira",
         "slots": {
-          "kanjira_skin": "kanjira_goat",
+          "kanjira_skin": "kanjira_synthetic",
           "kanjira_context": "kanjira_carnatic",
           "kanjira_shell_wood": "kanjira_jackwood_canonical",
           "kanjira_jingle": "kanjira_brass_jingle"
         },
         "scores": {
-          "kanjira_skin": 0.345,
-          "kanjira_context": 9.879999999999999,
-          "kanjira_shell_wood": 9.425,
+          "kanjira_skin": 0.195,
+          "kanjira_context": 10.53,
+          "kanjira_shell_wood": 8.97,
           "kanjira_jingle": 0.585
         }
       },
@@ -87,9 +87,9 @@
           "violin_carnatic_lineage": "violin_carnatic_lalgudi"
         },
         "scores": {
-          "bowed_technique": 15.75,
-          "violin_carnatic_tuning": 28.47,
-          "violin_carnatic_posture": 6.305,
+          "bowed_technique": 17,
+          "violin_carnatic_tuning": 26.389999999999997,
+          "violin_carnatic_posture": 4.81,
           "violin_carnatic_strings": 13.519999999999998,
           "violin_carnatic_lineage": 6.175
         }
@@ -107,14 +107,14 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 2.5349999999999997,
-          "mandolin_shape": 0.39,
-          "mandolin_top": 18.285,
-          "mandolin_back": 0.15,
-          "mandolin_bracing": 1.45,
+          "acoustic_technique": 1.625,
+          "mandolin_shape": 0.09,
+          "mandolin_top": 19.55375,
+          "mandolin_back": 0.195,
+          "mandolin_bracing": 1.6478125,
           "mandolin_strings": 1.25,
           "mandolin_fingerboard": 8.125,
-          "mandolin_pickup": 12.284999999999997
+          "mandolin_pickup": 10.204999999999997
         }
       },
       {
@@ -126,8 +126,8 @@
           "thavil_head": "thavil_buffalo_goat"
         },
         "scores": {
-          "thavil_context": 1.04,
-          "thavil_technique": 0.39,
+          "thavil_context": 1.235,
+          "thavil_technique": 0.585,
           "thavil_shell_wood": 0.78,
           "thavil_head": 0.585
         }
@@ -142,9 +142,9 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 15.745,
-          "bansuri_length": 2.275,
-          "bansuri_ornament": 7.325,
+          "wind_articulation": 16.995,
+          "bansuri_length": 2.535,
+          "bansuri_ornament": 7.825,
           "bansuri_body_material": 16.185,
           "bansuri_lineage": 3.12
         }
@@ -156,18 +156,18 @@
           "sax_size": "alto_sax",
           "sax_reed": "medium_reed",
           "sax_body_alloy": "yellow_brass_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_split_tone_overblown",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": 15.745,
+          "wind_articulation": 16.995,
           "sax_size": 0.12999999999999998,
-          "sax_reed": 0.345,
-          "sax_body_alloy": 16.195,
+          "sax_reed": 0.195,
+          "sax_body_alloy": 17.7678125,
           "sax_mouthpiece": 0.195,
-          "sax_technique": 0.12999999999999998,
-          "sax_maker_school": 0.15
+          "sax_technique": -0.035,
+          "sax_maker_school": 0.195
         }
       },
       {
@@ -195,7 +195,7 @@
           "morsing_material": "morsing_steel"
         },
         "scores": {
-          "morsing_form": 21.7,
+          "morsing_form": 22.218749999999996,
           "morsing_technique": 12.07,
           "morsing_material": 11.875
         }

@@ -5,7 +5,7 @@
   "lineage": "Small-group jazz of roughly 1923-1935 that moved the New Orleans collective idiom toward the virtuoso solo, codified by King Oliver's Creole Jazz Band (Chicago, 1923) and above all Louis Armstrong's Hot Five and Hot Seven (1925-28) with parallel work by Jelly Roll Morton's Red Hot Peppers and Bix Beiderbecke — 180-240 BPM two-beat or early four-beat swing, front line of cornet, clarinet and trombone trading collective polyphony for chorus-length improvised solos, tenor banjo and tuba rhythm section giving way to guitar and string bass, all cut direct to 78 in three-minute takes.",
   "recipe": "classic mid-1920s hot jazz, improv On Frame, early branch, American jazz stride piano, American south carnival processional new orleans brass band second-line. brass yellow brass canonical brass band conn vintage early jazz canon front line cornet, grenadilla African blackwood traditional front line clarinet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, single string tenor banjo irish, American orchestral brass red brass darkest piston valves American school besson sovereign British brass band tuba, stride upright piano, vintage ambassador asymmetric brushes-and-sticks drum kit. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 796,
-  "score": 279.066,
+  "score": 278.94,
   "config": {
     "traditions": [
       "hot_jazz",
@@ -24,7 +24,7 @@
         },
         "scores": {
           "wind_articulation": 9.1015,
-          "cornet_pitch": 23.964,
+          "cornet_pitch": 24.009,
           "cornet_context": 6.695000000000002,
           "cornet_bell_metal": 12.805000000000001,
           "cornet_maker_school": 17.68
@@ -122,7 +122,7 @@
         },
         "scores": {
           "drum_technique": 31.784999999999997,
-          "drumhead": 30.160500000000003,
+          "drumhead": 29.989500000000003,
           "drum_kit_kick_pedal": 0
         }
       }

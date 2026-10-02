@@ -1,0 +1,81 @@
+{
+  "id": "indian_classical",
+  "name": "Indian classical",
+  "family": "classical",
+  "lineage": "Indian classical is represented by Ustad Sultan Khan and Shri Rij Ram — Raga Bageshree, Sarangi: The Music of India. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, raga-informed tuning preset, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic indian classical, art Music, south Asian branch. sarangi, indian rosewood rosewood copper tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 12.03,
+  "config": {
+    "traditions": [
+      "indian_classical"
+    ],
+    "instruments": [
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_microtonal_inflected",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_40_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_steel_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": -0.15000000000000002,
+          "sarangi_belly": 0.6090267857142857,
+          "sarangi_taraf": 0.1365,
+          "sarangi_bow": 0,
+          "sarangi_main_strings": 0.3,
+          "sarangi_body_wood": 0.4095
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "copper_bayan",
+          "tabla_syahi": "aged_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 6.4350000000000005,
+          "tabla_bayan": 3.9,
+          "tabla_syahi": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "sarangi": [
+        "bowed_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "shruti_22",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "shruti_22",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_microtonal_inflected"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

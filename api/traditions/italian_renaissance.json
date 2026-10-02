@@ -1,0 +1,70 @@
+{
+  "id": "italian_renaissance",
+  "name": "Italian renaissance",
+  "family": "classical",
+  "lineage": "Italian renaissance is represented by La Compagnia del Madrigale — Gesualdo: Sesto Libro di Madrigali. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic italian renaissance, art Music, western early branch. a cappella small 3 to 8 one per part choir ensemble. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 213,
+  "score": 3.425,
+  "config": {
+    "traditions": [
+      "italian_renaissance"
+    ],
+    "instruments": [
+      {
+        "id": "choir_ensemble",
+        "slots": {
+          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_polyphonic_configuration": "choir_polyphony_five_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_none",
+          "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+        },
+        "scores": {
+          "choir_size": 1.69,
+          "choir_polyphonic_configuration": 0.78,
+          "choir_regional_canonical_configuration": 0,
+          "choir_ensemble_repertoire": 0.9554999999999998
+        }
+      }
+    ],
+    "pinned": {
+      "choir_ensemble": [
+        "choir_size",
+        "choir_polyphonic_configuration",
+        "choir_regional_canonical_configuration",
+        "choir_ensemble_repertoire"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "choir_size": "a_cappella_small_ensemble_3_8",
+      "choir_polyphonic_configuration": "choir_polyphony_five_voice_polyphonic",
+      "choir_regional_canonical_configuration": "choir_regional_none",
+      "choir_ensemble_repertoire": "choir_ensemble_renaissance"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

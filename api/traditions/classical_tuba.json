@@ -5,7 +5,7 @@
   "lineage": "Classical tuba is represented by Øystein Baadsvik and Niklas Sivelöv — Hindemith Tuba Sonata on Danzas. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
   "recipe": "classic classical tuba, art Music, western modern branch. compact tuba yamaha ybb 841 modern Japanese legato tuba, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 290,
-  "score": 103.843,
+  "score": 103.939,
   "config": {
     "traditions": [
       "classical_tuba"
@@ -23,10 +23,10 @@
         },
         "scores": {
           "wind_articulation": 7.6365,
-          "tuba_pitch": 3.4364999999999997,
+          "tuba_pitch": 3.3,
           "tuba_context": 2.34,
-          "tuba_bell_metal": 0.9555000000000002,
-          "tuba_valve_system": 0.9555000000000002,
+          "tuba_bell_metal": 0.8190000000000002,
+          "tuba_valve_system": 0.8190000000000002,
           "tuba_maker_school": 2.34
         }
       },
@@ -34,7 +34,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_9_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "renner_blue_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
@@ -45,13 +45,13 @@
         },
         "scores": {
           "keyboard_technique": 7.5,
-          "grand_piano_size": 0.5145,
+          "grand_piano_size": 0.507,
           "grand_piano_brand": 0.9555,
-          "piano_hammer": 14.0145,
-          "piano_rim": 13.18,
+          "piano_hammer": 14.181000000000001,
+          "piano_rim": 13.36,
           "piano_soundboard": 12,
           "piano_pinblock": 12,
-          "piano_plate": 13.7415,
+          "piano_plate": 13.908,
           "piano_pitch_standard": 12.273
         }
       }

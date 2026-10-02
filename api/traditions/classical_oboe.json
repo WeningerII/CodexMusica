@@ -5,7 +5,7 @@
   "lineage": "Classical oboe is represented by Nicholas Daniel and Julius Drake — Schumann oboe-and-piano program. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
   "recipe": "classic classical oboe, art Music, western common practice branch. boxwood canonical Baroque classical pre 1850 legato oboe, 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 301,
-  "score": 76.358,
+  "score": 75.979,
   "config": {
     "traditions": [
       "classical_oboe"
@@ -21,7 +21,7 @@
           "oboe_maker_school": "oboe_howarth_london"
         },
         "scores": {
-          "wind_articulation": 7.6425,
+          "wind_articulation": 7.5,
           "oboe_reed": 0.168,
           "oboe_class": 0.231,
           "oboe_body_wood": 3.9,
@@ -42,15 +42,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 7.6425,
+          "keyboard_technique": 7.5,
           "grand_piano_size": 0.483,
           "grand_piano_brand": 0.705,
           "piano_hammer": 10.725,
-          "piano_rim": 10.138,
+          "piano_rim": 10.318,
           "piano_soundboard": 8.25,
           "piano_pinblock": 8.355,
-          "piano_plate": 8.86575,
-          "piano_pitch_standard": 8.8395
+          "piano_plate": 8.877,
+          "piano_pitch_standard": 8.5545
         }
       }
     ],

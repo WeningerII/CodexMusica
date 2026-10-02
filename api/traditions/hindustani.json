@@ -5,7 +5,7 @@
   "lineage": "North Indian classical raga tradition organized through the gharana (lineage-school) transmission system across Gwalior, Agra, Patiala, Kirana, Atrauli-Jaipur, Indore, Mewati, Benares gharanas — codified through V.N. Bhatkhandes 10-thaat system in the early 20th century, 20th-century lineage Ustad Bismillah Khan (shehnai), Ravi Shankar (sitar), Vilayat Khan (sitar), Ali Akbar Khan (sarod), Pandit Bhimsen Joshi (Kirana vocal), Pandit Hariprasad Chaurasia (bansuri)",
   "recipe": "classic South Asian early-1950s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation hindustani vocal. maihar gharana instrumental concert lineage classical trained lineage sitar, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, steel coconut shell shell tun indian cedar sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 870,
-  "score": 349.553,
+  "score": 348.4,
   "config": {
     "traditions": [
       "hindustani",
@@ -19,7 +19,7 @@
           "plucked_traditional_technique": "plucked_classical_idiom",
           "sitar_neck": "teak",
           "sitar_resonator": "single_kaddu",
-          "sitar_jawari": "camel_bone",
+          "sitar_jawari": "synthetic_jawari",
           "sitar_taraf": "taraf_13",
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "wire_mizrab",
@@ -29,13 +29,13 @@
         },
         "scores": {
           "plucked_traditional_technique": 20.125,
-          "sitar_neck": 0.5807142857142856,
-          "sitar_resonator": 0.36,
-          "sitar_jawari": 0.225,
+          "sitar_neck": 0.40071428571428563,
+          "sitar_resonator": 0.135,
+          "sitar_jawari": 0.195,
           "sitar_taraf": 0.78,
           "sitar_frets": 0.39,
-          "sitar_pluck": 10.329999999999998,
-          "sitar_main_strings": 0.3,
+          "sitar_pluck": 10.464999999999998,
+          "sitar_main_strings": 0.345,
           "sitar_jawari_style": 0.195,
           "sitar_gharana": 17.224999999999998
         }
@@ -48,7 +48,7 @@
           "tabla_syahi": "aged_syahi"
         },
         "scores": {
-          "tabla_dayan": 15.384999999999998,
+          "tabla_dayan": 15.729999999999997,
           "tabla_bayan": 11.309999999999999,
           "tabla_syahi": 5.915
         }
@@ -68,8 +68,8 @@
           "tanpura_size": 4.9399999999999995,
           "tanpura_jawari": 20.125,
           "tanpura_strings": 6.305,
-          "tanpura_string_material": 0.735,
-          "tanpura_body_wood": 0.915
+          "tanpura_string_material": 0.585,
+          "tanpura_body_wood": 0.675
         }
       },
       {
@@ -85,9 +85,9 @@
         "scores": {
           "plucked_traditional_technique": 20.125,
           "santoor_courses": 10.464999999999998,
-          "santoor_mallets": 0.49071428571428566,
+          "santoor_mallets": 0.40071428571428563,
           "santoor_strings": 10.464999999999998,
-          "santoor_body_wood": 5.1499999999999995,
+          "santoor_body_wood": 5.299999999999999,
           "santoor_lineage": 3.6399999999999997
         }
       },
@@ -106,11 +106,11 @@
         "scores": {
           "plucked_traditional_technique": 20.125,
           "sarod_fingerboard": 1.2349999999999999,
-          "sarod_belly": 0.6707142857142856,
+          "sarod_belly": 0.4457142857142857,
           "sarod_pluck": 10.464999999999998,
           "sarod_taraf": 10.464999999999998,
-          "sarod_body_wood": 5.1499999999999995,
-          "sarod_strings": 0.3,
+          "sarod_body_wood": 5.299999999999999,
+          "sarod_strings": 0.345,
           "sarod_gharana": 14.95
         }
       },
@@ -124,9 +124,9 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 20.12,
+          "wind_articulation": 20.075,
           "bansuri_length": 4.16,
-          "bansuri_ornament": 13.706071428571429,
+          "bansuri_ornament": 13.151071428571429,
           "bansuri_body_material": 9.684999999999999,
           "bansuri_lineage": 11.309999999999999
         }
@@ -141,11 +141,11 @@
           "shehnai_lineage": "shehnai_bismillah_khan_banaras"
         },
         "scores": {
-          "shehnai_register": 10.27,
+          "shehnai_register": 10.141428571428571,
           "shehnai_use": 18.005,
           "shehnai_body_wood": 7.15,
-          "shehnai_reed": 0.735,
-          "shehnai_lineage": 5.525
+          "shehnai_reed": 0.585,
+          "shehnai_lineage": 5.520714285714286
         }
       }
     ],

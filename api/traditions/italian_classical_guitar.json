@@ -1,0 +1,72 @@
+{
+  "id": "italian_classical_guitar",
+  "name": "Italian classical guitar",
+  "family": "classical",
+  "lineage": "Italian classical guitar is represented by Giulio Tampalini — Tárrega: Guitar Edition. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic italian classical guitar, art Music, western common practice branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 244,
+  "score": 12.333,
+  "config": {
+    "traditions": [
+      "italian_classical_guitar"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.25,
+          "string_tuning": 0,
+          "top_wood_classical": 0.4935,
+          "bracing_classical": 3.9,
+          "string_classical": 4.29,
+          "attack_technique_cl": 3.9
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "attack_technique_cl": "tirando_cl",
+      "string_tuning": "standard_tuning"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Classical contralto is represented by Nathalie Stutzmann / Inger Södergren — Schubert Winterreise. This documented branch has an authored present-day studio realization.",
   "recipe": "classic classical contralto, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 266,
-  "score": 67.706,
+  "score": 66.396,
   "config": {
     "traditions": [
       "classical_contralto"
@@ -65,14 +65,14 @@
         },
         "scores": {
           "keyboard_technique": 8.25,
-          "grand_piano_size": 0.84,
-          "grand_piano_brand": 0.9345000000000001,
-          "piano_hammer": 11.049999999999997,
-          "piano_rim": 9.3865,
-          "piano_soundboard": 9.846,
-          "piano_pinblock": 8.553999999999998,
-          "piano_plate": 9.057999999999998,
-          "piano_pitch_standard": 9.0505
+          "grand_piano_size": 0.63,
+          "grand_piano_brand": 0.798,
+          "piano_hammer": 11.037499999999998,
+          "piano_rim": 9.1135,
+          "piano_soundboard": 9.4365,
+          "piano_pinblock": 8.592999999999998,
+          "piano_plate": 9.023499999999999,
+          "piano_pitch_standard": 8.7775
         }
       }
     ],

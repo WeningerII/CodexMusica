@@ -1,0 +1,74 @@
+{
+  "id": "spanish_contemporary_classical",
+  "name": "Spanish contemporary classical",
+  "family": "classical",
+  "lineage": "Spanish contemporary classical is represented by Jordi Masó and Miquel Villalba — Casablancas: Tre Divertimenti. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+  "recipe": "classic spanish contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 241,
+  "score": 95.626,
+  "config": {
+    "traditions": [
+      "spanish_contemporary_classical"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.5,
+          "grand_piano_size": 0.294,
+          "grand_piano_brand": 2.9899999999999998,
+          "piano_hammer": 16.576,
+          "piano_rim": 13.8625,
+          "piano_soundboard": 12.18,
+          "piano_pinblock": 12.55875,
+          "piano_plate": 15.132750000000001,
+          "piano_pitch_standard": 14.532250000000001
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Bohemian baroque: Heinrich Ignaz Franz Biber — concluding Passacaglia for solo violin. A documented branch is realized as an authored current studio arrangement.",
   "recipe": "classic bohemian baroque, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure violin orchestral. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 263,
-  "score": 49.709,
+  "score": 49.652,
   "config": {
     "traditions": [
       "bohemian_baroque"
@@ -26,12 +26,12 @@
           "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 2.7399999999999998,
+          "bowed_technique": 2.62,
           "orch_strings": -0.035,
           "orch_top_wood": 8.25,
           "orch_back_wood": 8.25,
           "orch_varnish": 8.4075,
-          "orch_setup_period": 6.34675,
+          "orch_setup_period": 6.40975,
           "orch_bow": 0.29400000000000004,
           "orch_bow_stick": 6.246,
           "orch_articulation": 0.2835,

@@ -1,0 +1,105 @@
+{
+  "id": "polish_classical",
+  "name": "Polish classical",
+  "family": "classical",
+  "lineage": "Polish classical is represented by Alina Ibragimova and Cédric Tiberghien — Szymanowski: Complete music for violin & piano. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+  "recipe": "classic polish classical, art Music, western modern branch. half rectified carpathian spruce European maple sycamore maple oil varnish violin orchestral, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 321,
+  "score": 174.858,
+  "config": {
+    "traditions": [
+      "polish_classical"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "half_rectified_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 7.605,
+          "orch_strings": 2.6654999999999998,
+          "orch_top_wood": 7.773,
+          "orch_back_wood": 12.273,
+          "orch_varnish": 12,
+          "orch_setup_period": 13.971,
+          "orch_bow": 0.546,
+          "orch_bow_stick": 13.719999999999999,
+          "orch_articulation": 0.504,
+          "orch_rosin": 14.1075
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.5,
+          "grand_piano_size": 0.3675,
+          "grand_piano_brand": 0.819,
+          "piano_hammer": 15.322,
+          "piano_rim": 13.57,
+          "piano_soundboard": 12,
+          "piano_pinblock": 12.34275,
+          "piano_plate": 14.31375,
+          "piano_pitch_standard": 13.45825
+        }
+      }
+    ],
+    "pinned": {
+      "violin_orchestral": [
+        "bowed_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "bowed_technique": "bowed_legato_classical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
