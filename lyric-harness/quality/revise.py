@@ -5735,7 +5735,7 @@ class Reviser:
 
     def brief(self, lines, mandate=None, profile=None, blueprint=None,
               subdivision=None, assume=None, *, include_offers=True,
-              target_lines=None):
+              target_lines=None, _verify_fields_only=False):
         """-> [Brief], one per line that needs work. Lines with no findings are
         absent, because the loop revises FLAGGED LINES ONLY.
 
@@ -5961,6 +5961,19 @@ class Reviser:
                     if _calls:
                         _off, _forb, _drop = self.joint_field_screened(
                             _calls, exclude=(_cur,), profile=profile)
+                        # VERIFY READS NO OFFER (LOOP_REDESIGN.md §2.6, 2026-10-02).
+                        # `verify()` asks this brief for `slot`,
+                        # `forbidden_incumbent` and `forbidden_modal` only. The
+                        # forbidden head below is computed by exactly the code
+                        # a full brief runs; the OFFER and every search that
+                        # only fills it (schema widening, the whole-lexicon
+                        # pool, the per-call fallback) are skipped. MEASURED
+                        # before this: the offer was ~2/3 of a warm acceptance
+                        # check on the same line and ~94% on another line of
+                        # the 24-line fixture (261.1 s vs 89.4 s; 1,832.4 s vs
+                        # 112.1 s, the latter without rule 3's head).
+                        if _verify_fields_only:
+                            _off = []
                         # THE OFFER IS JUDGED BY THE JUDGE THAT WILL JUDGE
                         # IT (`MISSING.md` M-204). Every group binding this
                         # line HERE is asked of the MANDATE for its declared
@@ -5993,7 +6006,7 @@ class Reviser:
                             _bound_schemas.extend(
                                 str(_r2) for _r2 in _r2s
                                 if str(_r2).startswith("schema:"))
-                        if not _off and any(
+                        if not _off and not _verify_fields_only and any(
                                 self.schema_refuses_rhyme_band(_r2)
                                 for _r2 in _bound_schemas):
                             _off = self.schema_widened_field(
@@ -6026,7 +6039,7 @@ class Reviser:
                             _forb, lines, m, ln, _sl, ks,
                             profile=profile, sections=_sections)
                         _schema_ref.extend(_rejected + _bad_ban)
-                        if not _off:
+                        if not _off and not _verify_fields_only:
                             # The named relation may live below the scalar
                             # rhyme cut. Search the declared finite ranking
                             # without that cut, then ask the same grade.
@@ -6108,7 +6121,7 @@ class Reviser:
                     # entries against the count of calls, printed by the
                     # renderers).
                     _bycall = []
-                    if _jc:
+                    if _jc and not _verify_fields_only:
                         for _c1 in _calls:
                             _o1, _f1, _d1 = self.joint_field_screened(
                                 [_c1], exclude=(_cur,), profile=profile)
@@ -6170,7 +6183,7 @@ class Reviser:
                     b.field_computed = True
                     # WHICH CAUSE, when the head is empty (doctrine 28):
                     # read off the same memoised ranking, never guessed.
-                    if not _pf.forbidden:
+                    if not _pf.forbidden and not _verify_fields_only:
                         b.empty_head_cause = self.empty_head_cause(
                             list(_pf.calls), _pf.offered, profile=profile)
                     # A CONJUNCTION IS EMPTY AT ONE PLACE, never across
@@ -6272,12 +6285,17 @@ class Reviser:
                     f"lines {sorted(stray)} were changed but not targeted; "
                     f"revise flagged lines only")
                 return out
+        # RULE 3 READS `slot`, `forbidden_incumbent` AND `forbidden_modal`
+        # OFF THIS BRIEF, AND NOTHING ELSE. `_verify_fields_only` computes
+        # those three by the full brief's own code and skips the offer
+        # (LOOP_REDESIGN.md §2.6; pinned equal by quality/test_loop_redesign.py).
         b_before = {b.line_no: b for b in self.brief(before, m,
                                                     profile=profile,
                                                     blueprint=blueprint,
                                                     subdivision=subdivision,
                                                     assume=assume,
-                                                    target_lines=changed)}
+                                                    target_lines=changed,
+                                                    _verify_fields_only=True)}
         f_before = self.inspect(before, m, profile=profile,
                                 blueprint=blueprint, subdivision=subdivision,
                                 assume=assume)
