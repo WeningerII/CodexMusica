@@ -5,7 +5,7 @@
   "lineage": "High Mountain — Wasted Tales complete album roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits. Source credits specify only keyboard: the selected grand_piano is an authored timbral realization of that unspecified keyboard role, not evidence of acoustic piano or of the original session hardware.",
   "recipe": "classic heavy psych, distorted Rock. unprocessed natural acoustic. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 358,
-  "score": 28.194,
+  "score": 28.863,
   "config": {
     "traditions": [
       "heavy_psych"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.189,
-          "voice_ensemble_config": 0.222,
+          "voice_speech_song": 0.252,
+          "voice_ensemble_config": 0.231,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.3945,
-          "voice_multitrack_stack": 0.189,
+          "voice_multitrack_stack": 0.2835,
           "voice_tessitura": 0
         }
       },
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.1365
+          "string_tuning": 0.273
         }
       },
       {
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.1365,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.1365,
+          "shell_wood": 0.3045,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 6.15,
-          "cymbal_lathing": 6.181500000000001,
+          "cymbal_lathing": 6.213,
           "cymbal_finish": 0
         }
       },
@@ -151,7 +151,7 @@
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": -0.07,
           "grand_piano_size": 0.0315,
           "grand_piano_brand": 0,
           "piano_hammer": 3.1200000000000006,

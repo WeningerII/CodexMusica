@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "278a641968bfedd2f1e8c8324ffaab4ab68943503d8fb3998e84c6e2731cf7d5",
+  "effective_parts": 3777,
+  "protected_parts": 3771,
+  "unprotected_parts": 6,
+  "compiled_choices": [
+    {
+      "tradition": "vapor_pop",
+      "instrument": "electronic_organ_unspecified",
+      "part": "keyboard_technique",
+      "compiled_choice": "electronic_organ_melodic_sustained",
+      "compiled_protected": false
+    },
+    {
+      "tradition": "vapor_pop",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "compiled_protected": false
+    },
+    {
+      "tradition": "alternative_dance",
+      "instrument": "pedal_steel",
+      "part": "electric_technique",
+      "compiled_choice": "electric_steel_pedal_swells",
+      "compiled_protected": false
+    },
+    {
+      "tradition": "korean_bl_ost",
+      "instrument": "grand_piano",
+      "part": "keyboard_technique",
+      "compiled_choice": "keyboard_block_chord_pop",
+      "compiled_protected": false
+    },
+    {
+      "tradition": "lombok_indie",
+      "instrument": "midi_programmed_sound_unspecified",
+      "part": "electronic_technique",
+      "compiled_choice": "midi_programmed_event_sequence",
+      "compiled_protected": false
+    },
+    {
+      "tradition": "morelos_indie",
+      "instrument": "analog_poly_synth",
+      "part": "electronic_technique",
+      "compiled_choice": "electronic_lead_line",
+      "compiled_protected": false
+    }
+  ],
+  "note": "Flat-key collisions are explicitly unprotected. Morelos synth imports pad but compiles lead; no false protection assertion."
+}

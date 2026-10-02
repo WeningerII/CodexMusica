@@ -1,0 +1,74 @@
+{
+  "id": "mountain_dulcimer",
+  "name": "Mountain dulcimer",
+  "family": "vernacular",
+  "lineage": "Kevin Roth — The Mountain Dulcimer Instrumental Album (1977). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic late-1970s mountain dulcimer, drone Modal, string branch. walnut canonical appalachian mountain dulcimer. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 212,
+  "score": 6.433,
+  "config": {
+    "traditions": [
+      "mountain_dulcimer"
+    ],
+    "instruments": [
+      {
+        "id": "mountain_dulcimer",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "dulcimer_strings": "dulcimer_4",
+          "dulcimer_tuning": "mixolydian_tuning",
+          "dulcimer_body_wood": "dulcimer_walnut_canonical",
+          "dulcimer_string_material": "dulcimer_steel_modern"
+        },
+        "scores": {
+          "acoustic_technique": 1.3629999999999995,
+          "dulcimer_strings": 1.17,
+          "dulcimer_tuning": 2.34,
+          "dulcimer_body_wood": 1.17,
+          "dulcimer_string_material": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "mountain_dulcimer": [
+        "acoustic_technique",
+        "dulcimer_strings",
+        "dulcimer_tuning",
+        "dulcimer_body_wood",
+        "dulcimer_string_material"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "dulcimer_strings": "dulcimer_4",
+      "dulcimer_tuning": "mixolydian_tuning",
+      "dulcimer_body_wood": "dulcimer_walnut_canonical",
+      "dulcimer_string_material": "dulcimer_steel_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

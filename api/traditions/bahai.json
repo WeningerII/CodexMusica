@@ -3,9 +3,9 @@
   "name": "Bahá’í music",
   "family": "sacred",
   "lineage": "Bahá’í music: Sarah Mohebiany — The Day Will Come (The last words of the Báb, 2023). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
-  "recipe": "classic early-2020s bahá’í music, ritual Devotional. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 193,
-  "score": 3.39,
+  "recipe": "classic early-2020s bahá’í music, ritual Devotional. solo with instrumental accompaniment, single lead single track no stacking. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 269,
+  "score": 4.227,
   "config": {
     "traditions": [
       "bahai"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.17975,
-          "voice_ensemble_config": 0.44475,
+          "voice_ensemble_config": 0.64425,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.07925,
-          "voice_multitrack_stack": 0.1965,
+          "voice_processing_chain": 0.11075,
+          "voice_multitrack_stack": 0.6270000000000001,
           "voice_tessitura": 0
         }
       },
@@ -69,9 +69,9 @@
           "keyboard_technique": -0.035,
           "grand_piano_size": 0.0315,
           "grand_piano_brand": 0.3,
-          "piano_hammer": 0.9037499999999999,
+          "piano_hammer": 1.0087499999999998,
           "piano_rim": -0.035,
-          "piano_soundboard": 1.0995,
+          "piano_soundboard": 1.17,
           "piano_pinblock": -0.05,
           "piano_plate": -0.05,
           "piano_pitch_standard": 0.325

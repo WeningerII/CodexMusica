@@ -1,0 +1,64 @@
+{
+  "id": "chepkong_lyre",
+  "name": "Chepkong (Kipsigis six-string laced bowl lyre)",
+  "short": "Chepkong lyre",
+  "family": "plucked_traditional",
+  "class": "lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "chepkong_lyre_form",
+      "name": "Documented archive form",
+      "variants": [
+        {
+          "id": "chepkong_six_string_pentatonic",
+          "name": "Six-string pentatonic laced bowl lyre",
+          "default": true,
+          "descriptors": [
+            "bowl-resonator",
+            "plucked",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "bowl-resonator",
+            "plucked",
+            "pentatonic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chepkong_lyre_form",
+      "name": "Documented archive form",
+      "variants": [
+        {
+          "id": "chepkong_six_string_pentatonic",
+          "name": "Six-string pentatonic laced bowl lyre",
+          "default": true,
+          "descriptors": [
+            "bowl-resonator",
+            "plucked",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "bowl-resonator",
+            "plucked",
+            "pentatonic"
+          ]
+        }
+      ]
+    }
+  ]
+}

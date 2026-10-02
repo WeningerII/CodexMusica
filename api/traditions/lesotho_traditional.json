@@ -5,7 +5,7 @@
   "lineage": "Moshesha Hlomelang — Mangoanana, track1 of SWP033 Lesotho Calling (2006 field recording). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic mid-2000s lesotho traditional, drone Modal. lesiba. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 158,
-  "score": 0,
+  "score": 0.032,
   "config": {
     "traditions": [
       "lesotho_traditional"
@@ -18,7 +18,7 @@
           "lesiba_technique": "lesiba_inhale_exhale"
         },
         "scores": {
-          "lesiba_quill": 0,
+          "lesiba_quill": 0.0315,
           "lesiba_technique": 0
         }
       }

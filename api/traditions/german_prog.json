@@ -5,7 +5,7 @@
   "lineage": "Epitaph — official booking package 1 quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic german prog, distorted Rock. unprocessed natural acoustic. humbucker electric acoustic guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 306,
-  "score": 20.961,
+  "score": 21.497,
   "config": {
     "traditions": [
       "german_prog"
@@ -43,7 +43,7 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.189,
+          "voice_speech_song": 0.252,
           "voice_ensemble_config": 0,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
@@ -82,7 +82,7 @@
           "scale_length": 0,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 0.1365
+          "string_tuning": 0.273
         }
       },
       {
@@ -125,15 +125,15 @@
         },
         "scores": {
           "drum_technique": 6.25,
-          "drumhead": 0.1365,
+          "drumhead": 0.273,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.1365,
+          "shell_wood": 0.3045,
           "shell_thickness": 0,
           "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": -0.14,
           "cymbal_hammering": 6.15,
-          "cymbal_lathing": 6.181500000000001,
+          "cymbal_lathing": 6.213,
           "cymbal_finish": 0
         }
       },

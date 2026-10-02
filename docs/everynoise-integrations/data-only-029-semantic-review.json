@@ -1,0 +1,205 @@
+{
+  "status": "PASS_FINAL_INTEGRATED_AND_COMPILED",
+  "frozen_sha256": "278a641968bfedd2f1e8c8324ffaab4ab68943503d8fb3998e84c6e2731cf7d5",
+  "entries": 100,
+  "dependencies": 6,
+  "identity_exclusion_taxonomy_node_errors": [],
+  "amendments": [
+    {
+      "id": "mexican_indie",
+      "field": "tradition.family",
+      "before": "pop",
+      "after": "rock",
+      "rationale": "Selected primary indie/alternative-rock realization and distortedRock.alternative node. Regional category broader than exemplar.",
+      "prose_sync": "Replace clean arpeggiation with clean strumming wherever describing electric_clean_strummed."
+    },
+    {
+      "id": "miami_indie",
+      "field": "tradition.family",
+      "before": "pop",
+      "after": "rock",
+      "rationale": "Selected primary indie/alternative-rock realization and distortedRock.alternative node. Regional category broader than exemplar.",
+      "prose_sync": "Replace clean arpeggiation with clean strumming wherever describing electric_clean_strummed."
+    },
+    {
+      "id": "michigan_indie",
+      "field": "tradition.family",
+      "before": "pop",
+      "after": "rock",
+      "rationale": "Selected primary indie/alternative-rock realization and distortedRock.alternative node. Regional category broader than exemplar.",
+      "prose_sync": "Replace clean arpeggiation with clean strumming wherever describing electric_clean_strummed."
+    },
+    {
+      "id": "milan_indie",
+      "field": "tradition.family",
+      "before": "pop",
+      "after": "rock",
+      "rationale": "Selected primary indie/alternative-rock realization and distortedRock.alternative node. Regional category broader than exemplar.",
+      "prose_sync": "Replace clean arpeggiation with clean strumming wherever describing electric_clean_strummed."
+    },
+    {
+      "id": "milwaukee_indie",
+      "field": "tradition.family",
+      "before": "pop",
+      "after": "rock",
+      "rationale": "Selected primary indie/alternative-rock realization and distortedRock.alternative node. Regional category broader than exemplar.",
+      "prose_sync": "Replace clean arpeggiation with clean strumming wherever describing electric_clean_strummed."
+    },
+    {
+      "id": "minneapolis_indie",
+      "field": "tradition.family",
+      "before": "pop",
+      "after": "rock",
+      "rationale": "Selected primary indie/alternative-rock realization and distortedRock.alternative node. Regional category broader than exemplar.",
+      "prose_sync": "Replace clean arpeggiation with clean strumming wherever describing electric_clean_strummed."
+    },
+    {
+      "id": "mississippi_indie",
+      "field": "tradition.family",
+      "before": "pop",
+      "after": "rock",
+      "rationale": "Selected primary indie/alternative-rock realization and distortedRock.alternative node. Regional category broader than exemplar.",
+      "prose_sync": "Replace clean arpeggiation with clean strumming wherever describing electric_clean_strummed."
+    },
+    {
+      "id": "missouri_indie",
+      "field": "tradition.family",
+      "before": "pop",
+      "after": "rock",
+      "rationale": "Selected primary indie/alternative-rock realization and distortedRock.alternative node. Regional category broader than exemplar.",
+      "prose_sync": "Replace clean arpeggiation with clean strumming wherever describing electric_clean_strummed."
+    },
+    {
+      "id": "kenyan_alternative",
+      "field": "tradition.instruments + owned parts + corresponding evidence",
+      "before": ["analog_poly_synth"],
+      "after": ["electronic_keyboard_unspecified"],
+      "rationale": "Source identifies keyboard, not sound-generation architecture; newly accepted neutral owner now available. Preserve separately credited synthesizer.",
+      "parts": {
+        "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+        "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      },
+      "procedure": "Remove only old owner-exclusive flat keys; retain shared applicable keys. Merge dependency through original loader, regenerate effective audit and synchronize prose/role/dependency evidence."
+    },
+    {
+      "id": "kermis",
+      "field": "tradition.instruments + owned parts + corresponding evidence",
+      "before": ["analog_poly_synth"],
+      "after": ["electronic_keyboard_unspecified"],
+      "rationale": "Source identifies keyboard, not sound-generation architecture; newly accepted neutral owner now available. Preserve separately credited synthesizer.",
+      "parts": {
+        "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+        "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      },
+      "procedure": "Remove only old owner-exclusive flat keys; retain shared applicable keys. Merge dependency through original loader, regenerate effective audit and synchronize prose/role/dependency evidence."
+    },
+    {
+      "id": "kolsche_karneval",
+      "field": "tradition.instruments + owned parts + corresponding evidence",
+      "before": ["analog_poly_synth"],
+      "after": ["electronic_keyboard_unspecified"],
+      "rationale": "Source identifies keyboard, not sound-generation architecture; newly accepted neutral owner now available. Preserve separately credited synthesizer.",
+      "parts": {
+        "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+        "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      },
+      "procedure": "Remove only old owner-exclusive flat keys; retain shared applicable keys. Merge dependency through original loader, regenerate effective audit and synchronize prose/role/dependency evidence."
+    },
+    {
+      "id": "malayalam_cover",
+      "field": "tradition.instruments + owned parts + corresponding evidence",
+      "before": ["digital_subtractive"],
+      "after": ["electronic_keyboard_unspecified"],
+      "rationale": "Source identifies keyboard, not sound-generation architecture; newly accepted neutral owner now available. Preserve separately credited synthesizer.",
+      "parts": {
+        "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+        "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      },
+      "procedure": "Remove only old owner-exclusive flat keys; retain shared applicable keys. Merge dependency through original loader, regenerate effective audit and synchronize prose/role/dependency evidence."
+    },
+    {
+      "id": "modern_mod",
+      "field": "tradition.instruments + owned parts + corresponding evidence",
+      "before": ["rompler_workstation"],
+      "after": ["electronic_keyboard_unspecified"],
+      "rationale": "Source identifies keyboard, not sound-generation architecture; newly accepted neutral owner now available. Preserve separately credited synthesizer.",
+      "parts": {
+        "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+        "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      },
+      "procedure": "Remove only old owner-exclusive flat keys; retain shared applicable keys. Merge dependency through original loader, regenerate effective audit and synchronize prose/role/dependency evidence."
+    },
+    {
+      "id": "munich_indie",
+      "field": "tradition.instruments + owned parts + corresponding evidence",
+      "before": ["rompler_workstation"],
+      "after": ["electronic_keyboard_unspecified"],
+      "rationale": "Source identifies keyboard, not sound-generation architecture; newly accepted neutral owner now available. Preserve separately credited synthesizer.",
+      "parts": {
+        "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+        "keyboard_technique": "electronic_keyboard_melodic_chordal"
+      },
+      "procedure": "Remove only old owner-exclusive flat keys; retain shared applicable keys. Merge dependency through original loader, regenerate effective audit and synchronize prose/role/dependency evidence."
+    },
+    {
+      "id": "lombok_indie",
+      "field": "tradition.instruments + owned parts + corresponding evidence",
+      "before": ["drum_machine_analog"],
+      "after": ["midi_programmed_sound_unspecified"],
+      "rationale": "Source explicitly credits MIDI drums, which does not specify analog synthesis. Preserve separately credited synthesizer.",
+      "parts": {
+        "midi_programmed_sound_identity": "midi_programmed_generator_unspecified"
+      },
+      "flat_conflict": "electronic_technique also owns polysynth; choose applicable neutral MIDI sequence or synth pad and honestly disclose other unpinned owner; audit compiled choice later."
+    }
+  ],
+  "default_mechanics_report": "/tmp/batch029/final-defaults-review119.json",
+  "mechanical_totals": {
+    "effective_parts": 3777,
+    "protected_parts": 3771,
+    "unpinned_parts": 6,
+    "ownership_errors": 0,
+    "exact_inherited_photo_receipt_errors": 0
+  },
+  "retentions": [
+    {
+      "id": "musica_londrinense",
+      "decision": "Retain explicit authored one-shot sample-sequenced programmed-drums realization. Source says drum programming, not MIDI: new MIDI-specific owner would make unsupported control-protocol assertion. Available sampler technique sample_chopped is an authored sample-edited rendering, not source claim; no invented variant ID."
+    },
+    {
+      "id": "magyar_mulatos",
+      "decision": "Retain analog synth as authored timbre for explicitly credited synthesizers."
+    },
+    {
+      "id": "malaysian_indie",
+      "decision": "Retain analog synth as authored timbre for explicitly credited synthesizer."
+    },
+    {
+      "id": "mallet",
+      "decision": "Exact full/thumbnail URL, hash, dimensions, bytes and content type match data-only-020 classical_percussion receipt; helper corrected to read documented older provenance."
+    }
+  ],
+  "limits": [
+    "This is pre-integration semantic and owner/default review; old source and browser preservation must be bound after integration.",
+    "Previously independently reviewed primary sources and rights receipts reused; this pass does not claim 100 new network requests.",
+    "Compiled choices of intentionally unpinned owners require post-build audit."
+  ],
+  "prior_review_sha256": "278a641968bfedd2f1e8c8324ffaab4ab68943503d8fb3998e84c6e2731cf7d5",
+  "amendment_ledger": "/tmp/batch029/semantic-amendment-ledger119.json",
+  "runtime": {
+    "browser_connector_formats": 400,
+    "parity_pass": 400,
+    "ceiling": 1000,
+    "report": "/tmp/batch029/final-runtime-preflight119.json",
+    "source_cards_pins_environments_report": "/tmp/batch029/independent-append-review119.json",
+    "all_applicable_protected_pins_preserved": 3771,
+    "old1483merged_instruments_unchanged": true,
+    "old5438traditions_unchanged_in_memory": true
+  },
+  "postbuild_required": "Completed independently: api-review119.json; final regression and exact-head CI remain separate gates.",
+  "final_repairs_ledger": "/tmp/batch029/final-default-amendment-ledger119.json",
+  "geo_amendment": "/tmp/batch029/geo-amendment.json",
+  "family_whitelist": "All100 values verified against explicit12-value SKILL vocabulary. Four prior invalid values corrected.",
+  "neutral_keyboard_scope": "All remaining synthesis owners have positive synth/synthesizer credits; bare keyboard-only roles use neutral owner. Three additional omissions found and corrected in final pass.",
+  "final_correction_ledger": "/tmp/batch029/final-default-amendment-ledger119.json"
+}

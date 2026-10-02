@@ -1,0 +1,86 @@
+{
+  "id": "midi_programmed_sound_unspecified",
+  "name": "MIDI-programmed sound (source-unspecified generator)",
+  "short": "Programmed electronic sound",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "midi_programmed_sound_identity",
+      "name": "Sound generator identity",
+      "variants": [
+        {
+          "id": "midi_programmed_generator_unspecified",
+          "name": "MIDI-programmed sound; source generator and patches unspecified",
+          "default": true,
+          "descriptors": [
+            "programmed"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electronic_technique",
+      "name": "Authored programming approach",
+      "variants": [
+        {
+          "id": "midi_programmed_event_sequence",
+          "name": "Sequenced MIDI events; sound-generating mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "midi_programmed_sound_identity",
+      "name": "Sound generator identity",
+      "variants": [
+        {
+          "id": "midi_programmed_generator_unspecified",
+          "name": "MIDI-programmed sound; source generator and patches unspecified",
+          "default": true,
+          "descriptors": [
+            "programmed"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electronic_technique",
+      "name": "Authored programming approach",
+      "variants": [
+        {
+          "id": "midi_programmed_event_sequence",
+          "name": "Sequenced MIDI events; sound-generating mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ]
+}
