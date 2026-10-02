@@ -1,0 +1,92 @@
+{
+  "previous_frozen_sha256": "cb3cee924c3db49148491a868ddb67b78018bdcf59287159eeae9575b04ee375",
+  "final_frozen_sha256": "ee91fd92766e2554a409603745c61edf94a1bcd2fb3dd652cd466fe643e63c7d",
+  "changes": [
+    {
+      "id": "romanian_pop",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "singaporean_pop",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "greek_guitar",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "hangoskonyvek",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "medium"
+    },
+    {
+      "id": "hard_motivation",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "haur_kantak",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "high_vibe",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "hurdy_gurdy",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "icelandic_experimental",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "icelandic_indie",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "indian_fusion",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "indian_indie",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "indian_percussion",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "indie_canario",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "instrumental_lullaby",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "irish_flute",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    },
+    {
+      "id": "jewish_a_capella",
+      "before_source": "wikimedia_commons_verified_instrument_context",
+      "before_confidence": "low"
+    }
+  ],
+  "scope": "Onlynewtraditionphoto metadata:17source classifications generic_recording_context; Hungarian spoken-narration microphone confidence medium→low. Existing matchedlabels alreadyexplicitrecordingcontext only. NoURLs/rights/byterecipts changed; oldimagesunchanged. APIbuilderdoesnotconsumeimages; HTMLprojectionusesinstrumentURLs/license/credit/source_page only. Nocompiledinput/outputchange."
+}

@@ -1,0 +1,153 @@
+{
+  "id": "nes_famicom_chip_system",
+  "name": "NES / Famicom chip synthesis system",
+  "short": "NES/Famicom chip synthesis",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "nes_chip_architecture",
+      "name": "Sound-channel architecture",
+      "variants": [
+        {
+          "id": "nes_chip_apu_five",
+          "name": "Five basic NES sound channels",
+          "descriptors": [
+            "five-channel NES APU",
+            "digital"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        },
+        {
+          "id": "nes_chip_vrc6_eight",
+          "name": "Five basic channels plus three VRC6 channels",
+          "default": true,
+          "descriptors": [
+            "eight-channel NES APU plus VRC6",
+            "digital"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nes_chip_programming",
+      "name": "Programming method",
+      "variants": [
+        {
+          "id": "nes_chip_tracker_notes",
+          "name": "Tracker-programmed notes and channel effects",
+          "default": true,
+          "descriptors": [
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nes_chip_output",
+      "name": "Output topology",
+      "variants": [
+        {
+          "id": "nes_chip_mono",
+          "name": "Mono chip output",
+          "default": true,
+          "descriptors": [
+            "mono"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "NES/Famicom digital sound-channel system. Selected expanded VRC6 architecture has the five basic channels plus three cartridge sound channels. Source supports tracker export to authentic machine code and mono rendering. Does not imply that the modern Shovel Knight game itself runs on NES hardware. Axes are authored catalog coordinates.",
+  "sources": [
+    "https://www.yachtclubgames.com/blog/breaking-the-nes/",
+    "https://virt.bandcamp.com/album/shovel-knight-original-soundtrack"
+  ],
+  "_ownParts": [
+    {
+      "id": "nes_chip_architecture",
+      "name": "Sound-channel architecture",
+      "variants": [
+        {
+          "id": "nes_chip_apu_five",
+          "name": "Five basic NES sound channels",
+          "descriptors": [
+            "five-channel NES APU",
+            "digital"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        },
+        {
+          "id": "nes_chip_vrc6_eight",
+          "name": "Five basic channels plus three VRC6 channels",
+          "default": true,
+          "descriptors": [
+            "eight-channel NES APU plus VRC6",
+            "digital"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nes_chip_programming",
+      "name": "Programming method",
+      "variants": [
+        {
+          "id": "nes_chip_tracker_notes",
+          "name": "Tracker-programmed notes and channel effects",
+          "default": true,
+          "descriptors": [
+            "sequenced"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nes_chip_output",
+      "name": "Output topology",
+      "variants": [
+        {
+          "id": "nes_chip_mono",
+          "name": "Mono chip output",
+          "default": true,
+          "descriptors": [
+            "mono"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "lineage": "Rachel Portman — The Cider House Rules: Piano Suite, Beyond the Screen. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic british soundtrack, art Music. tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 191,
-  "score": 1.86,
+  "score": 1.838,
   "config": {
     "traditions": [
       "british_soundtrack"
@@ -27,7 +27,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.3,
-          "grand_piano_brand": 0.08549999999999999,
+          "grand_piano_brand": 0.063,
           "piano_hammer": -0.07,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

@@ -1,0 +1,99 @@
+{
+  "id": "indian_percussion",
+  "name": "Indian percussion",
+  "family": "classical",
+  "lineage": "Pandit Kishan Maharaj with Ramesh Mishra — Navras NRCD 0051, Queen Elizabeth Hall July 1995 recital. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-50s indian percussion, improv On Frame, indian classical improv branch. indian rosewood rosewood brass tabla, vocal imitating gut 3 main playing strings sarangi. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 274,
+  "score": 12.623,
+  "config": {
+    "traditions": [
+      "indian_percussion"
+    ],
+    "instruments": [
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 7.994999999999999,
+          "tabla_bayan": 1.405,
+          "tabla_syahi": 0
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_microtonal_inflected",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_35_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 0.6814999999999999,
+          "sarangi_belly": 0.39,
+          "sarangi_taraf": 0,
+          "sarangi_bow": 0.1365,
+          "sarangi_main_strings": 2.015,
+          "sarangi_body_wood": 0
+        }
+      }
+    ],
+    "pinned": {
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ],
+      "sarangi": [
+        "bowed_technique",
+        "sarangi_belly",
+        "sarangi_taraf",
+        "sarangi_bow",
+        "sarangi_main_strings",
+        "sarangi_body_wood"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi",
+      "bowed_technique": "bowed_microtonal_inflected",
+      "sarangi_belly": "goat_skin_sarangi",
+      "sarangi_taraf": "sarangi_35_strings",
+      "sarangi_bow": "horse_hair_loose",
+      "sarangi_main_strings": "sarangi_gut_main",
+      "sarangi_body_wood": "sarangi_tun_body"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

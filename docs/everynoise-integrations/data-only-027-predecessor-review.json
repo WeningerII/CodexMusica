@@ -1,0 +1,14 @@
+{
+  "old_predecessor": "273b4f08c49d5951fd816f53e927f49adfd1719f",
+  "merged_predecessor": "66e6f6e94cbcfe4416842acc4db46fdf123d7b6d",
+  "both_tree_sha": "879258eecfa09ad6909f533278f3583ec3584663",
+  "original_frozen_sha256": "c08c6dda97662ac1d5f881f8a9c067bbfc0612875b414e64c05635aa027c5e8d",
+  "final_frozen_sha256": "6afea5df95dbbc99111c5f338c2a9e7ad5e2b0264816758065bf237c9a3807f0",
+  "change": "Required predecessor metadata only; all100 entries and3dependencies byte-equivalent structured data; source/API build inputs unchanged.",
+  "exact_head_ci": {
+    "run_id": 37055171293,
+    "head": "273b4f08c49d5951fd816f53e927f49adfd1719f",
+    "conclusion": "success"
+  },
+  "merged_pr": "https://github.com/WeningerII/CodexMusica/pull/465"
+}

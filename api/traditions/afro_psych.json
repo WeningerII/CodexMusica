@@ -5,7 +5,7 @@
   "lineage": "Lijadu Sisters — Bayi L’ense (1977), Africa Seven Afro Psych. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic late-1970s afro psych, distorted Rock. unprocessed natural acoustic. humbucker electric guitar, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 217,
-  "score": 4.202,
+  "score": 4.121,
   "config": {
     "traditions": [
       "afro_psych"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.1725,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.7244999999999999,
-          "voice_multitrack_stack": 0.27,
+          "voice_processing_chain": 0.7409999999999999,
+          "voice_multitrack_stack": 0.1725,
           "voice_tessitura": 0
         }
       },

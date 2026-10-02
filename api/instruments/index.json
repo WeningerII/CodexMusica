@@ -1,5 +1,5 @@
 {
-  "count": 1474,
+  "count": 1477,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8844,6 +8844,24 @@
       "name": "String orchestra with obbligato violin",
       "family": "ensemble",
       "href": "instruments/string_orchestra_obbligato_violin.json"
+    },
+    {
+      "id": "credited_auxiliary_percussion",
+      "name": "Credited auxiliary percussion (source unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_auxiliary_percussion.json"
+    },
+    {
+      "id": "doromb_hungarian",
+      "name": "Doromb (Hungarian steel jaw harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/doromb_hungarian.json"
+    },
+    {
+      "id": "nes_famicom_chip_system",
+      "name": "NES / Famicom chip synthesis system",
+      "family": "electronic",
+      "href": "instruments/nes_famicom_chip_system.json"
     }
   ]
 }

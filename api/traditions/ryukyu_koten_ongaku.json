@@ -3,14 +3,14 @@
   "name": "Ryukyu koten ongaku (Okinawan classical court music)",
   "family": "classical",
   "lineage": "Court repertoire of the Ryukyu Kingdom at Shuri, systematized in the eighteenth century when Yakabi Choki (1716-1775) devised the kunkunshi tablature and the music was formalized for reception of Chinese sappushi envoys and for kumiodori dance-drama created by Tamagusuku Chokun in 1719 — very slow, sung in courtly Okinawan to the ryukyu scale on sanshin with kutu koto, kucho spike fiddle, fue flute and sparse taiko punctuation, in ryuka thirty-syllable verse form.",
-  "recipe": "classic East Asian early-1710s ryukyu koten ongaku, art Music, east Asian branch, east Asian funeral lament, string drone modal korean kok ainu folk. thick, breath veiled tone, slow rate, interlocked note trading. sanshin, koto, extended range legato kokyu, untempered pitch drift ritual shinobue, taiko drum. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 463,
-  "score": 170.067,
+  "recipe": "classic East Asian early-1710s ryukyu koten ongaku, art Music, east Asian branch, east Asian funeral lament, string drone modal korean kok hurdy gurdy. vocal fry, breath veiled tone, slow rate, interlocked note trading. sanshin, stable tuning nylon tetron modern standard koto, extended range legato kokyu, ritual shinobue, taiko drum. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 489,
+  "score": 172.18,
   "config": {
     "traditions": [
       "ryukyu_koten_ongaku",
       "korean_kok",
-      "ainu_folk"
+      "hurdy_gurdy"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
         },
         "scores": {
           "sanshin_kata": 0.24,
-          "sanshin_repertoire": 3.045,
+          "sanshin_repertoire": 3.695,
           "sanshin_skin": 0.12999999999999998,
           "sanshin_plectrum": 0.195
         }
@@ -31,7 +31,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -49,22 +49,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.4,
-          "voice_quality": 11.504999999999995,
+          "voice_register": 1.235,
+          "voice_quality": 12.154999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.275,
-          "voice_articulation": 11.179999999999996,
-          "voice_microtone": 12.934999999999995,
+          "voice_articulation": 10.919999999999996,
+          "voice_microtone": 13.06499999999999,
           "voice_tradition": 18.595000000000002,
-          "voice_mechanism_compound": 5.4,
+          "voice_mechanism_compound": 5.55,
           "voice_estill_quality": 8.075000000000001,
-          "voice_speech_song": 12.967499999999994,
-          "voice_ensemble_config": 11.179999999999994,
+          "voice_speech_song": 13.682499999999996,
+          "voice_ensemble_config": 10.854999999999995,
           "voice_ornament_system": 9.894999999999998,
           "voice_pitch_organization": 5.185,
           "voice_processing_chain": 3.575,
-          "voice_multitrack_stack": 2.7300000000000004
+          "voice_multitrack_stack": 2.0799999999999996
         }
       },
       {
@@ -82,7 +82,7 @@
           "koto_strings": 2.045,
           "koto_picks": 2.6,
           "koto_body_wood": 0.675,
-          "koto_strings_material": 0.845,
+          "koto_strings_material": 1.04,
           "koto_bridge_material": 0.195
         }
       },
@@ -100,19 +100,19 @@
           "kokyu_form": 0.7,
           "kokyu_skin": 0.375,
           "kokyu_tuning": 3.607499999999999,
-          "kokyu_context": 7.6
+          "kokyu_context": 7.75
         }
       },
       {
         "id": "shinobue",
         "slots": {
-          "shinobue_family": "shinobue_family_hayashibue",
+          "shinobue_family": "shinobue_family_utabue",
           "shinobue_choshi": "shinobue_choshi_roku_pon",
           "shinobue_context": "shinobue_context_shishimai",
           "shinobue_bore": "shinobue_bore_resin"
         },
         "scores": {
-          "shinobue_family": 1.74,
+          "shinobue_family": 1.4625,
           "shinobue_choshi": 0.975,
           "shinobue_context": 7.619999999999999,
           "shinobue_bore": 0.4875
@@ -128,7 +128,7 @@
           "taiko_technique": "taiko_festival_matsuri"
         },
         "scores": {
-          "taiko_size": 0.59,
+          "taiko_size": 0.74,
           "taiko_skin": 0.7649999999999999,
           "taiko_shell_wood": 0.585,
           "taiko_lineage": 0.6749999999999999,

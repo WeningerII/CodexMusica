@@ -1,0 +1,848 @@
+{
+  "reviewer": "research_119",
+  "status": "PASS_EXPECTED_UNPROTECTED_ORIGINAL_SOLVER_DRIFT",
+  "baseline": "66e6f6e94cbcfe4416842acc4db46fdf123d7b6d",
+  "frozen_sha256": "ee91fd92766e2554a409603745c61edf94a1bcd2fb3dd652cd466fe643e63c7d",
+  "method": "Two targeted before/after original-solver searches executed serially. Diagnostics expose unchanged getNeighbors in an in-memory module solely to observe output; no engine, snapshot or repository edits.",
+  "candidate_scores": {
+    "baseline": {
+      "gothic_country": [
+        {
+          "traditions": ["gothic_country"],
+          "score": 119.52999999999999,
+          "moves": [
+            {
+              "desc": "staple tradition: + neofolk",
+              "score": 184.735
+            },
+            {
+              "desc": "staple tradition: + texas_country_folk_storyteller",
+              "score": 177.52999999999994
+            },
+            {
+              "desc": "staple tradition: + bakersfield",
+              "score": 175.48
+            },
+            {
+              "desc": "staple tradition: + new_weird_america",
+              "score": 170.16
+            },
+            {
+              "desc": "staple tradition: + dark_folk",
+              "score": 167.795
+            },
+            {
+              "desc": "staple tradition: + antifolk_nyc",
+              "score": 166.35999999999996
+            },
+            {
+              "desc": "staple tradition: + bedroom_singer_song",
+              "score": 157.06749999999997
+            },
+            {
+              "desc": "staple tradition: + laurel_canyon_70s",
+              "score": 156.07250000000002
+            },
+            {
+              "desc": "staple tradition: + canadian_indie_folk",
+              "score": 145.1675
+            },
+            {
+              "desc": "staple tradition: + interior_confessional_60s",
+              "score": 139.36999999999998
+            }
+          ]
+        },
+        {
+          "traditions": ["gothic_country", "texas_country_folk_storyteller"],
+          "score": 177.52999999999994,
+          "moves": [
+            {
+              "desc": "staple tradition: + neofolk",
+              "score": 242.72749999999994
+            },
+            {
+              "desc": "staple tradition: + bakersfield",
+              "score": 233.59249999999997
+            },
+            {
+              "desc": "staple tradition: + new_weird_america",
+              "score": 228.1599999999999
+            },
+            {
+              "desc": "staple tradition: + dark_folk",
+              "score": 225.67499999999995
+            },
+            {
+              "desc": "staple tradition: + antifolk_nyc",
+              "score": 224.35999999999993
+            },
+            {
+              "desc": "staple tradition: + bedroom_singer_song",
+              "score": 215.06749999999997
+            },
+            {
+              "desc": "staple tradition: + laurel_canyon_70s",
+              "score": 214.13999999999996
+            },
+            {
+              "desc": "staple tradition: + canadian_indie_folk",
+              "score": 203.16749999999993
+            },
+            {
+              "desc": "staple tradition: + interior_confessional_60s",
+              "score": 197.36999999999998
+            }
+          ]
+        }
+      ],
+      "folk_noir": [
+        {
+          "traditions": ["folk_noir"],
+          "score": 211.73,
+          "moves": [
+            {
+              "desc": "staple tradition: + american_romanticism",
+              "score": 237.38749999999993
+            }
+          ]
+        },
+        {
+          "traditions": ["folk_noir", "american_romanticism"],
+          "score": 237.38749999999993,
+          "moves": [
+            {
+              "desc": "staple tradition: + barockinterpreten",
+              "score": 260.3499999999999
+            }
+          ]
+        }
+      ]
+    },
+    "current": {
+      "gothic_country": [
+        {
+          "traditions": ["gothic_country"],
+          "score": 119.52999999999999,
+          "moves": [
+            {
+              "desc": "staple tradition: + texas_country_folk_storyteller",
+              "score": 177.52999999999994
+            },
+            {
+              "desc": "staple tradition: + bakersfield",
+              "score": 175.48
+            },
+            {
+              "desc": "staple tradition: + new_weird_america",
+              "score": 170.16
+            },
+            {
+              "desc": "staple tradition: + dark_folk",
+              "score": 167.795
+            },
+            {
+              "desc": "staple tradition: + antifolk_nyc",
+              "score": 166.35999999999996
+            },
+            {
+              "desc": "staple tradition: + bedroom_singer_song",
+              "score": 157.06749999999997
+            },
+            {
+              "desc": "staple tradition: + laurel_canyon_70s",
+              "score": 156.07250000000002
+            },
+            {
+              "desc": "staple tradition: + canadian_indie_folk",
+              "score": 145.1675
+            },
+            {
+              "desc": "staple tradition: + iowa_indie",
+              "score": 140.45
+            },
+            {
+              "desc": "staple tradition: + interior_confessional_60s",
+              "score": 139.36999999999998
+            }
+          ]
+        },
+        {
+          "traditions": ["gothic_country", "texas_country_folk_storyteller"],
+          "score": 177.52999999999994,
+          "moves": [
+            {
+              "desc": "staple tradition: + bakersfield",
+              "score": 233.59249999999997
+            },
+            {
+              "desc": "staple tradition: + new_weird_america",
+              "score": 228.1599999999999
+            },
+            {
+              "desc": "staple tradition: + dark_folk",
+              "score": 225.67499999999995
+            },
+            {
+              "desc": "staple tradition: + antifolk_nyc",
+              "score": 224.35999999999993
+            },
+            {
+              "desc": "staple tradition: + bedroom_singer_song",
+              "score": 215.06749999999997
+            },
+            {
+              "desc": "staple tradition: + laurel_canyon_70s",
+              "score": 214.13999999999996
+            },
+            {
+              "desc": "staple tradition: + canadian_indie_folk",
+              "score": 203.16749999999993
+            },
+            {
+              "desc": "staple tradition: + iowa_indie",
+              "score": 198.44999999999996
+            },
+            {
+              "desc": "staple tradition: + interior_confessional_60s",
+              "score": 197.36999999999998
+            }
+          ]
+        }
+      ],
+      "folk_noir": [
+        {
+          "traditions": ["folk_noir"],
+          "score": 211.73,
+          "moves": [
+            {
+              "desc": "staple tradition: + american_romanticism",
+              "score": 237.38749999999993
+            }
+          ]
+        },
+        {
+          "traditions": ["folk_noir", "american_romanticism"],
+          "score": 237.38749999999993,
+          "moves": [
+            {
+              "desc": "staple tradition: + italian_baritone",
+              "score": 258.55749999999995
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "engine": {
+    "scripts/search.js": {
+      "unchanged": true,
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+    },
+    "scripts/score.js": {
+      "unchanged": true,
+      "sha256": "cd3171659c29186d298fba27f0b600635c624f6a246b81810d8dccb85f11aa2c"
+    },
+    "scripts/translate.js": {
+      "unchanged": true,
+      "sha256": "43af50cd7d656ade2f3247f89861326b6803081228c1edd57db8d5f7cdb42a8d"
+    },
+    "scripts/_loader.js": {
+      "unchanged": true,
+      "sha256": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365"
+    },
+    "scripts/_merge.js": {
+      "unchanged": true,
+      "sha256": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c"
+    },
+    "scripts/_seed_workspace.js": {
+      "unchanged": true,
+      "sha256": "223924a3ce0f08dd0302731cf815d712755dc906b3546986966765dc63ded58d"
+    },
+    "scripts/_recipe_stack.js": {
+      "unchanged": true,
+      "sha256": "b02bb4c770a2639657e5397ad4f36370e19e224098d308c6c5a67ea6434c72bc"
+    }
+  },
+  "all5238_app_import_cards_changed": [],
+  "fixtures": [
+    {
+      "id": "gothic_country",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["gothic_country", "neofolk", "texas_country_folk_storyteller"],
+      "current_staples": ["gothic_country", "texas_country_folk_storyteller", "bakersfield"],
+      "mechanism": "New iowa_indie ties neofolk at axis distance7 but wins lexical ordering as the one balladPoetry.angloSingerSong candidate. Its weak offered score means unchanged search selects texas_country_folk_storyteller then bakersfield; previous neofolk is no longer offered. Primary neighbor list and initial score unchanged. Six valid unprotected material slots change, including vocal stack, parlor back/string material, baritone amp/scale and banjo back.",
+      "baseline_neighbors": [
+        {
+          "id": "singer_songwriter",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "american_primitive",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "folk_noir",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "rapso",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "greenwich_village_confessional",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "interior_confessional_60s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "laurel_canyon_70s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "britfolk_revival",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "antifolk_nyc",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "indie_folk_2000s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "singer_songwriter",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "american_primitive",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "folk_noir",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "rapso",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "greenwich_village_confessional",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "interior_confessional_60s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "laurel_canyon_70s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "britfolk_revival",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "antifolk_nyc",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "indie_folk_2000s",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "after": "voice_multitrack_2010s_melodyne_microtuned",
+          "protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "part": "back_sides_parlor",
+          "before": "mahogany_bs_p",
+          "after": "rosewood_bs_p",
+          "protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "part": "string_acoustic_parlor",
+          "before": "phosphor_p",
+          "after": "silk_steel_p",
+          "protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "amp_make",
+          "before": "amp_british_orange",
+          "after": "amp_british_marshall_jcm800",
+          "protected": false
+        },
+        {
+          "instrument": "baritone_electric",
+          "part": "baritone_electric_scale",
+          "before": "baritone_30_scale",
+          "after": "baritone_27_scale",
+          "protected": false
+        },
+        {
+          "instrument": "banjo_5_string",
+          "part": "banjo_back",
+          "before": "resonator",
+          "after": "open_back",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic Southern American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country neofolk texas country-folk storyteller. thick, breath veiled tone, straight note core, interlocked note trading. phosphor bronze bronze travis picked parlor acoustic 30 inch plus extended baritone metal djent nickel plated steel baritone gauge baritone electric guitar, folk autoharp, wood walnut mid tier scruggs stelling bluegrass setup banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "current_output": "classic Southern American mid-1970s gothic country, functional Song, americana branch, anglo singer song ballad poetry, honky tonk era country texas country-folk storyteller bakersfield country. thick, breath veiled tone, straight note core, interlocked note trading. parlor classic steel silk travis picked parlor acoustic nickel plated steel baritone gauge baritone electric guitar, folk autoharp, wood walnut warmer than maple mid tier scruggs stelling banjo 5 string. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "baseline_trace": [
+        {
+          "score": 119.52999999999999,
+          "desc": "seed"
+        },
+        {
+          "score": 184.735,
+          "desc": "staple tradition: + neofolk"
+        },
+        {
+          "score": 242.72749999999994,
+          "desc": "staple tradition: + texas_country_folk_storyteller"
+        },
+        {
+          "score": 246.13749999999993,
+          "desc": "swap voice.voice_quality: lowered_larynx_voice → aspirated_voice"
+        },
+        {
+          "score": 247.94249999999994,
+          "desc": "swap baritone_electric.amp_make: amp_unspecified → amp_british_orange"
+        },
+        {
+          "score": 249.37249999999995,
+          "desc": "swap voice.voice_tradition: japanese_min_yo_tradition → scottish_gaelic_taladh_tradition"
+        },
+        {
+          "score": 250.08749999999995,
+          "desc": "swap voice.voice_multitrack_stack: voice_multitrack_pitched_sample_melodic_bed → voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        {
+          "score": 250.73749999999993,
+          "desc": "swap baritone_electric.baritone_electric_scale: baritone_27_scale → baritone_30_scale"
+        },
+        {
+          "score": 251.1274999999999,
+          "desc": "swap acoustic_guitar_parlor.string_acoustic_parlor: silk_steel_p → phosphor_p"
+        },
+        {
+          "score": 251.3874999999999,
+          "desc": "swap banjo_5_string.banjo_back: open_back → resonator"
+        },
+        {
+          "score": 251.4474999999999,
+          "desc": "swap baritone_electric.baritone_use: baritone_metal → baritone_surf"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 119.52999999999999,
+          "desc": "seed"
+        },
+        {
+          "score": 177.52999999999994,
+          "desc": "staple tradition: + texas_country_folk_storyteller"
+        },
+        {
+          "score": 233.59249999999997,
+          "desc": "staple tradition: + bakersfield"
+        },
+        {
+          "score": 237.65249999999997,
+          "desc": "swap voice.voice_quality: lowered_larynx_voice → aspirated_voice"
+        },
+        {
+          "score": 238.8225,
+          "desc": "swap voice.voice_multitrack_stack: voice_multitrack_pitched_sample_melodic_bed → voice_multitrack_2010s_melodyne_microtuned"
+        },
+        {
+          "score": 239.86249999999998,
+          "desc": "swap voice.voice_tradition: japanese_min_yo_tradition → scottish_gaelic_taladh_tradition"
+        },
+        {
+          "score": 240.3575,
+          "desc": "swap acoustic_guitar_parlor.back_sides_parlor: mahogany_bs_p → rosewood_bs_p"
+        },
+        {
+          "score": 240.68249999999998,
+          "desc": "swap baritone_electric.amp_make: amp_unspecified → amp_british_marshall_jcm800"
+        },
+        {
+          "score": 240.74249999999998,
+          "desc": "swap baritone_electric.baritone_use: baritone_metal → baritone_surf"
+        }
+      ]
+    },
+    {
+      "id": "folk_noir",
+      "source_and_extras_unchanged": true,
+      "source_pin_parts": false,
+      "runtime_protected_parts": {},
+      "source_authored_parts_unchanged": true,
+      "app_import_cards_identical": true,
+      "baseline_matches_snapshot": true,
+      "current_matches_failure_log": true,
+      "environment_identical": {
+        "room": true,
+        "archetype": true,
+        "inline_chain": true,
+        "tuning": true,
+        "aesthetic": true,
+        "arrangement": true,
+        "fx_extras": true
+      },
+      "baseline_staples": ["folk_noir", "american_romanticism", "barockinterpreten"],
+      "current_staples": ["folk_noir", "american_romanticism", "italian_baritone"],
+      "mechanism": "After american_romanticism8 is selected, new italian_baritone8 replaces barockinterpreten9 as westernCommonPractice representative. Search selects it; main visible change is the staple descriptor, but two hidden unprotected slots also change: vocal multitrack stack and acoustic guitar tuning. Original neighbor lists and source defaults unchanged.",
+      "baseline_neighbors": [
+        {
+          "id": "symphonic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "string_quartet",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "hyperion_classical_aesthetic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "anglican_choral_cathedral",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "manhattan_chamber_loft",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "british_brass_band",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "classical_period_18c",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "early_romantic_19c",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "late_romantic_19c",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "russian_five",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "current_neighbors": [
+        {
+          "id": "symphonic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "string_quartet",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "hyperion_classical_aesthetic",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "anglican_choral_cathedral",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "manhattan_chamber_loft",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "british_brass_band",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "classical_period_18c",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "early_romantic_19c",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "late_romantic_19c",
+          "weight": 1,
+          "srcs": ["crossref"]
+        },
+        {
+          "id": "russian_five",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "all_material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_octave_double_self",
+          "after": "voice_multitrack_late_1980s_reverb_saturated_bus",
+          "protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "part": "string_tuning",
+          "before": "open_g",
+          "after": "open_d",
+          "protected": false
+        }
+      ],
+      "baseline_output": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music american romanticism barockinterpreten. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "current_output": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music american romanticism italian baritone. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "baseline_trace": [
+        {
+          "score": 211.73,
+          "desc": "seed"
+        },
+        {
+          "score": 237.38749999999993,
+          "desc": "staple tradition: + american_romanticism"
+        },
+        {
+          "score": 260.3499999999999,
+          "desc": "staple tradition: + barockinterpreten"
+        },
+        {
+          "score": 264.13499999999993,
+          "desc": "swap cello.cello_back_wood: hard_rock_maple_cello_back → bosnian_flamed_maple_cello"
+        },
+        {
+          "score": 266.7699999999999,
+          "desc": "swap grand_piano.piano_pinblock: asian_multi_laminate_pinblock → standard_multi_laminate_pinblock"
+        },
+        {
+          "score": 269.0449999999999,
+          "desc": "swap grand_piano.piano_pitch_standard: a_415_baroque → a_442_european"
+        },
+        {
+          "score": 271.2749999999999,
+          "desc": "swap cello.cello_setup_period: baroque_setup_cello → modern_setup_cello"
+        },
+        {
+          "score": 273.4799999999999,
+          "desc": "swap cello.cello_varnish: modern_synthetic_varnish_cello → cremonese_pre_1750_varnish_cello"
+        },
+        {
+          "score": 274.2749999999999,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_jingju_role → voice_ornament_dhrupad_meend_andolan"
+        },
+        {
+          "score": 274.81499999999994,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_M0_pulse_borrowed → voice_mechanism_tahrir_tekye_chain"
+        },
+        {
+          "score": 275.3349999999999,
+          "desc": "swap voice.voice_vibrato: terminal_vibrato → slow_vibrato"
+        },
+        {
+          "score": 275.54499999999996,
+          "desc": "swap cello.cello_bow_stick: snakewood_stick_cello → pernambuco_stick_cello"
+        },
+        {
+          "score": 275.67499999999995,
+          "desc": "swap acoustic_guitar_om.string_tuning: open_d → open_g"
+        },
+        {
+          "score": 275.73999999999995,
+          "desc": "swap voice.voice_multitrack_stack: voice_multitrack_late_1980s_reverb_saturated_bus → voice_multitrack_octave_double_self"
+        }
+      ],
+      "current_trace": [
+        {
+          "score": 211.73,
+          "desc": "seed"
+        },
+        {
+          "score": 237.38749999999993,
+          "desc": "staple tradition: + american_romanticism"
+        },
+        {
+          "score": 258.55749999999995,
+          "desc": "staple tradition: + italian_baritone"
+        },
+        {
+          "score": 262.49249999999995,
+          "desc": "swap cello.cello_back_wood: hard_rock_maple_cello_back → bosnian_flamed_maple_cello"
+        },
+        {
+          "score": 265.12749999999994,
+          "desc": "swap grand_piano.piano_pinblock: asian_multi_laminate_pinblock → standard_multi_laminate_pinblock"
+        },
+        {
+          "score": 267.48249999999996,
+          "desc": "swap cello.cello_varnish: modern_synthetic_varnish_cello → cremonese_pre_1750_varnish_cello"
+        },
+        {
+          "score": 269.75749999999994,
+          "desc": "swap grand_piano.piano_pitch_standard: a_415_baroque → a_442_european"
+        },
+        {
+          "score": 271.98749999999995,
+          "desc": "swap cello.cello_setup_period: baroque_setup_cello → modern_setup_cello"
+        },
+        {
+          "score": 272.99499999999995,
+          "desc": "swap voice.voice_vibrato: terminal_vibrato → slow_vibrato"
+        },
+        {
+          "score": 273.7899999999999,
+          "desc": "swap voice.voice_ornament_system: voice_ornament_jingju_role → voice_ornament_dhrupad_meend_andolan"
+        },
+        {
+          "score": 274.4799999999999,
+          "desc": "swap voice.voice_mechanism_compound: voice_mechanism_M0_pulse_borrowed → voice_mechanism_tahrir_tekye_chain"
+        },
+        {
+          "score": 274.6899999999999,
+          "desc": "swap cello.cello_bow_stick: snakewood_stick_cello → pernambuco_stick_cello"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "decision": "Only gothic_country and folk_noir targeted fixture updates are eligible: outputs reproduced and explained by new027 catalog additions through original adjacency rules; no protected pin, old source, imported app card or environment changed. Material unpinned slot choices are explicitly listed. This is not an aesthetic endorsement of old solver choices, and does not authorize shared-engine changes. Full API comparison remains separate once build completes.",
+  "final_evidence_rebind": {
+    "status": "PASS",
+    "final_frozen_sha256": "ee91fd92766e2554a409603745c61edf94a1bcd2fb3dd652cd466fe643e63c7d",
+    "exact_reverse_reconstruction": {
+      "photo_only_reversal_sha256": "cb3cee924c3db49148491a868ddb67b78018bdcf59287159eeae9575b04ee375",
+      "pin_evidence_only_reversal_sha256": "6afea5df95dbbc99111c5f338c2a9e7ad5e2b0264816758065bf237c9a3807f0",
+      "method": "Reverse photo source/confidence fields using amendment before-values; restore six evidence row fields from original source packets whose hashes match frozen provenance. Both serialized JSON hashes exactly reproduce previous frozen artifacts."
+    },
+    "changed_entry_fields": [
+      ["romanian_pop", "photo"],
+      ["singaporean_pop", "photo"],
+      ["greek_guitar", "photo"],
+      ["guatemalan_indie", "compiled_unpinned_disclosure"],
+      ["guatemalan_indie", "resolved_parts_audit"],
+      ["guatemalan_indie", "instrument_role_audit"],
+      ["guatemalan_indie", "flat_pin_resolution"],
+      ["guatemalan_indie", "verification_status"],
+      ["h8000", "compiled_unpinned_disclosure"],
+      ["h8000", "resolved_parts_audit"],
+      ["h8000", "instrument_role_audit"],
+      ["h8000", "flat_pin_resolution"],
+      ["h8000", "verification_status"],
+      ["hangoskonyvek", "photo"],
+      ["hard_motivation", "photo"],
+      ["haur_kantak", "photo"],
+      ["high_vibe", "photo"],
+      ["hurdy_gurdy", "photo"],
+      ["hypertrance", "compiled_unpinned_disclosure"],
+      ["hypertrance", "resolved_parts_audit"],
+      ["hypertrance", "instrument_role_audit"],
+      ["hypertrance", "flat_pin_resolution"],
+      ["hypertrance", "verification_status"],
+      ["icelandic_experimental", "photo"],
+      ["icelandic_indie", "photo"],
+      ["indian_fusion", "photo"],
+      ["indian_indie", "compiled_unpinned_disclosure"],
+      ["indian_indie", "resolved_parts_audit"],
+      ["indian_indie", "instrument_role_audit"],
+      ["indian_indie", "flat_pin_resolution"],
+      ["indian_indie", "photo"],
+      ["indian_indie", "verification_status"],
+      ["indian_percussion", "photo"],
+      ["indie_canario", "photo"],
+      ["indie_nordeste_argentino", "compiled_unpinned_disclosure"],
+      ["indie_nordeste_argentino", "resolved_parts_audit"],
+      ["indie_nordeste_argentino", "instrument_role_audit"],
+      ["indie_nordeste_argentino", "flat_pin_resolution"],
+      ["indie_nordeste_argentino", "verification_status"],
+      ["instrumental_lullaby", "photo"],
+      ["iowa_indie", "compiled_unpinned_disclosure"],
+      ["iowa_indie", "resolved_parts_audit"],
+      ["iowa_indie", "instrument_role_audit"],
+      ["iowa_indie", "flat_pin_resolution"],
+      ["iowa_indie", "verification_status"],
+      ["irish_flute", "photo"],
+      ["jewish_a_capella", "photo"]
+    ],
+    "all_catalog_inputs_and_dependency_records_unchanged": true,
+    "all_photo_urls_rights_and_byte_receipts_unchanged": true,
+    "unprotected_slots_disclosed": 7,
+    "photo_classification_rows": 17,
+    "new_instrument_api_exact_merged_record_matches": [
+      "credited_auxiliary_percussion",
+      "doromb_hungarian",
+      "nes_famicom_chip_system"
+    ],
+    "append_review_final_errors": []
+  }
+}

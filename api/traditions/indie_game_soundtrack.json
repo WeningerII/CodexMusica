@@ -1,0 +1,65 @@
+{
+  "id": "indie_game_soundtrack",
+  "name": "Indie game soundtrack",
+  "family": "electronic",
+  "lineage": "Jake Kaufman — Strike the Earth! (Plains of Passage), Shovel Knight OST (2014). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic mid-2010s indie game soundtrack, experimental Elec. eight channel nes apu plus vrc6 nes famicom chip system. treated studio. transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 181,
+  "score": 2.1,
+  "config": {
+    "traditions": [
+      "indie_game_soundtrack"
+    ],
+    "instruments": [
+      {
+        "id": "nes_famicom_chip_system",
+        "slots": {
+          "nes_chip_architecture": "nes_chip_vrc6_eight",
+          "nes_chip_programming": "nes_chip_tracker_notes",
+          "nes_chip_output": "nes_chip_mono"
+        },
+        "scores": {
+          "nes_chip_architecture": 1.5,
+          "nes_chip_programming": 0,
+          "nes_chip_output": 0.6
+        }
+      }
+    ],
+    "pinned": {
+      "nes_famicom_chip_system": [
+        "nes_chip_architecture",
+        "nes_chip_programming",
+        "nes_chip_output"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "nes_chip_architecture": "nes_chip_vrc6_eight",
+      "nes_chip_programming": "nes_chip_tracker_notes",
+      "nes_chip_output": "nes_chip_mono"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
