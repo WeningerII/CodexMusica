@@ -1,0 +1,66 @@
+{
+  "id": "minimal_dub",
+  "name": "Minimal dub",
+  "family": "global",
+  "lineage": "Minimal dub is represented by Caged Element — Invalid Path (Escapism, 2026). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+  "recipe": "classic mid-2020s minimal dub, bass System, dub descendants branch. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 175,
+  "score": 7.718,
+  "config": {
+    "traditions": [
+      "minimal_dub"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_orchestral_library",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": -0.035,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 0.313,
+          "sampler_classic_context": 4.55
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "electronic_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

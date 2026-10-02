@@ -3,111 +3,111 @@
   "name": "Slack-key guitar (kī hōʻalu instrumental)",
   "family": "global",
   "lineage": "Hawaiian fingerstyle guitar idiom developed after Mexican paniolo vaqueros brought guitars to the islands in the 1830s, kept largely within families until Gabby Pahinui's 1946 recordings and the 1970s Renaissance releases on Panini — the six strings slackened to open major or wahine tunings (taro-patch G, F-wahine, C-mauna-loa), thumb holding an alternating bass while the fingers pick melody above, chimed natural harmonics, slides and hammered ornaments imitating vocal ʻiʻi, at unhurried tempi in loose rubato.",
-  "recipe": "classic North American mid-1830s slack-key guitar, improv On Frame, string improv branch, anglo singer song laurel canyon, string drone modal hawaiian slack-key kazakh traditional music. sygyt, breath veiled tone, slow rate, interlocked note trading. open g tuning indian rosewood rosewood steel silk acoustic open g tuning rosewood parlor classic steel silk parlor acoustic guitar, fingerpicked koa ukulele, upright bass. honolulu hawaiian slack key lanai. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 552,
-  "score": 190.527,
+  "recipe": "classic North American mid-1830s slack-key guitar, improv On Frame, string improv branch, anglo singer song laurel canyon, string drone modal arab folk. thick, breath veiled tone, straight note core, interlocked note trading. open g tuning steel silk fingerpicked acoustic open g tuning parlor classic steel silk fingerpicked parlor acoustic guitar, fingerpicked koa ukulele, upright bass. honolulu hawaiian slack key lanai. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 519,
+  "score": 148.595,
   "config": {
     "traditions": [
       "slack_key_guitar",
-      "hawaiian_slack_key",
-      "kazakh_traditional"
+      "laurel_canyon_70s",
+      "arab_folk"
     ],
     "instruments": [
       {
         "id": "acoustic_guitar_om",
         "slots": {
           "string_tuning": "open_g",
-          "top_wood": "cedar_om",
-          "back_sides": "rosewood_bs_om",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
           "string_acoustic": "silk_steel_om",
-          "acoustic_om_technique": "om_drop_d_drone"
+          "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 4.66,
-          "top_wood": 0.65,
-          "back_sides": 1.6449999999999998,
-          "string_acoustic": 2.7299999999999995,
-          "acoustic_om_technique": 7.605
+          "string_tuning": 4.222500000000001,
+          "top_wood": 0.21,
+          "back_sides": 0.21,
+          "string_acoustic": 1.69,
+          "acoustic_om_technique": 7.965
         }
       },
       {
         "id": "acoustic_guitar_parlor",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_g",
-          "top_wood_parlor": "cedar_p",
-          "back_sides_parlor": "rosewood_bs_p",
+          "top_wood_parlor": "mahogany_top_p",
+          "back_sides_parlor": "mahogany_bs_p",
           "string_acoustic_parlor": "silk_steel_p"
         },
         "scores": {
-          "acoustic_technique": 3.3800000000000003,
-          "string_tuning": 4.66,
-          "top_wood_parlor": 0.65,
-          "back_sides_parlor": 1.7949999999999997,
-          "string_acoustic_parlor": 2.7299999999999995
+          "acoustic_technique": 7.965,
+          "string_tuning": 4.222500000000001,
+          "top_wood_parlor": 0.21,
+          "back_sides_parlor": 0,
+          "string_acoustic_parlor": 1.69
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "polynesian_oli_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 3.0199999999999996,
-          "voice_quality": 18.589999999999993,
+          "voice_register": 6.950000000000001,
+          "voice_quality": 11.959999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3724999999999996,
-          "voice_articulation": 15.404999999999992,
-          "voice_microtone": 18.037499999999994,
-          "voice_tradition": 14.174999999999997,
-          "voice_mechanism_compound": 5.785,
-          "voice_estill_quality": 7.5075,
-          "voice_speech_song": 17.452499999999993,
-          "voice_ensemble_config": 13.649999999999993,
-          "voice_ornament_system": 1.56,
-          "voice_pitch_organization": 7.8325,
-          "voice_processing_chain": 3.9499999999999997,
-          "voice_multitrack_stack": 3.6500000000000004
+          "voice_vibrato": 1.9825,
+          "voice_articulation": 12.869999999999996,
+          "voice_microtone": 13.422499999999992,
+          "voice_tradition": 10.725,
+          "voice_mechanism_compound": 3.25,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 14.949999999999996,
+          "voice_ensemble_config": 10.009999999999998,
+          "voice_ornament_system": 2.7300000000000004,
+          "voice_pitch_organization": 6.415000000000001,
+          "voice_processing_chain": 5.039999999999999,
+          "voice_multitrack_stack": 4.9350000000000005
         }
       },
       {
         "id": "ukulele",
         "slots": {
-          "ukulele_size": "ukulele_tenor",
+          "ukulele_size": "ukulele_baritone",
           "ukulele_style": "ukulele_fingerstyle",
           "ukulele_wood": "ukulele_koa"
         },
         "scores": {
-          "ukulele_size": 8.92,
-          "ukulele_style": 9.245,
-          "ukulele_wood": 9.14
+          "ukulele_size": 4.159999999999999,
+          "ukulele_style": 4.720000000000001,
+          "ukulele_wood": 4.765
         }
       },
       {
         "id": "upright_bass",
         "slots": {
           "upright_strings": "steel_upright",
-          "upright_play": "arco_upright"
+          "upright_play": "slap_upright"
         },
         "scores": {
           "upright_strings": 0.5399999999999999,
-          "upright_play": 0.59
+          "upright_play": 0.18
         }
       }
     ],

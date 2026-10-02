@@ -5,7 +5,7 @@
   "lineage": "This archival discovery label includes Bustan Abraham alongside modern instrumental and spiritual-folk performers. Bustan Abraham’s oud-led ensemble work offers a specific collaborative branch rather than a universal ethnic or religious formula.",
   "recipe": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 421,
-  "score": 19.465,
+  "score": 19.246,
   "config": {
     "traditions": [
       "israeli_folk"
@@ -24,12 +24,12 @@
         },
         "scores": {
           "plucked_traditional_technique": 0.18150000000000002,
-          "oud_school": 0.12825,
-          "oud_strings": 1.14,
+          "oud_school": 0.1245,
+          "oud_strings": 1.129375,
           "oud_pick": 0.17962499999999998,
-          "oud_body_wood": 1.14,
-          "oud_soundboard_wood": 1.14,
-          "oud_string_material": 1.56525
+          "oud_body_wood": 1.129375,
+          "oud_soundboard_wood": 1.129375,
+          "oud_string_material": 1.438375
         }
       },
       {
@@ -42,11 +42,11 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": -0.07,
+          "wind_articulation": -0.1,
           "flute_size": 0.0045,
-          "flute_material": 1.14,
-          "flute_technique": 1.14,
-          "flute_maker_school": 1.200375
+          "flute_material": 1.129375,
+          "flute_technique": 1.148125,
+          "flute_maker_school": 1.186
         }
       },
       {
@@ -56,7 +56,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 1.14,
+          "upright_strings": 1.129375,
           "upright_play": -0.05
         }
       },
@@ -69,10 +69,10 @@
           "bendir_head": "bendir_synthetic_modern"
         },
         "scores": {
-          "bendir_snares": 2.823375,
-          "bendir_context": 0.305625,
-          "bendir_shell_wood": 2.191875,
-          "bendir_head": 1.14
+          "bendir_snares": 2.819625,
+          "bendir_context": 0.32437499999999997,
+          "bendir_shell_wood": 2.1881250000000003,
+          "bendir_head": 1.129375
         }
       }
     ],

@@ -1,0 +1,147 @@
+{
+  "id": "opera_chorus",
+  "name": "Opera chorus",
+  "family": "classical",
+  "lineage": "Opera chorus is represented by Opera Australia Chorus / Kate Johnson / Michael Curtain — Chorus! (2023). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s opera chorus, art Music, western common practice branch. group vocals, live take. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 278,
+  "score": 29.294,
+  "config": {
+    "traditions": [
+      "opera_chorus"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.6854999999999999,
+          "voice_ornament_system": 0.126,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.6854999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 2.5,
+          "grand_piano_size": 0.537,
+          "grand_piano_brand": 0.579,
+          "piano_hammer": 4.225,
+          "piano_rim": 4.958,
+          "piano_soundboard": 3.25,
+          "piano_pinblock": 3.355,
+          "piano_plate": 3.769,
+          "piano_pitch_standard": 4.5925
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

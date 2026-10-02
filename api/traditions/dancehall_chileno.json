@@ -1,0 +1,94 @@
+{
+  "id": "dancehall_chileno",
+  "name": "Dancehall chileno",
+  "family": "electronic",
+  "lineage": "Dancehall chileno is represented by Ripio — No digas cosas que no son, original three-track set. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+  "recipe": "classic dancehall chileno, bass System, reggae diaspora branch. digital subtractive, sound design field sampler, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 232,
+  "score": 20.635,
+  "config": {
+    "traditions": [
+      "dancehall_chileno"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.755,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 5.459999999999999
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_edm"
+        },
+        "scores": {
+          "electronic_technique": 0.26,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 0.39,
+          "sampler_workflow": 1.17,
+          "sampler_classic_context": 7.02
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 1.3,
+          "snare_voice": 0.39,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "va_archetypes"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "va_archetypes": "nord_lead"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

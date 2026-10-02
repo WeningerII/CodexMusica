@@ -3,14 +3,14 @@
   "name": "Neo-traditional bluegrass",
   "family": "country",
   "lineage": "Conservative revival strain that took shape in the mid-1970s and 1980s around the Johnson Mountain Boys, Larry Sparks and Del McCoury, deliberately restoring the 1946-48 Monroe-Flatt-Scruggs template — five-string banjo in Scruggs three-finger roll, chopping mandolin backbeat, walking upright bass, no drums, and tenor-above-lead trio harmony sung high and hard into a single central condenser at 130-180 BPM, with modern recording fidelity but period repertoire, tempos and vocal placement.",
-  "recipe": "classic 1974-1976 neo-traditional bluegrass, improv On Frame, bluegrass branch, neo trad country, christian gospel southern gospel classic texas country neotraditional country. thick, breath veiled tone, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar phosphor bronze modern martin travis picked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 793,
-  "score": 438.483,
+  "recipe": "classic 1974-1976 neo-traditional bluegrass, improv On Frame, bluegrass branch, neo trad country, christian gospel southern gospel classic texas country country gospel. thick, declaimed, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar phosphor bronze modern martin travis picked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 776,
+  "score": 426.841,
   "config": {
     "traditions": [
       "neo_traditional_bluegrass",
       "classic_texas_country",
-      "neotraditional_country"
+      "country_gospel"
     ],
     "instruments": [
       {
@@ -27,13 +27,13 @@
         },
         "scores": {
           "acoustic_technique": 7.699999999999999,
-          "mandolin_shape": 8.2365,
-          "mandolin_top": 10.09025,
+          "mandolin_shape": 8.205,
+          "mandolin_top": 9.90875,
           "mandolin_back": 7.749999999999999,
-          "mandolin_bracing": 8.55,
-          "mandolin_strings": 2.366125,
-          "mandolin_fingerboard": 1.5999999999999999,
-          "mandolin_pickup": 19.955
+          "mandolin_bracing": 8.4,
+          "mandolin_strings": 2.334625,
+          "mandolin_fingerboard": 1.0999999999999999,
+          "mandolin_pickup": 18.654999999999998
         }
       },
       {
@@ -53,14 +53,14 @@
         "scores": {
           "banjo_back": 0.45499999999999996,
           "tone_ring": 7.749999999999999,
-          "banjo_head": 18.914999999999996,
-          "banjo_pot": 1.205125,
+          "banjo_head": 17.809999999999995,
+          "banjo_pot": 1.037125,
           "banjo_play": 4.029999999999999,
-          "banjo_rim_wood": 9.612625,
-          "banjo_neck_wood": 9.644124999999999,
-          "banjo_strings": 11.806249999999999,
-          "banjo_bridge": 9.681249999999999,
-          "banjo_setup_period": 30.939999999999998
+          "banjo_rim_wood": 9.423625,
+          "banjo_neck_wood": 9.423625,
+          "banjo_strings": 11.585749999999999,
+          "banjo_bridge": 9.460749999999999,
+          "banjo_setup_period": 29.834999999999994
         }
       },
       {
@@ -73,11 +73,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 18.349999999999998,
+          "acoustic_technique": 14.975,
           "string_tuning": 0.06499999999999999,
-          "top_wood": 1.65,
-          "back_sides": 0.8365,
-          "string_acoustic": 3.2215
+          "top_wood": 1.15,
+          "back_sides": 0.7,
+          "string_acoustic": 2.6
         }
       },
       {
@@ -102,11 +102,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 29.6,
+          "bowed_technique": 26.349999999999998,
           "fiddle_strings": 2.3400000000000003,
-          "fiddle_bow": 3.4149999999999996,
-          "fiddle_mute": 0.7765,
-          "fiddle_articulation": 0.65,
+          "fiddle_bow": 3.13,
+          "fiddle_mute": 0.9099999999999999,
+          "fiddle_articulation": 0.15,
           "fiddle_string_configuration": 0
         }
       },
@@ -127,39 +127,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 22.375249999999994,
-          "voice_quality": 11.95999999999999,
+          "voice_register": 25.06875,
+          "voice_quality": 15.213749999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 20.862125,
-          "voice_articulation": 18.71999999999999,
-          "voice_microtone": 18.71999999999999,
-          "voice_tradition": 7.540000000000002,
-          "voice_mechanism_compound": 3.6399999999999997,
-          "voice_estill_quality": 21.342375,
-          "voice_speech_song": 24.309999999999995,
-          "voice_ensemble_config": 18.199999999999992,
-          "voice_ornament_system": 2.23075,
-          "voice_pitch_organization": 1.8766249999999998,
-          "voice_processing_chain": 8.677125,
-          "voice_multitrack_stack": 6.562375
+          "voice_vibrato": 18.487125,
+          "voice_articulation": 18.264999999999993,
+          "voice_microtone": 17.61499999999999,
+          "voice_tradition": 12.544999999999998,
+          "voice_mechanism_compound": 3.575,
+          "voice_estill_quality": 18.780874999999998,
+          "voice_speech_song": 21.319999999999993,
+          "voice_ensemble_config": 17.484999999999992,
+          "voice_ornament_system": 4.4,
+          "voice_pitch_organization": 2.0799999999999996,
+          "voice_processing_chain": 7.472125,
+          "voice_multitrack_stack": 6.349375
         }
       }
     ],

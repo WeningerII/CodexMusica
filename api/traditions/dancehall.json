@@ -38,7 +38,7 @@
           "voice_quality": 7.020000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.845,
+          "voice_vibrato": 1.785,
           "voice_articulation": 14.819999999999997,
           "voice_microtone": 17.419999999999995,
           "voice_tradition": 3.7700000000000005,
@@ -62,7 +62,7 @@
         "scores": {
           "tr808_voice": 13.78,
           "drum_machine_808_context": 11.83,
-          "tr808_production_origin": 1.4849999999999999
+          "tr808_production_origin": 1.56
         }
       },
       {
@@ -75,10 +75,10 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.535,
+          "electronic_technique": 2.385,
           "sampler_archetypes": 2.795,
           "sampler_bit_depth": 0.52,
-          "sampler_workflow": 4.654999999999999,
+          "sampler_workflow": 4.9399999999999995,
           "sampler_classic_context": 19.629999999999995
         }
       },
@@ -127,7 +127,7 @@
           "turntable_technique": "turntable_backspin"
         },
         "scores": {
-          "electronic_technique": 2.535,
+          "electronic_technique": 2.385,
           "turntable_technique": 1.635
         }
       }

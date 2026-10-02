@@ -1,0 +1,105 @@
+{
+  "id": "ukrainian_classical",
+  "name": "Ukrainian classical",
+  "family": "classical",
+  "lineage": "Ukrainian classical is represented by Solomiya Ivakhiv / Steven Beck — Kosenko: Violin Sonata in A minor, Op. 18. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+  "recipe": "classic ukrainian classical, art Music, western common practice branch. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, 18 ply hard rock maple vintage production European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 347,
+  "score": 128.868,
+  "config": {
+    "traditions": [
+      "ukrainian_classical"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 7.86,
+          "orch_strings": 0.6719999999999999,
+          "orch_top_wood": 7.6365,
+          "orch_back_wood": 8.628,
+          "orch_varnish": 8.25,
+          "orch_setup_period": 8.6415,
+          "orch_bow": 0.546,
+          "orch_bow_stick": 10.659999999999998,
+          "orch_articulation": 0.357,
+          "orch_rosin": 8.7465
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.86,
+          "grand_piano_size": 0.6105,
+          "grand_piano_brand": 0.7155,
+          "piano_hammer": 10.725,
+          "piano_rim": 9.828,
+          "piano_soundboard": 8.4135,
+          "piano_pinblock": 9.304,
+          "piano_plate": 8.715,
+          "piano_pitch_standard": 10.699
+        }
+      }
+    ],
+    "pinned": {
+      "violin_orchestral": [
+        "bowed_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

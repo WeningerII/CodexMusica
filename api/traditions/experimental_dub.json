@@ -1,0 +1,94 @@
+{
+  "id": "experimental_dub",
+  "name": "Experimental dub",
+  "family": "electronic",
+  "lineage": "Experimental dub is represented by PostEx — Slow Tech Dub, original mix. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+  "recipe": "classic experimental dub, bass System, dub descendants branch. digital subtractive, yamaha tx81z canonical 1987 lately bass canon rack mount 4 operator fm synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 281,
+  "score": 14.954,
+  "config": {
+    "traditions": [
+      "experimental_dub"
+    ],
+    "instruments": [
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "nord_lead",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": 1.755,
+          "va_archetypes": 0,
+          "digital_subtractive_context": 4.68
+        }
+      },
+      {
+        "id": "fm_synth",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "fm_algorithm": "fm_complex",
+          "fm_modulator_ratio": "fm_harmonic",
+          "fm_polyphony": "fm_mono",
+          "fm_model_lineage": "fm_yamaha_tx81z"
+        },
+        "scores": {
+          "electronic_technique": 1.755,
+          "fm_algorithm": 1.3,
+          "fm_modulator_ratio": 1.3,
+          "fm_polyphony": 0.16799999999999998,
+          "fm_model_lineage": 1.885
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "bridged_t_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 1.3,
+          "snare_voice": 0.39,
+          "hat_voice": 0.0315,
+          "shuffle_quantize": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "digital_subtractive": [
+        "va_archetypes"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "va_archetypes": "nord_lead"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

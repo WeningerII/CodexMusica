@@ -1,0 +1,64 @@
+{
+  "id": "swiss_folk",
+  "name": "Swiss folk",
+  "family": "vernacular",
+  "lineage": "Swiss folk is represented by Christoph Pfändler — Stimmig (2024). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+  "recipe": "classic mid-2020s swiss folk, drone Modal, string branch. maple modern concert steel bronze modern hammered dulcimer. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 216,
+  "score": 8.626,
+  "config": {
+    "traditions": [
+      "swiss_folk"
+    ],
+    "instruments": [
+      {
+        "id": "hammered_dulcimer",
+        "slots": {
+          "hammer_dulcimer_courses": "hd_15_15",
+          "hammer_material": "wood_bare",
+          "hammered_dulcimer_body_wood": "hd_maple_modern",
+          "hammered_dulcimer_strings": "hd_steel_bronze_modern"
+        },
+        "scores": {
+          "hammer_dulcimer_courses": 2.695875,
+          "hammer_material": 2.695875,
+          "hammered_dulcimer_body_wood": 1.544125,
+          "hammered_dulcimer_strings": 1.69
+        }
+      }
+    ],
+    "pinned": {
+      "hammered_dulcimer": [
+        "hammer_material"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "hammer_material": "wood_bare"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

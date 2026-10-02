@@ -4647,6 +4647,106 @@
   <url><loc>https://codexmusica.com/api/traditions/french_renaissance.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/german_renaissance.json</loc></url>
   <url><loc>https://codexmusica.com/api/traditions/oxford_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/japanese_orchestra.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/latin_american_baroque.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/man_s_orchestra.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/men_s_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/modern_string_quartet.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/neo_classical.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nordic_orchestra.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/norwegian_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/opera.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/opera_chorus.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/orchestra.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/orchestral_performance.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/pops_orchestra.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/russian_orchestra.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/swedish_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/russian_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/south_african_choral.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/sda_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/swiss_classical_piano.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/swiss_contemporary_classical.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/ukrainian_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/ukrainian_contemporary_classical.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/university_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/welsh_choir.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/swedish_contemporary_classical.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/taiwan_classical_performance.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/turkish_classical_performance.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/ukrainian_classical.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/ukrainian_classical_piano.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/vintage_classical_singing.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/youth_orchestra.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/afrikaans_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/ainu_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/albanian_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/alberta_country.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/alternative_country.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/alternative_americana.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/appenzeller_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/synthetic_classical.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/arab_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/austin_americana.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/austin_singer_songwriter.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/algerian_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/bahamian_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/alternative_metalcore.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/classical_saxophone_quartet.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/kosovan_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/swiss_country.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/swiss_folk.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/afrikaans_gospel.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/australian_blues.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/argentine_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/australian_reggae_fusion.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/australian_ska.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/brazilian_ska.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/chinese_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/czsk_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/grim_death_metal.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/dub_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/east_coast_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/euskal_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/experimental_dub.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/finnish_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/french_dub.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/french_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/german_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/german_ska.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/indonesian_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/indonesian_ska.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/italian_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/italian_ska.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/dancehall_chileno.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/dancehall_colombiano.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/dancehall_guyanaise.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/dub_product.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/dancehall_mauricien.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/j_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/japanese_dub.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/grisly_death_metal.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/nz_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_catala.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_peruano.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_tuga.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_uruguayo.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/russian_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/latin_ska.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/modern_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/polish_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_cristao.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_do_maranhao.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_gaucho.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/anthem_emo.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/minimal_dub.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/pinoy_reggae.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_boliviano.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_cover.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_en_espanol.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_maghreb.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggae_tico.json</loc></url>
+  <url><loc>https://codexmusica.com/api/traditions/reggaeton_cristiano.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/choir_ensemble.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/griot_voice.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/pansori_voice.json</loc></url>
@@ -6114,4 +6214,5 @@
   <url><loc>https://codexmusica.com/api/instruments/bigwala_trumpets.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/madi_odi.json</loc></url>
   <url><loc>https://codexmusica.com/api/instruments/ayyala_percussion.json</loc></url>
+  <url><loc>https://codexmusica.com/api/instruments/saxophone_quartet_soprano_alto_tenor_baritone.json</loc></url>
 </urlset>

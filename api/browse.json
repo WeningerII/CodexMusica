@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 4638,
+  "count": 4738,
   "items": [
     {
       "id": "honky_tonk",
@@ -171359,6 +171359,3179 @@
       "description": "Merton College’s own release page includes this Pärt work in The Merton Collection; the Arvo Pärt Centre explicitly scores it for a cappella mixed choir. The college describes its choir as thirty students. Exact production, hardware, tuning baseline, technique settings and axes are authored modern choices.",
       "exemplars": [
         "Choir of Merton College Oxford — Pärt: The Woman with the Alabaster Box, The Merton Collection"
+      ]
+    },
+    {
+      "id": "japanese_orchestra",
+      "name": "Japanese orchestra",
+      "family": "classical",
+      "lineage": "Japanese orchestra is represented by Tokyo Philharmonic Orchestra / Tadaaki Otaka — Elgar: Serenade for Strings (September 2024). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "double_bass"
+      ],
+      "description": "The orchestra’s official program documents the Elgar string serenade in Tokyo under Otaka. Henle’s published performing material confirms the complete string-only role palette. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Tokyo Philharmonic Orchestra / Tadaaki Otaka — Elgar: Serenade for Strings (September 2024)"
+      ]
+    },
+    {
+      "id": "latin_american_baroque",
+      "name": "Latin american baroque",
+      "family": "classical",
+      "lineage": "Latin american baroque is represented by Cristina García Banegas — The Hispanic Tradition in the New World, selected organ repertoire (2023). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "pipe_organ"
+      ],
+      "description": "The Madeira Organ Festival’s program credits Banegas alone on organ for Hispano-American baroque keyboard repertoire, including a three-part organ tiento from the Guatemala cathedral archive and Peruvian manuscripts. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Cristina García Banegas — The Hispanic Tradition in the New World, selected organ repertoire (2023)"
+      ]
+    },
+    {
+      "id": "man_s_orchestra",
+      "name": "Man's orchestra",
+      "family": "jazz",
+      "lineage": "Man's orchestra is represented by Bob Haggart and Ray Bauduc — The Big Noise from Winnetka, original Bob Crosby band feature (1938). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "improvOnFrame.americanJazz.early",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        2,
+        1
+      ],
+      "instruments": [
+        "double_bass",
+        "drum_kit",
+        "whistled_voice"
+      ],
+      "description": "The exact creator playlist includes this Haggart/Bauduc performance under Bob Crosby & His Orchestra. Blue Note identifies the bass-and-drums duet, Smithsonian identifies the original 1938 record, and Winnetka Historical Society documents Haggart’s whistling and the Chicago performance practice. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Bob Haggart and Ray Bauduc — The Big Noise from Winnetka, original Bob Crosby band feature (1938)"
+      ]
+    },
+    {
+      "id": "men_s_choir",
+      "name": "Men's choir",
+      "family": "classical",
+      "lineage": "Men's choir is represented by Treorchy Male Choir / Tom Jones — early Qualiton recordings (1956–1957). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble",
+        "grand_piano"
+      ],
+      "description": "The choir’s own recording history documents its male chorus, piano accompaniment by Tom Jones and the first Qualiton session at Bethlehem Chapel in Treorchy. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Treorchy Male Choir / Tom Jones — early Qualiton recordings (1956–1957)"
+      ]
+    },
+    {
+      "id": "modern_string_quartet",
+      "name": "Modern string quartet",
+      "family": "classical",
+      "lineage": "Modern string quartet is represented by Kronos Quartet — Kronos Quartet Performs Philip Glass (1995). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "string_quartet_inst"
+      ],
+      "description": "Nonesuch credits David Harrington and John Sherba on violin, Hank Dutt on viola and Joan Jeanrenaud on cello for Glass quartets 2–5, recorded at Skywalker Sound in Marin County. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Kronos Quartet — Kronos Quartet Performs Philip Glass (1995)"
+      ]
+    },
+    {
+      "id": "neo_classical",
+      "name": "Neo-classical",
+      "family": "classical",
+      "lineage": "Neo-classical is represented by Simeon Walker — Gleam, from Imprints (2021). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "upright_piano"
+      ],
+      "description": "Walker’s own release describes solo piano miniatures and credits him alone as composer, performer and recordist. Both his tags and the exact creator playlist identify neo-classical membership; an upright piano is the authored instrument choice for this branch. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Simeon Walker — Gleam, from Imprints (2021)"
+      ]
+    },
+    {
+      "id": "nordic_orchestra",
+      "name": "Nordic orchestra",
+      "family": "classical",
+      "lineage": "Nordic orchestra is represented by Norwegian Chamber Orchestra / Terje Tønnesen — Grieg: Holberg Suite, BIS-147. One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "double_bass"
+      ],
+      "description": "BIS credits the Norwegian Chamber Orchestra and Tønnesen for Grieg’s string-orchestra Holberg Suite. The orchestra’s own anniversary history documents its Oslo formation and this recorded Grieg practice. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Norwegian Chamber Orchestra / Terje Tønnesen — Grieg: Holberg Suite, BIS-147"
+      ]
+    },
+    {
+      "id": "norwegian_choir",
+      "name": "Norwegian choir",
+      "family": "classical",
+      "lineage": "Norwegian choir is represented by The Norwegian Soloists’ Choir / Grete Pedersen — Messiaen: Cinq rechants, from Refractions. One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble"
+      ],
+      "description": "BIS explicitly identifies Cinq rechants as a cappella music for twelve mixed voices sung by The Norwegian Soloists’ Choir. The choir’s own annual report documents its Oslo base. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "The Norwegian Soloists’ Choir / Grete Pedersen — Messiaen: Cinq rechants, from Refractions"
+      ]
+    },
+    {
+      "id": "opera",
+      "name": "Opera",
+      "family": "classical",
+      "lineage": "Opera is represented by UCM principal cast and pianist — Menotti: The Telephone (24 March 2021). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "The University of Central Missouri performance program credits the principal soprano role Lucy, baritone role Ben and piano for a live-recorded presentation of Menotti’s one-act opera. This model selects that two-singer principal-cast and piano core. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "UCM principal cast and pianist — Menotti: The Telephone (24 March 2021)"
+      ]
+    },
+    {
+      "id": "opera_chorus",
+      "name": "Opera chorus",
+      "family": "classical",
+      "lineage": "Opera chorus is represented by Opera Australia Chorus / Kate Johnson / Michael Curtain — Chorus! (2023). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Opera Australia and the Sydney Opera House credit 48 choristers and pianists Kate Johnson and Michael Curtain for Chorus!, a program of opera choruses in the Joan Sutherland Theatre. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Opera Australia Chorus / Kate Johnson / Michael Curtain — Chorus! (2023)"
+      ]
+    },
+    {
+      "id": "orchestra",
+      "name": "Orchestra",
+      "family": "classical",
+      "lineage": "Orchestra is represented by Gothenburg Symphony Orchestra / Neeme Järvi — Grieg: Holberg Suite. One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "double_bass"
+      ],
+      "description": "Deutsche Grammophon credits Gothenburg Symphony Orchestra and Järvi on the Holberg Suite. The exact creator playlist uses this performance; Henle confirms its string-orchestra scoring. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Gothenburg Symphony Orchestra / Neeme Järvi — Grieg: Holberg Suite"
+      ]
+    },
+    {
+      "id": "orchestral_performance",
+      "name": "Orchestral performance",
+      "family": "classical",
+      "lineage": "Orchestral performance is represented by Vienna Chamber Orchestra / Philippe Entremont — Tchaikovsky: Serenade for Strings, 8.550404. One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "double_bass"
+      ],
+      "description": "Naxos credits Vienna Chamber Orchestra with Entremont as conductor on this string-serenade recording in Vienna. Henle’s published parts establish its four instrument families. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Vienna Chamber Orchestra / Philippe Entremont — Tchaikovsky: Serenade for Strings, 8.550404"
+      ]
+    },
+    {
+      "id": "pops_orchestra",
+      "name": "Pops orchestra",
+      "family": "classical",
+      "lineage": "Pops orchestra is represented by Boston Pops Orchestra / Harry Ellis Dickson — Strauss brothers: Pizzicato-Polka, 28 May 1995. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "double_bass"
+      ],
+      "description": "Boston Symphony’s archive documents the Boston Pops playing Pizzicato-Polka on 28 May 1995. The original-work publisher lists first and second violins, viola, cello and double bass. Exact production, hardware, tuning baseline, technique settings and axes are authored modern choices.",
+      "exemplars": [
+        "Boston Pops Orchestra / Harry Ellis Dickson — Strauss brothers: Pizzicato-Polka, 28 May 1995"
+      ]
+    },
+    {
+      "id": "russian_orchestra",
+      "name": "Russian orchestra",
+      "family": "classical",
+      "lineage": "Russian orchestra is represented by The Seasons Moscow Chamber Orchestra — Tchaikovsky: Serenade for strings, Op. 48. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "double_bass"
+      ],
+      "description": "The Seasons orchestra’s own discography lists its Tchaikovsky Serenade recording. Breitkopf’s original-work edition supplies first and second violins, viola, cello and double bass. Exact production, hardware, tuning baseline, technique settings and axes are authored modern choices.",
+      "exemplars": [
+        "The Seasons Moscow Chamber Orchestra — Tchaikovsky: Serenade for strings, Op. 48"
+      ]
+    },
+    {
+      "id": "swedish_choir",
+      "name": "Swedish choir",
+      "family": "classical",
+      "lineage": "Swedish choir is represented by S:t Jacobs Chamber Choir / Gary Graden — Sandström: Laudamus te, Sonority. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The choir’s official Sonority page explicitly describes Swedish a cappella choral music, credits Gary Graden, and locates Laudamus te at S:t Jacobs Church in October 1996. Exact production, hardware, tuning baseline, technique settings and axes are authored modern choices.",
+      "exemplars": [
+        "S:t Jacobs Chamber Choir / Gary Graden — Sandström: Laudamus te, Sonority"
+      ]
+    },
+    {
+      "id": "russian_choir",
+      "name": "Russian choir",
+      "family": "classical",
+      "lineage": "Russian choir is represented by State Academic Russian Choir / Alexander Sveshnikov — Rachmaninov: Priidite, poklonimsia, 1965. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel.russianOrthodox",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Melodiya’s official booklet documents Sveshnikov’s 1965 choir recording of the Vespers. Novello’s published first movement is explicitly unaccompanied SATB choir; the choir’s own site establishes its Russian ensemble identity and Moscow base. Exact production, hardware, tuning baseline, technique settings and axes are authored modern choices.",
+      "exemplars": [
+        "State Academic Russian Choir / Alexander Sveshnikov — Rachmaninov: Priidite, poklonimsia, 1965"
+      ]
+    },
+    {
+      "id": "south_african_choral",
+      "name": "South african choral",
+      "family": "vernacular",
+      "lineage": "South african choral is represented by SABC Choristers / Thulas Nkabinde — Jehova Thel’ Umoya, African Classics. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Gallo’s African Classics release explicitly describes SABC Choristers as a South African choral/a cappella group formed from SABC staff members and credits its director. SABC’s own event archive documents the group performing in Johannesburg. Exact production, hardware, tuning baseline, technique settings and axes are authored modern choices.",
+      "exemplars": [
+        "SABC Choristers / Thulas Nkabinde — Jehova Thel’ Umoya, African Classics"
+      ]
+    },
+    {
+      "id": "sda_choir",
+      "name": "SDA choir",
+      "family": "vernacular",
+      "lineage": "Sda choir is represented by Adventist Vocal Ensemble / Ken Burton — There Is a Balm in Gilead, a cappella version. A representative authored present-day studio arrangement for one documented branch. Sources establish the exemplar, musical roles, category and the stated geographical association. Exact hardware, construction, room, recording chain, technique defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, artist gear claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The Adventist Vocal Ensemble’s own page names an a cappella version of There Is a Balm in Gilead on Up Above My Head and describes an actual multi-singer broadcast choir. The Seventh-day Adventist British Union Conference explicitly identifies its broadcasts as Adventist music serving the church’s ministry. Exact production, hardware, tuning baseline, technique settings and axes are authored modern choices.",
+      "exemplars": [
+        "Adventist Vocal Ensemble / Ken Burton — There Is a Balm in Gilead, a cappella version"
+      ]
+    },
+    {
+      "id": "swiss_classical_piano",
+      "name": "Swiss classical piano",
+      "family": "classical",
+      "lineage": "Swiss classical piano is represented by Francesco Piemontesi — Schubert: Last Piano Sonatas. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Pentatone identifies the Swiss pianist’s solo Schubert sonata album; his biography establishes Locarno and Classical/Romantic performance practice. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Francesco Piemontesi — Schubert: Last Piano Sonatas"
+      ]
+    },
+    {
+      "id": "swiss_contemporary_classical",
+      "name": "Swiss contemporary classical",
+      "family": "classical",
+      "lineage": "Swiss contemporary classical is represented by Thomas Larcher — Holliger: Elis, three night pieces for piano. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "ECM documents the Swiss composer Heinz Holliger, pianist Thomas Larcher, the Elis piano work and the Zurich session. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Thomas Larcher — Holliger: Elis, three night pieces for piano"
+      ]
+    },
+    {
+      "id": "ukrainian_choir",
+      "name": "Ukrainian choir",
+      "family": "classical",
+      "lineage": "Ukrainian choir is represented by Kyiv Chamber Choir — Silvestrov: Sacred Songs. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble"
+      ],
+      "description": "ECM identifies Ukraine’s Kyiv Chamber Choir and its a cappella Silvestrov recording in Kyiv. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Kyiv Chamber Choir — Silvestrov: Sacred Songs"
+      ]
+    },
+    {
+      "id": "ukrainian_contemporary_classical",
+      "name": "Ukrainian contemporary classical",
+      "family": "classical",
+      "lineage": "Ukrainian contemporary classical is represented by Valentin Silvestrov — Bagatellen (solo piano portion). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "ECM identifies the Ukrainian composer playing his own contemporary piano pieces alone in the first part of this Munich recording. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Valentin Silvestrov — Bagatellen (solo piano portion)"
+      ]
+    },
+    {
+      "id": "university_choir",
+      "name": "University choir",
+      "family": "classical",
+      "lineage": "University choir is represented by Southeast Missouri State University Choir — unaccompanied repertoire. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble"
+      ],
+      "description": "SEMO identifies its auditioned University Choir, university singers and an explicit unaccompanied repertoire branch at Cape Girardeau. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Southeast Missouri State University Choir — unaccompanied repertoire"
+      ]
+    },
+    {
+      "id": "welsh_choir",
+      "name": "Welsh choir",
+      "family": "classical",
+      "lineage": "Welsh choir is represented by Liverpool Welsh Choral Union — unaccompanied SATB repertoire. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble"
+      ],
+      "description": "The ensemble identifies its Welsh heritage, Liverpool practice, mixed SATB membership and unaccompanied repertoire branch. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Liverpool Welsh Choral Union — unaccompanied SATB repertoire"
+      ]
+    },
+    {
+      "id": "swedish_contemporary_classical",
+      "name": "Swedish contemporary classical",
+      "family": "classical",
+      "lineage": "Swedish contemporary classical is represented by Amy Yang — Hillborg: Corrente della Primavera. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "The Phillips Collection presents Swedish composer Anders Hillborg and explicitly programs Corrente della Primavera for solo piano with Amy Yang. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Amy Yang — Hillborg: Corrente della Primavera"
+      ]
+    },
+    {
+      "id": "taiwan_classical_performance",
+      "name": "Taiwan classical performance",
+      "family": "classical",
+      "lineage": "Taiwan classical performance is represented by Charlotte Hu — Liszt: Metamorphosis. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Pentatone identifies Taiwanese-American pianist Charlotte Hu and the solo piano repertoire of Liszt: Metamorphosis; the competition federation identifies her Taipei roots and performances. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Charlotte Hu — Liszt: Metamorphosis"
+      ]
+    },
+    {
+      "id": "turkish_classical_performance",
+      "name": "Turkish classical performance",
+      "family": "classical",
+      "lineage": "Turkish classical performance is represented by Fazıl Say — Bach: Goldberg Variations. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Warner Classics documents Fazıl Say’s Turkish classical piano practice and his Bach Goldberg Variations release. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Fazıl Say — Bach: Goldberg Variations"
+      ]
+    },
+    {
+      "id": "ukrainian_classical",
+      "name": "Ukrainian classical",
+      "family": "classical",
+      "lineage": "Ukrainian classical is represented by Solomiya Ivakhiv / Steven Beck — Kosenko: Violin Sonata in A minor, Op. 18. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "grand_piano"
+      ],
+      "description": "Naxos classifies these Ukrainian composers’ violin sonatas as chamber music and credits Ivakhiv on violin and Beck on piano; the selected Kosenko work was recorded at Oktaven Audio. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Solomiya Ivakhiv / Steven Beck — Kosenko: Violin Sonata in A minor, Op. 18"
+      ]
+    },
+    {
+      "id": "ukrainian_classical_piano",
+      "name": "Ukrainian classical piano",
+      "family": "classical",
+      "lineage": "Ukrainian classical piano is represented by Vadym Kholodenko — Scriabin: Preludes, Studies and Sonatas 4 and 5. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Harmonia Mundi identifies the Kyiv-born Ukrainian pianist’s Scriabin solo disc and his documented London solo-recital practice. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Vadym Kholodenko — Scriabin: Preludes, Studies and Sonatas 4 and 5"
+      ]
+    },
+    {
+      "id": "vintage_classical_singing",
+      "name": "Vintage classical singing",
+      "family": "classical",
+      "lineage": "Vintage classical singing is represented by Elisabeth Schumann / Gerald Moore — Schubert: Der Musensohn, D. 764. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Naxos Historical’s 1927–1945 Schubert collection credits one soprano and pianist on Der Musensohn. A separate label history documents Schumann’s interwar Vienna practice. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Elisabeth Schumann / Gerald Moore — Schubert: Der Musensohn, D. 764"
+      ]
+    },
+    {
+      "id": "youth_orchestra",
+      "name": "Youth orchestra",
+      "family": "classical",
+      "lineage": "Youth orchestra is represented by Fort Worth Youth Orchestra — String Orchestra. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "double_bass"
+      ],
+      "description": "FWYO positively identifies its youth String Orchestra as string-only and lists violin, viola, cello and bass positions and Fort Worth rehearsal locality. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Fort Worth Youth Orchestra — String Orchestra"
+      ]
+    },
+    {
+      "id": "afrikaans_folk",
+      "name": "Afrikaans folk",
+      "family": "vernacular",
+      "lineage": "Afrikaans folk is represented by Reets — Spieël. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The artist’s own release identifies Afrikaans folk and credits Reets alone with voice and guitar, with Cape Town as her base. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Reets — Spieël"
+      ]
+    },
+    {
+      "id": "ainu_folk",
+      "name": "Ainu folk",
+      "family": "vernacular",
+      "lineage": "Ainu folk is represented by OKI — Kyoto tonkori and voice solo programme, 8 December 2022. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "droneModal.string",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "tonkori"
+      ],
+      "description": "Chikar Studio documents OKI’s Ainu folk-melody practice and the Kyoto solo programme with tonkori and voice; the event note explicitly limits Kyoto personnel to OKI. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "OKI — Kyoto tonkori and voice solo programme, 8 December 2022"
+      ]
+    },
+    {
+      "id": "albanian_folk",
+      "name": "Albanian folk",
+      "family": "vernacular",
+      "lineage": "Albanian folk is represented by Southern Albanian iso-polyphonic festival singing — two solo parts with sung drone. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "droneModal.vocal",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "UNESCO’s primary heritage account explicitly identifies Albanian folk iso-polyphony with melody, countermelody and choral drone and a Gjirokastra festival practice. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Southern Albanian iso-polyphonic festival singing — two solo parts with sung drone"
+      ]
+    },
+    {
+      "id": "alberta_country",
+      "name": "Alberta country",
+      "family": "country",
+      "lineage": "Alberta country is represented by Corb Lund — Dark Horses. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "functionalSong.country",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Corb Lund’s label release presents solo acoustic country performances credited only to his vocals and acoustic guitar, recorded in Lethbridge, Alberta. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Corb Lund — Dark Horses"
+      ]
+    },
+    {
+      "id": "alternative_country",
+      "name": "Alternative country",
+      "family": "country",
+      "lineage": "Alternative country is represented by Pete Kavanagh — Mercy (Join up the Dots, track 3). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The artist explicitly calls the release alternative country and assigns Mercy’s vocals/acoustic guitar to Pete, bass to William McCormack, drums to Graham Hopkins, and lead guitar/backing voice to Hally. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Pete Kavanagh — Mercy (Join up the Dots, track 3)"
+      ]
+    },
+    {
+      "id": "alternative_americana",
+      "name": "Alternative americana",
+      "family": "country",
+      "lineage": "Alternative americana is represented by Pete Kavanagh — To Hold the Red Rose (Join up the Dots, track 1). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "grand_piano",
+        "mandola",
+        "tonewheel_organ"
+      ],
+      "description": "The artist explicitly tags alt-Americana and credits the selected track to Pete’s voice/acoustic guitar/bass, Pam’s backing voice, and Lenny Cahill’s piano, mandola and Hammond organ. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Pete Kavanagh — To Hold the Red Rose (Join up the Dots, track 1)"
+      ]
+    },
+    {
+      "id": "appenzeller_folk",
+      "name": "Appenzeller folk",
+      "family": "vernacular",
+      "lineage": "Appenzeller folk is represented by Nicolas Senn — traditional Appenzeller melodies in solo hackbrett programme. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "droneModal.string",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "hammered_dulcimer"
+      ],
+      "description": "Senn’s own programme explicitly includes traditional Appenzeller melodies played on solo hackbrett; his professional contact base is Bühler/Gais in Appenzell Ausserrhoden. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Nicolas Senn — traditional Appenzeller melodies in solo hackbrett programme"
+      ]
+    },
+    {
+      "id": "synthetic_classical",
+      "name": "Synthetic classical",
+      "family": "classical",
+      "lineage": "Synthetic classical is represented by Wendy Carlos — Bach: Brandenburg Concerto No. 3 (synthesizer realization). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        2,
+        0,
+        -2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "modular_synth"
+      ],
+      "description": "Carlos’s primary release notes directly describe classical repertoire realized through synthesizer and tape; her studio archive documents the New York modular-Moog practice. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Wendy Carlos — Bach: Brandenburg Concerto No. 3 (synthesizer realization)"
+      ]
+    },
+    {
+      "id": "arab_folk",
+      "name": "Arab folk",
+      "family": "vernacular",
+      "lineage": "Arab folk is represented by Martin Gilmore / Eslam Elabaty — Bahariya (East–West). One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "droneModal.string",
+      "axes": [
+        0,
+        1,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "oud"
+      ],
+      "description": "The artist describes East–West as a meeting of Arabic and American folk practices, explicitly identifies Bahariya as an instrumental, and credits guitar and oud recorded together in Cairo. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Martin Gilmore / Eslam Elabaty — Bahariya (East–West)"
+      ]
+    },
+    {
+      "id": "austin_americana",
+      "name": "Austin americana",
+      "family": "country",
+      "lineage": "Austin americana is represented by JM Stevens — 2024 solo touring repertoire. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "harmonica"
+      ],
+      "description": "Stevens’s own account documents his Austin base and solo touring with acoustic guitars and harmonicas; his release page explicitly identifies him as an Austin Americana artist. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "JM Stevens — 2024 solo touring repertoire"
+      ]
+    },
+    {
+      "id": "austin_singer_songwriter",
+      "name": "Austin singer-songwriter",
+      "family": "vernacular",
+      "lineage": "Austin singer-songwriter is represented by Danny Schmidt / Carrie Elkin — Owls: Acoustic Demos. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Schmidt’s artist-controlled demo release identifies the Austin singer-songwriter and credits his guitar/voice with Carrie Elkin’s harmony vocals. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Danny Schmidt / Carrie Elkin — Owls: Acoustic Demos"
+      ]
+    },
+    {
+      "id": "algerian_folk",
+      "name": "Algerian folk",
+      "family": "vernacular",
+      "lineage": "Algerian folk is represented by Souad Massi / Malik Kerrouche — Raoui, Néo Géo Nova at Palais de la Porte Dorée. One documented branch receives an authored present-day studio realization. Sources establish category, roles and locality. Exact construction, technique pins, tuning baseline, room, microphone, processing chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "balladPoetry",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The recording broadcaster documents Souad Massi’s Algerian folk practice and her mini-concert at the Palais de la Porte Dorée, with Raoui accompanied by guitarist Malik Kerrouche. Exact studio and performance settings are authored modern choices.",
+      "exemplars": [
+        "Souad Massi / Malik Kerrouche — Raoui, Néo Géo Nova at Palais de la Porte Dorée"
+      ]
+    },
+    {
+      "id": "bahamian_folk",
+      "name": "Bahamian folk",
+      "family": "vernacular",
+      "lineage": "Bahamian folk is represented by Joseph Spence — Bahaman Folk Guitar: Music of the Bahamas, Vol. 1 (1958 recordings). Representative authored present-day recording arrangement for one documented branch. Sources establish musical roles, category relationship and locality. Exact guitar body and materials, room, microphone and other signal-chain stages, twelve-tone equal-tempered baseline, technique settings and numeric axes are authored model choices, not a reconstruction of the 1958 session or universal Bahamian characteristics.",
+      "parent": "functionalSong.tropicalSong",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        1,
+        -1,
+        -1,
+        0,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "A guitar-centered Bahamian folk branch drawn from Spence’s 1958 performances. The label credits acoustic guitar and lead vocals; its primary account locates these sessions at Fresh Creek on Andros and describes his occasional sung phrases. Modern recording settings, guitar construction, technique pins, twelve-tone equal-tempered baseline and axes are authored choices.",
+      "exemplars": [
+        "Joseph Spence — Bahaman Folk Guitar: Music of the Bahamas, Vol. 1 (1958 recordings)"
+      ]
+    },
+    {
+      "id": "alternative_metalcore",
+      "name": "Alternative metalcore",
+      "family": "rock_punk",
+      "lineage": "The Every Noise discovery category is represented by its directly listed Columbus band Zonezero and their artist-credited Strychnine Dream EP. The artist calls its branch nu-metal; the allocation label is not imposed as a self-description or a claim about every modern use of metalcore.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "This fixed discovery-category branch uses Zonezero’s Strychnine Dream EP: Jordan Sloan vocals, John Vadala and Rob Patton guitars, Knox Fields bass and K2 drums. The artist identifies Columbus and describes the music as nu-metal. Two guitarists share one distorted-electric timbre card; one named singer remains one vocal role. Exact pickup family, tuning, technique defaults, gear, room, chain and numeric axes are authored present-day recording choices, not measured facts about the2019 sessions.",
+      "exemplars": [
+        "Zonezero — Strychnine Dream EP (recorded2019,released2020)"
+      ]
+    },
+    {
+      "id": "classical_saxophone_quartet",
+      "name": "Classical saxophone quartet",
+      "family": "classical",
+      "lineage": "SIGNUM’s documented soprano, alto, tenor and baritone quartet core represents a classical saxophone-ensemble branch, realized here with authored present-day recording defaults.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "saxophone_quartet_soprano_alto_tenor_baritone"
+      ],
+      "description": "The classical saxophone-quartet branch is represented by SIGNUM’s explicitly documented soprano, alto, tenor and baritone core. The group’s agency describes its original quartet compositions and arrangements; Musica Viva documents its Cologne founding and the same four simultaneous saxophone ranges. A dedicated aggregate card retains all four ranges. Exact equipment, materials, room, signal chain, tuning, articulation and numeric axes are authored model choices, not a historical session reconstruction.",
+      "exemplars": [
+        "SIGNUM saxophone quartet — documented SATB classical quartet core (agency roster, October2025)"
+      ]
+    },
+    {
+      "id": "kosovan_folk",
+      "name": "Kosovan folk",
+      "family": "vernacular",
+      "lineage": "Kosovan folk: Shaqir Hoti — instrumental kaval core of Zakon burri e ka pasë on KOSOVEIRA (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "kaval"
+      ],
+      "description": "Creator identifies an instrumental traditional Albanian folk-song treatment featuring Hoti on kaval, within a Kosovo collaboration. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Shaqir Hoti — instrumental kaval core of Zakon burri e ka pasë on KOSOVEIRA (2016)"
+      ]
+    },
+    {
+      "id": "swiss_country",
+      "name": "Swiss country",
+      "family": "vernacular",
+      "lineage": "Swiss country is represented by Florian Fox — Live at Country Night Gstaad (2024). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "functionalSong.country.neoTrad",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "double_bass",
+        "drum_kit",
+        "electric_guitar_humbucker",
+        "fiddle"
+      ],
+      "description": "Fox’s credited live quintet supplies three singers, acoustic and electric guitars, upright bass, drums and fiddle. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Florian Fox — Live at Country Night Gstaad (2024)"
+      ]
+    },
+    {
+      "id": "swiss_folk",
+      "name": "Swiss folk",
+      "family": "vernacular",
+      "lineage": "Swiss folk is represented by Christoph Pfändler — Stimmig (2024). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "droneModal.string",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "hammered_dulcimer"
+      ],
+      "description": "A contemporary Swiss folk branch centered on the artist’s solo hackbrett programme. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Christoph Pfändler — Stimmig (2024)"
+      ]
+    },
+    {
+      "id": "afrikaans_gospel",
+      "name": "Afrikaans gospel",
+      "family": "vernacular",
+      "lineage": "Afrikaans gospel is represented by Piet Smit — one-voice, one-guitar devotional song branch. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Smit’s artist-described intimate devotional branch uses one singing voice and guitar. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Piet Smit — one-voice, one-guitar devotional song branch"
+      ]
+    },
+    {
+      "id": "australian_blues",
+      "name": "Australian blues",
+      "family": "vernacular",
+      "lineage": "Australian blues is represented by Fiona Boyes — At the Crossroads / Love Changing Blues (Professin’ the Blues). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "functionalSong.bluesAcoustic",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        -1,
+        0,
+        0,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The release’s separately credited solo Maton-guitar tracks provide an acoustic Australian blues branch. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Fiona Boyes — At the Crossroads / Love Changing Blues (Professin’ the Blues)"
+      ]
+    },
+    {
+      "id": "argentine_reggae",
+      "name": "Argentine reggae",
+      "family": "global",
+      "lineage": "Argentine reggae is represented by La Mirada — Darse Cuenta Hoy, core band branch excluding the featured guest and dub tracks. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "saxophone",
+        "trumpet",
+        "drum_kit"
+      ],
+      "description": "Artist release credits Strickler on voice and backing voice, Risari on bass, Urquilla on keyboards, Alcaraz and Szewaga on guitars, Manzano on sax, Bolognesi on trumpet and Calderone on drums. Reggae and roots-reggae tags and Rosario artist locality are explicit. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "La Mirada — Darse Cuenta Hoy, core band branch excluding the featured guest and dub tracks"
+      ]
+    },
+    {
+      "id": "australian_reggae_fusion",
+      "name": "Australian reggae fusion",
+      "family": "global",
+      "lineage": "Australian reggae fusion is represented by Guthrie Trio — Fresh Ground, regular band branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "saxophone",
+        "drum_kit"
+      ],
+      "description": "The artist calls the act West Australian reggae, roots and rock and locates Guthrie in Rockingham. Credits identify Darren Guthrie on guitar and lead voice, Max Carter on drums and backing voice, Spyro Vasilakis on bass and backing voice, and Caroline Henning on keyboard and saxophone. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Guthrie Trio — Fresh Ground, regular band branch"
+      ]
+    },
+    {
+      "id": "australian_ska",
+      "name": "Australian ska",
+      "family": "global",
+      "lineage": "Australian ska is represented by The Funaddicts — What’s the Rush?, regular band branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "saxophone",
+        "trumpet",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Artist self-description identifies a Brisbane second-wave Australian ska band. Album credits name Chris McKenzie and Neil Roche-Kelly as singers, two guitarists, bass guitarist Andy Blyth, drummer Govinda Gutwein, trumpeters, tenor saxophonists and trombonist Wayne Pryde. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "The Funaddicts — What’s the Rush?, regular band branch"
+      ]
+    },
+    {
+      "id": "brazilian_ska",
+      "name": "Brazilian ska",
+      "family": "global",
+      "lineage": "Brazilian ska is represented by Buena Onda Reggae Club — Moonlight. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "saxophone",
+        "trumpet",
+        "trombone",
+        "flute",
+        "drum_kit"
+      ],
+      "description": "The São Paulo artist identifies itself as an instrumental Brazilian band mixing reggae and ska. The track credits Kiko Bonato on keys, Dudu Marmo on bass, Felipe Guedes on drums, Marcos Bro Mossi on guitar, Rodrigo Ribeiro on trumpet, Victor Fão on trombone and Cauê Vieira on sax and flute. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Buena Onda Reggae Club — Moonlight"
+      ]
+    },
+    {
+      "id": "chinese_reggae",
+      "name": "Chinese reggae",
+      "family": "global",
+      "lineage": "Chinese reggae is represented by Puman — Sea of Wood Records documented regular band. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "The label’s artist listing explicitly identifies Puman with Yunnan and Chinese reggae and documents a Kunming festival performance. Its roster credits Dai Yetong guitar, Zeng Xinyuan keyboard, Tan Gaosheng vocals/guitar, Su Chengrui drums, Xu Zilong winds and Ajie bass. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Puman — Sea of Wood Records documented regular band"
+      ]
+    },
+    {
+      "id": "czsk_reggae",
+      "name": "Czsk reggae",
+      "family": "global",
+      "lineage": "Czsk reggae is represented by Cocoman & Solid Vibes — Vibrace feat. DrKary. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "sampler_classic",
+        "saxophone",
+        "trumpet",
+        "drum_kit"
+      ],
+      "description": "The artist identifies Cocoman with Czech reggae and Prague. Track credits name Adam Lanči on voice, keys, loops and samples; DrKary on vocals; Martin Kopřiva on drums; Petr Eichler Jr. on electric guitar; Marek Eichler on bass; Martin Červinka on keys; two additional backing singers; Dalibor Hála on tenor sax and Dave Trumpeteer on trumpet. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Cocoman & Solid Vibes — Vibrace feat. DrKary"
+      ]
+    },
+    {
+      "id": "grim_death_metal",
+      "name": "Grim death metal",
+      "family": "rock_punk",
+      "lineage": "Grim death metal is an attributed Every Noise discovery category represented by Morta Skuld — Peaceville-documented death-metal quartet. Sources establish the selected artist, creator-map membership, musical roles and stated practice locality. Exact pickup family, construction, technique defaults, tuning, room, signal chain and numeric axes are authored present-day choices, not original equipment or measured performance facts. A shared guitar card represents the two guitarists’ common timbre role.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The creator-listed band’s own label documents a Milwaukee death-metal quartet with David Gregor on voice/guitar, a second guitarist, bass and drums. The two historical lineup blocks disagree on bassist identity but agree on all musical roles and only Gregor’s vocal role; this model makes no exact bassist or current-lineup claim. Modern rig and axes are authored. Sources establish the selected artist, creator-map membership, musical roles and stated practice locality. Exact pickup family, construction, technique defaults, tuning, room, signal chain and numeric axes are authored present-day choices, not original equipment or measured performance facts. A shared guitar card represents the two guitarists’ common timbre role.",
+      "exemplars": [
+        "Morta Skuld — Peaceville-documented death-metal quartet"
+      ]
+    },
+    {
+      "id": "dub_reggae",
+      "name": "Dub reggae",
+      "family": "global",
+      "lineage": "Dub reggae is represented by Chalart58 — Rise and Shine (dub version), Sr. Wilson & Alex Bass release. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.dubDescendants",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Barcelona label identifies Chalart58’s dub version and separately credits Indra Vila drums, Richi Tejada bass, Wily Fuego guitar, Pau Dangla and Irie Souljah keyboards, and Josep Blanes trombone. Dub and roots-reggae classification is explicit. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Chalart58 — Rise and Shine (dub version), Sr. Wilson & Alex Bass release"
+      ]
+    },
+    {
+      "id": "east_coast_reggae",
+      "name": "East coast reggae",
+      "family": "global",
+      "lineage": "East coast reggae is represented by Cultivated Mind — East Coast Rising, from Tend the Garden. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "The artist is based in Newport News and explicitly associates the project with East Coast reggae. Anthony Brand is credited for drums, vocals, guitar, keys and bass. The track list identifies East Coast Rising without an additional featured player, while other guests are assigned to other named tracks. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Cultivated Mind — East Coast Rising, from Tend the Garden"
+      ]
+    },
+    {
+      "id": "euskal_reggae",
+      "name": "Euskal reggae",
+      "family": "global",
+      "lineage": "Euskal reggae is represented by Herrimin — Mendian Gora. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "grand_piano",
+        "tonewheel_organ",
+        "trumpet",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Artist statement explicitly links Basque Country and Jamaican musical culture. Donostia/San Sebastián locality and reggae tags are given. Credits name Iker Beñaranks voice, Asier Piña Del Alamo bass, Jan Bruzzo Cardenya drums, Albert Poll guitar, Sergio Caño piano/organ, Joana Casanova trumpet and Álvaro Vicente trombone. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Herrimin — Mendian Gora"
+      ]
+    },
+    {
+      "id": "experimental_dub",
+      "name": "Experimental dub",
+      "family": "electronic",
+      "lineage": "Experimental dub is represented by PostEx — Slow Tech Dub, original mix. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.dubDescendants",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "digital_subtractive",
+        "fm_synth",
+        "drum_machine_analog"
+      ],
+      "description": "The Stockholm artist identifies the project as experimental electronic dub. The release explicitly documents Reason recording with DRUMSYN, SYNR drumsynth, ES101 synth, AMALGAM FM/hybrid synth, ES400 FM synth and associated effects. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "PostEx — Slow Tech Dub, original mix"
+      ]
+    },
+    {
+      "id": "finnish_reggae",
+      "name": "Finnish reggae",
+      "family": "global",
+      "lineage": "Finnish reggae is represented by The Domingoes — Unity EP. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Artist identifies the ensemble as a Helsinki ska and early-reggae band. Credits specify Gringo Domingo guitar/backing voice, Acido Domingo keys/backing voice, Ringo Domingo drums, Indigo Domingo bass, Vikingo Domingo lead voice and Trombo Domingo trombone. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "The Domingoes — Unity EP"
+      ]
+    },
+    {
+      "id": "french_dub",
+      "name": "French dub",
+      "family": "global",
+      "lineage": "French dub is represented by Zentone — Messenger. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.dubDescendants",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "tonewheel_organ",
+        "electric_piano_tine",
+        "digital_subtractive",
+        "saxophone",
+        "flute",
+        "drum_kit"
+      ],
+      "description": "Artist identifies Zentone with the French dub scene through Zenzile from Angers and High Tone from Lyon. Messenger was recorded in Angers; credits give Jean Christophe Wauthier drums, Matthieu Bablee and Fabrice Oresta bass, Julien Oresta and Axel Raux guitars, Vincent Erdeven organ/Rhodes/synth, Erik Sevret sax/flute/synth and Joseph Parot lead voice/organ/guitar. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Zentone — Messenger"
+      ]
+    },
+    {
+      "id": "french_reggae",
+      "name": "French reggae",
+      "family": "global",
+      "lineage": "French reggae is represented by Nyah Burning — Guide Us. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "saxophone",
+        "trumpet",
+        "flugelhorn",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Artist is located in Gripport and names Jamaican 1970s reggae as a compositional influence. Guide Us credits Serial P. bass, Pena Fayadrums drums, Xavier Kubix Bègue guitar, Johan Blanchart keyboards, Nyah Burning lead singing, Manjul backing vocals, Guillaume Stepper Briard sax, Vin Gordon trombone and Cédric Kéké Thomas flugelhorn/trumpet. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Nyah Burning — Guide Us"
+      ]
+    },
+    {
+      "id": "german_reggae",
+      "name": "German reggae",
+      "family": "global",
+      "lineage": "German reggae is represented by Pensi meets Dub Me Ruff — Generation of Change. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Label describes the release as a tribute to Hamburg’s 1990s dub/reggae scene and documents Sound Navigator Studio Hamburg. The vocal mix credits Mattias Penselin voice, Danielle Yell Mommertz backing voice/mix, Markus Grapmayer guitar/bass, Rolf Saggau keys and Jan Röper drums. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Pensi meets Dub Me Ruff — Generation of Change"
+      ]
+    },
+    {
+      "id": "german_ska",
+      "name": "German ska",
+      "family": "global",
+      "lineage": "German ska is represented by Jazzbo — Hoy: Jazzbo. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "grand_piano",
+        "double_bass",
+        "saxophone",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Label identifies a six-musician unplugged Berlin ska-jazz ensemble. Credits assign Waki Johannsen trombone, Detwin Johannsen and Fabian Astor saxophones, Martin Bartels double bass, Robert Schwill drums and Daniel Dückers piano. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Jazzbo — Hoy: Jazzbo"
+      ]
+    },
+    {
+      "id": "indonesian_reggae",
+      "name": "Indonesian reggae",
+      "family": "global",
+      "lineage": "Indonesian reggae is represented by Rub of Rub — Ruang Waktu. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Artist calls the release the debut of a contemporary experimental dub band from Bandung, with reggae among its categories. Credits name Rizwan Sukarna voice/guitar, Akbar Nurhakim synthesizer/guitar, Zona Khautsar drums and Atma Derajat bass. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Rub of Rub — Ruang Waktu"
+      ]
+    },
+    {
+      "id": "indonesian_ska",
+      "name": "Indonesian ska",
+      "family": "global",
+      "lineage": "Indonesian ska is represented by Roadblock — Nekropolis. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Artist states that Roadblock is a ska-punk band from Palembang and identifies Sandi Pratama on vocal/guitar, Bagas Putra on drums and Supriyadi on bass. Release notes separately document recorded drums, bass, guitars and vocals. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Roadblock — Nekropolis"
+      ]
+    },
+    {
+      "id": "italian_reggae",
+      "name": "Italian reggae",
+      "family": "global",
+      "lineage": "Italian reggae is represented by The Appetizers — Listen Up!, early-reggae core-band tracks. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "grand_piano",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Artist describes a reggae collective based around Milan and specifically calls Walk the Long Way and Pressure early-reggae tracks. Album credits Claudio Mambrini vocals/backing vocals/drums, Luca Monza bass/vocals/backing vocals, Matteo Serenelli guitars and Nicola Gallo piano/keyboards. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "The Appetizers — Listen Up!, early-reggae core-band tracks"
+      ]
+    },
+    {
+      "id": "italian_ska",
+      "name": "Italian ska",
+      "family": "global",
+      "lineage": "Italian ska is represented by Shandon — Fetish 2000. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "trumpet",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Artist identifies Shandon as a Milan ska-punk band. The explicitly dated 2000 lineup credits Olly Riva voice/guitar, Marco Rossi guitar, Andrea Castelli bass, Matteo Noviello drums, Pedro trumpet and Max Finazzi trombone. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Shandon — Fetish 2000"
+      ]
+    },
+    {
+      "id": "dancehall_chileno",
+      "name": "Dancehall chileno",
+      "family": "electronic",
+      "lineage": "Dancehall chileno is represented by Ripio — No digas cosas que no son, original three-track set. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "digital_subtractive",
+        "sampler_classic",
+        "drum_machine_analog"
+      ],
+      "description": "The label identifies Ripio with Chile’s local scene and credits the original tracks to his Estudio Niebla production in Santiago. Its musical description explicitly links the electronic dembow arrangements to dancehall/reggaeton percussion and describes layered synthesizers, arpeggiators and chopped vocal samples. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Ripio — No digas cosas que no son, original three-track set"
+      ]
+    },
+    {
+      "id": "dancehall_colombiano",
+      "name": "Dancehall colombiano",
+      "family": "global",
+      "lineage": "Dancehall colombiano is represented by Da Five Pri — Marabunta. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "drum_machine_analog"
+      ],
+      "description": "The Cali artist identifies the release with dancehall fusion, reggae and hip-hop. Its recording credits name four vocalists, Sebastián Volverás on guitar, and Volverás with Juan David Burbano on synths/programming. The artist explicitly excludes the live bassist and drummer from this recording. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Da Five Pri — Marabunta"
+      ]
+    },
+    {
+      "id": "dancehall_guyanaise",
+      "name": "Dancehall guyanaise",
+      "family": "global",
+      "lineage": "Dancehall guyanaise is represented by Yann Cléry — Nèg Marron, RFI live session of 17 February 2018. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "flute",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The artist’s promotional sheet explicitly calls Nèg Marron a dancehall/ragga setting grounded in his native French Guiana and identifies him as based in Paris. RFI’s first-hand live-session report lists Nèg Marron among the performed tracks and credits Cléry voice/flute, Sonny Troupé drums, Karim Attoumane guitar and Boris Kulenovic bass. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Yann Cléry — Nèg Marron, RFI live session of 17 February 2018"
+      ]
+    },
+    {
+      "id": "dub_product",
+      "name": "Dub product",
+      "family": "global",
+      "lineage": "Dub product is represented by Skin, Flesh & Bones — Dub in Blood, original group tracks. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.dubDescendants",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "The label release credits Ranchie McLean bass, Sly Dunbar drums, Rad Bryan guitar, and Ansel Collins/Bobby Kalphat keyboards. The label’s product page identifies dub versions mixed at Channel One. The exact creator playlist The Sound of Dub Product visibly lists Skin, Flesh & Bones; it supplies artist membership only. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Skin, Flesh & Bones — Dub in Blood, original group tracks"
+      ]
+    },
+    {
+      "id": "dancehall_mauricien",
+      "name": "Dancehall mauricien",
+      "family": "global",
+      "lineage": "Dancehall mauricien is represented by Oeson — Kerveguen live-band programme, 2 September 2022. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "The page explicitly reproduces the City of Saint-Pierre’s communiqué. It identifies Oeson as a Mauritian reggae-dancehall singer on BeRecord and provides his separate lineup: Oeson J Saunders lead voice, Frédéric Amachalla drums, David Mansard bass, Laurent Robert guitar and Judickael Delblond keyboards. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Oeson — Kerveguen live-band programme, 2 September 2022"
+      ]
+    },
+    {
+      "id": "j_reggae",
+      "name": "J-reggae",
+      "family": "global",
+      "lineage": "J-reggae is represented by ASOUND — Studio Session (January 2026). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Sony documents ASOUND’s reggae-rooted practice and Tokyo/Kanagawa live activity; the creator’s exact j-reggae map includes ASOUND. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "ASOUND — Studio Session (January 2026)"
+      ]
+    },
+    {
+      "id": "japanese_dub",
+      "name": "Japanese dub",
+      "family": "global",
+      "lineage": "Japanese dub is represented by Fishmans — early-1990s band branch. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Universal’s biography identifies a reggae/dub/rocksteady foundation, the five-member roster and early Tokyo performances. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Fishmans — early-1990s band branch"
+      ]
+    },
+    {
+      "id": "grisly_death_metal",
+      "name": "Grisly death metal",
+      "family": "rock_punk",
+      "lineage": "Grisly death metal is an attributed Every Noise discovery category represented by Skeletal Remains — Fragments of the Ageless (2024), vocal band branch. Sources establish the selected artist, creator-map membership, musical roles and stated practice locality. Exact pickup family, construction, technique defaults, tuning, room, signal chain and numeric axes are authored present-day choices, not original equipment or measured performance facts. A shared guitar card represents the two guitarists’ common timbre role.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        0,
+        0,
+        -1,
+        1,
+        2,
+        -1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The creator-listed band’s own release biography credits Chris Monroy voice/guitar, Mike De La O guitar, Brian Rush bass and Pierce Williams drums. It documents distributed home/professional tracking and an intensified death-metal approach. The selected vocal band branch does not treat instrumentals or incidental production effects as additional singers or instrument sections. Sources establish the selected artist, creator-map membership, musical roles and stated practice locality. Exact pickup family, construction, technique defaults, tuning, room, signal chain and numeric axes are authored present-day choices, not original equipment or measured performance facts. A shared guitar card represents the two guitarists’ common timbre role.",
+      "exemplars": [
+        "Skeletal Remains — Fragments of the Ageless (2024), vocal band branch"
+      ]
+    },
+    {
+      "id": "nz_reggae",
+      "name": "NZ reggae",
+      "family": "global",
+      "lineage": "NZ reggae is represented by The Black Seeds — Love & Fire (2022). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "saxophone",
+        "trumpet"
+      ],
+      "description": "The band’s release identifies its South Pacific reggae/roots practice, Wellington base and Love & Fire personnel. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "The Black Seeds — Love & Fire (2022)"
+      ]
+    },
+    {
+      "id": "reggae_catala",
+      "name": "Reggae català",
+      "family": "global",
+      "lineage": "Reggae català is represented by Adala — Quan es fon la nit (Rub-A-Dub en Català, 2021). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "tonewheel_organ"
+      ],
+      "description": "La Panchita describes Catalan-language rub-a-dub and positively identifies the musicians recording its riddims at the Barcelona label’s studio. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Adala — Quan es fon la nit (Rub-A-Dub en Català, 2021)"
+      ]
+    },
+    {
+      "id": "reggae_peruano",
+      "name": "Reggae peruano",
+      "family": "global",
+      "lineage": "Reggae peruano is represented by Rebel-I & The Stepping Lions — Mr. Babylon (Soma Session). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano",
+        "tonewheel_organ",
+        "analog_poly_synth"
+      ],
+      "description": "The artist’s label identifies Rebel-I with Lima’s reggae scene and publishes live-musician credits for the 2011 Soma Session, released in 2023. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Rebel-I & The Stepping Lions — Mr. Babylon (Soma Session)"
+      ]
+    },
+    {
+      "id": "reggae_tuga",
+      "name": "Reggae tuga",
+      "family": "global",
+      "lineage": "Reggae tuga is represented by Freddy Locks — Infinite Roots (2024). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "saxophone"
+      ],
+      "description": "Freddy Locks identifies himself as a Portuguese roots-reggae singer, lists Lisbon as his base and publishes full credits for Infinite Roots. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Freddy Locks — Infinite Roots (2024)"
+      ]
+    },
+    {
+      "id": "reggae_uruguayo",
+      "name": "Reggae uruguayo",
+      "family": "global",
+      "lineage": "Reggae uruguayo is represented by Ocho monoS — El experimento, core band branch. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "saxophone",
+        "trumpet",
+        "trombone"
+      ],
+      "description": "The artist’s album identifies Montevideo, Uruguay and reggae/ska/rock, with a detailed role roster. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Ocho monoS — El experimento, core band branch"
+      ]
+    },
+    {
+      "id": "russian_reggae",
+      "name": "Russian reggae",
+      "family": "global",
+      "lineage": "Russian reggae is represented by Selfplayers — Vibrations (2012), core band branch. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Selfplayers describes its Moscow reggae, ragga-jungle and dancehall fusion and gives instrumental and vocal credits for Vibrations. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Selfplayers — Vibrations (2012), core band branch"
+      ]
+    },
+    {
+      "id": "latin_ska",
+      "name": "Latin ska",
+      "family": "global",
+      "lineage": "Latin ska is represented by Los de Abajo — original Latin-ska quartet. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "The band’s label-published account describes its original Latin-ska conception and formation in Mexico City in 1992. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Los de Abajo — original Latin-ska quartet"
+      ]
+    },
+    {
+      "id": "modern_reggae",
+      "name": "Modern reggae",
+      "family": "global",
+      "lineage": "Modern reggae is represented by The Wise Bloods — Eye Out For The Devil (2025). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "saxophone",
+        "trumpet"
+      ],
+      "description": "The band’s official biography explicitly describes a modern reggae sound, and its album page provides London locality and role credits. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "The Wise Bloods — Eye Out For The Devil (2025)"
+      ]
+    },
+    {
+      "id": "polish_reggae",
+      "name": "Polish reggae",
+      "family": "global",
+      "lineage": "Polish reggae is represented by Jafia Namuel — In Time (title track). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "rhodes_electric",
+        "saxophone"
+      ],
+      "description": "Jafia Namuel identifies itself as a Polish reggae band based in Piła and publishes track-specific credits for In Time. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Jafia Namuel — In Time (title track)"
+      ]
+    },
+    {
+      "id": "reggae_cristao",
+      "name": "Reggae cristão",
+      "family": "global",
+      "lineage": "Reggae cristão is represented by Banda Louveroot’s — São Paulo core gospel-reggae band. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The band’s own profile calls its music Brazilian gospel reggae and describes a Christian evangelical purpose, São Paulo formation and core players. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Banda Louveroot’s — São Paulo core gospel-reggae band"
+      ]
+    },
+    {
+      "id": "reggae_do_maranhao",
+      "name": "Reggae do Maranhão",
+      "family": "global",
+      "lineage": "Reggae do Maranhão is represented by Tribo de Jah — founding São Luís roots-reggae branch. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Instituto Cultural Cravo Albin documents a roots-reggae group formed in São Luís, Maranhão, in 1986 with a six-person roster. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Tribo de Jah — founding São Luís roots-reggae branch"
+      ]
+    },
+    {
+      "id": "reggae_gaucho",
+      "name": "Reggae gaúcho",
+      "family": "global",
+      "lineage": "Reggae gaúcho is represented by Chimarruts — artist-profile band configuration. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Chimarruts’ own musician profile identifies reggae and Porto Alegre, Rio Grande do Sul, with a historical eight-member roster. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Chimarruts — artist-profile band configuration"
+      ]
+    },
+    {
+      "id": "anthem_emo",
+      "name": "Anthem emo",
+      "family": "rock_punk",
+      "lineage": "The Every Noise discovery category is represented by its directly listed band Valleyheart and the vocal-guitar, bass and drum trio explicitly credited by its label. This is a bounded authored trio-core realization, not a reconstruction of all layers on Heal My Head or a universal definition of anthem emo.",
+      "parent": "distortedRock.emo",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Valleyheart’s label identifies Kevin Klein on voice and guitar, Chris Babbitt on bass and Zakk Nix on drums, describing dynamic alternative rock with prominent hooks. The source category is attributed to the creator map. This authored trio-core arrangement excludes the separate album’s extra keyboards, strings and guest guitars; it does not claim to reproduce a complete album track. Exact pickup family, construction, technique pins, tuning baseline, room, gear, recording chain and numeric axes are authored present-day choices.",
+      "exemplars": [
+        "Valleyheart — documented vocal-guitar, bass and drum trio core (2022 label biography)"
+      ]
+    },
+    {
+      "id": "minimal_dub",
+      "name": "Minimal dub",
+      "family": "global",
+      "lineage": "Minimal dub is represented by Caged Element — Invalid Path (Escapism, 2026). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.dubDescendants",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "sampler_classic"
+      ],
+      "description": "Paul Bolstridge describes Escapism as stripped-down minimal dub techno, identifies the reverse sample in Invalid Path and locates its creation in Derby. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Caged Element — Invalid Path (Escapism, 2026)"
+      ]
+    },
+    {
+      "id": "pinoy_reggae",
+      "name": "Pinoy reggae",
+      "family": "global",
+      "lineage": "Pinoy reggae is represented by Lorky Rankin / Norris King — Money Money (RubADub.Ph, 2024). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine"
+      ],
+      "description": "Norris King explicitly describes RubADub.Ph as a Filipino-singer digital rub-a-dub project and identifies selected singer Lorky Rankin with Ligao, Albay. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Lorky Rankin / Norris King — Money Money (RubADub.Ph, 2024)"
+      ]
+    },
+    {
+      "id": "reggae_boliviano",
+      "name": "Reggae boliviano",
+      "family": "global",
+      "lineage": "Reggae boliviano is represented by Matamba — documented dreadcore/reggae band branch. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "trumpet",
+        "trombone"
+      ],
+      "description": "Matamba’s artist biography connects his roots-reggae/rock practice and musical formation to Bolivia; his performance profile lists the backing-band roles. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Matamba — documented dreadcore/reggae band branch"
+      ]
+    },
+    {
+      "id": "reggae_cover",
+      "name": "Reggae cover",
+      "family": "global",
+      "lineage": "Reggae cover is represented by Jacuzzi Fuzz — Sailin On (2024). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "trumpet",
+        "trombone"
+      ],
+      "description": "The artist’s release names the Bad Brains song being covered, tags the arrangement reggae cover and identifies Jacuzzi Fuzz with Miami. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Jacuzzi Fuzz — Sailin On (2024)"
+      ]
+    },
+    {
+      "id": "reggae_en_espanol",
+      "name": "Reggae en español",
+      "family": "global",
+      "lineage": "Reggae en español is represented by Natural Dub — The Power of One (2017). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Natural Dub’s own release explicitly uses the category reggae en español, identifies San José and provides the band’s musical roles. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Natural Dub — The Power of One (2017)"
+      ]
+    },
+    {
+      "id": "reggae_maghreb",
+      "name": "Reggae maghreb",
+      "family": "global",
+      "lineage": "Reggae maghreb is represented by Gnawa Diffusion — promoter-documented Franco-Algerian ensemble. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "guembri",
+        "mandole",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Le Rocher de Palmer identifies the Franco-Algerian group’s Grenoble formation, reggae/dub context and Maghrebi gnawa/chaâbi/raï fusion alongside its announced ensemble. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Gnawa Diffusion — promoter-documented Franco-Algerian ensemble"
+      ]
+    },
+    {
+      "id": "reggae_tico",
+      "name": "Reggae tico",
+      "family": "global",
+      "lineage": "Reggae tico is represented by Octopi — LUNA (2013). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "The artist’s Costa Rican reggae/roots release documents its Alajuela recording location and five-person band. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Octopi — LUNA (2013)"
+      ]
+    },
+    {
+      "id": "reggaeton_cristiano",
+      "name": "Reggaetón cristiano",
+      "family": "global",
+      "lineage": "Reggaetón cristiano is represented by Funky — Todo lo que soy (2025). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "mcRhythm.reggaeton",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine"
+      ],
+      "description": "Funky’s official biography describes his Christian urbano/reggaeton practice and Santurce origins; the creator’s exact reggaeton-cristiano map names him. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Funky — Todo lo que soy (2025)"
       ]
     }
   ]

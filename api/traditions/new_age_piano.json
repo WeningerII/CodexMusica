@@ -3,14 +3,14 @@
   "name": "New Age Piano",
   "family": "classical",
   "lineage": "Solo acoustic piano branch of new age crystallised by Windham Hill Records in Palo Alto between 1979 and 1990 — George Winston's seasonal albums and Liz Story's and David Lanz's records established slow rubato tempi, sustained-pedal open-fifth left-hand ostinati, diatonic modal melody over unresolved suspended chords, close ribbon-and-condenser capture of a well-tuned grand, and long natural decay with no percussion or backbeat.",
-  "recipe": "classic late-1970s new age piano, experimental Elec, ambient branch, western modern art music, anglo singer song ballad poetry american contemporary classical baltic classical. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, sustained pad string machine, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium legato flute, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 611,
-  "score": 240.57,
+  "recipe": "classic late-1970s new age piano, experimental Elec, ambient branch, western modern art music, anglo singer song ballad poetry neo-classical american contemporary classical. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, sustained pad string machine, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium legato flute, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 608,
+  "score": 251.663,
   "config": {
     "traditions": [
       "new_age_piano",
-      "american_contemporary_classical",
-      "baltic_classical"
+      "neo_classical",
+      "american_contemporary_classical"
     ],
     "instruments": [
       {
@@ -27,15 +27,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 9.925,
-          "grand_piano_size": 0.84,
+          "keyboard_technique": 10.3,
+          "grand_piano_size": 0.735,
           "grand_piano_brand": 1.365,
-          "piano_hammer": 17.065,
-          "piano_rim": 14.860000000000001,
-          "piano_soundboard": 14.125,
-          "piano_pinblock": 14.425,
-          "piano_plate": 16.375000000000004,
-          "piano_pitch_standard": 17.115000000000002
+          "piano_hammer": 17.8735,
+          "piano_rim": 15.610000000000001,
+          "piano_soundboard": 14.875,
+          "piano_pinblock": 15.025,
+          "piano_plate": 17.183500000000002,
+          "piano_pitch_standard": 17.215
         }
       },
       {
@@ -43,13 +43,13 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
-          "sm_chorus": "sm_chorus_lush",
+          "sm_chorus": "sm_chorus_subtle",
           "sm_voicing": "sm_violins"
         },
         "scores": {
           "electronic_technique": 4.8500000000000005,
-          "sm_voice_count": 0.195,
-          "sm_chorus": 0.105,
+          "sm_voice_count": 0,
+          "sm_chorus": 0,
           "sm_voicing": 1.15
         }
       },
@@ -67,15 +67,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 9.775,
-          "cello_strings": 2.8600000000000003,
-          "cello_top_wood": 9.315000000000001,
-          "cello_back_wood": 14.815000000000001,
-          "cello_varnish": 14.125,
-          "cello_setup_period": 16.375000000000004,
-          "cello_bow_grip": 4.485,
-          "cello_rosin": 14.32,
-          "cello_bow_stick": 15.575
+          "bowed_technique": 10.15,
+          "cello_strings": 3.055,
+          "cello_top_wood": 9.690000000000001,
+          "cello_back_wood": 15.565000000000001,
+          "cello_varnish": 14.875,
+          "cello_setup_period": 17.183500000000002,
+          "cello_bow_grip": 4.68,
+          "cello_rosin": 15.07,
+          "cello_bow_stick": 16.53725
         }
       },
       {
@@ -88,11 +88,11 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 9.870000000000001,
-          "flute_size": 0.6299999999999999,
-          "flute_material": 2.8600000000000003,
-          "flute_technique": 2.8600000000000003,
-          "flute_maker_school": 2.8600000000000003
+          "wind_articulation": 9.895,
+          "flute_size": 0.24,
+          "flute_material": 3.055,
+          "flute_technique": 3.705,
+          "flute_maker_school": 3.055
         }
       },
       {

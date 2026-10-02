@@ -5,7 +5,7 @@
   "lineage": "Three-voice Caucasian vocal polyphony documented across Guria, Svaneti, Kakheti and Samegrelo, transcribed from the 1880s by Zakaria Paliashvili and Dimitri Arakishvili and recorded on wax cylinder from 1901, built on a bass drone or moving bass with two upper parts colliding in seconds and fourths, non-tempered intervals near neutral thirds, sharp cadences resolving to open fifths, Gurian krimanchuli yodel breaks, and the extended supra table-song and Kakhetian long-song forms sung a cappella by male ensembles.",
   "recipe": "classic Caucasian mid-1880s georgian polyphony, drone Modal, vocal branch, christian gospel Russian orthodox, Slavic balkan field work byzantine chant russian orthodox liturgical chant. thick, declaimed, slow rate, interlocked note trading. drone bass choir georgian polyphonic, eastern georgian three string panduri, chonguri, voice like duduki georgian. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 441,
-  "score": 226.653,
+  "score": 225.918,
   "config": {
     "traditions": [
       "georgian_polyphony",
@@ -21,9 +21,9 @@
           "choir_georgian_polyphonic_voices": "choir_georgian_polyphonic_bani"
         },
         "scores": {
-          "choir_georgian_polyphonic_style": 16.708214285714284,
-          "choir_georgian_polyphonic_context": 14.784999999999998,
-          "choir_georgian_polyphonic_voices": 12.308214285714286
+          "choir_georgian_polyphonic_style": 16.303214285714283,
+          "choir_georgian_polyphonic_context": 14.904999999999998,
+          "choir_georgian_polyphonic_voices": 12.053214285714285
         }
       },
       {
@@ -60,7 +60,7 @@
           "voice_speech_song": 21.774999999999995,
           "voice_ensemble_config": 23.269999999999992,
           "voice_ornament_system": 6.2749999999999995,
-          "voice_pitch_organization": 5.945714285714287,
+          "voice_pitch_organization": 5.900714285714287,
           "voice_processing_chain": 6.825,
           "voice_multitrack_stack": 8.190000000000001
         }
@@ -73,7 +73,7 @@
           "panduri_strings": "panduri_nylon"
         },
         "scores": {
-          "panduri_form": 6.085714285714286,
+          "panduri_form": 5.935714285714286,
           "panduri_repertoire": 3.25,
           "panduri_strings": 1.625
         }

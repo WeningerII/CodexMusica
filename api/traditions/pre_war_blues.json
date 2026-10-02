@@ -5,7 +5,7 @@
   "lineage": "Pre-war blues is an era-defined corpus of blues recorded before the Second World War, spanning multiple regional and ensemble practices. The selected Robert Johnson performance represents only its solo Delta-guitar branch.",
   "recipe": "classic modern pre-war blues, functional Song, blues acoustic branch. blues inflected, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. open g tuning slide acoustic guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 418,
-  "score": 33.021,
+  "score": 33.424,
   "config": {
     "traditions": [
       "pre_war_blues"
@@ -42,9 +42,9 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.6667142857142857,
+          "voice_speech_song": 0.9365000000000001,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0.2027142857142857,
+          "voice_ornament_system": 0.19949999999999998,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 1.95,
           "voice_multitrack_stack": 0.7005
@@ -60,7 +60,7 @@
           "acoustic_om_technique": "om_bottleneck_slide"
         },
         "scores": {
-          "string_tuning": 3.2550000000000003,
+          "string_tuning": 3.3915,
           "top_wood": 0,
           "back_sides": -0.035,
           "string_acoustic": 0.27675,

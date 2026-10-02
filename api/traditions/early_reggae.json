@@ -5,7 +5,7 @@
   "lineage": "Jamaican style that appeared in Kingston studios around 1968 as rocksteady accelerated, driven by producers Lee Perry, Bunny Lee and Joe Gibbs and the Upsetters and Hippy Boys bands, marked by a bubbling organ shuffle, scratchy quaver guitar chops on the offbeat, a busy melodic bass, a snapping one-drop or four-beat kit at roughly 85-100 BPM, and vocal-group or DJ toasting over cheaply cut mono mixes for the sound systems.",
   "recipe": "classic Caribbean early reggae, bass System, Jamaican branch, dub descendants bass system, soul R&B functional song souldies doo-wop. thick, breath veiled tone, slow rate, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, Leslie rotary block chord combo organ, hohner melodica canonical 1959 dub roots tradition block chord melodica, bach 42 canonical American orchestral tenor ensemble bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 849,
-  "score": 335.227,
+  "score": 331.935,
   "config": {
     "traditions": [
       "early_reggae",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 16.509999999999994,
-          "voice_quality": 20.930000000000007,
+          "voice_register": 16.419999999999995,
+          "voice_quality": 20.480000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.2099999999999995,
           "voice_articulation": 19.499999999999996,
           "voice_microtone": 18.71999999999999,
-          "voice_tradition": 13.454999999999997,
+          "voice_tradition": 13.049999999999997,
           "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 12.149999999999997,
+          "voice_estill_quality": 11.999999999999996,
           "voice_speech_song": 23.529999999999998,
           "voice_ensemble_config": 20.734999999999992,
           "voice_ornament_system": 3.25,
           "voice_pitch_organization": 2.5350000000000006,
-          "voice_processing_chain": 5.915,
-          "voice_multitrack_stack": 6.727500000000002
+          "voice_processing_chain": 5.8549999999999995,
+          "voice_multitrack_stack": 6.540000000000002
         }
       },
       {
@@ -60,17 +60,17 @@
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 21.38,
+          "amp_make": 21.634999999999998,
           "body_wood": 0.585,
           "pickup_config": 0.39,
           "string_type": 20.085,
           "scale_length_b": 0.195,
-          "fretted_or_not": 0.045,
+          "fretted_or_not": 0,
           "bass_technique": 10.149999999999999,
           "electric_bass_string_configuration": 0
         }
@@ -84,26 +84,26 @@
           "neck_wood": "mahogany_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
-          "string_material": "flatwound_elec",
+          "string_material": "pure_nickel",
           "string_gauge": "g_12",
           "bridge": "hardtail",
           "scale_length": "scale_baritone",
-          "finish": "nitro",
+          "finish": "oil_satin",
           "string_tuning": "drop_d",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 10.389999999999999,
-          "amp_make": 14.529999999999998,
+          "electric_technique": 10.344999999999999,
+          "amp_make": 14.184999999999999,
           "body_wood": 0.195,
           "neck_wood": 0.195,
           "fretboard": 0.3,
           "pickup_magnet": 0,
-          "string_material": 0.15,
+          "string_material": 0,
           "string_gauge": 2.2749999999999995,
           "bridge": 0.3,
           "scale_length": 0.39,
-          "finish": 0,
+          "finish": 0.3,
           "string_tuning": 1.69,
           "single_coil_pickup_construction": 0
         }
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 19.889999999999997,
-          "drumhead": 3.334999999999999,
+          "drumhead": 3.289999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -133,8 +133,8 @@
         "scores": {
           "keyboard_technique": 4.5249999999999995,
           "combo_organ_model": 5.194999999999999,
-          "combo_organ_voicing": 4.09,
-          "combo_organ_context": 6.305000000000001,
+          "combo_organ_voicing": 3.94,
+          "combo_organ_context": 5.615,
           "amp_make": 11.399999999999999
         }
       },
@@ -165,13 +165,13 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 12.25,
+          "wind_articulation": 11.74,
           "trombone_type": 0.585,
           "trombone_mouthpiece": 5.46,
           "trombone_mute": 0.15,
-          "trombone_technique": 0.78,
-          "trombone_bell_metal": 0.63,
-          "trombone_maker_school": 2.9899999999999998
+          "trombone_technique": 0.735,
+          "trombone_bell_metal": 0.495,
+          "trombone_maker_school": 2.6449999999999996
         }
       }
     ],
