@@ -22,11 +22,11 @@ import { completedArtifact } from '../scripts/battery_verdict.mjs';
 // the prominence band [2, 7], which the owner deleted that day
 // (lyric-harness/CLAUDE.md, "AND THE PROMINENCE BAND IS DELETED TOO"). With no
 // band, L1 carried no line finding: the only finding left was the whole-draft
-// LEXICAL_MONOTONY, asked as an L1+L2 group rewrite the one-line writer cannot
-// answer, so nothing was verified and no repair was counted. The repaired line
-// is now briefed by a genuine violation of the declared relation: 'sink' is
-// not assonant with 'coat', the replacement's 'stove' is, and the later line of
-// a violated pair is the one asked.
+// LEXICAL_MONOTONY, asked as an L1+L2 group rewrite that this fixture's
+// one-line writer cannot answer, so nothing was verified and no repair was
+// counted. The repaired line is now briefed by a genuine violation of the
+// declared relation: 'sink' is not assonant with 'coat', the replacement's
+// 'stove' is, and the later line of a violated pair is the one asked.
 // superseded: initial ['The elephant elephant elephant elephant elephant
 // elephant elephant stove', 'Your fingers brush my heavy coat'], L1 replaced,
 // "Preserve the second line", noop answer initial[0].

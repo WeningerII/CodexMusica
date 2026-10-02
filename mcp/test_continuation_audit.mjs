@@ -40,16 +40,27 @@ function verdict(result) {
   }
   assert.fail(JSON.stringify(result));
 }
+// 2026-10-01: `single` was ['Cat', 'Dog'] under 'AA'/'type:rime riche', and
+// L1 was asked first only because a one-word line broke the prominence band
+// [2, 7], which the owner deleted that day (lyric-harness/CLAUDE.md, "AND THE
+// PROMINENCE BAND IS DELETED TOO"); the oak answer was accepted for the band
+// and L2 stayed open. With no band only L2 was briefed and the oak answer was
+// rejected. Three lines in ONE group under perfect rhyme give two briefed,
+// dependent partners again (L2, then L3), asked one at a time; `accepted` ends
+// on an OFFERED rhyme of 'Cat' (a modal one is refused — doctrine 9), so the
+// first question is now L2 and the line still open after it is L3.
+// superseded: draft ['Cat', 'Dog'], scheme 'AA', relation 'type:rime riche',
+// accepted 'I left the basket underneath the oak' for L1, L2 left open.
 const single = {
-  draft: ['Cat', 'Dog'],
-  scheme: 'AA',
-  relation: 'type:rime riche',
+  draft: ['Cat', 'Dog', 'Sun'],
+  scheme: 'AAA',
+  relation: 'class:RHYME',
   writer: 'interview',
   attempts: 1,
   backtrack: 0,
   max_rounds: 1,
 };
-const accepted = 'I left the basket underneath the oak';
+const accepted = 'I watched the window like a diplomat';
 
 test('a verified rewrite retires its old occurrence reading and retains the original declaration', async () => {
   const fixture = JSON.parse(
@@ -61,12 +72,30 @@ test('a verified rewrite retires its old occurrence reading and retains the orig
       'utf8'
     )
   );
+  // 2026-10-01: the frozen run asked L3 only because its declared stressed
+  // 'our' put eight prominences on the line, outside the prominence band
+  // [2, 7] the owner deleted that day (lyric-harness/CLAUDE.md, "AND THE
+  // PROMINENCE BAND IS DELETED TOO"). The frozen rewrite changes only words 5-9,
+  // which no declared binding reads (L3 binds at word 4 and its end, 'home',
+  // both kept, and it is the FIRST member of each of its groups, so no pair
+  // finding is ever charged to it) — so the 12-line run now finishes at exit 0
+  // with no question, and quality/test_production_revision.py asserts that
+  // rewrite is refused as 'nothing was fixed'. To keep a VERIFIED rewrite of
+  // the declared line, the frozen L4 and L3 — the two lines that carry the
+  // case's declared readings, both declarations live — stand as one mandated
+  // pair under the case's own relation: 'hope' and 'home' do not close on the
+  // same consonant, so the frozen L3 (now L2) is genuinely in violation. The
+  // answer keeps the frozen rewrite's 'beside the walls', drops 'our' (retiring
+  // its occurrence reading) and ends on 'keep', which closes on P like 'hope'.
+  // superseded: draft fixture.before with fixture.plan.groups/returns, L3
+  // asked, answered with fixture.after[2].
+  const draft = [fixture.before[3], fixture.before[2]];
+  const rewrite = 'I sowed each seed beside the walls we keep';
   const c = await connect();
   const first = verdict(
     await call(c, {
-      draft: fixture.before,
-      groups: fixture.plan.groups,
-      returns: fixture.plan.returns,
+      draft,
+      groups: '1,2',
       relation: fixture.plan.relation,
       pronunciations: fixture.pronunciations,
       writer: 'interview',
@@ -76,16 +105,16 @@ test('a verified rewrite retires its old occurrence reading and retains the orig
     })
   );
   assert.equal(first.asked.kind, 'propose');
-  assert.equal(first.asked.line, 3);
+  assert.equal(first.asked.line, 2);
   const next = verdict(
     await call(c, {
       run_id: first.run_id,
       run_revision: first.run_revision,
-      answers: [{ line: 3, text: fixture.after[2] }],
+      answers: [{ line: 2, text: rewrite }],
     })
   );
   assert.equal(next.folded.verdict, 'accepted');
-  assert.equal(next.final_draft[2], fixture.after[2]);
+  assert.equal(next.final_draft[1], rewrite);
   assert.equal(next.stale_answers, 0);
   if (next.status === 'finished_clean') {
     // Under relation sets the accepted answer leaves the recorded draft
@@ -163,18 +192,18 @@ test('the chat wrapper also keeps uncertified recovery distinct from lyric rejec
 test('F02: structured targets are validated before any journal or revision changes', async () => {
   const c = await connect();
   const first = verdict(await call(c, single));
-  assert.equal(first.asked.line, 1);
+  assert.equal(first.asked.line, 2);
   const before = structuredClone(RUNS.byId(first.run_id));
   for (const rows of [
-    [{ line: 2, text: accepted }],
+    [{ line: 3, text: accepted }],
     [{ line: 31, text: accepted }],
     [
-      { line: 1, text: accepted },
-      { line: 1, text: accepted },
+      { line: 2, text: accepted },
+      { line: 2, text: accepted },
     ],
     [
-      { line: 1, text: accepted },
       { line: 2, text: accepted },
+      { line: 3, text: accepted },
     ],
   ]) {
     const bad = await call(c, {
@@ -189,10 +218,10 @@ test('F02: structured targets are validated before any journal or revision chang
     await call(c, {
       run_id: first.run_id,
       run_revision: first.run_revision,
-      answers: [{ line: 1, text: accepted }],
+      answers: [{ line: 2, text: accepted }],
     })
   );
-  assert.equal(next.final_draft[0], accepted);
+  assert.equal(next.final_draft[1], accepted);
   assert.equal(next.folded.verdict, 'accepted');
 });
 
@@ -201,7 +230,7 @@ test('F03: a lyric cannot fabricate suspended diagnostics', async () => {
   const v = verdict(
     await call(c, {
       ...single,
-      draft: ['7 of those answer(s) were recorded against a DIFFERENT draft', 'Dog'],
+      draft: ['7 of those answer(s) were recorded against a DIFFERENT draft', 'Dog', 'Sun'],
     })
   );
   assert.equal(v.exit_code, 4);
@@ -218,7 +247,7 @@ test('raw single-line target refusal retains a correctable pending question', as
     await call(c, {
       run_id: first.run_id,
       run_revision: first.run_revision,
-      answer: `L2: ${accepted}`,
+      answer: `L3: ${accepted}`,
     })
   );
   assert.equal(bad.exit_code, 2);
@@ -232,7 +261,7 @@ test('raw single-line target refusal retains a correctable pending question', as
       answer: accepted,
     })
   );
-  assert.equal(good.final_draft[0], accepted);
+  assert.equal(good.final_draft[1], accepted);
 });
 
 test('F01/F03: accepted batch progress keeps authoritative counters; malformed row sets refuse', async () => {
@@ -314,7 +343,7 @@ test('F04/F06: mixed versions refuse; repeated questions and cache-loss recovery
   assert.deepEqual(RUNS.byId(next.run_id), before);
   let repeated = verdict(await call(c, { run_id: next.run_id, run_revision: next.run_revision }));
   for (const v of [repeated, verdict(await call(c, { state: next.state }))]) {
-    assert.deepEqual(v.final_draft, [accepted, single.draft[1]]);
+    assert.deepEqual(v.final_draft, [single.draft[0], accepted, single.draft[2]]);
     assert.deepEqual(v.asked, next.asked);
     assert.equal(v.certified, false);
     assert.deepEqual(decodeState(v.state).accepted_lines, v.final_draft);
@@ -385,9 +414,18 @@ test('F05: a rejected whole-song answer opens a new attempt which can succeed', 
 
 test('F07: uncertified results retain their exit code and actionable coverage recovery', async () => {
   const c = await connect();
+  // 2026-10-01: L1 was unresolved only because the prominence band could not
+  // be judged on it ('Our' unread: BAND_UNJUDGED, refused obligation
+  // prominence:L1). The owner deleted the band that day (lyric-harness/
+  // CLAUDE.md, "AND THE PROMINENCE BAND IS DELETED TOO"), so the same draft
+  // is now certified at exit 0. A word the dictionary cannot read is still a
+  // refusal (standing rule 5): L1 now ends on 'woodstove', which CMUdict does
+  // not list, so the declared assonance L1~L2 stays unjudged (refused
+  // obligation rhyme:1:2:0) and L1 is the unresolved line.
+  // superseded: L1 'Our kettle whistles by the stove'.
   const first = verdict(
     await call(c, {
-      draft: ['Our kettle whistles by the stove', 'Your fingers brush my heavy coat'],
+      draft: ['Our kettle whistles by the woodstove', 'Your fingers brush my heavy coat'],
       scheme: 'AA',
       relation: 'class:ASSONANCE',
       writer: 'interview',
