@@ -5,7 +5,7 @@
   "lineage": "Brazilian house-production network, with the selected melodic and hybrid studio strand documented through Gui Boratto. His practice combines hardware/soft synthesis, sequenced electronics and guitar/piano musicianship; this is a regional umbrella and does not require samba instrumentation in every track.",
   "recipe": "classic modern brazilian house, electronic Dance, house branch, tech house house tech-house brazilian tech house. analog synth, TR-909, single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 368,
-  "score": 37.571,
+  "score": 37.916,
   "config": {
     "traditions": [
       "brazilian_house",
@@ -26,7 +26,7 @@
           "electronic_technique": 0.95,
           "oscillator": 0.195,
           "filter_topology": 2.0865,
-          "envelope": 0,
+          "envelope": 0.15,
           "modulation": 0
         }
       },
@@ -68,11 +68,11 @@
           "fretboard": 0.12999999999999998,
           "pickup_magnet": 0.18,
           "string_material": 0.09,
-          "string_gauge": 0.03712499999999999,
+          "string_gauge": 0.18712499999999999,
           "bridge": 0.09,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0,
+          "string_tuning": 0.045,
           "single_coil_pickup_construction": 0
         }
       }

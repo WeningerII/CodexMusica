@@ -1,0 +1,64 @@
+{
+  "id": "indian_edm",
+  "name": "Indian edm",
+  "family": "electronic",
+  "lineage": "Indian edm is represented by Hybrid Protokol — Wild City #117 live synthesizer jam. One documented branch receives an authored present-day studio realization.",
+  "recipe": "classic indian edm, electronic Dance. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 157,
+  "score": 0.32,
+  "config": {
+    "traditions": [
+      "indian_edm"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "poly_archetypes": 0.105,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "analog_poly_synth": [
+        "electronic_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -3,9 +3,9 @@
   "name": "Brazilian edm",
   "family": "electronic",
   "lineage": "Brazilian edm is represented by Pedro — Liminalia programmed-vocal core. This documented branch is realized as an authored present-day arrangement.",
-  "recipe": "classic brazilian edm, electronic Dance. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 163,
-  "score": 6.786,
+  "recipe": "classic brazilian edm, electronic Dance. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 201,
+  "score": 7.484,
   "config": {
     "traditions": [
       "brazilian_edm"
@@ -58,11 +58,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.402,
+          "voice_ensemble_config": 1.1969999999999998,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.0975
+          "voice_multitrack_stack": 0
         }
       }
     ],

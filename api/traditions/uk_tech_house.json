@@ -5,7 +5,7 @@
   "lineage": "A UK producer-and-label network joining programmed house grooves with techno-leaning sound design. The classifier roster includes Jamie Jones, Carl Cox, Biscits and Leftwing : Kody; this model selects the bass-and-synth looping practice described by Jones in his East London studio.",
   "recipe": "classic modern uk tech house, electronic Dance, tech house branch latin house ballroom. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 336,
-  "score": 61.112,
+  "score": 60.453,
   "config": {
     "traditions": [
       "uk_tech_house",
@@ -23,7 +23,7 @@
         },
         "scores": {
           "electronic_technique": 0.7149999999999999,
-          "sample_bitdepth": 0.16649999999999998,
+          "sample_bitdepth": 0.1215,
           "sample_swing": 0.4961249999999999,
           "sample_processing": 0.3315
         }
@@ -40,7 +40,7 @@
         "scores": {
           "electronic_technique": 1.6899999999999997,
           "oscillator": 0.16049999999999998,
-          "filter_topology": 0.7950000000000002,
+          "filter_topology": 0.7500000000000001,
           "envelope": 0.158625,
           "modulation": 0
         }
@@ -59,7 +59,7 @@
           "sampler_archetypes": -0.05,
           "sampler_bit_depth": 0.31725,
           "sampler_workflow": 0.7,
-          "sampler_classic_context": 55.891124999999995
+          "sampler_classic_context": 55.322624999999995
         }
       }
     ],

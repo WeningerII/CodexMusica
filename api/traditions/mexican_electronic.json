@@ -1,0 +1,65 @@
+{
+  "id": "mexican_electronic",
+  "name": "Mexican electronic",
+  "family": "electronic",
+  "lineage": "Mexican electronic is represented here by Cubenx — Noir synthesizer core. This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic mexican electronic, experimental Elec, ambient branch. sustained pad analog poly synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 175,
+  "score": 4.845,
+  "config": {
+    "traditions": [
+      "mexican_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "juno_60",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 4.6495,
+          "poly_archetypes": 0,
+          "poly_voices": 0.231,
+          "poly_maker_lineage": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "juno_60"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "id": "romanian_electronic",
+  "name": "Romanian electronic",
+  "family": "electronic",
+  "lineage": "Romanian electronic is represented here by Baba Dochia — XII Lambskins-era synth, drum-machine and guitar core. This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic romanian electronic, experimental Elec. analog poly synth, sampler drum machine, humbucker electric guitar. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 195,
+  "score": 14.252,
+  "config": {
+    "traditions": [
+      "romanian_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "poly_archetypes": 0.3,
+          "poly_voices": 0.105,
+          "poly_maker_lineage": -0.05
+        }
+      },
+      {
+        "id": "sampler_drum_machine",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sample_bitdepth": "twenty_four_bit",
+          "sample_swing": "tight_swing",
+          "sample_processing": "one_shots_layered"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sample_bitdepth": 0,
+          "sample_swing": 9,
+          "sample_processing": 0
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_fuzz_riff",
+          "amp_make": "amp_american_fender_champ",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "pau_ferro_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "nickel_plated_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "eb_standard"
+        },
+        "scores": {
+          "electric_technique": -0.1,
+          "amp_make": 1.1049999999999998,
+          "body_wood": 0.1365,
+          "neck_wood": 0.105,
+          "fretboard": 0.105,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.105,
+          "bridge": 1.3,
+          "scale_length": 0.21,
+          "string_gauge": 1.3,
+          "finish": 0,
+          "string_tuning": 0.78
+        }
+      }
+    ],
+    "pinned": {
+      "analog_poly_synth": [
+        "electronic_technique"
+      ],
+      "sampler_drum_machine": [
+        "sample_bitdepth",
+        "sample_swing",
+        "sample_processing"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "sample_bitdepth": "twenty_four_bit",
+      "sample_swing": "tight_swing",
+      "sample_processing": "one_shots_layered",
+      "electric_technique": "electric_fuzz_riff"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_amp_guitar": "amp_american_fender_blackface"
+  }
+}

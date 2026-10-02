@@ -1,0 +1,86 @@
+{
+  "id": "polish_experimental_electronic",
+  "name": "Polish experimental electronic",
+  "family": "electronic",
+  "lineage": "Polish experimental electronic is represented here by Zamilska — Untune-era sampled/synthesized core. This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic polish experimental electronic, experimental Elec, industrial noise branch. glitched textural sampler, digital subtractive. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 211,
+  "score": 28.54,
+  "config": {
+    "traditions": [
+      "polish_experimental_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 9.45,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0.5985,
+          "sampler_workflow": -0.07,
+          "sampler_classic_context": 17
+        }
+      },
+      {
+        "id": "digital_subtractive",
+        "slots": {
+          "electronic_technique": "electronic_bass_sub",
+          "va_archetypes": "access_virus",
+          "digital_subtractive_context": "digital_subtractive_trance"
+        },
+        "scores": {
+          "electronic_technique": -0.10500000000000001,
+          "va_archetypes": 0.546,
+          "digital_subtractive_context": 1.17
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow"
+      ],
+      "digital_subtractive": [
+        "electronic_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "electronic_technique": "electronic_bass_sub"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

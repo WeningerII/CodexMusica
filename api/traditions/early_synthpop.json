@@ -5,7 +5,7 @@
   "lineage": "Early synthpop is represented here by Telex — early modular/polyphonic synthesizer core. This is one documented branch with an authored present-day studio realization.",
   "recipe": "classic early synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. moog east coast modular canonical 1964 1981 trumansburg keyboard driven subtractive modular yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 414,
-  "score": 9.595,
+  "score": 9.5,
   "config": {
     "traditions": [
       "early_synthpop"
@@ -38,7 +38,7 @@
           "electronic_technique": -0.035,
           "poly_archetypes": 1.95,
           "poly_voices": 0.168,
-          "poly_maker_lineage": 1.376
+          "poly_maker_lineage": 1.3445
         }
       },
       {
@@ -77,7 +77,7 @@
           "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.9555
+          "voice_multitrack_stack": 0.8925000000000001
         }
       }
     ],

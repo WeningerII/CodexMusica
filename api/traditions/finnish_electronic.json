@@ -5,7 +5,7 @@
   "lineage": "Finnish electronic is represented here by Fanu / FatGyver — Adventures In Imperfection instrumental sampling branch. This is one documented branch with an authored present-day studio realization.",
   "recipe": "classic finnish electronic, experimental Elec, lofi branch. sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 148,
-  "score": 3.254,
+  "score": 3.242,
   "config": {
     "traditions": [
       "finnish_electronic"
@@ -23,7 +23,7 @@
         "scores": {
           "electronic_technique": 0.5199999999999999,
           "sampler_archetypes": -0.035,
-          "sampler_bit_depth": 0.17925,
+          "sampler_bit_depth": 0.16799999999999998,
           "sampler_workflow": 0.4445,
           "sampler_classic_context": 2.145
         }

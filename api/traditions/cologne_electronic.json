@@ -3,9 +3,9 @@
   "name": "Cologne electronic",
   "family": "electronic",
   "lineage": "Cologne electronic is represented by Verneblung — Ready To Drown synth-and-voice core. This documented branch is realized as an authored present-day arrangement.",
-  "recipe": "classic cologne electronic, experimental Elec. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
-  "recipe_chars": 166,
-  "score": 0.76,
+  "recipe": "classic cologne electronic, experimental Elec. solo with instrumental accompaniment. analog poly synth. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 204,
+  "score": 1.563,
   "config": {
     "traditions": [
       "cologne_electronic"
@@ -15,15 +15,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "poly_archetypes": "oberheim_obxa",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": -0.1,
-          "poly_archetypes": 0.16874999999999998,
+          "poly_archetypes": 0.0315,
           "poly_voices": 0.105,
-          "poly_maker_lineage": -0.035
+          "poly_maker_lineage": -0.05
         }
       },
       {
@@ -58,11 +58,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.49500000000000005,
-          "voice_ornament_system": 0,
+          "voice_ensemble_config": 1.356,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.126
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575
         }
       }
     ],

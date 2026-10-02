@@ -1,5 +1,5 @@
 {
-  "count": 4338,
+  "count": 4438,
   "items": [
     {
       "id": "honky_tonk",
@@ -26028,6 +26028,606 @@
       "name": "Experimental synth",
       "family": "electronic",
       "href": "traditions/experimental_synth.json"
+    },
+    {
+      "id": "jordanian_pop",
+      "name": "Jordanian pop",
+      "family": "pop",
+      "href": "traditions/jordanian_pop.json"
+    },
+    {
+      "id": "k_pop_girl_group",
+      "name": "K-pop girl group",
+      "family": "pop",
+      "href": "traditions/k_pop_girl_group.json"
+    },
+    {
+      "id": "karadeniz_pop",
+      "name": "Karadeniz pop",
+      "family": "pop",
+      "href": "traditions/karadeniz_pop.json"
+    },
+    {
+      "id": "khasi_pop",
+      "name": "Khasi pop",
+      "family": "pop",
+      "href": "traditions/khasi_pop.json"
+    },
+    {
+      "id": "konkani_pop",
+      "name": "Konkani pop",
+      "family": "pop",
+      "href": "traditions/konkani_pop.json"
+    },
+    {
+      "id": "kosovan_pop",
+      "name": "Kosovan pop",
+      "family": "pop",
+      "href": "traditions/kosovan_pop.json"
+    },
+    {
+      "id": "classic_disco_polo",
+      "name": "Classic disco polo",
+      "family": "electronic",
+      "href": "traditions/classic_disco_polo.json"
+    },
+    {
+      "id": "electro_trash",
+      "name": "Electro trash",
+      "family": "electronic",
+      "href": "traditions/electro_trash.json"
+    },
+    {
+      "id": "dutch_experimental_electronic",
+      "name": "Dutch experimental electronic",
+      "family": "electronic",
+      "href": "traditions/dutch_experimental_electronic.json"
+    },
+    {
+      "id": "frankfurt_electronic",
+      "name": "Frankfurt electronic",
+      "family": "electronic",
+      "href": "traditions/frankfurt_electronic.json"
+    },
+    {
+      "id": "deep_italo_disco",
+      "name": "Deep italo disco",
+      "family": "electronic",
+      "href": "traditions/deep_italo_disco.json"
+    },
+    {
+      "id": "estonian_electronic",
+      "name": "Estonian electronic",
+      "family": "electronic",
+      "href": "traditions/estonian_electronic.json"
+    },
+    {
+      "id": "electronica_argentina",
+      "name": "Electronica argentina",
+      "family": "electronic",
+      "href": "traditions/electronica_argentina.json"
+    },
+    {
+      "id": "electro_dub",
+      "name": "Electro dub",
+      "family": "electronic",
+      "href": "traditions/electro_dub.json"
+    },
+    {
+      "id": "dutch_edm",
+      "name": "Dutch edm",
+      "family": "electronic",
+      "href": "traditions/dutch_edm.json"
+    },
+    {
+      "id": "electronica_cristiana",
+      "name": "Electronica cristiana",
+      "family": "electronic",
+      "href": "traditions/electronica_cristiana.json"
+    },
+    {
+      "id": "electronica_chilena",
+      "name": "Electronica chilena",
+      "family": "electronic",
+      "href": "traditions/electronica_chilena.json"
+    },
+    {
+      "id": "georgian_electronic",
+      "name": "Georgian electronic",
+      "family": "electronic",
+      "href": "traditions/georgian_electronic.json"
+    },
+    {
+      "id": "electronica_peruana",
+      "name": "Electronica peruana",
+      "family": "electronic",
+      "href": "traditions/electronica_peruana.json"
+    },
+    {
+      "id": "electronica_venezuela",
+      "name": "Electronica venezuela",
+      "family": "electronic",
+      "href": "traditions/electronica_venezuela.json"
+    },
+    {
+      "id": "edm",
+      "name": "EDM",
+      "family": "electronic",
+      "href": "traditions/edm.json"
+    },
+    {
+      "id": "deep_disco",
+      "name": "Deep disco",
+      "family": "electronic",
+      "href": "traditions/deep_disco.json"
+    },
+    {
+      "id": "german_electronica",
+      "name": "German electronica",
+      "family": "electronic",
+      "href": "traditions/german_electronica.json"
+    },
+    {
+      "id": "indian_edm",
+      "name": "Indian edm",
+      "family": "electronic",
+      "href": "traditions/indian_edm.json"
+    },
+    {
+      "id": "irish_electronic",
+      "name": "Irish electronic",
+      "family": "electronic",
+      "href": "traditions/irish_electronic.json"
+    },
+    {
+      "id": "leipzig_electronic",
+      "name": "Leipzig electronic",
+      "family": "electronic",
+      "href": "traditions/leipzig_electronic.json"
+    },
+    {
+      "id": "lithuanian_electronic",
+      "name": "Lithuanian electronic",
+      "family": "electronic",
+      "href": "traditions/lithuanian_electronic.json"
+    },
+    {
+      "id": "hungarian_edm",
+      "name": "Hungarian edm",
+      "family": "electronic",
+      "href": "traditions/hungarian_edm.json"
+    },
+    {
+      "id": "indonesian_edm",
+      "name": "Indonesian edm",
+      "family": "electronic",
+      "href": "traditions/indonesian_edm.json"
+    },
+    {
+      "id": "indonesian_electronic",
+      "name": "Indonesian electronic",
+      "family": "electronic",
+      "href": "traditions/indonesian_electronic.json"
+    },
+    {
+      "id": "keller_synth",
+      "name": "Keller synth",
+      "family": "electronic",
+      "href": "traditions/keller_synth.json"
+    },
+    {
+      "id": "horror_synth",
+      "name": "Horror synth",
+      "family": "electronic",
+      "href": "traditions/horror_synth.json"
+    },
+    {
+      "id": "latvian_electronic",
+      "name": "Latvian electronic",
+      "family": "electronic",
+      "href": "traditions/latvian_electronic.json"
+    },
+    {
+      "id": "lithuanian_edm",
+      "name": "Lithuanian edm",
+      "family": "electronic",
+      "href": "traditions/lithuanian_edm.json"
+    },
+    {
+      "id": "hamburg_electronic",
+      "name": "Hamburg electronic",
+      "family": "electronic",
+      "href": "traditions/hamburg_electronic.json"
+    },
+    {
+      "id": "kawaii_edm",
+      "name": "Kawaii edm",
+      "family": "electronic",
+      "href": "traditions/kawaii_edm.json"
+    },
+    {
+      "id": "modular_synth",
+      "name": "Modular synth",
+      "family": "electronic",
+      "href": "traditions/modular_synth.json"
+    },
+    {
+      "id": "organic_electronic",
+      "name": "Organic electronic",
+      "family": "electronic",
+      "href": "traditions/organic_electronic.json"
+    },
+    {
+      "id": "macedonian_electronic",
+      "name": "Macedonian electronic",
+      "family": "electronic",
+      "href": "traditions/macedonian_electronic.json"
+    },
+    {
+      "id": "luxembourgian_electronic",
+      "name": "Luxembourgian electronic",
+      "family": "electronic",
+      "href": "traditions/luxembourgian_electronic.json"
+    },
+    {
+      "id": "nz_electronic",
+      "name": "NZ electronic",
+      "family": "electronic",
+      "href": "traditions/nz_electronic.json"
+    },
+    {
+      "id": "polish_electronica",
+      "name": "Polish electronica",
+      "family": "electronic",
+      "href": "traditions/polish_electronica.json"
+    },
+    {
+      "id": "neo_synthpop",
+      "name": "Neo-synthpop",
+      "family": "pop",
+      "href": "traditions/neo_synthpop.json"
+    },
+    {
+      "id": "munich_electronic",
+      "name": "Munich electronic",
+      "family": "electronic",
+      "href": "traditions/munich_electronic.json"
+    },
+    {
+      "id": "russian_synthpop",
+      "name": "Russian synthpop",
+      "family": "pop",
+      "href": "traditions/russian_synthpop.json"
+    },
+    {
+      "id": "polish_experimental_electronic",
+      "name": "Polish experimental electronic",
+      "family": "electronic",
+      "href": "traditions/polish_experimental_electronic.json"
+    },
+    {
+      "id": "persian_electronic",
+      "name": "Persian electronic",
+      "family": "electronic",
+      "href": "traditions/persian_electronic.json"
+    },
+    {
+      "id": "romanian_electronic",
+      "name": "Romanian electronic",
+      "family": "electronic",
+      "href": "traditions/romanian_electronic.json"
+    },
+    {
+      "id": "pakistani_electronic",
+      "name": "Pakistani electronic",
+      "family": "electronic",
+      "href": "traditions/pakistani_electronic.json"
+    },
+    {
+      "id": "mexican_electronic",
+      "name": "Mexican electronic",
+      "family": "electronic",
+      "href": "traditions/mexican_electronic.json"
+    },
+    {
+      "id": "scottish_electronic",
+      "name": "Scottish electronic",
+      "family": "electronic",
+      "href": "traditions/scottish_electronic.json"
+    },
+    {
+      "id": "russian_electronic",
+      "name": "Russian electronic",
+      "family": "electronic",
+      "href": "traditions/russian_electronic.json"
+    },
+    {
+      "id": "polish_synthpop",
+      "name": "Polish synthpop",
+      "family": "pop",
+      "href": "traditions/polish_synthpop.json"
+    },
+    {
+      "id": "russian_experimental_electronic",
+      "name": "Russian experimental electronic",
+      "family": "electronic",
+      "href": "traditions/russian_experimental_electronic.json"
+    },
+    {
+      "id": "nu_electro",
+      "name": "Nu electro",
+      "family": "electronic",
+      "href": "traditions/nu_electro.json"
+    },
+    {
+      "id": "pinoy_edm",
+      "name": "Pinoy EDM",
+      "family": "electronic",
+      "href": "traditions/pinoy_edm.json"
+    },
+    {
+      "id": "russian_dance",
+      "name": "Russian dance",
+      "family": "electronic",
+      "href": "traditions/russian_dance.json"
+    },
+    {
+      "id": "russian_edm",
+      "name": "Russian EDM",
+      "family": "electronic",
+      "href": "traditions/russian_edm.json"
+    },
+    {
+      "id": "magyar_retro_dance",
+      "name": "Magyar retro dance",
+      "family": "pop",
+      "href": "traditions/magyar_retro_dance.json"
+    },
+    {
+      "id": "mexican_edm",
+      "name": "Mexican EDM",
+      "family": "electronic",
+      "href": "traditions/mexican_edm.json"
+    },
+    {
+      "id": "post_disco_soul",
+      "name": "Post-disco soul",
+      "family": "pop",
+      "href": "traditions/post_disco_soul.json"
+    },
+    {
+      "id": "serbian_electronic",
+      "name": "Serbian electronic",
+      "family": "pop",
+      "href": "traditions/serbian_electronic.json"
+    },
+    {
+      "id": "singaporean_electronic",
+      "name": "Singaporean electronic",
+      "family": "electronic",
+      "href": "traditions/singaporean_electronic.json"
+    },
+    {
+      "id": "slovak_electronic",
+      "name": "Slovak electronic",
+      "family": "pop",
+      "href": "traditions/slovak_electronic.json"
+    },
+    {
+      "id": "slovenian_electronic",
+      "name": "Slovenian electronic",
+      "family": "pop",
+      "href": "traditions/slovenian_electronic.json"
+    },
+    {
+      "id": "south_african_electronic",
+      "name": "South african electronic",
+      "family": "electronic",
+      "href": "traditions/south_african_electronic.json"
+    },
+    {
+      "id": "spanish_electronic",
+      "name": "Spanish electronic",
+      "family": "electronic",
+      "href": "traditions/spanish_electronic.json"
+    },
+    {
+      "id": "spanish_synthpop",
+      "name": "Spanish synthpop",
+      "family": "pop",
+      "href": "traditions/spanish_synthpop.json"
+    },
+    {
+      "id": "swedish_electronic",
+      "name": "Swedish electronic",
+      "family": "electronic",
+      "href": "traditions/swedish_electronic.json"
+    },
+    {
+      "id": "swedish_synth",
+      "name": "Swedish synth",
+      "family": "electronic",
+      "href": "traditions/swedish_synth.json"
+    },
+    {
+      "id": "swedish_synthpop",
+      "name": "Swedish synthpop",
+      "family": "pop",
+      "href": "traditions/swedish_synthpop.json"
+    },
+    {
+      "id": "synth_funk",
+      "name": "Synth funk",
+      "family": "electronic",
+      "href": "traditions/synth_funk.json"
+    },
+    {
+      "id": "synth_prog",
+      "name": "Synth prog",
+      "family": "rock",
+      "href": "traditions/synth_prog.json"
+    },
+    {
+      "id": "synthwave_brasileiro",
+      "name": "Synthwave brasileiro",
+      "family": "pop",
+      "href": "traditions/synthwave_brasileiro.json"
+    },
+    {
+      "id": "taiwan_electronic",
+      "name": "Taiwan electronic",
+      "family": "electronic",
+      "href": "traditions/taiwan_electronic.json"
+    },
+    {
+      "id": "tijuana_electronic",
+      "name": "Tijuana electronic",
+      "family": "electronic",
+      "href": "traditions/tijuana_electronic.json"
+    },
+    {
+      "id": "turkish_edm",
+      "name": "Turkish edm",
+      "family": "electronic",
+      "href": "traditions/turkish_edm.json"
+    },
+    {
+      "id": "turkish_electronic",
+      "name": "Turkish electronic",
+      "family": "pop",
+      "href": "traditions/turkish_electronic.json"
+    },
+    {
+      "id": "uk_experimental_electronic",
+      "name": "Uk experimental electronic",
+      "family": "electronic",
+      "href": "traditions/uk_experimental_electronic.json"
+    },
+    {
+      "id": "ukrainian_electronic",
+      "name": "Ukrainian electronic",
+      "family": "electronic",
+      "href": "traditions/ukrainian_electronic.json"
+    },
+    {
+      "id": "vintage_french_electronic",
+      "name": "Vintage french electronic",
+      "family": "electronic",
+      "href": "traditions/vintage_french_electronic.json"
+    },
+    {
+      "id": "argentine_jazz",
+      "name": "Argentine jazz",
+      "family": "jazz",
+      "href": "traditions/argentine_jazz.json"
+    },
+    {
+      "id": "belgian_modern_jazz",
+      "name": "Belgian modern jazz",
+      "family": "jazz",
+      "href": "traditions/belgian_modern_jazz.json"
+    },
+    {
+      "id": "chinese_jazz",
+      "name": "Chinese jazz",
+      "family": "jazz",
+      "href": "traditions/chinese_jazz.json"
+    },
+    {
+      "id": "classical_jazz_fusion",
+      "name": "Classical jazz fusion",
+      "family": "jazz",
+      "href": "traditions/classical_jazz_fusion.json"
+    },
+    {
+      "id": "contemporary_jazz",
+      "name": "Contemporary jazz",
+      "family": "jazz",
+      "href": "traditions/contemporary_jazz.json"
+    },
+    {
+      "id": "deep_free_jazz",
+      "name": "Deep free jazz",
+      "family": "jazz",
+      "href": "traditions/deep_free_jazz.json"
+    },
+    {
+      "id": "deep_jazz_fusion",
+      "name": "Deep jazz fusion",
+      "family": "jazz",
+      "href": "traditions/deep_jazz_fusion.json"
+    },
+    {
+      "id": "deep_latin_jazz",
+      "name": "Deep latin jazz",
+      "family": "jazz",
+      "href": "traditions/deep_latin_jazz.json"
+    },
+    {
+      "id": "czech_swing",
+      "name": "Czech swing",
+      "family": "jazz",
+      "href": "traditions/czech_swing.json"
+    },
+    {
+      "id": "bossa_nova_jazz",
+      "name": "Bossa nova jazz",
+      "family": "jazz",
+      "href": "traditions/bossa_nova_jazz.json"
+    },
+    {
+      "id": "czech_jazz",
+      "name": "Czech jazz",
+      "family": "jazz",
+      "href": "traditions/czech_jazz.json"
+    },
+    {
+      "id": "deep_vocal_jazz",
+      "name": "Deep vocal jazz",
+      "family": "jazz",
+      "href": "traditions/deep_vocal_jazz.json"
+    },
+    {
+      "id": "experimental_jazz",
+      "name": "Experimental jazz",
+      "family": "jazz",
+      "href": "traditions/experimental_jazz.json"
+    },
+    {
+      "id": "galician_jazz",
+      "name": "Galician jazz",
+      "family": "jazz",
+      "href": "traditions/galician_jazz.json"
+    },
+    {
+      "id": "icelandic_jazz",
+      "name": "Icelandic jazz",
+      "family": "jazz",
+      "href": "traditions/icelandic_jazz.json"
+    },
+    {
+      "id": "indonesian_jazz",
+      "name": "Indonesian jazz",
+      "family": "jazz",
+      "href": "traditions/indonesian_jazz.json"
+    },
+    {
+      "id": "jazz_boom_bap",
+      "name": "Jazz boom bap",
+      "family": "hip-hop",
+      "href": "traditions/jazz_boom_bap.json"
+    },
+    {
+      "id": "jazz_caraibes",
+      "name": "Jazz caraibes",
+      "family": "jazz",
+      "href": "traditions/jazz_caraibes.json"
+    },
+    {
+      "id": "jazz_cover",
+      "name": "Jazz cover",
+      "family": "jazz",
+      "href": "traditions/jazz_cover.json"
     }
   ]
 }

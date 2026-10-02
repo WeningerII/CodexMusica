@@ -5,7 +5,7 @@
   "lineage": "Named around 2016 by the Dream Catalogue label under HKE in the wake of the 2 8 1 4 records, dreampunk slows vaporwave's sample logic into 60-80 BPM or beatless long-form ambient — heavily reverbed and time-stretched synth pads, dial-tone and rain field recordings, distant Mandarin or Japanese speech samples, tape hiss and cassette wow — arranged as continuous album-length dystopian-city atmospheres.",
   "recipe": "classic mid-2010s dreampunk, experimental Elec, retro aesthetic branch, ambient experimental electric, lofi experimental electric lo-fi beats j-ambient. glitched textural granular sustained pad analog poly synth, sustained pad digital subtractive, tape replay keyboard, field textural sampler. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 410,
-  "score": 106.268,
+  "score": 106.384,
   "config": {
     "traditions": [
       "dreampunk",
@@ -65,7 +65,7 @@
           "electronic_technique": 13.815000000000003,
           "sampler_archetypes": 2.875,
           "sampler_bit_depth": 1.3854999999999997,
-          "sampler_workflow": 17.045125000000002,
+          "sampler_workflow": 17.161375000000003,
           "sampler_classic_context": 13.974999999999998
         }
       },

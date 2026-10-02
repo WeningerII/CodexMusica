@@ -1,0 +1,88 @@
+{
+  "id": "uk_experimental_electronic",
+  "name": "Uk experimental electronic",
+  "family": "electronic",
+  "lineage": "Uk experimental electronic is represented by Rich Chappelow / Bilnd — Lenticular machine-only core. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic uk experimental electronic, experimental Elec. analog mono synth, glitched textural sampler. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 180,
+  "score": 23.555,
+  "config": {
+    "traditions": [
+      "uk_experimental_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": -0.05,
+          "mono_oscillator": 0.29025,
+          "mono_filter": 0.21,
+          "mono_archetypes": 0.105,
+          "mono_maker_lineage": 0.25
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "sampler_archetypes": "akai_s1000",
+          "sampler_bit_depth": "sampler_sixteen_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_industrial"
+        },
+        "scores": {
+          "electronic_technique": 10.2,
+          "sampler_archetypes": 2.5,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 10.149999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "analog_mono_synth": [
+        "electronic_technique"
+      ],
+      "sampler_classic": [
+        "sampler_bit_depth",
+        "sampler_workflow"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "sampler_bit_depth": "sampler_sixteen_bit",
+      "sampler_workflow": "sampler_loop_layered"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

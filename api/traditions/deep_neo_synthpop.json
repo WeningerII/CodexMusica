@@ -5,7 +5,7 @@
   "lineage": "Deep neo-synthpop is represented here by Sea of Sin — Unbroken documented core. This is one documented branch with an authored present-day studio realization.",
   "recipe": "classic deep neo-synthpop, functional Song, synthpop branch. solo with instrumental accompaniment, single lead single track no stacking. analog poly synth, clean strummed humbucker electric guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 298,
-  "score": 18.057,
+  "score": 17.994,
   "config": {
     "traditions": [
       "deep_neo_synthpop"
@@ -95,7 +95,7 @@
           "voice_ornament_system": 0.21,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.9555
+          "voice_multitrack_stack": 0.8925000000000001
         }
       }
     ],

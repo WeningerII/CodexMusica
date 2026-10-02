@@ -5,7 +5,7 @@
   "lineage": "Norway-centered techno production networks, with a documented early Tromsø branch connecting Mental Overdrive, Ismistik and Geir Jenssen/Bleep. The default selects the spacious synthetic-rhythm and sampled-texture side of this history; it is not a claim that all Norwegian techno is ambient.",
   "recipe": "classic mid-1980s norwegian techno, electronic Dance, techno branch. pad like pad analog synth, drum machine analog, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette digital delay.",
   "recipe_chars": 309,
-  "score": 12.351,
+  "score": 12.159,
   "config": {
     "traditions": [
       "norwegian_techno"
@@ -21,10 +21,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.7040000000000006,
+          "electronic_technique": 3.6680000000000006,
           "oscillator": 0.0315,
-          "filter_topology": 1.1199999999999999,
-          "envelope": 1.504,
+          "filter_topology": 1,
+          "envelope": 1.468,
           "modulation": 0
         }
       },

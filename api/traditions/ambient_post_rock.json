@@ -5,12 +5,11 @@
   "lineage": "2000s onward meeting of post-rock ensemble dynamics and ambient sustain, represented by Nashville duo Hammock. Their guitar-rooted work moves between atmospheric passages and fuller rhythmic arrivals; Everything and Nothing documents a guitar-based return, beats, vocals, and cello. This instrumental guitar-bass-drum-cello branch and modern multitrack chain are authored models rather than a session-equipment inventory.",
   "recipe": "classic mid-2000s ambient post-rock, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal illbient. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp mahogany maple electric bass, sticks backbeat drum kit, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, class-A discrete pre, British class-A combo, parallel compression, parametric EQ. 24-bit digital digital delay hall reverb octave-up reverb.",
   "recipe_chars": 634,
-  "score": 69.905,
+  "score": 61.105,
   "config": {
     "traditions": [
       "ambient_post_rock",
-      "illbient",
-      "ambient"
+      "illbient"
     ],
     "instruments": [
       {
@@ -31,16 +30,16 @@
           "string_tuning": "standard_tuning"
         },
         "scores": {
-          "electric_technique": 0.45499999999999996,
+          "electric_technique": 0.26,
           "amp_make": 4.705,
           "body_wood": 1.04,
           "neck_wood": 1.04,
           "fretboard": 0.975,
-          "pickup_magnet": 1.755,
-          "pickup_winding": 1.755,
+          "pickup_magnet": 1.255,
+          "pickup_winding": 1.255,
           "string_material": 0,
           "bridge": 1.04,
-          "scale_length": 3.3799999999999994,
+          "scale_length": 1.4949999999999999,
           "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 0
@@ -63,7 +62,7 @@
           "body_wood": 1.04,
           "pickup_config": 0,
           "string_type": 0,
-          "scale_length_b": 2.04,
+          "scale_length_b": 1.4949999999999999,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
@@ -98,13 +97,13 @@
         "scores": {
           "bowed_technique": -0.035,
           "cello_strings": 2.5949999999999998,
-          "cello_top_wood": 3.75,
-          "cello_back_wood": 8.36,
-          "cello_varnish": 4.725,
-          "cello_setup_period": 6.495,
+          "cello_top_wood": 2.5,
+          "cello_back_wood": 7.109999999999999,
+          "cello_varnish": 3.25,
+          "cello_setup_period": 5.095,
           "cello_bow_grip": 0,
-          "cello_rosin": 6.3,
-          "cello_bow_stick": 3.95
+          "cello_rosin": 5.05,
+          "cello_bow_stick": 2.7
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Experimental synth is represented here by Suzanne Ciani — Galeria Bonino Buchla concert (1974). This is one documented branch with an authored present-day studio realization.",
   "recipe": "classic mid-1970s experimental synth, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 244,
-  "score": 11.639,
+  "score": 12.521,
   "config": {
     "traditions": [
       "experimental_synth"
@@ -20,10 +20,10 @@
           "mod_lineage": "mod_buchla_west_coast"
         },
         "scores": {
-          "electronic_technique": 10.245249999999999,
-          "mod_voltage_source": 0.041499999999999995,
-          "mod_patch_density": 0.024642857142857136,
-          "mod_lineage": 1.328
+          "electronic_technique": 10.5255,
+          "mod_voltage_source": 0.38849999999999996,
+          "mod_patch_density": 0,
+          "mod_lineage": 1.607
         }
       }
     ],

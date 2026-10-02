@@ -5,7 +5,7 @@
   "lineage": "Chinese electronic is represented by Shanghai Restoration Project with Zhang Le — There and Then programmed-vocal core. This documented branch is realized as an authored present-day arrangement.",
   "recipe": "classic chinese electronic, experimental Elec. solo with instrumental accompaniment. sampler drum machine. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 207,
-  "score": 10.169,
+  "score": 10.166,
   "config": {
     "traditions": [
       "chinese_electronic"
@@ -59,10 +59,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 1.69,
-          "voice_ornament_system": 0,
+          "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.2235
+          "voice_processing_chain": 0.0315,
+          "voice_multitrack_stack": 0.1575
         }
       }
     ],

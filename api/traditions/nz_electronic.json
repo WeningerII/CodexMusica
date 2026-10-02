@@ -1,0 +1,92 @@
+{
+  "id": "nz_electronic",
+  "name": "NZ electronic",
+  "family": "electronic",
+  "lineage": "NZ electronic is represented here by Pitch Black — pre-Ableton live sampler/workstation core. This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic nz electronic, electronic Dance. sampler, rompler workstation. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 150,
+  "score": 0.475,
+  "config": {
+    "traditions": [
+      "nz_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_hiphop"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": -0.1,
+          "sampler_classic_context": 0.325
+        }
+      },
+      {
+        "id": "rompler_workstation",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "rompler_preset_bank": "rompler_preset_dance_stabs",
+          "rompler_context": "rompler_context_pop_workstation",
+          "rompler_lineage": "rompler_lineage_unspecified"
+        },
+        "scores": {
+          "electronic_technique": 0.25,
+          "rompler_preset_bank": -0.1,
+          "rompler_context": 0.25,
+          "rompler_lineage": 0
+        }
+      }
+    ],
+    "pinned": {
+      "sampler_classic": [
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow"
+      ],
+      "rompler_workstation": [
+        "rompler_preset_bank",
+        "rompler_context",
+        "rompler_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "rompler_lineage": "rompler_lineage_unspecified",
+      "rompler_preset_bank": "rompler_preset_dance_stabs",
+      "rompler_context": "rompler_context_pop_workstation"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
