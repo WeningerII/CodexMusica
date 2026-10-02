@@ -1,0 +1,253 @@
+{
+  "status": "PASS_SIX_TARGETED_FIXTURE_UPDATES_JUSTIFIED",
+  "frozen_sha256": "278a641968bfedd2f1e8c8324ffaab4ab68943503d8fb3998e84c6e2731cf7d5",
+  "initial_regression": "1143/1149",
+  "authorized_exact_fixture_ids": [
+    "bluegrass",
+    "blend_bluegrass_dub",
+    "minimalist",
+    "goa_trance",
+    "brazilian_mpb_protest",
+    "caribbean_carnival_steelpan_panorama"
+  ],
+  "rows": [
+    {
+      "id": "bluegrass",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New modern_old_time enters the original appalachian cross-reference neighbors and replaces old_time_fiddle as the candidate representative for droneModal.appalachian after old_time. Original search instead chooses coco; four unprotected construction/playing slots change.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "acoustic_guitar_dread",
+          "part": "string_acoustic",
+          "before": "coated_nano_acoustic",
+          "after": "eighty_twenty",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_bow",
+          "before": "light_rosin",
+          "after": "magic_rosin_fiddle",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_articulation",
+          "before": "sul_tasto",
+          "after": "arco",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "mandola",
+          "part": "mandola_size",
+          "before": "octave_mandola",
+          "after": "mandola_alto",
+          "runtime_protected": false
+        }
+      ],
+      "candidate_parent_changes": {
+        "bluegrass+old_time": {
+          "droneModal.appalachian": {
+            "before": "old_time_fiddle",
+            "after": "modern_old_time"
+          }
+        }
+      },
+      "traditions_before": ["bluegrass", "old_time", "old_time_fiddle"],
+      "traditions_after": ["bluegrass", "old_time", "coco"],
+      "expected_before": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian old-time fiddle. sitka spruce spruce maple coated nanoweb dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, treble-extended sustaining steel upright bass, steel double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "expected_after": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian coco de roda. sitka spruce spruce maple bronze clawhammer dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, treble-extended sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb."
+    },
+    {
+      "id": "blend_bluegrass_dub",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "Same modern_old_time addition changes bluegrass cross-reference scoring. Stapled traditions remain bluegrass+dub+old_time; only unprotected fiddle-bow/rosin choice changes. Longer wording consumes the fixed output ceiling and removes trailing chain text from the recipe; actual chain config remains identical.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_bow",
+          "before": "light_rosin",
+          "after": "magic_rosin_fiddle",
+          "runtime_protected": false
+        }
+      ],
+      "candidate_parent_changes": {},
+      "traditions_before": ["bluegrass", "dub", "old_time"],
+      "traditions_after": ["bluegrass", "dub", "old_time"],
+      "expected_before": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian. sitka spruce spruce maple bronze clawhammer dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, treble-extended sustaining steel upright ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, steel double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet full spectrum fast tremolo tonewheel organ, melodica. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET.",
+      "expected_after": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian. sitka spruce spruce maple bronze clawhammer dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, treble-extended sustaining steel upright ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola, pre muffled edge muffled brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet full spectrum fast tremolo tonewheel organ, melodica. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre."
+    },
+    {
+      "id": "minimalist",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "After deep_downtempo_fusion, musica_andorra replaces hauntology_aesthetic as ambient-parent representative in original staple generation. Unprotected piano brand changes Yamaha\u2192B\u00f6sendorfer; source and protected config unchanged. Controlled-legato wording appears through unchanged contextual rendering, not bass-flute slot mutation.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "grand_piano_brand",
+          "before": "yamaha_cfx",
+          "after": "bosendorfer",
+          "runtime_protected": false
+        }
+      ],
+      "candidate_parent_changes": {
+        "minimalist+deep_downtempo_fusion": {
+          "experimentalElec.ambient": {
+            "before": "hauntology_aesthetic",
+            "after": "musica_andorra"
+          }
+        }
+      },
+      "traditions_before": ["minimalist", "deep_downtempo_fusion", "hauntology_aesthetic"],
+      "traditions_after": ["minimalist", "deep_downtempo_fusion", "musica_andorra"],
+      "expected_before": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric deep downtempo fusion hauntology. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "expected_after": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric deep downtempo fusion m\u00fasica andorra. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, pad like pad analog synth, controlled legato bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L."
+    },
+    {
+      "id": "goa_trance",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New marathi_devotional replaces baps as the original Hindu-parent candidate representative. Selected staples change to Marathi devotional+BAPS; no slot or environment changes.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "environment_changes": {},
+      "slot_changes": [],
+      "candidate_parent_changes": {
+        "goa_trance": {
+          "ritualDevotional.hindu": {
+            "before": "baps",
+            "after": "marathi_devotional"
+          }
+        }
+      },
+      "traditions_before": ["goa_trance", "baps", "borgeet_assamese"],
+      "traditions_after": ["goa_trance", "marathi_devotional", "baps"],
+      "expected_before": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional baps devotional music borgeet. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay.",
+      "expected_after": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional marathi devotional baps devotional music. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay."
+    },
+    {
+      "id": "brazilian_mpb_protest",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New musica_maranhense replaces nova_mpb as Brazilian-song parent candidate. Original search chooses cantautora_mexicana then folklore_surero. Five valid unprotected slots change, including vocal vibrato/training/Estill, nylon-string tension and cavaquinho origin; all previously authored protected settings retained.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_opera",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "fast_vibrato",
+          "after": "slow_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "japanese_min_yo_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "classical_nylon_string_guitar",
+          "part": "string_classical",
+          "before": "nylon_high_cl",
+          "after": "nylon_normal_cl",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "cavaquinho",
+          "part": "cavaquinho_origin",
+          "before": "cavaquinho_brazilian",
+          "after": "cavaquinho_portuguese",
+          "runtime_protected": false
+        }
+      ],
+      "candidate_parent_changes": {
+        "brazilian_mpb_protest": {
+          "functionalSong.brazilianSong": {
+            "before": "nova_mpb",
+            "after": "musica_maranhense"
+          }
+        }
+      },
+      "traditions_before": ["brazilian_mpb_protest", "nova_mpb", "cantautora_mexicana"],
+      "traditions_after": ["brazilian_mpb_protest", "cantautora_mexicana", "folklore_surero"],
+      "expected_before": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry nova mpb cantautora mexicana. thick, breath veiled tone, interlocked note trading, neutral third half flat. cedar nylon fingerpicked classical nylon-string guitar, samba foundation jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "expected_after": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz."
+    },
+    {
+      "id": "caribbean_carnival_steelpan_panorama",
+      "authorization": "ONLY_THIS_FIXTURE_UPDATE",
+      "cause": "New musica_paraibana replaces brazilian_samba_de_roda as Brazilian-song parent representative. Original optimizer chooses bloco_afro after samba-school enredo. Only unprotected steelpan_voice changes double_seconds\u2192cello_pan; actual full instrument roster and all environment retained.",
+      "baseline_exact_snapshot": true,
+      "current_exact_logged_failure": true,
+      "source_and_extras_unchanged": true,
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "steelpan",
+          "part": "steelpan_voice",
+          "before": "double_seconds",
+          "after": "cello_pan",
+          "runtime_protected": false
+        }
+      ],
+      "candidate_parent_changes": {
+        "caribbean_carnival_steelpan_panorama": {
+          "functionalSong.brazilianSong": {
+            "before": "brazilian_samba_de_roda",
+            "after": "musica_paraibana"
+          }
+        },
+        "caribbean_carnival_steelpan_panorama+brazilian_samba_school_enredo": {
+          "functionalSong.brazilianSong": {
+            "before": "brazilian_samba_de_roda",
+            "after": "musica_paraibana"
+          }
+        }
+      },
+      "traditions_before": [
+        "caribbean_carnival_steelpan_panorama",
+        "brazilian_samba_school_enredo",
+        "brazilian_samba_de_roda"
+      ],
+      "traditions_after": [
+        "caribbean_carnival_steelpan_panorama",
+        "brazilian_samba_school_enredo",
+        "bloco_afro"
+      ],
+      "expected_before": "classic Caribbean early-1960s trinidadian panorama steelpan competition, carnival Processional, Caribbean branch, Brazilian carnival processional, urban American protest song, Brazilian song functional song brazilian samba-school enredo brazilian samba de roda do rec\u00f4ncavo. arranged concert stage steel steelpan, synthetic engelmann spruce hard rock maple synthetic varnish modern setup cello, steel orchestra. trinidad calypso panyard outdoor. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+      "expected_after": "classic Caribbean early-1960s trinidadian panorama steelpan competition, carnival Processional, Caribbean branch, Brazilian carnival processional, urban American protest song, Brazilian song functional song brazilian samba-school enredo bloco afro. arranged concert stage steel steelpan, synthetic engelmann spruce hard rock maple synthetic varnish modern setup cello, steel orchestra. trinidad calypso panyard outdoor. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb."
+    }
+  ],
+  "errors": [],
+  "old_browser_preservation": "/tmp/batch029/app-preservation119.json",
+  "engine_unchanged_proof": "/tmp/batch029/independent-integration-review119.json",
+  "policy": "Original solver global adjacency and parent representative behavior preserved. Acknowledges material generated unprotected changes; does not assert old generated suggestions invariant or culturally exact. No source/default/protected mutation. Update these six snapshots only then rerun full serial regression.",
+  "no_repo_mutations": true,
+  "prior_frozen_sha256": "76f778653bd1a7ec5bebe0e2966052e5081dc0c0a012bbcbaf8a0046d121cc5c",
+  "final_source_reproduction": {
+    "current_vs_final_trace_bytes_equal": true,
+    "scope": "All six original solver traces unchanged after final four family/three keyboard repairs; earlier exact six-only snapshot authorization remains valid."
+  }
+}

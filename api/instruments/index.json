@@ -1,5 +1,5 @@
 {
-  "count": 1483,
+  "count": 1489,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8898,6 +8898,42 @@
       "name": "Uilleann pipes (three-quarter set)",
       "family": "wind",
       "href": "instruments/uilleann_pipes_three_quarter.json"
+    },
+    {
+      "id": "electronic_keyboard_unspecified",
+      "name": "Electronic keyboard (source-unspecified architecture)",
+      "family": "keyboard",
+      "href": "instruments/electronic_keyboard_unspecified.json"
+    },
+    {
+      "id": "vinyl_dj_playback",
+      "name": "Vinyl DJ playback and mixing setup",
+      "family": "electronic",
+      "href": "instruments/vinyl_dj_playback.json"
+    },
+    {
+      "id": "midi_programmed_sound_unspecified",
+      "name": "MIDI-programmed sound (source-unspecified generator)",
+      "family": "electronic",
+      "href": "instruments/midi_programmed_sound_unspecified.json"
+    },
+    {
+      "id": "sakha_concert_khomus",
+      "name": "Sakha concert khomus (nonritual jaw harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/sakha_concert_khomus.json"
+    },
+    {
+      "id": "chepkong_lyre",
+      "name": "Chepkong (Kipsigis six-string laced bowl lyre)",
+      "family": "plucked_traditional",
+      "href": "instruments/chepkong_lyre.json"
+    },
+    {
+      "id": "credited_horns_unspecified",
+      "name": "Credited horns (source-unspecified instruments)",
+      "family": "wind",
+      "href": "instruments/credited_horns_unspecified.json"
     }
   ]
 }

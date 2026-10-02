@@ -1,0 +1,635 @@
+{
+  "frozen_sha256": "59920fc0e80c089b82d9a66f11d94a67126b5fa20f6d77170df04b0907396043",
+  "old_instruments": 1483,
+  "old_instruments_byte_equal": true,
+  "old_traditions_byte_equal": true,
+  "dependencies": [
+    {
+      "id": "electronic_keyboard_unspecified",
+      "parts": 2
+    },
+    {
+      "id": "vinyl_dj_playback",
+      "parts": 1
+    },
+    {
+      "id": "midi_programmed_sound_unspecified",
+      "parts": 2
+    },
+    {
+      "id": "sakha_concert_khomus",
+      "parts": 3
+    },
+    {
+      "id": "chepkong_lyre",
+      "parts": 1
+    },
+    {
+      "id": "credited_horns_unspecified",
+      "parts": 1
+    }
+  ],
+  "entries": [
+    {
+      "id": "vapor_pop",
+      "cards": 10,
+      "protected_pins": 69,
+      "errors": []
+    },
+    {
+      "id": "viral_pop",
+      "cards": 5,
+      "protected_pins": 51,
+      "errors": []
+    },
+    {
+      "id": "viral_pop_brasileiro",
+      "cards": 2,
+      "protected_pins": 22,
+      "errors": []
+    },
+    {
+      "id": "yakut_pop",
+      "cards": 2,
+      "protected_pins": 20,
+      "errors": []
+    },
+    {
+      "id": "alternative_dance",
+      "cards": 5,
+      "protected_pins": 50,
+      "errors": []
+    },
+    {
+      "id": "belgian_dance",
+      "cards": 1,
+      "protected_pins": 5,
+      "errors": []
+    },
+    {
+      "id": "belgian_edm",
+      "cards": 1,
+      "protected_pins": 5,
+      "errors": []
+    },
+    {
+      "id": "comfy_synth",
+      "cards": 1,
+      "protected_pins": 4,
+      "errors": []
+    },
+    {
+      "id": "kenyan_alternative",
+      "cards": 8,
+      "protected_pins": 72,
+      "errors": []
+    },
+    {
+      "id": "kenyan_traditional",
+      "cards": 2,
+      "protected_pins": 18,
+      "errors": []
+    },
+    {
+      "id": "kermis",
+      "cards": 6,
+      "protected_pins": 58,
+      "errors": []
+    },
+    {
+      "id": "kinderliedjies",
+      "cards": 2,
+      "protected_pins": 26,
+      "errors": []
+    },
+    {
+      "id": "kingston_on_indie",
+      "cards": 4,
+      "protected_pins": 43,
+      "errors": []
+    },
+    {
+      "id": "kizomba_cabo_verdiana",
+      "cards": 4,
+      "protected_pins": 28,
+      "errors": []
+    },
+    {
+      "id": "klubowe",
+      "cards": 1,
+      "protected_pins": 1,
+      "errors": []
+    },
+    {
+      "id": "kol_isha",
+      "cards": 1,
+      "protected_pins": 17,
+      "errors": []
+    },
+    {
+      "id": "kolsche_karneval",
+      "cards": 8,
+      "protected_pins": 72,
+      "errors": []
+    },
+    {
+      "id": "korean_bl_ost",
+      "cards": 5,
+      "protected_pins": 40,
+      "errors": []
+    },
+    {
+      "id": "lesen",
+      "cards": 1,
+      "protected_pins": 17,
+      "errors": []
+    },
+    {
+      "id": "lldm",
+      "cards": 1,
+      "protected_pins": 17,
+      "errors": []
+    },
+    {
+      "id": "lo_star",
+      "cards": 10,
+      "protected_pins": 87,
+      "errors": []
+    },
+    {
+      "id": "lombok_indie",
+      "cards": 9,
+      "protected_pins": 58,
+      "errors": []
+    },
+    {
+      "id": "london_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "luxembourgian_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "magyar_alternative",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "magyar_mulatos",
+      "cards": 6,
+      "protected_pins": 57,
+      "errors": []
+    },
+    {
+      "id": "magyar_musicalek",
+      "cards": 2,
+      "protected_pins": 26,
+      "errors": []
+    },
+    {
+      "id": "maine_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "malang_indie",
+      "cards": 5,
+      "protected_pins": 54,
+      "errors": []
+    },
+    {
+      "id": "malayalam_cover",
+      "cards": 2,
+      "protected_pins": 19,
+      "errors": []
+    },
+    {
+      "id": "malayalam_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "malaysian_indie",
+      "cards": 5,
+      "protected_pins": 54,
+      "errors": []
+    },
+    {
+      "id": "malaysian_mandopop",
+      "cards": 1,
+      "protected_pins": 9,
+      "errors": []
+    },
+    {
+      "id": "malian_traditional",
+      "cards": 2,
+      "protected_pins": 24,
+      "errors": []
+    },
+    {
+      "id": "mallet",
+      "cards": 1,
+      "protected_pins": 3,
+      "errors": []
+    },
+    {
+      "id": "malmo_indie",
+      "cards": 8,
+      "protected_pins": 70,
+      "errors": []
+    },
+    {
+      "id": "manchester_indie",
+      "cards": 5,
+      "protected_pins": 58,
+      "errors": []
+    },
+    {
+      "id": "mandible",
+      "cards": 1,
+      "protected_pins": 4,
+      "errors": []
+    },
+    {
+      "id": "mandolin",
+      "cards": 1,
+      "protected_pins": 8,
+      "errors": []
+    },
+    {
+      "id": "manitoba_indie",
+      "cards": 4,
+      "protected_pins": 42,
+      "errors": []
+    },
+    {
+      "id": "manso_indie",
+      "cards": 5,
+      "protected_pins": 50,
+      "errors": []
+    },
+    {
+      "id": "marathi_devotional",
+      "cards": 3,
+      "protected_pins": 23,
+      "errors": []
+    },
+    {
+      "id": "marathi_traditional",
+      "cards": 1,
+      "protected_pins": 17,
+      "errors": []
+    },
+    {
+      "id": "marcha_funebre",
+      "cards": 1,
+      "protected_pins": 9,
+      "errors": []
+    },
+    {
+      "id": "mariachi_cristiano",
+      "cards": 5,
+      "protected_pins": 44,
+      "errors": []
+    },
+    {
+      "id": "marsmuziek",
+      "cards": 1,
+      "protected_pins": 5,
+      "errors": []
+    },
+    {
+      "id": "mashcore",
+      "cards": 1,
+      "protected_pins": 5,
+      "errors": []
+    },
+    {
+      "id": "massage",
+      "cards": 1,
+      "protected_pins": 9,
+      "errors": []
+    },
+    {
+      "id": "mathgrind",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "mecha",
+      "cards": 1,
+      "protected_pins": 9,
+      "errors": []
+    },
+    {
+      "id": "medieval",
+      "cards": 1,
+      "protected_pins": 17,
+      "errors": []
+    },
+    {
+      "id": "medieval_ensemble",
+      "cards": 1,
+      "protected_pins": 17,
+      "errors": []
+    },
+    {
+      "id": "medway_sound",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "melbourne_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "melodic_doom",
+      "cards": 5,
+      "protected_pins": 53,
+      "errors": []
+    },
+    {
+      "id": "melodic_thrash",
+      "cards": 5,
+      "protected_pins": 50,
+      "errors": []
+    },
+    {
+      "id": "memphis_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "messianic_praise",
+      "cards": 7,
+      "protected_pins": 59,
+      "errors": []
+    },
+    {
+      "id": "mestissatge",
+      "cards": 8,
+      "protected_pins": 74,
+      "errors": []
+    },
+    {
+      "id": "mexican_experimental",
+      "cards": 8,
+      "protected_pins": 67,
+      "errors": []
+    },
+    {
+      "id": "mexican_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "miami_indie",
+      "cards": 5,
+      "protected_pins": 53,
+      "errors": []
+    },
+    {
+      "id": "michigan_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "milan_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "milwaukee_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "minneapolis_indie",
+      "cards": 5,
+      "protected_pins": 51,
+      "errors": []
+    },
+    {
+      "id": "mississippi_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "missouri_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "modern_big_band",
+      "cards": 8,
+      "protected_pins": 62,
+      "errors": []
+    },
+    {
+      "id": "modern_cello",
+      "cards": 2,
+      "protected_pins": 14,
+      "errors": []
+    },
+    {
+      "id": "modern_chamber_music",
+      "cards": 5,
+      "protected_pins": 23,
+      "errors": []
+    },
+    {
+      "id": "modern_mod",
+      "cards": 6,
+      "protected_pins": 52,
+      "errors": []
+    },
+    {
+      "id": "modern_old_time",
+      "cards": 3,
+      "protected_pins": 20,
+      "errors": []
+    },
+    {
+      "id": "modern_performance",
+      "cards": 1,
+      "protected_pins": 17,
+      "errors": []
+    },
+    {
+      "id": "montana_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "monterrey_indie",
+      "cards": 5,
+      "protected_pins": 53,
+      "errors": []
+    },
+    {
+      "id": "montreal_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "morelos_indie",
+      "cards": 9,
+      "protected_pins": 70,
+      "errors": []
+    },
+    {
+      "id": "mountain_dulcimer",
+      "cards": 1,
+      "protected_pins": 5,
+      "errors": []
+    },
+    {
+      "id": "mumbai_indie",
+      "cards": 5,
+      "protected_pins": 53,
+      "errors": []
+    },
+    {
+      "id": "mundart",
+      "cards": 2,
+      "protected_pins": 22,
+      "errors": []
+    },
+    {
+      "id": "munich_indie",
+      "cards": 6,
+      "protected_pins": 55,
+      "errors": []
+    },
+    {
+      "id": "murcia_indie",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "musica_alagoana",
+      "cards": 1,
+      "protected_pins": 9,
+      "errors": []
+    },
+    {
+      "id": "musica_amapaense",
+      "cards": 2,
+      "protected_pins": 23,
+      "errors": []
+    },
+    {
+      "id": "musica_andorra",
+      "cards": 8,
+      "protected_pins": 72,
+      "errors": []
+    },
+    {
+      "id": "musica_costarricense",
+      "cards": 1,
+      "protected_pins": 9,
+      "errors": []
+    },
+    {
+      "id": "musica_feirense",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "musica_infantil",
+      "cards": 6,
+      "protected_pins": 60,
+      "errors": []
+    },
+    {
+      "id": "musica_infantil_catala",
+      "cards": 1,
+      "protected_pins": 9,
+      "errors": []
+    },
+    {
+      "id": "musica_lombarda",
+      "cards": 3,
+      "protected_pins": 24,
+      "errors": []
+    },
+    {
+      "id": "musica_londrinense",
+      "cards": 4,
+      "protected_pins": 43,
+      "errors": []
+    },
+    {
+      "id": "musica_mallorquina",
+      "cards": 4,
+      "protected_pins": 49,
+      "errors": []
+    },
+    {
+      "id": "musica_maranhense",
+      "cards": 3,
+      "protected_pins": 27,
+      "errors": []
+    },
+    {
+      "id": "musica_maringaense",
+      "cards": 8,
+      "protected_pins": 70,
+      "errors": []
+    },
+    {
+      "id": "musica_menorquina",
+      "cards": 2,
+      "protected_pins": 23,
+      "errors": []
+    },
+    {
+      "id": "musica_occitana",
+      "cards": 3,
+      "protected_pins": 41,
+      "errors": []
+    },
+    {
+      "id": "musica_paraibana",
+      "cards": 6,
+      "protected_pins": 50,
+      "errors": []
+    },
+    {
+      "id": "musica_ponta_grossense",
+      "cards": 3,
+      "protected_pins": 32,
+      "errors": []
+    },
+    {
+      "id": "musica_potiguar",
+      "cards": 4,
+      "protected_pins": 39,
+      "errors": []
+    }
+  ],
+  "errors": []
+}

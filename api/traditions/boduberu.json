@@ -5,7 +5,7 @@
   "lineage": "Maldivian drum-song with a lead singer, group responses and three drummers.",
   "recipe": "classic modern boduberu, groove Percussion. maldivian, single leader group response, live take. three drummers boduberu drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 205,
-  "score": 7.251,
+  "score": 7.202,
   "config": {
     "traditions": [
       "boduberu"
@@ -60,7 +60,7 @@
         "scores": {
           "boduberu_build": 0,
           "boduberu_stroke": 0.231,
-          "boduberu_setup": 2.68025
+          "boduberu_setup": 2.6315
         }
       }
     ],

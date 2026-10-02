@@ -1,0 +1,1518 @@
+{
+  "before_sha256": "997178cf07467aed480e04fc857423903c9bb017e589026dba05afbf2eec6ef8",
+  "after_sha256": "59920fc0e80c089b82d9a66f11d94a67126b5fa20f6d77170df04b0907396043",
+  "affected_ids": [
+    "kenyan_alternative",
+    "kermis",
+    "kolsche_karneval",
+    "lombok_indie",
+    "malayalam_cover",
+    "mexican_indie",
+    "miami_indie",
+    "michigan_indie",
+    "milan_indie",
+    "milwaukee_indie",
+    "minneapolis_indie",
+    "mississippi_indie",
+    "missouri_indie",
+    "modern_mod",
+    "munich_indie"
+  ],
+  "changes": [
+    {
+      "path": ["entries", "kenyan_alternative", "vocal_count_audit", "decision"],
+      "before": "This authored arrangement follows the artist-announced August2021 tour configuration, not the thirteen-member Dala album or the different eight-member2024 band. A Runding promoter page advertises a different guitarist and percussionist instead of saxophonist; that venue-specific version is not silently combined with this dated artist lineup or asserted to match it. One lead singer is explicitly credited in the selected tour roster; generic album background-chorus prose does not identify extra singers for this version. All positive roles in the selected artist source remain. Unspecified keyboard realized by an authored Prophet5 polysynth, saxes by a representative alto card, and lead guitar by a humbucking electric card; architecture, sax size and all makes are authored and do not claim actual stage gear. Broad groovePercussion parent reflects explicitly documented dance-groove arrangement, without importing a programmed backline or claiming all Kenyan alternative shares this palette.",
+      "after": "This authored arrangement follows the artist-announced August2021 tour configuration, not the thirteen-member Dala album or the different eight-member2024 band. A Runding promoter page advertises a different guitarist and percussionist instead of saxophonist; that venue-specific version is not silently combined with this dated artist lineup or asserted to match it. One lead singer is explicitly credited in the selected tour roster; generic album background-chorus prose does not identify extra singers for this version. All positive roles in the selected artist source remain. Unspecified keyboard retained with a neutral source-unspecified electronic-keyboard owner, saxes by a representative alto card, and lead guitar by a humbucking electric card; architecture, sax size and all makes are authored and do not claim actual stage gear. Broad groovePercussion parent reflects explicitly documented dance-groove arrangement, without importing a programmed backline or claiming all Kenyan alternative shares this palette."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood", "amp_make", "wind_articulation"],
+      "after": null
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "flat_pin_resolution", "rule"],
+      "before": "Shared wood and unspecified amplifier apply validly to guitar and bass. Shared punchy wind articulation is valid on trumpet, saxophone and trombone. Polysynth is sole electronic_technique owner; all applicable parts explicitly pinned and resolved audit records each effective value.",
+      "after": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "extras", "description"],
+      "before": "The artist’s dated announcement explicitly lists the complete current tour band: Nina Ogot lead vocals, Raffaello Visconti lead guitars, Arne Dreske keyboards, Thierry Jasmin-Banaré bass, Hannes Dunker drums, Christian Spors trumpet, Laure Fischer saxes and Jan Urnau trombone. All eight credited role families are retained. Exact creator Kenyan Alternative playlist includes Nina Ogot through Pole Pole. Her primary agency documents Nairobi origins and dance grooves with Afropop, highlife, reggae, soul and jazz influences. This authored arrangement follows the artist-announced August2021 tour configuration, not the thirteen-member Dala album or the different eight-member2024 band. A Runding promoter page advertises a different guitarist and percussionist instead of saxophonist; that venue-specific version is not silently combined with this dated artist lineup or asserted to match it. One lead singer is explicitly credited in the selected tour roster; generic album background-chorus prose does not identify extra singers for this version. All positive roles in the selected artist source remain. Unspecified keyboard realized by an authored Prophet5 polysynth, saxes by a representative alto card, and lead guitar by a humbucking electric card; architecture, sax size and all makes are authored and do not claim actual stage gear. Broad groovePercussion parent reflects explicitly documented dance-groove arrangement, without importing a programmed backline or claiming all Kenyan alternative shares this palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "The artist’s dated announcement explicitly lists the complete current tour band: Nina Ogot lead vocals, Raffaello Visconti lead guitars, Arne Dreske keyboards, Thierry Jasmin-Banaré bass, Hannes Dunker drums, Christian Spors trumpet, Laure Fischer saxes and Jan Urnau trombone. All eight credited role families are retained. Exact creator Kenyan Alternative playlist includes Nina Ogot through Pole Pole. Her primary agency documents Nairobi origins and dance grooves with Afropop, highlife, reggae, soul and jazz influences. This authored arrangement follows the artist-announced August2021 tour configuration, not the thirteen-member Dala album or the different eight-member2024 band. A Runding promoter page advertises a different guitarist and percussionist instead of saxophonist; that venue-specific version is not silently combined with this dated artist lineup or asserted to match it. One lead singer is explicitly credited in the selected tour roster; generic album background-chorus prose does not identify extra singers for this version. All positive roles in the selected artist source remain. Unspecified keyboard retained with a neutral source-unspecified electronic-keyboard owner, saxes by a representative alto card, and lead guitar by a humbucking electric card; architecture, sax size and all makes are authored and do not claim actual stage gear. Broad groovePercussion parent reflects explicitly documented dance-groove arrangement, without importing a programmed backline or claiming all Kenyan alternative shares this palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "instrument_role_audit", "rationale"],
+      "before": "The artist’s dated announcement explicitly lists the complete current tour band: Nina Ogot lead vocals, Raffaello Visconti lead guitars, Arne Dreske keyboards, Thierry Jasmin-Banaré bass, Hannes Dunker drums, Christian Spors trumpet, Laure Fischer saxes and Jan Urnau trombone. All eight credited role families are retained. Exact creator Kenyan Alternative playlist includes Nina Ogot through Pole Pole. Her primary agency documents Nairobi origins and dance grooves with Afropop, highlife, reggae, soul and jazz influences. This authored arrangement follows the artist-announced August2021 tour configuration, not the thirteen-member Dala album or the different eight-member2024 band. A Runding promoter page advertises a different guitarist and percussionist instead of saxophonist; that venue-specific version is not silently combined with this dated artist lineup or asserted to match it. One lead singer is explicitly credited in the selected tour roster; generic album background-chorus prose does not identify extra singers for this version. All positive roles in the selected artist source remain. Unspecified keyboard realized by an authored Prophet5 polysynth, saxes by a representative alto card, and lead guitar by a humbucking electric card; architecture, sax size and all makes are authored and do not claim actual stage gear. Broad groovePercussion parent reflects explicitly documented dance-groove arrangement, without importing a programmed backline or claiming all Kenyan alternative shares this palette.",
+      "after": "The artist’s dated announcement explicitly lists the complete current tour band: Nina Ogot lead vocals, Raffaello Visconti lead guitars, Arne Dreske keyboards, Thierry Jasmin-Banaré bass, Hannes Dunker drums, Christian Spors trumpet, Laure Fischer saxes and Jan Urnau trombone. All eight credited role families are retained. Exact creator Kenyan Alternative playlist includes Nina Ogot through Pole Pole. Her primary agency documents Nairobi origins and dance grooves with Afropop, highlife, reggae, soul and jazz influences. This authored arrangement follows the artist-announced August2021 tour configuration, not the thirteen-member Dala album or the different eight-member2024 band. A Runding promoter page advertises a different guitarist and percussionist instead of saxophonist; that venue-specific version is not silently combined with this dated artist lineup or asserted to match it. One lead singer is explicitly credited in the selected tour roster; generic album background-chorus prose does not identify extra singers for this version. All positive roles in the selected artist source remain. Unspecified keyboard retained with a neutral source-unspecified electronic-keyboard owner, saxes by a representative alto card, and lead guitar by a humbucking electric card; architecture, sax size and all makes are authored and do not claim actual stage gear. Broad groovePercussion parent reflects explicitly documented dance-groove arrangement, without importing a programmed backline or claiming all Kenyan alternative shares this palette."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "tradition", "instruments", 2],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": [
+        "entries",
+        "kenyan_alternative",
+        "tradition",
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "tradition", "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "tradition", "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "tradition", "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "tradition", "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "neighbor_distinction"],
+      "before": "This authored arrangement follows the artist-announced August2021 tour configuration, not the thirteen-member Dala album or the different eight-member2024 band. A Runding promoter page advertises a different guitarist and percussionist instead of saxophonist; that venue-specific version is not silently combined with this dated artist lineup or asserted to match it. One lead singer is explicitly credited in the selected tour roster; generic album background-chorus prose does not identify extra singers for this version. All positive roles in the selected artist source remain. Unspecified keyboard realized by an authored Prophet5 polysynth, saxes by a representative alto card, and lead guitar by a humbucking electric card; architecture, sax size and all makes are authored and do not claim actual stage gear. Broad groovePercussion parent reflects explicitly documented dance-groove arrangement, without importing a programmed backline or claiming all Kenyan alternative shares this palette.",
+      "after": "This authored arrangement follows the artist-announced August2021 tour configuration, not the thirteen-member Dala album or the different eight-member2024 band. A Runding promoter page advertises a different guitarist and percussionist instead of saxophonist; that venue-specific version is not silently combined with this dated artist lineup or asserted to match it. One lead singer is explicitly credited in the selected tour roster; generic album background-chorus prose does not identify extra singers for this version. All positive roles in the selected artist source remain. Unspecified keyboard retained with a neutral source-unspecified electronic-keyboard owner, saxes by a representative alto card, and lead guitar by a humbucking electric card; architecture, sax size and all makes are authored and do not claim actual stage gear. Broad groovePercussion parent reflects explicitly documented dance-groove arrangement, without importing a programmed backline or claiming all Kenyan alternative shares this palette."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 0, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 1, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 2, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": [
+        "entries",
+        "kenyan_alternative",
+        "resolved_parts_audit",
+        2,
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": [
+        "entries",
+        "kenyan_alternative",
+        "resolved_parts_audit",
+        2,
+        "parts",
+        "electronic_technique"
+      ],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "kenyan_alternative",
+        "resolved_parts_audit",
+        2,
+        "parts",
+        "poly_archetypes"
+      ],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "kenyan_alternative",
+        "resolved_parts_audit",
+        2,
+        "parts",
+        "keyboard_technique"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": [
+        "entries",
+        "kenyan_alternative",
+        "resolved_parts_audit",
+        2,
+        "parts",
+        "poly_maker_lineage"
+      ],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 2, "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 2, "instrument"],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 3, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 4, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 5, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 6, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "resolved_parts_audit", 7, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "electric_guitar_humbucker",
+        "analog_poly_synth",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "saxophone",
+        "trombone"
+      ],
+      "after": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "saxophone",
+        "trombone"
+      ]
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "kenyan_alternative", "dependency_audit", "rationale"],
+      "before": "Only existing instruments; source reductions and authored construction choices explicitly disclosed.",
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "kermis", "vocal_count_audit", "decision"],
+      "before": "Chosen branch is the positively described regular2018 nine-member kermis party band, not the separate planned twelve-member Melkweg anniversary concert. Interview explicitly describes that special expanded configuration adding Daniël Metz accordion plus Lynn Veerman and Diana Kwakman saxophone/trombone; these are not arbitrarily stripped from an anniversary-concert claim. Former2008 keyboardist/trumpeter/rhythm guitarist are not combined with2018 successors. All three named singers retained with live ensemble voice card; two guitarists share construction family. Unspecified keyboards realized by an authored Prophet5 polysynth and guitars by humbucking electrics, not asserted actual model or generator mechanism. Broad functional song-form parent describes this popular repertoire branch without Anglosphere-only classification. Kermis remains the fairground musical category, not an equivalence to all Dutch pop or geographical Netherlands music.",
+      "after": "Chosen branch is the positively described regular2018 nine-member kermis party band, not the separate planned twelve-member Melkweg anniversary concert. Interview explicitly describes that special expanded configuration adding Daniël Metz accordion plus Lynn Veerman and Diana Kwakman saxophone/trombone; these are not arbitrarily stripped from an anniversary-concert claim. Former2008 keyboardist/trumpeter/rhythm guitarist are not combined with2018 successors. All three named singers retained with live ensemble voice card; two guitarists share construction family. Unspecified keyboards retained with a neutral source-unspecified electronic-keyboard owner and guitars by humbucking electrics, not asserted actual model or generator mechanism. Broad functional song-form parent describes this popular repertoire branch without Anglosphere-only classification. Kermis remains the fairground musical category, not an equivalence to all Dutch pop or geographical Netherlands music."
+    },
+    {
+      "path": ["entries", "kermis", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood", "amp_make"],
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "kermis", "flat_pin_resolution", "rule"],
+      "before": "Shared wood and unspecified amplifier validly apply to both guitar and bass. Polysynth is sole electronic_technique owner; trumpet sole wind owner. Every applicable effective part explicitly pinned, no fallback.",
+      "after": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner."
+    },
+    {
+      "path": ["entries", "kermis", "extras", "description"],
+      "before": "Direct first-person interview with singer Joop Bouwman and guitarist Kevin Mooijer identifies the complete regular2018 nine-member band: Joop voice, Evert Koning bass, Jolanda Zwarthoed voice, Kees Mühren drums, John Schel backing voice, Kevin guitar, Robin Mooijer rhythm guitar, Cees Zwarthoed trumpet and Rik Jurriaans keyboards. Interview explicitly ties repertoire cycles and performances to Volendam kermis. Exact creator Kermis playlist item1 includes Trammeland. All six sounding instrument families and three singers are retained. Chosen branch is the positively described regular2018 nine-member kermis party band, not the separate planned twelve-member Melkweg anniversary concert. Interview explicitly describes that special expanded configuration adding Daniël Metz accordion plus Lynn Veerman and Diana Kwakman saxophone/trombone; these are not arbitrarily stripped from an anniversary-concert claim. Former2008 keyboardist/trumpeter/rhythm guitarist are not combined with2018 successors. All three named singers retained with live ensemble voice card; two guitarists share construction family. Unspecified keyboards realized by an authored Prophet5 polysynth and guitars by humbucking electrics, not asserted actual model or generator mechanism. Broad functional song-form parent describes this popular repertoire branch without Anglosphere-only classification. Kermis remains the fairground musical category, not an equivalence to all Dutch pop or geographical Netherlands music. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Direct first-person interview with singer Joop Bouwman and guitarist Kevin Mooijer identifies the complete regular2018 nine-member band: Joop voice, Evert Koning bass, Jolanda Zwarthoed voice, Kees Mühren drums, John Schel backing voice, Kevin guitar, Robin Mooijer rhythm guitar, Cees Zwarthoed trumpet and Rik Jurriaans keyboards. Interview explicitly ties repertoire cycles and performances to Volendam kermis. Exact creator Kermis playlist item1 includes Trammeland. All six sounding instrument families and three singers are retained. Chosen branch is the positively described regular2018 nine-member kermis party band, not the separate planned twelve-member Melkweg anniversary concert. Interview explicitly describes that special expanded configuration adding Daniël Metz accordion plus Lynn Veerman and Diana Kwakman saxophone/trombone; these are not arbitrarily stripped from an anniversary-concert claim. Former2008 keyboardist/trumpeter/rhythm guitarist are not combined with2018 successors. All three named singers retained with live ensemble voice card; two guitarists share construction family. Unspecified keyboards retained with a neutral source-unspecified electronic-keyboard owner and guitars by humbucking electrics, not asserted actual model or generator mechanism. Broad functional song-form parent describes this popular repertoire branch without Anglosphere-only classification. Kermis remains the fairground musical category, not an equivalence to all Dutch pop or geographical Netherlands music. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "kermis", "instrument_role_audit", "rationale"],
+      "before": "Direct first-person interview with singer Joop Bouwman and guitarist Kevin Mooijer identifies the complete regular2018 nine-member band: Joop voice, Evert Koning bass, Jolanda Zwarthoed voice, Kees Mühren drums, John Schel backing voice, Kevin guitar, Robin Mooijer rhythm guitar, Cees Zwarthoed trumpet and Rik Jurriaans keyboards. Interview explicitly ties repertoire cycles and performances to Volendam kermis. Exact creator Kermis playlist item1 includes Trammeland. All six sounding instrument families and three singers are retained. Chosen branch is the positively described regular2018 nine-member kermis party band, not the separate planned twelve-member Melkweg anniversary concert. Interview explicitly describes that special expanded configuration adding Daniël Metz accordion plus Lynn Veerman and Diana Kwakman saxophone/trombone; these are not arbitrarily stripped from an anniversary-concert claim. Former2008 keyboardist/trumpeter/rhythm guitarist are not combined with2018 successors. All three named singers retained with live ensemble voice card; two guitarists share construction family. Unspecified keyboards realized by an authored Prophet5 polysynth and guitars by humbucking electrics, not asserted actual model or generator mechanism. Broad functional song-form parent describes this popular repertoire branch without Anglosphere-only classification. Kermis remains the fairground musical category, not an equivalence to all Dutch pop or geographical Netherlands music.",
+      "after": "Direct first-person interview with singer Joop Bouwman and guitarist Kevin Mooijer identifies the complete regular2018 nine-member band: Joop voice, Evert Koning bass, Jolanda Zwarthoed voice, Kees Mühren drums, John Schel backing voice, Kevin guitar, Robin Mooijer rhythm guitar, Cees Zwarthoed trumpet and Rik Jurriaans keyboards. Interview explicitly ties repertoire cycles and performances to Volendam kermis. Exact creator Kermis playlist item1 includes Trammeland. All six sounding instrument families and three singers are retained. Chosen branch is the positively described regular2018 nine-member kermis party band, not the separate planned twelve-member Melkweg anniversary concert. Interview explicitly describes that special expanded configuration adding Daniël Metz accordion plus Lynn Veerman and Diana Kwakman saxophone/trombone; these are not arbitrarily stripped from an anniversary-concert claim. Former2008 keyboardist/trumpeter/rhythm guitarist are not combined with2018 successors. All three named singers retained with live ensemble voice card; two guitarists share construction family. Unspecified keyboards retained with a neutral source-unspecified electronic-keyboard owner and guitars by humbucking electrics, not asserted actual model or generator mechanism. Broad functional song-form parent describes this popular repertoire branch without Anglosphere-only classification. Kermis remains the fairground musical category, not an equivalence to all Dutch pop or geographical Netherlands music."
+    },
+    {
+      "path": ["entries", "kermis", "tradition", "instruments", 4],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "kermis", "tradition", "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "tradition", "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "tradition", "parts", "electronic_keyboard_identity"],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "kermis", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "kermis", "tradition", "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "tradition", "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "neighbor_distinction"],
+      "before": "Chosen branch is the positively described regular2018 nine-member kermis party band, not the separate planned twelve-member Melkweg anniversary concert. Interview explicitly describes that special expanded configuration adding Daniël Metz accordion plus Lynn Veerman and Diana Kwakman saxophone/trombone; these are not arbitrarily stripped from an anniversary-concert claim. Former2008 keyboardist/trumpeter/rhythm guitarist are not combined with2018 successors. All three named singers retained with live ensemble voice card; two guitarists share construction family. Unspecified keyboards realized by an authored Prophet5 polysynth and guitars by humbucking electrics, not asserted actual model or generator mechanism. Broad functional song-form parent describes this popular repertoire branch without Anglosphere-only classification. Kermis remains the fairground musical category, not an equivalence to all Dutch pop or geographical Netherlands music.",
+      "after": "Chosen branch is the positively described regular2018 nine-member kermis party band, not the separate planned twelve-member Melkweg anniversary concert. Interview explicitly describes that special expanded configuration adding Daniël Metz accordion plus Lynn Veerman and Diana Kwakman saxophone/trombone; these are not arbitrarily stripped from an anniversary-concert claim. Former2008 keyboardist/trumpeter/rhythm guitarist are not combined with2018 successors. All three named singers retained with live ensemble voice card; two guitarists share construction family. Unspecified keyboards retained with a neutral source-unspecified electronic-keyboard owner and guitars by humbucking electrics, not asserted actual model or generator mechanism. Broad functional song-form parent describes this popular repertoire branch without Anglosphere-only classification. Kermis remains the fairground musical category, not an equivalence to all Dutch pop or geographical Netherlands music."
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 0, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 1, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 2, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 3, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 4, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": [
+        "entries",
+        "kermis",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 4, "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 4, "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 4, "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 4, "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 4, "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 4, "instrument"],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "kermis", "resolved_parts_audit", 5, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kermis", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "trumpet"
+      ],
+      "after": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit", "trumpet"]
+    },
+    {
+      "path": ["entries", "kermis", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "kermis", "dependency_audit", "rationale"],
+      "before": "Only existing instruments; source reductions and authored construction choices explicitly disclosed.",
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "vocal_count_audit", "decision"],
+      "before": "Selected arrangement models complete current six-person band and all positively specified roles across its documented palette, not the orchestra-expanded Höhner Classic format, older Henning Krautmacher roster or guest-duet studio releases. Multi-instrumentalist Streifling’s additional vague “everything possible” phrase supplies no identifiable extra instrument and does not justify invented cards; all named current roles are retained. This is a repertoire-wide role union, not an assertion that saxophone, mandolin and harmonica sound simultaneously on each song. Three named singers are positive current performer roles, not inferred merely from musical education. Broad functional song-form node fits documented rock/pop/schlager/folk songs without Anglosphere restriction. Keyboard/alto-sax/F-style mandolin/diatonic harmonica/humbucking guitar are explicitly authored coherent constructions rather than confirmed source equipment. Category evidence comes from official band carnival history and current Kölsch repertoire; exact creator category playlist was not reproduced and broader Karneval playlist is not misrepresented as exact equivalence.",
+      "after": "Selected arrangement models complete current six-person band and all positively specified roles across its documented palette, not the orchestra-expanded Höhner Classic format, older Henning Krautmacher roster or guest-duet studio releases. Multi-instrumentalist Streifling’s additional vague “everything possible” phrase supplies no identifiable extra instrument and does not justify invented cards; all named current roles are retained. This is a repertoire-wide role union, not an assertion that saxophone, mandolin and harmonica sound simultaneously on each song. Three named singers are positive current performer roles, not inferred merely from musical education. Broad functional song-form node fits documented rock/pop/schlager/folk songs without Anglosphere restriction. The keyboard remains a neutral source-unspecified electronic-keyboard role; alto-sax, F-style mandolin, diatonic harmonica and humbucking guitar are authored constructions rather than confirmed source equipment. Category evidence comes from official band carnival history and current Kölsch repertoire; exact creator category playlist was not reproduced and broader Karneval playlist is not misrepresented as exact equivalence."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood", "amp_make"],
+      "after": null
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "flat_pin_resolution", "rule"],
+      "before": "Shared wood and unspecified amplifier validly apply to guitar and bass. Synth, sax, mandolin and harmonica have disjoint applicable technique keys. Every effective part explicitly pinned; no fallback.",
+      "after": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "extras", "description"],
+      "before": "Municipal presenting venue gives complete2026 six-member Höhner roster: Patrick Lück vocals, Micki Schläger keyboards/vocals, Jens Streifling guitar/saxophone/mandolin, Heiko Braun drums, Freddi Lubitz-Ragland bass/vocals and Edin Čolić lead guitar. Current official band page additionally positively credits Streifling with harp (harmonica), retained in the complete positive role palette. Three actual singers and all eight named instrument-family roles are modeled. Official band history directly documents their Cologne carnival lineage and Kölsch repertoire. Selected arrangement models complete current six-person band and all positively specified roles across its documented palette, not the orchestra-expanded Höhner Classic format, older Henning Krautmacher roster or guest-duet studio releases. Multi-instrumentalist Streifling’s additional vague “everything possible” phrase supplies no identifiable extra instrument and does not justify invented cards; all named current roles are retained. This is a repertoire-wide role union, not an assertion that saxophone, mandolin and harmonica sound simultaneously on each song. Three named singers are positive current performer roles, not inferred merely from musical education. Broad functional song-form node fits documented rock/pop/schlager/folk songs without Anglosphere restriction. Keyboard/alto-sax/F-style mandolin/diatonic harmonica/humbucking guitar are explicitly authored coherent constructions rather than confirmed source equipment. Category evidence comes from official band carnival history and current Kölsch repertoire; exact creator category playlist was not reproduced and broader Karneval playlist is not misrepresented as exact equivalence. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Municipal presenting venue gives complete2026 six-member Höhner roster: Patrick Lück vocals, Micki Schläger keyboards/vocals, Jens Streifling guitar/saxophone/mandolin, Heiko Braun drums, Freddi Lubitz-Ragland bass/vocals and Edin Čolić lead guitar. Current official band page additionally positively credits Streifling with harp (harmonica), retained in the complete positive role palette. Three actual singers and all eight named instrument-family roles are modeled. Official band history directly documents their Cologne carnival lineage and Kölsch repertoire. Selected arrangement models complete current six-person band and all positively specified roles across its documented palette, not the orchestra-expanded Höhner Classic format, older Henning Krautmacher roster or guest-duet studio releases. Multi-instrumentalist Streifling’s additional vague “everything possible” phrase supplies no identifiable extra instrument and does not justify invented cards; all named current roles are retained. This is a repertoire-wide role union, not an assertion that saxophone, mandolin and harmonica sound simultaneously on each song. Three named singers are positive current performer roles, not inferred merely from musical education. Broad functional song-form node fits documented rock/pop/schlager/folk songs without Anglosphere restriction. The keyboard remains a neutral source-unspecified electronic-keyboard role; alto-sax, F-style mandolin, diatonic harmonica and humbucking guitar are authored constructions rather than confirmed source equipment. Category evidence comes from official band carnival history and current Kölsch repertoire; exact creator category playlist was not reproduced and broader Karneval playlist is not misrepresented as exact equivalence. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "instrument_role_audit", "rationale"],
+      "before": "Municipal presenting venue gives complete2026 six-member Höhner roster: Patrick Lück vocals, Micki Schläger keyboards/vocals, Jens Streifling guitar/saxophone/mandolin, Heiko Braun drums, Freddi Lubitz-Ragland bass/vocals and Edin Čolić lead guitar. Current official band page additionally positively credits Streifling with harp (harmonica), retained in the complete positive role palette. Three actual singers and all eight named instrument-family roles are modeled. Official band history directly documents their Cologne carnival lineage and Kölsch repertoire. Selected arrangement models complete current six-person band and all positively specified roles across its documented palette, not the orchestra-expanded Höhner Classic format, older Henning Krautmacher roster or guest-duet studio releases. Multi-instrumentalist Streifling’s additional vague “everything possible” phrase supplies no identifiable extra instrument and does not justify invented cards; all named current roles are retained. This is a repertoire-wide role union, not an assertion that saxophone, mandolin and harmonica sound simultaneously on each song. Three named singers are positive current performer roles, not inferred merely from musical education. Broad functional song-form node fits documented rock/pop/schlager/folk songs without Anglosphere restriction. Keyboard/alto-sax/F-style mandolin/diatonic harmonica/humbucking guitar are explicitly authored coherent constructions rather than confirmed source equipment. Category evidence comes from official band carnival history and current Kölsch repertoire; exact creator category playlist was not reproduced and broader Karneval playlist is not misrepresented as exact equivalence.",
+      "after": "Municipal presenting venue gives complete2026 six-member Höhner roster: Patrick Lück vocals, Micki Schläger keyboards/vocals, Jens Streifling guitar/saxophone/mandolin, Heiko Braun drums, Freddi Lubitz-Ragland bass/vocals and Edin Čolić lead guitar. Current official band page additionally positively credits Streifling with harp (harmonica), retained in the complete positive role palette. Three actual singers and all eight named instrument-family roles are modeled. Official band history directly documents their Cologne carnival lineage and Kölsch repertoire. Selected arrangement models complete current six-person band and all positively specified roles across its documented palette, not the orchestra-expanded Höhner Classic format, older Henning Krautmacher roster or guest-duet studio releases. Multi-instrumentalist Streifling’s additional vague “everything possible” phrase supplies no identifiable extra instrument and does not justify invented cards; all named current roles are retained. This is a repertoire-wide role union, not an assertion that saxophone, mandolin and harmonica sound simultaneously on each song. Three named singers are positive current performer roles, not inferred merely from musical education. Broad functional song-form node fits documented rock/pop/schlager/folk songs without Anglosphere restriction. The keyboard remains a neutral source-unspecified electronic-keyboard role; alto-sax, F-style mandolin, diatonic harmonica and humbucking guitar are authored constructions rather than confirmed source equipment. Category evidence comes from official band carnival history and current Kölsch repertoire; exact creator category playlist was not reproduced and broader Karneval playlist is not misrepresented as exact equivalence."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "tradition", "instruments", 4],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "tradition", "parts", "electronic_keyboard_identity"],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "tradition", "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "tradition", "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "tradition", "parts", "poly_archetypes"],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "tradition", "parts", "poly_maker_lineage"],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "neighbor_distinction"],
+      "before": "Selected arrangement models complete current six-person band and all positively specified roles across its documented palette, not the orchestra-expanded Höhner Classic format, older Henning Krautmacher roster or guest-duet studio releases. Multi-instrumentalist Streifling’s additional vague “everything possible” phrase supplies no identifiable extra instrument and does not justify invented cards; all named current roles are retained. This is a repertoire-wide role union, not an assertion that saxophone, mandolin and harmonica sound simultaneously on each song. Three named singers are positive current performer roles, not inferred merely from musical education. Broad functional song-form node fits documented rock/pop/schlager/folk songs without Anglosphere restriction. Keyboard/alto-sax/F-style mandolin/diatonic harmonica/humbucking guitar are explicitly authored coherent constructions rather than confirmed source equipment. Category evidence comes from official band carnival history and current Kölsch repertoire; exact creator category playlist was not reproduced and broader Karneval playlist is not misrepresented as exact equivalence.",
+      "after": "Selected arrangement models complete current six-person band and all positively specified roles across its documented palette, not the orchestra-expanded Höhner Classic format, older Henning Krautmacher roster or guest-duet studio releases. Multi-instrumentalist Streifling’s additional vague “everything possible” phrase supplies no identifiable extra instrument and does not justify invented cards; all named current roles are retained. This is a repertoire-wide role union, not an assertion that saxophone, mandolin and harmonica sound simultaneously on each song. Three named singers are positive current performer roles, not inferred merely from musical education. Broad functional song-form node fits documented rock/pop/schlager/folk songs without Anglosphere restriction. The keyboard remains a neutral source-unspecified electronic-keyboard role; alto-sax, F-style mandolin, diatonic harmonica and humbucking guitar are authored constructions rather than confirmed source equipment. Category evidence comes from official band carnival history and current Kölsch repertoire; exact creator category playlist was not reproduced and broader Karneval playlist is not misrepresented as exact equivalence."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 0, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 1, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 2, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 3, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 4, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": [
+        "entries",
+        "kolsche_karneval",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": [
+        "entries",
+        "kolsche_karneval",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "electronic_technique"
+      ],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "kolsche_karneval",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "poly_archetypes"
+      ],
+      "before": "prophet_5",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "kolsche_karneval",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "keyboard_technique"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": [
+        "entries",
+        "kolsche_karneval",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "poly_maker_lineage"
+      ],
+      "before": "poly_sequential_smith",
+      "after": null
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 4, "parts", "poly_voices"],
+      "before": "poly_5_voice",
+      "after": null
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 4, "instrument"],
+      "before": "analog_poly_synth",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 5, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 6, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "resolved_parts_audit", 7, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "saxophone",
+        "mandolin",
+        "harmonica"
+      ],
+      "after": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "saxophone",
+        "mandolin",
+        "harmonica"
+      ]
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "kolsche_karneval", "dependency_audit", "rationale"],
+      "before": "Only existing instruments; source reductions and authored construction choices explicitly disclosed.",
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "lombok_indie", "vocal_count_audit", "decision"],
+      "before": "Full album role union with two named singers, guitar/synth multiples aggregated, and nine instrument cards. Analog drum synthesis is an authored sound engine for the positively credited MIDI drum part; source does not specify sample versus synthesis or a hardware model. Prophet-5 synthesizer and B3 organ are likewise explicit authored constructions. Bongos descarga is an authored soloistic/jam texture, with no claim of source Latin-jazz practice. Tambourine pop-session, hand-played bongos and djembe retain distinct roles rather than a generic percussion kit. Composer-only Bagus Wiratomo is not assigned a performer role. Guest singer appears on one track only; authored live duet is not a claim about original takes.",
+      "after": "Full album role union with two named singers, guitar/synth multiples aggregated, and nine instrument cards. The positively credited MIDI drum part uses a neutral MIDI-programmed-sound owner; source does not specify sampling, synthesis or hardware. Prophet-5 synthesizer and B3 organ are likewise explicit authored constructions. Bongos descarga is an authored soloistic/jam texture, with no claim of source Latin-jazz practice. Tambourine pop-session, hand-played bongos and djembe retain distinct roles rather than a generic percussion kit. Composer-only Bagus Wiratomo is not assigned a performer role. Guest singer appears on one track only; authored live duet is not a claim about original takes."
+    },
+    {
+      "path": ["entries", "lombok_indie", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood"],
+      "after": null
+    },
+    {
+      "path": ["entries", "lombok_indie", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": [
+        {
+          "instrument": "midi_programmed_sound_unspecified",
+          "part": "electronic_technique",
+          "imported_default": "midi_programmed_event_sequence"
+        }
+      ]
+    },
+    {
+      "path": ["entries", "lombok_indie", "flat_pin_resolution", "rule"],
+      "before": "Flat pin only applies to owning merged part when applicable; other owner retains own default. Resolved audit records effective values.",
+      "after": "One flat key cannot independently pin both owners. Existing synthesizer pad remains protected; neutral MIDI technique is unpinned and its recorded imported default is not asserted as compiled choice."
+    },
+    {
+      "path": ["entries", "lombok_indie", "extras", "description"],
+      "before": "Artist album credits Decky Jaguar vocals, backing vocals and tambourine; Oom Robo guitar, bass, synthesizer, djembe and bongos; Ferdi Soewandi organ, synthesizer and MIDI drums; Immas Djordi lead guitar on two tracks; and Luky A Soeratman guest vocals on Larut Malam. All positive roles are retained. The artist identifies Mataram Lombok and garage punk; creator Lombok Indie includes Firasat and Gadis Bermata Biru from this album. Full album role union with two named singers, guitar/synth multiples aggregated, and nine instrument cards. Analog drum synthesis is an authored sound engine for the positively credited MIDI drum part; source does not specify sample versus synthesis or a hardware model. Prophet-5 synthesizer and B3 organ are likewise explicit authored constructions. Bongos descarga is an authored soloistic/jam texture, with no claim of source Latin-jazz practice. Tambourine pop-session, hand-played bongos and djembe retain distinct roles rather than a generic percussion kit. Composer-only Bagus Wiratomo is not assigned a performer role. Guest singer appears on one track only; authored live duet is not a claim about original takes. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist album credits Decky Jaguar vocals, backing vocals and tambourine; Oom Robo guitar, bass, synthesizer, djembe and bongos; Ferdi Soewandi organ, synthesizer and MIDI drums; Immas Djordi lead guitar on two tracks; and Luky A Soeratman guest vocals on Larut Malam. All positive roles are retained. The artist identifies Mataram Lombok and garage punk; creator Lombok Indie includes Firasat and Gadis Bermata Biru from this album. Full album role union with two named singers, guitar/synth multiples aggregated, and nine instrument cards. The positively credited MIDI drum part uses a neutral MIDI-programmed-sound owner; source does not specify sampling, synthesis or hardware. Prophet-5 synthesizer and B3 organ are likewise explicit authored constructions. Bongos descarga is an authored soloistic/jam texture, with no claim of source Latin-jazz practice. Tambourine pop-session, hand-played bongos and djembe retain distinct roles rather than a generic percussion kit. Composer-only Bagus Wiratomo is not assigned a performer role. Guest singer appears on one track only; authored live duet is not a claim about original takes. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "lombok_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist album credits Decky Jaguar vocals, backing vocals and tambourine; Oom Robo guitar, bass, synthesizer, djembe and bongos; Ferdi Soewandi organ, synthesizer and MIDI drums; Immas Djordi lead guitar on two tracks; and Luky A Soeratman guest vocals on Larut Malam. All positive roles are retained. The artist identifies Mataram Lombok and garage punk; creator Lombok Indie includes Firasat and Gadis Bermata Biru from this album. Full album role union with two named singers, guitar/synth multiples aggregated, and nine instrument cards. Analog drum synthesis is an authored sound engine for the positively credited MIDI drum part; source does not specify sample versus synthesis or a hardware model. Prophet-5 synthesizer and B3 organ are likewise explicit authored constructions. Bongos descarga is an authored soloistic/jam texture, with no claim of source Latin-jazz practice. Tambourine pop-session, hand-played bongos and djembe retain distinct roles rather than a generic percussion kit. Composer-only Bagus Wiratomo is not assigned a performer role. Guest singer appears on one track only; authored live duet is not a claim about original takes.",
+      "after": "Artist album credits Decky Jaguar vocals, backing vocals and tambourine; Oom Robo guitar, bass, synthesizer, djembe and bongos; Ferdi Soewandi organ, synthesizer and MIDI drums; Immas Djordi lead guitar on two tracks; and Luky A Soeratman guest vocals on Larut Malam. All positive roles are retained. The artist identifies Mataram Lombok and garage punk; creator Lombok Indie includes Firasat and Gadis Bermata Biru from this album. Full album role union with two named singers, guitar/synth multiples aggregated, and nine instrument cards. The positively credited MIDI drum part uses a neutral MIDI-programmed-sound owner; source does not specify sampling, synthesis or hardware. Prophet-5 synthesizer and B3 organ are likewise explicit authored constructions. Bongos descarga is an authored soloistic/jam texture, with no claim of source Latin-jazz practice. Tambourine pop-session, hand-played bongos and djembe retain distinct roles rather than a generic percussion kit. Composer-only Bagus Wiratomo is not assigned a performer role. Guest singer appears on one track only; authored live duet is not a claim about original takes."
+    },
+    {
+      "path": ["entries", "lombok_indie", "tradition", "instruments", 8],
+      "before": "drum_machine_analog",
+      "after": "midi_programmed_sound_unspecified"
+    },
+    {
+      "path": ["entries", "lombok_indie", "tradition", "parts", "snare_voice"],
+      "before": "two_oscillator_snare",
+      "after": null
+    },
+    {
+      "path": ["entries", "lombok_indie", "tradition", "parts", "hat_voice"],
+      "before": "square_summed_hat",
+      "after": null
+    },
+    {
+      "path": ["entries", "lombok_indie", "tradition", "parts", "midi_programmed_sound_identity"],
+      "before": null,
+      "after": "midi_programmed_generator_unspecified"
+    },
+    {
+      "path": ["entries", "lombok_indie", "tradition", "parts", "kick_voice"],
+      "before": "sine_burst_kick",
+      "after": null
+    },
+    {
+      "path": ["entries", "lombok_indie", "tradition", "parts", "shuffle_quantize"],
+      "before": "shuffle_low",
+      "after": null
+    },
+    {
+      "path": ["entries", "lombok_indie", "neighbor_distinction"],
+      "before": "Full album role union with two named singers, guitar/synth multiples aggregated, and nine instrument cards. Analog drum synthesis is an authored sound engine for the positively credited MIDI drum part; source does not specify sample versus synthesis or a hardware model. Prophet-5 synthesizer and B3 organ are likewise explicit authored constructions. Bongos descarga is an authored soloistic/jam texture, with no claim of source Latin-jazz practice. Tambourine pop-session, hand-played bongos and djembe retain distinct roles rather than a generic percussion kit. Composer-only Bagus Wiratomo is not assigned a performer role. Guest singer appears on one track only; authored live duet is not a claim about original takes.",
+      "after": "Full album role union with two named singers, guitar/synth multiples aggregated, and nine instrument cards. The positively credited MIDI drum part uses a neutral MIDI-programmed-sound owner; source does not specify sampling, synthesis or hardware. Prophet-5 synthesizer and B3 organ are likewise explicit authored constructions. Bongos descarga is an authored soloistic/jam texture, with no claim of source Latin-jazz practice. Tambourine pop-session, hand-played bongos and djembe retain distinct roles rather than a generic percussion kit. Composer-only Bagus Wiratomo is not assigned a performer role. Guest singer appears on one track only; authored live duet is not a claim about original takes."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 0, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 1, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 2, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 3, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 4, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 5, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 6, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 7, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 8, "policy"],
+      "before": "All applicable merged parts explicitly authored; source fact versus realization distinction documented.",
+      "after": "Applicable flat pins protected; electronic_technique is unpinned because another owner uses the shared flat key. Listed value is imported default only; compiled optimizer choice must be independently audited."
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 8, "parts", "snare_voice"],
+      "before": "two_oscillator_snare",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "lombok_indie",
+        "resolved_parts_audit",
+        8,
+        "parts",
+        "electronic_technique"
+      ],
+      "before": null,
+      "after": "midi_programmed_event_sequence"
+    },
+    {
+      "path": [
+        "entries",
+        "lombok_indie",
+        "resolved_parts_audit",
+        8,
+        "parts",
+        "midi_programmed_sound_identity"
+      ],
+      "before": null,
+      "after": "midi_programmed_generator_unspecified"
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 8, "parts", "kick_voice"],
+      "before": "sine_burst_kick",
+      "after": null
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 8, "parts", "hat_voice"],
+      "before": "square_summed_hat",
+      "after": null
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 8, "parts", "shuffle_quantize"],
+      "before": "shuffle_low",
+      "after": null
+    },
+    {
+      "path": ["entries", "lombok_indie", "resolved_parts_audit", 8, "instrument"],
+      "before": "drum_machine_analog",
+      "after": "midi_programmed_sound_unspecified"
+    },
+    {
+      "path": ["entries", "lombok_indie", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "analog_poly_synth",
+        "tambourine_orch",
+        "djembe",
+        "bongos",
+        "tonewheel_organ",
+        "drum_machine_analog"
+      ],
+      "after": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "analog_poly_synth",
+        "tambourine_orch",
+        "djembe",
+        "bongos",
+        "tonewheel_organ"
+      ]
+    },
+    {
+      "path": ["entries", "lombok_indie", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["midi_programmed_sound_unspecified"]
+    },
+    {
+      "path": ["entries", "lombok_indie", "dependency_audit", "rationale"],
+      "before": null,
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "lombok_indie", "flat_pin_conflicts"],
+      "before": [],
+      "after": [
+        {
+          "instrument": "midi_programmed_sound_unspecified",
+          "part": "electronic_technique",
+          "imported_default": "midi_programmed_event_sequence"
+        }
+      ]
+    },
+    {
+      "path": ["entries", "malayalam_cover", "flat_pin_resolution"],
+      "before": null,
+      "after": {
+        "rule": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner.",
+        "unpinned_slots": []
+      }
+    },
+    {
+      "path": [
+        "entries",
+        "malayalam_cover",
+        "instrument_role_audit",
+        "selected_roles",
+        1,
+        "source_role"
+      ],
+      "before": "Michael credited Roli keyboard; digital VA synth is explicitly authored sound-generation realization of source electronic keyboard role, not identification of Roli hardware or its actual sound engine.",
+      "after": "Michael is credited with Roli keyboard; a neutral source-unspecified electronic-keyboard owner retains the role without identifying its sound engine or a source patch."
+    },
+    {
+      "path": [
+        "entries",
+        "malayalam_cover",
+        "instrument_role_audit",
+        "selected_roles",
+        1,
+        "instrument"
+      ],
+      "before": "digital_subtractive",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "malayalam_cover", "instrument_role_audit", "authored_context_limits"],
+      "before": "Roli keyboard is explicitly credited; Nord-style digital subtractive pad is an authored timbral realization, not claimed actual Roli synthesis method or source patch. No acoustic piano, drums, original-film duet or extra collective musicians invented. Twelve-tone equal temperament is authored rather than exact Raag Jog tuning reconstruction.",
+      "after": "Roli keyboard is explicitly credited; the neutral electronic-keyboard owner leaves its synthesis method and patch unspecified. No acoustic piano, drums, original-film duet or extra collective musicians invented. Twelve-tone equal temperament is authored rather than exact Raag Jog tuning reconstruction."
+    },
+    {
+      "path": ["entries", "malayalam_cover", "tradition", "instruments", 1],
+      "before": "digital_subtractive",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "malayalam_cover", "tradition", "parts", "electronic_keyboard_identity"],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "malayalam_cover", "tradition", "parts", "digital_subtractive_context"],
+      "before": "digital_subtractive_pop",
+      "after": null
+    },
+    {
+      "path": ["entries", "malayalam_cover", "tradition", "parts", "va_archetypes"],
+      "before": "nord_lead",
+      "after": null
+    },
+    {
+      "path": ["entries", "malayalam_cover", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "malayalam_cover", "tradition", "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "malayalam_cover", "resolved_parts_audit"],
+      "before": null,
+      "after": [
+        {
+          "instrument": "voice",
+          "parts": {
+            "voice_register": "voice_register_source_unspecified",
+            "voice_quality": "voice_quality_source_unspecified",
+            "voice_vocal_tract": "tract_neutral",
+            "voice_effort": "effort_moderate",
+            "voice_vibrato": "voice_vibrato_local_unspecified",
+            "voice_articulation": "voice_articulation_source_unspecified",
+            "voice_microtone": "voice_microtone_local_unspecified",
+            "voice_tradition": "voice_tradition_source_unspecified",
+            "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+            "voice_estill_quality": "voice_estill_quality_source_unspecified",
+            "voice_speech_song": "voice_syllabic_singing",
+            "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+            "voice_ornament_system": "voice_ornament_system_source_unspecified",
+            "voice_pitch_organization": "voice_pitch_source_unspecified",
+            "voice_processing_chain": "voice_processing_unprocessed",
+            "voice_multitrack_stack": "voice_multitrack_single_lead",
+            "voice_tessitura": "voice_tessitura_source_unspecified"
+          },
+          "policy": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+        },
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "parts": {
+            "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+            "keyboard_technique": "electronic_keyboard_melodic_chordal"
+          },
+          "policy": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+        }
+      ]
+    },
+    {
+      "path": ["entries", "malayalam_cover", "dependency_audit", "reused_instruments"],
+      "before": ["voice", "digital_subtractive"],
+      "after": ["voice"]
+    },
+    {
+      "path": ["entries", "malayalam_cover", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "malayalam_cover", "dependency_audit", "rationale"],
+      "before": "Role-to-card mapping below. Construction choices remain authored; complete part IDs checked against merged catalog.",
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "malayalam_cover", "flat_pin_conflicts"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "mexican_indie", "vocal_count_audit", "decision"],
+      "before": "Mexican indie represented by this independently tagged 2017 shoegaze trio, distinct from the existing Mexican rock entry’s 1986–1996 Rock en tu Idioma scene.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Mexican indie represented by this independently tagged 2017 shoegaze trio, distinct from the existing Mexican rock entry’s 1986–1996 Rock en tu Idioma scene.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "mexican_indie", "extras", "description"],
+      "before": "Artist-owned release explicitly tags Mexican indie, alternative rock and shoegaze. Complete trio credits name Daniel Espinoza voice/guitar, Miguel Lara bass, and Erick Román drums. The selected recording took place at Testa Estudio in León, Guanajuato in summer 2016. Mexican indie represented by this independently tagged 2017 shoegaze trio, distinct from the existing Mexican rock entry’s 1986–1996 Rock en tu Idioma scene.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned release explicitly tags Mexican indie, alternative rock and shoegaze. Complete trio credits name Daniel Espinoza voice/guitar, Miguel Lara bass, and Erick Román drums. The selected recording took place at Testa Estudio in León, Guanajuato in summer 2016. Mexican indie represented by this independently tagged 2017 shoegaze trio, distinct from the existing Mexican rock entry’s 1986–1996 Rock en tu Idioma scene.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "mexican_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned release explicitly tags Mexican indie, alternative rock and shoegaze. Complete trio credits name Daniel Espinoza voice/guitar, Miguel Lara bass, and Erick Román drums. The selected recording took place at Testa Estudio in León, Guanajuato in summer 2016. Mexican indie represented by this independently tagged 2017 shoegaze trio, distinct from the existing Mexican rock entry’s 1986–1996 Rock en tu Idioma scene.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Artist-owned release explicitly tags Mexican indie, alternative rock and shoegaze. Complete trio credits name Daniel Espinoza voice/guitar, Miguel Lara bass, and Erick Román drums. The selected recording took place at Testa Estudio in León, Guanajuato in summer 2016. Mexican indie represented by this independently tagged 2017 shoegaze trio, distinct from the existing Mexican rock entry’s 1986–1996 Rock en tu Idioma scene.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "mexican_indie", "tradition", "family"],
+      "before": "pop",
+      "after": "rock"
+    },
+    {
+      "path": ["entries", "mexican_indie", "neighbor_distinction"],
+      "before": "Mexican indie represented by this independently tagged 2017 shoegaze trio, distinct from the existing Mexican rock entry’s 1986–1996 Rock en tu Idioma scene.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Mexican indie represented by this independently tagged 2017 shoegaze trio, distinct from the existing Mexican rock entry’s 1986–1996 Rock en tu Idioma scene.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "miami_indie", "vocal_count_audit", "decision"],
+      "before": "Complete dated album band palette including synth and all backing vocalists. Source-unspecified synthesis is authored Prophet5/five-voice/Sequential sustained pad, not actual equipment.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Complete dated album band palette including synth and all backing vocalists. Source-unspecified synthesis is authored Prophet5/five-voice/Sequential sustained pad, not actual equipment.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "miami_indie", "extras", "description"],
+      "before": "Artist-owned release credits Kris Alvarez lead voice/guitar; Sebastian Hidalgo backing voice/guitar/synth; Gabriel Valdes backing voice/bass/guitar; Javi Cuarezma backing voice/drums. All four singers and five instrument families retained. Artist profile places Antics in Miami and quotes its loud indie-rock/post-rock characterization. Complete dated album band palette including synth and all backing vocalists. Source-unspecified synthesis is authored Prophet5/five-voice/Sequential sustained pad, not actual equipment.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned release credits Kris Alvarez lead voice/guitar; Sebastian Hidalgo backing voice/guitar/synth; Gabriel Valdes backing voice/bass/guitar; Javi Cuarezma backing voice/drums. All four singers and five instrument families retained. Artist profile places Antics in Miami and quotes its loud indie-rock/post-rock characterization. Complete dated album band palette including synth and all backing vocalists. Source-unspecified synthesis is authored Prophet5/five-voice/Sequential sustained pad, not actual equipment.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "miami_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned release credits Kris Alvarez lead voice/guitar; Sebastian Hidalgo backing voice/guitar/synth; Gabriel Valdes backing voice/bass/guitar; Javi Cuarezma backing voice/drums. All four singers and five instrument families retained. Artist profile places Antics in Miami and quotes its loud indie-rock/post-rock characterization. Complete dated album band palette including synth and all backing vocalists. Source-unspecified synthesis is authored Prophet5/five-voice/Sequential sustained pad, not actual equipment.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Artist-owned release credits Kris Alvarez lead voice/guitar; Sebastian Hidalgo backing voice/guitar/synth; Gabriel Valdes backing voice/bass/guitar; Javi Cuarezma backing voice/drums. All four singers and five instrument families retained. Artist profile places Antics in Miami and quotes its loud indie-rock/post-rock characterization. Complete dated album band palette including synth and all backing vocalists. Source-unspecified synthesis is authored Prophet5/five-voice/Sequential sustained pad, not actual equipment.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "miami_indie", "tradition", "family"],
+      "before": "pop",
+      "after": "rock"
+    },
+    {
+      "path": ["entries", "miami_indie", "neighbor_distinction"],
+      "before": "Complete dated album band palette including synth and all backing vocalists. Source-unspecified synthesis is authored Prophet5/five-voice/Sequential sustained pad, not actual equipment.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Complete dated album band palette including synth and all backing vocalists. Source-unspecified synthesis is authored Prophet5/five-voice/Sequential sustained pad, not actual equipment.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "michigan_indie", "vocal_count_audit", "decision"],
+      "before": "Statewide Michigan indie represented by this Detroit quartet. This broader geographic category is not an equivalence to Detroit indie, whose existing default uses The Kickstand Band; different source quartet and three credited singers retained here.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Statewide Michigan indie represented by this Detroit quartet. This broader geographic category is not an equivalence to Detroit indie, whose existing default uses The Kickstand Band; different source quartet and three credited singers retained here.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "michigan_indie", "extras", "description"],
+      "before": "Artist-owned album tags indie rock, indie pop and power pop; profile locates the band in Detroit, Michigan. Complete credits name Christian Doble bass/voice, John Nelson guitar/voice, Anthony Rochon guitar/voice, Andrew Roy drums. Statewide Michigan indie represented by this Detroit quartet. This broader geographic category is not an equivalence to Detroit indie, whose existing default uses The Kickstand Band; different source quartet and three credited singers retained here.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned album tags indie rock, indie pop and power pop; profile locates the band in Detroit, Michigan. Complete credits name Christian Doble bass/voice, John Nelson guitar/voice, Anthony Rochon guitar/voice, Andrew Roy drums. Statewide Michigan indie represented by this Detroit quartet. This broader geographic category is not an equivalence to Detroit indie, whose existing default uses The Kickstand Band; different source quartet and three credited singers retained here.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "michigan_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned album tags indie rock, indie pop and power pop; profile locates the band in Detroit, Michigan. Complete credits name Christian Doble bass/voice, John Nelson guitar/voice, Anthony Rochon guitar/voice, Andrew Roy drums. Statewide Michigan indie represented by this Detroit quartet. This broader geographic category is not an equivalence to Detroit indie, whose existing default uses The Kickstand Band; different source quartet and three credited singers retained here.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Artist-owned album tags indie rock, indie pop and power pop; profile locates the band in Detroit, Michigan. Complete credits name Christian Doble bass/voice, John Nelson guitar/voice, Anthony Rochon guitar/voice, Andrew Roy drums. Statewide Michigan indie represented by this Detroit quartet. This broader geographic category is not an equivalence to Detroit indie, whose existing default uses The Kickstand Band; different source quartet and three credited singers retained here.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "michigan_indie", "tradition", "family"],
+      "before": "pop",
+      "after": "rock"
+    },
+    {
+      "path": ["entries", "michigan_indie", "neighbor_distinction"],
+      "before": "Statewide Michigan indie represented by this Detroit quartet. This broader geographic category is not an equivalence to Detroit indie, whose existing default uses The Kickstand Band; different source quartet and three credited singers retained here.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Statewide Michigan indie represented by this Detroit quartet. This broader geographic category is not an equivalence to Detroit indie, whose existing default uses The Kickstand Band; different source quartet and three credited singers retained here.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "milan_indie", "vocal_count_audit", "decision"],
+      "before": " Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": " Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "milan_indie", "extras", "description"],
+      "before": "Artist-owned track explicitly tags indie rock, shoegaze and Milan. Complete band credits name Francesco Lucà and Alessio Gatto each guitar/voice, Corrado Carnevali bass guitar, Giuseppe Musto drums; recording took place at RBS Studios, Milan in 2025.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned track explicitly tags indie rock, shoegaze and Milan. Complete band credits name Francesco Lucà and Alessio Gatto each guitar/voice, Corrado Carnevali bass guitar, Giuseppe Musto drums; recording took place at RBS Studios, Milan in 2025.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "milan_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned track explicitly tags indie rock, shoegaze and Milan. Complete band credits name Francesco Lucà and Alessio Gatto each guitar/voice, Corrado Carnevali bass guitar, Giuseppe Musto drums; recording took place at RBS Studios, Milan in 2025.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Artist-owned track explicitly tags indie rock, shoegaze and Milan. Complete band credits name Francesco Lucà and Alessio Gatto each guitar/voice, Corrado Carnevali bass guitar, Giuseppe Musto drums; recording took place at RBS Studios, Milan in 2025.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "milan_indie", "tradition", "family"],
+      "before": "pop",
+      "after": "rock"
+    },
+    {
+      "path": ["entries", "milan_indie", "neighbor_distinction"],
+      "before": " Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": " Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "milwaukee_indie", "vocal_count_audit", "decision"],
+      "before": "Exact 2024 demo credits control this branch: broad band biography also lists Hannah backing vocals and Matt acoustic guitar, but neither additional role is credited on this demo. Puppetry is not invented as an audible instrument.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Exact 2024 demo credits control this branch: broad band biography also lists Hannah backing vocals and Matt acoustic guitar, but neither additional role is credited on this demo. Puppetry is not invented as an audible instrument.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "milwaukee_indie", "extras", "description"],
+      "before": "Artist-owned exact demo credits Amy Runquist voice, Jason Sidabras guitar, Hannah Pardee bass, and Matt Runquist drums. The same page defines Tea Service as Milwaukee indie rock and identifies Jason’s guitar as electric. Exact 2024 demo credits control this branch: broad band biography also lists Hannah backing vocals and Matt acoustic guitar, but neither additional role is credited on this demo. Puppetry is not invented as an audible instrument.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned exact demo credits Amy Runquist voice, Jason Sidabras guitar, Hannah Pardee bass, and Matt Runquist drums. The same page defines Tea Service as Milwaukee indie rock and identifies Jason’s guitar as electric. Exact 2024 demo credits control this branch: broad band biography also lists Hannah backing vocals and Matt acoustic guitar, but neither additional role is credited on this demo. Puppetry is not invented as an audible instrument.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "milwaukee_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned exact demo credits Amy Runquist voice, Jason Sidabras guitar, Hannah Pardee bass, and Matt Runquist drums. The same page defines Tea Service as Milwaukee indie rock and identifies Jason’s guitar as electric. Exact 2024 demo credits control this branch: broad band biography also lists Hannah backing vocals and Matt acoustic guitar, but neither additional role is credited on this demo. Puppetry is not invented as an audible instrument.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Artist-owned exact demo credits Amy Runquist voice, Jason Sidabras guitar, Hannah Pardee bass, and Matt Runquist drums. The same page defines Tea Service as Milwaukee indie rock and identifies Jason’s guitar as electric. Exact 2024 demo credits control this branch: broad band biography also lists Hannah backing vocals and Matt acoustic guitar, but neither additional role is credited on this demo. Puppetry is not invented as an audible instrument.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "milwaukee_indie", "tradition", "family"],
+      "before": "pop",
+      "after": "rock"
+    },
+    {
+      "path": ["entries", "milwaukee_indie", "neighbor_distinction"],
+      "before": "Exact 2024 demo credits control this branch: broad band biography also lists Hannah backing vocals and Matt acoustic guitar, but neither additional role is credited on this demo. Puppetry is not invented as an audible instrument.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Exact 2024 demo credits control this branch: broad band biography also lists Hannah backing vocals and Matt acoustic guitar, but neither additional role is credited on this demo. Puppetry is not invented as an audible instrument.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "minneapolis_indie", "vocal_count_audit", "decision"],
+      "before": "Complete album personnel palette includes the often omitted tambourine. Keebler’s additionally credited G chord is not used to infer an otherwise unnamed new instrument; the already documented guitar harmony family is retained.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. The orchestral tambourine owner supplies an authored handheld tambourine realization; orchestral source context is not claimed.",
+      "after": "Complete album personnel palette includes the often omitted tambourine. Keebler’s additionally credited G chord is not used to infer an otherwise unnamed new instrument; the already documented guitar harmony family is retained.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. The orchestral tambourine owner supplies an authored handheld tambourine realization; orchestral source context is not claimed."
+    },
+    {
+      "path": ["entries", "minneapolis_indie", "extras", "description"],
+      "before": "Artist-owned album tags Minneapolis indie/alternative rock. Full palette: Alex Fuller voice/guitar, Eric Braun bass/backing voice, Josh Toke lead guitar, Will Keebler drums/tambourine; guest Chris Cuellar bass on four tracks is retained in the bass-family card. Complete album personnel palette includes the often omitted tambourine. Keebler’s additionally credited G chord is not used to infer an otherwise unnamed new instrument; the already documented guitar harmony family is retained.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. The orchestral tambourine owner supplies an authored handheld tambourine realization; orchestral source context is not claimed. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned album tags Minneapolis indie/alternative rock. Full palette: Alex Fuller voice/guitar, Eric Braun bass/backing voice, Josh Toke lead guitar, Will Keebler drums/tambourine; guest Chris Cuellar bass on four tracks is retained in the bass-family card. Complete album personnel palette includes the often omitted tambourine. Keebler’s additionally credited G chord is not used to infer an otherwise unnamed new instrument; the already documented guitar harmony family is retained.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. The orchestral tambourine owner supplies an authored handheld tambourine realization; orchestral source context is not claimed. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "minneapolis_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned album tags Minneapolis indie/alternative rock. Full palette: Alex Fuller voice/guitar, Eric Braun bass/backing voice, Josh Toke lead guitar, Will Keebler drums/tambourine; guest Chris Cuellar bass on four tracks is retained in the bass-family card. Complete album personnel palette includes the often omitted tambourine. Keebler’s additionally credited G chord is not used to infer an otherwise unnamed new instrument; the already documented guitar harmony family is retained.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. The orchestral tambourine owner supplies an authored handheld tambourine realization; orchestral source context is not claimed.",
+      "after": "Artist-owned album tags Minneapolis indie/alternative rock. Full palette: Alex Fuller voice/guitar, Eric Braun bass/backing voice, Josh Toke lead guitar, Will Keebler drums/tambourine; guest Chris Cuellar bass on four tracks is retained in the bass-family card. Complete album personnel palette includes the often omitted tambourine. Keebler’s additionally credited G chord is not used to infer an otherwise unnamed new instrument; the already documented guitar harmony family is retained.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. The orchestral tambourine owner supplies an authored handheld tambourine realization; orchestral source context is not claimed."
+    },
+    {
+      "path": ["entries", "minneapolis_indie", "tradition", "family"],
+      "before": "pop",
+      "after": "rock"
+    },
+    {
+      "path": ["entries", "minneapolis_indie", "neighbor_distinction"],
+      "before": "Complete album personnel palette includes the often omitted tambourine. Keebler’s additionally credited G chord is not used to infer an otherwise unnamed new instrument; the already documented guitar harmony family is retained.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. The orchestral tambourine owner supplies an authored handheld tambourine realization; orchestral source context is not claimed.",
+      "after": "Complete album personnel palette includes the often omitted tambourine. Keebler’s additionally credited G chord is not used to infer an otherwise unnamed new instrument; the already documented guitar harmony family is retained.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. The orchestral tambourine owner supplies an authored handheld tambourine realization; orchestral source context is not claimed."
+    },
+    {
+      "path": ["entries", "mississippi_indie", "vocal_count_audit", "decision"],
+      "before": "Selected dated live session, not later expanded releases with differently credited backing vocals. Geo represents artist-profile Jackson, not the explicitly different Cleveland recording locality.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Selected dated live session, not later expanded releases with differently credited backing vocals. Geo represents artist-profile Jackson, not the explicitly different Cleveland recording locality.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "mississippi_indie", "extras", "description"],
+      "before": "Artist-owned live release tags indie rock, doomgaze, grunge and Jackson. Complete dated session credits Bobbie voice, David guitar, SG guitar, Lacy bass, Henry drums. It was recorded at Carbon Studios, Cleveland, Mississippi, while the band profile is Jackson. Selected dated live session, not later expanded releases with differently credited backing vocals. Geo represents artist-profile Jackson, not the explicitly different Cleveland recording locality.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned live release tags indie rock, doomgaze, grunge and Jackson. Complete dated session credits Bobbie voice, David guitar, SG guitar, Lacy bass, Henry drums. It was recorded at Carbon Studios, Cleveland, Mississippi, while the band profile is Jackson. Selected dated live session, not later expanded releases with differently credited backing vocals. Geo represents artist-profile Jackson, not the explicitly different Cleveland recording locality.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "mississippi_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned live release tags indie rock, doomgaze, grunge and Jackson. Complete dated session credits Bobbie voice, David guitar, SG guitar, Lacy bass, Henry drums. It was recorded at Carbon Studios, Cleveland, Mississippi, while the band profile is Jackson. Selected dated live session, not later expanded releases with differently credited backing vocals. Geo represents artist-profile Jackson, not the explicitly different Cleveland recording locality.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Artist-owned live release tags indie rock, doomgaze, grunge and Jackson. Complete dated session credits Bobbie voice, David guitar, SG guitar, Lacy bass, Henry drums. It was recorded at Carbon Studios, Cleveland, Mississippi, while the band profile is Jackson. Selected dated live session, not later expanded releases with differently credited backing vocals. Geo represents artist-profile Jackson, not the explicitly different Cleveland recording locality.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "mississippi_indie", "tradition", "family"],
+      "before": "pop",
+      "after": "rock"
+    },
+    {
+      "path": ["entries", "mississippi_indie", "neighbor_distinction"],
+      "before": "Selected dated live session, not later expanded releases with differently credited backing vocals. Geo represents artist-profile Jackson, not the explicitly different Cleveland recording locality.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Selected dated live session, not later expanded releases with differently credited backing vocals. Geo represents artist-profile Jackson, not the explicitly different Cleveland recording locality.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "missouri_indie", "vocal_count_audit", "decision"],
+      "before": "Exact selected track credits; no guest vocalist from a different single is imported. Missouri’s state category is not equated with St. Louis alone.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Exact selected track credits; no guest vocalist from a different single is imported. Missouri’s state category is not equated with St. Louis alone.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "missouri_indie", "extras", "description"],
+      "before": "Artist-owned exact track credits David Maness voice and guitar, Brandon Boeckman guitar, Drew Kelly bass, and Will Irmler drums. The band describes itself as Saint Louis indie rock and locates its profile in St Louis, Missouri. Exact selected track credits; no guest vocalist from a different single is imported. Missouri’s state category is not equated with St. Louis alone.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned exact track credits David Maness voice and guitar, Brandon Boeckman guitar, Drew Kelly bass, and Will Irmler drums. The band describes itself as Saint Louis indie rock and locates its profile in St Louis, Missouri. Exact selected track credits; no guest vocalist from a different single is imported. Missouri’s state category is not equated with St. Louis alone.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "missouri_indie", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned exact track credits David Maness voice and guitar, Brandon Boeckman guitar, Drew Kelly bass, and Will Irmler drums. The band describes itself as Saint Louis indie rock and locates its profile in St Louis, Missouri. Exact selected track credits; no guest vocalist from a different single is imported. Missouri’s state category is not equated with St. Louis alone.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Artist-owned exact track credits David Maness voice and guitar, Brandon Boeckman guitar, Drew Kelly bass, and Will Irmler drums. The band describes itself as Saint Louis indie rock and locates its profile in St Louis, Missouri. Exact selected track credits; no guest vocalist from a different single is imported. Missouri’s state category is not equated with St. Louis alone.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "missouri_indie", "tradition", "family"],
+      "before": "pop",
+      "after": "rock"
+    },
+    {
+      "path": ["entries", "missouri_indie", "neighbor_distinction"],
+      "before": "Exact selected track credits; no guest vocalist from a different single is imported. Missouri’s state category is not equated with St. Louis alone.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean arpeggiation and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup.",
+      "after": "Exact selected track credits; no guest vocalist from a different single is imported. Missouri’s state category is not equated with St. Louis alone.  Full positively credited sound-family palette retained for this selected release; multiple credited guitars share a guitar-family card rather than inventing a new instrument type. Guitar pickups, mahogany/maple construction, clean strumming and fingerstyle bass are authored reproduction defaults, not source hardware or measured playing claims. Regional indie is not equivalent to every local rock/pop tradition; this is the named indie-rock branch, not a universal lineup."
+    },
+    {
+      "path": ["entries", "modern_mod", "vocal_count_audit", "decision"],
+      "before": "Contemporary 2017 mod/power-pop branch, not an equivalence to historical 1960s mod or every later revival. Unspecified keyboards are realized with an explicitly authored KorgM1 GM-combo workstation and rock-band context; no specific source keyboard timbre is asserted. Positively credited unspecified auxiliary percussion retains its dedicated neutral source-unspecified owner, without guessing tambourine or shakers. The guitar-family card preserves the credited guitars with authored humbucker construction and clean strumming, not measured pickups/technique.",
+      "after": "Contemporary 2017 mod/power-pop branch, not an equivalence to historical 1960s mod or every later revival. Unspecified keyboards retain a neutral source-unspecified electronic-keyboard owner; no particular synthesis architecture, patch or hardware is asserted. Positively credited unspecified auxiliary percussion retains its dedicated neutral source-unspecified owner, without guessing tambourine or shakers. The guitar-family card preserves the credited guitars with authored humbucker construction and clean strumming, not measured pickups/technique."
+    },
+    {
+      "path": ["entries", "modern_mod", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood"],
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "modern_mod", "flat_pin_resolution", "rule"],
+      "before": "All applicable merged parts pinned to owned variants. Shared keys, when present, resolve only to valid variants on each owner; no unpinned foreign-variant fallback occurs.",
+      "after": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner."
+    },
+    {
+      "path": ["entries", "modern_mod", "extras", "description"],
+      "before": "Artist-owned album description republishes its modern-mod characterization and tags mod, power pop and garage rock; the band locates itself in Mold, north Wales. Complete credits list Adam Walton guitars, voice, keyboards and percussion; Richard Harrison bass and backing voice; Duncan Farmer drums and backing voice. All six sound families and three singers are retained. Contemporary 2017 mod/power-pop branch, not an equivalence to historical 1960s mod or every later revival. Unspecified keyboards are realized with an explicitly authored KorgM1 GM-combo workstation and rock-band context; no specific source keyboard timbre is asserted. Positively credited unspecified auxiliary percussion retains its dedicated neutral source-unspecified owner, without guessing tambourine or shakers. The guitar-family card preserves the credited guitars with authored humbucker construction and clean strumming, not measured pickups/technique. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Artist-owned album description republishes its modern-mod characterization and tags mod, power pop and garage rock; the band locates itself in Mold, north Wales. Complete credits list Adam Walton guitars, voice, keyboards and percussion; Richard Harrison bass and backing voice; Duncan Farmer drums and backing voice. All six sound families and three singers are retained. Contemporary 2017 mod/power-pop branch, not an equivalence to historical 1960s mod or every later revival. Unspecified keyboards retain a neutral source-unspecified electronic-keyboard owner; no particular synthesis architecture, patch or hardware is asserted. Positively credited unspecified auxiliary percussion retains its dedicated neutral source-unspecified owner, without guessing tambourine or shakers. The guitar-family card preserves the credited guitars with authored humbucker construction and clean strumming, not measured pickups/technique. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "modern_mod", "instrument_role_audit", "rationale"],
+      "before": "Artist-owned album description republishes its modern-mod characterization and tags mod, power pop and garage rock; the band locates itself in Mold, north Wales. Complete credits list Adam Walton guitars, voice, keyboards and percussion; Richard Harrison bass and backing voice; Duncan Farmer drums and backing voice. All six sound families and three singers are retained. Contemporary 2017 mod/power-pop branch, not an equivalence to historical 1960s mod or every later revival. Unspecified keyboards are realized with an explicitly authored KorgM1 GM-combo workstation and rock-band context; no specific source keyboard timbre is asserted. Positively credited unspecified auxiliary percussion retains its dedicated neutral source-unspecified owner, without guessing tambourine or shakers. The guitar-family card preserves the credited guitars with authored humbucker construction and clean strumming, not measured pickups/technique.",
+      "after": "Artist-owned album description republishes its modern-mod characterization and tags mod, power pop and garage rock; the band locates itself in Mold, north Wales. Complete credits list Adam Walton guitars, voice, keyboards and percussion; Richard Harrison bass and backing voice; Duncan Farmer drums and backing voice. All six sound families and three singers are retained. Contemporary 2017 mod/power-pop branch, not an equivalence to historical 1960s mod or every later revival. Unspecified keyboards retain a neutral source-unspecified electronic-keyboard owner; no particular synthesis architecture, patch or hardware is asserted. Positively credited unspecified auxiliary percussion retains its dedicated neutral source-unspecified owner, without guessing tambourine or shakers. The guitar-family card preserves the credited guitars with authored humbucker construction and clean strumming, not measured pickups/technique."
+    },
+    {
+      "path": ["entries", "modern_mod", "tradition", "instruments", 4],
+      "before": "rompler_workstation",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "modern_mod", "tradition", "parts", "rompler_preset_bank"],
+      "before": "rompler_preset_gm_combo",
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "tradition", "parts", "electronic_keyboard_identity"],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "modern_mod", "tradition", "parts", "rompler_context"],
+      "before": "rompler_context_rock_band",
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "modern_mod", "tradition", "parts", "rompler_lineage"],
+      "before": "rompler_korg_m1_canonical",
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "tradition", "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "neighbor_distinction"],
+      "before": "Contemporary 2017 mod/power-pop branch, not an equivalence to historical 1960s mod or every later revival. Unspecified keyboards are realized with an explicitly authored KorgM1 GM-combo workstation and rock-band context; no specific source keyboard timbre is asserted. Positively credited unspecified auxiliary percussion retains its dedicated neutral source-unspecified owner, without guessing tambourine or shakers. The guitar-family card preserves the credited guitars with authored humbucker construction and clean strumming, not measured pickups/technique.",
+      "after": "Contemporary 2017 mod/power-pop branch, not an equivalence to historical 1960s mod or every later revival. Unspecified keyboards retain a neutral source-unspecified electronic-keyboard owner; no particular synthesis architecture, patch or hardware is asserted. Positively credited unspecified auxiliary percussion retains its dedicated neutral source-unspecified owner, without guessing tambourine or shakers. The guitar-family card preserves the credited guitars with authored humbucker construction and clean strumming, not measured pickups/technique."
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 0, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 1, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 2, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 3, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 4, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": [
+        "entries",
+        "modern_mod",
+        "resolved_parts_audit",
+        4,
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 4, "parts", "rompler_context"],
+      "before": "rompler_context_rock_band",
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 4, "parts", "electronic_technique"],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 4, "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 4, "parts", "rompler_lineage"],
+      "before": "rompler_korg_m1_canonical",
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 4, "parts", "rompler_preset_bank"],
+      "before": "rompler_preset_gm_combo",
+      "after": null
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 4, "instrument"],
+      "before": "rompler_workstation",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "modern_mod", "resolved_parts_audit", 5, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "modern_mod", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "rompler_workstation",
+        "credited_auxiliary_percussion"
+      ],
+      "after": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_auxiliary_percussion"
+      ]
+    },
+    {
+      "path": ["entries", "modern_mod", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "modern_mod", "dependency_audit", "rationale"],
+      "before": "Only existing instruments; source reductions and authored construction choices explicitly disclosed.",
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["entries", "munich_indie", "vocal_count_audit", "decision"],
+      "before": "Complete credited release palette and named vocalists, not an inferred later touring lineup. Regional scene label is broader than the selected exemplar and is not declared equivalent to a national indie category. Guitar humbucker construction and clean strumming, electric bass fingerstyle and all other exact timbres/materials are authored existing-catalog choices, not measured source hardware or performance technique. Unspecified synth and keyboard credits are retained separately: analog-poly synth and Korg M1 GM-combo workstation are explicitly authored realizations, not actual source equipment or a false acoustic-piano claim.",
+      "after": "Complete credited release palette and named vocalists, not an inferred later touring lineup. Regional scene label is broader than the selected exemplar and is not declared equivalent to a national indie category. Guitar humbucker construction and clean strumming, electric bass fingerstyle and all other exact timbres/materials are authored existing-catalog choices, not measured source hardware or performance technique. Synth and keyboard credits remain separate: an authored analog-poly realization retains the positive synthesizer credit, while a neutral source-unspecified electronic-keyboard owner retains the separate keyboard credit without assigning its generator architecture."
+    },
+    {
+      "path": ["entries", "munich_indie", "flat_pin_resolution", "shared_keys_reviewed"],
+      "before": ["body_wood"],
+      "after": null
+    },
+    {
+      "path": ["entries", "munich_indie", "flat_pin_resolution", "unpinned_slots"],
+      "before": null,
+      "after": []
+    },
+    {
+      "path": ["entries", "munich_indie", "flat_pin_resolution", "rule"],
+      "before": "Flat pins apply only where the selected variant belongs to the owning merged part. Shared wood and keyboard technique use compatible authored variants on every owner. The resolved audit records each effective selection; no foreign variant is forced onto another instrument.",
+      "after": "All applicable effective parts owned and protected. Removed generator-specific keys belonged only to the replaced source-unspecified owner."
+    },
+    {
+      "path": ["entries", "munich_indie", "extras", "description"],
+      "before": "Primary Munich artist release identifies Victoria Bauer voice, David Kittlaus synth, Vincent Oelkers guitar, Florian Schroll keys, Andi Köstler bass and Adrian Ziegert drums. Explicit indie-jazz/pop category supports a broad song-based parent rather than assuming distorted rock. Complete six-family palette and one credited vocalist are retained. Complete credited release palette and named vocalists, not an inferred later touring lineup. Regional scene label is broader than the selected exemplar and is not declared equivalent to a national indie category. Guitar humbucker construction and clean strumming, electric bass fingerstyle and all other exact timbres/materials are authored existing-catalog choices, not measured source hardware or performance technique. Unspecified synth and keyboard credits are retained separately: analog-poly synth and Korg M1 GM-combo workstation are explicitly authored realizations, not actual source equipment or a false acoustic-piano claim. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+      "after": "Primary Munich artist release identifies Victoria Bauer voice, David Kittlaus synth, Vincent Oelkers guitar, Florian Schroll keys, Andi Köstler bass and Adrian Ziegert drums. Explicit indie-jazz/pop category supports a broad song-based parent rather than assuming distorted rock. Complete six-family palette and one credited vocalist are retained. Complete credited release palette and named vocalists, not an inferred later touring lineup. Regional scene label is broader than the selected exemplar and is not declared equivalent to a national indie category. Guitar humbucker construction and clean strumming, electric bass fingerstyle and all other exact timbres/materials are authored existing-catalog choices, not measured source hardware or performance technique. Synth and keyboard credits remain separate: an authored analog-poly realization retains the positive synthesizer credit, while a neutral source-unspecified electronic-keyboard owner retains the separate keyboard credit without assigning its generator architecture. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics."
+    },
+    {
+      "path": ["entries", "munich_indie", "instrument_role_audit", "rationale"],
+      "before": "Primary Munich artist release identifies Victoria Bauer voice, David Kittlaus synth, Vincent Oelkers guitar, Florian Schroll keys, Andi Köstler bass and Adrian Ziegert drums. Explicit indie-jazz/pop category supports a broad song-based parent rather than assuming distorted rock. Complete six-family palette and one credited vocalist are retained. Complete credited release palette and named vocalists, not an inferred later touring lineup. Regional scene label is broader than the selected exemplar and is not declared equivalent to a national indie category. Guitar humbucker construction and clean strumming, electric bass fingerstyle and all other exact timbres/materials are authored existing-catalog choices, not measured source hardware or performance technique. Unspecified synth and keyboard credits are retained separately: analog-poly synth and Korg M1 GM-combo workstation are explicitly authored realizations, not actual source equipment or a false acoustic-piano claim.",
+      "after": "Primary Munich artist release identifies Victoria Bauer voice, David Kittlaus synth, Vincent Oelkers guitar, Florian Schroll keys, Andi Köstler bass and Adrian Ziegert drums. Explicit indie-jazz/pop category supports a broad song-based parent rather than assuming distorted rock. Complete six-family palette and one credited vocalist are retained. Complete credited release palette and named vocalists, not an inferred later touring lineup. Regional scene label is broader than the selected exemplar and is not declared equivalent to a national indie category. Guitar humbucker construction and clean strumming, electric bass fingerstyle and all other exact timbres/materials are authored existing-catalog choices, not measured source hardware or performance technique. Synth and keyboard credits remain separate: an authored analog-poly realization retains the positive synthesizer credit, while a neutral source-unspecified electronic-keyboard owner retains the separate keyboard credit without assigning its generator architecture."
+    },
+    {
+      "path": ["entries", "munich_indie", "tradition", "instruments", 5],
+      "before": "rompler_workstation",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "munich_indie", "tradition", "parts", "rompler_preset_bank"],
+      "before": "rompler_preset_gm_combo",
+      "after": null
+    },
+    {
+      "path": ["entries", "munich_indie", "tradition", "parts", "electronic_keyboard_identity"],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "munich_indie", "tradition", "parts", "rompler_context"],
+      "before": "rompler_context_pop_workstation",
+      "after": null
+    },
+    {
+      "path": ["entries", "munich_indie", "tradition", "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "munich_indie", "tradition", "parts", "rompler_lineage"],
+      "before": "rompler_korg_m1_canonical",
+      "after": null
+    },
+    {
+      "path": ["entries", "munich_indie", "neighbor_distinction"],
+      "before": "Complete credited release palette and named vocalists, not an inferred later touring lineup. Regional scene label is broader than the selected exemplar and is not declared equivalent to a national indie category. Guitar humbucker construction and clean strumming, electric bass fingerstyle and all other exact timbres/materials are authored existing-catalog choices, not measured source hardware or performance technique. Unspecified synth and keyboard credits are retained separately: analog-poly synth and Korg M1 GM-combo workstation are explicitly authored realizations, not actual source equipment or a false acoustic-piano claim.",
+      "after": "Complete credited release palette and named vocalists, not an inferred later touring lineup. Regional scene label is broader than the selected exemplar and is not declared equivalent to a national indie category. Guitar humbucker construction and clean strumming, electric bass fingerstyle and all other exact timbres/materials are authored existing-catalog choices, not measured source hardware or performance technique. Synth and keyboard credits remain separate: an authored analog-poly realization retains the positive synthesizer credit, while a neutral source-unspecified electronic-keyboard owner retains the separate keyboard credit without assigning its generator architecture."
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 0, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 1, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 2, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 3, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 4, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 5, "policy"],
+      "before": "Every merged part inspected. Defaults pinned as authored modern scaffolding; not source performance facts.",
+      "after": "All applicable merged parts explicitly pinned as authored settings, not source-session specifications."
+    },
+    {
+      "path": [
+        "entries",
+        "munich_indie",
+        "resolved_parts_audit",
+        5,
+        "parts",
+        "electronic_keyboard_identity"
+      ],
+      "before": null,
+      "after": "electronic_keyboard_architecture_unspecified"
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 5, "parts", "rompler_context"],
+      "before": "rompler_context_pop_workstation",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "munich_indie",
+        "resolved_parts_audit",
+        5,
+        "parts",
+        "electronic_technique"
+      ],
+      "before": "electronic_pad_drone",
+      "after": null
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 5, "parts", "keyboard_technique"],
+      "before": null,
+      "after": "electronic_keyboard_melodic_chordal"
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 5, "parts", "rompler_lineage"],
+      "before": "rompler_korg_m1_canonical",
+      "after": null
+    },
+    {
+      "path": [
+        "entries",
+        "munich_indie",
+        "resolved_parts_audit",
+        5,
+        "parts",
+        "rompler_preset_bank"
+      ],
+      "before": "rompler_preset_gm_combo",
+      "after": null
+    },
+    {
+      "path": ["entries", "munich_indie", "resolved_parts_audit", 5, "instrument"],
+      "before": "rompler_workstation",
+      "after": "electronic_keyboard_unspecified"
+    },
+    {
+      "path": ["entries", "munich_indie", "dependency_audit", "reused_instruments"],
+      "before": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "rompler_workstation"
+      ],
+      "after": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ]
+    },
+    {
+      "path": ["entries", "munich_indie", "dependency_audit", "new_instruments"],
+      "before": [],
+      "after": ["electronic_keyboard_unspecified"]
+    },
+    {
+      "path": ["entries", "munich_indie", "dependency_audit", "rationale"],
+      "before": "Only existing instruments; source reductions and authored construction choices explicitly disclosed.",
+      "after": "All positively credited roles retained. Source-unspecified keyboard or MIDI-programmed sound uses the accepted neutral owner; original family merge applied and effective applicable pins checked. No extra hardware or generator inferred."
+    },
+    {
+      "path": ["required_predecessor"],
+      "before": "9c940fc4b161cdad23d5118af4fab68a215ab799",
+      "after": "f94053d65f1bc67e545cb7dacf04c659609d03dc"
+    }
+  ],
+  "no_dependency_record_changes": true,
+  "source_photo_geo_unchanged": true,
+  "bounded_fields": [
+    "dependency_audit",
+    "extras",
+    "flat_pin_conflicts",
+    "flat_pin_resolution",
+    "instrument_role_audit",
+    "neighbor_distinction",
+    "resolved_parts_audit",
+    "tradition",
+    "vocal_count_audit"
+  ]
+}

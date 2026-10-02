@@ -15,7 +15,7 @@
         "id": "bandoneon",
         "slots": {
           "free_reed_technique": "free_reed_bellows_articulated",
-          "bandoneon_action": "bandoneon_chromatic",
+          "bandoneon_action": "bandoneon_bisonoric",
           "bandoneon_use": "bandoneon_orquesta",
           "bandoneon_maker_school": "bandoneon_premier",
           "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"

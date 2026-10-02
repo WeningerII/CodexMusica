@@ -1,0 +1,119 @@
+{
+  "id": "modern_cello",
+  "name": "Modern cello",
+  "family": "classical",
+  "lineage": "Zoë Keating — Into The Trees (2010), including Optimist live. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2010s modern cello, art Music, western modern branch. synthetic norway spruce European alpine European maple bosnian source cello, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 252,
+  "score": 104.499,
+  "config": {
+    "traditions": [
+      "modern_cello"
+    ],
+    "instruments": [
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 5.155000000000001,
+          "cello_strings": 4.809999999999999,
+          "cello_top_wood": 4.973,
+          "cello_back_wood": 7.009500000000001,
+          "cello_varnish": 13.249999999999998,
+          "cello_setup_period": 14.825,
+          "cello_bow_grip": 2.47,
+          "cello_rosin": 17.3865,
+          "cello_bow_stick": 14.249999999999998
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_loop_layered",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 0.9549999999999998,
+          "sampler_archetypes": 10.075,
+          "sampler_bit_depth": 4.419999999999999,
+          "sampler_workflow": 0.49999999999999994,
+          "sampler_classic_context": 4.419999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "cello_strings": "cello_synthetic",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello",
+      "electronic_technique": "electronic_sustained_layering",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_loop_layered",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

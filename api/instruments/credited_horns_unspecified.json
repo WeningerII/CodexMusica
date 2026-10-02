@@ -1,0 +1,56 @@
+{
+  "id": "credited_horns_unspecified",
+  "name": "Credited horns (source-unspecified instruments)",
+  "short": "Credited horns",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_horns_identity",
+      "name": "Source instrument identity",
+      "variants": [
+        {
+          "id": "credited_horns_source_unspecified",
+          "name": "Credited horns; instrument types and number unspecified",
+          "default": true,
+          "descriptors": [
+            "horn-section"
+          ],
+          "match_tokens": [
+            "horns"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_horns_identity",
+      "name": "Source instrument identity",
+      "variants": [
+        {
+          "id": "credited_horns_source_unspecified",
+          "name": "Credited horns; instrument types and number unspecified",
+          "default": true,
+          "descriptors": [
+            "horn-section"
+          ],
+          "match_tokens": [
+            "horns"
+          ]
+        }
+      ]
+    }
+  ]
+}

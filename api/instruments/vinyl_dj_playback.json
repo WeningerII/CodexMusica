@@ -1,0 +1,56 @@
+{
+  "id": "vinyl_dj_playback",
+  "name": "Vinyl DJ playback and mixing setup",
+  "short": "Vinyl DJ setup",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -1,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "vinyl_dj_performance",
+      "name": "Performance practice",
+      "variants": [
+        {
+          "id": "vinyl_record_playback_mix",
+          "name": "Vinyl record playback and live mixing; hardware unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vinyl_dj_performance",
+      "name": "Performance practice",
+      "variants": [
+        {
+          "id": "vinyl_record_playback_mix",
+          "name": "Vinyl record playback and live mixing; hardware unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ]
+}

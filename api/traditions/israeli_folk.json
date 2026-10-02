@@ -5,7 +5,7 @@
   "lineage": "This archival discovery label includes Bustan Abraham alongside modern instrumental and spiritual-folk performers. Bustan Abraham’s oud-led ensemble work offers a specific collaborative branch rather than a universal ethnic or religious formula.",
   "recipe": "classic modern israeli folk, improv On Frame. mahogany modern alternative western red cedar brass wound bass modern hybrid oud, silver yamaha modern Japanese mid to premium flute, synthetic upright bass, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 421,
-  "score": 20.388,
+  "score": 20.349,
   "config": {
     "traditions": [
       "israeli_folk"
@@ -25,11 +25,11 @@
         "scores": {
           "plucked_traditional_technique": 0.18150000000000002,
           "oud_school": 0.1365,
-          "oud_strings": 1.1665,
+          "oud_strings": 1.1608749999999999,
           "oud_pick": 0.21112499999999998,
-          "oud_body_wood": 1.1665,
-          "oud_soundboard_wood": 1.1665,
-          "oud_string_material": 1.498
+          "oud_body_wood": 1.1608749999999999,
+          "oud_soundboard_wood": 1.1608749999999999,
+          "oud_string_material": 1.492375
         }
       },
       {
@@ -44,9 +44,9 @@
         "scores": {
           "wind_articulation": -0.1,
           "flute_size": 0,
-          "flute_material": 1.1665,
+          "flute_material": 1.1608749999999999,
           "flute_technique": 1.3,
-          "flute_maker_school": 1.203625
+          "flute_maker_school": 1.198
         }
       },
       {
@@ -56,7 +56,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 1.1665,
+          "upright_strings": 1.1608749999999999,
           "upright_play": -0.05
         }
       },

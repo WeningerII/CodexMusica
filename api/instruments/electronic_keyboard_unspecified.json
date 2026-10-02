@@ -1,0 +1,92 @@
+{
+  "id": "electronic_keyboard_unspecified",
+  "name": "Electronic keyboard (source-unspecified architecture)",
+  "short": "Electronic keyboard",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "electronic_keyboard_identity",
+      "name": "Source instrument identity",
+      "variants": [
+        {
+          "id": "electronic_keyboard_architecture_unspecified",
+          "name": "Electronic keyboard; generator architecture and model unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "electronic_keyboard_melodic_chordal",
+          "name": "Melodic and chordal keyboard support",
+          "default": true,
+          "descriptors": [
+            "melodic",
+            "chordal"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electronic_keyboard_identity",
+      "name": "Source instrument identity",
+      "variants": [
+        {
+          "id": "electronic_keyboard_architecture_unspecified",
+          "name": "Electronic keyboard; generator architecture and model unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "electronic_keyboard_melodic_chordal",
+          "name": "Melodic and chordal keyboard support",
+          "default": true,
+          "descriptors": [
+            "melodic",
+            "chordal"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}

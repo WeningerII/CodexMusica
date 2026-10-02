@@ -1,0 +1,402 @@
+{
+  "id": "musica_andorra",
+  "name": "Música Andorra",
+  "family": "electronic",
+  "lineage": "Landry Riba — The Meaning of Now, complete eight-track album2024. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic música andorra, experimental Elec, ambient branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. electric norway spruce European alpine European maple bosnian source flamed figure double bass, acoustic guitar, sustained pad analog poly synth, norway spruce European alpine European maple bosnian source flamed figure cello, norway spruce European alpine European maple bosnian source flamed figure viola classical, norway spruce European alpine European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 674,
+  "score": 108.587,
+  "config": {
+    "traditions": [
+      "musica_andorra"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.3,
+          "voice_ensemble_config": 1.95,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.6945,
+          "voice_multitrack_stack": 3.1,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.273,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.063,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "bass_steel",
+          "bass_top_wood": "norway_spruce_alpine_bass",
+          "bass_back_wood": "bosnian_flamed_maple_bass",
+          "bass_varnish": "oil_amber_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_arco",
+          "bass_rosin": "pop_kolstein_rosin",
+          "bass_bow_stick": "pernambuco_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": 2.7495,
+          "bass_size": 0,
+          "bass_strings": 0.78,
+          "bass_top_wood": 2.3365,
+          "bass_back_wood": 3.6309999999999993,
+          "bass_varnish": 3,
+          "bass_setup_period": 4.1415,
+          "bass_play": 1.3995,
+          "bass_rosin": 3.9314999999999993,
+          "bass_bow_stick": 3.16
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.035,
+          "string_acoustic": 0.3045,
+          "acoustic_om_technique": -0.25
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 8.249499999999998,
+          "poly_archetypes": 0,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.035
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.7495,
+          "cello_strings": 0.39,
+          "cello_top_wood": 2.3365,
+          "cello_back_wood": 3.6309999999999993,
+          "cello_varnish": 3,
+          "cello_setup_period": 4.1415,
+          "cello_bow_grip": 0.8999999999999999,
+          "cello_rosin": 3.3,
+          "cello_bow_stick": 3.16
+        }
+      },
+      {
+        "id": "viola_classical",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "viola_size": "viola_16_inch",
+          "viola_strings": "viola_synthetic",
+          "viola_top_wood": "viola_norway_spruce",
+          "viola_back_wood": "viola_bosnian_flamed_maple",
+          "viola_varnish": "viola_oil_amber",
+          "viola_setup_period": "viola_modern_setup",
+          "viola_bow_stick": "viola_pernambuco",
+          "viola_rosin": "viola_larsen_rosin"
+        },
+        "scores": {
+          "bowed_technique": 2.7495,
+          "viola_size": 0,
+          "viola_strings": 0.39,
+          "viola_top_wood": 2.305,
+          "viola_back_wood": 3.6309999999999993,
+          "viola_varnish": 3,
+          "viola_setup_period": 4.1415,
+          "viola_bow_stick": 3.16,
+          "viola_rosin": 3.4785
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.7495,
+          "orch_strings": 0,
+          "orch_top_wood": 2.3365,
+          "orch_back_wood": 3.6309999999999993,
+          "orch_varnish": 3,
+          "orch_setup_period": 4.1415,
+          "orch_bow": 0,
+          "orch_bow_stick": 3.16,
+          "orch_articulation": 0.0315,
+          "orch_rosin": 3.1785
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "double_bass": [
+        "bowed_technique",
+        "bass_size",
+        "bass_strings",
+        "bass_top_wood",
+        "bass_back_wood",
+        "bass_varnish",
+        "bass_setup_period",
+        "bass_play",
+        "bass_rosin",
+        "bass_bow_stick"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ],
+      "viola_classical": [
+        "bowed_technique",
+        "viola_size",
+        "viola_strings",
+        "viola_top_wood",
+        "viola_back_wood",
+        "viola_varnish",
+        "viola_setup_period",
+        "viola_bow_stick",
+        "viola_rosin"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "bass_size": "bass_three_quarter",
+      "bass_strings": "bass_steel",
+      "bass_top_wood": "norway_spruce_alpine_bass",
+      "bass_back_wood": "bosnian_flamed_maple_bass",
+      "bass_varnish": "oil_amber_varnish_bass",
+      "bass_setup_period": "modern_setup_bass",
+      "bass_play": "bass_arco",
+      "bass_rosin": "pop_kolstein_rosin",
+      "bass_bow_stick": "pernambuco_stick_bass",
+      "string_tuning": "standard_tuning",
+      "top_wood": "sitka_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_fingerpicked",
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "cello_strings": "cello_synthetic",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello",
+      "viola_size": "viola_16_inch",
+      "viola_strings": "viola_synthetic",
+      "viola_top_wood": "viola_norway_spruce",
+      "viola_back_wood": "viola_bosnian_flamed_maple",
+      "viola_varnish": "viola_oil_amber",
+      "viola_setup_period": "viola_modern_setup",
+      "viola_bow_stick": "viola_pernambuco",
+      "viola_rosin": "viola_larsen_rosin",
+      "orch_strings": "synthetic_orch",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "bosnian_flamed_maple_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "arco_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

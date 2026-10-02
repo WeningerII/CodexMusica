@@ -5,7 +5,7 @@
   "lineage": "Danish folk includes inherited dance tunes and contemporary roots ensembles. Trio Mio’s documented Scandinavian practice supplies this selected modern branch: fiddle, piano and guitar working between composed tunes and improvisation.",
   "recipe": "classic modern danish folk, improv On Frame. synthetic magic rosin modern acrylic base fiddle, 17 ply hard rock maple Asian spruce hokkaido source 7 ply grand piano, low mid rich spectrum phosphor bronze modern martin dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 384,
-  "score": 28.18,
+  "score": 28.446,
   "config": {
     "traditions": [
       "danish_folk"
@@ -22,11 +22,11 @@
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 0.354,
+          "bowed_technique": 0.3315,
           "fiddle_strings": 1.1365,
           "fiddle_bow": 2.668,
-          "fiddle_mute": 0.76725,
-          "fiddle_articulation": 0.0225,
+          "fiddle_mute": 0.8925000000000001,
+          "fiddle_articulation": 0,
           "fiddle_string_configuration": 0
         }
       },
@@ -34,7 +34,7 @@
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
-          "grand_piano_size": "grand_9_foot",
+          "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
@@ -45,14 +45,14 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.01125,
+          "grand_piano_size": 0,
           "grand_piano_brand": 1.3315000000000001,
-          "piano_hammer": 2.66,
+          "piano_hammer": 2.765,
           "piano_rim": 2.813,
           "piano_soundboard": 3.185,
-          "piano_pinblock": 3.1220000000000003,
-          "piano_plate": 2.5865,
-          "piano_pitch_standard": 3.601
+          "piano_pinblock": 3.185,
+          "piano_plate": 2.6180000000000003,
+          "piano_pitch_standard": 3.62125
         }
       },
       {
@@ -61,15 +61,15 @@
           "acoustic_technique": "acoustic_flatpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar",
-          "back_sides": "koa_bs",
+          "back_sides": "mahogany_bs",
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": -0.07750000000000001,
           "string_tuning": 0,
           "top_wood": 0.3,
-          "back_sides": 0.01125,
-          "string_acoustic": 1.14775
+          "back_sides": 0,
+          "string_acoustic": 1.1365
         }
       }
     ],

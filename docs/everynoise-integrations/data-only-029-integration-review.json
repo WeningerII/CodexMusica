@@ -1,0 +1,162 @@
+{
+  "status": "PASS",
+  "reviewer": "research_119",
+  "frozen_sha256": "278a641968bfedd2f1e8c8324ffaab4ab68943503d8fb3998e84c6e2731cf7d5",
+  "required_predecessor": "f94053d65f1bc67e545cb7dacf04c659609d03dc",
+  "source_append_review": {
+    "predecessor": "f94053d65f1bc67e545cb7dacf04c659609d03dc",
+    "head": "ad35e6b770f08dc8c14fbdcb65b5ca8d9a5f7591",
+    "frozen_sha256": "278a641968bfedd2f1e8c8324ffaab4ab68943503d8fb3998e84c6e2731cf7d5",
+    "counts": {
+      "raw_traditions_old_unchanged": 5438,
+      "raw_instruments_old_unchanged": 1483,
+      "old_extras_unchanged": 5438,
+      "merged_instruments_old_unchanged": 1483,
+      "data/geo.json_old_keys": 5438,
+      "references/_tradition_signatures.json_old_keys": 3416,
+      "old_images_unchanged": 6871,
+      "new_images": 106
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "electronic_keyboard_unspecified",
+      "vinyl_dj_playback",
+      "midi_programmed_sound_unspecified",
+      "sakha_concert_khomus",
+      "chepkong_lyre",
+      "credited_horns_unspecified"
+    ],
+    "runtime_independent": {
+      "cards": 384,
+      "effective_parts": 3777,
+      "flat_pins": 3652,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "engine_and_shared_data": [
+    {
+      "file": "scripts/_merge.js",
+      "unchanged": true,
+      "sha256": "c4cca6eeb5f25070c134cca1fed2d4dba76f29c96c59989e5c047a1b307fba4c"
+    },
+    {
+      "file": "scripts/_loader.js",
+      "unchanged": true,
+      "sha256": "455a515d09614dd4dd2f09ff35663ccef0cd88332602944b0faa01f7eb838365"
+    },
+    {
+      "file": "scripts/_seed_workspace.js",
+      "unchanged": true,
+      "sha256": "223924a3ce0f08dd0302731cf815d712755dc906b3546986966765dc63ded58d"
+    },
+    {
+      "file": "scripts/_load_app.js",
+      "unchanged": true,
+      "sha256": "3bc048bd4ceafcbbfa5c420dd9bc6063eea39d6b3539137b079383b62e548ca3"
+    },
+    {
+      "file": "scripts/search.js",
+      "unchanged": true,
+      "sha256": "0670153cfe1b6b5ce184e81dc3cf235d64f684ad47aa80df93500e22d27a62c5"
+    },
+    {
+      "file": "scripts/_matcher.js",
+      "unchanged": true,
+      "sha256": "635a75aa8bb664d0d95fae5140bd137a6cbe1e330caaa6c51d98d2de15356c6e"
+    },
+    {
+      "file": "references/01_family_parts.js",
+      "unchanged": true,
+      "sha256": "4ebfc6221a615a970282b6e14d78a715ff3dd41ef2a02cf9d5fe295b539ed791"
+    },
+    {
+      "file": "references/03_rooms_chains_tunings.js",
+      "unchanged": true,
+      "sha256": "6ec82cdca178d940816a81357df2942ab0b9132b667a11ac282a7d97eaadf2f7"
+    },
+    {
+      "file": "references/04_tree.js",
+      "unchanged": true,
+      "sha256": "09da3b8c52006ed4a5c1dc95e8b8a31e97b83c533cd322fb80fa6332533acf90"
+    },
+    {
+      "file": "references/_soundword_vocab.json",
+      "unchanged": true,
+      "sha256": "20085d26b1667e1daee7cb6ceda6d27107f19bccfa83e7ac61ffc3afbd228a48"
+    }
+  ],
+  "errors": [],
+  "no_repo_mutations": true,
+  "remaining_gates": [
+    "Completed API full delta and six unpinned-owner choices",
+    "Causal regression review",
+    "Exact-head CI"
+  ],
+  "predecessor_equivalence": "/tmp/batch029/predecessor-equivalence.json",
+  "semantic_amendments": "/tmp/batch029/semantic-amendment-ledger119.json",
+  "source_scope": {
+    "changed_source_files": [
+      "data/atlas-geo.json",
+      "data/geo.json",
+      "data/tree-map.json",
+      "references/02_instruments.js",
+      "references/05_traditions.js",
+      "references/06_extras.js",
+      "references/_image_manifest.json",
+      "references/_tradition_signatures.json",
+      "src/app.js"
+    ],
+    "unexpected": [],
+    "new_data_manifest_geo_signatures_exact": true,
+    "new_instrument_raw_records_exact": true
+  },
+  "actual_browser_preservation": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1483,
+      "traditions": 5438,
+      "cards": 23696
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "defaults_review": "All100 integrated source rosters and imported effective parts, rooms, tuning and declared chains match frozen. Six unpinned owners are explicitly disclosed; compiled choices require postbuild audit. All old5438 browser imports/23696cards and1483 instrument defaults are identical to baseline.",
+  "prior_frozen_sha256": "59920fc0e80c089b82d9a66f11d94a67126b5fa20f6d77170df04b0907396043",
+  "final_family_keyboard_corrections": "/tmp/batch029/final-default-amendment-ledger119.json",
+  "geo_amendment": {
+    "status": "PASS",
+    "id": "kizomba_cabo_verdiana",
+    "before": [16.5388, -23.0418, "Cape Verde", "Africa"],
+    "after": [15.1, -23.6, "Santiago, Cape Verde", "Africa"],
+    "reason": "Atlas land check rejects ocean centroid; editorialnationalanchor moved to existing on-landSantiago catalog convention.",
+    "source": "https://www.governo.cv/documentos/perfil-do-sector-de-habitacao/",
+    "source_ref": "turn228162search12",
+    "frozen_before_sha256": "59920fc0e80c089b82d9a66f11d94a67126b5fa20f6d77170df04b0907396043",
+    "frozen_after_sha256": "76f778653bd1a7ec5bebe0e2966052e5081dc0c0a012bbcbaf8a0046d121cc5c",
+    "api_recipe_inputs_unchanged": true,
+    "changed_entry_fields": ["geo", "geo_rationale"]
+  },
+  "merge_equivalence": {
+    "reviewed_head": "f94053d65f1bc67e545cb7dacf04c659609d03dc",
+    "merged_main": "ad35e6b770f08dc8c14fbdcb65b5ca8d9a5f7591",
+    "both_tree_sha": "34f8331ae92b457371169ace91da7d79ec72e27b",
+    "independently_verified": true
+  },
+  "generated_mirrors": {
+    "data/atlas-geo.json": "Derived atlas data generated by original unchanged pipeline, not hand-authored engine configuration.",
+    "data/tree-map.json": "Derived tree map generated by original unchanged pipeline.",
+    "shared_script_changes": false
+  }
+}

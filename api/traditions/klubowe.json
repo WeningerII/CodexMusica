@@ -1,0 +1,58 @@
+{
+  "id": "klubowe",
+  "name": "Klubowe",
+  "family": "electronic",
+  "lineage": "Energy2000 documents C-BooL vinyl-classics live DJ mix on 19 April 2025 in Katowice, presenting club repertoire from 2002–2007. Exact creator Klubowe playlist independently includes C-BooL (Never Go Away, item25). Selected scope is his named vinyl DJ performance practice, not the entire multi-room event or source studio recordings.",
+  "recipe": "classic mid-2000s klubowe, electronic Dance. vinyl dj playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 162,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "klubowe"
+    ],
+    "instruments": [
+      {
+        "id": "vinyl_dj_playback",
+        "slots": {
+          "vinyl_dj_performance": "vinyl_record_playback_mix"
+        },
+        "scores": {
+          "vinyl_dj_performance": 0
+        }
+      }
+    ],
+    "pinned": {
+      "vinyl_dj_playback": [
+        "vinyl_dj_performance"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "vinyl_dj_performance": "vinyl_record_playback_mix"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

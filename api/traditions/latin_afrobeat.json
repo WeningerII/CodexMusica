@@ -5,7 +5,7 @@
   "lineage": "Bixiga70 — III full2015album performing roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic latin afrobeat, groove Percussion. ensemble trumpet, bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, saxophone section tenor baritone, conventional tuning standard pitch humbucker electric guitar, analog poly synth, electric bass, low fundamental tuning maple drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 455,
-  "score": 27.679,
+  "score": 27.854,
   "config": {
     "traditions": [
       "latin_afrobeat"
@@ -29,7 +29,7 @@
           "brass_mute": 0,
           "trumpet_technique": 5.7090000000000005,
           "trumpet_bell_metal": 0.3,
-          "trumpet_maker_school": 0.3225
+          "trumpet_maker_school": 0.3
         }
       },
       {
@@ -50,7 +50,7 @@
           "trombone_mute": 0,
           "trombone_technique": 0.39,
           "trombone_bell_metal": 0.3,
-          "trombone_maker_school": 1.5225
+          "trombone_maker_school": 1.5
         }
       },
       {
@@ -92,7 +92,7 @@
           "scale_length": 0.063,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 1.3975
+          "string_tuning": 1.4365
         }
       },
       {
@@ -150,11 +150,11 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 1.3975,
+          "drumhead": 1.4365,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.3975,
+          "shell_wood": 1.5625,
           "shell_thickness": 0,
-          "bearing_edges": 0.0225,
+          "bearing_edges": 0,
           "snare_wires": 0,
           "cymbal_alloy": 0.13000000000000003,
           "cymbal_hammering": -0.10500000000000001,

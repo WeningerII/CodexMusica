@@ -5,7 +5,7 @@
   "lineage": "Bajki (Polish fairy-tale narration): Piotr Fronczewski — Michałek z pudełka od zapałek (Jung-off-ska, 2015). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic mid-2010s bajki, spoken Word, narration branch. conversational. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 170,
-  "score": 2.432,
+  "score": 2.495,
   "config": {
     "traditions": [
       "bajki"
@@ -43,12 +43,12 @@
           "voice_tradition": 0,
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
-          "voice_speech_song": 0.3885,
+          "voice_speech_song": 0.42000000000000004,
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.1365,
-          "voice_multitrack_stack": 0.357,
+          "voice_multitrack_stack": 0.38849999999999996,
           "voice_tessitura": 0
         }
       }
