@@ -1,5 +1,5 @@
 {
-  "count": 1477,
+  "count": 1483,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8862,6 +8862,42 @@
       "name": "NES / Famicom chip synthesis system",
       "family": "electronic",
       "href": "instruments/nes_famicom_chip_system.json"
+    },
+    {
+      "id": "electronic_organ_unspecified",
+      "name": "Electronic organ (source-unspecified architecture)",
+      "family": "keyboard",
+      "href": "instruments/electronic_organ_unspecified.json"
+    },
+    {
+      "id": "dung_chen_contemporary",
+      "name": "Dung chen (contemporary source-unspecified construction)",
+      "family": "wind",
+      "href": "instruments/dung_chen_contemporary.json"
+    },
+    {
+      "id": "uyghur_dutar",
+      "name": "Uyghur dutar (source-unspecified construction)",
+      "family": "plucked_traditional",
+      "href": "instruments/uyghur_dutar.json"
+    },
+    {
+      "id": "janggu_concert_accompaniment",
+      "name": "Janggu (classical and sanjo concert accompaniment)",
+      "family": "percussion",
+      "href": "instruments/janggu_concert_accompaniment.json"
+    },
+    {
+      "id": "electric_cello_live_looping",
+      "name": "Electric cello with live looping",
+      "family": "bowed",
+      "href": "instruments/electric_cello_live_looping.json"
+    },
+    {
+      "id": "uilleann_pipes_three_quarter",
+      "name": "Uilleann pipes (three-quarter set)",
+      "family": "wind",
+      "href": "instruments/uilleann_pipes_three_quarter.json"
     }
   ]
 }

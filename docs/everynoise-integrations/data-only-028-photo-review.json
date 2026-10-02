@@ -1,0 +1,1101 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "abdbc33a71f457fe788d31beec3f236b66cef57b84e01976d4f048025bebfcc0",
+  "scope": "100tradition photos plus6newinstrument photos",
+  "confidence_counts": {
+    "high": 59,
+    "low": 30,
+    "medium": 17
+  },
+  "receipt_policy": "Exact inherited downloaded URL/bytes/SHA256/dimensions and original visual observations, independently matched to committed receipts. Fresh file-specific rights/context checked. No new pixel/download claim. SM58 is LOW generic recording context, not a depiction of source equipment, performer or instrument.",
+  "entries": [
+    {
+      "id": "tanzanian_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:00_Walden_Acoustic_Guitar_D310e_01.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "tatar_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "teen_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "tibetan_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "tigrigna_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "togolese_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "turkish_alt_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "ugandan_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:00_Walden_Acoustic_Guitar_D310e_01.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "uk_alternative_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "uk_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "ukrainian_folk_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "ukrainian_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "uyghur_pop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:00_Walden_Acoustic_Guitar_D310e_01.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "african_electronic",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "irish_neo_traditional",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "background_piano",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "isle_of_man_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "isle_of_wight_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "afro_psych"
+      }
+    },
+    {
+      "id": "israeli_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "afro_psych"
+      }
+    },
+    {
+      "id": "israeli_mediterranean",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "background_piano",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "israeli_traditional",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "bajki",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "italian_gothic",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "italian_industrial",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Akai_CD3000XL_9248.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "ambeat",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "italian_library_music",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "background_piano"
+      }
+    },
+    {
+      "id": "italian_lounge",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "background_piano",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "italian_mandolin",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Adamor_do_Bandolim.jpg",
+      "confidence": "low",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "bandolim",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "italian_modern_prog",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "afro_psych"
+      }
+    },
+    {
+      "id": "italian_new_wave",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "afro_psych"
+      }
+    },
+    {
+      "id": "italian_occult_psychedelia",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "italian_soprano",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "background_piano"
+      }
+    },
+    {
+      "id": "italian_soundtrack",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "background_piano"
+      }
+    },
+    {
+      "id": "italian_tenor",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "background_piano"
+      }
+    },
+    {
+      "id": "italian_violin",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Violin_VL100.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Violin_VL100.jpg",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-019-evidence.json",
+        "source_entry": "american_orchestra",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "italogaze",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "afro_psych"
+      }
+    },
+    {
+      "id": "jamtronica",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false,
+        "source_entry": "afro_psych"
+      }
+    },
+    {
+      "id": "jugendchor",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kabarett",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kansas_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "karaoke",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "karntner_volksmusik",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kelowna_bc_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kentucky_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kerkkoor",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Pipe_Organ_MET_DP-14247-001.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "khmer",
+      "source_page": "https://commons.wikimedia.org/wiki/File:00_Walden_Acoustic_Guitar_D310e_01.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kinderchor",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kleinkunst",
+      "source_page": "https://commons.wikimedia.org/wiki/File:00_Walden_Acoustic_Guitar_D310e_01.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "knoxville_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:00_Walden_Acoustic_Guitar_D310e_01.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kodomo_no_ongaku",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "koledy",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kolkata_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "komedi",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kora",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "korean_electropop",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "korean_experimental",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "korean_instrumental",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "korean_traditional",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kosovan_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kritika",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kundalini",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "kyushu_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "la_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "laboratorio",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Borsini_Bayan_P_2V.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lafayette_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:00_Walden_Acoustic_Guitar_D310e_01.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lagu_lampung",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lagu_sabahan",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lancashire_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lancaster_pa_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "language",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lastelaulud",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lasten_satuja",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lata",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "latin_afrobeat",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "latin_american_heavy_psych",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "latin_soundtrack",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "latino_comedy",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "latvian_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "laulaja_lauluntekija",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Borsini_Bayan_P_2V.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "accordion",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lawrence_ks_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lds",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "background_piano",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lds_instrumental",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "background_piano",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lds_youth",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "background_piano",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lebanese_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "leeds_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "leicester_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "leipzig_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "leon_gto_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lesotho_traditional",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "bajki",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lexington_ky_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "light_music",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "background_piano",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lilith",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "background_piano",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "limerick_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lincoln_ne_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lithuanian_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "liverpool_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "livetronica",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "high",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": {
+        "source": "docs/everynoise-integrations/data-only-023-evidence.json",
+        "source_entry": "afro_psych",
+        "kind": "previously_verified_receipt_reuse",
+        "fresh_rights_context_checked": "2026-10-02",
+        "fresh_bytes_checked": false
+      }
+    },
+    {
+      "id": "lo_fi_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "london_on_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "louisville_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lund_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "lute",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "macedonian_indie",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Gibson_Les_Paul_05.jpg",
+      "confidence": "medium",
+      "source": "wikimedia_commons_verified_instrument_context",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "electronic_organ_unspecified",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "dung_chen_contemporary",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "uyghur_dutar",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "janggu_concert_accompaniment",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "electric_cello_live_looping",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    },
+    {
+      "id": "uilleann_pipes_three_quarter",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "confidence": "low",
+      "source": "generic_recording_context",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "receipt_provenance": "Exact committed023 evidence receipt"
+    }
+  ]
+}

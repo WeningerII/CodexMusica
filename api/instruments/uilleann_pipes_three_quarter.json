@@ -1,0 +1,442 @@
+{
+  "id": "uilleann_pipes_three_quarter",
+  "name": "Uilleann pipes (three-quarter set)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "three-quarter uilleann pipes",
+  "parts": [
+    {
+      "id": "uilleann_three_quarter_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "uilleann_three_quarter_wind_folk_melodic",
+          "name": "Folk melodic",
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ],
+          "default": false
+        },
+        {
+          "id": "uilleann_three_quarter_wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "uilleann_three_quarter_configuration",
+      "name": "Set configuration",
+      "variants": [
+        {
+          "id": "uilleann_three_quarter_source_set",
+          "name": "Three-quarter set with chanter, drones and regulators",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_pipes_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "uilleann_pipes_d",
+          "default": true,
+          "name": "D (concert)",
+          "descriptors": [
+            "standard",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "uilleann_pipes_flat",
+          "name": "C / B♭ (flat sets)",
+          "descriptors": [
+            "traditional",
+            "pre-modern-pitch",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "uilleann_pipes_csharp",
+          "name": "C# (rare specialty)",
+          "descriptors": [
+            "unusual",
+            "historical",
+            "specific-pipers"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "uilleann_african_blackwood",
+          "default": true,
+          "name": "African blackwood (canonical Irish modern)",
+          "descriptors": [
+            "african-blackwood-canonical-irish-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "uilleann_boxwood_pre_1900",
+          "name": "Boxwood (pre-1900 historical Irish)",
+          "descriptors": [
+            "boxwood-pre-1900-historical-irish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "uilleann_cocuswood",
+          "name": "Cocuswood (premium pre-1950 historical)",
+          "descriptors": [
+            "cocuswood-premium-pre-1950-historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "uilleann_cane_canonical",
+          "default": true,
+          "name": "Cane double-reed Arundo donax (canonical Irish)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-irish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "uilleann_leather_canonical",
+          "default": true,
+          "name": "Leather (canonical Irish bellows-fed)",
+          "descriptors": [
+            "leather-canonical-irish-bellows-fed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_three_quarter_makers",
+      "name": "Source maker configuration",
+      "surface": false,
+      "variants": [
+        {
+          "id": "uilleann_three_quarter_aebi_bicego_gallagher",
+          "name": "Tom Aebi chanter, Daniele Bicego drones, Seth Gallagher regulators",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Source-documented three-quarter set in D with chanter, drones and regulators. This separate data owner preserves the specified set instead of substituting the catalog full-set configuration. Existing construction choices are authored possibilities, not claims about Vettori woods or historic making lineage.",
+  "sources": [
+    "https://valeriovettori.bandcamp.com/album/river-tunes"
+  ],
+  "_ownParts": [
+    {
+      "id": "uilleann_three_quarter_articulation",
+      "name": "Articulation / phrasing",
+      "variants": [
+        {
+          "id": "uilleann_three_quarter_wind_folk_melodic",
+          "name": "Folk melodic",
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk",
+            "folk-tradition",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "folk",
+            "celtic"
+          ],
+          "default": false
+        },
+        {
+          "id": "uilleann_three_quarter_wind_ornament_heavy",
+          "name": "Ornament-heavy",
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "heavy",
+            "low-end-heavy",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "celtic",
+            "irish-trad",
+            "baroque-leaning"
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "uilleann_three_quarter_configuration",
+      "name": "Set configuration",
+      "variants": [
+        {
+          "id": "uilleann_three_quarter_source_set",
+          "name": "Three-quarter set with chanter, drones and regulators",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_pipes_pitch",
+      "name": "Pitch class",
+      "variants": [
+        {
+          "id": "uilleann_pipes_d",
+          "default": true,
+          "name": "D (concert)",
+          "descriptors": [
+            "standard",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "uilleann_pipes_flat",
+          "name": "C / B♭ (flat sets)",
+          "descriptors": [
+            "traditional",
+            "pre-modern-pitch",
+            "distinctive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "uilleann_pipes_csharp",
+          "name": "C# (rare specialty)",
+          "descriptors": [
+            "unusual",
+            "historical",
+            "specific-pipers"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_chanter_wood",
+      "surface": false,
+      "name": "Chanter wood",
+      "variants": [
+        {
+          "id": "uilleann_african_blackwood",
+          "default": true,
+          "name": "African blackwood (canonical Irish modern)",
+          "descriptors": [
+            "african-blackwood-canonical-irish-modern"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "uilleann_boxwood_pre_1900",
+          "name": "Boxwood (pre-1900 historical Irish)",
+          "descriptors": [
+            "boxwood-pre-1900-historical-irish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "uilleann_cocuswood",
+          "name": "Cocuswood (premium pre-1950 historical)",
+          "descriptors": [
+            "cocuswood-premium-pre-1950-historical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "uilleann_cane_canonical",
+          "default": true,
+          "name": "Cane double-reed Arundo donax (canonical Irish)",
+          "descriptors": [
+            "cane-arundo-donax-canonical-irish"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_bag",
+      "surface": false,
+      "name": "Bag material",
+      "variants": [
+        {
+          "id": "uilleann_leather_canonical",
+          "default": true,
+          "name": "Leather (canonical Irish bellows-fed)",
+          "descriptors": [
+            "leather-canonical-irish-bellows-fed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uilleann_three_quarter_makers",
+      "name": "Source maker configuration",
+      "surface": false,
+      "variants": [
+        {
+          "id": "uilleann_three_quarter_aebi_bicego_gallagher",
+          "name": "Tom Aebi chanter, Daniele Bicego drones, Seth Gallagher regulators",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "dung_chen_contemporary",
+  "name": "Dung chen (contemporary source-unspecified construction)",
+  "short": "Contemporary dung chen",
+  "family": "wind",
+  "class": "brass",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "parts": [
+    {
+      "id": "dung_chen_contemporary_identity",
+      "name": "Documented horn identity",
+      "variants": [
+        {
+          "id": "dung_chen_contemporary_source_unspecified",
+          "name": "Dung chen; construction and performer lineage unspecified",
+          "default": true,
+          "descriptors": [
+            "low",
+            "sustained",
+            "brass"
+          ],
+          "match_tokens": [
+            "brass",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Label positively credits Greg Powers on dungchen horn for The Fellowship of Tsering. This isolated owner retains that named instrument without imposing Gelug, Kagyu or Nyingma ritual lineage, fixed length or premium materials absent from the source. Low sustained brass descriptors are authored timbral scaffolding, not measured performance facts; physical construction remains unspecified. Axes are authored routing coordinates.",
+  "sources": [
+    "https://dennisrea-moonjune.bandcamp.com/album/giant-steppes"
+  ],
+  "_ownParts": [
+    {
+      "id": "dung_chen_contemporary_identity",
+      "name": "Documented horn identity",
+      "variants": [
+        {
+          "id": "dung_chen_contemporary_source_unspecified",
+          "name": "Dung chen; construction and performer lineage unspecified",
+          "default": true,
+          "descriptors": [
+            "low",
+            "sustained",
+            "brass"
+          ],
+          "match_tokens": [
+            "brass",
+            "sustained"
+          ]
+        }
+      ]
+    }
+  ]
+}

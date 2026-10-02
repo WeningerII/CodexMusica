@@ -1,0 +1,9 @@
+{
+  "before_frozen_sha256": "39e42f89e656e17bef0ef6d52ab4e3879d7f69db2c98beb7886e125bdd422f3f",
+  "after_frozen_sha256": "fd521a733ec9730e3cb70b1410b67a0f849359e0cd41719232f6a755822112ec",
+  "id": "korean_traditional",
+  "before": ["plucked", "breathy", "sustained"],
+  "after": ["plucked", "sustained"],
+  "reason": "New signature token breathy is unclassified by existing vocabulary; removed only new-entry signature attribution. Musical descriptors/roles/defaults and global vocabulary/rulings preserved.",
+  "independent_approval": "research_119"
+}

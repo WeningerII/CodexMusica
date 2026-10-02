@@ -5,7 +5,7 @@
   "lineage": "SPAZA — SPAZA (recorded 2015; released 2019). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic mid-2010s african experimental, improv On Frame, jam free branch. European maple bosnian source flamed figure double bass, natural tone piezo bridge electric violin, trombone, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 301,
-  "score": 5.254,
+  "score": 5.225,
   "config": {
     "traditions": [
       "african_experimental"
@@ -110,7 +110,7 @@
           "trombone_mute": 0,
           "trombone_technique": 0.0315,
           "trombone_bell_metal": 0.0315,
-          "trombone_maker_school": 0.5741249999999999
+          "trombone_maker_school": 0.5459999999999999
         }
       },
       {

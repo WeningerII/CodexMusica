@@ -1,0 +1,64 @@
+{
+  "id": "uyghur_dutar",
+  "name": "Uyghur dutar (source-unspecified construction)",
+  "short": "Uyghur dutar",
+  "family": "plucked_traditional",
+  "class": "plucked",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "uyghur_dutar_identity",
+      "name": "Documented instrument identity",
+      "variants": [
+        {
+          "id": "uyghur_dutar_two_string_source_unspecified",
+          "name": "Two-string Uyghur dutar; construction unspecified",
+          "default": true,
+          "descriptors": [
+            "two-string",
+            "plucked"
+          ],
+          "match_tokens": [
+            "two-string",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Primary performer-owned Shohrat Tursun Trio biography identifies the Uyghur musician on dutar, a two-string lute. Body wood, strings, dimensions and regional school are not specified. This isolated owner avoids imposing existing Bukharan, Fergana or Turkmen lineage settings on this source. Axes are authored routing coordinates.",
+  "sources": [
+    "https://www.shohrattursuntrio.com/bio"
+  ],
+  "_ownParts": [
+    {
+      "id": "uyghur_dutar_identity",
+      "name": "Documented instrument identity",
+      "variants": [
+        {
+          "id": "uyghur_dutar_two_string_source_unspecified",
+          "name": "Two-string Uyghur dutar; construction unspecified",
+          "default": true,
+          "descriptors": [
+            "two-string",
+            "plucked"
+          ],
+          "match_tokens": [
+            "two-string",
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

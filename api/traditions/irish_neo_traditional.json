@@ -1,0 +1,127 @@
+{
+  "id": "irish_neo_traditional",
+  "name": "Irish Neo-Traditional",
+  "family": "vernacular",
+  "lineage": "Valerio Vettori — Fluo / Cece’s Jig / Deep Blue Night, River Tunes (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic late-2010s irish neo-traditional, drone Modal, wind pipe branch. African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed uilleann pipes three quarter, grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 325,
+  "score": 5.707,
+  "config": {
+    "traditions": [
+      "irish_neo_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "uilleann_pipes_three_quarter",
+        "slots": {
+          "uilleann_three_quarter_articulation": "uilleann_three_quarter_wind_ornament_heavy",
+          "uilleann_three_quarter_configuration": "uilleann_three_quarter_source_set",
+          "uilleann_pipes_pitch": "uilleann_pipes_d",
+          "uilleann_chanter_wood": "uilleann_african_blackwood",
+          "uilleann_reed": "uilleann_cane_canonical",
+          "uilleann_bag": "uilleann_leather_canonical",
+          "uilleann_three_quarter_makers": "uilleann_three_quarter_aebi_bicego_gallagher"
+        },
+        "scores": {
+          "uilleann_three_quarter_articulation": -0.11850000000000002,
+          "uilleann_three_quarter_configuration": 0,
+          "uilleann_pipes_pitch": 0.063,
+          "uilleann_chanter_wood": 1.991,
+          "uilleann_reed": 2.0095,
+          "uilleann_bag": 2.08,
+          "uilleann_three_quarter_makers": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "grand_piano_size": 0.105,
+          "grand_piano_brand": 0.0315,
+          "piano_hammer": -0.07,
+          "piano_rim": -0.07,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": -0.07,
+          "piano_plate": -0.07,
+          "piano_pitch_standard": -0.035
+        }
+      }
+    ],
+    "pinned": {
+      "uilleann_pipes_three_quarter": [
+        "uilleann_three_quarter_articulation",
+        "uilleann_three_quarter_configuration",
+        "uilleann_pipes_pitch",
+        "uilleann_chanter_wood",
+        "uilleann_reed",
+        "uilleann_bag",
+        "uilleann_three_quarter_makers"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "uilleann_three_quarter_articulation": "uilleann_three_quarter_wind_ornament_heavy",
+      "uilleann_three_quarter_configuration": "uilleann_three_quarter_source_set",
+      "uilleann_pipes_pitch": "uilleann_pipes_d",
+      "uilleann_chanter_wood": "uilleann_african_blackwood",
+      "uilleann_reed": "uilleann_cane_canonical",
+      "uilleann_bag": "uilleann_leather_canonical",
+      "uilleann_three_quarter_makers": "uilleann_three_quarter_aebi_bicego_gallagher",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

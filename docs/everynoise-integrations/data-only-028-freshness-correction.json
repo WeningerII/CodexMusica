@@ -1,0 +1,14 @@
+{
+  "status": "PASS_LOCAL_CORRECTION_PENDING_EXACT_HEAD_CI",
+  "failed_head": "9c940fc4b161cdad23d5118af4fab68a215ab799",
+  "ci_run": 37068047625,
+  "ci_job": 111041308679,
+  "failure": "Only codex.html stale: committed4610416bytes versus fresh4624156bytes; every API artifact and discovery file matched in remote gate.",
+  "cause": "Original build_html.js default output resolves /tmp/codex-outputs/codex.html in this environment; prior build did not update repository codex.html.",
+  "correction": "Ran unchanged builder with explicit --out=codex.html --check. No source engine or workflow changes.",
+  "html_bytes": 4624156,
+  "html_sha256": "14747cbc1144f0e7de7fe72c8dc7ea3b5e8a51442ccabe8c87767a0d61a7d418",
+  "validation": "check_artifact_fresh.js using separately regenerated HTML and saved exact current API tree passed0diff; API tree already proved equal to fresh remote full build in failed job. Explicit scope: local comparison reused API, did not run a second local full API build.",
+  "local_log": "/tmp/batch028/freshness-html-corrected.log",
+  "source_packet_unchanged": true
+}

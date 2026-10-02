@@ -1,0 +1,741 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "abdbc33a71f457fe788d31beec3f236b66cef57b84e01976d4f048025bebfcc0",
+  "all_merged_parts": 3763,
+  "applicable_protected_parts": 3761,
+  "errors": 0,
+  "details": [
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "tanzanian_pop",
+      "parts": 22,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "tatar_pop",
+      "parts": 21,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "teen_pop",
+      "parts": 55,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "tibetan_pop",
+      "parts": 67,
+      "unpinned": [
+        {
+          "id": "rompler_workstation",
+          "part": "electronic_technique",
+          "pin": "electronic_sample_chopped"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "tigrigna_pop",
+      "parts": 23,
+      "unpinned": [
+        {
+          "id": "rompler_workstation",
+          "part": "electronic_technique",
+          "pin": "electronic_sample_chopped"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "togolese_pop",
+      "parts": 22,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "turkish_alt_pop",
+      "parts": 53,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "ugandan_pop",
+      "parts": 27,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "uk_alternative_pop",
+      "parts": 30,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "uk_pop",
+      "parts": 26,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "ukrainian_folk_pop",
+      "parts": 58,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "ukrainian_pop",
+      "parts": 53,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "uyghur_pop",
+      "parts": 36,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "african_electronic",
+      "parts": 2,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "irish_neo_traditional",
+      "parts": 16,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "isle_of_man_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "isle_of_wight_indie",
+      "parts": 69,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "israeli_indie",
+      "parts": 74,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "israeli_mediterranean",
+      "parts": 34,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "israeli_traditional",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_gothic",
+      "parts": 45,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_industrial",
+      "parts": 14,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_library_music",
+      "parts": 47,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_lounge",
+      "parts": 47,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_mandolin",
+      "parts": 8,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_modern_prog",
+      "parts": 86,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_new_wave",
+      "parts": 63,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_occult_psychedelia",
+      "parts": 50,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_soprano",
+      "parts": 26,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_soundtrack",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_tenor",
+      "parts": 26,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italian_violin",
+      "parts": 19,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "italogaze",
+      "parts": 60,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "jamtronica",
+      "parts": 62,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "jugendchor",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kabarett",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kansas_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "karaoke",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "karntner_volksmusik",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kelowna_bc_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kentucky_indie",
+      "parts": 77,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kerkkoor",
+      "parts": 24,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "khmer",
+      "parts": 64,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kinderchor",
+      "parts": 26,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kleinkunst",
+      "parts": 41,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "knoxville_indie",
+      "parts": 64,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kodomo_no_ongaku",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "koledy",
+      "parts": 26,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kolkata_indie",
+      "parts": 33,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "komedi",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kora",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "korean_electropop",
+      "parts": 30,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "korean_experimental",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "korean_instrumental",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "korean_traditional",
+      "parts": 33,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kosovan_indie",
+      "parts": 71,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kritika",
+      "parts": 35,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kundalini",
+      "parts": 4,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "kyushu_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "la_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "laboratorio",
+      "parts": 24,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lafayette_indie",
+      "parts": 68,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lagu_lampung",
+      "parts": 22,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lagu_sabahan",
+      "parts": 53,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lancashire_indie",
+      "parts": 41,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lancaster_pa_indie",
+      "parts": 56,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "language",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lastelaulud",
+      "parts": 26,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lasten_satuja",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lata",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "latin_afrobeat",
+      "parts": 52,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "latin_american_heavy_psych",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "latin_soundtrack",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "latino_comedy",
+      "parts": 17,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "latvian_indie",
+      "parts": 109,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "laulaja_lauluntekija",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lawrence_ks_indie",
+      "parts": 50,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lds",
+      "parts": 26,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lds_instrumental",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lds_youth",
+      "parts": 26,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lebanese_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "leeds_indie",
+      "parts": 63,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "leicester_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "leipzig_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "leon_gto_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lesotho_traditional",
+      "parts": 2,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lexington_ky_indie",
+      "parts": 58,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "light_music",
+      "parts": 9,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lilith",
+      "parts": 31,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "limerick_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lincoln_ne_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lithuanian_indie",
+      "parts": 66,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "liverpool_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "livetronica",
+      "parts": 46,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lo_fi_indie",
+      "parts": 53,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "london_on_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "louisville_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lund_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "lute",
+      "parts": 6,
+      "unpinned": [],
+      "errors": []
+    },
+    {
+      "file": "/tmp/batch028/frozen.json",
+      "id": "macedonian_indie",
+      "parts": 49,
+      "unpinned": [],
+      "errors": []
+    }
+  ],
+  "compiled_fallback_disclosure": [
+    {
+      "id": "tibetan_pop",
+      "instrument": "rompler_workstation",
+      "part": "electronic_technique",
+      "flatPin": "electronic_sample_chopped",
+      "imported": "electronic_pad_drone",
+      "compiled": "electronic_lead_line",
+      "protected": false
+    },
+    {
+      "id": "tigrigna_pop",
+      "instrument": "rompler_workstation",
+      "part": "electronic_technique",
+      "flatPin": "electronic_sample_chopped",
+      "imported": "electronic_pad_drone",
+      "compiled": "electronic_lead_line",
+      "protected": false
+    }
+  ]
+}

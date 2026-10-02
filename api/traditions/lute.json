@@ -1,0 +1,78 @@
+{
+  "id": "lute",
+  "name": "Lute",
+  "family": "classical",
+  "lineage": "Nigel North — Nicolas Vallet: Le Secret des Muses (ATMA ACD2 2333). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2330s lute, art Music, western early branch. lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 175,
+  "score": 8.906,
+  "config": {
+    "traditions": [
+      "lute"
+    ],
+    "instruments": [
+      {
+        "id": "lute_renaissance",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "lute_courses": "lute_10_courses",
+          "lute_renaissance_context": "lute_renaissance_solo",
+          "lute_renaissance_ribs": "lute_yew_ribs",
+          "lute_renaissance_soundboard": "lute_alpine_spruce",
+          "lute_renaissance_strings": "lute_pistoy_bass_gut"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.5315,
+          "lute_courses": 0.1995,
+          "lute_renaissance_context": 4.68,
+          "lute_renaissance_ribs": 0.78,
+          "lute_renaissance_soundboard": 0.39,
+          "lute_renaissance_strings": 0.325
+        }
+      }
+    ],
+    "pinned": {
+      "lute_renaissance": [
+        "plucked_traditional_technique",
+        "lute_courses",
+        "lute_renaissance_context",
+        "lute_renaissance_ribs",
+        "lute_renaissance_soundboard",
+        "lute_renaissance_strings"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "lute_courses": "lute_10_courses",
+      "lute_renaissance_context": "lute_renaissance_solo",
+      "lute_renaissance_ribs": "lute_yew_ribs",
+      "lute_renaissance_soundboard": "lute_alpine_spruce",
+      "lute_renaissance_strings": "lute_pistoy_bass_gut"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

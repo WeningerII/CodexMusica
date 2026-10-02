@@ -3,9 +3,9 @@
   "name": "Belly dance",
   "family": "global",
   "lineage": "Belly dance is represented by George Abdo and the Flames of Araby Orchestra — Noora Ya Noora, from The Joy of Belly Dancing(1975). One positively documented branch is realized as an authored present-day studio arrangement. Exact instrument construction, keyboard architecture, technique and percussion-pattern defaults, room, microphone, other signal-chain choices, equal-tempered baseline and numeric axes are authored choices. They are not historical session facts, source-performer gear claims or universal characteristics of this category.",
-  "recipe": "classic mid-1970s belly dance, groove Percussion. group vocals. oud, qanun, fusion lead electric violin, European maple bosnian source flamed figure violin orchestral, oboe, electric bass, bongos, congas, darbuka, zills sagat, claves. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-  "recipe_chars": 333,
-  "score": 7.305,
+  "recipe": "classic mid-1970s belly dance, groove Percussion. group vocals, live take. oud, qanun, fusion lead electric violin, European maple bosnian source flamed figure violin orchestral, oboe, electric bass, bongos, congas, darbuka, zills sagat, claves. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 344,
+  "score": 7.642,
   "config": {
     "traditions": [
       "belly_dance"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.887625,
+          "voice_ensemble_config": 0.9450000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.4781249999999999,
+          "voice_multitrack_stack": 0.5354999999999999,
           "voice_tessitura": 0
         }
       },
@@ -122,10 +122,10 @@
           "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
-          "bowed_technique": -0.044375000000000005,
+          "bowed_technique": -0.05,
           "orch_strings": 0,
           "orch_top_wood": -0.094375,
-          "orch_back_wood": 1.3365,
+          "orch_back_wood": 1.5045,
           "orch_varnish": -0.1,
           "orch_setup_period": 0.26,
           "orch_bow": 0,
@@ -225,7 +225,7 @@
           "zills_sagat_articulation": "zills_sagat_open_ringing"
         },
         "scores": {
-          "zills_sagat_articulation": 0.3315
+          "zills_sagat_articulation": 0.39
         }
       },
       {
@@ -236,7 +236,7 @@
         },
         "scores": {
           "claves_pattern": 0.39,
-          "claves_wood": -0.036875000000000005
+          "claves_wood": -0.035
         }
       }
     ],

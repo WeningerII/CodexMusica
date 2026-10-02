@@ -1,0 +1,185 @@
+{
+  "id": "electric_cello_live_looping",
+  "name": "Electric cello with live looping",
+  "short": "Live-looped electric cello",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_local_song_melody",
+          "name": "Bowed local song melody (school unspecified)",
+          "auto": false,
+          "descriptors": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic",
+            "song-accompaniment"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "electric_cello_identity",
+      "name": "Instrument identity",
+      "variants": [
+        {
+          "id": "electric_cello_amplified_unspecified",
+          "name": "Electrically amplified cello; construction unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified",
+            "bowed"
+          ],
+          "match_tokens": [
+            "cello",
+            "looping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_cello_playing",
+      "name": "Playing palette",
+      "variants": [
+        {
+          "id": "electric_cello_mixed_bow_pluck_percussive",
+          "name": "Bowing, plucking, strumming and percussive articulation",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "strummed",
+            "percussive"
+          ],
+          "match_tokens": [
+            "cello",
+            "looping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_cello_looping",
+      "name": "Looping workflow",
+      "variants": [
+        {
+          "id": "electric_cello_live_layered_no_prerecorded",
+          "name": "Live layered cello loops without prerecorded backing",
+          "default": true,
+          "descriptors": [
+            "live",
+            "looped",
+            "layered"
+          ],
+          "match_tokens": [
+            "cello",
+            "looping"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Source-documented electric cello and live-looping performance system. Source does not identify body construction, pickup, strings, make or model; none is invented. All layers originate in the performed cello; percussion-like sounds do not imply a separate drum player. Axes are authored routing coordinates. The looping part captures a performance mechanism, not additional independent source audio.",
+  "sources": [
+    "https://www.soloelectriccello.com/about/",
+    "https://www.soloelectriccello.com/technical-rider/"
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_cello_identity",
+      "name": "Instrument identity",
+      "variants": [
+        {
+          "id": "electric_cello_amplified_unspecified",
+          "name": "Electrically amplified cello; construction unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified",
+            "bowed"
+          ],
+          "match_tokens": [
+            "cello",
+            "looping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_cello_playing",
+      "name": "Playing palette",
+      "variants": [
+        {
+          "id": "electric_cello_mixed_bow_pluck_percussive",
+          "name": "Bowing, plucking, strumming and percussive articulation",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "strummed",
+            "percussive"
+          ],
+          "match_tokens": [
+            "cello",
+            "looping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_cello_looping",
+      "name": "Looping workflow",
+      "variants": [
+        {
+          "id": "electric_cello_live_layered_no_prerecorded",
+          "name": "Live layered cello loops without prerecorded backing",
+          "default": true,
+          "descriptors": [
+            "live",
+            "looped",
+            "layered"
+          ],
+          "match_tokens": [
+            "cello",
+            "looping"
+          ]
+        }
+      ]
+    }
+  ]
+}

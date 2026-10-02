@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through 1980s synthesizer-foreground electronic pop — codified through Kraftwerk’s Trans-Europe Express (1977) and Computer World (1981) European roots, then Gary Numan (\"Are Friends Electric?\" 1979), Depeche Mode (Speak and Spell 1981), the Human League (Dare 1981), Soft Cell, Yazoo, and the broader British New Romantic scene — characterized by monophonic-synth lead lines, drum-machine programming, and detached-pop vocal performance",
   "recipe": "classic North American 1977-1979 synthpop, functional Song, synthpop branch, pop rock new wave, continental electronic dance minimal wave. thick, breath veiled tone, breath pulsed, interlocked note trading. singing lead analog roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, drum machine analog, string machine, classic source linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, vocoder. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
   "recipe_chars": 640,
-  "score": 388.73,
+  "score": 387.79,
   "config": {
     "traditions": [
       "synthpop",
@@ -40,8 +40,8 @@
           "voice_effort": 0,
           "voice_vibrato": 5.07,
           "voice_articulation": 19.56499999999999,
-          "voice_microtone": 47.4,
-          "voice_tradition": 33.685892857142846,
+          "voice_microtone": 47.595,
+          "voice_tradition": 33.61089285714285,
           "voice_mechanism_compound": 1.625,
           "voice_estill_quality": 1.4299999999999997,
           "voice_speech_song": 28.339999999999993,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.65,
           "voice_pitch_organization": 1.2349999999999999,
           "voice_processing_chain": 27.288928571428574,
-          "voice_multitrack_stack": 11.908839285714285
+          "voice_multitrack_stack": 11.758839285714284
         }
       },
       {
@@ -58,14 +58,14 @@
           "electronic_technique": "electronic_lead_line",
           "oscillator": "sine_osc",
           "filter_topology": "transistor_ladder",
-          "envelope": "pad_env",
+          "envelope": "sustain_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 30.168214285714274,
+          "electronic_technique": 29.973214285714274,
           "oscillator": 1.95,
           "filter_topology": 2.4050000000000002,
-          "envelope": 0.585,
+          "envelope": 0.69,
           "modulation": 0.195
         }
       },
@@ -78,10 +78,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 30.168214285714274,
+          "electronic_technique": 29.973214285714274,
           "poly_archetypes": 9.879999999999999,
           "poly_voices": 0.585,
-          "poly_maker_lineage": 6.498303571428571
+          "poly_maker_lineage": 6.348303571428571
         }
       },
       {
@@ -105,13 +105,13 @@
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
           "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_brass"
+          "sm_voicing": "sm_cellos"
         },
         "scores": {
           "electronic_technique": 0.40062499999999995,
-          "sm_voice_count": 6.889999999999999,
-          "sm_chorus": 3.7241071428571426,
-          "sm_voicing": 0.24321428571428572
+          "sm_voice_count": 6.853571428571428,
+          "sm_chorus": 3.5291071428571428,
+          "sm_voicing": 0.195
         }
       },
       {
@@ -124,7 +124,7 @@
         "scores": {
           "linndrum_voice": 7.125,
           "linndrum_context": 2.4699999999999998,
-          "linndrum_production_origin": 9.91473214285714
+          "linndrum_production_origin": 9.71973214285714
         }
       },
       {
