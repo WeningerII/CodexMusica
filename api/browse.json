@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 4738,
+  "count": 4838,
   "items": [
     {
       "id": "honky_tonk",
@@ -174532,6 +174532,3250 @@
       "description": "Funky’s official biography describes his Christian urbano/reggaeton practice and Santurce origins; the creator’s exact reggaeton-cristiano map names him. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
       "exemplars": [
         "Funky — Todo lo que soy (2025)"
+      ]
+    },
+    {
+      "id": "mazandarani_folk",
+      "name": "Mazandarani folk",
+      "family": "vernacular",
+      "lineage": "Mazandarani folk: Hoseyn Tayyebi — Instrumental Music: Pieces from Laleva Repertoire I (Mahoor, 2003). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "ney"
+      ],
+      "description": "Mahoor identifies lalevā as a regional obliquely played reed pipe. Its distributed track metadata expressly separates the selected instrumental piece from vocal tracks. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Hoseyn Tayyebi — Instrumental Music: Pieces from Laleva Repertoire I (Mahoor, 2003)"
+      ]
+    },
+    {
+      "id": "romanian_folk",
+      "name": "Romanian folk",
+      "family": "vernacular",
+      "lineage": "Romanian folk: Petrică Giurgi and Ioan Pop — Horea oilor, track 1 of Romania: Festive Music from the Maramureş Region. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "improvOnFrame",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "fiddle",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Smithsonian’s notes identify track 1 as an instrumental shepherd-repertoire realization for fiddle and plucked guitar in Maramureş. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Petrică Giurgi and Ioan Pop — Horea oilor, track 1 of Romania: Festive Music from the Maramureş Region"
+      ]
+    },
+    {
+      "id": "puerto_rican_folk",
+      "name": "Puerto Rican folk",
+      "family": "vernacular",
+      "lineage": "Puerto Rican folk: Ecos de Borinquen — Jíbaro Hasta el Hueso: Mountain Music of Puerto Rico (2003), album ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.tropicalSong",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "cuatro_pr",
+        "acoustic_guitar_dread",
+        "guiro",
+        "bongos"
+      ],
+      "description": "Folkways documents this jíbaro ensemble with two singers, two cuatros, six-string guitar, güiro and bongos. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Ecos de Borinquen — Jíbaro Hasta el Hueso: Mountain Music of Puerto Rico (2003), album ensemble"
+      ]
+    },
+    {
+      "id": "serbian_folk",
+      "name": "Serbian folk",
+      "family": "vernacular",
+      "lineage": "Serbian folk: Unspecified frula player — Serbia: Dance Tunes, Folk Music of Yugoslavia (1952). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "frula"
+      ],
+      "description": "Folkways credits a frula player for this dance selection; its liner notes connect the dances to Sopot. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Unspecified frula player — Serbia: Dance Tunes, Folk Music of Yugoslavia (1952)"
+      ]
+    },
+    {
+      "id": "slovak_folk",
+      "name": "Slovak folk",
+      "family": "vernacular",
+      "lineage": "Slovak folk: Folkart Slovakia — Idem, idem, real-fujara MP3 demonstration in A. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "fujara"
+      ],
+      "description": "Folkart labels Idem, idem as a Slovak folk song and provides a real-fujara rendition in A; its own organology locates this instrument in Podpoľanie. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Folkart Slovakia — Idem, idem, real-fujara MP3 demonstration in A"
+      ]
+    },
+    {
+      "id": "slovenian_folk",
+      "name": "Slovenian folk",
+      "family": "vernacular",
+      "lineage": "Slovenian folk: Unspecified yodeler and accordionist — Polka (Slovenia), Songs and Dances of Yugoslavia (1951). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "accordion"
+      ],
+      "description": "Folkways identifies this Slovenian polka as a yodeler with accordion, with track credits for lead voice and accordion. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Unspecified yodeler and accordionist — Polka (Slovenia), Songs and Dances of Yugoslavia (1951)"
+      ]
+    },
+    {
+      "id": "pakistani_folk",
+      "name": "Pakistani folk",
+      "family": "vernacular",
+      "lineage": "Pakistani folk: Folk Dance (Region of Sind) — Folk Music of Pakistan, FW04425_105 (1951 release). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "droneModal.windPipe",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "bansuri",
+        "tabla",
+        "algoza"
+      ],
+      "description": "Folkways identifies the selected Sindhi dance as a flute, tabla and algoza ensemble, within its Government of Pakistan field-recording collection. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Folk Dance (Region of Sind) — Folk Music of Pakistan, FW04425_105 (1951 release)"
+      ]
+    },
+    {
+      "id": "rez_country",
+      "name": "Rez country",
+      "family": "vernacular",
+      "lineage": "Rez country: Stateline — KUNM Studio Sessions, May 2019 lineup. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.country.countryRock",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "KUNM’s own studio-session account documents the Navajo Nation country-rock band with one lead vocalist, lead/rhythm guitars, bass and drums. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Stateline — KUNM Studio Sessions, May 2019 lineup"
+      ]
+    },
+    {
+      "id": "string_folk",
+      "name": "String folk",
+      "family": "vernacular",
+      "lineage": "String folk: Roger Nicholson with Bob Johnson — The Laily Worm and the Mackerel of the Sea, Nonesuch for Dulcimer (1972). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "balladPoetry.angloSingerSong.britfolk",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "mountain_dulcimer",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Roger Nicholson’s firsthand interview documents his fingerpicked dulcimer and Bob Johnson’s guitar and vocal collaboration on the selected 1972 ballad. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Roger Nicholson with Bob Johnson — The Laily Worm and the Mackerel of the Sea, Nonesuch for Dulcimer (1972)"
+      ]
+    },
+    {
+      "id": "rune_folk",
+      "name": "Rune folk",
+      "family": "vernacular",
+      "lineage": "Rune folk: Havnatt — Myrulla, Havdøgn EP (2012 remaster of the early recording). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Havnatt’s early acoustic-guitar and single-vocal setting of Norwegian poetry represents a contemporary dark-folk branch of the rune-folk discovery cluster. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Havnatt — Myrulla, Havdøgn EP (2012 remaster of the early recording)"
+      ]
+    },
+    {
+      "id": "south_african_country",
+      "name": "South African country",
+      "family": "vernacular",
+      "lineage": "South African country: Hinds Brothers — Like a Stone, Ocean of Milk (2013). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.country.americana",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "accordion",
+        "pedal_steel",
+        "upright_bass"
+      ],
+      "description": "A documented South African acoustic country-alt branch: two singing guitarists with accordion, pedal steel and upright bass. Construction, tuning, technique settings, chain and axes are authored modern choices.",
+      "exemplars": [
+        "Hinds Brothers — Like a Stone, Ocean of Milk (2013)"
+      ]
+    },
+    {
+      "id": "telugu_folk",
+      "name": "Telugu folk",
+      "family": "vernacular",
+      "lineage": "Telugu folk is represented by Chowraasta — Maya (2019 original). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "functionalSong.popRock.folkRock",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "A contemporary Telugu folk/reggae-fusion branch, bounded to the original Maya credits. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Chowraasta — Maya (2019 original)"
+      ]
+    },
+    {
+      "id": "australian_r_and_b",
+      "name": "Australian R&B",
+      "family": "vernacular",
+      "lineage": "Australian R&B is represented by Nai Palm — solo voice-and-guitar performance branch. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker"
+      ],
+      "description": "The artist’s documented solo touring format provides a sparse Australian R&B/soul branch. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Nai Palm — solo voice-and-guitar performance branch"
+      ]
+    },
+    {
+      "id": "african_gospel",
+      "name": "African gospel",
+      "family": "vernacular",
+      "lineage": "African gospel is represented by Soweto Gospel Choir — unaccompanied gospel repertoire. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The professional choir’s explicitly documented a cappella repertoire is one South African branch of the broad African-gospel label. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Soweto Gospel Choir — unaccompanied gospel repertoire"
+      ]
+    },
+    {
+      "id": "ukrainian_folk",
+      "name": "Ukrainian folk",
+      "family": "vernacular",
+      "lineage": "Ukrainian folk is represented by DakhaBrakha — vocal-and-drum opening segment at WOMAD 2019. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "droneModal.vocal",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "bass_drum"
+      ],
+      "description": "A bounded vocal-and-drum segment of the Kyiv quartet’s contemporary Ukrainian folk practice. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "DakhaBrakha — vocal-and-drum opening segment at WOMAD 2019"
+      ]
+    },
+    {
+      "id": "western_saharan_folk",
+      "name": "Western Saharan folk",
+      "family": "vernacular",
+      "lineage": "Western Saharan folk is represented by Mariem Hassan and Luis Giménez — Hajili Madiya (Malmö, 26 April 2013). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "balladPoetry.medEastPoetic",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -1,
+        -1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker"
+      ],
+      "description": "A voice-and-guitar branch of Hassan’s contemporary Sahrawi haul repertoire, bounded to the duet preserved on La Voz Indómita. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Mariem Hassan and Luis Giménez — Hajili Madiya (Malmö, 26 April 2013)"
+      ]
+    },
+    {
+      "id": "viking_folk",
+      "name": "Viking folk",
+      "family": "vernacular",
+      "lineage": "Viking folk is represented by Danheim — Lifa & Dauðr, Dauðr section (Hringrás, 2019). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "parent": "droneModal.string",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "tagelharpa",
+        "sampler_classic"
+      ],
+      "description": "A contemporary Nordic-folk sound-collage branch using bowed lyre and recorded-object textures after the track’s transition around the midpoint. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, singer count, locality and bounded category relationship. Exact construction, modern rig, technique settings, tuning baseline, room, microphone, signal chain and numeric axes are authored choices, not historical-session facts or universal genre rules.",
+      "exemplars": [
+        "Danheim — Lifa & Dauðr, Dauðr section (Hringrás, 2019)"
+      ]
+    },
+    {
+      "id": "reggaeton_flow",
+      "name": "Reggaetón flow",
+      "family": "global",
+      "lineage": "Reggaetón flow is represented by Pressure 9X19 & Lunay — BAILEN (2025). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
+      "parent": "mcRhythm.reggaeton",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine"
+      ],
+      "description": "The creator’s exact reggaeton-flow map names Lunay. The selected Latin-urban release documents two voices and two programmers, while the interview profile ties Lunay to Corozal. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices.",
+      "exemplars": [
+        "Pressure 9X19 & Lunay — BAILEN (2025)"
+      ]
+    },
+    {
+      "id": "russian_ska",
+      "name": "Russian ska",
+      "family": "global",
+      "lineage": "Russian ska is represented by Radio Rocksteady — Toska Po Domu, core ensemble. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "trumpet",
+        "trombone",
+        "saxophone_section_tenor_baritone",
+        "drum_kit"
+      ],
+      "description": "The Moscow band identifies its ska practice and credits one toaster, guitars, bass, keys, trumpet, trombone, tenor/baritone saxophones and drums. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Radio Rocksteady — Toska Po Domu, core ensemble"
+      ]
+    },
+    {
+      "id": "ska_catala",
+      "name": "Ska català",
+      "family": "global",
+      "lineage": "Ska català is represented by La Banddarra — Enjoy!, core ensemble. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "saxophone",
+        "drum_kit"
+      ],
+      "description": "The artist page identifies Sant Climent de Llobregat, Catalunya and ska. Credits specify Xavi lead voice and six distinct backing singers, plus guitar, bass, saxophone and drums. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "La Banddarra — Enjoy!, core ensemble"
+      ]
+    },
+    {
+      "id": "ska_chileno",
+      "name": "Ska chileno",
+      "family": "global",
+      "lineage": "Ska chileno is represented by La Brigada — Mi Barrio Ska. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "trumpet",
+        "saxophone",
+        "drum_kit"
+      ],
+      "description": "The Talca artist credits Francisco Toloza on voice/guitar, Carlos Molina on bass, Ricardo Toloza on drums, Patricio Marambio on trumpet and Sergio Aguilera on saxophone. Release identifies ska and recording in Santiago. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "La Brigada — Mi Barrio Ska"
+      ]
+    },
+    {
+      "id": "ska_espanol",
+      "name": "Ska español",
+      "family": "global",
+      "lineage": "Ska español is represented by Skainhead — Sueña y lucha, recording lineup. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "trumpet",
+        "trombone",
+        "saxophone",
+        "drum_kit"
+      ],
+      "description": "Madrid ska band’s recording credits name Anxo on voice/trumpet, Claudia on sax/backing voice, Alberto on guitar/backing voice, and trombone, second guitar, keyboard, bass and drums. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Skainhead — Sueña y lucha, recording lineup"
+      ]
+    },
+    {
+      "id": "spanish_reggae",
+      "name": "Spanish reggae",
+      "family": "global",
+      "lineage": "Spanish reggae is represented by Pelikan Hook — Everyone Matters. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "saxophone",
+        "trombone",
+        "trumpet",
+        "drum_kit"
+      ],
+      "description": "Madrid band’s reggae EP credits Miguel Valenciano as lead singer on Everyone Matters, drums/guitars/backing voice, and David Arribas on guitar/keys/backing voice, with bass, sax, trombone and trumpet. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Pelikan Hook — Everyone Matters"
+      ]
+    },
+    {
+      "id": "swedish_reggae",
+      "name": "Swedish reggae",
+      "family": "global",
+      "lineage": "Swedish reggae is represented by Efia Abu & Drömbandet — Kärlek & Verkan. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "flute",
+        "saxophone",
+        "trombone",
+        "trumpet",
+        "drum_kit"
+      ],
+      "description": "Malmö singer’s Swedish-language roots-reggae release credits Felisia Westberg and Isak Strand with backing voices; flute, guitar, bass, keyboard, sax, trombone, trumpet and drums are explicit. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Efia Abu & Drömbandet — Kärlek & Verkan"
+      ]
+    },
+    {
+      "id": "swiss_reggae",
+      "name": "Swiss reggae",
+      "family": "global",
+      "lineage": "Swiss reggae is represented by Los Billtones — Back In Time. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "grand_piano",
+        "tonewheel_organ",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Label explicitly identifies Swiss reggae and credits lead/backing voices from three people, rhythm/lead guitars, bass, piano, organ, trombone and drums. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Los Billtones — Back In Time"
+      ]
+    },
+    {
+      "id": "uk_reggae",
+      "name": "Uk reggae",
+      "family": "global",
+      "lineage": "Uk reggae is represented by Talisman — Don’t Play with Fyah, Dennison Joseph title-track branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive"
+      ],
+      "description": "Label describes British reggae; original album track 4 is credited to Dennison Joseph on lead vocals, bass, guitar and keyboards, created at Bass Line Studio in Bristol. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Talisman — Don’t Play with Fyah, Dennison Joseph title-track branch"
+      ]
+    },
+    {
+      "id": "trinidadian_reggae",
+      "name": "Trinidadian reggae",
+      "family": "global",
+      "lineage": "Trinidadian reggae is represented by John Blood — The Journey, track 3 ensemble branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Artist describes reggae with storytelling from Trinidad. Track 3 credits John Blood with all vocals, drums, bass, rhythm guitar and keys; artist locality is London. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "John Blood — The Journey, track 3 ensemble branch"
+      ]
+    },
+    {
+      "id": "uk_dub",
+      "name": "UK dub",
+      "family": "global",
+      "lineage": "UK dub is represented by Nat Birchall / Al Breadwinner — Tradition Disc In Dub. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.dubDescendants",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "grand_piano",
+        "tonewheel_organ",
+        "melodica",
+        "flute",
+        "saxophone",
+        "trumpet",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Artist release documents dub production in Manchester and credits Birchall and Breadwinner with the bass, guitar, keyboards, drums, reeds and melodica; Vin Gordon and David Fullwood supply trombone/trumpet. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Nat Birchall / Al Breadwinner — Tradition Disc In Dub"
+      ]
+    },
+    {
+      "id": "virgin_islands_reggae",
+      "name": "Virgin islands reggae",
+      "family": "global",
+      "lineage": "Virgin islands reggae is represented by Vaughn Benjamin / Akae Beka — Exalt the Crown. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "saxophone",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "I Grade describes Vaughn Benjamin’s St. Croix roots-reggae branch. Exalt the Crown credits drums, bass, guitar, keys, trombone and sax; vocal recording and mixing are linked to St. Croix. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Vaughn Benjamin / Akae Beka — Exalt the Crown"
+      ]
+    },
+    {
+      "id": "west_coast_reggae",
+      "name": "West coast reggae",
+      "family": "global",
+      "lineage": "West coast reggae is represented by Iration — Daytrippin, core-band branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "trumpet",
+        "drum_kit"
+      ],
+      "description": "Santa Barbara artist release expressly draws on reggae and rock; credits two singer/guitarists with bass, drums, keys and trumpet. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Iration — Daytrippin, core-band branch"
+      ]
+    },
+    {
+      "id": "vintage_reggae",
+      "name": "Vintage reggae",
+      "family": "global",
+      "lineage": "Vintage reggae is represented by B.B. Seaton — Is Life, core rhythm arrangement. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "grand_piano",
+        "tonewheel_organ",
+        "drum_kit"
+      ],
+      "description": "Reissuing label explicitly identifies vintage reggae, original 1976 recording, Seaton’s solo voice/piano and guitar, bass, drums and organ from named players at Treasure Isle. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "B.B. Seaton — Is Life, core rhythm arrangement"
+      ]
+    },
+    {
+      "id": "aarhus_indie",
+      "name": "Aarhus indie",
+      "family": "global",
+      "lineage": "Aarhus indie is represented by Gaardens — Sunset, instrumental track 6. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "Aarhus indie artist’s track-specific credits list guitars, synthesizers, piano and drums on Sunset. Unlike neighboring tracks, Sunset has no vocalist credit. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Gaardens — Sunset, instrumental track 6"
+      ]
+    },
+    {
+      "id": "aberdeen_indie",
+      "name": "Aberdeen indie",
+      "family": "global",
+      "lineage": "Aberdeen indie is represented by The Little Kicks — Better Things. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Artist credits Milne on voice/keys/guitar and Corse on guitar/voice, with Porter bass and Kelman drums. Indie tags are explicit; official band biography identifies Aberdeen. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "The Little Kicks — Better Things"
+      ]
+    },
+    {
+      "id": "48g",
+      "name": "48G",
+      "family": "global",
+      "lineage": "48G is represented by Sayaka Yamamoto — Kaze No Hi, solo-artist branch of the 48G discovery category. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "functionalSong.eastAsianPop",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "grand_piano",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Record label credits Yamamoto’s solo voice/electric guitar, additional electric and acoustic guitarists, bass, drums, piano and keyboards. Creator’s 48G map explicitly includes Sayaka Yamamoto; label biography links her NMB48/AKB48 career. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Sayaka Yamamoto — Kaze No Hi, solo-artist branch of the 48G discovery category"
+      ]
+    },
+    {
+      "id": "432hz",
+      "name": "432Hz",
+      "family": "global",
+      "lineage": "432Hz is represented by Gian Marco La Serra — Two Lullabies for a Little Girl. Authored contemporary solo grand-piano realization of one source-labelled 432Hz piano release. Existing piano_pitch_standard=a_432_alternative carries the A=432 reference; twelve_tet denotes interval temperament, not a competing A=440 reference. Exact construction, room, chain, technique and axes are authored choices; artist-reported tuning has not been independently measured. No medical or therapeutic claims are imported.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        -2,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Rome pianist describes two solo-piano lullabies recorded on a piano tuned to 432Hz. This is an artist’s stated pitch reference, not an independently measured audio frequency or health claim. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Gian Marco La Serra — Two Lullabies for a Little Girl"
+      ]
+    },
+    {
+      "id": "abstractro",
+      "name": "Abstractro",
+      "family": "electronic",
+      "lineage": "Abstractro is represented by Equimanthrone — Mall, documented sampling branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "experimentalElec.ambient",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        2,
+        -2,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "sampler_classic"
+      ],
+      "description": "The Nizhny Novgorod artist explicitly tags Mall abstractro and credits sample work. One existing sampler card represents the positively documented sampling role. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Equimanthrone — Mall, documented sampling branch"
+      ]
+    },
+    {
+      "id": "abstract_beats",
+      "name": "Abstract beats",
+      "family": "electronic",
+      "lineage": "Abstract beats is represented by Capitaine Hadōken — Eine Symphonie des Grauens. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "mcRhythm.experimental",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "sampler_classic",
+        "turntable"
+      ],
+      "description": "Artist-run Lyon label explicitly tags abstract beats and instrumental/sample-based production; describes the creator’s portable turntable and SP404 sampler practice for the release. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Capitaine Hadōken — Eine Symphonie des Grauens"
+      ]
+    },
+    {
+      "id": "traditional_reggae",
+      "name": "Traditional reggae",
+      "family": "global",
+      "lineage": "Traditional reggae is represented by Chalice — 2026 ensemble with Robert Bobby Rose. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Official current lineup identifies four singer-instrumentalists, guitars, keyboards, drums and bass. Rose’s biography explicitly describes traditional reggae with rocksteady/lovers-rock elements in this South Florida band chapter. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Chalice — 2026 ensemble with Robert Bobby Rose"
+      ]
+    },
+    {
+      "id": "abstract",
+      "name": "Abstract",
+      "family": "electronic",
+      "lineage": "Abstract is represented by Biosphere — Inland Delta, keyboard improvisation branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "experimentalElec.idmGlitch",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        2,
+        -2,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "digital_subtractive"
+      ],
+      "description": "The artist documents mainly improvised performances on restored vintage keyboards, produced by Geir Jenssen, with Tromsø locality. Creator archive explicitly classifies Biosphere under abstract. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Biosphere — Inland Delta, keyboard improvisation branch"
+      ]
+    },
+    {
+      "id": "swedish_dancehall",
+      "name": "Swedish dancehall",
+      "family": "global",
+      "lineage": "Swedish dancehall is represented by Million Stylez / Lutan Fyah — Revelation Time, roots-reggae crossover branch. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Official artist video credits D. Sitbon on drums and F. Romano on bass/keyboards/guitars, with both named vocal performers. Artist agency establishes Million Stylez’s Sollentuna upbringing and reggae/dancehall practice. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices.",
+      "exemplars": [
+        "Million Stylez / Lutan Fyah — Revelation Time, roots-reggae crossover branch"
+      ]
+    },
+    {
+      "id": "japanese_ska",
+      "name": "Japanese ska",
+      "family": "global",
+      "lineage": "Japanese ska is represented by Tokyo Ska Paradise Orchestra — instrumental band branch. A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits. The official band roster’s simultaneous tenor and baritone saxophones are retained together in a fixed section; no uncredited soprano or alto range is added.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        -2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth",
+        "saxophone_section_tenor_baritone",
+        "trumpet"
+      ],
+      "description": "The official profile identifies the band’s Japanese ska identity and its instrumental core. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices. The official band roster’s simultaneous tenor and baritone saxophones are retained together in a fixed section; no uncredited soprano or alto range is added. Section articulation and numeric axes are authored model defaults.",
+      "exemplars": [
+        "Tokyo Ska Paradise Orchestra — instrumental band branch"
+      ]
+    },
+    {
+      "id": "dub_brasileiro",
+      "name": "Dub brasileiro",
+      "family": "global",
+      "lineage": "Dub brasileiro is represented by Bixiga 70 meets Victor Rice — The Copan Connection. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits. Daniel Nogueira’s tenor saxophone and Cuca Ferreira’s baritone saxophone are retained together in the fixed section; Daniel Verano’s explicitly credited trumpet is also represented.",
+      "parent": "bassSystem.dubDescendants",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "saxophone_section_tenor_baritone",
+        "trumpet",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Artist release describes Brazilian instrumental material reworked into dub by Victor Rice at Estúdio Copan in São Paulo. Credits identify saxophones, trombone, guitar, keyboards, bass and drums; Rice’s mixing is explicitly distinct from those played source parts. Exact production, hardware, tuning baseline, technique defaults and axes are authored modern choices. Daniel Nogueira’s tenor saxophone and Cuca Ferreira’s baritone saxophone are retained together in the fixed section; Daniel Verano’s explicitly credited trumpet is also represented. Section articulation and numeric axes are authored model defaults.",
+      "exemplars": [
+        "Bixiga 70 meets Victor Rice — The Copan Connection"
+      ]
+    },
+    {
+      "id": "reggae_mexicano",
+      "name": "Reggae mexicano",
+      "family": "global",
+      "lineage": "Reggae mexicano is represented by Girls Go Ska — La Distancia (2020). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits. The exact track’s one alto and two tenor saxophones are retained together in a fixed section. Only Solé Arredondo has the selected track’s lead-vocal credit; general-band backing-vocal capabilities are not imported.",
+      "parent": "bassSystem.reggaeDiaspora",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "saxophone_section_alto_two_tenors"
+      ],
+      "description": "Girls Go Ska identifies a Mexico City ska/reggae practice and provides a track-specific roster for La Distancia. Exact production, hardware, tuning baseline, technique pins and axes are authored modern choices. The exact track’s one alto and two tenor saxophones are retained together in a fixed section. Only Solé Arredondo has the selected track’s lead-vocal credit; general-band backing-vocal capabilities are not imported. Section articulation and numeric axes are authored model defaults.",
+      "exemplars": [
+        "Girls Go Ska — La Distancia (2020)"
+      ]
+    },
+    {
+      "id": "bedroom_soul",
+      "name": "Bedroom soul",
+      "family": "vernacular",
+      "lineage": "Bedroom soul: Wes Leslie — Your Sister’s Apartment, Brooklyn, 2014, from Bedroom Soul. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Artist credits establish one guitar-playing singer on track 2 and explicitly delimit the other tracks’ guests. Bedroom-soul classification and San Francisco recording locality are explicit. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Wes Leslie — Your Sister’s Apartment, Brooklyn, 2014, from Bedroom Soul"
+      ]
+    },
+    {
+      "id": "blues_latinoamericano",
+      "name": "Blues latinoamericano",
+      "family": "global",
+      "lineage": "Blues latinoamericano: La Rata Bluesera — six-member lineup documented in the 2015 Los Ríos music-sector catalogue. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "harmonica",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "Institutional catalogue provides blues classification, Valdivia locality and a complete six-member instrumental roster; creator map places this exemplar in the allocated discovery category. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "La Rata Bluesera — six-member lineup documented in the 2015 Los Ríos music-sector catalogue"
+      ]
+    },
+    {
+      "id": "brazilian_blues",
+      "name": "Brazilian blues",
+      "family": "global",
+      "lineage": "Brazilian blues: Distintivo Blue — Bootleg Joes Vol. 2, Centro de Cultura Camillo de Jesus Lima, 8 May 2016. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "harmonica",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Release credits identify four distinct singers with acoustic and electric guitars, harmonica, bass and drums. Artist classification and Vitória da Conquista locality are explicit. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Distintivo Blue — Bootleg Joes Vol. 2, Centro de Cultura Camillo de Jesus Lima, 8 May 2016"
+      ]
+    },
+    {
+      "id": "brazilian_soul",
+      "name": "Brazilian soul",
+      "family": "global",
+      "lineage": "Brazilian soul: Edu Camargo & Marina Sirabello — Saudade, track 9 of Infinito... E Além. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "sampler_classic"
+      ],
+      "description": "Artist track credits establish two singers, guitar, bass, keyboard/synth and loops; Brazilian-soul label and São Paulo recording location are explicit. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Edu Camargo & Marina Sirabello — Saudade, track 9 of Infinito... E Além"
+      ]
+    },
+    {
+      "id": "canadian_blues",
+      "name": "Canadian blues",
+      "family": "global",
+      "lineage": "Canadian blues: Stan Grizzle — Stan Grizzle & The Canadian Blues, 2017 album lineup. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "harmonica",
+        "saxophone",
+        "trombone",
+        "drum_kit"
+      ],
+      "description": "Artist release directly supplies Canadian-blues classification, Kitchener recording place, one vocalist and guitar, keys, harmonica, bass, saxophone, trombone and drum roles. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Stan Grizzle — Stan Grizzle & The Canadian Blues, 2017 album lineup"
+      ]
+    },
+    {
+      "id": "chill_r_and_b",
+      "name": "Chill r&b",
+      "family": "global",
+      "lineage": "Chill r&b: CEC — Four Walls, 2025 single, typed instrumental core. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "sampler_drum_machine"
+      ],
+      "description": "Artist credits establish CEC as the sole singer with guitar, bass, synthesizer and drum programming. Chill-r&b label and Winnipeg artist base are explicit. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "CEC — Four Walls, 2025 single, typed instrumental core"
+      ]
+    },
+    {
+      "id": "cumbia_funk",
+      "name": "Cumbia funk",
+      "family": "global",
+      "lineage": "Cumbia funk: Locobeach — Psychedelic Disco Cumbia, core-band branch outside guest-vocal tracks. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "groovePercussion.latinAm",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "piano_accordion",
+        "congas",
+        "timbales",
+        "drum_kit"
+      ],
+      "description": "Release documents a New York cumbia-and-funk fusion with guitars, keyboards, accordion, bass, congas, timbales, drums and two core singers. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Locobeach — Psychedelic Disco Cumbia, core-band branch outside guest-vocal tracks"
+      ]
+    },
+    {
+      "id": "dark_r_and_b",
+      "name": "Dark r&b",
+      "family": "global",
+      "lineage": "Dark r&b: Sephxya Studios — R&B Heartbreaks, Heartbreaks instrumental construction-kit stems 9–14. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        -2,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "grand_piano",
+        "sampler_drum_machine"
+      ],
+      "description": "Creator’s dark-R&B kit description and the named Heartbreaks piano/drum stem list support a producer-oriented instrumental branch, with London as the creator’s documented base. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Sephxya Studios — R&B Heartbreaks, Heartbreaks instrumental construction-kit stems 9–14"
+      ]
+    },
+    {
+      "id": "deep_delta_blues",
+      "name": "Deep delta blues",
+      "family": "vernacular",
+      "lineage": "Deep delta blues: David “Honeyboy” Edwards — Mississippi Delta Bluesman, solo acoustic songs. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.bluesAcoustic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Smithsonian directly characterizes the release as deep Delta blues and documents one singer with acoustic guitar. Chicago is an artist-residence anchor, not a claim about the session site. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "David “Honeyboy” Edwards — Mississippi Delta Bluesman, solo acoustic songs"
+      ]
+    },
+    {
+      "id": "deep_funk_ostentacao",
+      "name": "Deep funk ostentacao",
+      "family": "global",
+      "lineage": "Deep funk ostentacao: DJ VM — BEAT WOW, credited MC Magrinho & MC GW version (4 December 2020). Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "electronicDance.latinElec",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_drum_machine"
+      ],
+      "description": "Producer credits two MC roles and a funk beat; creator map supplies the discovery-label connection through MC Magrinho. Florianópolis is the producer-base anchor, not a claim about origin of the wider category. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "DJ VM — BEAT WOW, credited MC Magrinho & MC GW version (4 December 2020)"
+      ]
+    },
+    {
+      "id": "deep_g_funk",
+      "name": "Deep g funk",
+      "family": "global",
+      "lineage": "Deep g funk: Yogi & Woof — Comin Thru, original 2024 vocal single. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "mcRhythm.usHipHop.westCoast",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "talkbox",
+        "turntable",
+        "sampler_classic",
+        "sampler_drum_machine"
+      ],
+      "description": "Label documents one live rap role with distinct talkbox, scratches, samples and beat roles, all represented by existing cards. The modern remote-project branch is explicit. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Yogi & Woof — Comin Thru, original 2024 vocal single"
+      ]
+    },
+    {
+      "id": "deep_northern_soul",
+      "name": "Deep northern soul",
+      "family": "global",
+      "lineage": "Deep northern soul: Little Ann — Deep Shadows, original title recording, label-described voice/vibes/piano/beat core. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "vibraphone",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "Label documents Little Ann’s Detroit soul context and the original track’s voice, vibraphone, piano and beat foreground. Primary discovery playlist supplies the allocated category relationship. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Little Ann — Deep Shadows, original title recording, label-described voice/vibes/piano/beat core"
+      ]
+    },
+    {
+      "id": "deep_r_and_b",
+      "name": "Deep r&b",
+      "family": "global",
+      "lineage": "Deep r&b: Izabel — Discipline, 2024 single, documented voice/pad/drum core. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "analog_poly_synth",
+        "sampler_drum_machine"
+      ],
+      "description": "Label explicitly identifies the deep-r&b category, a London singer and pad/drum accompaniment, providing a bounded three-role core. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Izabel — Discipline, 2024 single, documented voice/pad/drum core"
+      ]
+    },
+    {
+      "id": "deep_smooth_r_and_b",
+      "name": "Deep smooth r&b",
+      "family": "global",
+      "lineage": "Deep smooth r&b: Rhonda Benin — Sound Room piano-bass-drums lineup documented on her artist press page. Representative authored present-day studio arrangement for the selected documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar construction, keyboard synthesis engine, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer-equipment claims or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Artist-endorsed venue testimony establishes a single vocalist with piano, bass and drums in a soulful-jazz/R&B program. Creator map supplies discovery-category membership. Production, construction and technique defaults are authored modern choices.",
+      "exemplars": [
+        "Rhonda Benin — Sound Room piano-bass-drums lineup documented on her artist press page"
+      ]
+    },
+    {
+      "id": "deep_southern_soul",
+      "name": "Deep southern soul",
+      "family": "blues_gospel",
+      "lineage": "Deep southern soul is represented by Katie Webster — Misty Blue, track 12 of I Know That’s Right (Albany live performance, 1985). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "electric_guitar_humbucker",
+        "saxophone",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The label’s co-producer explicitly connects the selected Misty Blue performance to deep Southern soul, with Webster singing and playing piano. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "Katie Webster — Misty Blue, track 12 of I Know That’s Right (Albany live performance, 1985)"
+      ]
+    },
+    {
+      "id": "dutch_blues",
+      "name": "Dutch blues",
+      "family": "blues_gospel",
+      "lineage": "Dutch blues is represented by The Damned and Dirty — self-titled 2012 acoustic-blues core. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "functionalSong.bluesAcoustic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "harmonica",
+        "drum_kit"
+      ],
+      "description": "The artist documents a Dutch acoustic-blues album with two distinct singers, acoustic slide guitar, harmonica and drums. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "The Damned and Dirty — self-titled 2012 acoustic-blues core"
+      ]
+    },
+    {
+      "id": "experimental_r_and_b",
+      "name": "Experimental r&b",
+      "family": "blues_gospel",
+      "lineage": "Experimental r&b is represented by C.J. Robertson & 2nd Son — Grey Matter (2021). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "sampler_classic",
+        "drum_kit",
+        "electric_bass",
+        "electric_guitar_humbucker",
+        "digital_subtractive"
+      ],
+      "description": "The artist release tags experimental R&B and credits voice, sampler, drums, percussion, bass, guitar, keys and synthesizers. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "C.J. Robertson & 2nd Son — Grey Matter (2021)"
+      ]
+    },
+    {
+      "id": "finnish_blues",
+      "name": "Finnish blues",
+      "family": "blues_gospel",
+      "lineage": "Finnish blues is represented by Jantso Jokelin — Spark of Luck (2024), solo acoustic-blues core. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "functionalSong.bluesAcoustic",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "resonator_guitar",
+        "acoustic_guitar_dread",
+        "harmonica"
+      ],
+      "description": "Jokelin’s documented Finnish acoustic-blues release provides a one-singer guitar-and-harmonica branch. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "Jantso Jokelin — Spark of Luck (2024), solo acoustic-blues core"
+      ]
+    },
+    {
+      "id": "funk_mexicano",
+      "name": "Funk mexicano",
+      "family": "blues_gospel",
+      "lineage": "Funk mexicano is represented by Som Bit — Sincopado/Cenart five-person live lineup (2025). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "groovePercussion.funkPercussive",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The hosting institution identifies Som Bit’s Mexican afro-mex-funk branch and its five-person voice, guitar, keyboard, bass and drum lineup. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "Som Bit — Sincopado/Cenart five-person live lineup (2025)"
+      ]
+    },
+    {
+      "id": "german_blues",
+      "name": "German blues",
+      "family": "blues_gospel",
+      "lineage": "German blues is represented by Kai Strauss & The Electric Blues All-Stars — regular quartet. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "The Osnabrück-based artist’s documented blues quartet has two distinct vocalists plus guitar, keys, bass and drums. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "Kai Strauss & The Electric Blues All-Stars — regular quartet"
+      ]
+    },
+    {
+      "id": "gospel_italiano",
+      "name": "Gospel italiano",
+      "family": "blues_gospel",
+      "lineage": "Gospel italiano is represented by Sunshine Gospel Choir — regular choir and four-piece band. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "electric_bass",
+        "electric_guitar_humbucker",
+        "drum_kit"
+      ],
+      "description": "The choir documents an Italian gospel practice with 60 choristers, a named tenor lead and a four-instrument band. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "Sunshine Gospel Choir — regular choir and four-piece band"
+      ]
+    },
+    {
+      "id": "indie_r_and_b",
+      "name": "Indie r&b",
+      "family": "blues_gospel",
+      "lineage": "Indie r&b is represented by Touched — In Touch (2022), regular album ensemble. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "electric_guitar_humbucker",
+        "violin_orchestral",
+        "digital_subtractive",
+        "electric_bass",
+        "trumpet",
+        "drum_kit"
+      ],
+      "description": "The releasing label identifies the indie R&B category, Halifax recording context and regular ensemble roles. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "Touched — In Touch (2022), regular album ensemble"
+      ]
+    },
+    {
+      "id": "indie_soul",
+      "name": "Indie soul",
+      "family": "blues_gospel",
+      "lineage": "Indie soul is represented by miles from nowhere. — Slow Down (2023). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "tonewheel_organ",
+        "electric_bass",
+        "bass_drum"
+      ],
+      "description": "The artist’s indie-soul description establishes a Hamilton voice, acoustic guitar, organ, bass and explicitly named kick-drum branch. The model retains those typed roles; auxiliary percussion remains unspecified. Hardware, construction, settings, tuning and recording environment are authored present-day choices.",
+      "exemplars": [
+        "miles from nowhere. — Slow Down (2023)"
+      ]
+    },
+    {
+      "id": "gospel_singers",
+      "name": "Gospel singers",
+      "family": "blues_gospel",
+      "lineage": "Gospel singers is represented by The Blind Boys of Alabama — Motherless Child, Spirit of the Century (2001). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "ritualDevotional.christianGospel.blackGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The releasing label documents the gospel-singing branch; official track credits resolve four singers, electric guitar, double bass and drums. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "The Blind Boys of Alabama — Motherless Child, Spirit of the Century (2001)"
+      ]
+    },
+    {
+      "id": "groove_gospel",
+      "name": "Groove gospel",
+      "family": "blues_gospel",
+      "lineage": "Groove gospel is represented by Templo Soul — Teu Amor Não Falha, No Balanço do Louvor Vol.01 (2019). Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "trombone",
+        "saxophone"
+      ],
+      "description": "Templo Soul’s documented gospel band branch sits within the label-curated broad Groove Gospel grouping. The selected official session resolves all instrumental roles and one named vocalist. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "Templo Soul — Teu Amor Não Falha, No Balanço do Louvor Vol.01 (2019)"
+      ]
+    },
+    {
+      "id": "gospel_papiamento",
+      "name": "Gospel papiamento",
+      "family": "blues_gospel",
+      "lineage": "Gospel papiamento is represented by Cici Jacobino Isenia — Spera Riba Bo (Salmo 27), 2023 official video. Representative authored present-day recording arrangement for one documented branch. Sources establish roles, locality and category. Exact hardware, construction, playing settings, room, signal chain, twelve-tone equal-tempered baseline and axes are authored choices, not source-session facts or universal genre traits. Instrument cards represent selected role classes, not exact player counts.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "acoustic_guitar_dread",
+        "electric_guitar_humbucker",
+        "electric_bass"
+      ],
+      "description": "The artist’s Papiamentu gospel repertoire and linked Psalm-27 recording establish the language/religious category. The video credits document the lead plus five backing singers, piano, acoustic/electric guitars and bass. This is a selected modern recording model; hardware, settings, tuning and production are authored.",
+      "exemplars": [
+        "Cici Jacobino Isenia — Spera Riba Bo (Salmo 27), 2023 official video"
+      ]
+    },
+    {
+      "id": "indonesian_blues",
+      "name": "Indonesian blues",
+      "family": "blues_gospel",
+      "lineage": "Indonesian blues: Gugun Blues Shelter, documented Gugun/Fajar/Bowie core trio. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The artist profile identifies blues and Jakarta; its membership page credits Gugun as vocalist, Fajar on bass and Bowie on drums. The label documents the guitar/bass-led production. Core-trio configuration rather than a reproduction of GBSFEST or any earlier album lineup. Album horn guests are not asserted for this ensemble. The category is the local blues practice, not an ethnic claim.",
+      "exemplars": [
+        "Gugun Blues Shelter, documented Gugun/Fajar/Bowie core trio"
+      ]
+    },
+    {
+      "id": "indonesian_r_and_b",
+      "name": "Indonesian R&B",
+      "family": "blues_gospel",
+      "lineage": "Indonesian R&B: Destardy — Fall, track 2 of Kind of Soul. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Destardy’s artist release identifies contemporary R&B and Bali. Track 2 credits live drums, keys and guitar; Destardy is the documented singer. Selected credited voice, guitar, keys and drums core of Fall. Other tracks’ guest singers, horns and live bass do not carry across. Unspecified production layers are not asserted; virtual-analog keys and humbucker guitar are authored realizations.",
+      "exemplars": [
+        "Destardy — Fall, track 2 of Kind of Soul"
+      ]
+    },
+    {
+      "id": "japanese_blues",
+      "name": "Japanese blues",
+      "family": "blues_gospel",
+      "lineage": "Japanese blues: Maeken Beaver — Point of View. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
+      "parent": "functionalSong.bluesElectric",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker"
+      ],
+      "description": "The artist calls Point of View a blues-rock album from Kobe and explicitly credits Maeken Beaver with vocals and guitar. A voice-and-guitar arrangement of the positively credited core, not a claim that the original recording contains no other sounds. No national vocal technique is inferred.",
+      "exemplars": [
+        "Maeken Beaver — Point of View"
+      ]
+    },
+    {
+      "id": "japanese_r_and_b",
+      "name": "Japanese R&B",
+      "family": "blues_gospel",
+      "lineage": "Japanese R&B: Loupx garoux — HAUNT. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "Artist release tags include R&B and Japan; the Tokyo profile and album credits identify the ensemble. The R&B-tagged alternative-pop/dark-folk crossover is a bounded branch, not a claim that all Japanese R&B shares this roster. Three distinct singers use a group pin. Pitched and drum-kit core is modeled; untyped auxiliary percussion is not assigned an invented drum identity.",
+      "exemplars": [
+        "Loupx garoux — HAUNT"
+      ]
+    },
+    {
+      "id": "kenyan_r_and_b",
+      "name": "Kenyan R&B",
+      "family": "blues_gospel",
+      "lineage": "Kenyan R&B: Jinku and Karun — Passenger 555, original title track. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass"
+      ],
+      "description": "The artist release calls the project Cosmic RnB and supplies title-track voice, electric-guitar and bass-guitar credits. Karun’s own artist biography establishes her Nairobi R&B practice. Original title-track credited live-instrument core, excluding Fluid Reprise and other tracks. Producer credits do not justify invented synth or drum-machine roles. The model is an authored trio arrangement rather than a complete session reconstruction.",
+      "exemplars": [
+        "Jinku and Karun — Passenger 555, original title track"
+      ]
+    },
+    {
+      "id": "latin_funk",
+      "name": "Latin funk",
+      "family": "blues_gospel",
+      "lineage": "Latin funk: Ex Romantika — Latin Funk Konnection, regular album ensemble. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
+      "parent": "groovePercussion.funkPercussive",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "rhodes_electric",
+        "saxophone",
+        "trumpet",
+        "trombone",
+        "drum_kit",
+        "congas",
+        "timbales"
+      ],
+      "description": "The artist explicitly identifies a Latin Funk band in Austin and provides release-wide personnel for voice, horns, rhythm section and percussion. Regular album ensemble excluding the additional track-1 guitar, saxophone and drum credits. Instrument cards represent credited classes, not player counts. Source gives no saxophone registers: the alto pin is an authored common-register realization, not a claim about the recording. Untyped auxiliary percussion is not converted into a guessed instrument.",
+      "exemplars": [
+        "Ex Romantika — Latin Funk Konnection, regular album ensemble"
+      ]
+    },
+    {
+      "id": "mpb_gospel",
+      "name": "MPB gospel",
+      "family": "blues_gospel",
+      "lineage": "MPB gospel: Marcelo Dias e Fabiana — Riqueza. Representative authored present-day recording arrangement for a bounded documented branch. Sources support the selected musical roles, locality and category relationship. Exact hardware, guitar construction and pickup design, keyboard engine, room, signal chain, playing defaults, twelve-tone equal-tempered baseline and numeric axes are authored choices, not claims about the historical session or universal genre traits.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The record label explicitly describes Riqueza as MPB Gospel and foregrounds voice and acoustic guitar; the label identifies Marcelo Dias and Fabiana as the singing duo from São Paulo. Intimate voice-and-guitar branch of the specified single. Two distinct singers use the live-duet pin as a present-day arrangement choice. Steel-string dreadnought is an authored realization of violão; the source does not identify string material.",
+      "exemplars": [
+        "Marcelo Dias e Fabiana — Riqueza"
+      ]
+    },
+    {
+      "id": "retro_soul",
+      "name": "Retro soul",
+      "family": "blues_gospel",
+      "lineage": "Retro soul: The Congregation — He’s Gone (2010). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "trombone",
+        "saxophone"
+      ],
+      "description": "The artist tags this single retro soul and identifies Chicago. Its credits specify Gina Bloom’s vocals, guitar, keys, bass, drums, trumpet, trombone and saxophone. The source calls its practice bluesy garage soul. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "The Congregation — He’s Gone (2010)"
+      ]
+    },
+    {
+      "id": "r_and_b_italiano",
+      "name": "R&B italiano",
+      "family": "blues_gospel",
+      "lineage": "R&B italiano: Puka Shell’s Bling — Colosseum (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "The artist identifies the project as alternative R&B formed in Lecce in 2018. This single credits Lauryyn for vocals, with guitar, bass guitar, keyboards and drums. Its description explicitly connects R&B and distorted guitars. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Puka Shell’s Bling — Colosseum (2024)"
+      ]
+    },
+    {
+      "id": "scandinavian_r_and_b",
+      "name": "Scandinavian R&B",
+      "family": "blues_gospel",
+      "lineage": "Scandinavian R&B: Claudia Campagnol — Dance With Me (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "digital_subtractive",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The Copenhagen artist explicitly calls this single funky pop/R&B. Credits list Campagnol for all vocals and keyboards, Carl Mörner Ringström for electric guitar, Andreas Hatholt for bass guitar and Niclas Campagnol for drums. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Claudia Campagnol — Dance With Me (2020)"
+      ]
+    },
+    {
+      "id": "ugandan_gospel",
+      "name": "Ugandan gospel",
+      "family": "blues_gospel",
+      "lineage": "Ugandan gospel: DocHill And MrsT Music — The Healing Tape (Side B) (2022), credited album ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "saxophone"
+      ],
+      "description": "The Kampala project identifies its work as Ugandan praise and worship and tags the album gospel. Credits positively name electric guitar and saxophone, three lead singers and four distinct singers across lead/backing roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "DocHill And MrsT Music — The Healing Tape (Side B) (2022), credited album ensemble"
+      ]
+    },
+    {
+      "id": "south_african_gospel",
+      "name": "South African gospel",
+      "family": "blues_gospel",
+      "lineage": "South African gospel: Danie Nel — Ons Glo, from Een (2010). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "grand_piano"
+      ],
+      "description": "The Cape Town artist’s track is explicitly written for church worship and tagged gospel, Christian and South African. Its credits assign guitars, vocals and piano to Danie Nel. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Danie Nel — Ons Glo, from Een (2010)"
+      ]
+    },
+    {
+      "id": "swedish_soul",
+      "name": "Swedish soul",
+      "family": "blues_gospel",
+      "lineage": "Swedish soul: Tingsek — Our Song, original Home album version. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "violin_orchestral",
+        "cello"
+      ],
+      "description": "Tingsek’s official track credits identify vocals and guitar, violins and cello, with the selected recording made in Malmö in 2019. His artist release biography explicitly describes his work as Swedish soul. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Tingsek — Our Song, original Home album version"
+      ]
+    },
+    {
+      "id": "r_and_b_argentino",
+      "name": "R&B argentino",
+      "family": "blues_gospel",
+      "lineage": "R&B argentino: Sophie Sobral y Factor Paracaídas — Juego voraz (2018). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "digital_subtractive",
+        "drum_kit"
+      ],
+      "description": "The Argentine group describes its project as a meeting through contemporary R&B, soul and funk. Track-specific credits identify a lead singer, two backing singers, electric guitar, bass, keyboards and drums; the artist page anchors Buenos Aires. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Sophie Sobral y Factor Paracaídas — Juego voraz (2018)"
+      ]
+    },
+    {
+      "id": "r_and_b_brasileiro",
+      "name": "R&B brasileiro",
+      "family": "blues_gospel",
+      "lineage": "R&B brasileiro: Dinamite Combo — documented vocal band format on the 2023 DJ Hum release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "trumpet",
+        "saxophone",
+        "drum_kit"
+      ],
+      "description": "The producer’s Brazilian release explicitly describes the band as funk and R&B and lists one vocalist, guitar, bass, trumpet, saxophone and drums. The release and producer are anchored in São Paulo. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Dinamite Combo — documented vocal band format on the 2023 DJ Hum release"
+      ]
+    },
+    {
+      "id": "sertanejo_gospel",
+      "name": "Sertanejo gospel",
+      "family": "blues_gospel",
+      "lineage": "Sertanejo gospel: Cláudio & Márlon — documented vocal-and-guitar duo format. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The duo’s own profile identifies Palmas, explicitly describes a blend of traditional sertanejo and sertanejo gospel, and credits both named members with voice and acoustic guitar. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Cláudio & Márlon — documented vocal-and-guitar duo format"
+      ]
+    },
+    {
+      "id": "traditional_soul",
+      "name": "Traditional soul",
+      "family": "blues_gospel",
+      "lineage": "Traditional soul: Quentin Moore — Kiss Your Lips (September 2025 single). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "rhodes_electric",
+        "digital_subtractive",
+        "electric_bass",
+        "electric_guitar_humbucker",
+        "vibraphone",
+        "drum_kit"
+      ],
+      "description": "The artist tags the single traditional soul and describes a retro-modern soul ballad. Track credits specify Moore’s vocals and piano plus Rhodes, synthesizer/keys, bass, guitar, vibraphone and drums. The artist’s location is Dallas. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Quentin Moore — Kiss Your Lips (September 2025 single)"
+      ]
+    },
+    {
+      "id": "samba_gospel",
+      "name": "Samba gospel",
+      "family": "blues_gospel",
+      "lineage": "Samba gospel: Grupo Restaurados Pela Fé — documented vocal ensemble and named instrument roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "cavaquinho",
+        "drum_kit",
+        "pandeiro"
+      ],
+      "description": "The artist profile calls the group Samba Gospel and identifies Itaim Paulista in São Paulo. The full member page credits two vocalists, acoustic guitar, bass, cavaquinho, drum kit and pandeiro, alongside two unspecific percussion roles. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Grupo Restaurados Pela Fé — documented vocal ensemble and named instrument roles"
+      ]
+    },
+    {
+      "id": "vintage_gospel",
+      "name": "Vintage gospel",
+      "family": "blues_gospel",
+      "lineage": "Vintage gospel: Blind Willie Harris — Where He Leads Me I Will Follow (c. February 1929). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Frémeaux’s Gospel Vol. 3 booklet identifies the selected side as vocal and guitar by Blind Willie Harris, recorded in New Orleans around February 1929. Document Records independently credits his vocal/guitar role. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Blind Willie Harris — Where He Leads Me I Will Follow (c. February 1929)"
+      ]
+    },
+    {
+      "id": "south_african_r_and_b",
+      "name": "South African R&B",
+      "family": "blues_gospel",
+      "lineage": "South African R&B: Thaba — MMoloki (2025), Lollise Mbi vocal version. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "functionalSong.soulRb",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "digital_subtractive",
+        "saxophone",
+        "drum_kit",
+        "congas"
+      ],
+      "description": "The artist tags this track contemporary R&B and South Africa and anchors the project in Cape Town. Credits identify Lollise Mbi on vocals, saxophone, guitar, keyboards, drums and congas, with a general percussion credit. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "Thaba — MMoloki (2025), Lollise Mbi vocal version"
+      ]
+    },
+    {
+      "id": "zim_gospel",
+      "name": "Zim gospel",
+      "family": "blues_gospel",
+      "lineage": "Zim gospel: The Unveiled — Hallelujah Hossana (official December 2024 video). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "digital_subtractive",
+        "electric_bass",
+        "electric_guitar_humbucker",
+        "acoustic_guitar_dread",
+        "drum_kit"
+      ],
+      "description": "The ensemble’s official video uses the gospel and zimgospel labels. Credits specify lead voice, four soprano singers, three alto singers and three tenor singers, with keyboards, bass guitar, lead guitar, acoustic guitar and drums. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, locality and musical roles. Instrument construction, hardware, technique defaults, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, artist-equipment claims or universal genre characteristics.",
+      "exemplars": [
+        "The Unveiled — Hallelujah Hossana (official December 2024 video)"
+      ]
+    },
+    {
+      "id": "acoustic_chill",
+      "name": "Acoustic chill",
+      "family": "popular",
+      "lineage": "Acoustic chill is represented by paulfcook x With Sun — I Can't Look Up (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        -1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "classical_nylon_string_guitar",
+        "melodica",
+        "digital_subtractive"
+      ],
+      "description": "The artist describes Spanish guitar and melodica with Alice Hale’s voice, credits Cook on guitar, keyboards and melodica, and tags the London release acoustic and chill. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "paulfcook x With Sun — I Can't Look Up (2025)"
+      ]
+    },
+    {
+      "id": "acoustic_cover",
+      "name": "Acoustic cover",
+      "family": "popular",
+      "lineage": "Acoustic cover is represented by Ryan Keller — Tenerife Sea (Ed Sheeran Cover), 2014 single. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "balladPoetry.angloSingerSong.indieFolk",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -2,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "Keller identifies an acoustic cover and credits all vocals and guitar to himself; the artist page places his acoustic solo practice in Hillsborough Township, New Jersey. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "Ryan Keller — Tenerife Sea (Ed Sheeran Cover), 2014 single"
+      ]
+    },
+    {
+      "id": "acoustic_guitar_cover",
+      "name": "Acoustic guitar cover",
+      "family": "popular",
+      "lineage": "Acoustic guitar cover is represented by Gene Akimoff — Game of Thrones Titles Theme Cover, Classical Guitar Favorites (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "artMusic",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        -2,
+        1,
+        0,
+        -1,
+        -1,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "classical_nylon_string_guitar"
+      ],
+      "description": "The Toronto artist calls this an acoustic cover of Djawadi’s theme and explicitly classifies the selected recording as classical guitar and instrumental. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "Gene Akimoff — Game of Thrones Titles Theme Cover, Classical Guitar Favorites (2017)"
+      ]
+    },
+    {
+      "id": "adelaide_indie",
+      "name": "Adelaide indie",
+      "family": "popular",
+      "lineage": "Adelaide indie is represented by Console Warriors — The Jitterblood Mini EP (2013), release-credited ensemble. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The Adelaide indie-rock release specifically credits Bill Meegan on vocals/guitar, Fionn Tschanz-Bartleet on drums and Danny Catalano on bass, recorded at Hillside Studios in Adelaide. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "Console Warriors — The Jitterblood Mini EP (2013), release-credited ensemble"
+      ]
+    },
+    {
+      "id": "adventista",
+      "name": "Adventista",
+      "family": "sacred",
+      "lineage": "Adventista is represented by Badalona Adventist singers — Padre Nuestro in Catalan at Barcelona Plaça Espanya station, November 2024. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "The church’s report documents a large singing group, Martín Borgna’s piano accompaniment and Esther Gómez’s arrangement of the Catalan Padre Nuestro at Barcelona’s Plaça Espanya station. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "Badalona Adventist singers — Padre Nuestro in Catalan at Barcelona Plaça Espanya station, November 2024"
+      ]
+    },
+    {
+      "id": "alabama_indie",
+      "name": "Alabama indie",
+      "family": "popular",
+      "lineage": "Alabama indie is represented by LoveRat — Howl at the Moon (2023). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "distortedRock.alternative",
+      "axes": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "digital_subtractive"
+      ],
+      "description": "The Birmingham, Alabama band tags its album indie and credits Mandi Rae and Warren Amos on vocals/guitar, Jonathon Breland on bass, Michael Shackleford on drums and Derek Nolin on keys. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "LoveRat — Howl at the Moon (2023)"
+      ]
+    },
+    {
+      "id": "afrikaans",
+      "name": "Afrikaans",
+      "family": "vernacular",
+      "lineage": "Afrikaans is represented by Casper Ace — Agter Elke Glimlag (2016). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "balladPoetry",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -2,
+        1,
+        0,
+        -1,
+        -1,
+        0,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread"
+      ],
+      "description": "The artist’s release credits Casper Ace on acoustic guitars and vocals, recorded in Stellenbosch, and explicitly tags Afrikaans; his profile confirms that he sings in Afrikaans. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "Casper Ace — Agter Elke Glimlag (2016)"
+      ]
+    },
+    {
+      "id": "adoracion",
+      "name": "Adoracion",
+      "family": "sacred",
+      "lineage": "Adoracion is represented by Sovereign Grace Music — Todo lo que Creó el Rey (2025 single). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_humbucker",
+        "drum_kit"
+      ],
+      "description": "The worship label credits Jonathan Jerez on voice/acoustic guitar, Fabrizio Rodulfo on electric guitar/backing voice, Sarah Jerez on backing voice, and drums. The Spanish devotional single and Louisville ministry locality are explicit. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "Sovereign Grace Music — Todo lo que Creó el Rey (2025 single)"
+      ]
+    },
+    {
+      "id": "aggro_chileno",
+      "name": "Aggro chileno",
+      "family": "popular",
+      "lineage": "Aggro chileno is represented by Rékiem — Unlike (1997), initial release-era quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "distortedRock.metal",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "The Chilean music-history catalogue explicitly identifies Rékiem with aggro-metal and Santiago, lists the 1995–1998 guitar/voice/bass/drum personnel, and dates the debut Unlike to 1997. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "Rékiem — Unlike (1997), initial release-era quartet"
+      ]
+    },
+    {
+      "id": "afrobeat_fusion",
+      "name": "Afrobeat fusion",
+      "family": "global",
+      "lineage": "Afrobeat fusion is represented by Elephant Hump — Thinn Jazz (Single), 2025. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, locality and bounded category relationship. Exact construction, hardware, amplification, technique settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-equipment claims or universal genre traits.",
+      "parent": "groovePercussion.afroDiasporicElec",
+      "axes": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "digital_subtractive",
+        "flute",
+        "trumpet"
+      ],
+      "description": "The Zagreb artist release carries afrobeat, fusion and instrumental-rock tags and credits guitar, bass guitar, drums, synthesizers/programming, flute, trumpet and unspecified percussion. Production, settings and axes are authored modern choices.",
+      "exemplars": [
+        "Elephant Hump — Thinn Jazz (Single), 2025"
       ]
     }
   ]

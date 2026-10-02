@@ -5,7 +5,7 @@
   "lineage": "Reggaetón cristiano is represented by Funky — Todo lo que soy (2025). A representative authored present-day studio model of the bounded source-backed branch. Sources establish performers, musical roles, category relationship and locality. Exact hardware, instrument construction, keyboard realization, amplification, room, chain, technique pins, twelve-tone equal-tempered baseline and numeric axes are authored choices, not historical session facts, named-artist gear or universal genre traits.",
   "recipe": "classic mid-2020s reggaetón cristiano, mc Rhythm, reggaeton branch. solo with instrumental accompaniment. sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 226,
-  "score": 4.13,
+  "score": 3.878,
   "config": {
     "traditions": [
       "reggaeton_cristiano"
@@ -44,7 +44,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 1.4700000000000002,
+          "voice_ensemble_config": 1.3650000000000002,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,
@@ -63,7 +63,7 @@
         "scores": {
           "electronic_technique": -0.07,
           "sample_bitdepth": 0.7875,
-          "sample_swing": 1.176,
+          "sample_swing": 1.029,
           "sample_processing": 0.483
         }
       }

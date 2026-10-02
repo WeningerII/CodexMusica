@@ -1,0 +1,92 @@
+{
+  "id": "saxophone_section_tenor_baritone",
+  "name": "Saxophone section (tenor and baritone)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "tenor-baritone saxophone section",
+  "parts": [
+    {
+      "id": "tenor_baritone_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "tenor_baritone_section_articulation_short",
+          "name": "Coordinated short notes (authored default)",
+          "default": true,
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        },
+        {
+          "id": "tenor_baritone_section_articulation_legato",
+          "name": "Coordinated legato (authored alternative)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tenor_baritone_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "tenor_baritone_section_articulation_short",
+          "name": "Coordinated short notes (authored default)",
+          "default": true,
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        },
+        {
+          "id": "tenor_baritone_section_articulation_legato",
+          "name": "Coordinated legato (authored alternative)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "id": "uk_dub",
+  "name": "UK dub",
+  "family": "global",
+  "lineage": "UK dub is represented by Nat Birchall / Al Breadwinner — Tradition Disc In Dub. Representative authored present-day studio arrangement for one documented branch. Sources establish musical roles, locality and the bounded category relationship. Exact hardware, guitar body and pickup design, keyboard synthesis engine, room, signal chain, technique settings, twelve-tone equal-tempered baseline and numeric axes are authored choices, not session facts, artist-gear claims or universal genre traits.",
+  "recipe": "classic uk dub, bass System, dub descendants branch. humbucker electric guitar, la bella flats Detroit soul bass canon electric bass, 17 ply hard rock maple European spruce norway spruce European tradition grand piano, Hammond a 100 built in Leslie home spinet Leslie 147 6l6 tube 40w universal connection tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica, flute, gold brass warmer tone split tone overblown saxophone, big tone large cup large rim orchestral bottom heavy trumpet, bass trombone trombone, drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital tape echo spring reverb.",
+  "recipe_chars": 664,
+  "score": 74.609,
+  "config": {
+    "traditions": [
+      "uk_dub"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_60s_selmer",
+          "body_wood": "basswood_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_8_h",
+          "pickup_winding": "high_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "string_thru",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "oil_satin_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 1.1049999999999998,
+          "body_wood": 0.39,
+          "neck_wood": 0.273,
+          "fretboard": 0.1365,
+          "pickup_magnet": 0.39,
+          "pickup_winding": 0.39,
+          "string_material": 0,
+          "bridge": 1.3,
+          "scale_length": 0.546,
+          "string_gauge": 1.3,
+          "finish": 1.3,
+          "string_tuning": 0.39
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 2.275,
+          "body_wood": 0.546,
+          "pickup_config": 0.39,
+          "string_type": 2.21,
+          "scale_length_b": 0.39,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.273,
+          "grand_piano_brand": 0.273,
+          "piano_hammer": 2.21,
+          "piano_rim": 2.21,
+          "piano_soundboard": 1.2349999999999999,
+          "piano_pinblock": 1.108,
+          "piano_plate": 1.6524999999999999,
+          "piano_pitch_standard": 0.975
+        }
+      },
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "drawbar_setting": "gospel_drawbars",
+          "rotary_speed": "stopped_rotor",
+          "percussion_setting": "percussion_off",
+          "tonewheel_model": "tonewheel_hammond_a100",
+          "leslie_cabinet_model": "leslie_147_alt"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "drawbar_setting": -0.035,
+          "rotary_speed": 0.105,
+          "percussion_setting": 0.168,
+          "tonewheel_model": 1.625,
+          "leslie_cabinet_model": 1.2349999999999999
+        }
+      },
+      {
+        "id": "melodica",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "melodica_use": "melodica_dub",
+          "melodica_pitch": "melodica_alto",
+          "melodica_maker_school": "melodica_hohner_canonical"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "melodica_use": 12.105,
+          "melodica_pitch": 1.3,
+          "melodica_maker_school": 17.29
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "flute_size": "alto_flute",
+          "flute_material": "gold_flute",
+          "flute_technique": "beatboxed_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 1.17,
+          "flute_size": 0.105,
+          "flute_material": 0.44099999999999995,
+          "flute_technique": 1.69,
+          "flute_maker_school": 0.39
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_split_tone_overblown",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "gold_brass_sax",
+          "sax_mouthpiece": "ebonite_vintage",
+          "sax_technique": "sax_split_tone_overblown",
+          "sax_maker_school": "sax_yamaha_custom"
+        },
+        "scores": {
+          "wind_articulation": 1.2349999999999999,
+          "sax_size": -0.15000000000000002,
+          "sax_reed": 0,
+          "sax_body_alloy": 2.0915,
+          "sax_mouthpiece": 0.1365,
+          "sax_technique": 1.2349999999999999,
+          "sax_maker_school": 0.39
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_split_tone_overblown",
+          "brass_size": "cornet",
+          "trumpet_mouthpiece": "bach_trumpet_mp_1c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 1.2349999999999999,
+          "brass_size": 0,
+          "trumpet_mouthpiece": 1.2349999999999999,
+          "brass_mute": 0.0315,
+          "trumpet_technique": -0.05,
+          "trumpet_bell_metal": 0.34650000000000003,
+          "trumpet_maker_school": 0.39
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_split_tone_overblown",
+          "trombone_type": "bass_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "tailgate_slide",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": 1.2349999999999999,
+          "trombone_type": 0.441,
+          "trombone_mouthpiece": 2.6650000000000005,
+          "trombone_mute": 0.0315,
+          "trombone_technique": 0.1995,
+          "trombone_bell_metal": 0.34650000000000003,
+          "trombone_maker_school": 0.39
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 0.7629999999999999,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique"
+      ],
+      "electric_bass": [
+        "bass_technique"
+      ],
+      "saxophone": [
+        "sax_size"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "tape_echo",
+      "spring_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_clean_strummed",
+      "bass_technique": "fingerstyle_locked",
+      "drum_technique": "sticks_rock",
+      "sax_size": "tenor_sax"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "tape_echo",
+      "spring_reverb"
+    ],
+    "chain_amp_guitar": "amp_modern_modeling",
+    "chain_amp_bass": "amp_american_ampeg_b15"
+  }
+}
