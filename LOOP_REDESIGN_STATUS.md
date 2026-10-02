@@ -1,9 +1,43 @@
 # Revise-loop redesign — status
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
-Last update: 2026-10-02. **The owner answered the seven questions.** The design
-is now version 3. Debate round 2 is next, and so are the pre-build
-measurements.
+Last update: 2026-10-02. **The debate is passed.** Round 2 checked version 3
+against the code. Both judges ruled that it passes once their changes are
+applied, with no further owner question. The design is now **version 4**:
+version 3 plus the binding amendments in `LOOP_REDESIGN.md` §2.8.
+**Phase 3 (build) is starting.**
+
+## Debate round 2 (2026-10-02)
+
+- Run `wf_2fb6dff8-cad`: 2 opponents, 1 defender, 2 judges, read-only.
+- **25 objections** (1 blocking, 21 major, 3 minor). Another 5 round-1 changes were not fully in version 3.
+- **All were conceded.** Both judges: `passes_with_changes: true`, no owner question.
+- Record: `lyric-harness/quality/loop_redesign_phase1/debate_round2.json`; summary in `LOOP_REDESIGN.md` §5.5.
+
+The main round-2 changes:
+
+- the rejection history is stored in the saved position, not rebuilt;
+- the draft is never regressed when resuming mid-replay;
+- the no-progress count is defined by position, on exit-5 and killed calls only;
+- every batch answer the walk passes by gets a `not_applied` record kept apart from `outcomes`, so nothing about acceptance or question text changes;
+- `pending` is computed by the connector, so nothing is added to the journal;
+- the cursor and the new records live in a separate byte budget, so every state that fits today still fits;
+- the group menu reuses `brief()`'s own offer code;
+- the test that proves the new path was taken uses an unpublished run-record count, not the published text.
+
+## Pre-build measurement, so far
+
+One continuation's parts, declared relation, alone on the box, 24 lines:
+
+| part | cold | warm |
+|---|---|---|
+| re-brief | 25.8 s | 22.1 s |
+| verify without menus | 22.5 s | 23.5 s |
+| one exact menu for the next question | **197.6 s** | **160.5 s** |
+
+That menu offered **0 words**. With replay and `verify`'s menus gone, building
+the next question's menu is the largest part of a call. The 104- and 60-line
+runs are in progress.
 
 ## OWNER'S ANSWERS (2026-10-02)
 

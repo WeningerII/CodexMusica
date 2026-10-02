@@ -1,8 +1,8 @@
 # The revise loop, redesigned for long songs
 
-Status: **DRAFT v3 — the owner's rulings of 2026-10-02 are recorded (§6).**
-Debate round 2 checks this version against the code before anything is built
-(§5.5). Nothing here is built yet. Written 2026-10-02 on branch `claude/revise-loop-redesign`.
+Status: **DESIGN v4 — PASSED the debate (round 2: both judges, `passes_with_changes`).**
+Version 4 is version 3 (the owner's rulings of 2026-10-02, §6) plus the binding
+round-2 amendments in §2.8. The build (Phase 3) works from this version. Written 2026-10-02 on branch `claude/revise-loop-redesign`.
 
 The owner's words: *"the biggest problem is 100+ line songs"*, and *"a new
 revise loop requires a debate workflow for verification, not song runs"*.
@@ -10,7 +10,7 @@ revise loop requires a debate workflow for verification, not song runs"*.
 This file has six parts:
 
 1. what was measured before anything was designed;
-2. the design, version 3: version 2 (after the debate) with the owner's rulings;
+2. the design, version 4: version 2 (after the debate), the owner's rulings, and the binding round-2 amendments (§2.8);
 3. what stays the same, and what would change in the connector's published contract;
 4. what it costs, what must still be measured before building, and the tests that must fail on the old code and pass on the new;
 5. the debate's record;
@@ -159,7 +159,7 @@ memo). The comment files the scaling question under M-240, which is open.
 
 ---
 
-## 2. The design, version 3
+## 2. The design, version 4
 
 Version 1 went to a debate: three opponents, a defender, two judges, all
 checking against the code (§5). This version takes in every change the
@@ -213,7 +213,7 @@ inside a unit is asked against the unit's starting draft.
 Re-derived on resume, not stored:
 
 - the round's `briefs` and `whole`, from the current draft and the mandate;
-- the defer proposer's rejection history (`last_rej`, `last_grej`). These are rebuilt from `outcomes` / `group_outcomes` by the same rule the `record` hooks apply: the latest (round, attempt) per line or member tuple, dropped if accepted. Question bytes depend on these maps, and a group answer is looked up by a hash of its question, so they must match full replay exactly (A1).
+- ~~the defer proposer's rejection history (`last_rej`, `last_grej`)~~ **superseded by §2.8 A1: stored by reference, not rebuilt.** ~~These are rebuilt from `outcomes` / `group_outcomes` by the same rule the `record` hooks apply: the latest (round, attempt) per line or member tuple, dropped if accepted. Question bytes depend on these maps, and a group answer is looked up by a hash of its question, so they must match full replay exactly (A1).~~
 
 **The input draft still owns two things (A2).** The resume entry takes both the
 state's `input_draft` and the cursor's draft. It scopes the reviser with
@@ -224,7 +224,7 @@ replay does.
 
 **Entering at the cursor (A3, B8).** On a cursor resume, the defer proposer:
 
-1. sets `replaying = False`;
+1. ~~sets `replaying = False`;~~ sets `replaying = False` only when the cursor's draft equals `accepted_lines` (§2.8 B);
 2. emits one checkpoint on the cursor draft, **before** the re-brief or any other expensive work, so that every call that starts leaves a state behind;
 3. re-briefs and enters the loop at the cursor.
 
@@ -293,8 +293,8 @@ cursor is trusted, so in a caller-held state it must be unforgeable.
 
 Per-call cost no longer depends on answers on record. State bytes still grow
 with the journal. The cursor is stored by reference so it does not duplicate
-`outcomes` or the draft (A7). It is maintained identically in cursor and
-full-replay modes, so admission sees the same bytes either way.
+`outcomes` or the draft (A7). ~~It is maintained identically in cursor and
+full-replay modes, so admission sees the same bytes either way.~~ Superseded by §2.8 C: the cursor is measured outside the journal's capacity, in a separate budget.
 
 ~~That growth is linear and small.~~ Withdrawn until measured (B10). State
 bytes against `JOURNAL_WORK_BYTES` (384 KiB, the working ceiling, not the
@@ -321,26 +321,26 @@ verdicts:
 | `accepted` | `verify` accepted it | today's outcome record (`accepted: true`) |
 | `rejected` | `verify` rejected it | today's outcome record (`accepted: false`, with `verify`'s reasons) |
 | `not_applied` | the walk reached this member and its finding was already closed by an earlier accepted line (`resolved_elsewhere`), so the answer was never judged | a **new** outcome record: `accepted: null`, `disposition: "not_applied"`, `why` naming the line whose acceptance closed it, recorded once when the walk passes the member |
-| `pending` | the answer is on record, the walk has not reached it, and the call suspended on another question first | not stored. The harness adds a `waiting` list to the pending question's record: `[{line, attempt, round, on: [lines asked now]}]`. Every batch answer on record with no outcome is listed. The connector renders each as `pending: waiting on L<i>`. |
+| `pending` | the answer is on record, the walk has not reached it, and the call suspended on another question first | not stored. ~~The harness adds a `waiting` list to the pending question's record: `[{line, attempt, round, on: [lines asked now]}]`. Every batch answer on record with no outcome is listed. The connector renders each as `pending: waiting on L<i>`.~~ **Superseded by §2.8 D:** the connector computes it from the returned state; nothing is added to the journal. |
 
 `unknown` remains for one case only: a row the connector cannot match to any
 record, as today for states minted before this change. T3 asserts that no row
 from a run under this design is `unknown`.
 
-**Why `pending` is not stored.** A pending answer is judged later by the same
+~~**Why `pending` is not stored.** A pending answer is judged later by the same
 walk that judges it today. Storing "pending" would be a second statement of
 "no outcome yet". The `waiting` list is recomputed at every suspension from the
-journal and the outcomes, so it cannot go stale.
+journal and the outcomes, so it cannot go stale.~~ (§2.8 D replaces this.)
 
 The connector:
 
-- `foldedOne` (`mcp/lyric_tools.js:409-421`) maps `disposition: "not_applied"` to verdict `not_applied` with its `why`, and an entry in `pending.record.waiting` to verdict `pending` with `waiting_on`;
+- ~~`foldedOne` maps … an entry in `pending.record.waiting` to verdict `pending`~~ `folded` is built by journal diff on every result branch, with `not_applied` rows read from the separate `dispositions` list (§2.8 D);
 - both carry `source: "outcome"` or `source: "waiting"`, not `unverified`;
 - the published `folded` verdict list grows by these two values (owner, Q2).
 
-**Cost:** nothing measurable. The `waiting` list is a walk over the journal at
+~~**Cost:** nothing measurable. The `waiting` list is a walk over the journal at
 suspension. `not_applied` is one record written when the walk passes a member it
-already skips today.
+already skips today.~~ The records are measured in the separate budget (§2.8 C) and on the pre-build list (§4.3).
 
 **Acceptance is unchanged.** It is pinned by test: two `_related`-independent
 members share an `ANAPHORA_OVERLOAD` finding, and the run's outcomes and final
@@ -377,7 +377,7 @@ needed.
 **(d) A run that cannot advance is reported, never refused (B8, C10).**
 
 - Progress means the journal digest advanced (a new question was asked or a new verdict recorded), or the cursor position advanced.
-- On a kill with no new checkpoint, the connector re-seals the *incoming* state with `stalls + 1`, and the session layer stores it, so the count survives restarts and caller-held states.
+- ~~On a kill with no new checkpoint, the connector re-seals the *incoming* state with `stalls + 1`~~ **Superseded by §2.8 E:** the count compares positions on exit-5 and killed calls, whichever state is returned.
 - At 2 or more, the result says so: the step in progress, the draft size, and that this draft does not fit one call on this server.
 - The call is never refused, so no limit is added (standing rule 2).
 - The result field is `no_progress_calls: n` (owner, Q4, 2026-10-02).
@@ -393,8 +393,8 @@ repeated:
 
 What remains, and is real:
 
-- **The non-pivot member on the escalation path gets its one-move menu.** These are the words at its bound place that answer every group bound there while the other members keep their current words. It is computed by tier 1's own call (`brief(target_lines={member})`, `declared_offer`), and it is the couplet case that defect 4 reproduced.
-- **The pivot on the escalation path:** the offered and forbidden lists from its line question are reprinted from the cursor (no rebuild), or named by reference in words true in this prompt, such as "the words L2's line question offered (attempt 1, round 1)". Never "above": the group question is a separate prompt (judge 2).
+- **The non-pivot member on the escalation path gets its one-move menu.** These are the words at its bound place that answer every group bound there while the other members keep their current words. ~~It is computed by tier 1's own call (`brief(target_lines={member})`, `declared_offer`)~~ It is computed by the shared per-place offer function factored out of `brief()` (§2.8 G), and it is the couplet case that defect 4 reproduced.
+- **The pivot on the escalation path:** ~~reprinted from the cursor or named by reference~~ one fixed rendering (§2.8 G): its lists are always printed from its own `Brief` on the unit's starting draft, and the line question is cited only when asked on the same draft. Never "above".
 - **The group-first path:** §2.4 adds nothing, and the prompt says so.
 - **A member with no Brief** prints its own sentence ("no single-line finding on L<n>; no one-move menu was computed"), not "(none offered)".
 - **Rule 3's text in the group prompt** branches on the path. On group-first it keeps today's "empty by construction" sentence. On escalation it says the pivot's forbidden list from its line question still binds, and names it (C13).
@@ -438,7 +438,7 @@ Both `forbidden_*` fields are set only inside the offers block (A9).
 directly, with exactly the branch structure the field uses (A8). For each
 changed line:
 
-1. If the line has no `wants and groups`, there is no modal head and no incumbent field. Rule 3 does not apply, as today.
+1. If the line has no `Brief` (no per-line finding before the change), or no `wants and groups`, rule 3 does not apply, as today (gate restored by §2.8 G).
 2. Otherwise, at the line's primary place: `forbidden_incumbent = _incumbent(lines, ln, b.slot)`.
 3. If the place has no call words, the head is empty.
 4. Otherwise, compute the raw `joint_field_screened` forbidden head on those call words, with the incumbent excluded.
@@ -496,6 +496,137 @@ Sizing the memo to the draft, or making the whole-draft re-inspection
 incremental, is the grader's work under M-240. **The owner ruled, 2026-10-02
 (Q7b), that it stays there**, outside this branch. Until one of them lands, this file does
 not claim the loop is fixed for 100-line songs.
+
+### 2.8 Round-2 amendments (binding)
+
+Debate round 2 (§5.5) found 25 more problems in version 3. All 25 were
+conceded, and both judges ruled that the design **passes once these changes are
+applied**. No point needed the owner.
+
+These amendments are binding. Where they conflict with §2.0–§2.7, **they win**.
+The superseded sentences above are struck and point here. Where the two judges
+differed, the stricter requirement is taken.
+
+**A. The cursor's contents (R7, R8, R9, R11, R12, S2).**
+
+1. **The rejection maps are stored, not rebuilt (R7, judge 2).** `last_rej` and `last_grej` go in the cursor by reference: line → index into `outcomes`, member tuple → index into `group_outcomes`. They are taken exactly as the live hooks hold them at the unit boundary, live and during fallback replay alike.
+   - The rebuild in §2.0 is withdrawn. `outcomes` is never pruned, so after a fallback replay whose walk changed, a rebuild would read orphan entries.
+2. **The current round's attempts are stored (R8).** These are `attempts`, plus `_attempts` in the global phase, as `LineAttempt` records: by reference (outcome key plus the composed reason string) where an outcome exists, verbatim where none does (pinned, starved, escalation labels).
+3. **The menu cache is the whole offers block (R9).** Per materialized question, the cursor holds every `Brief` field the offers block sets, including `fields_by_slot` and its `SlotField`s, keyed by the draft fingerprint it was computed on.
+   - It is a cache. When missing, dropped or keyed to another draft, the menu is rebuilt by `brief(target_lines=…)` on the same draft, which gives the same bytes.
+4. **`journal_digest` is a prefix hash (R11).** It is SHA-256 over the canonical JSON of `input_draft` plus the first k1 records of `answered.propose` and the first k2 of `answered.propose_group`, with k1 and k2 stored in the cursor.
+   - Appended answers pass. An edited or removed earlier answer fails, giving `cursor_stripped: digest`.
+   - Outcomes are not in the digest. They are covered by the seal.
+5. **The stale disclosure is reproduced exactly (R12).** The cursor carries `tally.hit` and the full list of stale keys.
+6. **The `closed_by` map (S2).** At each re-brief, a pass line still ahead that has just dropped out of `still_open` is attributed to the most recent accepted unit's touched lines. Only one unit's acceptance lies between consecutive re-briefs (`loop.py:2063`).
+
+**B. Entering at the cursor without regressing the draft (R3).** Step 1 of
+"Entering at the cursor" becomes:
+
+- set `replaying = False` **only when the cursor's draft equals `accepted_lines`**;
+- otherwise, stay in the own-fields checkpoint mode the fallback replay uses until the walk's draft reaches `accepted_lines`, the entry checkpoint included.
+
+**C. Size: one separate budget, and the cursor never ends a run (R10, S4).**
+
+- `dispositions`, `stalls`, `closed_by` and the cursor are measured **outside** the worker journal's capacity. They are excluded from every `_journal_admit` site's measure, and from the connector's `assertContinuationCapacity`. So every state that fits today still fits, with the same batch trimming and the same capacity stop point.
+- They share one budget under `STATE_DECODED_BYTES` (512 KiB): 512 KiB minus the worker bytes (cursor excluded), minus the actual `connector_declarations` bytes, minus a fixed margin for `connector_semantic_identity`, `connector_run_ref` and the seal. The connector passes this budget to the harness.
+- `dispositions` are reserved first and never dropped. Each is keyed (line, attempt, round), idempotent, at most one row per recorded answer, with `why` as a short code the connector renders as text.
+- The cursor uses what remains, in three tiers:
+  1. the full cursor;
+  2. without its menu caches (rebuilt deterministically, A3);
+  3. no cursor, in which case the next call says `cursor_stripped: missing` and the harness's report line says why.
+
+**D. Option B, made exact (R2, S2, S3, S4, S5).**
+
+- **Every pass-by writes a disposition (S2, S3).** The loop calls a new proposer hook, `propose.skipped(line, attempt, round, why)`, on every path where the walk passes a member that has an answer on record:
+  - `resolved_elsewhere` (`loop.py:2075`, `:2097`);
+  - the `touched` skip (`:2011`);
+  - a group-first acceptance before tier 1;
+  - `_materialize` returning None (`:2130`).
+
+  The proposer writes a row only when an answer exists for that key, and only into its own list, `st["dispositions"]`, **never `outcomes`**. So `outcomes`, `last_rej` and every question's bytes are exactly today's. The `why` codes are: closed by the accepted rewrite of L…; rewritten by the accepted group rewrite of L…; no finding stands on L… on the current draft.
+- **`pending` is not stored at all (S4).** ~~The `waiting` list~~ is dropped. The connector computes `pending` from the state it already returns: every answer in `answered` with no outcome, group outcome or disposition. It attributes each to the lines of the current pending question, or to "the run stopped before reaching it" on exit 5 or a kill. Because every pass-by now writes a record, "no record" means exactly "not yet reached".
+- **`folded` is built by journal diff, on every result branch (R2, S5).** The branches are exit 4, finish, exit 5, kill or interrupted, and journal capacity. The connector compares the outcome, group-outcome and disposition records in the returned state with the incoming state's, and publishes every new or changed one as `accepted` / `rejected` / `not_applied`, with `source: "outcome"`. It publishes every still-unrecorded answer as `pending`. An answer's verdict is therefore published by the call that judged it, including a call that ends at exit 5. Only the four owner-approved verdict values are used.
+
+**E. Stopping and kills (R1, R4, R13, S11).**
+
+- **An exit-5 stop leaves its position in two places (R4).** It prints one final control checkpoint holding the stop cursor (`status: "stopped"`, through `checkpoint()` and B's rule), writes the same state to the defer state file, then exits 5. The cost-of-stopping term budgets both writes.
+- **Group-question construction is resumable (S11),** on the same terms as batch construction. The cursor records the members whose one-move menus are done, with their cached offers blocks. A safe point is allowed between members. The question's bytes stay a pure function of the draft, the mandate and the journal.
+- **The no-progress count is by position (R1; judge 1's narrowing).**
+  - Position means: cursor phase and index, round, members done in any batch or group under construction, the count of verdict and disposition records, and the identity of the pending question. It excludes `stalls` itself and the seal.
+  - Compared **only** on exit-5 results and killed, timed-out or cancelled calls. A refusal (exit 2), a journal-capacity stop and a finish never change the count, and exit 0 or 3 clears it.
+  - If nothing advanced, the connector carries `stalls + 1` into whichever state it returns, the entry checkpoint or the incoming state, re-seals it, and puts it into the run store with a new revision even when no checkpoint was printed. The session layer stores it.
+  - Any advance, or a new question, resets it to 0.
+  - At 2 or more the result carries `no_progress_calls`. No call is ever refused.
+- **A restart is not a bridge kill (R13).** "A kill that produced no new checkpoint leaves the session's previous sealed continuation in place" applies to bridge kills. A server restart before the entry checkpoint keeps today's behaviour: not resumable, continuation cleared, `CONTINUATION_UNCERTAIN` gives the recovery steps. The entry checkpoint narrows that window to process start-up.
+
+**F. The connector's surfaces (R5, R6, R12, R14).**
+
+- **One sealing helper (R5).** `encodeInterviewWire(state)`, exported from `mcp/lyric_tools.js`, is called by every interview mint:
+  - the four `lyric_revise` branches;
+  - `workflow_sessions.resumeSnapshot`;
+  - `chat.js` checkpoint recovery.
+
+  Kitchen checkpoints keep plain `encodeState`. A guard test fails if any interview `state` is built from bare `encodeState`.
+- **The website chat (R6).** `gemini_agent.js` `carryState` carries an `interrupted` interview result that has a state, as resumable, the way it carries a kitchen checkpoint.
+- **The published text (R12).** The proposer disclosure header and the session's continue text are reworded to state both paths ("resumes from its saved position, or replays its journal when that position cannot be trusted"). This is the statement the owner approved for the `lyric_revise` description (Q6).
+- **Session callers see the new fields (R14).** `cursor_stripped` and `no_progress_calls` are added to `verdict_view.js`'s `KEPT`, to the hand-built exit-4 object, and to the `other` and finish verdicts.
+
+**G. Menus and rule 3 (S1, S7, S10).**
+
+- **One shared per-place offer function (S1, both judges).** The offers block's per-place computation is factored out of `brief()` into one function that `brief()` also calls (`revise.py` about 5953–6122). That covers the calls, `joint_field_screened`, schema widening, `_explicit` and `declared_offer`, the widening pool, the `_anchors_at` filter, and the by-call fallback.
+  - The non-pivot member's one-move menu calls that function at `_slot_for(mandate, gi, m_line)`, on the unit's starting draft, with the pivot's current word among the calls and the member's own word excluded.
+  - Nothing is reimplemented. This works for a member with no per-line finding, which has no `Brief`.
+- **One rendering for the pivot (S10).**
+  - The pivot's offered and forbidden lists are always printed from its own `Brief` as materialized on the unit's starting draft.
+  - The line question is cited ("as offered in L2's line question, attempt 1, round 1") only when it was asked on the same draft fingerprint. Otherwise the prompt says "no line question was asked on this draft; these are the lists the grader enforces now."
+- **Rule 3's exact gates (S7).**
+  - Step 1 becomes: no `Brief` for the line (no per-line finding before the change), or no `wants and groups`: rule 3 does not apply.
+  - "Explicit" means `_explicit = any(m.relation_of(k) or not self.schema_route_open(m, k) for k in ks)`, by name.
+  - Only a **changed** bound word can be rejected. For a kept incumbent, head membership only selects the disclosure clause.
+
+**H. Tests, as amended (S8, S9, and every case above).**
+
+- **T1's positive marker (S8, both judges)** is `replayed_answers` in the harness's own `lyric_result` run record, which `verdictOf` does not publish: 0 on a cursor resume, the count otherwise. **No marker goes in the disclosure.** T1 still compares the disclosure byte for byte across both arms.
+- **T1 adds these scripts:**
+  - two same-round escalations of one couplet from different pivots;
+  - a `not_applied` line asked again later;
+  - a disposition crossed mid-run;
+  - an edited earlier answer that forces a digest fallback, after which the next call resumes from the fallback's cursor;
+  - `LoopResult.rounds` after a pinned tier-2 attempt, and inside the global repair;
+  - A3's full script: `judged_open` false, an accepted edit introducing a flag under `allow_net_new`, then a suspension.
+- **T2 (S8)** becomes: each answer is verified exactly once across the run, and the verify calls in one call equal the answers judged for the first time in that call. It is counted at the reviser proxy boundary with `LYRIC_REPLAY_MEMO=0`, one cold process per call.
+- **T3 adds:**
+  - a stop between an answer and its verify, and a stop after its verdict: each publishes the answer's verdict on the call that wrote it;
+  - one fixture per pass-by path (S2);
+  - continuing one call further, L4's final verdict, published by the call that judged it;
+  - an exit-5 stop right after a batch is folded.
+- **T4 adds:**
+  - the connector path: the returned `state` and the state file both hold the stop position, and the next call resumes from it;
+  - a fake-clock stop between two members' group menus, after which the finished question is byte-identical.
+- **T5 adds:**
+  - three kills after the entry checkpoint, and three exit-5 stops at one position: each gives `no_progress_calls >= 2`;
+  - an advance resets the count;
+  - a refused invalid answer leaves the count unchanged;
+  - a fallback replay killed, then resumed and killed again: `final_draft` equals the furthest `accepted_lines`;
+  - a server restart before and after the entry checkpoint.
+- **T6 adds:**
+  - the couplet fixture with no per-line finding on L1, where L1's printed words equal the shared function's output and equal `brief()`'s offer on a variant draft where L1 also carries a finding;
+  - a non-default slot where an unanchorable word is not offered;
+  - a batch member whose call word moved before escalation;
+  - `--attempts=0 --backtrack=1`.
+- **T7 adds:**
+  - an edited earlier answer falls back, and a newly folded answer does not;
+  - a chat-recovery case;
+  - the `encodeInterviewWire` grep guard.
+- **T8's failing half (S9).** Over T8's corpus, `verify` requests `include_offers=False`, and makes zero calls to `_widen_pool`, `schema_widened_field`, or `declared_offer` with a `limit`. The old code fails this. T8 also adds a group rewrite whose non-pivot member has no per-line finding (S7).
+- **Near capacity (R10, S4).** A run whose worker part is within a few KiB of 448 KiB, with 32 KiB of declarations, that writes dispositions, must still encode and resume, and must choose the same batch members and reach the same capacity stop as today.
+- **The website chat (R6).** An exit-5 interview verdict fed through `carryState` is carried.
+- **Session views (R14).** Both new fields appear in the session view.
+
+**I. Code touched, added to §4.1.** `mcp/chat.js` (recovery mint),
+`mcp/gemini_agent.js` (`carryState`), `mcp/verdict_view.js` (`KEPT`), and the
+factored offer function in `quality/revise.py`.
 
 ---
 
@@ -676,7 +807,7 @@ evidence, answers and rulings, verbatim, are in
 
 ### 5.4 Was round 1 passed?
 
-**No.**
+**No.** (Round 2 passed: §5.5.)
 
 - Every objection is either answered by a change now in version 2, or named as an owner question.
 - Version 2 itself has not been put back to the judges.
@@ -688,7 +819,69 @@ evidence, answers and rulings, verbatim, are in
 
 ### 5.5 Round 2: version 3 against the code
 
-(Not yet run.)
+**How it ran.** Run 2026-10-02 as a Workflow (`loop-redesign-debate-r2`, run
+`wf_2fb6dff8-cad`). It was told not to re-argue the owner's rulings.
+
+- **Two opponents,** each told to refute from the code:
+  - R: the cursor, the seal, fallback replay, safe points and exit 5;
+  - S: option B, the menus, `verify`'s exactness, the tests, and whether every round-1 change was really in version 3.
+- **One defender.**
+- **Two independent judges.**
+
+All five were read-only. The full record is in
+`quality/loop_redesign_phase1/debate_round2.json`.
+
+**The outcome.**
+
+- **25 objections:** 1 blocking, 21 major, 3 minor.
+- **5 round-1 ids** were reported as not fully carried into version 3: B4, B8, C10, A3, C11.
+- **The defender conceded every one.**
+- **Both judges ruled `passes_with_changes: true`, with no owner question.** Judge 1: "No ruling needs the owner. Every required change can be built and tested, so the design passes once the conceded and required changes are applied." Judge 2: "Each of these is buildable and testable, so version 3 passes once all conceded and required changes are applied."
+
+Every conceded change, and every further change a judge required, is §2.8,
+which binds over §2.0–§2.7. Where the judges differed, the stricter
+requirement was taken:
+
+- R7: store the rejection maps;
+- R10: an explicit byte budget;
+- S4: the separate budget, with dispositions reserved first;
+- S8: the marker kept out of the disclosure;
+- S1: one shared offer function.
+
+**The debate is passed.** Phase 3 builds from version 4: version 3 plus §2.8.
+
+| id | severity | claim | defender | judge 1 | judge 2 |
+|---|---|---|---|---|---|
+| R1 | blocking | The no-progress count cannot fire in the main stall cases. | concede | design must change | answered |
+| R2 | major | A safe-point stop placed "before judging an answer" means the writer's answer never gets a published verdict. | concede | answered | answered |
+| R3 | major | A fallback replay keeps `accepted_lines` at its furthest value and puts the cursor in its own fields. | concede | answered | answered |
+| R4 | major | Version 3 routes exit 5 through the existing `other` branch, but that branch publishes only the last stdout checkpoint (`r.checkpoint`), never the state file the verb writes. | concede | answered | answered |
+| R5 | major | The list of mint points misses one. | concede | answered | answered |
+| R6 | major | One consumer mis-handles exit 5, and version 3's audit list leaves it out: the website chat's `carryState` in gemini_agent.js. | concede | answered | answered |
+| R7 | major | The rebuild rule, "the latest (round, attempt) per line or member tuple, dropped if accepted", is not the rule the hooks apply, in two places. | concede | answered | design must change |
+| R8 | major | The cursor table leaves out the in-progress round's `attempts` list, the LineAttempt records that become `RoundResult.attempts` when the round closes. | concede | answered | answered |
+| R9 | major | "Materialized menu inputs (the offered and forbidden lists the question was rendered with)" is far less than the rendered question and the control flow read. | concede | answered | answered |
+| R10 | major | Cursor bytes are admitted against the worker journal's own capacity. | concede | answered | design must change |
+| R11 | major | `journal_digest` is undefined, and version 3 uses it for two things that cannot both hold. | concede | answered | answered |
+| R12 | minor | The cursor carries "the running stale count". | concede | answered | answered |
+| R13 | minor | "A kill that produced no new checkpoint leaves the session's previous sealed continuation in place" is false when the interruption is a server restart. | concede | answered | answered |
+| R14 | minor | Session callers will not see the two new result fields on a finished run. | concede | answered | answered |
+| S1 | major | The one menu §2.4 says it adds, the non-pivot member's one-move menu "computed by tier 1's own call (brief(target_lines={member}), declared_offer)", does not exist in the couplet case it claims to fix. | concede | design must change | design must change |
+| S2 | major | Option B's four verdicts do not cover every way today's walk discards a batch answer. | concede | answered | answered |
+| S3 | major | The new `not_applied` outcome row collides with the rejection history (`last_rej`) and with the coupling test. | concede | answered | answered |
+| S4 | major | "Why pending is not stored" is false as designed. | concede | design must change | design must change |
+| S5 | major | A `pending` answer's eventual verdict is never published. | concede | answered | answered |
+| S6 | major | As specified, the no-progress count cannot fire in the case the owner approved it for, and T5's "three kills during the re-brief" case cannot pass. | concede | design must change | answered |
+| S7 | major | The rule-3 branch list is not exactly today's behaviour. | concede | answered | answered |
+| S8 | major | T2's invariant is false under option B. | concede | design must change | design must change |
+| S9 | major | T8 cannot fail on the old code. | concede | answered | answered |
+| S10 | major | The pivot's escalation menu, "reprinted from the cursor ... | concede | answered | answered |
+| S11 | major | §2.4 puts one exact menu per escalated non-pivot member inside a single group question, and §2.3(b) forbids stopping "in the middle of building a question". | concede | answered | answered |
+| B4 (round 1, reported missing from v3) | — | its round-1 change was not fully in version 3 | concede | answered | answered |
+| B8 (round 1, reported missing from v3) | — | its round-1 change was not fully in version 3 | concede | design must change | answered |
+| C10 (round 1, reported missing from v3) | — | its round-1 change was not fully in version 3 | concede | design must change | answered |
+| A3 (round 1, reported missing from v3) | — | its round-1 change was not fully in version 3 | concede | answered | answered |
+| C11 (round 1, reported missing from v3) | — | its round-1 change was not fully in version 3 | concede | answered | design must change |
 
 ---
 
