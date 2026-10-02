@@ -484,7 +484,7 @@ function foldedOf(prevStateText, st) {
       line: o.line,
       attempt: o.attempt ?? 0,
       round: o.round ?? null,
-      answer: clip(o.text),
+      answer: clip(o.text ?? answers.get(k)?.text),
       verdict: o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown',
       reasons: reasonsOf(o),
       source: 'outcome',

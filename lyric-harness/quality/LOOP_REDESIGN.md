@@ -970,3 +970,25 @@ The owner answered: *"Q1 B, Q2-Q6 yes, Q7a yes, 7b stays under M-240"*.
 | Q7a model-writer path keeps full replay | **yes** | §2.0 (scope) |
 | Q7b size the per-pair memo in this branch | **no: it stays under M-240** | §2.7 |
 
+
+## 7. Build notes (Phase 3, 2026-10-02)
+
+Where the build departs from version 4, and why. Each is a narrowing or a
+reordering, never a change to what a song is judged on.
+
+- **Rule 3 in `verify` (§2.6).** `verify` asks `brief()` for its three verify fields (`forbidden_modal`, `forbidden_incumbent`, `field_computed`) computed by the full brief's own code, and skips only the offer list and its widening. Version 4 described a per-word rule instead. Using the brief's own code is stricter: T8's equality half compares 19 `verify` calls key for key and `reasons` byte for byte against the old full-brief `verify`.
+- **Round history in the cursor (§2.8 A2).** It is stored as it is, not by reference into `outcomes`. It is small, and storing it whole removes one way for a resume to disagree with a replay.
+- **A resume inside the whole-draft repair (§2.0)** starts again at that round's opening. That phase asks one question per attempt and is short, so a finer position buys nothing.
+- **Saved menus (§2.8 A3)** were left out of step 4 and arrive in step 5. A menu is saved whole: the `Brief` or `SlotField` object, encoded attribute by attribute, restored only as a dataclass defined in this harness, and saved only if it decodes equal to itself. It is keyed by the draft it was built on, and only menus on the current draft ride in the cursor.
+- **Where a call may stop (§2.3b).** Every costly reviser call on the deferred path is a step: a grade (`brief` without targets, `inspect`), a verdict (`verify`), and a menu (`brief` with targets, `member_place_field`). The deadline is checked before each one. A cached verdict or menu is not a step. So a stop can fall between two members of a batch or group question, and the next call builds the same question from the menus already saved.
+- **The cost of stopping (§2.3b, B12)** is measured at the call's entry checkpoint, which with a deadline set is also written to the state file and timed. Nothing is estimated and no constant is declared.
+
+### New measurement: an empty menu at 60 lines
+
+One continuation's parts on the 60-line fixture, declared relation, cold, alone on the box:
+re-brief 85.4 s, verify without menus 81.1 s, and the next question's exact menu
+**1,619.6 s, offering 0 words**. A menu that comes back empty first searches the
+whole lexicon (the widening pool). Bounding that search would add a limit the
+owner has not asked for, so it is recorded and not changed. Saved menus mean
+the search is paid once per draft rather than once per call, but one such menu
+still does not fit a 600 s call. This sits beside §2.7's floor.

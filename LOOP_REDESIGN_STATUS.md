@@ -2,35 +2,43 @@
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
 Last update: 2026-10-02. **Phase 3 (build) is under way.** The debate passed,
-and the design is version 4.
+and the design is version 4. Steps 1-4 are built and committed; step 5 is
+written and waiting for its tests to run.
 
 ## Phase 3 progress
 
 | step | what | state |
 |---|---|---|
-| 1 | `verify` stops building offer menus it does not read (§2.6) | **built and tested locally**; long suites not yet run; not pushed |
-| 2 | batch verdicts, option B (§2.2, §2.8 D): `not_applied` dispositions in the harness; `folded` by journal diff in the connector | **built**; tests written, not yet run in full |
-| 3 | group menus (§2.4, §2.8 G) | not started |
-| 4 | the saved position, or cursor (§2.0, §2.8 A-C) | not started |
-| 5 | safe points, exit 5, the stall count (§2.3, §2.8 E) | not started |
+| 1 | `verify` stops building offer menus it does not read (§2.6) | **built, tested** (commit `c2f2c96c`) |
+| 2 | batch verdicts, option B (§2.2, §2.8 D): `not_applied` dispositions in the harness; `folded` by journal diff in the connector | **built, tested** (commit `d31dfbb4`) |
+| 3 | group menus (§2.4, §2.8 G): the one-move menu from `brief()`'s own per-place code | **built, tested** (commit `d31dfbb4`) |
+| 4 | the saved position, or cursor (§2.0, §2.8 A-C), sealed by the connector | **built, tested** (commit `d31dfbb4`) |
+| 5 | safe points and exit 5, saved menus, the no-progress count, the chat carrying a stopped run, the new `lyric_revise` text (§2.3, §2.8 E-F) | **written**; connector half tested; harness half waiting for the long suites to free the source tree |
 
-**Step 1, measured.**
+### Validation of steps 1-4 (run alone, no edits in flight)
 
-- `quality/test_loop_redesign.py` §1 passes all 7 checks on the new code.
-- On the old code it fails 4 of them:
-  - `verify` asks for the full offer;
-  - it runs the whole-lexicon search;
-  - both mutants pass unseen.
-- The equality half compares 19 `verify` calls, including every call a stub-driven loop makes, key for key and `reasons` byte for byte.
-- `revise.py`'s change computes `verify`'s three fields by the full brief's own code and skips only the offer. This is stricter than the per-word rule version 4 describes. `LOOP_REDESIGN.md` will record that.
+| suite | result |
+|---|---|
+| `quality/test_loop_redesign.py` (new, 5 sections) | running |
+| `quality/test_revise.py` | running |
+| `quality/test_loop.py` | **176 pass, 0 fail** (704 s) |
+| `quality/test_production_journal.py` | **20 tests, OK** (25 s) |
+| `quality/test_verbs.py`, `test_replay_memo.py`, the connector suites | running |
 
-**Step 2, checked by hand so far.**
+Earlier runs had one failure each in `test_loop` and `test_revise`. Both came
+from `inspect.getsource` reading files I was editing while the suites ran.
+`test_loop` is clean on stable code; `test_revise` is being rerun.
 
-- On the 4-line AABB reproduction, the connector now renders L4 as `pending: waiting on L1, L2, the question asked now`, not `unknown` / `unverified`.
-- On an 8-line anaphora fixture, accepting L1 closes the finding on L3, L5 and L7. Each gets a `not_applied` row naming L1, in its own list; `outcomes` is untouched.
-- Six connector tests pinned the old `unknown` rows, which is the defect. They are repinned with dated notes that keep the old values visible.
+**What the new tests show, so far:**
 
-## Pre-build measurements: one continuation's parts, declared relation, alone on the box
+- **T8 (`verify` reads no offer):** 7 of 7 pass. On the old code 4 fail. The equality half compares 19 `verify` calls key for key.
+- **T3 (option B):** on AABB, L4 has no record until the call that judges it, and is judged exactly once. On the anaphora fixture, L3, L5 and L7 each get `not_applied`, naming L1. With the pass-by hook and without it, the questions and the result are the same.
+- **T6 (group menus):** the couplet escalation now lists L1's one-move words, and they are exactly `member_place_field`'s.
+- **T1/T2 in-process (resume equals replay):** on four fixtures, every question is byte-identical, with the same draft, stop and round history. Verifies per run with the saved position against replay: AABB 3 against 6, COUPLET 2 against 3, ANAPHORA 4 against 10, LIVE 6 against 21.
+- **T1 through the real verb:** every question, outcome, disposition, stale count and disclosure line is the same resuming and replaying. The resuming arm reports `replayed_answers` 0 on every call.
+- **End to end on AABB through the connector:** `cursor_resumed` true and `replayed_answers` 0 on every later call.
+
+### Pre-build measurements: one continuation's parts, declared relation, alone on the box
 
 | lines | run | re-brief | verify (no menus) | next question's exact menu | total |
 |---|---|---|---|---|---|
@@ -38,12 +46,32 @@ and the design is version 4.
 | 24 | warm | 22.1 s | 23.5 s | 160.5 s | 209.6 s |
 | 104 | cold | 248.5 s | 241.8 s | 230.1 s (20 words) | **724.7 s** |
 | 104 | warm | 225.1 s | 231.7 s | 211.2 s | **672.3 s** |
-| 60 | — | running | | | |
 
 **So with every fix in this design, one 104-line continuation still does not
 fit a 600 s call, cold or warm, even with a declared relation.** That is the
 grader's cost, which stays under M-240 by the owner's ruling (Q7b).
-`LOOP_REDESIGN.md` §2.7 says so.
+`LOOP_REDESIGN.md` §2.7 says so. Step 5's safe-point stop is what lets such a
+continuation finish over two calls instead of being killed every time.
+
+### New finding from the pre-build measurements: the 60-line menu
+
+| lines | run | re-brief | verify (no menus) | next question's exact menu | total |
+|---|---|---|---|---|---|
+| 60 | cold | 85.4 s | 81.1 s | **1,619.6 s (0 words offered)** | **1,789.5 s** |
+
+The 60-line warm run was stopped. A menu that comes back empty first searches
+the whole lexicon (the widening pool), and on this draft that took 27 minutes
+to offer nothing. Bounding that search would add a limit the owner has not
+asked for, so it is **recorded, not changed**. Step 5's saved menus mean the
+search is paid once per draft, not once per call, but one such menu still
+does not fit a 600 s call.
+
+### Where the build departs from design version 4 (to be recorded in `LOOP_REDESIGN.md`)
+
+- **Rule 3 in `verify`** uses the full brief's own code for the three fields it reads, and skips only the offer. That is stricter than the per-word rule version 4 describes.
+- **The round history** is stored in the cursor as it is, not by reference into `outcomes`.
+- **A resume inside the whole-draft repair** starts again at that round's opening.
+- **Saved menus** (§2.8 A3) were left out of step 4 and are added in step 5, where the safe-point stop needs them to build a batch or group question across calls.
 
 ## Debate round 2 (2026-10-02)
 
@@ -93,9 +121,9 @@ The owner answered: *"Q1 B, Q2-Q6 yes, Q7a yes, 7b stays under M-240"*.
 All are recorded in `lyric-harness/quality/LOOP_REDESIGN.md` §6, and each lands
 in the section it names.
 
-## Current phase
+## Phase 2 record (history)
 
-**Phase 2: design and debate.** No production code has changed.
+**Phase 2 was design and debate.** No production code changed in it.
 
 - The design is at **version 2**: `lyric-harness/quality/LOOP_REDESIGN.md`. It takes in every change from the debate's first round, and §5 records the debate.
 - The debate ran 2026-10-02 (Workflow `loop-redesign-debate`, run `wf_57ba5db3-882`): 3 opponents, 1 defender, 2 judges, all read-only and checking against the code.
@@ -123,7 +151,7 @@ in the section it names.
 - that `verify` can skip its unread offer menus with rule 3 kept exactly;
 - that the safe-point stop adds no cap.
 
-## After the owner answers
+## What followed the owner's answers (history)
 
 1. Version 3 of the design records the answers.
 2. A second, shorter debate round checks version 3 against the code.
