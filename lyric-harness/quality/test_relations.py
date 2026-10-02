@@ -3442,6 +3442,35 @@ def test_a_remembered_reading_answer_is_the_computed_one():
     check("a different draft is not answered from the memo",
           n_other > 0 or not any(w3.undecided.values()),
           f"{n_other} resolution(s) on the changed draft")
+    # A lexicon whose readings change without its declaration changing must
+    # not be answered from the memo: `test_g2p.py` §9 patches
+    # `Lexicon.transcribe_word` to read the sonnets' unread words, and the
+    # declared key alone served its fallback arm the no-fallback answers.
+    import lyric_harness as lh
+    oov = ("i read the qzzxv letter by the window",) + lines[1:]
+    RT._WVP_MEMO.clear()
+    plain_key = RT.whole_vocabulary_pairs(oov, phon,
+                                          requested_pairs=every
+                                          )._full_resolve_key()
+    orig = lh.Lexicon.transcribe_word
+
+    def patched(self, word):
+        if word.lower() == "qzzxv":
+            return (["K", "W", "IH1", "Z"], False)
+        return orig(self, word)
+    lh.Lexicon.transcribe_word = patched
+    try:
+        RT._WVP_MEMO.clear()
+        patched_key = RT.whole_vocabulary_pairs(oov, phon,
+                                                requested_pairs=every
+                                                )._full_resolve_key()
+    finally:
+        lh.Lexicon.transcribe_word = orig
+    check("a lexicon that reads a word differently, under the same "
+          "declaration, keys a different memo entry",
+          plain_key is not None and patched_key is not None
+          and plain_key[0] == patched_key[0] and plain_key != patched_key,
+          f"declared keys equal: {plain_key[0] == patched_key[0]}")
     RT._WVP_MEMO.clear()
     RT._RESOLVE_MEMO.clear()
 

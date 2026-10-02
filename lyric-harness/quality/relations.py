@@ -7057,11 +7057,26 @@ _WVP_MEMO = {}
 _WVP_MEMO_CAP = 32
 
 #: THE ANY-READING RULE's answers, (stream key, pair, schema) -> (verdict,
-#: witness). The stream key is `_wvp_key` with no pair restriction: the
-#: resolution stream is built from exactly those coordinates, so a hit is the
-#: answer the same call would compute. Bounded FIFO, like `_WVP_MEMO`.
+#: witness). The stream key is `_wvp_key` with no pair restriction PLUS
+#: `_stream_digest` of the stream that call built: the declared coordinates
+#: alone missed a lexicon patched in-process (`test_g2p.py` §9's fallback
+#: arm was answered from its no-fallback arm), so the key also carries what
+#: was actually read. Bounded FIFO, like `_WVP_MEMO`.
 _RESOLVE_MEMO = {}
 _RESOLVE_MEMO_CAP = 20000
+
+
+def _stream_digest(stream):
+    """-> a digest of what `stream` read: every unit (its syllable's
+    channels and its coordinates), the unread tokens, the token lists, and
+    the identity of the lexicon the cause tokens' readings come from."""
+    h = hashlib.sha1()
+    h.update(repr(tuple(stream.text_lines)).encode())
+    h.update(repr(stream.units).encode())
+    h.update(repr(stream.unreadable).encode())
+    h.update(repr(stream.lexical_tokens).encode())
+    h.update(repr(id(_stream_lexicon(stream))).encode())
+    return h.hexdigest()
 
 
 def _wvp_key(text_lines, phon, sections, bearing, requested_pairs=None,
@@ -7093,6 +7108,21 @@ class VocabularyPairResults(dict):
         self.lines = {k: list(v) for k, v in dict(lines or {}).items()}
         self._resolve_ctx = None
         self._resolve_key = None
+        self._resolve_full = None
+
+    def _full_resolve_key(self):
+        """-> the memo key for this call's resolutions, or None. The
+        declared coordinates PLUS a digest of what the stream actually read
+        (`_stream_digest`): a lexicon whose readings change without its
+        declaration changing (a patched transcriber, an undeclared fallback)
+        builds a different stream and so misses the memo rather than being
+        answered for another lexicon."""
+        if self._resolve_key is None or self._resolve_ctx is None:
+            return None
+        if self._resolve_full is None:
+            stream, _build = self._resolve_ctx()
+            self._resolve_full = (self._resolve_key, _stream_digest(stream))
+        return self._resolve_full
 
     def resolve_readings(self, pair, names, first_only=False):
         """THE ANY-READING RULE over this call's undecided schemas for one
@@ -7113,9 +7143,9 @@ class VocabularyPairResults(dict):
         if self._resolve_ctx is None:
             return {}, list(names)
         satisfied, still = {}, []
+        full = self._full_resolve_key()
         for name in names:
-            key = ((self._resolve_key, pair, name)
-                   if self._resolve_key is not None else None)
+            key = (full, pair, name) if full is not None else None
             hit = _RESOLVE_MEMO.get(key) if key is not None else None
             if hit is None:
                 stream, build = self._resolve_ctx()
