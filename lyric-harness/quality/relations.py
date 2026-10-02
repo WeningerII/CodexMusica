@@ -8927,7 +8927,9 @@ def line_pairs_for(schema, stream, keep_refusal=True, requested_pairs=None,
     if isinstance(out, Refusal):
         return out if keep_refusal else frozenset()
     if edge_slot is not None:
-        out = _edge_memo_merge(edge_slot["edges"], stream, sigs, out, reuse)
+        out = _edge_memo_merge(edge_slot["edges"], stream, sigs, out, reuse,
+                               rebuilt=edge_slot.setdefault(
+                                   "rebuilt", collections.OrderedDict()))
     if not pair_local:
         assemblies = assemble(schema, out, stream)
         if isinstance(assemblies, Refusal):
@@ -9097,7 +9099,7 @@ def pair_memo_clear():
 _EDGE_MEMO_TALLY = {"hit": 0, "miss": 0}
 
 
-def _edge_memo_merge(edges, stream, sigs, fresh, reuse):
+def _edge_memo_merge(edges, stream, sigs, fresh, reuse, rebuilt=None):
     """-> `fresh` plus every remembered edge of the `reuse` pairs, rebuilt
     on this stream; records each cross-line pair this call evaluated.
 
@@ -9105,6 +9107,12 @@ def _edge_memo_merge(edges, stream, sigs, fresh, reuse):
     an unchanged line pair is served even where an edited earlier line has
     shifted every later unit index. Same-line edges and edges whose line
     cannot be read are never memoised: `realise` evaluates them every call.
+
+    `rebuilt`, when given, keeps each pair's rebuilt edges per LAYOUT -- the
+    unit indices of the lines its spans sit on -- because the rebuild is a
+    function of the remembered edges and those indices alone. A trial grade
+    changes one line, so a later pair sees the same few shifts candidate
+    after candidate and is served instead of re-indexing every instance.
     """
     pos = {u: (li, k) for li, ids in enumerate(stream.lines)
            for k, u in enumerate(ids)}
@@ -9131,14 +9139,36 @@ def _edge_memo_merge(edges, stream, sigs, fresh, reuse):
     while len(edges) > PAIR_MEMO_CAP:
         edges.popitem(last=False)
     out = list(fresh)
-    for recs in reuse.values():
+    for (i, j), recs in reuse.items():
+        ek = (i, j, sigs[i], sigs[j])
+        lay = None
+        if rebuilt is not None:
+            # The lines the remembered spans sit on follow from the key's
+            # two lines (the memo's own premise), so they are read once.
+            ref = rebuilt.get(("lines", ek))
+            if ref is None:
+                ref = tuple(sorted({li for _, ra, rb in recs
+                                    for li, _ in ra + rb}))
+                rebuilt[("lines", ek)] = ref
+            lay = (ek, tuple(tuple(stream.lines[li]) for li in ref))
+            got = rebuilt.get(lay)
+            if got is not None:
+                rebuilt.move_to_end(lay)
+                out.extend(got)
+                continue
+        got = []
         for inst, rel_a, rel_b in recs:
             ia = tuple(stream.lines[li][k] for li, k in rel_a)
             ib = tuple(stream.lines[li][k] for li, k in rel_b)
             if ia != inst.a.idx or ib != inst.b.idx:
                 inst = replace(inst, a=replace(inst.a, idx=ia),
                                b=replace(inst.b, idx=ib))
-            out.append(inst)
+            got.append(inst)
+        out.extend(got)
+        if lay is not None:
+            rebuilt[lay] = tuple(got)
+            while len(rebuilt) > 4 * PAIR_MEMO_CAP:
+                rebuilt.popitem(last=False)
     return out
 
 
