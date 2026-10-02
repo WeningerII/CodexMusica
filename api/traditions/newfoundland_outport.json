@@ -5,7 +5,7 @@
   "lineage": "Newfoundland and Labrador outport fishing-community song heritage of Irish, West Country English, and Scottish settler-fishing-family origin — preserved across the 17th-21st centuries in the small isolated coastal-settlement (outport) communities along the Newfoundland coastline; standard ensemble: fiddle (the dominant melodic instrument, played in the distinctive Newfoundland style combining Irish ornamentation with Cape Breton bowing), accordion or button accordion, sometimes mandolin or guitar — 20th-century preservation through Émile Benoit, Rufus Guinchard, Wilf Doyle, Minnie White, the modern Great Big Sea folk-rock crossover, the Newfoundland and Labrador Folklore and Language Archive fieldwork collection",
   "recipe": "classic North American early-1940s newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival dark folk. thick, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base drone like fiddle, dadgad tuning cedar walnut phosphor bronze bronze acoustic guitar. newfoundland outport kitchen party. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 524,
-  "score": 200.795,
+  "score": 201.131,
   "config": {
     "traditions": [
       "newfoundland_outport",
@@ -38,17 +38,17 @@
           "voice_quality": 14.689999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.8965,
+          "voice_vibrato": 3.8908750000000003,
           "voice_articulation": 13.519999999999992,
           "voice_microtone": 15.20999999999999,
-          "voice_tradition": 15.949625,
+          "voice_tradition": 16.009625,
           "voice_mechanism_compound": 4.419999999999999,
           "voice_estill_quality": 6.5,
           "voice_speech_song": 18.459999999999994,
           "voice_ensemble_config": 14.494999999999994,
           "voice_ornament_system": 12.311499999999999,
-          "voice_pitch_organization": 0.8114999999999998,
-          "voice_processing_chain": 1.92625,
+          "voice_pitch_organization": 0.9558749999999998,
+          "voice_processing_chain": 1.920625,
           "voice_multitrack_stack": 3.1200000000000006
         }
       },
@@ -58,16 +58,16 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
-          "reed_config": "lmmm",
+          "reed_config": "lm_only",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 11.54,
+          "free_reed_technique": 11.534375,
           "accordion_reed_material": 1.04,
           "musette_offset": 0.585,
-          "reed_config": 0.203625,
+          "reed_config": 0.195,
           "bellows": 0.585,
           "voicing_chamber": 0.35812499999999997,
           "accordion_maker_school": 3.3149999999999995
@@ -85,10 +85,10 @@
         },
         "scores": {
           "bowed_technique": 6.819999999999999,
-          "fiddle_strings": 0.550625,
-          "fiddle_bow": 1.050625,
+          "fiddle_strings": 0.59,
+          "fiddle_bow": 1.09,
           "fiddle_mute": 0.195,
-          "fiddle_articulation": 1.445875,
+          "fiddle_articulation": 1.44025,
           "fiddle_string_configuration": 0
         }
       },
@@ -102,11 +102,11 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "string_tuning": 15.633125000000001,
+          "string_tuning": 15.678125000000001,
           "top_wood": 1.04,
           "back_sides": 1.04,
           "string_acoustic": 1.04,
-          "acoustic_om_technique": 18.30275
+          "acoustic_om_technique": 18.342125
         }
       }
     ],

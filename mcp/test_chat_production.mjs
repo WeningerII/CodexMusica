@@ -1371,10 +1371,18 @@ test('a recipe turn the step limit ends reaches the page as the recipe it reache
     assert.equal(p.reply, p.recipe);
     assert.ok(p.recipe.length > 0 && p.recipe.length <= 1000);
     assert.notEqual(p.reply, 'No customized Rich recipe has been produced yet.');
+    // Catalog additions can change tied search hits; the finish must use the
+    // highest-scored tradition actually returned, preserving result order on ties.
+    const search = bodies[1].contents
+      .flatMap((c) => c.parts)
+      .find((part) => part.functionResponse?.name === 'search_catalog')?.functionResponse.response;
+    const hits = search?.items?.filter((item) => item.type === 'tradition') ?? [];
+    assert.ok(hits.length > 0, 'the executed search returned traditions to seed');
+    const best = hits.reduce((first, hit) => (hit.matched > first.matched ? hit : first));
     assert.deepEqual(p.stopped_detail.finish, {
       by: 'server',
       action: 'seed',
-      tradition: 'delta_blues',
+      tradition: best.id,
       applied: false,
       customized: false,
     });
@@ -1392,6 +1400,7 @@ test('a recipe turn the step limit ends reaches the page as the recipe it reache
     );
     assert.ok(Array.isArray(p.cards) && p.cards.length > 0);
     assert.ok(Array.isArray(p.workspace?.cards) && p.workspace.cards.length > 0);
+    assert.ok(p.workspace.cards.every((card) => card.traditionId === best.id));
     assert.equal(p.task.customized, false);
 
     // The signed envelope carries the seeded workspace: the next message edits it.

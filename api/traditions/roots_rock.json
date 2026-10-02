@@ -3,14 +3,14 @@
   "name": "Roots Rock",
   "family": "rock",
   "lineage": "Late-1960s American reaction against psychedelia, formed around Woodstock and the Bay Area with The Band's Music from Big Pink (1968), Creedence Clearwater Revival and Bob Dylan's John Wesley Harding — moderate 90-120 BPM backbeats, unaffected guitar tones, piano and Hammond organ, gospel-derived group harmony and country, blues and R&B forms recorded with minimal overdubbing.",
-  "recipe": "classic Southern American 1967-1969 roots rock, distorted Rock, classic branch, country rock country, blues electric functional song modern country rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric open e tuning steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs fast tremolo tonewheel organ, upright piano, bowl back Italian hard rock maple k and k twin internal mounted acoustic faithful mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 999,
-  "score": 641.477,
+  "recipe": "classic Southern American 1967-1969 roots rock, distorted Rock, classic branch, country rock country, blues electric functional song. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric open e tuning steel silk travis picked dreadnought acoustic guitar, Fender tweed amp American 50s amp tweed breakup ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs fast tremolo tonewheel organ, upright piano, bowl back Italian hard rock maple parallel tone bars loar graduation k and k twin mandolin. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 979,
+  "score": 621.782,
   "config": {
     "traditions": [
       "roots_rock",
       "country_rock",
-      "modern_country_rock"
+      "rez_country"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 68.97,
-          "voice_quality": 9.425,
+          "voice_register": 65.72,
+          "voice_quality": 10.529999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 30.809999999999995,
-          "voice_articulation": 14.169999999999993,
-          "voice_microtone": 31.45,
+          "voice_vibrato": 30.764999999999997,
+          "voice_articulation": 14.884999999999994,
+          "voice_microtone": 29.5,
           "voice_tradition": 8.71,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 28.434999999999995,
-          "voice_speech_song": 19.369999999999994,
-          "voice_ensemble_config": 14.494999999999994,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 27.979999999999997,
+          "voice_speech_song": 20.734999999999992,
+          "voice_ensemble_config": 15.209999999999994,
           "voice_ornament_system": 0.5849999999999997,
-          "voice_pitch_organization": 0.195,
-          "voice_processing_chain": 7.080000000000001,
-          "voice_multitrack_stack": 4.3500000000000005
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 6.175,
+          "voice_multitrack_stack": 4.260000000000001
         }
       },
       {
@@ -57,7 +57,7 @@
         "slots": {
           "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
+          "body_wood": "swamp_ash",
           "neck_wood": "roasted_maple",
           "fretboard": "maple_fb",
           "pickup_magnet": "alnico_2",
@@ -70,18 +70,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 23.754999999999995,
-          "amp_make": 28.054999999999996,
-          "body_wood": 0.28500000000000003,
+          "electric_technique": 23.709999999999997,
+          "amp_make": 27.709999999999997,
+          "body_wood": 0.195,
           "neck_wood": 0.3,
           "fretboard": 0.045,
           "pickup_magnet": 0.045,
           "string_material": 0.78,
-          "string_gauge": 0.845,
+          "string_gauge": 0.65,
           "bridge": 0.045,
           "scale_length": 0.65,
           "finish": 0.045,
-          "string_tuning": 19.240000000000002,
+          "string_tuning": 17.94,
           "single_coil_pickup_construction": 0
         }
       },
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 27.534999999999997,
-          "body_wood": 0.57,
+          "amp_make": 27.384999999999998,
+          "body_wood": 0.26999999999999996,
           "pickup_config": 0,
-          "string_type": 32.24,
+          "string_type": 30.009999999999998,
           "scale_length_b": 0.65,
           "fretted_or_not": 0.09,
-          "bass_technique": 30.135,
+          "bass_technique": 27.635,
           "electric_bass_string_configuration": 0
         }
       },
@@ -116,8 +116,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 29.945,
-          "drumhead": 2.5,
+          "drum_technique": 27.445,
+          "drumhead": 1.25,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -132,12 +132,12 @@
           "leslie_cabinet_model": "leslie_122_canonical"
         },
         "scores": {
-          "keyboard_technique": 4.355,
-          "drawbar_setting": 30.185000000000002,
-          "rotary_speed": 34.14,
-          "percussion_setting": 14.195,
-          "tonewheel_model": 18.655,
-          "leslie_cabinet_model": 1.445
+          "keyboard_technique": 3.95,
+          "drawbar_setting": 27.685000000000002,
+          "rotary_speed": 31.64,
+          "percussion_setting": 13.465,
+          "tonewheel_model": 17.369999999999997,
+          "leslie_cabinet_model": 1.295
         }
       },
       {
@@ -149,7 +149,7 @@
         },
         "scores": {
           "keyboard_technique": 23.449999999999996,
-          "upright_use": 0.28500000000000003,
+          "upright_use": 0.135,
           "upright_piano_size": 1.4300000000000002
         }
       },
@@ -164,7 +164,7 @@
         },
         "scores": {
           "acoustic_technique": 25.499999999999996,
-          "string_tuning": 6.714999999999999,
+          "string_tuning": 6.759999999999999,
           "top_wood": 0.3,
           "back_sides": 0.3,
           "string_acoustic": 1.4300000000000002
@@ -186,11 +186,11 @@
           "acoustic_technique": 2.5100000000000002,
           "mandolin_shape": 1.235,
           "mandolin_top": 0.57,
-          "mandolin_back": 14.24,
-          "mandolin_bracing": 0.46499999999999997,
+          "mandolin_back": 13.51,
+          "mandolin_bracing": 1.115,
           "mandolin_strings": 0.78,
           "mandolin_fingerboard": 0.045,
-          "mandolin_pickup": 15.534999999999997
+          "mandolin_pickup": 16.249999999999996
         }
       }
     ],

@@ -3,24 +3,24 @@
   "name": "Caucasian Folk Music (Regional Composite)",
   "family": "global",
   "lineage": "Regional composite of the mountain traditions between the Black and Caspian seas, recorded ethnographically from wax cylinder in the 1900s through Melodiya's Soviet republic series, characterized by drone-anchored vocal polyphony in Georgia, narrow-range modal solo song and lament in Armenia and Dagestan, double-reed and accordion dance music in fast 6/8 at 130-180 BPM, and heterophonic plucked and bowed accompaniment on panduri, tar and kamancha with frame and cylinder drums.",
-  "recipe": "classic mid-1900s caucasian folk music, field Work, Slavic balkan branch, vocal drone modal, middle eastern wedding alpine yodeling canto a tenore. vocal fry, breath veiled tone, slow rate, interlocked note trading. apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, canonical 20th century armenian drone like circular breathing duduk, three string bright panduri, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio kamancha, dhol, brass castagnari Italian premium folk music drone like accordion, a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 843,
-  "score": 272.335,
+  "recipe": "classic mid-1900s caucasian folk music, field Work, Slavic balkan branch, vocal drone modal, middle eastern wedding ukrainian folk alpine yodeling. thick, breath veiled tone, fast rate, interlocked note trading. apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, canonical 20th century armenian drone like circular breathing duduk, three string bright panduri, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio kamancha, dhol, castagnari Italian premium folk music straight accordion, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 801,
+  "score": 267.083,
   "config": {
     "traditions": [
       "caucasian_folk",
-      "alpine_yodeling",
-      "canto_a_tenore"
+      "ukrainian_folk",
+      "alpine_yodeling"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.8100000000000005,
-          "voice_quality": 12.414999999999992,
+          "voice_register": 6.34,
+          "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.2749999999999995,
-          "voice_articulation": 24.017500000000002,
-          "voice_microtone": 29.769999999999996,
-          "voice_tradition": 22.945000000000004,
-          "voice_mechanism_compound": 6.76,
-          "voice_estill_quality": 5.46,
-          "voice_speech_song": 25.09,
-          "voice_ensemble_config": 26.4225,
+          "voice_vibrato": 2.045,
+          "voice_articulation": 22.685,
+          "voice_microtone": 29.315,
+          "voice_tradition": 22.067499999999995,
+          "voice_mechanism_compound": 6.305,
+          "voice_estill_quality": 5.005,
+          "voice_speech_song": 25.740000000000002,
+          "voice_ensemble_config": 23.854999999999997,
           "voice_ornament_system": 1.1449999999999998,
-          "voice_pitch_organization": 10.660000000000002,
-          "voice_processing_chain": 4.680000000000001,
-          "voice_multitrack_stack": 5.005
+          "voice_pitch_organization": 9.555,
+          "voice_processing_chain": 5.525,
+          "voice_multitrack_stack": 5.85
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "wind_articulation": "wind_ornament_heavy",
           "zurna_size": "zurna_kaba",
-          "zurna_context": "zurna_sufi",
+          "zurna_context": "zurna_mehter",
           "zurna_body_wood": "zurna_apricot_canonical",
           "zurna_reed": "zurna_arundo_canonical"
         },
         "scores": {
-          "wind_articulation": -9.714451465470119e-18,
-          "zurna_size": 2.9899999999999998,
-          "zurna_context": 0.36,
+          "wind_articulation": -0.10500000000000001,
+          "zurna_size": 3.805,
+          "zurna_context": 0.78,
           "zurna_body_wood": 1.2149999999999996,
           "zurna_reed": 1.2149999999999996
         }
@@ -80,8 +80,8 @@
           "duduk_lineage": "duduk_djivan_gasparyan"
         },
         "scores": {
-          "wind_articulation": 5.3950000000000005,
-          "duduk_use": 4.8100000000000005,
+          "wind_articulation": 4.94,
+          "duduk_use": 5.654999999999999,
           "duduk_pitch": 1.69,
           "duduk_body_wood": 0.78,
           "duduk_reed": 0.78,
@@ -96,7 +96,7 @@
           "panduri_strings": "panduri_metal"
         },
         "scores": {
-          "panduri_form": 4.68,
+          "panduri_form": 4.484999999999999,
           "panduri_repertoire": 1.95,
           "panduri_strings": 2.545
         }
@@ -107,32 +107,32 @@
           "bowed_technique": "bowed_legato_classical",
           "kamancha_body": "kamancha_walnut_skin_canonical",
           "kamancha_string": "kamancha_four_silk_or_metal",
-          "kamancha_tradition": "kamancha_central_asian_ghijak"
+          "kamancha_tradition": "kamancha_garabagh_school"
         },
         "scores": {
           "bowed_technique": -0.035,
           "kamancha_body": 1.3,
-          "kamancha_string": 2.08,
-          "kamancha_tradition": 0.65
+          "kamancha_string": 2.34,
+          "kamancha_tradition": 0.39
         }
       },
       {
         "id": "dhol",
         "slots": {
           "dhol_form": "dhol_bihu",
-          "dhol_repertoire": "dhol_bhangra_chaal",
+          "dhol_repertoire": "dhol_baraat",
           "dhol_shell": "dhol_mango"
         },
         "scores": {
-          "dhol_form": 22.295,
-          "dhol_repertoire": 2.09,
+          "dhol_form": 23.14,
+          "dhol_repertoire": 1.9999999999999998,
           "dhol_shell": -0.035
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_drone_under",
+          "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "brass_reeds",
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
@@ -141,28 +141,28 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 5.330000000000001,
-          "accordion_reed_material": 1.105,
-          "musette_offset": 1.105,
+          "free_reed_technique": 5.44,
+          "accordion_reed_material": 0.45499999999999996,
+          "musette_offset": 0.45499999999999996,
           "reed_config": 0.51,
           "bellows": 0.42000000000000004,
           "voicing_chamber": 0.7,
-          "accordion_maker_school": 4.29
+          "accordion_maker_school": 5.135
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
           "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 6.305000000000001,
-          "choir_polyphonic_configuration": 5.46,
-          "choir_regional_canonical_configuration": 7.15,
-          "choir_ensemble_repertoire": 1.95
+          "choir_size": 5.07,
+          "choir_polyphonic_configuration": 5.654999999999999,
+          "choir_regional_canonical_configuration": 6.5,
+          "choir_ensemble_repertoire": 2.145
         }
       }
     ],

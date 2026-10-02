@@ -3,14 +3,14 @@
   "name": "Chabad-Lubavitch niggunim",
   "family": "global",
   "lineage": "Wordless devotional melody repertoire of the Chabad Hasidic movement, formed in Belarusian Lyubavichi from the early 19th century and codified in the printed Sefer HaNigunim under the sixth and seventh Rebbes from 1948 — melodies attributed to specific Rebbes, sung communally at farbrengen gatherings in slow rubato dveykus meditation form building through fixed repeated sections into fast duple rikud dance versions, on syllables like 'ai-ai-ai' and 'bim-bam', with table-banging and clapping the only percussion.",
-  "recipe": "classic Eastern European late-1940s chabad-lubavitch niggunim, ritual Devotional, Jewish branch, vocal drone modal cante alentejano alpine yodeling. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, snappy to palm hand clap, foot stomp, drone like fiddle. eastern european chassidic farbrengen. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 552,
-  "score": 180.53,
+  "recipe": "classic Eastern European late-1940s chabad-lubavitch niggunim, ritual Devotional, Jewish branch, vocal drone modal cante alentejano ukrainian folk. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble, snappy to palm hand clap, foot stomp, magic rosin modern acrylic base drone like fiddle. eastern european chassidic farbrengen. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 583,
+  "score": 152.885,
   "config": {
     "traditions": [
       "chabad_niggunim",
       "cante_alentejano",
-      "alpine_yodeling"
+      "ukrainian_folk"
     ],
     "instruments": [
       {
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 3.5100000000000002,
-          "voice_quality": 13.909999999999993,
+          "voice_register": 3.7049999999999996,
+          "voice_quality": 10.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.265000000000001,
-          "voice_articulation": 18.459999999999994,
-          "voice_microtone": 20.14999999999999,
-          "voice_tradition": 11.049999999999995,
-          "voice_mechanism_compound": 6.5,
-          "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 20.474999999999994,
-          "voice_ensemble_config": 17.549999999999997,
+          "voice_vibrato": 3.7700000000000005,
+          "voice_articulation": 14.689999999999994,
+          "voice_microtone": 15.92499999999999,
+          "voice_tradition": 12.317499999999999,
+          "voice_mechanism_compound": 6.045,
+          "voice_estill_quality": 2.8925000000000005,
+          "voice_speech_song": 16.639999999999993,
+          "voice_ensemble_config": 12.934999999999995,
           "voice_ornament_system": 6.15,
-          "voice_pitch_organization": 6.5649999999999995,
-          "voice_processing_chain": 5.265000000000002,
-          "voice_multitrack_stack": 4.095
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 4.615000000000002,
+          "voice_multitrack_stack": 4.289999999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 7.41,
-          "choir_polyphonic_configuration": 6.695,
-          "choir_regional_canonical_configuration": 5.654999999999999,
-          "choir_ensemble_repertoire": 5.720000000000001
+          "choir_size": 6.11,
+          "choir_polyphonic_configuration": 6.240000000000001,
+          "choir_regional_canonical_configuration": 3.705,
+          "choir_ensemble_repertoire": 4.42
         }
       },
       {
@@ -74,7 +74,7 @@
           "clap_capture": "clap_room_natural"
         },
         "scores": {
-          "clap_technique": 2.34,
+          "clap_technique": 1.69,
           "clap_capture": 0.6950000000000001
         }
       },
@@ -94,17 +94,17 @@
         "slots": {
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
-          "fiddle_bow": "dark_rosin",
+          "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco",
           "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
         },
         "scores": {
-          "bowed_technique": 4.485,
-          "fiddle_strings": 0.495,
-          "fiddle_bow": 0.45499999999999996,
-          "fiddle_mute": 0.45499999999999996,
-          "fiddle_articulation": 1.105,
+          "bowed_technique": 6.2075000000000005,
+          "fiddle_strings": 0.845,
+          "fiddle_bow": 2.1125,
+          "fiddle_mute": 1.3,
+          "fiddle_articulation": 0.9099999999999999,
           "fiddle_string_configuration": 0
         }
       }

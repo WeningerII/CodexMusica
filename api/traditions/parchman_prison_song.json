@@ -3,14 +3,14 @@
   "name": "Parchman prison work song",
   "family": "global",
   "lineage": "Mississippi State Penitentiary (Parchman Farm) Black prison-labor work-song tradition documented by John A. Lomax and Alan Lomax for the Library of Congress in their 1933-onward Southern field recordings — captured the antiphonal call-and-response work-song tradition (the lead-singer call answered by the gang chorus, synchronized to the axe-stroke or hoe-stroke timing) that preserved African polyrhythmic vocal practice in the most brutal post-Reconstruction prison-labor context; figures Leadbelly (Huddie Ledbetter, recorded at Angola Louisiana State Penitentiary 1933 by John Lomax), the broader Parchman prison-farm corpus continuing through Alan Lomaxs 1959 and 1968 return recordings",
-  "recipe": "classic Midwestern American modern parchman prison work song, ballad Poetry, prison song branch, christian gospel black gospel contemporary urban gospel. thick, breath veiled tone, wide pitch sway, leader call answered. a cappella small 3 to 8 one per part antiphonal double choir alternating sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 491,
-  "score": 234.334,
+  "recipe": "classic Midwestern American modern parchman prison work song, ballad Poetry, prison song branch, christian gospel black gospel gospel singers. thick, breath veiled tone, wide pitch sway, leader call answered. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 487,
+  "score": 231.12,
   "config": {
     "traditions": [
       "parchman_prison_song",
-      "black_gospel_choir",
-      "contemporary_urban_gospel"
+      "gospel_singers",
+      "black_gospel_choir"
     ],
     "instruments": [
       {
@@ -29,42 +29,42 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 30.975749999999998,
+          "voice_register": 29.725750000000005,
           "voice_quality": 10.659999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.825,
-          "voice_articulation": 32.24337500000001,
-          "voice_microtone": 16.309499999999993,
-          "voice_tradition": 34.4095,
-          "voice_mechanism_compound": 2.6649999999999996,
-          "voice_estill_quality": 22.725,
-          "voice_speech_song": 23.937749999999994,
-          "voice_ensemble_config": 23.074625,
+          "voice_articulation": 31.868375000000004,
+          "voice_microtone": 15.699499999999995,
+          "voice_tradition": 33.80450000000001,
+          "voice_mechanism_compound": 1.8200000000000003,
+          "voice_estill_quality": 21.475,
+          "voice_speech_song": 24.277749999999997,
+          "voice_ensemble_config": 22.699625000000005,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 5.543749999999999,
-          "voice_multitrack_stack": 4.355
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 6.19375,
+          "voice_multitrack_stack": 4.273750000000001
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_antiphonal_double_choir",
+          "choir_polyphonic_configuration": "choir_polyphony_call_response_leader_group",
           "choir_regional_canonical_configuration": "choir_regional_sub_saharan_call_response_ostinato",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 5.384,
-          "choir_polyphonic_configuration": 5.029999999999999,
+          "choir_size": 6.228999999999998,
+          "choir_polyphonic_configuration": 5.003624999999999,
           "choir_regional_canonical_configuration": 5.029,
-          "choir_ensemble_repertoire": 4.267125
+          "choir_ensemble_repertoire": 2.9899999999999998
         }
       }
     ],

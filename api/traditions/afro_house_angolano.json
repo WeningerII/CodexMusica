@@ -3,14 +3,14 @@
   "name": "Afro house angolano",
   "family": "electronic",
   "lineage": "Angolan house practice centered in Luanda, connecting programmed house tracks with the local semba/kuduro listening and production environment. Firsthand reporting documents software beatmaking and an Angolan rhythmic identity; the selected model leaves particular traditional acoustic instruments optional.",
-  "recipe": "classic modern afro house angolano, electronic Dance, house branch, African dance electronic dance, Afro-diasporic electric groove percussion afrofuturismo brasileiro coupé-décalé. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 429,
-  "score": 40.36,
+  "recipe": "classic modern afro house angolano, electronic Dance, house branch, African dance electronic dance, Afro-diasporic electric groove percussion coupé-décalé afrobeat fusion. sampler drum machine, analog synth, sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 420,
+  "score": 34.575,
   "config": {
     "traditions": [
       "afro_house_angolano",
-      "afrofuturismo_brasileiro",
-      "coupe_decale_ivorian"
+      "coupe_decale_ivorian",
+      "afrobeat_fusion"
     ],
     "instruments": [
       {
@@ -22,8 +22,8 @@
           "sample_processing": "one_shots_layered"
         },
         "scores": {
-          "electronic_technique": 0.9099999999999999,
-          "sample_bitdepth": 0,
+          "electronic_technique": 0.26,
+          "sample_bitdepth": 0.15,
           "sample_swing": -0.05,
           "sample_processing": 0.15
         }
@@ -38,8 +38,8 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 2.7300000000000004,
-          "oscillator": 2.925,
+          "electronic_technique": 1.2349999999999997,
+          "oscillator": 1.4299999999999997,
           "filter_topology": 0.15,
           "envelope": 1.3,
           "modulation": 0.315
@@ -55,11 +55,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 0.9099999999999999,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0,
+          "electronic_technique": 0.26,
+          "sampler_archetypes": 0.375,
+          "sampler_bit_depth": 0.15,
           "sampler_workflow": -0.1,
-          "sampler_classic_context": 29.119999999999997
+          "sampler_classic_context": 27.299999999999997
         }
       }
     ],

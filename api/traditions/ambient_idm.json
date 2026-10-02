@@ -3,14 +3,14 @@
   "name": "Ambient IDM",
   "family": "electronic",
   "lineage": "The atmospheric, lower-intensity branch of listening-oriented IDM, represented here by Arovane’s Tides (2000): intricate sample-built rhythm, environmental recordings and edited guitar fragments arranged around quiet melodic space. Later Arovane/Porya Hatami collaborations extend the electronics/environmental-sound intersection. This is a selected calm, broken-beat branch rather than all IDM or all Arovane releases.",
-  "recipe": "classic early-2000s ambient idm, experimental Elec, idm glitch branch, ambient experimental electric, musique concrete experimental electric ambient synth ambient psychill. glitched textural sampler, pad like pad analog synth, single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 401,
-  "score": 88.897,
+  "recipe": "classic early-2000s ambient idm, experimental Elec, idm glitch branch, ambient experimental electric, musique concrete experimental electric ambient synth abstractro. glitched textural sampler, pad like pad analog synth, single coil electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 395,
+  "score": 83.193,
   "config": {
     "traditions": [
       "ambient_idm",
       "ambient_synth",
-      "ambient_psychill"
+      "abstractro"
     ],
     "instruments": [
       {
@@ -23,11 +23,11 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 28.74,
-          "sampler_archetypes": -0.05,
-          "sampler_bit_depth": 0.39,
-          "sampler_workflow": 28.5,
-          "sampler_classic_context": 1.4949999999999999
+          "electronic_technique": 26.615,
+          "sampler_archetypes": 1.25,
+          "sampler_bit_depth": 0.585,
+          "sampler_workflow": 26.375,
+          "sampler_classic_context": 2.34
         }
       },
       {
@@ -40,10 +40,10 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 16.784999999999997,
+          "electronic_technique": 14.034999999999998,
           "oscillator": 0.845,
           "filter_topology": 0.54375,
-          "envelope": 8.839999999999998,
+          "envelope": 7.409999999999999,
           "modulation": 0
         }
       },
@@ -51,7 +51,7 @@
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_arpeggiated_clean",
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_roland_jc120",
           "body_wood": "alder",
           "neck_wood": "maple",
           "fretboard": "rosewood_fb",
@@ -66,17 +66,17 @@
         },
         "scores": {
           "electric_technique": 0.34875,
-          "amp_make": 1.1049999999999998,
+          "amp_make": 0.7624999999999998,
           "body_wood": 0.045,
           "neck_wood": 0.39,
           "fretboard": -0.035,
           "pickup_magnet": 0.045,
           "string_material": 0,
-          "string_gauge": 0,
+          "string_gauge": 0.5,
           "bridge": 0.09,
           "scale_length": 0,
-          "finish": 0.195,
-          "string_tuning": 0,
+          "finish": 0.04821428571428571,
+          "string_tuning": 0.15,
           "single_coil_pickup_construction": 0
         }
       }

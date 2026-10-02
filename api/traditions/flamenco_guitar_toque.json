@@ -5,12 +5,11 @@
   "lineage": "Andalusian solo guitar practice (toque) that separated from song accompaniment in Seville, Jerez and Madrid cafés cantantes around 1900 and was codified by Ramón Montoya, Niño Ricardo and Sabicas before Paco de Lucía's 1970s rearmament — cypress or rosewood nylon-string guitar with low action and golpeador, played rasgueado, picado, alzapúa and tremolo over the twelve-beat compás of soleá, seguiriya, bulería and tangos at 60-220 BPM, with palmas and cajón marking accents and falsetas alternating with strummed compás.",
   "recipe": "classic Iberian mid-1970s flamenco guitar, improv On Frame, string improv branch, vocal drone modal, Mediterranean ballad ballad poetry flamenco. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco guitar, low cupped muffled hand clap, open back Afro peruvian tradition festejo tradition cajon peruano, foot tap. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 495,
-  "score": 27.705,
+  "score": 26.272,
   "config": {
     "traditions": [
       "flamenco_guitar_toque",
-      "flamenco",
-      "mor_lam"
+      "flamenco"
     ],
     "instruments": [
       {
@@ -21,7 +20,7 @@
           "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
         },
         "scores": {
-          "flamenco_body": 10.659999999999998,
+          "flamenco_body": 9.620000000000001,
           "flamenco_features": 3.185,
           "flamenco_technique": 7.234999999999999
         }
@@ -44,8 +43,8 @@
           "cajon_peruano_role": "cajon_peruano_festejo"
         },
         "scores": {
-          "cajon_peruano_construction": 3.185,
-          "cajon_peruano_role": 3.38
+          "cajon_peruano_construction": 2.145,
+          "cajon_peruano_role": 2.34
         }
       },
       {

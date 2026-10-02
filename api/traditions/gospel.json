@@ -5,7 +5,7 @@
   "lineage": "The gospel tradition — African-American Christian devotional music built on choir, soloist, and call-and-response, codified in the early-20th-century Black church",
   "recipe": "classic Southern American mid-1970s gospel, ritual Devotional, black gospel branch. thick, declaimed, straight note core, leader call answered. call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, electric bass, brushes-and-sticks drum kit, choir southern black gospel. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 691,
-  "score": 232.477,
+  "score": 234.419,
   "config": {
     "traditions": [
       "gospel"
@@ -39,14 +39,14 @@
           "voice_vibrato": 1.4,
           "voice_articulation": 15.192749999999997,
           "voice_microtone": 4.16,
-          "voice_tradition": 20.76325,
+          "voice_tradition": 21.21475,
           "voice_mechanism_compound": 0.5345,
           "voice_estill_quality": 14.599999999999998,
           "voice_speech_song": 4.3549999999999995,
           "voice_ensemble_config": 15.242749999999996,
           "voice_ornament_system": 6.899999999999999,
           "voice_pitch_organization": 1.4,
-          "voice_processing_chain": 0.33575,
+          "voice_processing_chain": 0.44075,
           "voice_multitrack_stack": 1.3649999999999998
         }
       },
@@ -76,11 +76,11 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 17.279,
+          "keyboard_technique": 17.7305,
           "drawbar_setting": 14.042749999999998,
           "rotary_speed": 13.95,
           "percussion_setting": 0.20024999999999998,
-          "tonewheel_model": 14.783624999999999,
+          "tonewheel_model": 15.235124999999998,
           "leslie_cabinet_model": 0.09437499999999999
         }
       },
@@ -98,7 +98,7 @@
           "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 17.279,
+          "keyboard_technique": 17.7305,
           "grand_piano_size": 0.0325,
           "grand_piano_brand": 0.34275,
           "piano_hammer": 1.625,
@@ -117,7 +117,7 @@
           "pickup_config": "split_coil",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_locked",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
@@ -127,7 +127,7 @@
           "pickup_config": 0,
           "string_type": 0.9099999999999999,
           "scale_length_b": 0.0325,
-          "fretted_or_not": 0,
+          "fretted_or_not": 0.0315,
           "bass_technique": 0.6499999999999999,
           "electric_bass_string_configuration": 0
         }

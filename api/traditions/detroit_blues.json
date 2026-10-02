@@ -3,21 +3,21 @@
   "name": "Detroit Blues",
   "family": "blues_gospel",
   "lineage": "Postwar Michigan electric blues built by Delta migrants working the auto plants, codified 1948-1962 by John Lee Hooker, Eddie Burns, Baby Boy Warren and Bobo Jenkins on Sensation, Fortune and JVB — one-chord droning boogie at 90-130 BPM over amplified guitar with heavy tremolo, stomping foot as the only percussion on early sides, later a small combo with amplified harp and a shuffling drum kit.",
-  "recipe": "classic North American mid-1950s detroit blues, functional Song, blues electric branch, blues narrative delta narrative, soul R&B functional song new orleans blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bare foot hollow platform foot stomp. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 804,
-  "score": 363.35,
+  "recipe": "classic North American mid-1950s detroit blues, functional Song, blues electric branch, blues narrative delta narrative, soul R&B functional song doo-wop. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, bare foot hollow platform foot stomp. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 809,
+  "score": 363.767,
   "config": {
     "traditions": [
       "detroit_blues",
       "delta_blues",
-      "new_orleans_blues"
+      "doo_wop"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 31.199999999999996,
-          "voice_quality": 15.27999999999999,
+          "voice_register": 33.10000000000001,
+          "voice_quality": 19.04500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 26.595,
-          "voice_articulation": 12.024999999999999,
-          "voice_microtone": 25.24,
-          "voice_tradition": 15.899999999999999,
-          "voice_mechanism_compound": 5.265,
-          "voice_estill_quality": 6.5,
-          "voice_speech_song": 17.354999999999997,
-          "voice_ensemble_config": 12.999999999999995,
-          "voice_ornament_system": 1.345,
-          "voice_pitch_organization": 2.405,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 22.595,
+          "voice_articulation": 14.949999999999998,
+          "voice_microtone": 21.24,
+          "voice_tradition": 17.099999999999998,
+          "voice_mechanism_compound": 5.784999999999999,
+          "voice_estill_quality": 7.0200000000000005,
+          "voice_speech_song": 19.889999999999997,
+          "voice_ensemble_config": 14.689999999999996,
+          "voice_ornament_system": 1.15,
+          "voice_pitch_organization": 2.7950000000000004,
+          "voice_processing_chain": 5.004999999999999,
+          "voice_multitrack_stack": 5.134999999999998
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "electric_technique": "electric_fingerstyle_country",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "alder",
-          "neck_wood": "mahogany_neck",
+          "body_wood": "mahogany",
+          "neck_wood": "maple",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_10",
+          "string_gauge": "g_11",
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
@@ -70,25 +70,25 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 5.3950000000000005,
-          "amp_make": 7.91,
-          "body_wood": 0.6950000000000001,
-          "neck_wood": 0.5249999999999999,
+          "electric_technique": 5.545,
+          "amp_make": 10.235,
+          "body_wood": 0.195,
+          "neck_wood": 0.345,
           "fretboard": 0.345,
           "pickup_magnet": 0.345,
           "string_material": 0.195,
-          "string_gauge": 0.605,
+          "string_gauge": 0.195,
           "bridge": 0.105,
-          "scale_length": 1.0500000000000003,
+          "scale_length": 0.195,
           "finish": 0.3,
-          "string_tuning": 12.434999999999999,
+          "string_tuning": 10.834999999999999,
           "single_coil_pickup_construction": 0
         }
       },
       {
         "id": "harmonica",
         "slots": {
-          "harmonica_type": "octave_harm",
+          "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
           "harmonica_technique": "harm_blues_cross",
@@ -96,12 +96,12 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.5,
-          "harmonica_comb": 27.374999999999996,
-          "harmonica_reed": 24.814999999999998,
-          "harmonica_technique": 33,
-          "harmonica_maker_school": 25.339999999999996,
-          "harmonica_tuning": 11.17
+          "harmonica_type": 0.3,
+          "harmonica_comb": 23.974999999999998,
+          "harmonica_reed": 20.964999999999996,
+          "harmonica_technique": 29,
+          "harmonica_maker_school": 20.989999999999995,
+          "harmonica_tuning": 9.57
         }
       },
       {
@@ -117,13 +117,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.460000000000001,
-          "body_wood": 1.0500000000000003,
+          "amp_make": 10.234999999999998,
+          "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 8.6775,
-          "scale_length_b": 0.5249999999999999,
+          "string_type": 11.2125,
+          "scale_length_b": 0.195,
           "fretted_or_not": 0.105,
-          "bass_technique": 5.3950000000000005,
+          "bass_technique": 5.545,
           "electric_bass_string_configuration": 0
         }
       },
@@ -131,12 +131,12 @@
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "ec_pre_muffled_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 12.349999999999998,
-          "drumhead": 1.0725,
+          "drum_technique": 14.234999999999996,
+          "drumhead": 3.289999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
