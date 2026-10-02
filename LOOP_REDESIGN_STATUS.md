@@ -29,9 +29,50 @@ written and waiting for its tests to run.
   - the call stops between two members' menus with exit 5, instead of being killed;
   - each finished menu is saved in the state;
   - the next call builds only the menus still missing.
-- So that work spreads over about five calls, not one call killed forever. That figure is arithmetic, not measured: 2,407 s against roughly 550 s usable per call.
-- A test that expects the first call to return a question (exit 4) within 600 s would still not get one. It would get exit 5, and the question about four calls later.
+- ~~So that work spreads over about five calls, not one call killed forever. That figure is arithmetic, not measured: 2,407 s against roughly 550 s usable per call.~~ **Measured false; see "Step 5 measured on PR #460's failing case" below.**
+- ~~A test that expects the first call to return a question (exit 4) within 600 s would still not get one. It would get exit 5, and the question about four calls later.~~ It gets neither: the call is still killed.
 - The speedups now on the base (`880b3c05`…`50c3a6d4`) act on that menu work directly. The re-timing will say by how much.
+
+## QUESTION FOR THE OWNER (2026-10-02, 22:02 UTC): how fine may a safe point be?
+
+### What was measured (by the coordinator, at `5d741da2`, base `c0aff66e` merged)
+
+PR #460's failing case: the first `lyric_revise` of the 24-line seed-1 fixture
+(`we carry the morning to the <word>` ×24, interview writer, attempts 3,
+`new_run`), through the real connector at the 600 s tool budget.
+
+- **Result: exit −1, killed at 600 s. Not exit 5.**
+- With the harness run directly and every step logged: grade 18 s, grade 0 s, then the first **menu** step started at 21 s with 578 s left. It was still running when it was killed at 720 s.
+- **One menu step is longer than the whole call, so the run never reaches a safe point.** Today a step is one whole `brief(target_lines=…)` call: the full offer menu for one line. On this fixture that line binds at 7 places.
+- Also: CI's `verify` job has a 45-minute timeout. At `c0aff66e` it already ran about 19 minutes.
+
+So step 5 as built helps only where every single menu fits in one call: the
+104-line declared case measured earlier (230 s per menu). It does not help this
+fixture, nor the 60-line empty menu (1,619.6 s).
+
+### The choice
+
+- **A. Leave the step as one whole menu.**
+  - A menu longer than one call is still killed every time.
+  - The connector's `no_progress_calls` reports it from the second call on: "this draft does not fit one call on this server".
+  - Nothing more is built.
+- **B. Save a menu place by place.**
+  - `brief(target_lines=…)` already builds a line's menu one binding place at a time, through the shared `_place_field` from step 3.
+  - Each finished place would be saved, keyed by draft, line and place, the way whole menus are saved now. A stop could then fall between two places, and the next call builds only the places still missing.
+  - What a question contains does not change: every place is still built by the same code on the same draft.
+  - Cost: more bytes in the saved position. It would sit under the existing one-budget rule, with saved menus dropped first. It also adds a few more checks inside `brief`.
+  - **Unknown until measured:** whether one place fits in one call on this fixture. If a single place's search is itself longer than 600 s (the empty-menu widening may be), B does not help either.
+- **C. Stop inside one place's search** (between candidate words of the widening pool).
+  - This is the finest option, and a larger change to the search code itself.
+  - I don't recommend designing it until B has been measured.
+
+**My recommendation: B, after one measurement.** First time each place of that
+line's menu separately on this fixture. That is a read-only measurement that
+changes no code. If every place fits well inside a call, build B. If one place
+does not, B alone cannot fix this case, and the choice is between A and C.
+
+**Until you answer I build nothing more for this.** The validation of what is
+already built continues.
 
 ### Re-timing on the merged tree (coordinator's request)
 
