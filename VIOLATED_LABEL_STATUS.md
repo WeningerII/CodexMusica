@@ -67,5 +67,30 @@ rejection are unchanged and that a failing pair still says VIOLATED). Against th
 it gives 4 FAIL / 4 PASS (the 4 passes are the controls); against the new source 8 PASS.
 `quality/test_propose.py`'s stand-in `B` gained `noted_groups` (its field-set guard requires it).
 
-Suite runs (test_revise, test_propose, test_loop, test_production_revision, test_verbs,
-test_replay_memo) were still running at this commit; results follow in the next update.
+## 3. Finished (2026-10-02) — suite results on commit 182ff955
+
+Each run from `lyric-harness/` with `python3 quality/<suite>.py`, the new source in place:
+
+| suite | exit | checks | time |
+|---|---|---|---|
+| `quality/test_revise.py` (owns `Brief.__str__`; holds the new section 70) | 0 | 427 PASS, 0 FAIL | 1330s |
+| `quality/test_propose.py` (owns the writer prompt) | 0 | 137 PASS, 0 FAIL | 195s |
+| `quality/test_loop.py` | 0 | 176 PASS, 0 FAIL | 959s |
+| `quality/test_verbs.py` (owns the `brief` verb's report) | 0 | 596 PASS, 0 FAIL | 3670s |
+| `quality/test_production_revision.py` (reads `violated_groups`) | 0 | unittest: Ran 44 tests, OK | 1026s |
+| `quality/test_replay_memo.py` (pins "L2 ('four') — VIOLATED", a real failure) | 0 | 47 PASS, ALL PASS | 264s |
+
+(`test_verbs.py`'s log has three lines starting "FAILS L2-L3 ..." / "FAILS L1-L3 ..." — those are
+report text the suite prints, not failed checks; its own FAIL count is 0 and it exits 0.)
+
+No existing check pinned the old wording on a holding-but-noted pair, so nothing needed a
+dated repin.
+
+## Left open
+
+- The other `violated_groups` readers still treat a noted group as "to change", by design:
+  `slot_conflict`, the primary place, and `quality/loop.py`'s `_asks_group_first`. The field
+  keeps its name, so a reader has to check `noted_groups` to tell a held pair from a broken one.
+  Renaming it would touch the loop and the tests and was outside the label fix.
+- If a group is both unjudged and noted, the label says only "UNJUDGED".
+- No pull request opened, nothing merged.
