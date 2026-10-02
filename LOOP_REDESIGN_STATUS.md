@@ -15,6 +15,24 @@ written and waiting for its tests to run.
 | 4 | the saved position, or cursor (§2.0, §2.8 A-C), sealed by the connector | **built, tested** (commit `d31dfbb4`) |
 | 5 | safe points and exit 5, saved menus, the no-progress count, the chat carrying a stopped run, the new `lyric_revise` text (§2.3, §2.8 E-F) | **written**; connector half tested; harness half waiting for the long suites to free the source tree |
 
+### Coordinator's request (19:32 UTC): merge the base branch first
+
+- **Merge** `origin/claude/practical-curie-n66u8c` (now `c0aff66e`, which contains `3a31fab7`) into this branch before building further. A dry merge shows no conflicts. Five files changed on both sides: `lyric_harness.py`, `quality/propose.py`, `quality/revise.py`, `mcp/test.mjs` and `package.json`. It waits only for the suites now running to finish, because the merge rewrites files they read.
+- **Re-time** the 24-line "one exact menu for the next question" on the merged tree. Every timing below is labelled with its commit from now on.
+  - All timings taken before this note were on the branch as it stood at `84bac53e`, whose base was PR #460 before `880b3c05`.
+
+**What this design does to PR #460's red `verify` check** (the first `lyric_revise` of the 24-line seed-1 fixture: 2,407 s on `362ca583`, killed at 600 s):
+
+- Almost all of that call is building exact menus for the first batch's members, one `brief(target_lines=…)` per member.
+- The design does **not** shrink that work. A question's contents are a pure function of the draft, the mandate and the journal, so the batch and every menu in it stay the same.
+- What step 5 changes is what happens at the deadline:
+  - the call stops between two members' menus with exit 5, instead of being killed;
+  - each finished menu is saved in the state;
+  - the next call builds only the menus still missing.
+- So that work spreads over about five calls, not one call killed forever. That figure is arithmetic, not measured: 2,407 s against roughly 550 s usable per call.
+- A test that expects the first call to return a question (exit 4) within 600 s would still not get one. It would get exit 5, and the question about four calls later.
+- The speedups now on the base (`880b3c05`…`50c3a6d4`) act on that menu work directly. The re-timing will say by how much.
+
 ### Validation of steps 1-4 (run alone, no edits in flight)
 
 | suite | result |
