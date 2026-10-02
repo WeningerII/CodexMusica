@@ -33,7 +33,12 @@ production module imported it. The commitments below are its legacy.)
    this gap, and the cost was not cosmetic: every module in `quality/` takes a
    `phon` argument, so with no `eng` the whole layer was unreachable from
    English and each test built its own CMUdict fixture instead.
-4. **A homograph is UNDECIDED, never resolved.** ADDED 2026-08-11, defect P11's
+4. ~~**A homograph is UNDECIDED, never resolved.**~~ **A homograph is UNDECIDED
+   on the merged channels, and a GRADER resolves it by asking whether ANY whole
+   reading holds (owner ruling 2026-10-01, CLAUDE.md standing rule 5;
+   `relations.resolve_line_pair`). The knowledge set below is unchanged: it is
+   the fast first pass, and only its None is re-asked, reading by reading.**
+   ADDED 2026-08-11, defect P11's
    production half. A `Syllable` channel may hold a `Readings` — the set of
    readings the declared surface permits — and a predicate then answers True
    where they all agree, False where none can, and None where some do and some

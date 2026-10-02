@@ -293,9 +293,15 @@ class ProductionRelations(unittest.TestCase):
             got = R.whole_vocabulary_pairs(lines, get('eng'), bearing=set(range(14)))
             self.assertNotIn((5,7), got)
             self.assertIn('consonance', got.undecided[(5,7)])
+        # The judge itself still answers None on the merged channels; a
+        # grader resolves it over whole readings (standing rule 5): one
+        # reading of `history` holds consonance, and the pair is neither
+        # refused nor charged.
+        self.assertEqual(got.resolve_readings((5,7), ['consonance'])[0],
+                         {'consonance': ['history = HH IH1 S T ER0 IY0']})
         checked = lh.check_scheme(lh.Lexicon(), lines, 'ABABCDCDEFEFGG', lh.Declaration())
         self.assertFalse(any(tuple(v[:2]) == (5,7) for v in checked['violations']))
-        self.assertTrue(any(tuple(v['lines']) == (5,7) for v in checked['refusals']))
+        self.assertFalse(any(tuple(v['lines']) == (5,7) for v in checked['refusals']))
         from unittest.mock import patch
         original = R.whole_vocabulary_pairs
         def full_query(*args, **kwargs):
@@ -330,13 +336,17 @@ class ProductionRelations(unittest.TestCase):
         import lyric_harness as lh
         lex, decl = lh.Lexicon(), lh.Declaration()
         for lines in (['cat 我', 'hat'], ['cat sh', 'hat'],
-                      ['cat qzxqzx', 'hat'], ['', 'hat'],
-                      ['a mighty wind', 'what i did find']):
+                      ['cat qzxqzx', 'hat'], ['', 'hat']):
             for _ in range(2):
                 got = lh.check_scheme(lex, lines, 'AA', decl)
                 self.assertEqual(len(got['refusals']), 1, lines)
                 self.assertFalse(got['violations'], lines)
                 self.assertEqual(got['pairs_judged'], 0, lines)
+        # A word with several readings is no longer a refusal (standing rule
+        # 5): wind/find is JUDGED, and it holds, because one reading rhymes.
+        got = lh.check_scheme(lex, ['a mighty wind', 'what i did find'], 'AA', decl)
+        self.assertEqual((got['refusals'], got['violations'], got['pairs_judged']),
+                         ([], [], 1))
         self.assertEqual(lh.raw_final_token('cat 我'), '我')
         self.assertEqual(lh.line_anchors(lex, 'cat sh')[0], [])
         control = lh.check_scheme(lex, ['qzxqzx cat', 'hat'], 'AA', decl)
@@ -346,12 +356,19 @@ class ProductionRelations(unittest.TestCase):
     def test_cli_scheme_surfaces_unknown_without_a_false_violation(self):
         import subprocess
         cli = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'lyric_harness.py')
-        for lines in (['cat 我', 'hat'], ['a mighty wind', 'what i did find']):
+        for lines in (['cat 我', 'hat'],):
             result = subprocess.run([sys.executable, cli, 'scheme', 'AA', *lines],
                                     capture_output=True, text=True, timeout=30)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn('REFUSED', result.stdout.upper())
             self.assertNotIn('violations: 1', result.stdout)
+        # Several readings are not an unknown (standing rule 5): judged, held.
+        result = subprocess.run([sys.executable, cli, 'scheme', 'AA',
+                                 'a mighty wind', 'what i did find'],
+                                capture_output=True, text=True, timeout=30)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('mandated 1  judged 1  refused 0', result.stdout)
+        self.assertNotIn('violations: 1', result.stdout)
 
     def test_endpoint_reading_does_not_rebind_an_earlier_homograph(self):
         import lyric_harness as lh
@@ -455,7 +472,15 @@ class ProductionRelations(unittest.TestCase):
         import lyric_harness as lh
         lex, decl = lh.Lexicon(), lh.Declaration()
         judge = RT.coarse_relation_consensus
-        self.assertIs(judge(lex,'a mighty wind','what i did find',decl),None)
+        # CLAUDE.md standing rule 5 (owner, 2026-10-01): an obligation holds
+        # when ANY reading holds it (wind sung /W AY1 N D/ rhymes with find);
+        # a prohibition is charged only when EVERY reading triggers it; the
+        # instruments' unanimity is still reachable and still undecided here.
+        self.assertIs(judge(lex,'a mighty wind','what i did find',decl),True)
+        self.assertIs(judge(lex,'a mighty wind','what i did find',decl,
+                            quantifier='all'),False)
+        self.assertIs(judge(lex,'a mighty wind','what i did find',decl,
+                            quantifier='unanimous'),None)
         self.assertIs(judge(lex,'cat','hat',decl,relation='RHYME'),True)
         self.assertIs(judge(lex,'wind','moon',decl,relation='RHYME'),False)
         self.assertIs(judge(lex,'qzxqzx','hat',decl),None)

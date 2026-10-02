@@ -1,0 +1,4 @@
+CACHE  /tmp/shards/memo-3-of-12.tsv
+       fingerprint d8f5a5b15e17 | new (no file yet) | hits 0, misses 0
+POPULATION  107 files, 107 distinct authors, 514 items, 15327 sung lines
+COMPUTE  shard 3/12: 108 files, 514 rows -> /tmp/shards/rows-3-of-12.tsv; cache hits 0 misses 514; 2346 CPU-s, 2382 wall-s

@@ -41,16 +41,20 @@ class SessionRepairs(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_sweep_want("sections.made_up=5")
 
-    def test_band_counts_parenthesized_sung_words_when_voices_declared(self):
-        # The syllable band is deleted (owner ruling 2026-09-28); the
-        # prominence band still reads the same line, so it carries the check.
+    def test_line_reader_counts_parenthesized_sung_words_when_voices_declared(self):
+        # Both bands are deleted (owner rulings 2026-09-28 and 2026-10-01),
+        # so the reader they shared is checked through what it still feeds:
+        # the stress-run disclosure. Declared voices make the parenthesized
+        # words sung, and the elephants' two weak syllables then show up.
         text = ("My kettle whistles (elephant elephant elephant elephant "
                 "elephant elephant)")
-        default = Reviser(lex=Lexicon())._band_findings([text])
-        voices = Reviser(lex=Lexicon(strip_parens=False))._band_findings([text])
-        self.assertNotIn("PROMINENCE_OUT_OF_BAND", {f.code for fs in default.values() for f in fs})
-        self.assertIn("PROMINENCE_OUT_OF_BAND", {f.code for fs in voices.values() for f in fs})
-        self.assertFalse(any("DENSITY" in f.code for fs in voices.values() for f in fs))
+        default, voices = {}, {}
+        self.assertEqual(Reviser(lex=Lexicon())._band_findings(
+            [text], runs_out=default), {})
+        self.assertEqual(Reviser(lex=Lexicon(strip_parens=False))._band_findings(
+            [text], runs_out=voices), {})
+        self.assertEqual(default[1][1], 1)
+        self.assertEqual(voices[1][1], 2)
 
     def test_mixed_pickups_are_not_mislabelled_as_uniform(self):
         from quality.plan import section_header

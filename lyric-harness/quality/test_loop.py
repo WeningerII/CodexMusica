@@ -450,9 +450,13 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
     # success. The owner's order stands unchanged: success while a
     # mandatory finding stands is unreportable (§20 pins it); what moved is
     # that the loop stopped offering the words that made one stand.
-    check("the backtrack closes pursued findings while incomplete coverage still prevents success",
-          res.stop_reason == "no_progress" and res.coverage.get("certified") is False
-          and bool(res.unresolved_unjudged)
+    # REPINNED 2026-10-01: the obligation coverage could not certify was a
+    # reading disagreement, judged since the any-reading rule (CLAUDE.md
+    # standing rule 5), so the backtrack's repair now certifies and the loop
+    # stops SUCCESS. superseded: no_progress with coverage uncertified.
+    check("the backtrack closes pursued findings and the run certifies",
+          res.stop_reason == "success" and res.coverage.get("certified") is True
+          and not res.unresolved_unjudged
           and [b.line_no for b in res.unresolved_pursued] == [],
           f"{res.stop_reason} pursued="
           f"{[b.line_no for b in res.unresolved_pursued]}")
@@ -621,10 +625,16 @@ def test_tier2_rewrites_a_group_of_three_or_more():
           bool(won) and won[0].tried > 0,
           f"{len(tier2)} tier-2 attempt(s), "
           f"tried {[a.tried for a in tier2]}")
+    # 2026-10-01: under the any-reading rule the pivot reaches the backtrack
+    # with no ranked field of its own, so the accepted rewrite is the
+    # unconstrained-pivot route, whose reason lists the members rather than
+    # counting them. Either spelling names the group and its three members.
     check("it ACCEPTED a joint rewrite, and the reason names the group and "
           "its size",
           bool(won) and "joint backtrack over group" in won[0].reason
-          and "3 members" in won[0].reason,
+          and ("3 members" in won[0].reason
+               or bool(__import__("re").search(
+                   r"over group \w+ \[\d+, \d+, \d+\]", won[0].reason))),
           won[0].reason[:160] if won else None)
     # THE LOAD-BEARING ASSERTION, and it is what makes this a JOINT move
     # rather than a wider one-at-a-time move: every member of the group
@@ -1129,13 +1139,17 @@ def test_propose_sees_the_whole_draft_rubric():
           "never the move, which is why `whole` is its own argument",
           not (per_line & {"HOOK_ABSENT", "LEXICAL_MONOTONY"}),
           sorted(per_line))
-    check("whole-draft flags prevent success after judged line repairs close; "
-          "unjudged line checks remain explicitly open",
+    # 2026-10-01: the line checks this fixture left unjudged were reading
+    # disagreements, which the any-reading rule (CLAUDE.md standing rule 5)
+    # now judges, so no line stays open and the whole-draft flags alone stop
+    # the run. superseded: `bool(res.unresolved_unjudged)`.
+    check("whole-draft flags prevent success after the line repairs close, "
+          "and no line check is left open",
           res.stop_reason == "whole_draft_unresolved"
           and res.unresolved_flagged == [] and res.unresolved_pursued == []
-          and res.unresolved == res.unresolved_unjudged
-          and bool(res.unresolved_unjudged) and bool(res.whole_flags),
-          res.stop_reason)
+          and res.unresolved == res.unresolved_unjudged == []
+          and bool(res.whole_flags),
+          (res.stop_reason, [b.line_no for b in res.unresolved]))
 
 
 def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
@@ -1176,9 +1190,13 @@ def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
     # "reach SUCCESS": nothing is pursued, but an obligation stays unjudged,
     # so both routes stop `no_progress` with coverage uncertified. The check
     # moved and this comment was not told.)
-    check("the GroupBrief route closes the same repair but cannot certify incomplete coverage",
-          res.stop_reason == "no_progress" and res.coverage.get("certified") is False
-          and bool(res.unresolved_unjudged)
+    # REPINNED 2026-10-01 WITH TEST 4: the obligation that stayed unjudged
+    # was a reading disagreement, judged since the any-reading rule (CLAUDE.md
+    # standing rule 5), so both routes now close the repair AND certify --
+    # the "reach SUCCESS" the struck clause above first recorded.
+    check("the GroupBrief route closes the same repair and certifies",
+          res.stop_reason == "success" and res.coverage.get("certified") is True
+          and not res.unresolved_unjudged
           and [b.line_no for b in res.unresolved_pursued] == [],
           res.stop_reason)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
@@ -1546,7 +1564,10 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
           "closed it -- the stale snapshot would have spent an attempt on a "
           "finding that was already gone",
           asked and set(asked) == {2} and rnd.resolved_elsewhere == [3]
-          and [b.line_no for b in r2.unresolved_unjudged] == [2],
+          # 2026-10-01: L2's last unjudged check was a reading disagreement,
+          # judged since the any-reading rule; nothing stays unjudged.
+          # superseded: unresolved_unjudged == [2].
+          and [b.line_no for b in r2.unresolved_unjudged] == [],
           f"asked={asked} resolved_elsewhere={rnd.resolved_elsewhere}")
     check("...and it is NOT a `LineAttempt`: no attempt was made, so a "
           "record with accepted=False would be a failure that never "
@@ -1568,12 +1589,19 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
     R3 = Reviser()
     _orig = R3.brief
     R3.brief = lambda *a, **k: (calls.append(k), _orig(*a, **k))[1]
-    revise_loop(R3, D, "AA", propose=lambda *a, **k: None)
+    # A DECLARED rhyme (2026-10-01): under the bare default four/stairs now
+    # holds by an internal rhyme under one reading (CLAUDE.md standing rule
+    # 5), and L1's other flag was the deleted prominence band, so a bare
+    # mandate leaves nothing to ask. Declared, the pair violates and L2 --
+    # the pair's higher line -- is the one briefed. superseded: "AA", two
+    # menus (L1 and L2).
+    revise_loop(R3, D, SC.mandate("AA", n_lines=2, default_relation="class:RHYME"),
+                propose=lambda *a, **k: None)
     assessments = [k for k in calls if k.get('include_offers') is False]
     menus = [k for k in calls if k.get('include_offers') is not False]
     check("a barren round performs one assessment; lazy per-line menus are not re-assessments",
-          len(assessments) == 1 and len(menus) == 2
-          and all(k.get('target_lines') for k in menus),
+          len(assessments) == 1 and len(menus) == 1
+          and all(k.get('target_lines') == {2} for k in menus),
           f"{len(assessments)} assessments, {len(menus)} targeted menus")
 
 
@@ -1942,20 +1970,23 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
                       if any(f.severity == "flag" or f.code in MANDATORY_PURSUE
                              for f in b.findings))
 
-    # The historical fire/desire fixture remains an uncertainty control.
-    # A disclosed SCHEME_UNREADABLE note gives a line a brief but does not
-    # turn it into an actionable defect or a modal-rhyme certificate.
+    # The historical fire/desire fixture was an uncertainty control until
+    # the any-reading rule (2026-10-01, CLAUDE.md standing rule 5): L3's
+    # pair, unjudged while its readings disagreed, is now judged under one
+    # of them and holds, so the ban reaches it and L3 carries the pursued
+    # MODAL_RHYME like L4. superseded: four briefs, L1/L2/L4 actionable, L3
+    # SCHEME_UNREADABLE and no MODAL_RHYME.
     old_briefs = Reviser().brief(list(CLICHE), "ABAB", include_offers=False)
-    check("CONTROL: the original ambiguous draft has four briefs but only "
-          "L1, L2 and L4 are actionable",
+    check("CONTROL: the original draft has four briefs and all four are "
+          "actionable",
           sorted(b.line_no for b in old_briefs) == [1, 2, 3, 4]
-          and actionable(old_briefs) == [1, 2, 4],
+          and actionable(old_briefs) == [1, 2, 3, 4],
           [(b.line_no, [(f.code, f.severity) for f in b.findings])
            for b in old_briefs])
-    check("CONTROL: original L3 is unjudged, not a pursued MODAL_RHYME "
-          "that L1's move could close",
-          any(b.line_no == 3 and any(f.code == "SCHEME_UNREADABLE"
-              for f in b.findings) and not any(f.code == "MODAL_RHYME"
+    check("CONTROL: original L3 is judged and carries the pursued "
+          "MODAL_RHYME, not an unjudged note",
+          any(b.line_no == 3 and any(f.code == "MODAL_RHYME"
+              for f in b.findings) and not any(f.code == "SCHEME_UNREADABLE"
               for f in b.findings) for b in old_briefs))
 
     # Re-establish the actual M-183/M-210 positive under unambiguous

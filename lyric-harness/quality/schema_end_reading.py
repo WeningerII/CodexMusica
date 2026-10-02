@@ -89,8 +89,15 @@ SONNET_SCHEME = "ABABCDCDEFEFGG"
 #: side).
 #: H STILL HOLDS AND NEITHER FALSIFIER FIRES: 2 of 31 schema-only
 #: satisfactions (6.5%) are AUDIBLE and 29 (93.5%) are not.
+#: REPINNED 2026-10-01 -> (949, 2, 41), THE ANY-READING RULE (CLAUDE.md
+#: standing rule 5; superseded (896, 2, 29) kept above). The control holds:
+#: 949 + 43 + 15 = 1007 judged against 57 refused, `battery.py`'s repin to
+#: the pair. The 71 pairs that refused because their readings disagreed are
+#: judged: 53 more coarse passes, 12 more schema-only satisfactions (none
+#: audible) and 6 violations. H STILL HOLDS: 2 of 43 schema-only
+#: satisfactions (4.7%) are AUDIBLE and 41 (95.3%) are not.
 PINNED = {
-    "sonnets": (896, 2, 29),
+    "sonnets": (949, 2, 41),
 }
 
 

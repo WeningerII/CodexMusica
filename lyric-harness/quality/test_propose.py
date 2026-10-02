@@ -1222,13 +1222,24 @@ def test_model_proposer_serves_a_real_tier_2():
         return "\n".join(got)
 
     R = Reviser()
-    # 2026-09-08: the broader default now correctly retains unresolved
-    # pronunciation/schema readings on this historical fixture. Its absence
-    # of a definite joint conflict cannot exercise the group writer seam.
-    # Declare the exact coarse question; keep the old unknown as a control.
+    # 2026-09-08: the broader default retained unresolved pronunciation/
+    # schema readings on this historical fixture (judged since 2026-10-01).
+    # Its absence of a definite joint conflict cannot exercise the group
+    # writer seam. Declare the exact coarse question; keep the default as a
+    # control.
     broad = R.grade(SILVER_MIND, [[1, 3], [2, 3]])
-    check("the historical default remains explicitly unjudged",
-          bool(broad['refusals']) and broad['pairs_refused'] > 0)
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the
+    # readings that left this default unresolved are asked one whole reading
+    # at a time, so both pairs are now JUDGED -- silver/dream violates under
+    # every reading, mind/dream holds under one and names it. Still no
+    # definite joint conflict, so the declared coarse question below stays.
+    # superseded: "the historical default remains explicitly unjudged".
+    check("the historical default is now judged, and the pass that rests on "
+          "a reading names it",
+          not broad['refusals'] and broad['pairs_refused'] == 0
+          and [tuple(v['lines']) for v in broad['violations']] == [(1, 3)]
+          and any(tuple(v['lines']) == (2, 3) and v['why'] is None
+                  and v.get('readings') for v in broad['verdicts']))
     declared = mandate([[1, 3], [2, 3]], n_lines=3,
                        default_relation='class:RHYME')
     res = revise_loop(R, SILVER_MIND, declared,

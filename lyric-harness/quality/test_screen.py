@@ -92,10 +92,16 @@ def test_honesty_and_the_split():
     # coarse relation and no decided schema — and the schemas that could not
     # decide at the pair are NAMED as undecided, with the grader's own
     # unresolved sentence beside them. Never a definite "does not rhyme".
-    check("the broad default names the undecided schemas and the grader's "
-          "unresolved sentence, and claims no relation it could not decide",
+    # 2026-10-01, CLAUDE.md standing rule 5: the grade's schemas that the
+    # scaffold's several readings left open are asked under each whole
+    # reading and none holds, so the grade no longer refuses the pair; the
+    # schemas that need evidence a pair cannot carry stay NAMED undecided.
+    # superseded: "default relation remains unresolved" in the reason.
+    check("the broad default names the undecided schemas, claims no "
+          "relation it could not decide, and no longer carries an "
+          "unresolved-default refusal",
           not r["refused"] and r["relations"] == [] and r["undecided"]
-          and "default relation remains unresolved" in (r["reason"] or "")
+          and "unresolved" not in (r["reason"] or "")
           and not r["codes"], r)
     r = LH.screen_pairs(["four", "own"],
                         decl=LH.Declaration(admit=("RHYME", "RIME_RICHE")))[0]
@@ -252,7 +258,7 @@ def test_clean_answers_one_question():
     check("taboo/suite stands in no relation it could decide, names its "
           "undecided schemas, and invents no schema evidence",
           not r["refused"] and r["relations"] == [] and r["undecided"]
-          and "unresolved" in (r["reason"] or ""), r)
+          and "unresolved" not in (r["reason"] or ""), r)
     r = LH.screen_pairs(["stone", "rain"])[0]
     check("stone/rain stands in the consonance schemas AT THE TWO END "
           "WORDS and in no coarse relation — schema evidence about the "
@@ -272,7 +278,7 @@ def test_clean_answers_one_question():
     check("haiku/suite discloses its uncertainty through the CLI and "
           "claims no relation", rc == 0
           and "0 relation(s): none" in out
-          and "default relation remains unresolved" in out
+          and "default relation remains unresolved" not in out
           and "undecided at the pair" in out)
     rc, out, _ = run("screen", "haiku", "haiku")
     check("an identity pair lists REPEAT among its relations and carries "
@@ -394,24 +400,30 @@ def test_the_screen_says_which_words_cannot_be_bound_at_a_token():
           "cannot ask: `by ~ buy ~ bye` SATISFIES rime riche at the end and "
           "`by` at L6's first word was REFUSED unjudged on seed 7009")
     lex = LH.Lexicon()
-    check("`by` anchors as the line's last word and NOT before it — the "
-          "WEAK_NONFINAL demotion, read through the grade's own resolver",
-          LH.token_anchorability(lex, "by") == (False, True))
-    check("`in` anchors at NEITHER position as a declared token",
-          LH.token_anchorability(lex, "in") == (False, False))
+    # 2026-10-01, CLAUDE.md standing rule 5: a small word may be sung
+    # stressed, so `by` and `in` anchor at every position through a whole
+    # stressed dictionary reading (B AY1, IH1 N). superseded: `by` anchors
+    # only as the last word, `in` at neither.
+    check("`by` anchors before the line end AND at it — sung stressed, "
+          "B AY1, as the owner ruled a small word may be",
+          LH.token_anchorability(lex, "by") == (True, True))
+    check("`in` anchors at both positions through its stressed reading "
+          "IH1 N", LH.token_anchorability(lex, "in") == (True, True))
     check("`buy`, `bye`, `window` anchor at both",
           all(LH.token_anchorability(lex, w) == (True, True)
               for w in ("buy", "bye", "window")))
-    lines = LH.anchor_disclosure_lines(lex, ["by", "buy", "in"])
-    check("the disclosure names each unanchorable word, its position, and "
-          "that a mandate binding it there is REFUSED unjudged — and says "
-          "nothing about `buy`",
-          len(lines) == 2 and lines[0].startswith("  ANCHOR : 'by'")
-          and "BEFORE the line end" in lines[0]
-          and lines[1].startswith("  ANCHOR : 'in'")
-          and "ANY position" in lines[1]
-          and all("REFUSED unjudged" in l for l in lines)
-          and not any("'buy'" in l for l in lines), "\n".join(lines))
+    check("every listed small word anchors at both positions",
+          all(LH.token_anchorability(lex, w) == (True, True)
+              for w in sorted(LH.WEAK_ALWAYS | LH.WEAK_NONFINAL)))
+    lines = LH.anchor_disclosure_lines(lex, ["by", "buy", "in", "qzzxv"])
+    check("the disclosure names only the word the dictionary cannot read, "
+          "its position, and that a mandate binding it there is REFUSED "
+          "unjudged — and says nothing about `by`, `buy` or `in`",
+          len(lines) == 1 and lines[0].startswith("  ANCHOR : 'qzzxv'")
+          and "ANY position" in lines[0]
+          and "REFUSED unjudged" in lines[0]
+          and not any(f"'{w}'" in l for l in lines
+                      for w in ("by", "buy", "in")), "\n".join(lines))
     check("when every word anchors the block is ONE line saying so — "
           "silence would be indistinguishable from not having asked",
           LH.anchor_disclosure_lines(lex, ["buy", "bye"])
@@ -421,10 +433,11 @@ def test_the_screen_says_which_words_cannot_be_bound_at_a_token():
     rc, out, _ = run("screen", "by", "buy", "bye",
                      "--relation=schema:rime riche")
     check("through the CLI: the pair rows still SATISFY the schema at the "
-          "end, and the ANCHOR block under the counts names `by`",
+          "end, and the ANCHOR block under the counts says every word "
+          "anchors",
           rc == 0 and "SATISFIES schema:rime riche" in out
-          and "ANCHOR : 'by'" in out
-          and out.index("ANCHOR : 'by'") > out.index("banned,"),
+          and "ANCHOR : every word anchors" in out
+          and out.index("ANCHOR : every word") > out.index("banned,"),
           out[-600:])
 
 
@@ -455,8 +468,8 @@ def test_named_judgment_survives_broad_uncertainty():
         grade = Reviser(decl=decl).grade(
             lines, SC.mandate([[1, 2]], n_lines=2,
                               default_relation=relation))
-        check(f"four/own keeps the broad default's unresolved sentence and independently answers {relation} ({dname} nucleus)",
-              not row["refused"] and "unresolved" in (row["reason"] or "")
+        check(f"four/own keeps its undecided schemas and independently answers {relation} ({dname} nucleus)",
+              not row["refused"] and "unresolved" not in (row["reason"] or "")
               and row["undecided"]
               and row["named"] is expected and row["named_reason"] is None, row)
         check(f"the requested {relation} agrees with the actual declared grade ({dname} nucleus)",
@@ -469,28 +482,37 @@ def test_named_judgment_survives_broad_uncertainty():
         counts = ("1 satisfies, 0 violates, 0 refused" if expected else
                   "0 satisfies, 1 violates, 0 refused")
         verdict = "SATISFIES" if expected else "VIOLATES"
-        check(f"CLI prints {relation}'s own verdict beside the unchanged broad uncertainty",
-              rc == 0 and "default relation remains unresolved" in out
+        check(f"CLI prints {relation}'s own verdict beside the unchanged broad default",
+              rc == 0 and "default relation remains unresolved" not in out
               and f"{verdict} {relation}" in out and f"NAMED COUNTS: {counts}" in out
               and "0 banned, 0 refused, 0 standing in at least one relation, "
                   "1 standing in none" in out and "CLEAN" not in out, out)
-    for a, b, relation in (("wind", "find", "class:RHYME"),
-                           ("wind", "find", "schema:perfect rhyme"),
-                           ("stone", "xzqwv", "schema:perfect rhyme")):
-        row = LH.screen_pairs([a, b], relation=relation)[0]
-        check(f"{a}/{b} keeps exact {relation} uncertainty instead of a false violation",
-              row["named"] is None and bool(row["named_reason"])
-              and (row["refused"] or bool(row["reason"])), row)
+    # 2026-10-01, CLAUDE.md standing rule 5: wind read W AY1 N D rhymes
+    # with find, and one reading holding is enough; the schema route names
+    # the reading. A word the dictionary cannot read is still a refusal.
+    # superseded: wind/find "keeps exact uncertainty" (named None).
+    row = LH.screen_pairs(["wind", "find"], relation="class:RHYME")[0]
+    check("wind/find SATISFIES class:RHYME under one of wind's readings",
+          row["named"] is True and not row["named_reason"], row)
+    row = LH.screen_pairs(["wind", "find"], relation="schema:perfect rhyme")[0]
+    check("wind/find SATISFIES schema:perfect rhyme and names the reading",
+          row["named"] is True
+          and row.get("named_readings") == ["wind = W AY1 N D"], row)
+    row = LH.screen_pairs(["stone", "xzqwv"], relation="schema:perfect rhyme")[0]
+    check("stone/xzqwv keeps exact schema:perfect rhyme uncertainty instead "
+          "of a false violation — an unreadable word is never guessed",
+          row["named"] is None and bool(row["named_reason"])
+          and row["refused"], row)
     row = LH.screen_pairs(["haiku", "suite"], relation="type:perfect rhyme (last stressed syllable)")[0]
-    check("a determinate named type also survives unrelated broad schema uncertainty",
-          "unresolved" in (row["reason"] or "") and row["named"] is False
+    check("a determinate named type answers no, beside a broad default the "
+          "grade now decides",
+          "unresolved" not in (row["reason"] or "") and row["named"] is False
           and not row["named_reason"], row)
     rc, out, _ = run("screen", "wind", "find", "--relation=class:RHYME")
-    check("CLI counts exact unknown separately and invents neither satisfaction nor violation",
-          rc == 0 and "class:RHYME REFUSED:" in out
-          and "NAMED COUNTS: 0 satisfies, 0 violates, 1 refused" in out
-          and "SATISFIES class:RHYME" not in out and "VIOLATES class:RHYME" not in out,
-          out)
+    check("CLI counts the satisfaction and invents no refusal",
+          rc == 0 and "SATISFIES class:RHYME" in out
+          and "NAMED COUNTS: 1 satisfies, 0 violates, 0 refused" in out
+          and "class:RHYME REFUSED:" not in out, out)
 
 
 def test_screen_retains_partial_anchor_evidence():

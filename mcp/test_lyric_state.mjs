@@ -330,11 +330,24 @@ try {
   // Opt-in staged-data integration: real CLI, worker, proposer adapter and
   // registered MCP tool, with only the external model replaced by localhost.
   if (process.argv.includes('--harness')) {
-    const input = ['Cat', 'Dog'];
+    // 2026-10-01: the fixture was ['Cat', 'Dog'] under 'AA'/'type:rime
+    // riche', and BOTH lines were briefed only because a one-word line broke
+    // the prominence band [2, 7] — which the owner deleted that day
+    // (CLAUDE.md, "AND THE PROMINENCE BAND IS DELETED TOO"). With no band
+    // only the violated pair's later line is briefed, so the run made one
+    // provider request, not two. Two independent pairs (AABB) under perfect
+    // rhyme give two briefed lines again: L2's answer ends on an offered
+    // (not modal) rhyme of 'Cat' and is accepted; L4's ends on 'door', which
+    // does not rhyme with 'Sun', so it is rejected and L4 stays open — the
+    // run still stops at exit 3 with a line open, and is parked, as before.
+    // superseded: input ['Cat', 'Dog'], scheme 'AA', relation 'type:rime
+    // riche', both answers (ending 'oak' / 'door') accepted for the band.
+    const input = ['Cat', 'Dog', 'Sun', 'Tree'];
     const proposals = [
-      'I left the basket underneath the oak',
+      'I watched the window like a diplomat',
       'The copper kettle cooled beside the door',
     ];
+    const accepted = [input[0], proposals[0], input[2], input[3]];
     let calls = 0,
       abortOnRequest;
     const writer = createServer(async (req, res) => {
@@ -389,8 +402,8 @@ try {
           {
             name: 'lyric_revise',
             arguments: {
-              scheme: 'AA',
-              relation: 'type:rime riche',
+              scheme: 'AABB',
+              relation: 'class:RHYME',
               draft: input,
               writer: 'kitchen',
               attempts: 1,
@@ -405,7 +418,7 @@ try {
       assert.equal(calls, 2, JSON.stringify(first));
       assert.deepEqual(
         first.final_draft,
-        proposals,
+        accepted,
         'accepted edits, not input, are the returned draft'
       );
       assert.deepEqual(first.replay_draft, input);
@@ -430,21 +443,21 @@ try {
       const recoveredCheckpoint = JSON.parse(
         recoveredReply.content.find((part) => part.type === 'text').text
       );
-      assert.deepEqual(recoveredCheckpoint.final_draft, proposals);
+      assert.deepEqual(recoveredCheckpoint.final_draft, accepted);
       assert.equal(recoveredCheckpoint.resumable, false);
       assert.equal(recoveredCheckpoint.certified, false);
       assert.equal(calls, 2, 'recovery-only export never makes a provider request');
-      assert.equal(first.song_at_stop, proposals.join('\n'));
+      assert.equal(first.song_at_stop, accepted.join('\n'));
       assert.equal(first.proposer_tokens_thoughts, 6);
-      assert.equal(first.coverage.pairs_mandated, 1);
+      assert.equal(first.coverage.pairs_mandated, 2);
       assert.deepEqual(
         RUNS.byId(first.run_id).draft,
-        proposals,
+        accepted,
         'parked carry uses exact accepted lines'
       );
       const same = await a.callTool({
         name: 'lyric_revise',
-        arguments: { run_id: first.run_id, run_revision: first.run_revision, draft: proposals },
+        arguments: { run_id: first.run_id, run_revision: first.run_revision, draft: accepted },
       });
       assert.equal(same.isError, true);
       assert.match(message(same), /SAME draft/);
@@ -491,8 +504,8 @@ try {
               {
                 name: 'lyric_revise',
                 arguments: {
-                  scheme: 'AA',
-                  relation: 'type:rime riche',
+                  scheme: 'AABB',
+                  relation: 'class:RHYME',
                   draft: input,
                   writer: 'kitchen',
                   attempts: 1,
@@ -508,10 +521,10 @@ try {
       assert.equal(interrupted.status, 'interrupted');
       assert.equal(interrupted.exit_code, -1);
       assert.equal(calls, 1, 'abort after accepted edit prevents the next model call');
-      assert.deepEqual(interrupted.final_draft, [proposals[0], input[1]]);
+      assert.deepEqual(interrupted.final_draft, accepted);
       assert.deepEqual(interrupted.replay_draft, input);
       assert.equal(durableCheckpoint.connector_declarations.writer, 'kitchen');
-      assert.equal(durableCheckpoint.connector_declarations.scheme, 'AA');
+      assert.equal(durableCheckpoint.connector_declarations.scheme, 'AABB');
       const recovered = verdict(
         await a.callTool(
           {
@@ -527,7 +540,7 @@ try {
         2,
         'resume consumes the completed answer once and asks only the remaining line'
       );
-      assert.deepEqual(recovered.final_draft, proposals);
+      assert.deepEqual(recovered.final_draft, accepted);
       assert.deepEqual(recovered.replay_draft, input);
       console.log(
         'lyric state: actual worker cancellation preserved accepted lines, declarations and resume journal'
@@ -542,8 +555,8 @@ try {
             {
               name: 'lyric_revise',
               arguments: {
-                scheme: 'AA',
-                relation: 'type:rime riche',
+                scheme: 'AABB',
+                relation: 'class:RHYME',
                 draft: input,
                 writer: 'kitchen',
                 attempts: 1,

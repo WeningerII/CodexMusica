@@ -75,8 +75,25 @@ RETENTION_FLOOR = 0.990
 #: monument/spent). E2 STILL FIRES: the mandate's furthest binding is still
 #: 2, so retention is still 100% by construction and still refused as
 #: evidence for a window.
+#:
+#: ~~{"rescues": 31, "by_distance": {2: 29, 1: 2}}~~ REPINNED 2026-10-01 ->
+#: {"rescues": 43, "by_distance": {2: 40, 1: 3}}, THE ANY-READING RULE
+#: (CLAUDE.md standing rule 5). The same set `schema_end_reading.PINNED`
+#: repinned to 2 + 41 = 43 that day, and this file's pin was not moved with
+#: it. MEASURED per (sonnet, line_i, line_j) against the pre-ruling tree
+#: (f06b2e5e, where 31 reproduces): all 31 are still rescues and 12 ENTERED,
+#: none left. Every entrant was a REFUSAL before ("default relation remains
+#: unresolved in applicable schemas" with the coarse verdict already False),
+#: and `check_scheme` now asks each undecided schema under each whole
+#: dictionary reading (`resolve_readings`) and takes it when one holds:
+#: 7 L6-8 age/pilgrimage, 13 L6-8 were/bear, 14 L10-12 art/convert',
+#: 49 L10-12 desert/part, 72 L6-8 desert/impart, 74 L1-3 arrest/interest,
+#: 85 L5-7 words/affords, 93 L5-7 eye/history, 94 L10-12 die/dignity,
+#: 99 L6-8 spent/argument, 136 L2-4 lies/subtleties at distance 2, and
+#: 135 L13-14 err'd/transferr'd at distance 1, a closing couplet. E2 STILL
+#: FIRES: the mandate's furthest binding is still 2.
 PINNED = {
-    "sonnets": {"rescues": 31, "by_distance": {2: 29, 1: 2}},
+    "sonnets": {"rescues": 43, "by_distance": {2: 40, 1: 3}},
 }
 
 

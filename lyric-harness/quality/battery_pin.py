@@ -27,4 +27,4 @@ unshipped module fails in PR CI rather than in qualification.
 #: The 152 self-labelled sonnets: mandated pairs, pairs judged, pairs refused
 #: at ingestion, and judged pairs that violate. Repin HERE; state the layer
 #: that moved and the price in `battery.py`'s repin history.
-EXPECTED = {"mandated": 1064, "judged": 936, "refused": 128, "violations": 9}
+EXPECTED = {"mandated": 1064, "judged": 1007, "refused": 57, "violations": 15}

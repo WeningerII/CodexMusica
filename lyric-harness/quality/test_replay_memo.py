@@ -83,15 +83,19 @@ def run_warm(*args):
     return code, out.getvalue(), err.getvalue()
 
 
-# 2026-09-08: the historical four/own default relation is now explicitly
-# UNKNOWN, not a definite violation the writer can be asked to repair.
-# Keep that negative below; exercise replay with a measured density repair
-# whose declared assonance and every other required coordinate are answered.
+# 2026-09-08: the historical four/own default relation was explicitly
+# UNKNOWN, not a definite violation the writer can be asked to repair
+# (decided since the any-reading rule of 2026-10-01: it holds).
+# Keep that negative below; exercise replay with a repair whose declared
+# assonance and every other required coordinate are answered. L1 ends on a
+# word no dictionary reads, so its mandated pair is unjudged and L1 is
+# briefed. (L1 was seven elephants, a prominence-band repair, until the owner
+# deleted that band 2026-10-01.)
 HISTORICAL_LINES = ["The bank foreclosed and boarded up the store",
                     "the freight train left the siding after four",
                     "we packed the truck with everything we own",
                     "and drove until the radio was gone"]
-LINES = ["The elephant elephant elephant elephant elephant elephant elephant stove",
+LINES = ["My kettle whistles by the qzzxv",
          "Your fingers brush my heavy coat"]
 MAND = "--groups=1,2"
 ANSWER = "My kettle whistles by the stove"
@@ -221,12 +225,17 @@ with tempfile.TemporaryDirectory(prefix="rm_unknown_") as unknown_dir:
                             f"--propose=defer:{state}")
     unknown = result_record(out)
     journal = json.load(open(state, encoding="utf-8"))
-    check("the original default-reading fixture asks for an unknown reading repair "
-          "without inventing a pronunciation or accepting an unjudged answer",
-          rc == 4 and unknown["status"] == "suspended"
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the
+    # readings that left this default unknown are asked one whole reading at
+    # a time, and both groups hold (four/own through the line heads `the`
+    # read DH IY0 and `we`; store/gone through assonance), so the run
+    # finishes with nothing asked and nothing invented. superseded: rc 4,
+    # suspended on an UNKNOWN reading repair.
+    check("the original default-reading fixture finishes without asking a "
+          "question, inventing a pronunciation or changing a line",
+          rc == 0 and unknown["status"] == "finished"
           and journal["accepted_lines"] == HISTORICAL_LINES
-          and journal["pending"] is not None
-          and "UNKNOWN" in journal["pending"]["prompt"]
+          and journal["pending"] is None
           and not any(journal["answered"].values()), err)
 
 # ── 4. key separation ────────────────────────────────────────────────────

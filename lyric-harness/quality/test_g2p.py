@@ -474,9 +474,17 @@ def test_real_population_against_shakespeares_own_form():
     check("the derived layers turn 39 of the 50 refusals into judgements",
           len(lexical_newly) == 39,
           f"{len(lexical_newly)} lexical rescues; total refused {len(r0)} -> {len(r1)}")
+    # REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5):
+    # once the unread interior word has a reading, the pair's other words'
+    # several readings no longer keep it undecided, so FIVE such pairs
+    # resolve, each carrying an interior word CMUdict cannot read: sonnet 1
+    # `buriest`, 95 `ill-us'd`, 102 `Alack`, 114 `million'd`/`sharp'st`,
+    # 140 `profan'd`. superseded: exactly {(140, 6, 8)}.
     check("...and resolve exactly the uncertainty an unread INTERIOR word "
-          "caused — sonnet 140 L6~L8, `profan'd` — and no other",
-          interior_newly == {(140, 6, 8)}
+          "caused — five pairs, each with an interior word CMUdict cannot "
+          "read — and no other",
+          interior_newly == {(1, 9, 11), (95, 13, 14), (102, 1, 3),
+                             (114, 5, 7), (140, 6, 8)}
           and all(_interior_oov(p) for p in interior_newly),
           f"{sorted(interior_newly)}")
     # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's

@@ -287,9 +287,14 @@ def test_the_prefix_pin():
           summary in base and with_bank.count(summary) == 1
           and summary not in tail,
           (base.count(summary), with_bank.count(summary), summary in tail))
-    check("the shared prefix keeps the broad schema refusal and the "
+    # 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5): the
+    # schemas the grade used to leave unresolved for light/shore are asked
+    # again under each whole dictionary reading, and none holds under any,
+    # so the shared prefix no longer carries an unresolved-default refusal.
+    # superseded: "default relation remains unresolved" in base.
+    check("the shared prefix carries no unresolved-default refusal and the "
           "bank block invents no definite pair verdict",
-          "default relation remains unresolved" in base
+          "default relation remains unresolved" not in base
           and "CLEAN —" not in base and "REFUSED" not in tail)
 
 

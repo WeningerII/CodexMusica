@@ -489,8 +489,7 @@ MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON",
 # writer for a readable replacement; do not call the unknown text a defect
 # or invent a pronunciation. Missing calibration/grid declarations cannot
 # be repaired by rewriting lyrics and therefore do not enter this set.
-REPAIRABLE_UNJUDGED = frozenset({"SCHEME_UNREADABLE", "BAND_UNJUDGED",
-                               "PROMINENCE_UNDECIDED"})
+REPAIRABLE_UNJUDGED = frozenset({"SCHEME_UNREADABLE", "PROMINENCE_UNDECIDED"})
 
 
 def _unjudged_on(brief):

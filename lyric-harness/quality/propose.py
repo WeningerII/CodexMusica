@@ -691,7 +691,7 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         out.append("")
 
     out.append(f"WHAT THE GRADER FOUND ON L{line_no} ({len(findings)})")
-    if any(f.code in {"SCHEME_UNREADABLE", "BAND_UNJUDGED", "PROMINENCE_UNDECIDED"}
+    if any(f.code in {"SCHEME_UNREADABLE", "PROMINENCE_UNDECIDED"}
            for f in findings):
         out.append("  An unjudged required check is UNKNOWN, not a lyric violation. "
                    "A replacement can make the declared anchor or reading judgeable. "

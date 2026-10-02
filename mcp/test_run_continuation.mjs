@@ -183,11 +183,18 @@ try {
   // draws longer lines (fewer overflow their bars) and a denser web; the
   // door now sees seven independent briefs and admits the first four.
   // Since 2026-10-01 it admits all seven (see the first-subset pin below).
-  const originalIndependent = [1, 14, 15, 17, 19, 21, 23];
+  // REPINNED 2026-10-01 for the any-reading rule (CLAUDE.md standing rule
+  // 5; measured): small words anchor at declared slots, so L1 is a group
+  // pivot asked before the door and L2 takes its place among the seven.
+  // superseded: [1, 14, 15, 17, 19, 21, 23].
+  const originalIndependent = [2, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
-  const BATCH_DOOR_BOUND = 2;
+  // ~~2~~ -> 4 (2026-10-01, any-reading rule; measured): the walk is
+  // group [1,5,6,7,8,13], then L1 at attempts 0, 1 and 2, and the door
+  // opens on continuation 4 (132238 state bytes).
+  const BATCH_DOOR_BOUND = 4;
   // ~~8~~ ~~32~~ (M-305: measured 30 continuations after the first batch,
   // behind the group questions and three attempts per pivot of L5..L12) —
   // 2026-09-24: the tail is re-asked on the second batch at continuation 4
@@ -267,7 +274,9 @@ try {
   // member, so all seven independent briefs now fit the journal bound and the
   // door admits them all. The bounded split itself stays pinned by
   // test_production_journal.py's oversized-prompt cases.
-  assert.deepEqual(firstSubset, [1, 14, 15, 17, 19, 21, 23]);
+  // ~~[1, 14, 15, 17, 19, 21, 23]~~ [2, 14, 15, 17, 19, 21, 23] (2026-10-01,
+  // any-reading rule; measured): L1 is asked as a pivot before the door.
+  assert.deepEqual(firstSubset, [2, 14, 15, 17, 19, 21, 23]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)

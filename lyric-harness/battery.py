@@ -371,6 +371,21 @@ def whitman_battery():
 # it is in `quality/battery_pin.py`'s docstring). ~~EXPECTED = {"mandated":
 # 1064, "judged": 936, "refused": 128, "violations": 9}~~ stood here. A repin
 # edits `quality/battery_pin.py` and still argues itself in THIS history.
+# REPINNED 2026-10-01, THE ANY-READING RULE (CLAUDE.md standing rule 5,
+# owner: "shouldn't it be that the checker is going to look for whether or
+# not a pronunciation works not which pronunciation works?"). Layer: band —
+# what a mandated pair's several dictionary readings MEAN. ~~judged 936,
+# refused 128, violations 9~~ -> judged 1007, refused 57, violations 15. The
+# 71 pairs that refused only because their end words' readings disagreed are
+# now judged: 65 hold under at least one whole reading and pass, 6 hold under
+# none and violate — glass/was (5), deserts/parts (17), temperate/date (18),
+# pass/was (49), costs/boast (91), perpetual/thrall (152). Measured per
+# (sonnet, line_i, line_j) against main: all 9 former violations stand, all
+# 57 remaining refusals are former refusals (unreadable words, or a schema
+# open for a reason that is not a reading), none newly refuses. temperate/
+# date is the dictionary's limit, not a judgement: CMUdict gives
+# `temperate` no -ate reading. The exact partition is in
+# quality/production_relation_oracle.json (`audit_spans.py --write-oracle`).
 from quality.battery_pin import EXPECTED  # noqa: E402
 
 
