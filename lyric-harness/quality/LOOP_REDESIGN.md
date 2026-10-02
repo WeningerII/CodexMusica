@@ -471,17 +471,36 @@ with no step completed, the state says so: `status: "interrupted"` plus
 that this draft does not fit one call on this server. A third identical
 attempt is never presented as progress.
 
-**Where the line falls (the cause is being checked, not yet established).**
-The pasted 104-line songs declare one relation. They open in 88.6 s and take answers, slower with each answer today
-(2.0 removes that growth). The 104-line planner fixture declares none, so every
-group is judged against the whole relation vocabulary. One cold grade of it
-takes 1,307 s.
+**Where the line falls, measured.** The same 104-line fixture draft was graded
+twice. Only the relation differed: the plan's groups and returns are
+identical with and without `--relation=class:RHYME`, which was checked.
 
-So on this box, with this design:
+| lines | undeclared default (every relation) | declared `class:RHYME` |
+|---|---|---|
+| 24 | 97.8 s | 35.0 s |
+| 104 | 1,307.3 s | **266.1 s** |
 
-- a 100-line song **with a declared relation** is revisable call by call;
-- a 100-line song on the **undeclared default** is not, until M-240 brings the
-  grade under the deadline or the deadline changes.
+The declared runs shared the 4 cores with three other measurements; the
+undeclared 104-line run shared them with two. So the gap is, if anything,
+understated.
+
+The planner draws no relation (the N-relation model, 2026-09-22), so a planned
+song judged on the default pays the left-hand column. So on this box, with
+this design:
+
+- a 100-line song **with a declared relation** fits a call: one grade in about
+  4.4 minutes;
+- a 100-line song on the **undeclared default** does not, until M-240 brings
+  that grade under the deadline or the deadline changes.
+
+A second wall sits beside it. The declared 104-line report was 4,167,870
+bytes, which is 26,434 bytes under the connector's 4 MiB `MAX_OUTPUT_BYTES`.
+M-240's note 5 already records that a report grows with the square of the
+line count. A slightly longer song meets the output cap even when the time
+fits.
+
+Whether the default should cost less is the grader's question and the owner's,
+not the loop's. Nothing here changes what the default judges.
 
 This file says that rather than claim the loop is fixed for every 100-line
 song.
