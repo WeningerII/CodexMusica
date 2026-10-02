@@ -1,13 +1,14 @@
 # Revise-loop redesign — status
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
-Last update: 2026-10-02, **Phase 1 nearly done**. All four defects are
-reproduced. The long-draft measurements are mostly in, and two are still
-running.
+Last update: 2026-10-02, **Phase 1 closed; Phase 2 (the debate) starting.**
+All four defects are reproduced and scaling is measured at 24, 60 and 104
+lines. One supplementary figure is still running (the 104-line acceptance
+check without menus). The debate does not depend on it.
 
 ## Current phase
 
-**Phase 1 — verify.** No production code has changed.
+**Phase 2 — design and debate.** No production code has changed.
 
 A design draft is already written, marked pre-debate:
 `lyric-harness/quality/LOOP_REDESIGN.md`. It is not built, and it will be
@@ -81,7 +82,7 @@ per call.
 |---|---|
 | 24 | 53.1 (0) · 15.3 (12) · 56.1 (13) · 30.2 (24) · 35.4 (25) · 37.6 (26) · 43.9 (27) · 49.8 (28) · 51.1 (29) · 57.7 (30) · 65.2 (31) · 68.9 (32) |
 | 60 | 50.0 (0) · 49.0 (1) · 95.9 (2) · 97.7 (3) · 171.8 (4) · 173.0 (5) |
-| 104 | 88.6 (0) · 82.7 (1) · still running |
+| 104 | 88.6 (0) · 82.7 (1) · 210.0 (2) · 220.6 (3) · 407.0 (4) · 373.9 (5) |
 
 On the 60-line song, each group answer adds about 70 s to every later call.
 
@@ -91,6 +92,7 @@ On the 60-line song, each group answer adds about 70 s to every later call.
 |---|---|
 | cold | 424.8 s |
 | warm, same process, same line | 261.1 s |
+| warm, same process, another line | **1,832.4 s** |
 
 A 60-second profile of the warm call puts **100% of samples** under `verify` →
 `brief(target_lines=…)` → `declared_offer` → `grade`. In other words, `verify`
@@ -101,16 +103,31 @@ To price this, I ran the same `tryline` sequence with `verify`'s internal
 brief asked for no offers. This was an in-process patch for measurement only,
 and it skips rule 3, so it gives a lower bound rather than a replacement:
 
-| run | time |
-|---|---|
-| cold | 162.8 s |
-| warm, same line | 89.4 s |
-| warm, other line | 112.1 s |
+| run | 24 lines | 60 lines |
+|---|---|---|
+| cold | 162.8 s | 574.7 s |
+| warm, same line | 89.4 s | 376.0 s |
+| warm, other line | 112.1 s | 432.1 s |
 
 The verdicts were the same in all three. What remains is the whole-draft
 re-inspection: 68% of it is in `relations.whole_vocabulary_pairs`.
 
-The 60 and 104-line runs of both `tryline` variants are still running.
+I stopped the unpatched check at 60 and 104 lines: it would have taken hours,
+and the 24-line rows already settle the question. The menu-free check at 104
+lines is still running.
+
+**Declared relation against the default, measured.** The same 104-line
+fixture draft, same groups and returns, graded once on the undeclared default
+and once under `--relation=class:RHYME`:
+
+| lines | undeclared default | declared `class:RHYME` |
+|---|---|---|
+| 24 | 97.8 s | 35.0 s |
+| 104 | 1,307.3 s | **266.1 s** |
+
+So on this box a 100-line song with a declared relation fits a call, and one
+on the undeclared default does not. The declared 104-line report was
+4,167,870 bytes, 26,434 under the connector's 4 MiB output cap.
 
 ## What this changes in the design draft
 
@@ -130,9 +147,14 @@ The 60 and 104-line runs of both `tryline` variants are still running.
 
 ## Next
 
-1. Finish the 104-line replay curve and the 60/104-line `tryline` timings.
-2. Revise `LOOP_REDESIGN.md` with the findings above.
-3. Close Phase 1, then run the debate workflow.
+1. `LOOP_REDESIGN.md` now carries all of the above, plus two new parts:
+   - 2.6: `verify` stops building menus it does not read;
+   - 2.7: the floor the design does not remove, including the livelock that
+     one over-deadline verification causes.
+2. Run the debate workflow: three independent opponents, one defender, two
+   judges. Every objection must be answered, or the design changes.
+3. Record the debate's outcome in `LOOP_REDESIGN.md` §5, then build only if
+   it passes.
 
 ## Open questions
 

@@ -100,7 +100,7 @@ process per call:
 |---|---|
 | 24 | 53.1 (0) · 15.3 (12) · 56.1 (13) · 30.2 (24) · 35.4 (25) · 37.6 (26) · 43.9 (27) · 49.8 (28) · 51.1 (29) · 57.7 (30) · 65.2 (31) · 68.9 (32) |
 | 60 | 50.0 (0) · 49.0 (1) · 95.9 (2) · 97.7 (3) · 171.8 (4) · 173.0 (5) |
-| 104 | 88.6 (0) · 82.7 (1) · 210.0 (2) |
+| 104 | 88.6 (0) · 82.7 (1) · 210.0 (2) · 220.6 (3) · 407.0 (4) · 373.9 (5) |
 
 Each group answer on the 60-line song adds about 70 s to every later call.
 The one recorded on the 104-line song added about 127 s. These ran
@@ -113,11 +113,14 @@ line, then warm on another line.
 
 | run | 24 lines | 60 lines | 104 lines |
 |---|---|---|---|
-| `verify` as it is, cold | 424.8 s | (running) | (running) |
-| as it is, warm, same line | 261.1 s | (running) | (running) |
+| `verify` as it is, cold | 424.8 s | not run† | not run† |
+| as it is, warm, same line | 261.1 s | not run† | not run† |
+| as it is, warm, other line | **1,832.4 s** | not run† | not run† |
 | without the offer menus*, cold | 162.8 s | 574.7 s | (running) |
-| without the offer menus*, warm, same line | 89.4 s | (running) | (running) |
-| without the offer menus*, warm, other line | 112.1 s | (running) | (running) |
+| without the offer menus*, warm, same line | 89.4 s | 376.0 s | (running) |
+| without the offer menus*, warm, other line | 112.1 s | 432.1 s | (running) |
+
+† Stopped. At 24 lines the unpatched check already took up to 1,832 s against 112 s without the menus. At 60 and 104 lines it would have taken hours, and slowed every other measurement sharing the 4 cores. Every row in this table ran with 2 to 4 measurements sharing those cores.
 
 \* A measurement-only, in-process patch: `verify`'s internal
 `brief(target_lines=…)` was asked for no offers. That also skips rule 3's
