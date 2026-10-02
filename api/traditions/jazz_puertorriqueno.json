@@ -5,7 +5,7 @@
   "lineage": "Puerto Rican jazz musicians; selected Zenón bolero-interpretation duo",
   "recipe": "classic modern jazz puertorriqueño, improv On Frame, Latin jazz branch. saxophone, grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 240,
-  "score": 1.259,
+  "score": 1.191,
   "config": {
     "traditions": [
       "jazz_puertorriqueno"
@@ -26,10 +26,10 @@
           "wind_articulation": -0.035,
           "sax_size": 0.325,
           "sax_reed": 0,
-          "sax_body_alloy": -0.07750000000000001,
+          "sax_body_alloy": -0.1,
           "sax_mouthpiece": 0.063,
           "sax_technique": -0.035,
-          "sax_maker_school": 0.0225
+          "sax_maker_school": 0
         }
       },
       {
@@ -47,8 +47,8 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.12825,
-          "grand_piano_brand": 0.042749999999999996,
+          "grand_piano_size": 0.11699999999999999,
+          "grand_piano_brand": 0.0315,
           "piano_hammer": -0.1,
           "piano_rim": -0.07,
           "piano_soundboard": -0.07,

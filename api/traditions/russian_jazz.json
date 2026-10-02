@@ -1,0 +1,152 @@
+{
+  "id": "russian_jazz",
+  "name": "Russian jazz",
+  "family": "jazz",
+  "lineage": "Russian jazz is represented here by Alex Sipiagin — Steppin’ Zone quintet (2001), including Conception. This is one documented branch with an authored present-day studio realization.",
+  "recipe": "classic early-2000s russian jazz, improv On Frame, bop branch. bach stradivarius 180 canonical American orchestral jazz balance trumpet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 500,
+  "score": 111.429,
+  "config": {
+    "traditions": [
+      "russian_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "harmon_out",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "brass_size": 0.1365,
+          "trumpet_mouthpiece": 15.6,
+          "brass_mute": 0.5039999999999999,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 1.95
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "sax_size": "tenor_sax",
+          "sax_reed": "soft_reed",
+          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_mouthpiece": "metal_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "sax_size": 0.19500000000000003,
+          "sax_reed": 0.1365,
+          "sax_body_alloy": 12.0315,
+          "sax_mouthpiece": 0.1365,
+          "sax_technique": 12,
+          "sax_maker_school": 15.534999999999998
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_5_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.05,
+          "grand_piano_size": 0.1995,
+          "grand_piano_brand": 0.273,
+          "piano_hammer": 1.885,
+          "piano_rim": 1.95,
+          "piano_soundboard": -0.05,
+          "piano_pinblock": 0.26,
+          "piano_plate": 0.2315,
+          "piano_pitch_standard": 0.7149999999999999
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 12,
+          "upright_play": 12
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 7.279999999999999,
+          "drumhead": 15.534999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "saxophone": [
+        "sax_size"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "sax_size": "tenor_sax",
+      "upright_play": "pizz_upright",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "drum_technique": "brushes_and_sticks"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

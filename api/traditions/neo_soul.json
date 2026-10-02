@@ -3,28 +3,28 @@
   "name": "Neo Soul",
   "family": "blues_gospel",
   "lineage": "Philadelphia, New York and Detroit R&B movement of 1995-2005 centered on D'Angelo, Erykah Badu, the Soulquarians and producers James Poyser and J Dilla, marked by live Rhodes-and-bass rhythm sections playing deliberately behind the beat, extended jazz voicings over hip-hop-derived boom-bap drum feels at 70-95 BPM, warm analog tracking, and a conversational, melismatic gospel-rooted vocal delivery layered into dense close-harmony stacks.",
-  "recipe": "classic North American mid-2000s neo soul, functional Song, soul R&B branch, us hip hop east coast, American jazz soul jazz east coast hip-hop boom bap. thick, rap, straight onset, narrative. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, hohner d6 canonical 1971 1981 funk era plain steel canonical hohner d6 wound rubber tangent ostinato clavinet, lead plus dense cluster 5 part stack late 1970s thirds fifths octaves 16 24 track multitrack vocal stack, mule hide canonical Cuban premium oak staved canonical Cuban congas.",
-  "recipe_chars": 956,
-  "score": 409.49,
+  "recipe": "classic North American mid-2000s neo soul, functional Song, soul R&B branch, us hip hop east coast, American jazz soul jazz neo soul-jazz east coast hip-hop. thick, blues-shouter, straight onset, narrative. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, hohner d6 canonical 1971 1981 funk era plain steel canonical hohner d6 wound rubber tangent ostinato clavinet, lead plus dense cluster 5 part stack late 1970s thirds fifths octaves 16 24 track multitrack vocal stack, mule hide canonical Cuban premium oak staved canonical Cuban congas.",
+  "recipe_chars": 971,
+  "score": 420.288,
   "config": {
     "traditions": [
       "neo_soul",
-      "east_coast_hip_hop_classic",
-      "boom_bap"
+      "neo_soul_jazz",
+      "east_coast_hip_hop_classic"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "blues_shouter_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 30.039999999999996,
-          "voice_quality": 17.939999999999998,
+          "voice_register": 35.540000000000006,
+          "voice_quality": 16.54999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.29,
-          "voice_articulation": 23.235,
-          "voice_microtone": 16.83499999999999,
-          "voice_tradition": 17.515,
-          "voice_mechanism_compound": 1.5250000000000001,
-          "voice_estill_quality": 16.605,
-          "voice_speech_song": 20.019999999999992,
-          "voice_ensemble_config": 17.159999999999993,
-          "voice_ornament_system": 5.525000000000001,
+          "voice_vibrato": 14.665000000000003,
+          "voice_articulation": 22.06,
+          "voice_microtone": 16.845000000000002,
+          "voice_tradition": 18.89,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 17.83,
+          "voice_speech_song": 15.794999999999995,
+          "voice_ensemble_config": 13.779999999999994,
+          "voice_ornament_system": 4.550000000000001,
           "voice_pitch_organization": 1.4949999999999997,
-          "voice_processing_chain": 10.7,
-          "voice_multitrack_stack": 4.809999999999999
+          "voice_processing_chain": 7.6499999999999995,
+          "voice_multitrack_stack": 3.3799999999999994
         }
       },
       {
@@ -63,9 +63,9 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 16.425,
-          "rhodes_model": 11.819999999999999,
-          "rhodes_use": 2.925,
+          "keyboard_technique": 17.8,
+          "rhodes_model": 17.045,
+          "rhodes_use": 3.3799999999999994,
           "rhodes_tine_material": 3.3799999999999994,
           "rhodes_hammer_tip": 5.004999999999999,
           "rhodes_pickup_position": 4.68
@@ -75,7 +75,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
@@ -84,13 +84,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 19.439999999999998,
-          "body_wood": 0.585,
+          "amp_make": 20.665,
+          "body_wood": 0.39,
           "pickup_config": 0.15,
-          "string_type": 18.830000000000002,
-          "scale_length_b": 0.975,
+          "string_type": 19.905,
+          "scale_length_b": 0.78,
           "fretted_or_not": 0.39,
-          "bass_technique": 16.34,
+          "bass_technique": 16.965,
           "electric_bass_string_configuration": 0
         }
       },
@@ -102,8 +102,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 22.294999999999995,
-          "drumhead": 10.58,
+          "drum_technique": 21.904999999999998,
+          "drumhead": 15.955000000000004,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -117,26 +117,26 @@
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "drop_d",
+          "string_tuning": "eb_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 16.040000000000003,
-          "amp_make": 16.55,
-          "body_wood": 0.585,
+          "electric_technique": 16.665,
+          "amp_make": 17.925,
+          "body_wood": 0.39,
           "neck_wood": 1,
           "fretboard": 1,
           "pickup_magnet": 1,
           "string_material": 1,
-          "string_gauge": 0.585,
+          "string_gauge": 0.65,
           "bridge": 0.195,
-          "scale_length": 0.585,
+          "scale_length": 0.39,
           "finish": 0.045,
-          "string_tuning": 5.069999999999999,
+          "string_tuning": 3.965,
           "single_coil_pickup_construction": 0
         }
       },
@@ -150,10 +150,10 @@
           "clavinet_string_material": "clavinet_steel_string_canonical"
         },
         "scores": {
-          "keyboard_technique": 16.345000000000002,
-          "clavinet_pickup": 1.4300000000000002,
+          "keyboard_technique": 16.970000000000002,
+          "clavinet_pickup": 1.2349999999999999,
           "clavinet_context": 0.845,
-          "clavinet_model": 3.705,
+          "clavinet_model": 3.12,
           "clavinet_string_material": 1.6899999999999997
         }
       },
@@ -162,12 +162,12 @@
         "slots": {
           "multitrack_stack_density": "multitrack_density_5_part_cluster",
           "multitrack_stack_era_aesthetic": "multitrack_era_late_1970s_thirds_fifths",
-          "multitrack_stack_processing": "multitrack_processing_tuned_perfect"
+          "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
           "multitrack_stack_density": 2.295,
           "multitrack_stack_era_aesthetic": 3.21,
-          "multitrack_stack_processing": 0.585
+          "multitrack_stack_processing": 0.045
         }
       },
       {
@@ -179,8 +179,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.15,
-          "conga_set": 0.585,
+          "percussion_technique": 1.56,
+          "conga_set": 0.39,
           "conga_skin": 1.6899999999999997,
           "conga_shell_wood": 1.6899999999999997
         }

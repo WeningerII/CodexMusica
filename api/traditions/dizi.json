@@ -5,7 +5,7 @@
   "lineage": "Repertoire for the transverse bamboo flute with its distinctive dimo reed membrane over a sixth hole, split into the bright fast-tonguing northern bangdi style of Feng Zicun and the lyrical breathy southern qudi style of Zhao Songting, codified as solo concert music from the 1950s and marked by flutter-tonguing, rapid grace-note taps, wide glissando bends, circular-breathing long tones and a buzzing membrane overtone that no keyed flute produces.",
   "recipe": "classic Southeast Asian mid-1950s dizi repertoire, art Music, east Asian branch, wind pipe drone modal gaita galega solo pìobaireachd. no membrane buzz purple bamboo premium northern qudi southern jiangnan kunqu canonical lyrical dizi, purple bamboo phyllostachys canonical literati premium xiao, traditional metal pipes modern orchestral 36 pipe sheng, bawu, steel wound concert projection guzheng, modern concert bamboo yangqin. wooden pagoda hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 566,
-  "score": 65.86,
+  "score": 65.848,
   "config": {
     "traditions": [
       "dizi",
@@ -24,7 +24,7 @@
         },
         "scores": {
           "wind_articulation": 2.5682142857142862,
-          "dizi_membrane": 7.2371875,
+          "dizi_membrane": 7.225,
           "dizi_pitch": 1.4300000000000002,
           "dizi_body_material": 2.6,
           "dizi_regional_style": 3.795

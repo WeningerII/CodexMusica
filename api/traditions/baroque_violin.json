@@ -1,0 +1,79 @@
+{
+  "id": "baroque_violin",
+  "name": "Baroque violin",
+  "family": "classical",
+  "lineage": "Baroque violin: Rachel Podger — Biber Passacaglia in G minor (Guardian Angel) solo performance. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic baroque violin, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure violin orchestral. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 45.861,
+  "config": {
+    "traditions": [
+      "baroque_violin"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "gut_strings_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "snakewood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.6175,
+          "orch_strings": -0.035,
+          "orch_top_wood": 7.5,
+          "orch_back_wood": 7.5,
+          "orch_varnish": 7.6575,
+          "orch_setup_period": 6.191625,
+          "orch_bow": 0.29400000000000004,
+          "orch_bow_stick": 5.496,
+          "orch_articulation": 0.2835,
+          "orch_rosin": 8.35575
+        }
+      }
+    ],
+    "pinned": {
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "orch_strings": "gut_strings_orch"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

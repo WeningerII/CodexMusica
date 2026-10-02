@@ -1,0 +1,122 @@
+{
+  "id": "jazz_composition",
+  "name": "Jazz composition",
+  "family": "jazz",
+  "lineage": "Jazz composition is represented by Mary Lou Williams — Zodiac Suite original small-ensemble core. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic jazz composition, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator grand piano, silver wound lamb gut core nyman jazz bass canon double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 61.098,
+  "config": {
+    "traditions": [
+      "jazz_composition"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.147,
+          "grand_piano_brand": 0.4429999999999999,
+          "piano_hammer": 1.885,
+          "piano_rim": 1.885,
+          "piano_soundboard": -0.035,
+          "piano_pinblock": 0.26,
+          "piano_plate": 0.26,
+          "piano_pitch_standard": 0.325
+        }
+      },
+      {
+        "id": "double_bass",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "bass_size": "bass_three_quarter",
+          "bass_strings": "silver_wound_lamb_gut_bass",
+          "bass_top_wood": "carpathian_spruce_bass",
+          "bass_back_wood": "plywood_bass_back",
+          "bass_varnish": "spirit_varnish_bass",
+          "bass_setup_period": "modern_setup_bass",
+          "bass_play": "bass_pizz",
+          "bass_rosin": "nyman_bass_rosin",
+          "bass_bow_stick": "brazilwood_stick_bass"
+        },
+        "scores": {
+          "bowed_technique": -0.07,
+          "bass_size": 0,
+          "bass_strings": 2.015,
+          "bass_top_wood": -0.05,
+          "bass_back_wood": -0.05,
+          "bass_varnish": -0.05,
+          "bass_setup_period": 0.26,
+          "bass_play": 12.813,
+          "bass_rosin": 16.965,
+          "bass_bow_stick": -0.05
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 7.67,
+          "drumhead": 16.509999999999998,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "double_bass": [
+        "bowed_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_jazz_comping",
+      "bowed_technique": "bowed_pizzicato",
+      "drum_technique": "brushes_and_sticks"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

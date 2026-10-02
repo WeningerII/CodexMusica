@@ -3,22 +3,22 @@
   "name": "Furniture Music (musique d'ameublement)",
   "family": "classical",
   "lineage": "Coined and composed by Erik Satie with Darius Milhaud in Paris 1917-1923, first performed at the Galerie Barbazanges in 1920 — short modal cells for small mixed ensemble (piano, clarinet, trombone, strings) repeated unchanged for the duration of an interval, deliberately unresolving, dynamically flat and written to be ignored, with Satie shouting at the audience to keep talking.",
-  "recipe": "classic Western European mid-1920s furniture music, art Music, western modern branch, western common practice art music, ambient experimental electric salon music chamber music. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, composite resin blackwood dust continuous-airflow legato clarinet, band section bass trombone, plain gut sheep gut unsplit sitka spruce bigleaf maple violin orchestral, plain gut sheep gut unsplit carpathian spruce European maple cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute. intimate paris small studio. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 670,
-  "score": 243.948,
+  "recipe": "classic Western European mid-1920s furniture music, art Music, western modern branch, western common practice art music, ambient experimental electric salon music austrian classical piano. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, composite resin blackwood dust continuous-airflow legato clarinet, band section bass trombone, plain gut sheep gut unsplit carpathian spruce European maple violin orchestral, plain gut sheep gut unsplit carpathian spruce European maple cello, yamaha modern Japanese mid to premium continuous-airflow legato flute. intimate paris small studio. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 680,
+  "score": 270.937,
   "config": {
     "traditions": [
       "furniture_music",
       "salon_music",
-      "chamber_music"
+      "austrian_classical_piano"
     ],
     "instruments": [
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "grand_piano_size": "grand_5_foot",
-          "grand_piano_brand": "steinway_d",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
@@ -27,15 +27,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 5.3525,
-          "grand_piano_size": 0.785,
-          "grand_piano_brand": 1.04,
-          "piano_hammer": 13.1625,
-          "piano_rim": 11.788269230769231,
-          "piano_soundboard": 10.125,
-          "piano_pinblock": 9.775,
-          "piano_plate": 9.715,
-          "piano_pitch_standard": 13.06403846153846
+          "keyboard_technique": 7.3275,
+          "grand_piano_size": 1.2,
+          "grand_piano_brand": 0.7650000000000001,
+          "piano_hammer": 14.625,
+          "piano_rim": 13.1475,
+          "piano_soundboard": 10.75,
+          "piano_pinblock": 10.9,
+          "piano_plate": 10.84,
+          "piano_pitch_standard": 13.823269230769231
         }
       },
       {
@@ -44,59 +44,59 @@
           "wind_articulation": "wind_continuous_legato",
           "clarinet_body": "buffet_greenline_clarinet",
           "clarinet_size": "a_clarinet",
-          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_reed": "medium_clarinet_reed",
           "clarinet_articulation": "glissando_clarinet"
         },
         "scores": {
-          "wind_articulation": 5.19,
-          "clarinet_body": 9.625,
-          "clarinet_size": 2.6,
-          "clarinet_reed": 0.65,
-          "clarinet_articulation": 0.12999999999999998
+          "wind_articulation": 7.3149999999999995,
+          "clarinet_body": 10.75,
+          "clarinet_size": 3.445,
+          "clarinet_reed": 1.17,
+          "clarinet_articulation": 0.09999999999999999
         }
       },
       {
         "id": "bass_trombone",
         "slots": {
-          "bass_trombone_valves": "bass_trombone_double_trigger",
+          "bass_trombone_valves": "bass_trombone_single_trigger",
           "bass_trombone_context": "bass_trombone_big_band_section"
         },
         "scores": {
-          "bass_trombone_valves": 0.65,
+          "bass_trombone_valves": 0.545,
           "bass_trombone_context": 1.4699999999999998
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
+          "bowed_technique": "bowed_legato_classical",
           "orch_strings": "plain_sheep_gut_violin",
-          "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "magic_rosin_orch"
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 5.375,
-          "orch_strings": 1.8492307692307692,
-          "orch_top_wood": 8,
-          "orch_back_wood": 12.3825,
-          "orch_varnish": 9.625,
-          "orch_setup_period": 8.744038461538462,
+          "bowed_technique": 7.125,
+          "orch_strings": 1.646730769230769,
+          "orch_top_wood": 7.865769230769231,
+          "orch_back_wood": 12.33576923076923,
+          "orch_varnish": 10.75,
+          "orch_setup_period": 9.974038461538461,
           "orch_bow": 0.39,
-          "orch_bow_stick": 12.34076923076923,
-          "orch_articulation": 0.45499999999999996,
-          "orch_rosin": 11.0825
+          "orch_bow_stick": 13.459999999999999,
+          "orch_articulation": 0.7667307692307691,
+          "orch_rosin": 10.75
         }
       },
       {
         "id": "cello",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
+          "bowed_technique": "bowed_legato_classical",
           "cello_strings": "plain_sheep_gut_cello",
           "cello_top_wood": "carpathian_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
@@ -107,15 +107,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 5.375,
-          "cello_strings": 1.8492307692307692,
-          "cello_top_wood": 6.201538461538462,
-          "cello_back_wood": 11.17153846153846,
-          "cello_varnish": 9.625,
-          "cello_setup_period": 8.744038461538462,
-          "cello_bow_grip": 2.795,
-          "cello_rosin": 10.715769230769231,
-          "cello_bow_stick": 12.34076923076923
+          "bowed_technique": 7.125,
+          "cello_strings": 1.646730769230769,
+          "cello_top_wood": 7.865769230769231,
+          "cello_back_wood": 12.33576923076923,
+          "cello_varnish": 10.75,
+          "cello_setup_period": 9.974038461538461,
+          "cello_bow_grip": 3.6399999999999997,
+          "cello_rosin": 11.685,
+          "cello_bow_stick": 13.459999999999999
         }
       },
       {
@@ -123,16 +123,16 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "flute_size": "piccolo_flute",
-          "flute_material": "silver_flute",
+          "flute_material": "wooden_flute",
           "flute_technique": "beatboxed_flute",
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 5.19,
-          "flute_size": 0.65,
-          "flute_material": 1.105,
-          "flute_technique": 0.4550000000000001,
-          "flute_maker_school": 4.389038461538462
+          "wind_articulation": 7.3149999999999995,
+          "flute_size": 0.195,
+          "flute_material": 0.585,
+          "flute_technique": 0.1949999999999999,
+          "flute_maker_school": 2.9899999999999998
         }
       }
     ],

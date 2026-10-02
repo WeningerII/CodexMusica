@@ -1,0 +1,75 @@
+{
+  "id": "balkan_classical_piano",
+  "name": "Balkan classical piano",
+  "family": "classical",
+  "lineage": "Balkan classical piano: Simon Trpčeski — Variations (2022) solo recital. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic early-2020s balkan classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 282,
+  "score": 61.788,
+  "config": {
+    "traditions": [
+      "balkan_classical_piano"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "fazioli",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 7.86,
+          "grand_piano_size": 1.063,
+          "grand_piano_brand": 0.5355000000000001,
+          "piano_hammer": 9.685,
+          "piano_rim": 8.3635,
+          "piano_soundboard": 8.6865,
+          "piano_pinblock": 7.75,
+          "piano_plate": 7.9885,
+          "piano_pitch_standard": 9.8555
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "id": "greek_swing",
+  "name": "Greek swing",
+  "family": "jazz",
+  "lineage": "Greek swing: Gadjo Dilo — Manouche de Grec, 2013. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic early-2010s greek swing, improv On Frame, American jazz branch. equal tempered, speech quality modal neutral larynx, meaningless syllables carrying melody. jazz warm flatwound thomastik dreadnought acoustic guitar, violin orchestral, petosa seattle American premium accordion, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 400,
+  "score": 31.96,
+  "config": {
+    "traditions": [
+      "greek_swing"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "open_d",
+          "top_wood": "cedar",
+          "back_sides": "maple_bs",
+          "string_acoustic": "thomastik_flat_top"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "string_tuning": 0.26,
+          "top_wood": 0.588,
+          "back_sides": 0.9099999999999999,
+          "string_acoustic": 3.6399999999999997
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "orch_strings": "steel_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_varnish": "cremonese_post_1740_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "bernardel_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.39,
+          "orch_strings": 0.23099999999999998,
+          "orch_top_wood": -0.035,
+          "orch_back_wood": 0.325,
+          "orch_varnish": -0.035,
+          "orch_setup_period": 0.26,
+          "orch_bow": 0.336,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.21000000000000002,
+          "orch_rosin": -0.035
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_chromatic_jazz",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "demi_swing",
+          "reed_config": "lm_only",
+          "bellows": "all_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_petosa_seattle"
+        },
+        "scores": {
+          "free_reed_technique": -0.035,
+          "accordion_reed_material": 0.34650000000000003,
+          "musette_offset": 0.847,
+          "reed_config": 3.6399999999999997,
+          "bellows": 0.105,
+          "voicing_chamber": 0.19949999999999998,
+          "accordion_maker_school": 1.95
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "steel_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0.23099999999999998,
+          "upright_play": 6.999999999999999
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_speech",
+          "voice_speech_song": "voice_non_lexical_vocable",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 7.169999999999999,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0.39,
+          "voice_estill_quality": 0.5459999999999999,
+          "voice_speech_song": 1.3,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0.18150000000000002,
+          "voice_pitch_organization": 0.0945,
+          "voice_processing_chain": 0.3045,
+          "voice_multitrack_stack": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_guitar_dread": [
+        "acoustic_technique"
+      ],
+      "violin_orchestral": [
+        "bowed_technique"
+      ],
+      "accordion": [
+        "free_reed_technique"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_tradition",
+        "voice_ensemble_config",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "acoustic_technique": "acoustic_flatpicked",
+      "bowed_technique": "bowed_local_song_melody",
+      "free_reed_technique": "free_reed_chromatic_jazz",
+      "upright_play": "pizz_upright",
+      "upright_strings": "steel_upright"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

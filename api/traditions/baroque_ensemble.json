@@ -1,0 +1,193 @@
+{
+  "id": "baroque_ensemble",
+  "name": "Baroque ensemble",
+  "family": "classical",
+  "lineage": "Baroque ensemble: Florilegium — Telemann Paris Quartets Volume2 (2003 recording). A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic early-2000s baroque ensemble, art Music, western common practice branch. grenadilla cocus legato flute, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, norway spruce European alpine European maple bosnian source flamed figure cello, French blanchet taskin paris canonical late 18th century galant harpsichord. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 556,
+  "score": 118.516,
+  "config": {
+    "traditions": [
+      "baroque_ensemble"
+    ],
+    "instruments": [
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "piccolo_flute",
+          "flute_material": "wooden_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 3.4598750000000003,
+          "flute_size": 0.1365,
+          "flute_material": 2.40825,
+          "flute_technique": 0.9099999999999999,
+          "flute_maker_school": 0.509625
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "gut_strings_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "cremonese_pre_1750_varnish_violin",
+          "orch_setup_period": "baroque_setup_violin",
+          "orch_bow": "baroque_bow",
+          "orch_bow_stick": "snakewood_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "galeazzi_1791_baroque_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "orch_strings": -0.035,
+          "orch_top_wood": 7.6365,
+          "orch_back_wood": 7.6365,
+          "orch_varnish": 7.7940000000000005,
+          "orch_setup_period": 6.202875,
+          "orch_bow": 0.546,
+          "orch_bow_stick": 5.496,
+          "orch_articulation": 0.357,
+          "orch_rosin": 8.47275
+        }
+      },
+      {
+        "id": "viola_da_gamba",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gamba_size": "gamba_bass",
+          "viola_da_gamba_context": "viola_da_gamba_hip",
+          "gamba_strings": "gamba_pistoy_silver_wound",
+          "gamba_frets": "gamba_gut_tied_frets",
+          "gamba_bow_stick": "gamba_snakewood_underhand",
+          "gamba_lineage": "gamba_jordi_savall_modern_revival"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "gamba_size": 0.3,
+          "viola_da_gamba_context": -0.035,
+          "gamba_strings": 1.491625,
+          "gamba_frets": 0.7149999999999999,
+          "gamba_bow_stick": 6.17625,
+          "gamba_lineage": 0.252
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_gut",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "baroque_setup_cello",
+          "cello_bow_grip": "german_bow_grip",
+          "cello_rosin": "galeazzi_1791_baroque_rosin_cello",
+          "cello_bow_stick": "snakewood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "cello_strings": 0.5145,
+          "cello_top_wood": 7.6365,
+          "cello_back_wood": 7.6365,
+          "cello_varnish": 7.7940000000000005,
+          "cello_setup_period": 6.076874999999999,
+          "cello_bow_grip": 2.48975,
+          "cello_rosin": 8.47275,
+          "cello_bow_stick": 4.95
+        }
+      },
+      {
+        "id": "harpsichord",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "harpsichord_register": "harpsi_8_foot",
+          "harpsichord_context": "harpsichord_continuo",
+          "harpsichord_maker_school": "harpsichord_french_blanchet_taskin",
+          "harpsichord_plectrum": "harpsichord_leather_french",
+          "harpsichord_temperament": "harpsichord_equal_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "harpsichord_register": 1.3,
+          "harpsichord_context": 0.78,
+          "harpsichord_maker_school": 1.69,
+          "harpsichord_plectrum": 0.6615,
+          "harpsichord_temperament": 0.6825
+        }
+      }
+    ],
+    "pinned": {
+      "flute": [
+        "wind_articulation",
+        "flute_material",
+        "flute_technique"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings"
+      ],
+      "viola_da_gamba": [
+        "bowed_technique",
+        "gamba_size",
+        "viola_da_gamba_context",
+        "gamba_lineage"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings"
+      ],
+      "harpsichord": [
+        "keyboard_technique",
+        "harpsichord_register",
+        "harpsichord_context",
+        "harpsichord_temperament"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_classical_legato",
+      "flute_material": "wooden_flute",
+      "flute_technique": "classical_flute",
+      "bowed_technique": "bowed_legato_classical",
+      "orch_strings": "gut_strings_orch",
+      "cello_strings": "cello_gut",
+      "gamba_size": "gamba_bass",
+      "viola_da_gamba_context": "viola_da_gamba_hip",
+      "gamba_lineage": "gamba_jordi_savall_modern_revival",
+      "harpsichord_context": "harpsichord_continuo",
+      "harpsichord_register": "harpsi_8_foot",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "harpsichord_temperament": "harpsichord_equal_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-02",
-  "count": 4438,
+  "count": 4538,
   "items": [
     {
       "id": "honky_tonk",
@@ -106,8 +106,8 @@
       "id": "jump_blues",
       "name": "Jump blues",
       "family": "blues_gospel",
-      "recipe": "classic North American mid-1940s jump blues, functional Song, blues electric branch, American jazz early swing-era jazz orchestra neo-swing. thick, blues-shouter, wide pitch sway, interlocked note trading. tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano, Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-      "recipe_chars": 752
+      "recipe": "classic North American mid-1940s jump blues, functional Song, blues electric branch, American jazz early modern swing swing-era jazz orchestra. thick, blues-shouter, wide pitch sway, interlocked note trading. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano, Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+      "recipe_chars": 764
     },
     {
       "id": "pentecostal_gospel",
@@ -358,15 +358,15 @@
       "id": "symphonic",
       "name": "Late Romantic symphonic",
       "family": "classical",
-      "recipe": "classic British early-1760s late romantic symphonic, art Music, western common practice branch, western early art music, western modern art music baroque period-instrument historically-informed performance recording. silver wound lamb gut core norway spruce European alpine European maple violin mallets marimba orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, legato celesta, brass mallets glockenspiel, mallets xylophone, calfskin mallets timpani, continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, continuous-airflow legato english brass continuous-airflow legato french horn, boxwood canonical Baroque classical pre 1850 loree paris canonical American school continuous-airflow legato oboe, American orchestral brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba.",
-      "recipe_chars": 920
+      "recipe": "classic British early-1760s late romantic symphonic, art Music, western common practice branch, western early art music, western modern art music african-american classical american 21st century classical. silver wound lamb gut core carpathian spruce European maple sycamore maple violin mallets marimba orchestral, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, legato celesta, brass mallets glockenspiel, mallets xylophone, mallets timpani, French orchestra glotin var French cane continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, continuous-airflow legato english brass continuous-airflow legato french horn, boxwood canonical Baroque classical pre 1850 loree paris canonical American school continuous-airflow legato oboe, American orchestral brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba.",
+      "recipe_chars": 940
     },
     {
       "id": "string_quartet",
       "name": "String quartet",
       "family": "classical",
-      "recipe": "classic British early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music minimalist furniture music. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-      "recipe_chars": 508
+      "recipe": "classic British early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music african-american classical american 21st century classical. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+      "recipe_chars": 550
     },
     {
       "id": "baroque_period",
@@ -1184,8 +1184,8 @@
       "id": "shidaiqu",
       "name": "Shidaiqu (Shanghai Mandarin jazz-pop)",
       "family": "global",
-      "recipe": "classic East Asian mid-1930s shidaiqu, functional Song, east Asian pop branch, American jazz early new orleans jazz swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lyon twisted plain cremonese pre 1750 four layer system Baroque setup double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 978
+      "recipe": "classic East Asian mid-1930s shidaiqu, functional Song, east Asian pop branch, American jazz early modern swing new orleans jazz. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lyon twisted plain plywood laminate European maple double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 947
     },
     {
       "id": "guqin",
@@ -1562,8 +1562,8 @@
       "id": "folk_noir",
       "name": "Folk noir (contemporary dark chamber-folk songwriter tradition)",
       "family": "vernacular",
-      "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music spanish baroque french baroque. thick, breath veiled tone, slow rate, interlocked note trading. walnut martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired oversize maple tension resonator grand piano, pistoy cinnabar loaded red dyed deep dark red norway spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 688
+      "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music spanish baroque classical baritone. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired beech laminated maple laminated grand piano, pistoy cinnabar loaded red dyed deep dark red norway spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 684
     },
     {
       "id": "ethio_jazz",
@@ -1604,8 +1604,8 @@
       "id": "tin_pan_alley_song",
       "name": "Tin Pan Alley song",
       "family": "global",
-      "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early british dance band continental jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part homophonic chordal rhythm aligned sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 595
+      "recipe": "classic North American early-1880s tin pan alley song, functional Song, crooners branch, American jazz early british dance band swing italiano. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu choir ensemble. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 559
     },
     {
       "id": "brill_building_pop",
@@ -1625,8 +1625,8 @@
       "id": "easy_listening_orchestral",
       "name": "Easy listening (orchestral pop)",
       "family": "global",
-      "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal chamber music choral. concert harp, string quartet inst, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, extended harmony through composed jazz big band, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 756
+      "recipe": "classic North American late-1950s easy listening, functional Song, crooners branch, western common practice art music, American jazz smooth vocal chamber music classical baritone. concert harp, sustained legato string quartet inst, cold pressed weikert felt birch laminated maple laminated Asian spruce grand piano, extended harmony through composed jazz big band, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 785
     },
     {
       "id": "dream_pop",
@@ -2430,8 +2430,8 @@
       "id": "hokum_blues_vaudeville",
       "name": "Hokum blues",
       "family": "global",
-      "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early british dance band continental jazz. thick, breath veiled tone, wide pitch sway, interlocked note trading. flatwound thomastik slide acoustic guitar, growly gut upright bass, frottoir, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 656
+      "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early swing italiano modern swing. thick, worn fold, wide pitch sway, interlocked note trading. flatwound thomastik slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 634
     },
     {
       "id": "classic_blues_women",
@@ -2465,8 +2465,8 @@
       "id": "greek_entechno",
       "name": "Greek éntechno",
       "family": "global",
-      "recipe": "classic Southern European 1957-1959 greek éntechno, ballad Poetry, Greek entechno branch, middle eastern classical art music türk sanat müziği libyan maluf. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko ornamented bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sustained legato string quartet inst, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 753
+      "recipe": "classic Southern European 1957-1959 greek éntechno, ballad Poetry, Greek entechno branch, middle eastern classical art music andalusian classical türk sanat müziği. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko ornamented bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, sustained legato string quartet inst, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 758
     },
     {
       "id": "nwobhm",
@@ -2773,8 +2773,8 @@
       "id": "electroacoustic_composition",
       "name": "Electroacoustic composition",
       "family": "global",
-      "recipe": "classic mid-1960s electroacoustic composition, experimental Elec, musique concrete branch, western modern art music computer music live electronics. glitched textural granular glitched textural modular synth, glitched textural eurorack modular, field textural sampler. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 420
+      "recipe": "classic mid-1960s electroacoustic composition, experimental Elec, musique concrete branch, western modern art music computer music 21st century classical. glitched textural granular glitched textural modular synth, glitched textural eurorack modular, field textural sampler. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 426
     },
     {
       "id": "plunderphonics",
@@ -2948,8 +2948,8 @@
       "id": "frevo",
       "name": "Frevo",
       "family": "global",
-      "recipe": "classic Southern American modern frevo, groove Percussion, Brazilian branch, charanga danza Cuban, American jazz improv on frame soul jazz acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria. estudio rozenblit recife. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 849
+      "recipe": "classic Southern American modern frevo, groove Percussion, Brazilian branch, charanga danza Cuban, American jazz improv on frame acid jazz ragtime. thick, breath veiled tone, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria. estudio rozenblit recife. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 847
     },
     {
       "id": "axe_music",
@@ -3046,8 +3046,8 @@
       "id": "kompa_direkt",
       "name": "Kompa-direkt (Haitian)",
       "family": "global",
-      "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early neo-swing swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, cowhide mid tier siam oak mid tier modern congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-      "recipe_chars": 866
+      "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early neo-swing modern swing. thick, breath veiled tone, straight onset, interlocked note trading. Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, cowhide mid tier siam oak mid tier modern congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+      "recipe_chars": 843
     },
     {
       "id": "bouyon",
@@ -3123,8 +3123,8 @@
       "id": "lebanese_pop_tarab",
       "name": "Lebanese tarab-pop",
       "family": "global",
-      "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music khaleeji-iraqi song tajik traditional music. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks rosewood body arab premium synthetic bridge plate qanun, mahogany rosewood open string slide resonance clean strummed single coil electric guitar, roland jupiter lineage canonical jupiter 8 1981 osaka short envelope analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
-      "recipe_chars": 786
+      "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music khaleeji-iraqi song andalusian classical. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks rosewood body arab premium synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
+      "recipe_chars": 745
     },
     {
       "id": "malhun_maghrebi",
@@ -3375,8 +3375,8 @@
       "id": "british_brass_band",
       "name": "British brass band (Northern English)",
       "family": "global",
-      "recipe": "classic North American mid-1850s british brass band, art Music, western common practice branch, western early art music german baroque concerto grosso. brass band british, brass yellow brass canonical brass band besson sovereign canonical British brass band cornet, brass yellow brass flugelhorn, yellow brass canonical British brass band besson sovereign canonical British brass band legato euphonium, compact tuba brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone. us uk civic amateur band hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 858
+      "recipe": "classic North American mid-1850s british brass band, art Music, western common practice branch, western early art music classical accordion classical guitar. brass band british, high register brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow cornet, brass yellow brass continuous-airflow legato flugelhorn, yellow brass canonical British brass band besson sovereign canonical British brass band legato euphonium, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor legato tenor standard standard backbore trombone. us uk civic amateur band hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 909
     },
     {
       "id": "american_drumline",
@@ -3844,8 +3844,8 @@
       "id": "somali_qaraami",
       "name": "Somali qaraami song",
       "family": "global",
-      "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music türk sanat müziği libyan maluf. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic maple ribs Turkish school Lebanese cedar oud, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
-      "recipe_chars": 633
+      "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music türk sanat müziği andalusian classical. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic maple ribs Turkish school Lebanese cedar oud, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
+      "recipe_chars": 641
     },
     {
       "id": "sudanese_aghani_al_banat",
@@ -3970,8 +3970,8 @@
       "id": "khaliji_gulf",
       "name": "Khaliji (Arabian Gulf music)",
       "family": "global",
-      "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music türk sanat müziği shashmaqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka. qat chew majlis room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-      "recipe_chars": 511
+      "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music andalusian classical türk sanat müziği. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean oud, synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+      "recipe_chars": 518
     },
     {
       "id": "sawt_bahraini_kuwaiti",
@@ -4733,8 +4733,8 @@
       "id": "filin_cubano",
       "name": "Filin (Cuban jazz-trova)",
       "family": "global",
-      "recipe": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal standards. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, strummed open chord ringing overtones parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 508
+      "recipe": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal japanese vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 492
     },
     {
       "id": "descarga_cubana",
@@ -5097,15 +5097,15 @@
       "id": "lutheran_chorale",
       "name": "Lutheran chorale tradition",
       "family": "classical",
-      "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical bass classical period. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 739
+      "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music austrian choir british choir. thick, breath veiled tone, slow rate, leader call answered. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, schnitger hamburg canonical north German Baroque late 17th century zinc canonical large pedal pipes late 19th century cost efficient werckmeister iii canonical bach era well temperament pneumatic canonical late 19th century romantic legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 721
     },
     {
       "id": "methodist_hymnody",
       "name": "Methodist hymnody (18th-century English Protestant)",
       "family": "classical",
-      "recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music anglican cathedral-choral recording tradition classical bass. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 823
+      "recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music british choir anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 822
     },
     {
       "id": "shakers_singing",
@@ -5118,8 +5118,8 @@
       "id": "mormon_tabernacle_choir",
       "name": "Mormon Tabernacle Choir tradition",
       "family": "classical",
-      "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music bel canto opera early romantic. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque electric pneumatic canonical 20th century American legato pipe organ. cathedral. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-      "recipe_chars": 716
+      "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music austrian choir bel canto opera. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western antiphonal double choir alternating kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque electric pneumatic canonical 20th century American legato pipe organ. cathedral. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+      "recipe_chars": 721
     },
     {
       "id": "byzantine_psaltic",
@@ -5188,8 +5188,8 @@
       "id": "cool_jazz_west_coast",
       "name": "Cool jazz / West Coast",
       "family": "jazz",
-      "recipe": "classic North American 1949-1950 cool jazz / west coast, improv On Frame, bop branch, American jazz smooth vocal standards. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 688
+      "recipe": "classic North American 1949-1950 cool jazz / west coast, improv On Frame, bop branch, American jazz smooth vocal japanese vocal jazz. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 687
     },
     {
       "id": "smooth_jazz_80s",
@@ -6021,8 +6021,8 @@
       "id": "post_rock_extended",
       "name": "Post-rock (1990s Montreal-Chicago-Glasgow extended-instrumental indie)",
       "family": "rock_punk",
-      "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism indeterminacy and aleatoric. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 659
+      "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism classical guitar quartet. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 656
     },
     {
       "id": "math_rock_classic",
@@ -6511,8 +6511,8 @@
       "id": "ethiopian_eskista_wedding",
       "name": "Ethiopian eskista (እስክስታ) wedding music",
       "family": "global",
-      "recipe": "classic East African modern ethiopian eskista (እስክስታ) wedding music, wedding, African diasporic branch, African pop functional song, west African groove percussion, American jazz improv on frame latin jazz soul jazz. thick, breath veiled tone, straight onset, interlocked note trading. curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero, castagnari Italian premium folk music accordion, washint. addis radio clandestine studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 637
+      "recipe": "classic East African modern ethiopian eskista (እስክስታ) wedding music, wedding, African diasporic branch, African pop functional song, west African groove percussion, American jazz improv on frame latin jazz ragtime. thick, breath veiled tone, straight onset, interlocked note trading. curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero, castagnari Italian premium folk music accordion, washint. addis radio clandestine studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 635
     },
     {
       "id": "andean_matrimonio_huayno",
@@ -8247,15 +8247,15 @@
       "id": "melancholia_ambient",
       "name": "Melancholia (contemporary melancholic neoclassical-ambient)",
       "family": "electronic",
-      "recipe": "classic mid-2000s melancholia, experimental Elec, ambient branch, western modern art music, lofi experimental electric xenharmonic music furniture music. prepared upright piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, sustained pad granular sustained pad analog poly synth, mellotron m4000d modern digital reissue post 2007 polyester base quarter inch iron oxide canonical mellotron mellotron, pedal resonant legato pump organ harmonium. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 701
+      "recipe": "classic mid-2000s melancholia, experimental Elec, ambient branch, western modern art music, lofi experimental electric canadian classical canadian contemporary classical. pedal resonant legato upright piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, sustained pad granular sustained pad analog poly synth, mellotron m4000d modern digital reissue post 2007 polyester base quarter inch iron oxide canonical mellotron mellotron, pedal resonant legato pump organ harmonium. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 739
     },
     {
       "id": "lounge_exotica",
       "name": "Lounge (exotica-era easy listening)",
       "family": "jazz",
-      "recipe": "classic Los Angeles mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, europop functional song torch song. vibraphone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, bongos, growly gut upright bass, brass yellow brass couesnon vintage canonical pre 1970 breath tone airy low dynamic level flugelhorn, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, block chord celesta, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 843
+      "recipe": "classic Los Angeles mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, europop functional song torch song. vibraphone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, bongos, growly gut upright bass, brass yellow brass couesnon vintage canonical pre 1970 breath tone airy low dynamic level flugelhorn, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, block chord celesta, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord tonewheel organ. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 813
     },
     {
       "id": "contemporary_worship",
@@ -8359,8 +8359,8 @@
       "id": "compositional_ambient",
       "name": "Compositional ambient (notated post-minimal ambient)",
       "family": "classical",
-      "recipe": "classic 1977-1979 compositional ambient, experimental Elec, ambient branch, western modern art music, musique concrete experimental electric japanese soundtrack scoring xenharmonic music. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, synthetic sitka spruce European maple sycamore maple oil varnish violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, sustained pad analog poly sustained pad modular synth, concert harp, legato celesta, mixed satb canonical 4 part western three voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 800
+      "recipe": "classic 1977-1979 compositional ambient, experimental Elec, ambient branch, western modern art music, musique concrete experimental electric canadian classical caucasian classical. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello, sustained pad analog poly doepfer eurorack canonical 1995 present small format standardization pad modular synth, concert harp, legato celesta, three voice polyphonic regional choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 775
     },
     {
       "id": "afropop",
@@ -9220,8 +9220,8 @@
       "id": "turkce_slow",
       "name": "Türkçe Slow Şarkılar",
       "family": "pop",
-      "recipe": "classic Middle Eastern 1987-1989 türkçe slow şarkılar, functional Song, mid east n African pop branch, med east poetic ballad poetry, middle eastern classical art music khaleeji-iraqi song türk sanat müziği. extended whistle, breath veiled tone, slow rate, interlocked note trading. makam correct juniper bowl eastern anatolian saz baglama, kanun tortoiseshell traditional kanun, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mid rich alder electric bass. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
-      "recipe_chars": 943
+      "recipe": "classic Middle Eastern 1987-1989 türkçe slow şarkılar, functional Song, mid east n African pop branch, med east poetic ballad poetry, middle eastern classical art music khaleeji-iraqi song andalusian classical. extended whistle, breath veiled tone, slow rate, interlocked note trading. makam correct juniper bowl eastern anatolian saz baglama, kanun tortoiseshell traditional kanun, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mid rich alder electric bass. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+      "recipe_chars": 946
     },
     {
       "id": "hawaiian_hip_hop",
@@ -9290,8 +9290,8 @@
       "id": "jazz_saxophone",
       "name": "Jazz saxophone tradition",
       "family": "jazz",
-      "recipe": "classic North American mid-1940s jazz saxophone tradition, improv On Frame, American jazz branch, American jazz bop, American jazz hard bop, American jazz avant punk jazz / no-wave jazz spiritual jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, silver wound lamb gut core Baroque setup lighter bass bar no endpin double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 810
+      "recipe": "classic North American mid-1940s jazz saxophone tradition, improv On Frame, American jazz branch, American jazz bop, American jazz hard bop, American jazz avant blue note. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, silver wound lamb gut core Baroque setup lighter bass bar no endpin double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bach stradivarius 180 canonical American orchestral jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 772
     },
     {
       "id": "impressionism",
@@ -9304,8 +9304,8 @@
       "id": "dinner_jazz",
       "name": "Dinner jazz",
       "family": "jazz",
-      "recipe": "classic North American 1954-1956 dinner jazz, improv On Frame, smooth vocal branch, crooners functional song, American jazz soul jazz jazz organ. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator v pro vacuum cast grand piano, venice catlin high twist renaissance bass norway spruce European alpine double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble ebonite saxophone, vibraphone. jazz club. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 661
+      "recipe": "classic North American 1954-1956 dinner jazz, improv On Frame, smooth vocal branch, crooners functional song, American jazz soul jazz neo soul-jazz jazz organ. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator v pro vacuum cast grand piano, venice catlin high twist renaissance bass norway spruce European alpine double bass, vintage ambassador asymmetric brushes drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble ebonite saxophone, vibraphone. jazz club. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 664
     },
     {
       "id": "funk_150_bpm",
@@ -9346,15 +9346,15 @@
       "id": "new_age",
       "name": "New Age",
       "family": "electronic",
-      "recipe": "classic Asian mid-1970s new age, experimental Elec, ambient branch, retro aesthetic experimental electric, western modern art music wandelweiser xenharmonic music. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly native instruments fm8 modern software 8 operator pad fm synth, sustained pad string machine, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, yamaha modern Japanese mid to premium flute, low mid rich spectrum traditional gut gut string celtic harp, handpan. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-      "recipe_chars": 682
+      "recipe": "classic Asian mid-1970s new age, experimental Elec, ambient branch, retro aesthetic experimental electric, western modern art music protovapor american contemporary classical. thick, breath veiled tone, slow rate, interlocked note trading. sustained pad analog poly yamaha dx7 canonical 1983 1989 stanford FM patent 6 operator mid 1980s pop ubiquity pad fm synth, sustained pad string machine, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, silver yamaha modern Japanese mid to premium flute, low mid rich spectrum traditional gut gut string celtic harp, handpan. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "recipe_chars": 740
     },
     {
       "id": "new_age_piano",
       "name": "New Age Piano",
       "family": "classical",
-      "recipe": "classic late-1970s new age piano, experimental Elec, ambient branch, western modern art music, anglo singer song ballad poetry furniture music wandelweiser. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, sustained pad string machine, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium legato flute, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 591
+      "recipe": "classic late-1970s new age piano, experimental Elec, ambient branch, western modern art music, anglo singer song ballad poetry american contemporary classical baltic classical. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, sustained pad string machine, synthetic carpathian spruce European maple sycamore maple oil varnish cello, silver yamaha modern Japanese mid to premium legato flute, sustained pad analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 611
     },
     {
       "id": "scam_rap",
@@ -9416,8 +9416,8 @@
       "id": "jazz_piano",
       "name": "Jazz Piano (trio and solo idiom)",
       "family": "jazz",
-      "recipe": "classic North American mid-1930s jazz piano, improv On Frame, American jazz branch, American jazz bop, American jazz stride piano, American jazz hard bop. cold pressed wurzen felt oversize maple tension resonator European spruce grand foundational walking line jazz trio piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 628
+      "recipe": "classic North American mid-1930s jazz piano, improv On Frame, American jazz branch, American jazz bop, American jazz stride piano, American jazz hard bop straight-ahead jazz. cold pressed wurzen felt oversize maple tension resonator a 441 grand foundational walking line jazz trio piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 638
     },
     {
       "id": "tierra_caliente",
@@ -9647,8 +9647,8 @@
       "id": "japanese_soundtrack",
       "name": "Japanese soundtrack scoring",
       "family": "classical",
-      "recipe": "classic mid-1950s japanese soundtrack scoring, art Music, western modern branch, western common practice art music, east Asian pop functional song, retro aesthetic experimental electric german romanticism late romantic era. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass legato french horn, grenadilla African blackwood canonical modern conservatoire yamaha modern Japanese legato oboe, concert harp, legato celesta, choir cathedral satb, madake bamboo phyllostachys canonical Japanese root section continuous-airflow legato shakuhachi, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 905
+      "recipe": "classic mid-1950s japanese soundtrack scoring, art Music, western modern branch, western common practice art music, east Asian pop functional song, retro aesthetic experimental electric classical guitar duo german romanticism. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, synthetic norway spruce European alpine European maple sycamore maple cello, brass legato french horn, grenadilla African blackwood canonical modern conservatoire yamaha modern Japanese legato oboe, concert harp, legato celesta, choir cathedral satb, madake bamboo phyllostachys canonical Japanese root section continuous-airflow legato shakuhachi, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 921
     },
     {
       "id": "thai_pop",
@@ -10144,8 +10144,8 @@
       "id": "new_orleans_blues",
       "name": "New Orleans Blues",
       "family": "blues_gospel",
-      "recipe": "classic North American mid-1950s new orleans blues, functional Song, soul R&B branch, American south carnival processional, American jazz early new orleans jazz neo-swing. thick, blues-shouter, wide pitch sway, interlocked note trading. gospel runs upright piano, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble student commercial trombone, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright alder lower tension down tuning single coil electric guitar. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ.",
-      "recipe_chars": 992
+      "recipe": "classic North American mid-1950s new orleans blues, functional Song, soul R&B branch, American south carnival processional, American jazz early new orleans brass band second-line modern swing. thick, blues-shouter, wide pitch sway, interlocked note trading. gospel runs upright piano, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright alder lower tension down tuning single coil electric guitar. dry but alive 1948-1965 indie-commercial early tape us small.",
+      "recipe_chars": 985
     },
     {
       "id": "piano_blues",
@@ -10207,8 +10207,8 @@
       "id": "west_coast_blues",
       "name": "West Coast Blues",
       "family": "blues_gospel",
-      "recipe": "classic Los Angeles mid-1940s west coast blues, functional Song, blues electric branch, American jazz smooth vocal, crooners functional song dinner jazz standards. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 800
+      "recipe": "classic Los Angeles mid-1940s west coast blues, functional Song, blues electric branch, American jazz smooth vocal, crooners functional song dinner jazz adult standards. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 809
     },
     {
       "id": "sing_along",
@@ -10221,15 +10221,15 @@
       "id": "cantata",
       "name": "Cantata",
       "family": "classical",
-      "recipe": "classic European early-1720s cantata, art Music, western early branch, western common practice art music, christian gospel anglican choral classical bass italian bass. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, plain gut sheep gut unsplit Italian alpine spruce val di fiemme violin orchestral, damore a Baroque legato oboe damore, Italian cristofori grimaldi canonical late 16th 17th century single 8 foot soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme cello, trumpet Baroque principale low natural trumpet, Baroque leaning silbermann saxon canonical central German Baroque early 18th century high lead 25 75 canonical flue stops mellow romantic quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ. parish church.",
-      "recipe_chars": 997
+      "recipe": "classic European early-1720s cantata, art Music, western early branch, western common practice art music, christian gospel anglican choral classical bass anglican choral evensong. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, damore a Baroque legato oboe damore, English kirkman shudi canonical mid 18th century London soft leather plectra canonical French 18th century alternative quarter comma meantone canonical renaissance early Baroque legato harpsichord, synthetic norway spruce European alpine European maple bosnian source cello, trumpet Baroque natural trumpet, Baroque leaning silbermann saxon canonical central German Baroque early 18th century high lead 25 75 canonical flue stops mellow romantic quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ. parish church. blumlein stereo pair.",
+      "recipe_chars": 999
     },
     {
       "id": "chamber_music",
       "name": "Chamber Music",
       "family": "classical",
-      "recipe": "classic British early-1780s chamber music, art Music, western common practice branch, western modern art music, western early art music, string drone modal microtonal music musical impressionism. sustained legato string quartet inst, gut sitka spruce bigleaf maple western maple oil varnish violin orchestral, silver wound lamb gut core carpathian spruce eastern European source European maple general viola classical, synthetic engelmann spruce European maple sycamore maple oil varnish cello, 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano, composite resin blackwood dust legato clarinet, steel plywood laminate European maple sycamore maple double bass, brass legato french horn. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-      "recipe_chars": 792
+      "recipe": "classic British early-1780s chamber music, art Music, western common practice branch, western modern art music, western early art music, string drone modal austrian contemporary classical brazilian classical. sustained legato string quartet inst, steel sitka spruce bigleaf maple western maple oil varnish violin orchestral, carpathian spruce eastern European source European maple general oil varnish amber tinted viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, composite resin blackwood dust legato clarinet, steel carpathian spruce European maple sycamore maple oil varnish double bass, brass legato french horn. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+      "recipe_chars": 810
     },
     {
       "id": "choral",
@@ -10291,8 +10291,8 @@
       "id": "sonata_form",
       "name": "Sonata (Classical Instrumental Form)",
       "family": "classical",
-      "recipe": "classic British early-1750s sonata, art Music, western common practice branch, western early art music, western modern art music musical impressionism microtonal music. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, fortepiano, gut Italian alpine spruce val di fiemme European maple sycamore maple violin orchestral, synthetic Italian alpine spruce val di fiemme European maple sycamore maple cello, composite resin blackwood dust legato clarinet, silver yamaha modern Japanese mid to premium legato flute, silver wound lamb gut core Italian alpine spruce val di fiemme European maple general viola classical. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-      "recipe_chars": 733
+      "recipe": "classic British early-1750s sonata, art Music, western common practice branch, western early art music, western modern art music british modern classical austrian contemporary classical. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, English action fortepiano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral, synthetic Italian alpine spruce val di fiemme European maple sycamore maple cello, composite resin blackwood dust legato clarinet, silver yamaha modern Japanese mid to premium legato flute, tungsten wound larsen spirocore viola c canon Italian alpine spruce val di fiemme viola classical. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+      "recipe_chars": 770
     },
     {
       "id": "twelve_tone",
@@ -10823,15 +10823,15 @@
       "id": "furniture_music",
       "name": "Furniture Music (musique d'ameublement)",
       "family": "classical",
-      "recipe": "classic Western European mid-1920s furniture music, art Music, western modern branch, western common practice art music, ambient experimental electric salon music chamber music. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, composite resin blackwood dust continuous-airflow legato clarinet, band section bass trombone, plain gut sheep gut unsplit sitka spruce bigleaf maple violin orchestral, plain gut sheep gut unsplit carpathian spruce European maple cello, silver yamaha modern Japanese mid to premium continuous-airflow legato flute. intimate paris small studio. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-      "recipe_chars": 670
+      "recipe": "classic Western European mid-1920s furniture music, art Music, western modern branch, western common practice art music, ambient experimental electric salon music austrian classical piano. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, composite resin blackwood dust continuous-airflow legato clarinet, band section bass trombone, plain gut sheep gut unsplit carpathian spruce European maple violin orchestral, plain gut sheep gut unsplit carpathian spruce European maple cello, yamaha modern Japanese mid to premium continuous-airflow legato flute. intimate paris small studio. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+      "recipe_chars": 680
     },
     {
       "id": "lounge_music",
       "name": "Lounge (cocktail-bar mood music)",
       "family": "pop",
-      "recipe": "classic North American mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song dinner jazz skiffle. vibraphone, bach stradivarius 180 canonical American orchestral breath tone airy low dynamic level jazz balance ensemble trumpet, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, lead cowhide mid tier congas, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 911
+      "recipe": "classic North American mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song dinner jazz skiffle. vibraphone, bach stradivarius 180 canonical American orchestral breath tone airy low dynamic level jazz balance ensemble trumpet, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, lead cowhide mid tier congas, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 866
     },
     {
       "id": "middle_of_the_road",
@@ -11439,8 +11439,8 @@
       "id": "concert_march",
       "name": "March (concert and military band)",
       "family": "classical",
-      "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music concert band pasodoble. yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
-      "recipe_chars": 1000
+      "recipe": "classic North American early-1880s march, groove Percussion, American marching branch, European carnival processional, western common practice art music pasodoble brass band. brass yellow brass canonical brass band besson sovereign canonical British brass band continuous-airflow legato cornet, grenadilla African blackwood traditional continuous-airflow legato clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor continuous-airflow legato bass leaning trombone, eb bass brass band sousaphone, yellow brass canonical British brass band besson sovereign canonical British brass band continuous-airflow legato euphonium, nickel silver nickel silver continuous-airflow legato piccolo, double bass rapid double strokes bass drum, cutting projecting brass glockenspiel, brass marching band full. us uk civic amateur band hall. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
+      "recipe_chars": 984
     },
     {
       "id": "j_synth",
@@ -11467,15 +11467,15 @@
       "id": "cape_jazz",
       "name": "Cape Jazz",
       "family": "jazz",
-      "recipe": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz m-base jazz. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-      "recipe_chars": 929
+      "recipe": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz jazz flute. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+      "recipe_chars": 928
     },
     {
       "id": "chamber_jazz",
       "name": "Chamber Jazz",
       "family": "jazz",
-      "recipe": "classic European 1950-1953 chamber jazz, improv On Frame, American jazz branch, American jazz avant, western modern art music dark jazz xenharmonic music. vibraphone, no chemical hardener t rivet 17 ply hard rock maple sitka spruce grand piano, steel plywood laminate European maple sycamore maple double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, grenadilla African blackwood traditional legato clarinet. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-      "recipe_chars": 670
+      "recipe": "classic European 1950-1953 chamber jazz, improv On Frame, American jazz branch, American jazz avant, western modern art music canadian classical caucasian classical. vibraphone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, steel carpathian spruce European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, grenadilla African blackwood traditional legato clarinet. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "recipe_chars": 685
     },
     {
       "id": "continental_jazz",
@@ -11502,8 +11502,8 @@
       "id": "free_funk",
       "name": "Free Funk",
       "family": "jazz",
-      "recipe": "classic North American mid-1980s free funk, improv On Frame, avant branch, funk percussive groove percussion, American jazz fusion indo jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance legato trumpet, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 804
+      "recipe": "classic North American mid-1980s free funk, improv On Frame, avant branch, funk percussive groove percussion, American jazz fusion psychedelic jazz fusion. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 814
     },
     {
       "id": "indo_jazz",
@@ -12034,8 +12034,8 @@
       "id": "gregorian_chant",
       "name": "Gregorian Chant",
       "family": "classical",
-      "recipe": "classic European early-1950s gregorian chant, art Music, western early branch, western common practice art music, christian gospel Russian orthodox choral byzantine chant. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 468
+      "recipe": "classic European early-1950s gregorian chant, art Music, western early branch, western common practice art music, christian gospel Russian orthodox byzantine chant orthodox chant. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 476
     },
     {
       "id": "standards",
@@ -12125,8 +12125,8 @@
       "id": "negro_spiritual",
       "name": "Negro Spiritual (concert arrangement)",
       "family": "blues_gospel",
-      "recipe": "classic British early-1870s negro spiritual, ritual Devotional, spirituals branch, christian gospel jubilee quartet, western common practice art music choral. thick, declaimed, slow rate, multi note runs per syllable. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-      "recipe_chars": 516
+      "recipe": "classic British early-1870s negro spiritual, ritual Devotional, spirituals branch, christian gospel jubilee quartet, western common practice art music british choir. thick, declaimed, slow rate, leader call answered. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+      "recipe_chars": 515
     },
     {
       "id": "anison",
@@ -12153,8 +12153,8 @@
       "id": "khaliji",
       "name": "Khalījī (Gulf dance song)",
       "family": "global",
-      "recipe": "classic North African mid-1950s khalījī, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music khaleeji-iraqi song iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka, walnut bent frame canonical Iranian tar frame drum, group massed hand clap. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-      "recipe_chars": 848
+      "recipe": "classic North African mid-1950s khalījī, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music khaleeji-iraqi song andalusian classical. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, Egyptian sombaty canonical mid east darbuka, walnut bent frame canonical Iranian tar frame drum, group massed hand clap. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+      "recipe_chars": 826
     },
     {
       "id": "liwa_swahili",
@@ -13574,8 +13574,8 @@
       "id": "maghreb",
       "name": "Maghreb (Maghrebi popular music, pan-regional)",
       "family": "global",
-      "recipe": "classic North African mid-1950s maghreb, functional Song, mid east n African pop branch, middle eastern classical art music, med east poetic ballad poetry khaleeji-iraqi song azerbaijani traditional music. extended whistle, breath veiled tone, slow rate, interlocked note trading. chaabi melodic single line mandole, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean la bella oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, metal finger picks maple body Turkish school goat skin bridge plate drone like qanun, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-      "recipe_chars": 996
+      "recipe": "classic North African mid-1950s maghreb, functional Song, mid east n African pop branch, middle eastern classical art music, med east poetic ballad poetry khaleeji-iraqi song andalusian classical. extended whistle, breath veiled tone, slow rate, interlocked note trading. urban ornamented chaabi mandole, walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean la bella oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, metal finger picks maple body Turkish school goat skin bridge plate qanun, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, roland jupiter lineage canonical jupiter 8 1981 osaka short envelope analog poly synth. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_chars": 983
     },
     {
       "id": "shaabi",
@@ -14204,8 +14204,8 @@
       "id": "vintage_hawaiian",
       "name": "Vintage Hawaiian (hapa haole steel-guitar era)",
       "family": "pop",
-      "recipe": "classic mid-1920s vintage hawaiian, functional Song, tropical song branch, crooners functional song, American jazz early british dance band continental jazz. thick, breath veiled tone, straight onset, interlocked note trading. steel c6 hawaiian slack lap steel, fingerpicked koa ukulele, mahogany parlor classic steel silk parlor acoustic guitar topped tenor guitar, growly gut upright bass. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 529
+      "recipe": "classic mid-1920s vintage hawaiian, functional Song, tropical song branch, crooners functional song, American jazz early american barbershop quartet great american songbook. thick, breath veiled tone, straight onset, interlocked note trading. steel c6 sacred steel lap steel, fingerpicked koa ukulele, rosewood parlor classic steel silk strummed parlor acoustic chord friendly guitar topped tenor guitar, growly gut upright bass. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 567
     },
     {
       "id": "inuit_traditional",
@@ -14463,15 +14463,15 @@
       "id": "rare_groove",
       "name": "Rare Groove",
       "family": "blues_gospel",
-      "recipe": "classic North American mid-1970s rare groove, groove Percussion, funk percussive branch, us hip hop east coast, American jazz soul jazz boom bap. thick, blues-shouter, straight onset, interlocked note trading. vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, hohner d6 canonical 1971 1981 funk era ostinato clavinet, Fender blackface amp American 60s amp spring reverb bright mahogany ebony single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, cowhide mid tier congas. dry but alive 1948-1965 indie-commercial early tape us small. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 967
+      "recipe": "classic North American mid-1970s rare groove, groove Percussion, funk percussive branch, us hip hop east coast, American jazz soul jazz neo soul-jazz. thick, blues-shouter, straight onset, interlocked note trading. vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, hohner d6 canonical 1971 1981 funk era ostinato clavinet, Fender blackface amp American 60s amp spring reverb bright mahogany ebony single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, cowhide mid tier congas. dry but alive 1948-1965 indie-commercial early tape us small. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 972
     },
     {
       "id": "brit_funk",
       "name": "Brit Funk",
       "family": "blues_gospel",
-      "recipe": "classic Western European mid-1980s brit funk, groove Percussion, funk percussive branch, American jazz soul jazz, soul R&B functional song british soul jazz organ. thick, blues-shouter, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s wide pickup gap more bell less bark ostinato rhodes electric, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, cowhide mid tier siam oak mid tier modern open slap hand drum congas, low sub bass analog poly synth. brent black community studio london. large-diaphragm condenser.",
-      "recipe_chars": 988
+      "recipe": "classic Western European mid-1980s brit funk, groove Percussion, funk percussive branch, American jazz soul jazz, soul R&B functional song british soul neo soul-jazz. thick, blues-shouter, straight onset, narrative. ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s wide pickup gap more bell less bark ostinato rhodes electric, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, cowhide mid tier siam oak mid tier modern open slap hand drum congas, low sub bass analog poly synth. brent black community studio london. large-diaphragm condenser, Neve 1073 inductor pre.",
+      "recipe_chars": 1000
     },
     {
       "id": "modern_funk",
@@ -14484,8 +14484,8 @@
       "id": "traditional_funk",
       "name": "Traditional Funk",
       "family": "blues_gospel",
-      "recipe": "classic Midwestern American mid-1960s traditional funk, groove Percussion, funk percussive branch, soul R&B functional song, American jazz soul jazz souldies. thick, breath veiled tone, straight onset, interlocked note trading. vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble rubber saxophone, bach 42 canonical American orchestral tenor ensemble student commercial trombone, high pitched lead congas. cincinnati 1943-1971 indie-commercial king records studios cincinnati. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ.",
-      "recipe_chars": 993
+      "recipe": "classic Midwestern American mid-1960s traditional funk, groove Percussion, funk percussive branch, soul R&B functional song, American jazz soul jazz neo soul-jazz. thick, breath veiled tone, straight onset, interlocked note trading. vintage ambassador asymmetric brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, Fender blackface amp American 60s amp spring reverb bright wenge ebony single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble rubber saxophone, bach 42 canonical American orchestral tenor ensemble student commercial trombone, lead congas. cincinnati 1943-1971 indie-commercial king records studios cincinnati. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 987
     },
     {
       "id": "country_boogie",
@@ -16584,7 +16584,7 @@
       "id": "chamber_folk",
       "name": "Chamber Folk",
       "family": "pop_rock",
-      "recipe": "classic North American 1997-1999 chamber folk, ballad Poetry, indie folk branch, anglo singer song britfolk, western common practice art music, anglo singer song confessional60s classical bass salon music. thick, breath veiled tone, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, norway spruce European alpine European maple sycamore maple oil varnish cello, plain gut sheep gut unsplit norway spruce European alpine violin orchestral, low mid rich spectrum traditional gut gut string celtic harp, legato pump organ harmonium, grenadilla African blackwood traditional continuous-airflow legato clarinet. hexham head studio pa chamber folk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe": "classic North American 1997-1999 chamber folk, ballad Poetry, indie folk branch, anglo singer song britfolk, western common practice art music, anglo singer song confessional60s classical baritone classical contralto. thick, breath veiled tone, slow rate, interlocked note trading. cedar walnut steel silk fingerpicked acoustic guitar, norway spruce European alpine European maple sycamore maple oil varnish cello, plain gut sheep gut unsplit norway spruce European alpine violin orchestral, low mid rich spectrum traditional gut gut string celtic harp, legato pump organ harmonium, grenadilla African blackwood traditional continuous-airflow legato clarinet. hexham head studio pa chamber folk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 825
     },
     {
@@ -16647,8 +16647,8 @@
       "id": "ars_subtilior",
       "name": "Ars Subtilior",
       "family": "classical",
-      "recipe": "classic European early-1370s ars subtilior, art Music, western early branch, western common practice art music, western modern art music musical impressionism impressionist. thick, breath veiled tone, slow rate, interlocked note trading. sustained legato vielle medieval, harpa, late 16c ayre and lieder fluorocarbon modern revival lute renaissance, melismatic single line portative organ, grenadilla African blackwood modern premium continuous-airflow legato recorder. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 555
+      "recipe": "classic European early-1370s ars subtilior, art Music, western early branch, western common practice art music, western modern art music baltic choir musical impressionism. thick, breath veiled tone, slow rate, interlocked note trading. sustained legato vielle medieval, harpa, late 16c ayre and lieder fluorocarbon modern revival lute renaissance, melismatic single line portative organ, grenadilla African blackwood modern premium continuous-airflow legato recorder. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 554
     },
     {
       "id": "trecento",
@@ -16668,8 +16668,8 @@
       "id": "franco_flemish_school",
       "name": "Franco-Flemish School",
       "family": "classical",
-      "recipe": "classic European early-1450s franco-flemish school, art Music, western early branch, western common practice art music choral classical bass. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, great bass octav colla parte thin hammered brass sackbut, cornetto, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, renaissance soloistic ayre and lieder lute renaissance. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 697
+      "recipe": "classic European early-1450s franco-flemish school, art Music, western early branch, western common practice art music choral british choir. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, great bass octav colla parte thin hammered brass sackbut, cornetto, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, renaissance soloistic ayre and lieder lute renaissance. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 696
     },
     {
       "id": "english_renaissance",
@@ -16710,8 +16710,8 @@
       "id": "classical_era",
       "name": "Viennese Classical Era",
       "family": "classical",
-      "recipe": "classic British early-1770s viennese classical era, art Music, western common practice branch, western early art music concerto grosso english renaissance. aluminum wound Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, tungsten wound larsen spirocore viola c canon Italian alpine spruce val di fiemme viola classical, synthetic Italian alpine spruce val di fiemme European maple bosnian source cello, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme double bass, viennese action 5 octave fortepiano, composite resin blackwood dust legato clarinet, controlled legato french horn, mallets timpani, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, glotin var French cane legato bassoon. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-      "recipe_chars": 876
+      "recipe": "classic British early-1770s viennese classical era, art Music, western common practice branch, western early art music concerto grosso classical accordion. synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, tungsten wound larsen spirocore viola c canon Italian alpine spruce val di fiemme viola classical, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme cello, venice catlin high twist renaissance bass Italian alpine spruce val di fiemme double bass, English action 6 octave fortepiano, composite resin blackwood dust legato clarinet, controlled legato french horn, mallets timpani, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, glotin var French cane legato bassoon. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+      "recipe_chars": 872
     },
     {
       "id": "early_romantic_era",
@@ -16794,8 +16794,8 @@
       "id": "ecm_style_jazz",
       "name": "ECM-style Jazz",
       "family": "jazz",
-      "recipe": "classic European late-1960s ecm-style jazz, improv On Frame, American jazz branch, western modern art music, ambient experimental electric xenharmonic music fluxus intermedia composition. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, steel plywood laminate European maple sycamore maple double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, vibraphone, bach stradivarius 180 canonical American orchestral continuous-airflow legato jazz balance trumpet, mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood single coil electric guitar. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-      "recipe_chars": 885
+      "recipe": "classic European late-1960s ecm-style jazz, improv On Frame, American jazz branch, western modern art music, ambient experimental electric canadian classical caucasian classical. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, steel carpathian spruce European maple sycamore maple oil varnish double bass, fiberskyn synthetic calf brushes-and-sticks drum kit, vibraphone, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese legato jazz balance trumpet, Fender blackface amp American 60s amp spring reverb bright alder pau ferro single coil electric guitar. live tracking. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "recipe_chars": 860
     },
     {
       "id": "avant_garde_jazz",
@@ -16843,8 +16843,8 @@
       "id": "vintage_swing",
       "name": "Vintage swing (retro-swing revival)",
       "family": "jazz",
-      "recipe": "classic 1994-1996 vintage swing, improv On Frame, American jazz branch, American jazz early, western swing country neo-swing swing revival. thick, blues-shouter, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright dearmond clip on archtop, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance ensemble trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-      "recipe_chars": 867
+      "recipe": "classic 1994-1996 vintage swing, improv On Frame, American jazz branch, American jazz early, western swing country neo-swing classic oklahoma country. thick, blues-shouter, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright dearmond clip on archtop, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+      "recipe_chars": 978
     },
     {
       "id": "m_base",
@@ -16857,8 +16857,8 @@
       "id": "contemporary_post_bop",
       "name": "Contemporary post-bop",
       "family": "jazz",
-      "recipe": "classic North American mid-1990s contemporary post-bop, improv On Frame, bop branch, American jazz hard bop, American jazz avant m-base blue note. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, venice catlin high twist renaissance bass modern setup heavier bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright dearmond vintage jazz archtop, bach stradivarius 180 canonical American orchestral multiphonic jazz balance ensemble trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 878
+      "recipe": "classic North American mid-1990s contemporary post-bop, improv On Frame, bop branch, American jazz hard bop, American jazz avant blue note straight-ahead jazz. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright dearmond vintage jazz archtop, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 877
     },
     {
       "id": "chicago_bop",
@@ -17228,8 +17228,8 @@
       "id": "afro_soul",
       "name": "Afro soul",
       "family": "global",
-      "recipe": "classic Southern African 1967-1969 afro soul, functional Song, soul R&B branch, African pop functional song, American jazz soul jazz, sub saharan African protest song jazz organ. thick, blues-shouter, straight onset, narrative. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cowhide mid tier open slap hand drum congas, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric mbaqanga guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console.",
-      "recipe_chars": 993
+      "recipe": "classic Southern African 1967-1969 afro soul, functional Song, soul R&B branch, African pop functional song, American jazz soul jazz, sub saharan African protest song neo soul-jazz. thick, blues-shouter, straight onset, narrative. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cowhide mid tier open slap hand drum congas, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric mbaqanga guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu.",
+      "recipe_chars": 994
     },
     {
       "id": "coladeira",
@@ -17389,8 +17389,8 @@
       "id": "neo_soul",
       "name": "Neo Soul",
       "family": "blues_gospel",
-      "recipe": "classic North American mid-2000s neo soul, functional Song, soul R&B branch, us hip hop east coast, American jazz soul jazz east coast hip-hop boom bap. thick, rap, straight onset, narrative. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, hohner d6 canonical 1971 1981 funk era plain steel canonical hohner d6 wound rubber tangent ostinato clavinet, lead plus dense cluster 5 part stack late 1970s thirds fifths octaves 16 24 track multitrack vocal stack, mule hide canonical Cuban premium oak staved canonical Cuban congas.",
-      "recipe_chars": 956
+      "recipe": "classic North American mid-2000s neo soul, functional Song, soul R&B branch, us hip hop east coast, American jazz soul jazz neo soul-jazz east coast hip-hop. thick, blues-shouter, straight onset, narrative. torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, hohner d6 canonical 1971 1981 funk era plain steel canonical hohner d6 wound rubber tangent ostinato clavinet, lead plus dense cluster 5 part stack late 1970s thirds fifths octaves 16 24 track multitrack vocal stack, mule hide canonical Cuban premium oak staved canonical Cuban congas.",
+      "recipe_chars": 971
     },
     {
       "id": "motown",
@@ -18306,7 +18306,7 @@
       "id": "ambient_fusion",
       "name": "Ambient fusion",
       "family": "jazz",
-      "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric italian jazz fusion jazztronica. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character flatwound thumb muted electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+      "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric psychedelic jazz fusion italian jazz fusion. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character flatwound electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
       "recipe_chars": 652
     },
     {
@@ -31069,6 +31069,706 @@
       "family": "jazz",
       "recipe": "classic jazz cover, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
       "recipe_chars": 230
+    },
+    {
+      "id": "greek_swing",
+      "name": "Greek swing",
+      "family": "jazz",
+      "recipe": "classic early-2010s greek swing, improv On Frame, American jazz branch. equal tempered, speech quality modal neutral larynx, meaningless syllables carrying melody. jazz warm flatwound thomastik dreadnought acoustic guitar, violin orchestral, petosa seattle American premium accordion, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 400
+    },
+    {
+      "id": "irish_modern_jazz",
+      "name": "Irish modern jazz",
+      "family": "jazz",
+      "recipe": "classic late-2000s irish modern jazz, improv On Frame, avant branch. yamaha xeno modern Japanese jazz balance trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, fiberskyn synthetic calf brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 348
+    },
+    {
+      "id": "japanese_vocal_jazz",
+      "name": "Japanese vocal jazz",
+      "family": "jazz",
+      "recipe": "classic early-2020s japanese vocal jazz, improv On Frame, smooth vocal branch. equal tempered, m1 with m0 pulse borrowing, nasal twang velar port open, small note groups per syllable. Japanese factory birch laminated maple laminated a 441 Japanese orchestral grand piano, upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 453
+    },
+    {
+      "id": "jazz_boliviano",
+      "name": "Jazz boliviano",
+      "family": "jazz",
+      "recipe": "classic early-2020s jazz boliviano, improv On Frame, Latin jazz branch. grand piano, nyman jazz bass canon double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "jazz_brass",
+      "name": "Jazz brass",
+      "family": "jazz",
+      "recipe": "classic jazz brass, improv On Frame, American jazz branch. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, venice catlin high twist renaissance bass modern setup heavier bass bar double bass. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 365
+    },
+    {
+      "id": "jazz_colombiano",
+      "name": "Jazz colombiano",
+      "family": "jazz",
+      "recipe": "classic jazz colombiano, improv On Frame, Latin jazz branch. grand piano, silver wound lamb gut core nyman jazz bass canon double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 295
+    },
+    {
+      "id": "jazz_composition",
+      "name": "Jazz composition",
+      "family": "jazz",
+      "recipe": "classic jazz composition, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator grand piano, silver wound lamb gut core nyman jazz bass canon double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 357
+    },
+    {
+      "id": "jazz_flute",
+      "name": "Jazz flute",
+      "family": "jazz",
+      "recipe": "classic jazz flute, improv On Frame, avant branch. solo with instrumental accompaniment, no specific ornament system. powell boston canonical American orchestral multiphonic flute. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 281
+    },
+    {
+      "id": "jazz_mexicano",
+      "name": "Jazz mexicano",
+      "family": "jazz",
+      "recipe": "classic jazz mexicano, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 233
+    },
+    {
+      "id": "jazz_orchestra",
+      "name": "Jazz orchestra",
+      "family": "jazz",
+      "recipe": "classic jazz orchestra, improv On Frame, American jazz branch. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator grand piano, nyman jazz bass canon double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 564
+    },
+    {
+      "id": "jazz_tico",
+      "name": "Jazz tico",
+      "family": "jazz",
+      "recipe": "classic jazz tico, improv On Frame, avant branch. nyman jazz bass canon double bass, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 426
+    },
+    {
+      "id": "south_african_modern_jazz",
+      "name": "South african modern jazz",
+      "family": "jazz",
+      "recipe": "classic early-2020s south african modern jazz, improv On Frame, American jazz branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 263
+    },
+    {
+      "id": "jazz_worship",
+      "name": "Jazz worship",
+      "family": "jazz",
+      "recipe": "classic early-2010s jazz worship, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 244
+    },
+    {
+      "id": "modern_free_jazz",
+      "name": "Modern free jazz",
+      "family": "jazz",
+      "recipe": "classic mid-2020s modern free jazz, improv On Frame, avant branch. soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 309
+    },
+    {
+      "id": "modern_swing",
+      "name": "Modern swing",
+      "family": "jazz",
+      "recipe": "classic late-2010s modern swing, improv On Frame, early branch. solo with instrumental accompaniment. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, yamaha xeno modern Japanese jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 524
+    },
+    {
+      "id": "lithuanian_jazz",
+      "name": "Lithuanian jazz",
+      "family": "jazz",
+      "recipe": "classic mid-2010s lithuanian jazz, improv On Frame, avant branch. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, humbucker electric guitar, vintage ambassador asymmetric brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 352
+    },
+    {
+      "id": "russian_modern_jazz",
+      "name": "Russian modern jazz",
+      "family": "jazz",
+      "recipe": "classic late-2010s russian modern jazz, improv On Frame, American jazz branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, zum steel modern boutique pedal steel. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 374
+    },
+    {
+      "id": "psychedelic_jazz_fusion",
+      "name": "Psychedelic jazz fusion",
+      "family": "jazz",
+      "recipe": "classic mid-2010s psychedelic jazz fusion, improv On Frame, fusion branch. roland jc120 amp solid state stereo chorus riff driven humbucker electric guitar, thomastik infeld low tension jazz warm electric bass, 60s jazz canon vintage ambassador asymmetric drum kit, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 465
+    },
+    {
+      "id": "russian_jazz",
+      "name": "Russian jazz",
+      "family": "jazz",
+      "recipe": "classic early-2000s russian jazz, improv On Frame, bop branch. bach stradivarius 180 canonical American orchestral jazz balance trumpet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt 18 ply hard rock maple vintage production grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 500
+    },
+    {
+      "id": "neo_soul_jazz",
+      "name": "Neo soul-jazz",
+      "family": "jazz",
+      "recipe": "classic early-2020s neo soul-jazz, improv On Frame, soul jazz branch. solo with instrumental accompaniment. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 363
+    },
+    {
+      "id": "american_21st_century_classical",
+      "name": "American 21st century classical",
+      "family": "classical",
+      "recipe": "classic early-2010s american 21st century classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 278
+    },
+    {
+      "id": "american_classical_piano",
+      "name": "American classical piano",
+      "family": "classical",
+      "recipe": "classic late-1980s american classical piano, art Music, western common practice branch. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 275
+    },
+    {
+      "id": "american_contemporary_classical",
+      "name": "American contemporary classical",
+      "family": "classical",
+      "recipe": "classic mid-2000s american contemporary classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 276
+    },
+    {
+      "id": "american_modern_classical",
+      "name": "American modern classical",
+      "family": "classical",
+      "recipe": "classic american modern classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 260
+    },
+    {
+      "id": "african_american_classical",
+      "name": "African-american classical",
+      "family": "classical",
+      "recipe": "classic early-2020s african-american classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 273
+    },
+    {
+      "id": "australian_classical_piano",
+      "name": "Australian classical piano",
+      "family": "classical",
+      "recipe": "classic mid-2010s australian classical piano, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 271
+    },
+    {
+      "id": "australian_classical",
+      "name": "Australian classical",
+      "family": "classical",
+      "recipe": "classic mid-2010s australian classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 243
+    },
+    {
+      "id": "21st_century_classical",
+      "name": "21st century classical",
+      "family": "classical",
+      "recipe": "classic mid-2020s 21st century classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 245
+    },
+    {
+      "id": "spanish_jazz",
+      "name": "Spanish jazz",
+      "family": "jazz",
+      "recipe": "classic spanish jazz, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 322
+    },
+    {
+      "id": "swedish_jazz",
+      "name": "Swedish jazz",
+      "family": "jazz",
+      "recipe": "classic early-2000s swedish jazz, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 334
+    },
+    {
+      "id": "swiss_jazz",
+      "name": "Swiss jazz",
+      "family": "jazz",
+      "recipe": "classic early-2020s swiss jazz, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 248
+    },
+    {
+      "id": "uk_contemporary_jazz",
+      "name": "Uk contemporary jazz",
+      "family": "jazz",
+      "recipe": "classic early-2020s uk contemporary jazz, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 342
+    },
+    {
+      "id": "vocal_jazz",
+      "name": "Vocal jazz",
+      "family": "jazz",
+      "recipe": "classic mid-1970s vocal jazz, improv On Frame, smooth vocal branch. solo with instrumental accompaniment. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 283
+    },
+    {
+      "id": "vintage_jazz",
+      "name": "Vintage jazz",
+      "family": "jazz",
+      "recipe": "classic late-1940s vintage jazz, improv On Frame, stride piano branch. vintage steinway pre-war compression wired 18 ply hard rock maple grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 250
+    },
+    {
+      "id": "turkish_jazz",
+      "name": "Turkish jazz",
+      "family": "jazz",
+      "recipe": "classic early-2010s turkish jazz, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 334
+    },
+    {
+      "id": "turkish_modern_jazz",
+      "name": "Turkish modern jazz",
+      "family": "jazz",
+      "recipe": "classic mid-2000s turkish modern jazz, improv On Frame, American jazz branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 383
+    },
+    {
+      "id": "swing_italiano",
+      "name": "Swing italiano",
+      "family": "jazz",
+      "recipe": "classic early-2020s swing italiano, improv On Frame, early branch. group vocals. cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 342
+    },
+    {
+      "id": "trad_jazz_catala",
+      "name": "Trad jazz catala",
+      "family": "jazz",
+      "recipe": "classic trad jazz catala, improv On Frame, early branch. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, front line clarinet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach 42 canonical American orchestral tenor front line student commercial trombone, cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 607
+    },
+    {
+      "id": "american_choir",
+      "name": "American choir",
+      "family": "classical",
+      "recipe": "classic late-2010s american choir, art Music, western modern branch. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 169
+    },
+    {
+      "id": "australian_choir",
+      "name": "Australian choir",
+      "family": "classical",
+      "recipe": "classic mid-2020s australian choir, art Music, western modern branch. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 170
+    },
+    {
+      "id": "swing",
+      "name": "Swing",
+      "family": "jazz",
+      "recipe": "classic swing, improv On Frame, early branch. clarinet, cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 292
+    },
+    {
+      "id": "vintage_finnish_jazz",
+      "name": "Vintage finnish jazz",
+      "family": "jazz",
+      "recipe": "classic vintage finnish jazz, improv On Frame, early branch. ebonite hard rubber klezmer tradition clarinet, vintage steinway pre-war compression wired 18 ply hard rock maple grand piano, vibraphone, alnico low output no compression nickel humbucker electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 440
+    },
+    {
+      "id": "american_orchestra",
+      "name": "American orchestra",
+      "family": "classical",
+      "recipe": "classic early-2020s american orchestra, art Music, western modern branch. sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, synthetic core carpathian spruce eastern European source European maple general oil varnish viola classical, synthetic engelmann spruce European maple sycamore maple oil varnish cello, synthetic upright bass. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 447
+    },
+    {
+      "id": "swedish_jazz_orkester",
+      "name": "Swedish jazz orkester",
+      "family": "jazz",
+      "recipe": "classic mid-1950s swedish jazz orkester, improv On Frame, early branch. bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator a 440 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 579
+    },
+    {
+      "id": "andalusian_classical",
+      "name": "Andalusian classical",
+      "family": "classical",
+      "recipe": "classic andalusian classical, art Music, middle eastern classical branch. no specific ornament system. oud arbi, Lebanese cedar eastern Mediterranean pyramid nylon arab school oud, articulate metal finger picks qanun, carpathian spruce European maple bosnian source flamed figure cremonese pre 1750 violin orchestral, walnut bent frame canonical Iranian tar frame drum, goat skin Turkish darbuka regional darbuka, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 581
+    },
+    {
+      "id": "austrian_classical_piano",
+      "name": "Austrian classical piano",
+      "family": "classical",
+      "recipe": "classic austrian classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 269
+    },
+    {
+      "id": "belgian_classical_piano",
+      "name": "Belgian classical piano",
+      "family": "classical",
+      "recipe": "classic belgian classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 268
+    },
+    {
+      "id": "brazilian_classical_piano",
+      "name": "Brazilian classical piano",
+      "family": "classical",
+      "recipe": "classic brazilian classical piano, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 258
+    },
+    {
+      "id": "british_classical_piano",
+      "name": "British classical piano",
+      "family": "classical",
+      "recipe": "classic british classical piano, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 256
+    },
+    {
+      "id": "balkan_classical_piano",
+      "name": "Balkan classical piano",
+      "family": "classical",
+      "recipe": "classic early-2020s balkan classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 282
+    },
+    {
+      "id": "baltic_classical_piano",
+      "name": "Baltic classical piano",
+      "family": "classical",
+      "recipe": "classic baltic classical piano, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 258
+    },
+    {
+      "id": "baroque_cello",
+      "name": "Baroque cello",
+      "family": "classical",
+      "recipe": "classic baroque cello, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 248
+    },
+    {
+      "id": "baroque_violin",
+      "name": "Baroque violin",
+      "family": "classical",
+      "recipe": "classic baroque violin, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure violin orchestral. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 261
+    },
+    {
+      "id": "baroque_woodwind",
+      "name": "Baroque woodwind",
+      "family": "classical",
+      "recipe": "classic baroque woodwind, art Music, western common practice branch. grenadilla cocus legato flute. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 201
+    },
+    {
+      "id": "baroque_brass",
+      "name": "Baroque brass",
+      "family": "classical",
+      "recipe": "classic baroque brass, art Music, western common practice branch. valveless trumpet Baroque natural trumpet, timpani. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 219
+    },
+    {
+      "id": "austrian_contemporary_classical",
+      "name": "Austrian contemporary classical",
+      "family": "classical",
+      "recipe": "classic early-2000s austrian contemporary classical, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 257
+    },
+    {
+      "id": "belgian_contemporary_classical",
+      "name": "Belgian contemporary classical",
+      "family": "classical",
+      "recipe": "classic early-2010s belgian contemporary classical, art Music, western modern branch. synthetic carpathian spruce European maple sycamore maple oil varnish cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 264
+    },
+    {
+      "id": "british_contemporary_classical",
+      "name": "British contemporary classical",
+      "family": "classical",
+      "recipe": "classic mid-1990s british contemporary classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 276
+    },
+    {
+      "id": "british_modern_classical",
+      "name": "British modern classical",
+      "family": "classical",
+      "recipe": "classic mid-1960s british modern classical, art Music, western modern branch. synthetic engelmann spruce European maple sycamore maple oil varnish cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 255
+    },
+    {
+      "id": "baltic_classical",
+      "name": "Baltic classical",
+      "family": "classical",
+      "recipe": "classic baltic classical, art Music, western modern branch. modern bright beech laminated maple laminated European tradition sitka spruce grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 252
+    },
+    {
+      "id": "brazilian_classical",
+      "name": "Brazilian classical",
+      "family": "classical",
+      "recipe": "classic brazilian classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 255
+    },
+    {
+      "id": "brazilian_contemporary_classical",
+      "name": "Brazilian contemporary classical",
+      "family": "classical",
+      "recipe": "classic brazilian contemporary classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 268
+    },
+    {
+      "id": "austrian_choir",
+      "name": "Austrian choir",
+      "family": "classical",
+      "recipe": "classic austrian choir, art Music, western common practice branch. choir ensemble. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 184
+    },
+    {
+      "id": "baltic_choir",
+      "name": "Baltic choir",
+      "family": "classical",
+      "recipe": "classic baltic choir, art Music, western modern branch. choir ensemble. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 173
+    },
+    {
+      "id": "british_choir",
+      "name": "British choir",
+      "family": "classical",
+      "recipe": "classic british choir, art Music, western common practice branch. choir ensemble. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 183
+    },
+    {
+      "id": "baroque_singing",
+      "name": "Baroque singing",
+      "family": "classical",
+      "recipe": "classic mid-2010s baroque singing, art Music, western common practice branch. countertenor developed head, tahrir tekye chain mechanism, opera quality low larynx anchored, recitative rhythmically free pitched speech. oversize maple tension resonator European spruce norway spruce European tradition grand piano. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 413
+    },
+    {
+      "id": "baroque_ensemble",
+      "name": "Baroque ensemble",
+      "family": "classical",
+      "recipe": "classic early-2000s baroque ensemble, art Music, western common practice branch. grenadilla cocus legato flute, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, norway spruce European alpine European maple bosnian source flamed figure cello, French blanchet taskin paris canonical late 18th century galant harpsichord. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 556
+    },
+    {
+      "id": "bohemian_baroque",
+      "name": "Bohemian baroque",
+      "family": "classical",
+      "recipe": "classic bohemian baroque, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure violin orchestral. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 263
+    },
+    {
+      "id": "austrian_orchestra",
+      "name": "Austrian orchestra",
+      "family": "classical",
+      "recipe": "classic austrian orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 modern setup violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 496
+    },
+    {
+      "id": "british_orchestra",
+      "name": "British orchestra",
+      "family": "classical",
+      "recipe": "classic mid-2020s british orchestra, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system violin orchestral, carpathian spruce eastern European source European maple general cremonese pre 1750 four layer system viola classical, carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, upright bass. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 510
+    },
+    {
+      "id": "canadian_classical",
+      "name": "Canadian classical",
+      "family": "classical",
+      "recipe": "classic late-2000s canadian classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 264
+    },
+    {
+      "id": "canadian_classical_piano",
+      "name": "Canadian classical piano",
+      "family": "classical",
+      "recipe": "classic canadian classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 271
+    },
+    {
+      "id": "canadian_contemporary_classical",
+      "name": "Canadian contemporary classical",
+      "family": "classical",
+      "recipe": "classic canadian contemporary classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 266
+    },
+    {
+      "id": "caucasian_classical",
+      "name": "Caucasian classical",
+      "family": "classical",
+      "recipe": "classic caucasian classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 254
+    },
+    {
+      "id": "caucasian_classical_piano",
+      "name": "Caucasian classical piano",
+      "family": "classical",
+      "recipe": "classic early-2020s caucasian classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 284
+    },
+    {
+      "id": "chinese_classical",
+      "name": "Chinese classical",
+      "family": "classical",
+      "recipe": "classic chinese classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 252
+    },
+    {
+      "id": "chinese_classical_performance",
+      "name": "Chinese classical performance",
+      "family": "classical",
+      "recipe": "classic chinese classical performance, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 368
+    },
+    {
+      "id": "chinese_classical_piano",
+      "name": "Chinese classical piano",
+      "family": "classical",
+      "recipe": "classic chinese classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 270
+    },
+    {
+      "id": "classical_accordion",
+      "name": "Classical accordion",
+      "family": "classical",
+      "recipe": "classic classical accordion, art Music, western early branch. accordion. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 173
+    },
+    {
+      "id": "classical_baritone",
+      "name": "Classical baritone",
+      "family": "classical",
+      "recipe": "classic classical baritone, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 265
+    },
+    {
+      "id": "classical_bassoon",
+      "name": "Classical bassoon",
+      "family": "classical",
+      "recipe": "classic classical bassoon, art Music, western modern branch. controlled legato bassoon, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 279
+    },
+    {
+      "id": "classical_cello",
+      "name": "Classical cello",
+      "family": "classical",
+      "recipe": "classic classical cello, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 354
+    },
+    {
+      "id": "classical_clarinet",
+      "name": "Classical clarinet",
+      "family": "classical",
+      "recipe": "classic classical clarinet, art Music, western common practice branch. composite resin blackwood dust legato clarinet, beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 313
+    },
+    {
+      "id": "classical_contralto",
+      "name": "Classical contralto",
+      "family": "classical",
+      "recipe": "classic classical contralto, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 266
+    },
+    {
+      "id": "classical_countertenor",
+      "name": "Classical countertenor",
+      "family": "classical",
+      "recipe": "classic classical countertenor, art Music, western modern branch. solo with instrumental accompaniment. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 295
+    },
+    {
+      "id": "classical_flute",
+      "name": "Classical flute",
+      "family": "classical",
+      "recipe": "classic classical flute, art Music, western modern branch. silver yamaha modern Japanese mid to premium legato flute, beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 309
+    },
+    {
+      "id": "classical_guitar",
+      "name": "Classical guitar",
+      "family": "classical",
+      "recipe": "classic classical guitar, art Music, western early branch. cedar carbon fiber classical nylon-string guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 209
+    },
+    {
+      "id": "classical_guitar_duo",
+      "name": "Classical guitar duo",
+      "family": "classical",
+      "recipe": "classic classical guitar duo, art Music, western common practice branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 242
+    },
+    {
+      "id": "classical_guitar_quartet",
+      "name": "Classical guitar quartet",
+      "family": "classical",
+      "recipe": "classic classical guitar quartet, art Music, western modern branch. cedar carbon fiber classical nylon-string guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 218
+    },
+    {
+      "id": "classical_harp",
+      "name": "Classical harp",
+      "family": "classical",
+      "recipe": "classic classical harp, art Music, western common practice branch. concert harp. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+      "recipe_chars": 181
+    },
+    {
+      "id": "classical_piano",
+      "name": "Classical piano",
+      "family": "classical",
+      "recipe": "classic classical piano, art Music, western common practice branch. 17 ply hard rock maple European spruce norway spruce European tradition grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 251
+    },
+    {
+      "id": "czech_classical_piano",
+      "name": "Czech classical piano",
+      "family": "classical",
+      "recipe": "classic late-2010s czech classical piano, art Music, western modern branch. modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 251
+    },
+    {
+      "id": "contemporary_classical_piano",
+      "name": "Contemporary classical piano",
+      "family": "classical",
+      "recipe": "classic contemporary classical piano, art Music, western modern branch. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 239
+    },
+    {
+      "id": "classical_piano_trio",
+      "name": "Classical piano trio",
+      "family": "classical",
+      "recipe": "classic classical piano trio, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, carpathian spruce European maple sycamore maple oil varnish amber tinted cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 421
+    },
+    {
+      "id": "classical_piano_duo",
+      "name": "Classical piano duo",
+      "family": "classical",
+      "recipe": "classic classical piano duo, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 248
+    },
+    {
+      "id": "classical_piano_quartet",
+      "name": "Classical piano quartet",
+      "family": "classical",
+      "recipe": "classic classical piano quartet, art Music, western common practice branch. 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, carpathian spruce eastern European source European maple general oil varnish amber tinted viola classical, carpathian spruce European maple sycamore maple oil varnish amber tinted cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 531
+    },
+    {
+      "id": "classical_oboe",
+      "name": "Classical oboe",
+      "family": "classical",
+      "recipe": "classic classical oboe, art Music, western common practice branch. boxwood canonical Baroque classical pre 1850 legato oboe, 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 301
+    },
+    {
+      "id": "classical_tuba",
+      "name": "Classical tuba",
+      "family": "classical",
+      "recipe": "classic classical tuba, art Music, western modern branch. compact tuba yamaha ybb 841 modern Japanese legato tuba, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 290
+    },
+    {
+      "id": "classical_horn",
+      "name": "Classical horn",
+      "family": "classical",
+      "recipe": "classic classical horn, art Music, western common practice branch. controlled legato french horn, 17 ply hard rock maple sitka spruce diaphragmatic multi laminate grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 274
+    },
+    {
+      "id": "classical_trumpet",
+      "name": "Classical trumpet",
+      "family": "classical",
+      "recipe": "classic classical trumpet, art Music, western modern branch. yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese legato student friendly trumpet, modern bright 17 ply hard rock maple sitka spruce diaphragmatic grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 344
     }
   ]
 }

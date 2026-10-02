@@ -5,7 +5,7 @@
   "lineage": "Chamber practice in which the shakuhachi joined the koto-and-shamisen jiuta-sokyoku trio, displacing the bowed kokyu across the late Edo and Meiji periods (roughly 1830-1900) as Kinko-ryu and then Tozan-ryu players entered secular concert life, playing heterophonic lines that shadow and decorate the koto melody in the in-scale with meri-kari microtonal shading, at slow to moderate free-breathing tempi articulated by the koto's plectrum attacks rather than a drum.",
   "recipe": "classic East Asian early-1830s shakuhachi, art Music, east Asian branch, wind pipe drone modal, med east poetic ballad poetry somali qaraami song ethiopian azmari minstrel-poet. vocal fry, breath veiled tone, slow rate, interlocked note trading. jiari lacquered bore kinko tozan modern concert kinko ryu canonical edo period concert continuous-airflow legato shakuhachi, koto, cat skin ivory red sandalwood premium silk shamisen, sustained legato kokyu. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 607,
-  "score": 278.159,
+  "score": 278.147,
   "config": {
     "traditions": [
       "shakuhachi_sankyoku",
@@ -98,7 +98,7 @@
           "voice_vibrato": 8.36,
           "voice_articulation": 19.240000000000002,
           "voice_microtone": 25.5125,
-          "voice_tradition": 17.83625,
+          "voice_tradition": 17.825,
           "voice_mechanism_compound": 8.514999999999999,
           "voice_estill_quality": 8.43,
           "voice_speech_song": 21.71,

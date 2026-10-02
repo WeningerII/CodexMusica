@@ -1,0 +1,74 @@
+{
+  "id": "american_21st_century_classical",
+  "name": "American 21st century classical",
+  "family": "classical",
+  "lineage": "American 21st century classical is represented here by Caroline Shaw — Gustave Le Gray (2012), written for Amy J. Yang; recorded on I Giardini’s The Wheel (2022). This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic early-2010s american 21st century classical, art Music, western modern branch. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 278,
+  "score": 89.11,
+  "config": {
+    "traditions": [
+      "american_21st_century_classical"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 8.25,
+          "grand_piano_size": 0.3675,
+          "grand_piano_brand": 0.819,
+          "piano_hammer": 14.53425,
+          "piano_rim": 12.3045,
+          "piano_soundboard": 12.18,
+          "piano_pinblock": 12.4935,
+          "piano_plate": 14.1465,
+          "piano_pitch_standard": 14.01475
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

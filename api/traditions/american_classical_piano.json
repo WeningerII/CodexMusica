@@ -1,0 +1,74 @@
+{
+  "id": "american_classical_piano",
+  "name": "American classical piano",
+  "family": "classical",
+  "lineage": "American classical piano is represented here by Richard Goode — Beethoven: The Late Sonatas (Nonesuch, 1989). This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic late-1980s american classical piano, art Music, western common practice branch. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 275,
+  "score": 69.548,
+  "config": {
+    "traditions": [
+      "american_classical_piano"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "mason_hamlin_oversize_rim",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 8.25,
+          "grand_piano_size": 0.84,
+          "grand_piano_brand": 0.9345000000000001,
+          "piano_hammer": 10.7495,
+          "piano_rim": 11.4635,
+          "piano_soundboard": 9.846,
+          "piano_pinblock": 8.499999999999998,
+          "piano_plate": 8.7775,
+          "piano_pitch_standard": 10.187
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

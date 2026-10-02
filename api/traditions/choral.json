@@ -5,7 +5,7 @@
   "lineage": "Western tradition of multi-voice ensemble singing on notated parts, running from Renaissance polyphony through Bach's motets and the nineteenth-century amateur choral society to the twentieth-century professional chamber choir — SATB and divisi scoring, a cappella or organ-accompanied, blend achieved through vibrato restraint and vowel matching, tuning pulled toward pure thirds and fifths in unaccompanied writing, tempi generally moderate, and a large resonant acoustic treated as part of the instrument.",
   "recipe": "classic European early-1950s choral, art Music, western common practice branch, christian gospel anglican choral, western early art music, christian gospel Russian orthodox orthodox chant russian orthodox liturgical chant. thick, declaimed, slow rate, interlocked note trading. choir cathedral satb, a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, choir russian orthodox. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
   "recipe_chars": 801,
-  "score": 264.041,
+  "score": 263.614,
   "config": {
     "traditions": [
       "choral",
@@ -45,14 +45,14 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 13.964999999999998,
-          "voice_quality": 19.452187499999994,
+          "voice_register": 14.159999999999998,
+          "voice_quality": 19.244999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.875,
           "voice_articulation": 18.979999999999993,
           "voice_microtone": 19.56499999999999,
-          "voice_tradition": 11.075312499999999,
+          "voice_tradition": 10.75,
           "voice_mechanism_compound": 3.65,
           "voice_estill_quality": 9.549999999999997,
           "voice_speech_song": 23.627499999999998,
@@ -60,7 +60,7 @@
           "voice_ornament_system": 8.9,
           "voice_pitch_organization": 8.58,
           "voice_processing_chain": 6.890000000000001,
-          "voice_multitrack_stack": 5.460000000000001
+          "voice_multitrack_stack": 4.980000000000001
         }
       },
       {
@@ -75,7 +75,7 @@
           "choir_size": 11.504999999999999,
           "choir_polyphonic_configuration": 3.964999999999999,
           "choir_regional_canonical_configuration": 8.97,
-          "choir_ensemble_repertoire": 8.615
+          "choir_ensemble_repertoire": 9.004999999999999
         }
       },
       {

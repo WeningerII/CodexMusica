@@ -5,7 +5,7 @@
   "lineage": "Deep free jazz is represented by ROVA::ORKESTROVA — No Favorites!! selected tenor/power-trio core. One documented branch is realized as an authored present-day recording arrangement. Sources establish the ensemble roles, genre boundary and practice locality. Exact instrument subtype, technique pins, room, signal chain, numeric axes and tuning baseline are authored choices, not assertions of original session equipment or universal regional practice.",
   "recipe": "classic deep free jazz, improv On Frame, American jazz branch. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris split tone saxophone, basswood low output no compression soft down tuning humbucker electric guitar, thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 461,
-  "score": 100.288,
+  "score": 101.352,
   "config": {
     "traditions": [
       "deep_free_jazz"
@@ -52,14 +52,14 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 1.6899999999999997,
-          "body_wood": 1.0185,
+          "body_wood": 1.2164999999999997,
           "neck_wood": 0.315,
           "fretboard": 0.34650000000000003,
-          "pickup_magnet": 0.63,
+          "pickup_magnet": 0.8279999999999998,
           "pickup_winding": 1.3,
-          "string_material": 0.4095,
+          "string_material": 0.4837499999999999,
           "bridge": 1.3,
-          "scale_length": 0.8294999999999999,
+          "scale_length": 1.0274999999999999,
           "string_gauge": 1.3,
           "finish": 0,
           "string_tuning": 1.69
@@ -80,9 +80,9 @@
         "scores": {
           "amp_make": 2.0799999999999996,
           "body_wood": 0.63,
-          "pickup_config": 0.5355,
+          "pickup_config": 0.7334999999999999,
           "string_type": 15.6,
-          "scale_length_b": 0.49350000000000005,
+          "scale_length_b": 0.6915,
           "fretted_or_not": 0.1365,
           "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
