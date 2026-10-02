@@ -5,7 +5,7 @@
   "lineage": "Juanita Beck — Calliope Circus Tunes, late1960s Cuca recording preserved by Windjammers Unlimited. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic circus, groove Percussion, American marching branch. steam driven steam calliope. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 188,
-  "score": 7.099,
+  "score": 7.129,
   "config": {
     "traditions": [
       "circus"
@@ -20,7 +20,7 @@
           "steam_calliope_build": "steam_calliope_build_brass_steam"
         },
         "scores": {
-          "keyboard_technique": -0.1,
+          "keyboard_technique": -0.07,
           "steam_calliope_form": 6.8675,
           "steam_calliope_performance": 0.4315,
           "steam_calliope_build": -0.1

@@ -1,0 +1,58 @@
+{
+  "packet": "/tmp/batch026/preflight.json",
+  "sha256": "7bd8c458dc1d8219d50311e0834ea65b2d661a694e9541b600f75b2ba14488cd",
+  "baseline_traditions": 5138,
+  "selected_count": 100,
+  "excluded_overlap_labels_checked": 189,
+  "excluded_matches": [],
+  "existing_id_or_normalized_name_collisions": [],
+  "selected_duplicate_ids": [],
+  "semantic_scope_review": "Regional labels remain region-specific, and narrower doom/indie/soundtrack discoveries remain distinct from broad existing umbrella genres. Shared exemplar alone does not establish equivalence: gaian_doom versus existing post_doom_metal, galego versus galician_rock, classic_mandopop versus broad mandopop explicitly retain distinct discovery/repertoire scope. No demonstrated exact semantic equivalent found among selected100. This does not claim every category is disjoint from all broader genres.",
+  "effective_instrument_parts": 3433,
+  "unowned_flat_pins": [],
+  "documented_fallbacks": [
+    "experimental_vocal mono electronic_lead_line",
+    "finnish_experimental sampler electronic_sample_chopped",
+    "gotico_brasileiro sampler electronic_sample_chopped"
+  ],
+  "material_review": "All24 grand-piano instances have SteinwayD9foot material/brand alignment. Selected classical Frenchromanticism uses classical_legato; soundtrack piano arrangements retain appropriately authored song/minimalist techniques. Prior per-packet vocalist counts retained; no single-singer/live-ensemble configuration contradiction found.",
+  "dependencies": {
+    "collegiate_brass_percussion_ensemble": "New ID and two novel standalone part IDs; official OhioState source independently reread full roster of12 timbral categories matches aggregate. Explicit fullmembership including alternates avoids claiming all228 simultaneously perform.",
+    "string_orchestra_obbligato_violin": "New ID and two novel standalone part IDs; composer original source independently reread confirms string orchestra plus obbligato violin for ThreeChyiYuSongs including OliveTree. Instrumental adaptation membership does not redefine Mandarin-pop taxonomy."
+  },
+  "reviewed_no_change": [
+    "deep_german_indie broadfunctionalSong retained: officialbio chiefly folkrock, selected currentquartet not strictly alternative",
+    "comedie_musicale continentalEuropeanpop parent defensible for selectedFrenchpopularmusical repertoire"
+  ],
+  "independence": "Read-only source/packet audit; no sourcepacket or repository modifications. Root controls authorized coordinator amendments.",
+  "status": "accepted",
+  "reviewed_prior_sha256": "7bd8c458dc1d8219d50311e0834ea65b2d661a694e9541b600f75b2ba14488cd",
+  "resolved_coordinator_findings": [
+    {
+      "id": "classic_soundtrack",
+      "suggested_parent": "functionalSong",
+      "family": "pop",
+      "reason": "Whole historic-screen repertoire not established as crooner lineage by selected MoonRiver adaptation; root agreed broadfunctionalSong.",
+      "resolution": "coordinator amendment verified"
+    },
+    {
+      "id": "denver_indie",
+      "suggested_parent": "distortedRock.alternative",
+      "reason": "Primary artist exactalbum tags alternative,indie rock,acoustic slowcore andemo; acousticinterlude does not redefine genre.",
+      "resolution": "coordinator amendment verified"
+    },
+    {
+      "id": "detroit_indie",
+      "suggested_parent": "distortedRock.alternative",
+      "reason": "Exactrelease primary garage/indierock/indiepop/powerpop tags; regionalindie placement consistent.",
+      "resolution": "coordinator amendment verified"
+    },
+    {
+      "id": "dominican_indie",
+      "suggested_parent": "distortedRock.alternative",
+      "reason": "Primary artist garagepop plusalternative/indiepop; AnglospherepopRock parent inappropriate.",
+      "resolution": "coordinator amendment verified"
+    }
+  ],
+  "remaining_blockers": []
+}

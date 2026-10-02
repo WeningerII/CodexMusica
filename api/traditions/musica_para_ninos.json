@@ -5,7 +5,7 @@
   "lineage": "Spanish-language commercial children's song repertoire established by Francisco Gabilondo Soler ('Cri-Cri') on Mexico City radio XEW from 1934 and extended through Argentine and Spanish television acts, using small orchestral or piano-and-rhythm accompaniment, waltz, polka, danzón and habanera dance meters at moderate tempo, narrow-range singable melodies in major keys, and character-voice narration alternating with sung refrains for group participation.",
   "recipe": "classic Southwestern American mid-1930s música para niños, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, Mexican functional song muziek voor kinderen barnmusik. extended whistle, breath veiled tone, fast rate, interlocked note trading. a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, beech laminated maple laminated European tradition European spruce norway spruce grand piano, steel weltmeister east German mid tier vintage volk accordion, aluminum wound carpathian spruce hard rock maple acer saccharum brazilwood violin orchestral, ebonite hard rubber klezmer tradition clarinet, guiro, treble-extended sustaining steel upright bass. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 959,
-  "score": 200.444,
+  "score": 200.266,
   "config": {
     "traditions": [
       "musica_para_ninos",
@@ -28,7 +28,7 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
@@ -43,10 +43,10 @@
           "voice_microtone": 19.434999999999995,
           "voice_tradition": 4.290000000000001,
           "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 3.1400000000000006,
+          "voice_estill_quality": 3.1850000000000005,
           "voice_speech_song": 23.66,
           "voice_ensemble_config": 19.955,
-          "voice_ornament_system": 1.4799999999999998,
+          "voice_ornament_system": 1.38,
           "voice_pitch_organization": 3.120000000000001,
           "voice_processing_chain": 5.9799999999999995,
           "voice_multitrack_stack": 3.723750000000001
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
-          "choir_size": 5.479374999999999,
+          "choir_size": 5.314375,
           "choir_polyphonic_configuration": 1.95,
-          "choir_regional_canonical_configuration": 3.185,
-          "choir_ensemble_repertoire": 1.9949999999999999
+          "choir_regional_canonical_configuration": 3.1793750000000003,
+          "choir_ensemble_repertoire": 2.04
         }
       },
       {
@@ -76,18 +76,18 @@
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
-          "piano_pinblock": "asian_multi_laminate_pinblock",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 3.1999999999999997,
           "grand_piano_size": 1.045,
-          "grand_piano_brand": 1.1549999999999996,
+          "grand_piano_brand": 1.1099999999999997,
           "piano_hammer": 5.1025,
           "piano_rim": 6.3375,
           "piano_soundboard": 5.85,
-          "piano_pinblock": 0.375,
+          "piano_pinblock": 0.42249999999999993,
           "piano_plate": 0.375,
           "piano_pitch_standard": 9.6525
         }

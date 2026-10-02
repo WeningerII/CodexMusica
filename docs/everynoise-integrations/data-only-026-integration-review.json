@@ -1,0 +1,60 @@
+{
+  "predecessor": "73fa100709001b80c75b83798e41c24c5ebeaff1",
+  "head": "73fa100709001b80c75b83798e41c24c5ebeaff1",
+  "frozen_sha256": "9e7bfaba2cd52654b3f697aaf057f991d7ad6e29db09079e5ea4839e0f2e7b8d",
+  "counts": {
+    "raw_traditions_old_unchanged": 5138,
+    "raw_instruments_old_unchanged": 1472,
+    "old_extras_unchanged": 5138,
+    "merged_instruments_old_unchanged": 1472,
+    "data/geo.json_old_keys": 5138,
+    "references/_tradition_signatures.json_old_keys": 3116,
+    "old_images_unchanged": 6560,
+    "new_images": 102
+  },
+  "additions": 100,
+  "instrument_additions": [
+    "collegiate_brass_percussion_ensemble",
+    "string_orchestra_obbligato_violin"
+  ],
+  "runtime_independent": {
+    "cards": 325,
+    "effective_parts": 3433,
+    "flat_pins": 3334,
+    "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+  },
+  "app_scope": {
+    "added_signature_rows": 100,
+    "removed_rows": 0,
+    "logic_changes": false
+  },
+  "errors": [],
+  "warnings": [],
+  "reviewer_notes": {
+    "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+    "limitation": "API/regression/exact-head CI separate required gates."
+  },
+  "source_scope": {
+    "changed_source_files": [
+      "data/geo.json",
+      "references/02_instruments.js",
+      "references/05_traditions.js",
+      "references/06_extras.js",
+      "references/_image_manifest.json",
+      "references/_tradition_signatures.json",
+      "src/app.js"
+    ],
+    "unexpected": [],
+    "new_data_manifest_geo_signatures_exact": true,
+    "new_instrument_raw_records_exact": true
+  },
+  "browser_snapshot_review": {
+    "baseline_instrument_defaults_and_merged_parts": 1472,
+    "baseline_tradition_imports": 5138,
+    "all_unchanged": true,
+    "baseline_snapshot_sha256": "46c553b70648a30f1ce0a784677b48652d0e995b36416988593b2ab156b2b107",
+    "current_snapshot_sha256": "a820e1cc6ee0be65eb27fa4ca06dde9f2879773a7af964dc7480a2fedbf1210b",
+    "method": "Original browser loadApp, makeCard for all instruments and importTradition for all traditions; exact structured snapshot comparison including every imported card part/environment/preface."
+  },
+  "status": "accepted"
+}

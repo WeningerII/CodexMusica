@@ -5,7 +5,7 @@
   "lineage": "Psychedelic rock extends guitar sustain and noisy texture into long ensemble improvisation. Bardo Pond’s Philadelphia recordings support a twin-guitar, bass, drums, voice and flute practice; electronics are also documented. The catalog represents the guitar role with one guitar chair, not a claim that the documented band has only one guitarist.",
   "recipe": "classic modern drone psych, distorted Rock, experimental branch, noise rock distorted rock, modal electric drone modal trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, hall reverb long decay cinematic. soft down tuning feedback humbucker electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit, flute. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay hall reverb.",
   "recipe_chars": 611,
-  "score": 93.395,
+  "score": 93.485,
   "config": {
     "traditions": [
       "drone_psych",
@@ -37,7 +37,7 @@
           "neck_wood": 0.48,
           "fretboard": 0.38999999999999996,
           "pickup_magnet": 0.195,
-          "pickup_winding": 0.5249999999999999,
+          "pickup_winding": 0.37499999999999994,
           "string_material": 0.24,
           "bridge": 1.69,
           "scale_length": 0.9600000000000002,
@@ -62,7 +62,7 @@
           "amp_make": 0,
           "body_wood": 0.9600000000000002,
           "pickup_config": 0.195,
-          "string_type": 31.89,
+          "string_type": 32.28,
           "scale_length_b": 0.48,
           "fretted_or_not": 0.24,
           "bass_technique": -9.714451465470119e-18,
@@ -134,7 +134,7 @@
           "voice_ensemble_config": 3.3799999999999994,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 2.0149999999999997,
-          "voice_processing_chain": 1.15,
+          "voice_processing_chain": 1,
           "voice_multitrack_stack": 0.39
         }
       }

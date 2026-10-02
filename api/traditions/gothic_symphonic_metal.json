@@ -5,7 +5,7 @@
   "lineage": "Gothic symphonic metal is represented by Sirenia’s Stavanger-linked mixture of gothic metal, classical orchestration, contrasting voices and amplified rhythm instruments.",
   "recipe": "classic modern gothic symphonic metal, distorted Rock, symphonic branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit, rompler workstation, norway spruce European alpine European maple sycamore maple oil varnish violin orchestral, homophonic chordal rhythm aligned choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 614,
-  "score": 87.138,
+  "score": 87.319,
   "config": {
     "traditions": [
       "gothic_symphonic_metal"
@@ -29,7 +29,7 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 14.171499999999998,
+          "electric_technique": 14.270874999999998,
           "amp_make": 6.695,
           "body_wood": 6.24,
           "neck_wood": 0,
@@ -113,10 +113,10 @@
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
           "voice_ensemble_config": 0.39,
-          "voice_ornament_system": 0.3,
+          "voice_ornament_system": 0.3315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.01125,
-          "voice_multitrack_stack": 0.165375
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.18
         }
       },
       {
@@ -154,7 +154,7 @@
           "orch_top_wood": 2.7545,
           "orch_back_wood": 3.5927499999999997,
           "orch_varnish": 3.25,
-          "orch_setup_period": 3.7802499999999997,
+          "orch_setup_period": 3.8061249999999998,
           "orch_bow": 0,
           "orch_bow_stick": 3.2,
           "orch_articulation": 0.39,
@@ -171,9 +171,9 @@
         },
         "scores": {
           "choir_size": 1.1365,
-          "choir_polyphonic_configuration": 1.316875,
+          "choir_polyphonic_configuration": 1.31125,
           "choir_regional_canonical_configuration": 0,
-          "choir_ensemble_repertoire": 0.363
+          "choir_ensemble_repertoire": 0.39
         }
       }
     ],

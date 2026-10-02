@@ -5,7 +5,7 @@
   "lineage": "Umbrella Mexican brass-and-reed band tradition seeded by nineteenth-century military and municipal band reforms under Maximilian and the Porfiriato, standardized on clarinets, cornets or trumpets, alto horns, trombones, tuba, tambora and platillos, playing marchas, valses, pasodobles and sones at 2/4 and 3/4 with the tuba supplying a bass line that later became the harmonic engine of every regional banda style.",
   "recipe": "classic North American early-1940s banda de viento, functional Song, Mexican branch, American marching groove percussion, andean carnival processional marching band. composite resin blackwood dust clarinet, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral standard rim orchestral balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass trombone trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, eb bass brass band sousaphone, double bass rapid double strokes bass drum, gold brass warmer tone saxophone. us uk civic amateur band hall. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 839,
-  "score": 113.72,
+  "score": 113.271,
   "config": {
     "traditions": [
       "banda_de_viento",
@@ -67,7 +67,7 @@
           "trombone_type": 0,
           "trombone_mouthpiece": 6.60375,
           "trombone_mute": 0.65,
-          "trombone_technique": 0.585,
+          "trombone_technique": 0.5399999999999999,
           "trombone_bell_metal": 3.3799999999999994,
           "trombone_maker_school": 4.8100000000000005
         }
@@ -75,7 +75,7 @@
       {
         "id": "tuba",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
+          "wind_articulation": "wind_classical_legato",
           "tuba_pitch": "tuba_eb",
           "tuba_context": "tuba_brass_band",
           "tuba_bell_metal": "tuba_yellow_brass",
@@ -83,12 +83,12 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": 1.56,
-          "tuba_pitch": 10.309999999999999,
+          "wind_articulation": 1.355,
+          "tuba_pitch": 10.459999999999999,
           "tuba_context": 11.18,
           "tuba_bell_metal": 2.7299999999999995,
           "tuba_valve_system": 5.005,
-          "tuba_maker_school": 10.98125
+          "tuba_maker_school": 10.985
         }
       },
       {
@@ -99,7 +99,7 @@
         },
         "scores": {
           "sousaphone_bore": 5.07,
-          "sousaphone_context": 10.782499999999999
+          "sousaphone_context": 10.79
         }
       },
       {
@@ -121,11 +121,11 @@
           "sax_reed": "medium_reed",
           "sax_body_alloy": "gold_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
-          "sax_technique": "sax_continuous_legato",
+          "sax_technique": "sax_split_tone_overblown",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 1.56,
+          "wind_articulation": 1.2,
           "sax_size": 0.95,
           "sax_reed": 0.65,
           "sax_body_alloy": 4.842499999999999,

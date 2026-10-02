@@ -1,0 +1,62 @@
+{
+  "id": "classic_mandopop",
+  "name": "Classic Mandopop",
+  "family": "pop",
+  "lineage": "Chen Zhangyi — Olive Tree, from Three Chyi Yu Songs (2010). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic early-2010s classic mandopop, functional Song. solo and ensemble string orchestra obbligato violin. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 3.516,
+  "config": {
+    "traditions": [
+      "classic_mandopop"
+    ],
+    "instruments": [
+      {
+        "id": "string_orchestra_obbligato_violin",
+        "slots": {
+          "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
+          "string_orchestra_obbligato_technique": "strings_obbligato_song_melody"
+        },
+        "scores": {
+          "string_orchestra_obbligato_layout": 3.3799999999999994,
+          "string_orchestra_obbligato_technique": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "string_orchestra_obbligato_violin": [
+        "string_orchestra_obbligato_layout",
+        "string_orchestra_obbligato_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "string_orchestra_obbligato_layout": "strings_obbligato_violin_layout",
+      "string_orchestra_obbligato_technique": "strings_obbligato_song_melody"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

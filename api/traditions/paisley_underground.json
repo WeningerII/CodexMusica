@@ -3,14 +3,14 @@
   "name": "Paisley Underground",
   "family": "rock",
   "lineage": "Los Angeles guitar-pop movement of 1982-87 named by Michael Quercio of The Three O'Clock and defined by The Dream Syndicate, Rain Parade, Green on Red and The Bangles — mid-tempo 4/4 backbeats, twelve-string Rickenbacker jangle and Byrds-derived vocal harmony fused with Velvet Underground feedback drones and extended one-chord codas, Vox organ, and reverb-heavy but analogue, band-in-a-room production on independent labels.",
-  "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock armenian indie. thick, breath veiled tone, slow rate, interlocked note trading. hi gain Rickenbacker modern clean strummed twelve string electric, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 825,
-  "score": 423.448,
+  "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock armenian indie telugu folk. thick, breath veiled tone, slow rate, interlocked note trading. hi gain Rickenbacker modern clean strummed twelve string electric, marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 803,
+  "score": 372.123,
   "config": {
     "traditions": [
       "paisley_underground",
-      "noise_rock",
-      "armenian_indie"
+      "armenian_indie",
+      "telugu_folk"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 39.020000000000024,
-          "voice_quality": 9.62,
+          "voice_register": 38.39500000000001,
+          "voice_quality": 7.345000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 17.09499999999999,
-          "voice_microtone": 34.47000000000001,
-          "voice_tradition": 10.334999999999999,
-          "voice_mechanism_compound": 7.5249999999999995,
-          "voice_estill_quality": 2.4699999999999998,
-          "voice_speech_song": 20.409999999999993,
-          "voice_ensemble_config": 19.064999999999994,
+          "voice_vibrato": 1.2349999999999999,
+          "voice_articulation": 13.129999999999997,
+          "voice_microtone": 30.345000000000002,
+          "voice_tradition": 14.494999999999997,
+          "voice_mechanism_compound": 3.8500000000000005,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 17.679999999999996,
+          "voice_ensemble_config": 15.144999999999996,
           "voice_ornament_system": 1.3,
           "voice_pitch_organization": 1.49,
-          "voice_processing_chain": 4.465,
-          "voice_multitrack_stack": 4.635000000000001
+          "voice_processing_chain": 4.165,
+          "voice_multitrack_stack": 4.842500000000001
         }
       },
       {
@@ -63,25 +63,25 @@
           "twelve_string_electric_pickup": "twelve_string_hi_gain_rick"
         },
         "scores": {
-          "electric_technique": 6.075,
+          "electric_technique": 7.95,
           "amp_make": 2.5449999999999995,
-          "twelve_string_electric_model": 5.725000000000001,
-          "twelve_string_electric_context": 20.349999999999998,
+          "twelve_string_electric_model": 3.9,
+          "twelve_string_electric_context": 14.625,
           "twelve_string_electric_strings": 0.135,
-          "twelve_string_electric_pickup": 1.3
+          "twelve_string_electric_pickup": 2.04
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_feedback_drone",
-          "amp_make": "amp_british_marshall_jcm800",
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -89,18 +89,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 8.149999999999999,
-          "amp_make": 15.729999999999997,
-          "body_wood": 1.48,
-          "neck_wood": 1.48,
-          "fretboard": 1.4299999999999997,
-          "pickup_magnet": 1.3,
-          "string_material": 1.48,
-          "string_gauge": 1.48,
-          "bridge": 0.435,
-          "scale_length": 1.4949999999999999,
+          "electric_technique": 7.95,
+          "amp_make": 11.05,
+          "body_wood": 1.3,
+          "neck_wood": 1.3,
+          "fretboard": 1.2349999999999999,
+          "pickup_magnet": 1,
+          "string_material": 1.18,
+          "string_gauge": 1.4949999999999999,
+          "bridge": 0.845,
+          "scale_length": 1.3,
           "finish": 0,
-          "string_tuning": 17.29,
+          "string_tuning": 13.780000000000001,
           "single_coil_pickup_construction": 0
         }
       },
@@ -117,13 +117,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 14.43,
-          "body_wood": 1.4949999999999999,
-          "pickup_config": 0.345,
-          "string_type": 34.85,
-          "scale_length_b": 1.48,
+          "amp_make": 11.115,
+          "body_wood": 1.3,
+          "pickup_config": 0.845,
+          "string_type": 27.950000000000003,
+          "scale_length_b": 1.3,
           "fretted_or_not": 0.09,
-          "bass_technique": 28.445,
+          "bass_technique": 21.495000000000005,
           "electric_bass_string_configuration": 0
         }
       },
@@ -135,8 +135,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 27.5,
-          "drumhead": 6.7250000000000005,
+          "drum_technique": 21.500000000000004,
+          "drumhead": 10.275000000000002,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -150,10 +150,10 @@
           "amp_make": "amp_british_60s_vox_ac"
         },
         "scores": {
-          "keyboard_technique": 7.075,
-          "combo_organ_model": 8.115,
-          "combo_organ_voicing": 7.665,
-          "combo_organ_context": 16.64,
+          "keyboard_technique": 8.95,
+          "combo_organ_model": 9.690000000000001,
+          "combo_organ_voicing": 9.39,
+          "combo_organ_context": 12.870000000000003,
           "amp_make": 2.5449999999999995
         }
       },
@@ -161,11 +161,11 @@
         "id": "tambourine_orch",
         "slots": {
           "tambourine_orch_jingle": "tambourine_orch_mixed",
-          "tambourine_orch_context": "tambourine_orch_film"
+          "tambourine_orch_context": "tambourine_orch_orch"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.5,
-          "tambourine_orch_context": 0.44999999999999996
+          "tambourine_orch_jingle": 1.15,
+          "tambourine_orch_context": 0.045
         }
       }
     ],

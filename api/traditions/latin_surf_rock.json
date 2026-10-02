@@ -5,7 +5,7 @@
   "lineage": "Latin surf rock is represented here by Los Tiki Phantoms. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic latin surf rock, distorted Rock, surf rock branch. Fender blackface amp American 60s amp spring reverb bright tremolo humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 340,
-  "score": 75.416,
+  "score": 75.651,
   "config": {
     "traditions": [
       "latin_surf_rock"
@@ -35,7 +35,7 @@
           "neck_wood": 0.105,
           "fretboard": 0.2415,
           "pickup_magnet": 0.3045,
-          "pickup_winding": 0.24862499999999998,
+          "pickup_winding": 0.22049999999999997,
           "string_material": 0.005625,
           "bridge": 1.69,
           "scale_length": 0.21,
@@ -60,7 +60,7 @@
           "amp_make": 8.905,
           "body_wood": 0.37799999999999995,
           "pickup_config": 0.27299999999999996,
-          "string_type": 20.274375,
+          "string_type": 20.536875,
           "scale_length_b": 0.105,
           "fretted_or_not": 0,
           "bass_technique": -0.15000000000000002,

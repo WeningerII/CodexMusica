@@ -1,0 +1,226 @@
+{
+  "id": "deep_surf_music",
+  "name": "Deep Surf Music",
+  "family": "rock_punk",
+  "lineage": "The Thurston Lava Tube — 2003 instrumental quartet. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic early-2000s deep surf music, distorted Rock, surf rock branch. humbucker electric guitar, combo organ, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 314,
+  "score": 25.258,
+  "config": {
+    "traditions": [
+      "deep_surf_music"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": -0.07,
+          "amp_make": 0,
+          "body_wood": 0.37799999999999995,
+          "neck_wood": 0.105,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "pickup_winding": 0.22049999999999997,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0.21,
+          "string_gauge": 1.69,
+          "finish": 0,
+          "string_tuning": 0.126
+        }
+      },
+      {
+        "id": "combo_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "combo_organ_model": "farfisa_combo_compact_deluxe",
+          "combo_organ_voicing": "combo_organ_8_4_flute",
+          "combo_organ_context": "combo_organ_british_invasion",
+          "amp_make": "amp_unspecified"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "combo_organ_model": -0.05,
+          "combo_organ_voicing": -0.05,
+          "combo_organ_context": -0.05,
+          "amp_make": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.37799999999999995,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 7.605,
+          "drumhead": 0.126,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.126,
+          "shell_thickness": 0,
+          "bearing_edges": 0.01125,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 7.463,
+          "cymbal_lathing": 7.4945,
+          "cymbal_finish": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "combo_organ": [
+        "keyboard_technique",
+        "combo_organ_model",
+        "combo_organ_voicing",
+        "combo_organ_context",
+        "amp_make"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "neck_wood": "mahogany_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "combo_organ_model": "farfisa_combo_compact_deluxe",
+      "combo_organ_voicing": "combo_organ_8_4_flute",
+      "combo_organ_context": "combo_organ_british_invasion",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

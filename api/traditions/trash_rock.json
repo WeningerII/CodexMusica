@@ -5,7 +5,7 @@
   "lineage": "Trash rock is represented here by Arklight — Exorcisms. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic trash rock, distorted Rock, noise rock branch. solo with instrumental accompaniment. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation humbucker electric guitar, sticks backbeat drum kit. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 333,
-  "score": 35.216,
+  "score": 35.241,
   "config": {
     "traditions": [
       "trash_rock"
@@ -31,7 +31,7 @@
         "scores": {
           "electric_technique": -0.07750000000000001,
           "amp_make": 10.335,
-          "body_wood": 0.6004999999999999,
+          "body_wood": 0.6319999999999999,
           "neck_wood": 0.312,
           "fretboard": 0.2565,
           "pickup_magnet": 0.1365,
@@ -93,7 +93,7 @@
           "voice_ornament_system": 0.1995,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0,
-          "voice_multitrack_stack": 0.432
+          "voice_multitrack_stack": 0.4245
         }
       }
     ],
