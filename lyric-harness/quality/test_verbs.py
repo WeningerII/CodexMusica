@@ -696,13 +696,17 @@ def test_brief_refuses_instead_of_tracebacking():
     unread_report = _machine_result(unread_out)
     explicit_report = _machine_result(mod_out)
     _dcov = default_report.get("coverage", {})
-    check("the broad default now JUDGES both pairs (any-reading rule): "
-          "dawn/silt holds, again/rebuilt is a judged violation",
+    # 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner ruling):
+    # dawn/silt held only through `internal rhyme` elsewhere in the lines;
+    # at its end words it shares nothing, so BOTH pairs are judged
+    # violations. superseded: dawn/silt held.
+    check("the broad default JUDGES both pairs at their end words: "
+          "dawn/silt and again/rebuilt are both judged violations",
           _dcov.get("certified") is True
           and _dcov.get("pairs_judged") == 2 and _dcov.get("pairs_refused") == 0
           and _dcov.get("refused_obligations") == []
-          and not any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [1, 3]
-                      for f in default_report.get("findings", []))
+          and any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [1, 3]
+                  for f in default_report.get("findings", []))
           and any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [2, 4]
                   for f in default_report.get("findings", [])),
           str((_dcov.get("certified"), _dcov.get("refused_obligations"))))
