@@ -1,0 +1,73 @@
+{
+  "id": "baroque_woodwind",
+  "name": "Baroque woodwind",
+  "family": "classical",
+  "lineage": "Baroque woodwind: Barthold Kuijken — Telemann Twelve Fantasias for transverse flute without bass. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic baroque woodwind, art Music, western common practice branch. grenadilla cocus legato flute. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 201,
+  "score": 7.482,
+  "config": {
+    "traditions": [
+      "baroque_woodwind"
+    ],
+    "instruments": [
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "concert_flute",
+          "flute_material": "wooden_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_yamaha"
+        },
+        "scores": {
+          "wind_articulation": 3.543875,
+          "flute_size": 0,
+          "flute_material": 2.51625,
+          "flute_technique": 0.9099999999999999,
+          "flute_maker_school": 0.5115
+        }
+      }
+    ],
+    "pinned": {
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_classical_legato",
+      "flute_material": "wooden_flute",
+      "flute_size": "concert_flute",
+      "flute_technique": "classical_flute"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

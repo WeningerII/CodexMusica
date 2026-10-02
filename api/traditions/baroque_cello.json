@@ -1,0 +1,77 @@
+{
+  "id": "baroque_cello",
+  "name": "Baroque cello",
+  "family": "classical",
+  "lineage": "Baroque cello: Elinor Frey — Dall’Abaco Capriccio primo from Tous les matins d’Elinor. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic baroque cello, art Music, western common practice branch. norway spruce European alpine European maple bosnian source flamed figure cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 248,
+  "score": 51.974,
+  "config": {
+    "traditions": [
+      "baroque_cello"
+    ],
+    "instruments": [
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_gut",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "baroque_setup_cello",
+          "cello_bow_grip": "german_bow_grip",
+          "cello_rosin": "galeazzi_1791_baroque_rosin_cello",
+          "cello_bow_stick": "snakewood_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.62,
+          "cello_strings": 0.2415,
+          "cello_top_wood": 8.25,
+          "cello_back_wood": 8.25,
+          "cello_varnish": 8.4075,
+          "cello_setup_period": 6.55125,
+          "cello_bow_grip": 2.89675,
+          "cello_rosin": 9.05675,
+          "cello_bow_stick": 5.7
+        }
+      }
+    ],
+    "pinned": {
+      "cello": [
+        "bowed_technique",
+        "cello_strings"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "cello_strings": "cello_gut"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

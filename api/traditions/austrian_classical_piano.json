@@ -1,0 +1,74 @@
+{
+  "id": "austrian_classical_piano",
+  "name": "Austrian classical piano",
+  "family": "classical",
+  "lineage": "Austrian classical piano is represented by Alfred Brendel — solo Beethoven-sonata practice. A documented solo-piano branch is given an authored present-day recording realization. Primary sources establish artist identity, repertoire, role and locality; exact grand-piano construction, legato default, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or a universal national style.",
+  "recipe": "classic austrian classical piano, art Music, western common practice branch. beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 269,
+  "score": 72.805,
+  "config": {
+    "traditions": [
+      "austrian_classical_piano"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "standard_multi_laminate_pinblock",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 9.43,
+          "grand_piano_size": 0.684,
+          "grand_piano_brand": 0.8520000000000001,
+          "piano_hammer": 11.6745,
+          "piano_rim": 9.9135,
+          "piano_soundboard": 9.4365,
+          "piano_pinblock": 9.105,
+          "piano_plate": 9.484499999999999,
+          "piano_pitch_standard": 12.2255
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

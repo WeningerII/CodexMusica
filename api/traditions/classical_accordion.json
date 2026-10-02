@@ -1,0 +1,72 @@
+{
+  "id": "classical_accordion",
+  "name": "Classical accordion",
+  "family": "classical",
+  "lineage": "Classical accordion is represented by Samuele Telari — Bach Goldberg Variations. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic classical accordion, art Music, western early branch. accordion. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 173,
+  "score": 2.058,
+  "config": {
+    "traditions": [
+      "classical_accordion"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "a_mano",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": 0.2,
+          "accordion_reed_material": 0.22049999999999997,
+          "musette_offset": 0.441,
+          "reed_config": 0.8925000000000001,
+          "bellows": 0,
+          "voicing_chamber": 0.3045,
+          "accordion_maker_school": 0
+        }
+      }
+    ],
+    "pinned": {
+      "accordion": [
+        "free_reed_technique",
+        "accordion_maker_school"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_maker_school": "accordion_maker_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

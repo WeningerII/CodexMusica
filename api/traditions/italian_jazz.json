@@ -5,7 +5,7 @@
   "lineage": "Italy-connected jazz practice, represented by Enrico Rava’s lyrical, exploratory quartet on the Wild Dance project. Trumpet fronts electric guitar, acoustic bass and drums; the album’s guest trombone is an optional fifth voice.",
   "recipe": "classic modern italian jazz, improv On Frame, bop branch. bach stradivarius 180 canonical American orchestral trumpet, single coil electric guitar, upright bass, bronze bell bronze hand hammered random pattern asymmetric drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 375,
-  "score": 47.033,
+  "score": 47.316,
   "config": {
     "traditions": [
       "italian_jazz"
@@ -52,14 +52,14 @@
         "scores": {
           "electric_technique": -0.10500000000000001,
           "amp_make": 0,
-          "body_wood": 0,
+          "body_wood": 0.0315,
           "neck_wood": 0.1365,
           "fretboard": -0.035,
           "pickup_magnet": 0,
           "string_material": 0.1995,
-          "string_gauge": 0.063,
-          "bridge": 0.168,
-          "scale_length": 0,
+          "string_gauge": 0.0945,
+          "bridge": 0.1995,
+          "scale_length": 0.0315,
           "finish": 0,
           "string_tuning": 0,
           "single_coil_pickup_construction": 0
@@ -93,12 +93,12 @@
         },
         "scores": {
           "drum_technique": 7.8,
-          "drumhead": 0.0315,
+          "drumhead": 0.063,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.3,
+          "shell_wood": 0.3315,
           "shell_thickness": 0,
-          "bearing_edges": 0.105,
-          "snare_wires": 0,
+          "bearing_edges": 0.168,
+          "snare_wires": 0.0315,
           "cymbal_alloy": 11.099999999999998,
           "cymbal_hammering": 11.367999999999999,
           "cymbal_lathing": -0.11100000000000003,

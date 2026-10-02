@@ -1,0 +1,103 @@
+{
+  "id": "chinese_classical_performance",
+  "name": "Chinese classical performance",
+  "family": "classical",
+  "lineage": "Chinese classical performance is represented by Qin Li-Wei / Albert Tiu — Celebrating Beethoven: The Cello Sonatas. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic chinese classical performance, art Music, western common practice branch. carpathian spruce European maple sycamore maple cremonese pre 1750 four layer system cello, beech laminated maple laminated European tradition European spruce norway spruce grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 368,
+  "score": 133.74,
+  "config": {
+    "traditions": [
+      "chinese_classical_performance"
+    ],
+    "instruments": [
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "cremonese_pre_1750_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 8.25,
+          "cello_strings": 0.756,
+          "cello_top_wood": 8.523,
+          "cello_back_wood": 8.7145,
+          "cello_varnish": 8.494,
+          "cello_setup_period": 8.556999999999999,
+          "cello_bow_grip": 4.29,
+          "cello_rosin": 9.804499999999997,
+          "cello_bow_stick": 10.594999999999999
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "european_spruce_soundboard",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "wet_sand_cast_plate",
+          "piano_pitch_standard": "a_442_european"
+        },
+        "scores": {
+          "keyboard_technique": 8.25,
+          "grand_piano_size": 0.63,
+          "grand_piano_brand": 0.798,
+          "piano_hammer": 11.049999999999997,
+          "piano_rim": 9.1135,
+          "piano_soundboard": 9.4365,
+          "piano_pinblock": 8.607999999999999,
+          "piano_plate": 9.038499999999999,
+          "piano_pitch_standard": 8.8315
+        }
+      }
+    ],
+    "pinned": {
+      "cello": [
+        "bowed_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "bowed_technique": "bowed_legato_classical"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

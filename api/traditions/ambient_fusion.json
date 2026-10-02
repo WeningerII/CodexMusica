@@ -3,14 +3,14 @@
   "name": "Ambient fusion",
   "family": "jazz",
   "lineage": "Ambient-oriented electric improvisation and studio montage, represented by Jon Hassell and Maarifa Street’s Last Night the Moon Came Dropping Its Clothes in the Street (2009). Trumpet, bass, violin and live sampling dissolve the boundary between ensemble performance and electronic soundscape. Hassell’s Fourth World practice is a formative branch of this wider jazz/electronic intersection, not a synonym for every ambient-fusion recording.",
-  "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric italian jazz fusion jazztronica. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character flatwound thumb muted electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
+  "recipe": "classic late-2000s ambient fusion, experimental Elec, ambient branch, American jazz fusion, musique concrete experimental electric psychedelic jazz fusion italian jazz fusion. bach stradivarius 180 canonical American orchestral jazz balance trumpet, ampeg b15 amp American 60s bass amp flip top character flatwound electric bass, modern setup longer neck longer fingerboard heavier bass bar violin orchestral, glitched textural sampler. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 652,
-  "score": 60.137,
+  "score": 55.867,
   "config": {
     "traditions": [
       "ambient_fusion",
-      "italian_jazz_fusion",
-      "jazztronica"
+      "psychedelic_jazz_fusion",
+      "italian_jazz_fusion"
     ],
     "instruments": [
       {
@@ -47,13 +47,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.330000000000002,
+          "amp_make": 4.485000000000001,
           "body_wood": 0.39,
           "pickup_config": 0.44999999999999996,
           "string_type": 17.325,
           "scale_length_b": 0.44999999999999996,
           "fretted_or_not": 0,
-          "bass_technique": 1.5750000000000002,
+          "bass_technique": -0.1,
           "electric_bass_string_configuration": 0
         }
       },
@@ -76,8 +76,8 @@
           "orch_strings": 0,
           "orch_top_wood": -0.07,
           "orch_back_wood": 0.06499999999999999,
-          "orch_varnish": 0.585,
-          "orch_setup_period": 2.99,
+          "orch_varnish": 0.12999999999999998,
+          "orch_setup_period": 2.145,
           "orch_bow": 0,
           "orch_bow_stick": -0.035,
           "orch_articulation": 0.39,
@@ -94,7 +94,7 @@
           "sampler_classic_context": "sampler_classic_post"
         },
         "scores": {
-          "electronic_technique": 7.125,
+          "electronic_technique": 6.25,
           "sampler_archetypes": -0.035,
           "sampler_bit_depth": 0.9450000000000001,
           "sampler_workflow": -0.07,

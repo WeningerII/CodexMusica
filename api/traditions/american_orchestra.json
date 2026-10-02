@@ -1,0 +1,146 @@
+{
+  "id": "american_orchestra",
+  "name": "American orchestra",
+  "family": "classical",
+  "lineage": "American orchestra is represented here by Sphinx Virtuosi — Valerie Coleman: Tracing Visions, Songs for Our Times (2023). This is a documented branch with an authored present-day studio realization.",
+  "recipe": "classic early-2020s american orchestra, art Music, western modern branch. sitka spruce bigleaf maple western maple oil varnish amber tinted violin orchestral, synthetic core carpathian spruce eastern European source European maple general oil varnish viola classical, synthetic engelmann spruce European maple sycamore maple oil varnish cello, synthetic upright bass. treated studio. transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 447,
+  "score": 138.722,
+  "config": {
+    "traditions": [
+      "american_orchestra"
+    ],
+    "instruments": [
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 2.605,
+          "orch_strings": 0.504,
+          "orch_top_wood": 4.296,
+          "orch_back_wood": 6.825,
+          "orch_varnish": 6.25,
+          "orch_setup_period": 8.125,
+          "orch_bow": 0.546,
+          "orch_bow_stick": 8.050625,
+          "orch_articulation": 0.504,
+          "orch_rosin": 8.125
+        }
+      },
+      {
+        "id": "viola_classical",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "viola_size": "viola_15_inch",
+          "viola_strings": "viola_synthetic",
+          "viola_top_wood": "viola_carpathian_spruce",
+          "viola_back_wood": "viola_european_maple_general",
+          "viola_varnish": "viola_oil_amber",
+          "viola_setup_period": "viola_modern_setup",
+          "viola_bow_stick": "viola_pernambuco",
+          "viola_rosin": "viola_larsen_rosin"
+        },
+        "scores": {
+          "bowed_technique": 2.605,
+          "viola_size": 0.3,
+          "viola_strings": 1.95,
+          "viola_top_wood": 2.773,
+          "viola_back_wood": 6.523,
+          "viola_varnish": 6.25,
+          "viola_setup_period": 8.125,
+          "viola_bow_stick": 8.050625,
+          "viola_rosin": 8.125
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "engelmann_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 2.605,
+          "cello_strings": 1.95,
+          "cello_top_wood": 3.75,
+          "cello_back_wood": 6.523,
+          "cello_varnish": 6.25,
+          "cello_setup_period": 8.125,
+          "cello_bow_grip": 1.3,
+          "cello_rosin": 6.3865,
+          "cello_bow_stick": 8.050625
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "synthetic_upright",
+          "upright_play": "arco_upright"
+        },
+        "scores": {
+          "upright_strings": 1.95,
+          "upright_play": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "violin_orchestral": [
+        "bowed_technique"
+      ],
+      "viola_classical": [
+        "bowed_technique"
+      ],
+      "cello": [
+        "bowed_technique"
+      ],
+      "upright_bass": [
+        "upright_play"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "upright_play": "arco_upright"
+    },
+    "pin_parts": true,
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

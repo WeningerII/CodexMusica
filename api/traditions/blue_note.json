@@ -5,7 +5,7 @@
   "lineage": "The house style of Alfred Lion and Francis Wolff's Blue Note Records, formed in New York 1955-1967 and given its sonic signature by engineer Rudy Van Gelder at Hackensack and Englewood Cliffs — medium-up 4/4 swing at 160-240 BPM with 12/8 gospel shuffles, trumpet-and-tenor front lines over piano, walking bass and ride-cymbal-led kit, blues-and-gospel-inflected original heads in place of standards, and rehearsal-paid sessions producing tight arranged ensembles.",
   "recipe": "classic North American mid-1960s blue note, improv On Frame, hard bop branch, American jazz soul jazz neo-bop jazz organ. bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 809,
-  "score": 379.091,
+  "score": 379.496,
   "config": {
     "traditions": [
       "blue_note",
@@ -25,11 +25,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 6.17125,
+          "wind_articulation": 6.21625,
           "brass_size": 0.24,
-          "trumpet_mouthpiece": 33.70625,
+          "trumpet_mouthpiece": 33.97625,
           "brass_mute": 0.39,
-          "trumpet_technique": 6.17125,
+          "trumpet_technique": 6.21625,
           "trumpet_bell_metal": 0.195,
           "trumpet_maker_school": 6.825
         }
@@ -46,7 +46,7 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 6.17125,
+          "wind_articulation": 6.21625,
           "sax_size": 4.675,
           "sax_reed": 0.39,
           "sax_body_alloy": 25.42,
@@ -67,7 +67,7 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 6.17125,
+          "wind_articulation": 6.21625,
           "trombone_type": 25.375,
           "trombone_mouthpiece": 25.325,
           "trombone_mute": 0,
@@ -123,7 +123,7 @@
           "bass_back_wood": -0.05,
           "bass_varnish": -0.05,
           "bass_setup_period": 2.2099999999999995,
-          "bass_play": 25.57,
+          "bass_play": 25.525,
           "bass_rosin": 36.627500000000005,
           "bass_bow_stick": -9.714451465470119e-18
         }

@@ -3,14 +3,14 @@
   "name": "String quartet",
   "family": "classical",
   "lineage": "Western chamber music tradition for two violins, viola, and cello, codified by Haydn in his sixty-eight quartets (1762-1803) — the form's most consequential codifiers include Mozart (the six Haydn quartets), Beethoven (the sixteen quartets including the late opp. 127-135), Schubert (Death and the Maiden), Bartók (six quartets), Shostakovich (fifteen quartets), and continuing through contemporary composers",
-  "recipe": "classic British early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music minimalist furniture music. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 508,
-  "score": 271.495,
+  "recipe": "classic British early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music african-american classical american 21st century classical. carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, tungsten wound larsen spirocore viola c canon carpathian spruce eastern European source viola classical, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 550,
+  "score": 356.001,
   "config": {
     "traditions": [
       "string_quartet",
-      "minimalist",
-      "furniture_music"
+      "african_american_classical",
+      "american_21st_century_classical"
     ],
     "instruments": [
       {
@@ -18,8 +18,8 @@
         "slots": {
           "bowed_technique": "bowed_legato_classical",
           "orch_strings": "synthetic_orch",
-          "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "bigleaf_western_maple_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "modern_bow",
@@ -28,16 +28,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.750000000000001,
-          "orch_strings": 1.3649999999999998,
-          "orch_top_wood": 9.754999999999999,
-          "orch_back_wood": 15.045,
-          "orch_varnish": 13.5,
-          "orch_setup_period": 12.48,
+          "bowed_technique": 10.875,
+          "orch_strings": 0.7,
+          "orch_top_wood": 11.745000000000001,
+          "orch_back_wood": 17.95,
+          "orch_varnish": 17.125,
+          "orch_setup_period": 17.09357142857143,
           "orch_bow": 0.78,
-          "orch_bow_stick": 15.685,
-          "orch_articulation": 1.3649999999999998,
-          "orch_rosin": 13.5
+          "orch_bow_stick": 20.054642857142852,
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 17.125
         }
       },
       {
@@ -54,15 +54,15 @@
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 7.750000000000001,
-          "viola_size": 1.75,
-          "viola_strings": 3.12,
-          "viola_top_wood": 8.120000000000001,
-          "viola_back_wood": 14.325,
-          "viola_varnish": 13.5,
-          "viola_setup_period": 12.48,
-          "viola_bow_stick": 15.685,
-          "viola_rosin": 13.795000000000002
+          "bowed_technique": 10.875,
+          "viola_size": 1.6,
+          "viola_strings": 2.47,
+          "viola_top_wood": 11.745000000000001,
+          "viola_back_wood": 17.95,
+          "viola_varnish": 17.125,
+          "viola_setup_period": 17.09357142857143,
+          "viola_bow_stick": 20.054642857142852,
+          "viola_rosin": 18.408571428571427
         }
       },
       {
@@ -79,15 +79,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 7.750000000000001,
-          "cello_strings": 2.6649999999999996,
-          "cello_top_wood": 8.120000000000001,
-          "cello_back_wood": 14.325,
-          "cello_varnish": 13.5,
-          "cello_setup_period": 12.48,
-          "cello_bow_grip": 3.7700000000000005,
-          "cello_rosin": 15.100000000000001,
-          "cello_bow_stick": 15.685
+          "bowed_technique": 10.875,
+          "cello_strings": 2.21,
+          "cello_top_wood": 11.745000000000001,
+          "cello_back_wood": 17.95,
+          "cello_varnish": 17.125,
+          "cello_setup_period": 17.09357142857143,
+          "cello_bow_grip": 5.654999999999999,
+          "cello_rosin": 18.724999999999998,
+          "cello_bow_stick": 20.054642857142852
         }
       }
     ],

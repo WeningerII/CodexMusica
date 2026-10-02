@@ -5,7 +5,7 @@
   "lineage": "Solo repertoire for the two-string snakeskin-membrane spike fiddle, elevated from folk and opera accompaniment to art-music status by Liu Tianhua's 1918-1932 conservatory etudes and pieces and by the recorded improvisations of the blind Wuxi street musician Abing in 1950, defined by a bow permanently threaded between the strings, fingering with no fingerboard so pitch is produced by string tension, continuous sliding portamento, wide expressive vibrato, and a nasal, vocally-inflected tone over pentatonic melodies in slow lament tempos.",
   "recipe": "classic East Asian mid-1920s erhu repertoire, art Music, east Asian branch, string drone modal, east Asian funeral lament dombra küy hardanger fiddle. steel modern bamboo stick horsehair threaded between strings erhu, hardwood carved hardwood body python skin snake skin zhonghu, mellow virtuoso metal body copper steel modern banhu, traditional bamboo yangqin, no membrane buzz bangdi northern sharp opera percussive melodic dizi, pipa. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 583,
-  "score": 51.892,
+  "score": 52.045,
   "config": {
     "traditions": [
       "erhu",
@@ -29,7 +29,7 @@
           "erhu_use": 1.45,
           "erhu_body_wood": 0.195,
           "erhu_strings": 1.035,
-          "erhu_bow": 6.882187499999999
+          "erhu_bow": 6.765
         }
       },
       {
@@ -88,10 +88,10 @@
         },
         "scores": {
           "wind_articulation": 4.245,
-          "dizi_membrane": 2.6449999999999996,
+          "dizi_membrane": 2.795,
           "dizi_pitch": 2.275,
           "dizi_body_material": 0.6,
-          "dizi_regional_style": 1.3900000000000001
+          "dizi_regional_style": 1.435
         }
       },
       {
@@ -107,8 +107,8 @@
           "plucked_traditional_technique": 0.12999999999999998,
           "pipa_frets": 0.3,
           "pipa_strings": 0.65,
-          "pipa_pick": 0.195,
-          "pipa_body_wood": 0.315
+          "pipa_pick": 0.15,
+          "pipa_body_wood": 0.435
         }
       }
     ],

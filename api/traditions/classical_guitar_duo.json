@@ -1,0 +1,72 @@
+{
+  "id": "classical_guitar_duo",
+  "name": "Classical guitar duo",
+  "family": "classical",
+  "lineage": "Classical guitar duo is represented by Katona Twins — Guitar Duo Recital, SM215. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic classical guitar duo, art Music, western common practice branch. cutting modern classical carbon fiber classical nylon-string guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 242,
+  "score": 13.274,
+  "config": {
+    "traditions": [
+      "classical_guitar_duo"
+    ],
+    "instruments": [
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.175,
+          "string_tuning": 0,
+          "top_wood_classical": 0.579,
+          "bracing_classical": 4.29,
+          "string_classical": 4.29,
+          "attack_technique_cl": 4.29
+        }
+      }
+    ],
+    "pinned": {
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "attack_technique_cl": "tirando_cl",
+      "string_tuning": "standard_tuning"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

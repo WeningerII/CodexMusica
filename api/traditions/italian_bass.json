@@ -5,7 +5,7 @@
   "lineage": "An Italian classical bass-singer discovery category represented by Ferruccio Furlanetto and Ruggero Raimondi. Their official opera-company biographies document bass and bass-baritone roles in an international repertory. The selected branch is the operatic-aria side of a piano recital.",
   "recipe": "classic modern italian bass, art Music, western common practice branch. equal tempered, operatic, bass vocal tessitura. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 345,
-  "score": 67.635,
+  "score": 67.79,
   "config": {
     "traditions": [
       "italian_bass"
@@ -40,7 +40,7 @@
           "voice_vibrato": 0,
           "voice_articulation": 0.16799999999999998,
           "voice_microtone": 4.55,
-          "voice_tradition": 16.60325,
+          "voice_tradition": 16.61825,
           "voice_mechanism_compound": 0.273,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
@@ -49,7 +49,7 @@
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.07425,
           "voice_multitrack_stack": 0.189,
-          "voice_tessitura": 5.58775
+          "voice_tessitura": 5.707749999999999
         }
       },
       {
@@ -68,11 +68,11 @@
         "scores": {
           "keyboard_technique": 5.75,
           "grand_piano_size": 0.9099999999999999,
-          "grand_piano_brand": 1.1197500000000002,
+          "grand_piano_brand": 1.10325,
           "piano_hammer": 5.8365,
           "piano_rim": 5.91075,
           "piano_soundboard": 5.7,
-          "piano_pinblock": 5.7,
+          "piano_pinblock": 5.736,
           "piano_plate": 5.763,
           "piano_pitch_standard": 1.2349999999999999
         }

@@ -3,14 +3,14 @@
   "name": "Lutheran chorale tradition",
   "family": "classical",
   "lineage": "German Protestant vernacular hymn tradition emerging from Martin Luther's liturgical reforms (1520s-1540s), in which sturdy German-language hymn-tunes (chorales) became the canonical sung-prayer of the Lutheran congregation. The seventeenth-century four-voice harmonization tradition (codified by Hans Leo Hassler, Michael Praetorius, and later Johann Sebastian Bach in his approximately 400 chorale harmonizations) constitutes the canonical compositional layer. Direct precursor to broader Lutheran cantata-and-passion compositional tradition.",
-  "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical bass classical period. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 739,
-  "score": 217.695,
+  "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music austrian choir british choir. thick, breath veiled tone, slow rate, leader call answered. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, schnitger hamburg canonical north German Baroque late 17th century zinc canonical large pedal pipes late 19th century cost efficient werckmeister iii canonical bach era well temperament pneumatic canonical late 19th century romantic legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 721,
+  "score": 147.055,
   "config": {
     "traditions": [
       "lutheran_chorale",
-      "classical_bass",
-      "classical_period_18c"
+      "austrian_choir",
+      "british_choir"
     ],
     "instruments": [
       {
@@ -21,35 +21,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_articulation": "call_response_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 7.125000000000001,
-          "voice_quality": 10.334999999999997,
+          "voice_register": 6.300000000000001,
+          "voice_quality": 7.605,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.179999999999998,
-          "voice_articulation": 7.994999999999999,
-          "voice_microtone": 7.9625,
-          "voice_tradition": 20.54,
-          "voice_mechanism_compound": 9.774999999999999,
-          "voice_estill_quality": 12.929999999999998,
-          "voice_speech_song": 11.45,
-          "voice_ensemble_config": 12.349999999999994,
-          "voice_ornament_system": 9.819999999999999,
-          "voice_pitch_organization": 9.774999999999999,
-          "voice_processing_chain": 3.835,
-          "voice_multitrack_stack": 0.525
+          "voice_vibrato": 6.5,
+          "voice_articulation": 3.9900000000000007,
+          "voice_microtone": 6.435000000000001,
+          "voice_tradition": 14.429999999999996,
+          "voice_mechanism_compound": 4.9,
+          "voice_estill_quality": 7.4799999999999995,
+          "voice_speech_song": 5.325,
+          "voice_ensemble_config": 10.302499999999998,
+          "voice_ornament_system": 5.325,
+          "voice_pitch_organization": 4.9,
+          "voice_processing_chain": 3.035,
+          "voice_multitrack_stack": 1.1699999999999995
         }
       },
       {
@@ -61,31 +61,31 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 7.539999999999998,
-          "choir_polyphonic_configuration": 7.505000000000001,
+          "choir_size": 6.629999999999999,
+          "choir_polyphonic_configuration": 6.205,
           "choir_regional_canonical_configuration": 2.73,
-          "choir_ensemble_repertoire": 4.225
+          "choir_ensemble_repertoire": 3.3799999999999994
         }
       },
       {
         "id": "pipe_organ",
         "slots": {
           "keyboard_technique": "keyboard_classical_legato",
-          "pipe_organ_class": "pipe_organ_baroque",
+          "pipe_organ_class": "pipe_organ_romantic",
           "pipe_organ_context": "pipe_organ_concert",
-          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
+          "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
           "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
-          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
-          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+          "pipe_organ_temperament": "pipe_organ_werckmeister_iii",
+          "pipe_organ_action": "pipe_organ_pneumatic"
         },
         "scores": {
-          "keyboard_technique": 9.875,
-          "pipe_organ_class": 0.845,
-          "pipe_organ_context": 16.38,
-          "pipe_organ_voicing_school": 10.595,
-          "pipe_organ_pipe_alloy": 5.915,
-          "pipe_organ_temperament": 5.525,
-          "pipe_organ_action": 6.674999999999999
+          "keyboard_technique": 5,
+          "pipe_organ_class": 0.195,
+          "pipe_organ_context": 12.09,
+          "pipe_organ_voicing_school": 8.45,
+          "pipe_organ_pipe_alloy": 5.069999999999999,
+          "pipe_organ_temperament": 4.574999999999999,
+          "pipe_organ_action": 5.069999999999999
         }
       }
     ],

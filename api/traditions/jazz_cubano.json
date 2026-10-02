@@ -5,7 +5,7 @@
   "lineage": "Cuban jazz musicians and diaspora; selected Rubalcaba solo-piano branch",
   "recipe": "classic modern jazz cubano, improv On Frame, Latin jazz branch. grand piano. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 221,
-  "score": 1.687,
+  "score": 1.664,
   "config": {
     "traditions": [
       "jazz_cubano"
@@ -26,8 +26,8 @@
         },
         "scores": {
           "keyboard_technique": -0.1,
-          "grand_piano_size": 0.37424999999999997,
-          "grand_piano_brand": 0.042749999999999996,
+          "grand_piano_size": 0.363,
+          "grand_piano_brand": 0.0315,
           "piano_hammer": -0.1,
           "piano_rim": 0.2,
           "piano_soundboard": -0.07,

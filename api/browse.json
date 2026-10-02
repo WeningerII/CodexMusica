@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 4438,
+  "count": 4538,
   "items": [
     {
       "id": "honky_tonk",
@@ -165388,6 +165388,3026 @@
       "description": "Jazz cover is represented by Brad Mehldau’s Your Mother Should Know: Brad Mehldau Plays The Beatles. Nonesuch documents a solo piano program interpreting Beatles songs and a David Bowie encore, recorded at Philharmonie de Paris in September 2020. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
       "exemplars": [
         "Brad Mehldau — Your Mother Should Know solo Beatles interpretations"
+      ]
+    },
+    {
+      "id": "greek_swing",
+      "name": "Greek swing",
+      "family": "jazz",
+      "lineage": "Greek swing: Gadjo Dilo — Manouche de Grec, 2013. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        -1,
+        1,
+        1,
+        1,
+        -1,
+        1
+      ],
+      "instruments": [
+        "acoustic_guitar_dread",
+        "violin_orchestral",
+        "accordion",
+        "upright_bass",
+        "voice"
+      ],
+      "description": "Manouche de Grec combines old Greek song repertoire with manouche jazz. The band’s album credits list two guitarists, violin, accordion, double bass and one singer, Iliana Tsapatsari. One guitar card represents the shared guitar role rather than a single-player claim. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Gadjo Dilo — Manouche de Grec, 2013"
+      ]
+    },
+    {
+      "id": "irish_modern_jazz",
+      "name": "Irish modern jazz",
+      "family": "jazz",
+      "lineage": "Irish modern jazz: White Rocket — White Rocket, 2008. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "improvOnFrame.americanJazz.avant",
+      "axes": [
+        2,
+        1,
+        1,
+        -1,
+        0,
+        1,
+        2,
+        -1,
+        1,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "White Rocket’s debut is a bassless trio of Jacob Wick’s trumpet, Greg Felton’s piano and Sean Carpio’s drums. The label credits the full ensemble, while Ireland’s Improvised Music Company documents its Dublin practice and contemporary-jazz approach. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "White Rocket — White Rocket, 2008"
+      ]
+    },
+    {
+      "id": "japanese_vocal_jazz",
+      "name": "Japanese vocal jazz",
+      "family": "jazz",
+      "lineage": "Japanese vocal jazz: Kimiko Itoh — Blue Note Tokyo program, 21 November 2020. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "improvOnFrame.americanJazz.smoothVocal",
+      "axes": [
+        2,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        -1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit",
+        "cello"
+      ],
+      "description": "Blue Note Tokyo’s documented program pairs singer Kimiko Itoh with Takana Miyamoto’s piano trio and guest cellist Hajime Mizoguchi. The venue names Itoh, Miyamoto, bassist Pat Glynn, drummer Tomo Kanno and Mizoguchi with their actual roles. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Kimiko Itoh — Blue Note Tokyo program, 21 November 2020"
+      ]
+    },
+    {
+      "id": "jazz_boliviano",
+      "name": "Jazz boliviano",
+      "family": "jazz",
+      "lineage": "Jazz boliviano is represented by Danilo Rojas Trio featuring Jacqueline Gawler — Paris Cat 25 August 2022. This documented branch has an authored present-day studio realization.",
+      "parent": "improvOnFrame.latinJazz",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "double_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Jazz boliviano is represented by Danilo Rojas’s trio with Jacqueline Gawler at Melbourne’s Paris Cat on 25 August 2022. Gawler’s own concert archive names Rojas on piano, Nick Haywood on double bass, Jethro Negron on drums and herself on voice. Monash identifies Rojas as a leading Bolivian jazz musician based in Melbourne. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Danilo Rojas Trio featuring Jacqueline Gawler — Paris Cat 25 August 2022"
+      ]
+    },
+    {
+      "id": "jazz_brass",
+      "name": "Jazz brass",
+      "family": "jazz",
+      "lineage": "Jazz brass is represented by Till Brönner and Dieter Ilg — Nightfall trumpet-and-bass core. This documented branch has an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "double_bass"
+      ],
+      "description": "Jazz brass is represented by the trumpet-and-bass core of Till Brönner and Dieter Ilg’s Nightfall. Sony’s release document identifies the jazz duo, Brönner’s trumpet/flugelhorn and Ilg’s bass, while Ilg’s own biography establishes his acoustic double-bass practice. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Till Brönner and Dieter Ilg — Nightfall trumpet-and-bass core"
+      ]
+    },
+    {
+      "id": "jazz_colombiano",
+      "name": "Jazz colombiano",
+      "family": "jazz",
+      "lineage": "Jazz colombiano is represented by Manglar Trío — Letras Nacionales piano-trio core. This documented branch has an authored present-day studio realization.",
+      "parent": "improvOnFrame.latinJazz",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "double_bass",
+        "drum_kit"
+      ],
+      "description": "Jazz colombiano is represented by Manglar Trío’s Letras Nacionales. The artist’s release credits Néstor Vivas on piano, Kike Harker on double bass and Jorge Sepúlveda on drums. Institutional presenter accounts identify the Bogotá-based trio and its investigation of Afro-Colombian music through jazz improvisation. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Manglar Trío — Letras Nacionales piano-trio core"
+      ]
+    },
+    {
+      "id": "jazz_composition",
+      "name": "Jazz composition",
+      "family": "jazz",
+      "lineage": "Jazz composition is represented by Mary Lou Williams — Zodiac Suite original small-ensemble core. This documented branch has an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "double_bass",
+        "drum_kit"
+      ],
+      "description": "Jazz composition is represented by Mary Lou Williams’s Zodiac Suite, a twelve-part cycle of jazz tone poems documented by Smithsonian Folkways. Its original small-ensemble realization uses Williams’s piano with Al Lucas’s upright bass and Jack Parker’s drums, with solo and accompanied passages across the suite. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Mary Lou Williams — Zodiac Suite original small-ensemble core"
+      ]
+    },
+    {
+      "id": "jazz_flute",
+      "name": "Jazz flute",
+      "family": "jazz",
+      "lineage": "Jazz flute is represented by Nicole Mitchell — Mandorla Awakening II flute-and-vocal core. This documented branch has an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.avant",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "flute",
+        "voice"
+      ],
+      "description": "Jazz flute is represented by Nicole Mitchell’s flute and avery r young’s vocal roles in Mandorla Awakening II: Emerging Worlds. The artist/label release documents its Chicago Museum of Contemporary Art premiere on 2 May 2015 and its avant-garde jazz context. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Nicole Mitchell — Mandorla Awakening II flute-and-vocal core"
+      ]
+    },
+    {
+      "id": "jazz_mexicano",
+      "name": "Jazz mexicano",
+      "family": "jazz",
+      "lineage": "Jazz mexicano is represented by Alex Mercado — Refraction solo-piano concert at Fonoteca Nacional. This documented branch has an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Jazz mexicano is represented by Alex Mercado’s Refraction solo-piano concert at Fonoteca Nacional. The presenting institution identifies the Mexican pianist, his contemporary acoustic jazz approach and the solo recital in Mexico City. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Alex Mercado — Refraction solo-piano concert at Fonoteca Nacional"
+      ]
+    },
+    {
+      "id": "jazz_orchestra",
+      "name": "Jazz orchestra",
+      "family": "jazz",
+      "lineage": "Jazz orchestra is represented by Vanguard Jazz Orchestra — documented current instrumental sections. This documented branch has an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "saxophone",
+        "trumpet",
+        "trombone",
+        "grand_piano",
+        "double_bass",
+        "drum_kit"
+      ],
+      "description": "Jazz orchestra is represented by the Vanguard Jazz Orchestra’s documented instrumental sections. Its own current roster identifies saxophones, trumpets, trombones and a piano-bass-drums rhythm section; its history documents the long-running Village Vanguard engagement in New York. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Vanguard Jazz Orchestra — documented current instrumental sections"
+      ]
+    },
+    {
+      "id": "jazz_tico",
+      "name": "Jazz tico",
+      "family": "jazz",
+      "lineage": "Jazz tico is represented by Kenneth Jimenez — Sonnet to Silence quartet. This documented branch has an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.avant",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "double_bass",
+        "saxophone",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "Jazz tico is represented by Costa Rica-born Kenneth Jimenez’s Sonnet to Silence quartet. We Jazz documents Jimenez’s double bass, Hery Paz’s saxophone, Angelica Sanchez’s piano and Gerald Cleaver’s drums, recorded at Big Orange Sheep in Brooklyn. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Kenneth Jimenez — Sonnet to Silence quartet"
+      ]
+    },
+    {
+      "id": "south_african_modern_jazz",
+      "name": "South african modern jazz",
+      "family": "jazz",
+      "lineage": "South african modern jazz is represented here by Kyle Shepherd — After the Night, the Day Will Surely Come (2021). This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "South African modern jazz is represented by Kyle Shepherd’s solo-piano branch on After the Night, the Day Will Surely Come. The releasing label describes a dialogue between composed material and improvisation within South African pianism; the artist documents his Cape Town musical practice. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Kyle Shepherd — After the Night, the Day Will Surely Come (2021)"
+      ]
+    },
+    {
+      "id": "jazz_worship",
+      "name": "Jazz worship",
+      "family": "jazz",
+      "lineage": "Jazz worship is represented here by Pamela York — Deep River, solo piano from Lay Down This World (2012). This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Jazz worship is represented by Pamela York’s jazz reharmonization of the spiritual Deep River for solo piano. Her direct interview relates this sacred-repertoire practice to church-service music and describes shaping the melody through the piano; her artist biography situates her mature practice in Houston. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Pamela York — Deep River, solo piano from Lay Down This World (2012)"
+      ]
+    },
+    {
+      "id": "modern_free_jazz",
+      "name": "Modern free jazz",
+      "family": "jazz",
+      "lineage": "Modern free jazz is represented here by Matthew Shipp Trio — Sea Song / New Concepts in Piano Trio Jazz (2024). This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.avant",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "Modern free jazz is represented by the Matthew Shipp Trio’s restrained acoustic interplay on Sea Song. The label identifies the three instrumental roles, while the performers explain short phrases, space, brushes and flexible composed outlines. New York is the artist-documented practice base. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Matthew Shipp Trio — Sea Song / New Concepts in Piano Trio Jazz (2024)"
+      ]
+    },
+    {
+      "id": "modern_swing",
+      "name": "Modern swing",
+      "family": "jazz",
+      "lineage": "Modern swing is represented here by The Schwings Band featuring Migloko — Jack I’m Mellow (2017). This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.early",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit",
+        "trumpet",
+        "saxophone",
+        "voice"
+      ],
+      "description": "Modern swing is represented by the Vilnius-based Schwings Band’s vocal small-combo practice on Jack I’m Mellow. The artist release provides a complete voice, piano, double-bass, drums, trumpet and soprano-saxophone roster; its own profile identifies the group’s swing and New Orleans jazz setting. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "The Schwings Band featuring Migloko — Jack I’m Mellow (2017)"
+      ]
+    },
+    {
+      "id": "lithuanian_jazz",
+      "name": "Lithuanian jazz",
+      "family": "jazz",
+      "lineage": "Lithuanian jazz is represented here by Sheep Got Waxed — documented self-titled-era instrumental trio (2014). This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.avant",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        1,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "saxophone",
+        "electric_guitar_humbucker",
+        "drum_kit"
+      ],
+      "description": "Lithuanian jazz is represented by Sheep Got Waxed’s documented early instrumental trio. The artist release identifies saxophone, guitar and drums, and the drummer’s direct interview explicitly calls the band instrumental and confirms its Vilnius base. This selects the group’s experimental jazz branch within a broad regional category. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Sheep Got Waxed — documented self-titled-era instrumental trio (2014)"
+      ]
+    },
+    {
+      "id": "russian_modern_jazz",
+      "name": "Russian modern jazz",
+      "family": "jazz",
+      "lineage": "Russian modern jazz is represented here by LRK Trio with Bosse Savik — Akatombo instrumental branch (2018). This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit",
+        "pedal_steel"
+      ],
+      "description": "Russian modern jazz is represented by LRK Trio’s instrumental Akatombo branch, which places its modern piano-trio language alongside Bosse Savik’s credited pedal steel. The releasing label and artist representative document the group’s Moscow base and the distinction between this instrumental piece and the album’s other vocal collaborations. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "LRK Trio with Bosse Savik — Akatombo instrumental branch (2018)"
+      ]
+    },
+    {
+      "id": "psychedelic_jazz_fusion",
+      "name": "Psychedelic jazz fusion",
+      "family": "jazz",
+      "lineage": "Psychedelic jazz fusion is represented here by Black Bombaim & Peter Brötzmann — documented instrumental quartet (2016). This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.fusion",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        2,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "saxophone"
+      ],
+      "description": "Psychedelic jazz fusion is represented by Black Bombaim’s collaboration with Peter Brötzmann. The artist and releasing label describe a meeting of a Portuguese psychedelic power trio and a German free-jazz saxophonist, with exploratory collective improvisation. The band’s own profile supplies its Barcelos anchor. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Black Bombaim & Peter Brötzmann — documented instrumental quartet (2016)"
+      ]
+    },
+    {
+      "id": "russian_jazz",
+      "name": "Russian jazz",
+      "family": "jazz",
+      "lineage": "Russian jazz is represented here by Alex Sipiagin — Steppin’ Zone quintet (2001), including Conception. This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.bop",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "saxophone",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "Russian jazz is represented by Alex Sipiagin’s Steppin’ Zone quintet, recorded in Brooklyn. The releasing label documents the Russian trumpeter’s New York context and the brass, tenor-saxophone, piano, bass and drum ensemble. This selects a diaspora small-combo branch rather than treating a broad regional category as one uniform practice. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Alex Sipiagin — Steppin’ Zone quintet (2001), including Conception"
+      ]
+    },
+    {
+      "id": "neo_soul_jazz",
+      "name": "Neo soul-jazz",
+      "family": "jazz",
+      "lineage": "Neo soul-jazz is represented here by Darrius Willrich with Folks Project — documented vocal piano-trio branch (2022). This is one documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.soulJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit",
+        "voice"
+      ],
+      "description": "Neo soul-jazz is represented by Darrius Willrich’s vocal piano-trio work with Folks Project. The festival presenter specifies one singer-pianist, a bassist and a drummer; his own biography supplies Seattle as the practice anchor. His official catalog describes the jazz and soul context that connects this selected acoustic ensemble branch to his wider work. Exact model equipment, techniques, tuning, numeric axes and production chain are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Darrius Willrich with Folks Project — documented vocal piano-trio branch (2022)"
+      ]
+    },
+    {
+      "id": "american_21st_century_classical",
+      "name": "American 21st century classical",
+      "family": "classical",
+      "lineage": "American 21st century classical is represented here by Caroline Shaw — Gustave Le Gray (2012), written for Amy J. Yang; recorded on I Giardini’s The Wheel (2022). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "This American 21st-century classical branch uses Shaw’s solo-piano Gustave Le Gray. Her own edition names Amy J. Yang and the 2012 Princeton premiere; I Giardini’s album page explicitly includes the work as solo piano. The selected keyboard role is realized with an authored concert-grand model. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Caroline Shaw — Gustave Le Gray (2012), written for Amy J. Yang; recorded on I Giardini’s The Wheel (2022)"
+      ]
+    },
+    {
+      "id": "american_classical_piano",
+      "name": "American classical piano",
+      "family": "classical",
+      "lineage": "American classical piano is represented here by Richard Goode — Beethoven: The Late Sonatas (Nonesuch, 1989). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "The American classical-piano discovery category is represented by Richard Goode’s recording of Beethoven’s five late piano sonatas. Nonesuch identifies Goode as pianist and New York recording sessions. The authored model retains an unaccompanied acoustic piano role. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Richard Goode — Beethoven: The Late Sonatas (Nonesuch, 1989)"
+      ]
+    },
+    {
+      "id": "american_contemporary_classical",
+      "name": "American contemporary classical",
+      "family": "classical",
+      "lineage": "American contemporary classical is represented here by Philip Glass / Michael Riesman — The Hours (Solo Piano), Orange Mountain Music (2004). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "A solo-piano realization of Glass’s The Hours represents this American contemporary-classical branch. The composer’s recording page credits Michael Riesman and identifies the October 2003 New York sessions. This selection follows the piano arrangement’s explicit forces. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Philip Glass / Michael Riesman — The Hours (Solo Piano), Orange Mountain Music (2004)"
+      ]
+    },
+    {
+      "id": "american_modern_classical",
+      "name": "American modern classical",
+      "family": "classical",
+      "lineage": "American modern classical is represented here by Samuel Barber / Daniel Pollack — Published Solo Piano Music (Complete), Naxos 8.550992. This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Barber’s published solo piano music, recorded by Daniel Pollack, represents an American modern-classical branch grounded in 20th-century concert composition. Naxos supplies work-level piano credits, and Pollack’s own discography confirms the recording. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Samuel Barber / Daniel Pollack — Published Solo Piano Music (Complete), Naxos 8.550992"
+      ]
+    },
+    {
+      "id": "african_american_classical",
+      "name": "African-american classical",
+      "family": "classical",
+      "lineage": "African-american classical is represented here by Florence Price and Margaret Bonds / Michelle Cann — Revival (Curtis Studio, 2023). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Michelle Cann’s solo-piano Revival represents a documented African-American classical repertoire branch through works of Florence Price and Margaret Bonds. Curtis explicitly situates this music within Black American classical history and names the recorded piano works. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Florence Price and Margaret Bonds / Michelle Cann — Revival (Curtis Studio, 2023)"
+      ]
+    },
+    {
+      "id": "australian_classical_piano",
+      "name": "Australian classical piano",
+      "family": "classical",
+      "lineage": "Australian classical piano is represented here by Tamara-Anna Cislowska — Left Bank Waltz, from Peter Sculthorpe: Complete Works for Solo Piano (ABC Classics, 2014). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Cislowska’s recording of Sculthorpe’s Left Bank Waltz supplies an Australian classical-piano branch. ABC names the pianist and work in its solo-piano survey. The authored model uses a conventional grand-piano role for this selected miniature. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Tamara-Anna Cislowska — Left Bank Waltz, from Peter Sculthorpe: Complete Works for Solo Piano (ABC Classics, 2014)"
+      ]
+    },
+    {
+      "id": "australian_classical",
+      "name": "Australian classical",
+      "family": "classical",
+      "lineage": "Australian classical is represented here by Elena Kats-Chernin and Tamara-Anna Cislowska — Slicked Back Tango (four hands), Butterflying (ABC Classics, 2016). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Kats-Chernin’s Slicked Back Tango, performed by the composer and Cislowska at one piano, represents an Australian concert-composition branch. Their management’s album release identifies the work’s four-hand forces and its two players. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Elena Kats-Chernin and Tamara-Anna Cislowska — Slicked Back Tango (four hands), Butterflying (ABC Classics, 2016)"
+      ]
+    },
+    {
+      "id": "21st_century_classical",
+      "name": "21st century classical",
+      "family": "classical",
+      "lineage": "21st century classical is represented here by Max Richter — Non-eternal (Piano Version), Sleep (Piano Edition), Deutsche Grammophon (2024). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Richter’s 2024 piano edition of material from SLEEP (2015) represents one 21st-century classical branch. The releasing label explicitly describes solo-piano versions, and the national-library record classifies the recording as classical and credits Richter at piano. The model retains that bounded keyboard core. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Max Richter — Non-eternal (Piano Version), Sleep (Piano Edition), Deutsche Grammophon (2024)"
+      ]
+    },
+    {
+      "id": "spanish_jazz",
+      "name": "Spanish jazz",
+      "family": "jazz",
+      "lineage": "Spanish jazz is represented here by Marco Mezquida Trio — Tornado. This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "Mezquida’s Tornado represents a Spanish jazz piano-trio branch. The artist/label release names Mezquida at piano, Masa Kamaguchi at double bass and Ramon Prats at drums, while the artist’s concert archive documents its Barcelona presentation. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Marco Mezquida Trio — Tornado"
+      ]
+    },
+    {
+      "id": "swedish_jazz",
+      "name": "Swedish jazz",
+      "family": "jazz",
+      "lineage": "Swedish jazz is represented here by Esbjörn Svensson Trio — e.s.t. live in Gothenburg (10 October 2001). This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The acoustic piano-trio branch of Swedish jazz is represented by e.s.t.’s Gothenburg concert recording. ACT names Svensson, Berglund and Öström in their instrumental roles and locates the performance at Gothenburg Concert Hall. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Esbjörn Svensson Trio — e.s.t. live in Gothenburg (10 October 2001)"
+      ]
+    },
+    {
+      "id": "swiss_jazz",
+      "name": "Swiss jazz",
+      "family": "jazz",
+      "lineage": "Swiss jazz is represented here by Nik Bärtsch — Entendre (ECM, 2021). This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Bärtsch’s Entendre represents a Swiss jazz branch at the boundary with contemporary composition and repetitive groove music. ECM identifies a solo piano recording in Lugano. The authored model preserves the piano core without importing Ronin’s ensemble roles. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Nik Bärtsch — Entendre (ECM, 2021)"
+      ]
+    },
+    {
+      "id": "uk_contemporary_jazz",
+      "name": "Uk contemporary jazz",
+      "family": "jazz",
+      "lineage": "Uk contemporary jazz is represented here by Fergus McCreadie Trio — Forest Floor (Edition Records,2022). This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "Forest Floor represents a contemporary UK jazz branch from McCreadie’s Scottish piano trio. Edition supplies the three instrumental credits and explicitly places the work in the British jazz scene; the artist’s own page identifies Glasgow as his base. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Fergus McCreadie Trio — Forest Floor (Edition Records,2022)"
+      ]
+    },
+    {
+      "id": "vocal_jazz",
+      "name": "Vocal jazz",
+      "family": "jazz",
+      "lineage": "Vocal jazz is represented here by Tony Bennett and Bill Evans — The Tony Bennett/Bill Evans Album (1975). This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.smoothVocal",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "A singer-and-piano duet represents this vocal-jazz branch. Concord explicitly identifies Bennett as the jazz singer and Evans as pianist and documents their Berkeley sessions without a rhythm section. The model preserves one lead singer with piano accompaniment. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Tony Bennett and Bill Evans — The Tony Bennett/Bill Evans Album (1975)"
+      ]
+    },
+    {
+      "id": "vintage_jazz",
+      "name": "Vintage jazz",
+      "family": "jazz",
+      "lineage": "Vintage jazz is represented here by Art Tatum —1948 Los Angeles solo session, The Complete Jazz Chronicle Solo Session (Storyville). This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.stridePiano",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        2,
+        0,
+        2,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Tatum’s1948 Los Angeles solo session represents a vintage-jazz piano branch. Storyville explicitly documents the solo piano forces and session location. The authored modern realization retains a single acoustic keyboard role. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Art Tatum —1948 Los Angeles solo session, The Complete Jazz Chronicle Solo Session (Storyville)"
+      ]
+    },
+    {
+      "id": "turkish_jazz",
+      "name": "Turkish jazz",
+      "family": "jazz",
+      "lineage": "Turkish jazz is represented here by Kerem Görsev Trio — International Istanbul Jazz Festival, 15 July 2010. This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "Görsev’s explicitly billed instrumental trio at the 2010 Istanbul Jazz Festival represents one Turkish jazz branch. The presenting institution names the pianist, bassist and drummer separately from the evening’s headline singers. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Kerem Görsev Trio — International Istanbul Jazz Festival, 15 July 2010"
+      ]
+    },
+    {
+      "id": "turkish_modern_jazz",
+      "name": "Turkish modern jazz",
+      "family": "jazz",
+      "lineage": "Turkish modern jazz is represented here by Selen Gülün — Answers (recorded Istanbul 2006; released 2010). This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "description": "Gülün’s Answers represents a Turkish modern-jazz branch grounded in contemporary composition and improvisation. Her own release identifies piano, electric bass and drums and records the Istanbul session. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Selen Gülün — Answers (recorded Istanbul 2006; released 2010)"
+      ]
+    },
+    {
+      "id": "swing_italiano",
+      "name": "Swing italiano",
+      "family": "jazz",
+      "lineage": "Swing italiano is represented here by Carlo Colombo Trio — MusicaViva/Artigiano Vivo, Cison di Valmarino, 11 August 2022. This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.early",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "Colombo’s Italian swing revival is represented by his acoustic trio with lead and backing vocals. The booking representative explicitly identifies Colombo at piano/voice, Peppoloni at drums/backing vocals and Panagin at double bass/backing vocals. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Carlo Colombo Trio — MusicaViva/Artigiano Vivo, Cison di Valmarino, 11 August 2022"
+      ]
+    },
+    {
+      "id": "trad_jazz_catala",
+      "name": "Trad jazz catala",
+      "family": "jazz",
+      "lineage": "Trad jazz catala is represented here by La Vella Dixieland — La Vella Clàssics septet. This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.early",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "clarinet",
+        "saxophone",
+        "trombone",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "La Vella Clàssics represents Catalan traditional-jazz practice through the band’s documented septet programme. The group supplies named trumpet, reed, trombone, piano, double-bass and drum roles; a Catalan presenter identifies the Barcelona-founded band’s traditional New Orleans lineage. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "La Vella Dixieland — La Vella Clàssics septet"
+      ]
+    },
+    {
+      "id": "american_choir",
+      "name": "American choir",
+      "family": "classical",
+      "lineage": "American choir is represented here by The Crossing / David Lang — protect yourself from infection (recorded July 2019; Rising w/ The Crossing,2020). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -2,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The Crossing’s recording of Lang’s a cappella work represents an American contemporary chamber-choir branch. The ensemble names twenty-five participating singers; IRCAM specifies mixed choir without instrumental accompaniment. Philadelphia anchors the commission and premiere context. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "The Crossing / David Lang — protect yourself from infection (recorded July 2019; Rising w/ The Crossing,2020)"
+      ]
+    },
+    {
+      "id": "australian_choir",
+      "name": "Australian choir",
+      "family": "classical",
+      "lineage": "Australian choir is represented here by Australian Chamber Choir / Douglas Lawrence — A Traveller and The Quacks, English Eccentrics extracts on Gold (2024). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -2,
+        0,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The Australian Chamber Choir’s two English Eccentrics extracts represent an Australian chamber-choir branch. Its Gold booklet positively identifies the a cappella suite, names the eighteen singers present on tracks13–14, and gives the Melbourne concert recording date. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Australian Chamber Choir / Douglas Lawrence — A Traveller and The Quacks, English Eccentrics extracts on Gold (2024)"
+      ]
+    },
+    {
+      "id": "swing",
+      "name": "Swing",
+      "family": "jazz",
+      "lineage": "Swing is represented here by Benny Goodman Trio — Body and Soul / China Boy, Carnegie Hall,16 January1938. This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.early",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "clarinet",
+        "grand_piano",
+        "drum_kit"
+      ],
+      "description": "Goodman’s trio performances at the1938 Carnegie Hall concert represent a small-group swing branch. Institutional recording documentation and the estate timeline identify Goodman’s clarinet, Teddy Wilson’s piano and Gene Krupa’s drums, separately from the evening’s quartet and big band. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Benny Goodman Trio — Body and Soul / China Boy, Carnegie Hall,16 January1938"
+      ]
+    },
+    {
+      "id": "vintage_finnish_jazz",
+      "name": "Vintage finnish jazz",
+      "family": "jazz",
+      "lineage": "Vintage finnish jazz is represented here by Onni Gideonin kvintetti — I’ve Got My Love to Keep Me Warm (Helsinki,2 May1950). This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.early",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "clarinet",
+        "grand_piano",
+        "vibraphone",
+        "electric_guitar_humbucker",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "The quintet’s1950 Helsinki recording represents an early Finnish jazz-dance-band branch. Finland’s National Library supplies individual instrumental credits and a no-linguistic-content designation; Yle’s archive locates the group within Finland’s jazz-oriented dance-band history. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Onni Gideonin kvintetti — I’ve Got My Love to Keep Me Warm (Helsinki,2 May1950)"
+      ]
+    },
+    {
+      "id": "american_orchestra",
+      "name": "American orchestra",
+      "family": "classical",
+      "lineage": "American orchestra is represented here by Sphinx Virtuosi — Valerie Coleman: Tracing Visions, Songs for Our Times (2023). This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        -1,
+        -1,
+        0,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "upright_bass"
+      ],
+      "description": "The self-conducted Sphinx Virtuosi chamber orchestra represents an American string-orchestra branch through Coleman’s Tracing Visions. The ensemble explicitly identifies the work as string orchestra and publishes a recording roster divided into violins, violas, cellos and basses. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Sphinx Virtuosi — Valerie Coleman: Tracing Visions, Songs for Our Times (2023)"
+      ]
+    },
+    {
+      "id": "swedish_jazz_orkester",
+      "name": "Swedish jazz orkester",
+      "family": "jazz",
+      "lineage": "Swedish jazz orkester is represented here by Harry Arnold’s Radioband —1950s Stockholm instrumental band core; Stand by in Swedish Jazz History,Vol.8. This is a documented branch with an authored present-day studio realization.",
+      "parent": "improvOnFrame.americanJazz.early",
+      "axes": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "trombone",
+        "saxophone",
+        "grand_piano",
+        "upright_bass",
+        "drum_kit"
+      ],
+      "description": "Harry Arnold’s Stockholm Radioband represents a Swedish jazz-orchestra branch through its explicitly documented brass, reed, piano, bass and drum roles. The state archive details the sections and several players; Arnold’s heritage society names further instrumentalists. Caprice documents the Stand by recording. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Harry Arnold’s Radioband —1950s Stockholm instrumental band core; Stand by in Swedish Jazz History,Vol.8"
+      ]
+    },
+    {
+      "id": "andalusian_classical",
+      "name": "Andalusian classical",
+      "family": "classical",
+      "lineage": "Andalusian classical is represented here by Salim Fergani with Beihdja Rahal — Opéra de Lyon,21January2023, malouf and sanâa programme. This is a documented branch with an authored present-day studio realization.",
+      "parent": "artMusic.middleEasternClassical",
+      "axes": [
+        -1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "oud_arbi",
+        "oud",
+        "qanun",
+        "violin_orchestral",
+        "tar_frame_drum",
+        "darbuka",
+        "ghaita"
+      ],
+      "description": "The Constantine malouf branch of Andalusian classical music is represented by Fergani’s documented ensemble with Rahal as guest. The presenting opera supplies individual vocal and instrumental roles. Separate primary label credits identify Fergani’s four-course oud arbi, distinguishing it from the generic oud role credited to Rahal. Exact model equipment, room, signal chain, technique pins, tuning and numeric axes are authored choices unless explicitly sourced.",
+      "exemplars": [
+        "Salim Fergani with Beihdja Rahal — Opéra de Lyon,21January2023, malouf and sanâa programme"
+      ]
+    },
+    {
+      "id": "austrian_classical_piano",
+      "name": "Austrian classical piano",
+      "family": "classical",
+      "lineage": "Austrian classical piano is represented by Alfred Brendel — solo Beethoven-sonata practice. A documented solo-piano branch is given an authored present-day recording realization. Primary sources establish artist identity, repertoire, role and locality; exact grand-piano construction, legato default, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or a universal national style.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Austrian classical piano is represented by Alfred Brendel’s documented solo Beethoven-sonata practice. His label describes the complete solo-sonata cycle and separately traces his first public concert and early training to Graz. Exact performance defaults and recording rig are authored modern choices.",
+      "exemplars": [
+        "Alfred Brendel — solo Beethoven-sonata practice"
+      ]
+    },
+    {
+      "id": "belgian_classical_piano",
+      "name": "Belgian classical piano",
+      "family": "classical",
+      "lineage": "Belgian classical piano is represented by Florian Noack — solo piano transcriptions. A documented solo-piano branch is given an authored present-day recording realization. Primary sources establish artist identity, repertoire, role and locality; exact grand-piano construction, legato default, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or a universal national style.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Belgian classical piano is represented by Florian Noack’s solo transcription branch. His own account describes adapting orchestral music for his ten fingers, while his label explicitly identifies him as a Belgian pianist. Exact performance defaults and recording rig are authored modern choices.",
+      "exemplars": [
+        "Florian Noack — solo piano transcriptions"
+      ]
+    },
+    {
+      "id": "brazilian_classical_piano",
+      "name": "Brazilian classical piano",
+      "family": "classical",
+      "lineage": "Brazilian classical piano is represented by Nelson Freire — Brasileiro solo-piano anthology. A documented solo-piano branch is given an authored present-day recording realization. Primary sources establish artist identity, repertoire, role and locality; exact grand-piano construction, legato default, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or a universal national style.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Brazilian classical piano is represented by Nelson Freire’s Brasileiro anthology. The releasing label explicitly describes Brazilian concert-piano repertoire and solo works by Villa-Lobos and other Brazilian composers. Exact performance defaults and recording rig are authored modern choices.",
+      "exemplars": [
+        "Nelson Freire — Brasileiro solo-piano anthology"
+      ]
+    },
+    {
+      "id": "british_classical_piano",
+      "name": "British classical piano",
+      "family": "classical",
+      "lineage": "British classical piano is represented by Stephen Hough — Two Poems in Homage to Fauré from English Piano Album. A documented solo-piano branch is given an authored present-day recording realization. Primary sources establish artist identity, repertoire, role and locality; exact grand-piano construction, legato default, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or a universal national style.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "British classical piano is represented by Stephen Hough’s English Piano Album, specifically its solo performance of Stephen Reynolds’s Two Poems in Homage to Fauré. Hyperion credits Hough alone on piano and identifies a London recording. Exact performance defaults and recording rig are authored modern choices.",
+      "exemplars": [
+        "Stephen Hough — Two Poems in Homage to Fauré from English Piano Album"
+      ]
+    },
+    {
+      "id": "balkan_classical_piano",
+      "name": "Balkan classical piano",
+      "family": "classical",
+      "lineage": "Balkan classical piano: Simon Trpčeski — Variations (2022) solo recital. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Simon Trpčeski’s Variations presents solo piano works by Mozart, Beethoven and Brahms. His presenting orchestra distinguishes this 2022 solo album from his later chamber album and concerto recordings. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Simon Trpčeski — Variations (2022) solo recital"
+      ]
+    },
+    {
+      "id": "baltic_classical_piano",
+      "name": "Baltic classical piano",
+      "family": "classical",
+      "lineage": "Baltic classical piano: Sten Lassmann — Heino Eller: Complete Piano Music, Volume Four. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Estonian pianist Sten Lassmann’s fourth Eller volume presents the First Sonata and solo miniatures including Butterfly and the C-sharp-minor Ballade. The releasing label credits only Lassmann on piano. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Sten Lassmann — Heino Eller: Complete Piano Music, Volume Four"
+      ]
+    },
+    {
+      "id": "baroque_cello",
+      "name": "Baroque cello",
+      "family": "classical",
+      "lineage": "Baroque cello: Elinor Frey — Dall’Abaco Capriccio primo from Tous les matins d’Elinor. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        -1,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "cello"
+      ],
+      "description": "Elinor Frey’s own solo-recital program explicitly assigns Dall’Abaco’s Capriccio primo to Baroque cello. Her agency independently describes her performing alone and features the same piece. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Elinor Frey — Dall’Abaco Capriccio primo from Tous les matins d’Elinor"
+      ]
+    },
+    {
+      "id": "baroque_violin",
+      "name": "Baroque violin",
+      "family": "classical",
+      "lineage": "Baroque violin: Rachel Podger — Biber Passacaglia in G minor (Guardian Angel) solo performance. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        2,
+        0,
+        -1,
+        1,
+        -1,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "violin_orchestral"
+      ],
+      "description": "Rachel Podger explains in a university-presenter interview that Biber’s concluding Passacaglia is unaccompanied: one violin realizes both its descending bass and the variations above it. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Rachel Podger — Biber Passacaglia in G minor (Guardian Angel) solo performance"
+      ]
+    },
+    {
+      "id": "baroque_woodwind",
+      "name": "Baroque woodwind",
+      "family": "classical",
+      "lineage": "Baroque woodwind: Barthold Kuijken — Telemann Twelve Fantasias for transverse flute without bass. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        0,
+        0,
+        2,
+        0,
+        -2,
+        1,
+        -1,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "flute"
+      ],
+      "description": "Barthold Kuijken’s Accent recording of Telemann’s Twelve Fantasias is catalogued by the Bibliothèque nationale de France as solo flute without bass. His firsthand interview explains his historical wooden transverse-flute practice. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Barthold Kuijken — Telemann Twelve Fantasias for transverse flute without bass"
+      ]
+    },
+    {
+      "id": "baroque_brass",
+      "name": "Baroque brass",
+      "family": "classical",
+      "lineage": "Baroque brass: Seattle Trumpet Consort — documented natural-trumpet and timpani ensemble core. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        -2,
+        -1,
+        1,
+        -2,
+        0,
+        1,
+        0
+      ],
+      "instruments": [
+        "natural_trumpet",
+        "timpani"
+      ],
+      "description": "The Seattle Trumpet Consort’s releasing-label profile explicitly enumerates its natural trumpeters and timpani player, describing valveless period-style trumpets and calfskin-headed timpani. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Seattle Trumpet Consort — documented natural-trumpet and timpani ensemble core"
+      ]
+    },
+    {
+      "id": "austrian_contemporary_classical",
+      "name": "Austrian contemporary classical",
+      "family": "classical",
+      "lineage": "Austrian contemporary classical: Beat Furrer — Drei Klavierstücke (2003–04), Nicolas Hodges recording. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        1,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Beat Furrer’s Drei Klavierstücke is documented by Austria’s music information centre as contemporary solo literature for one piano, with a 2005 Nicolas Hodges recording. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Beat Furrer — Drei Klavierstücke (2003–04), Nicolas Hodges recording"
+      ]
+    },
+    {
+      "id": "belgian_contemporary_classical",
+      "name": "Belgian contemporary classical",
+      "family": "classical",
+      "lineage": "Belgian contemporary classical: Wim Henderickx — Lamento, version for four cellos (2011). A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "cello"
+      ],
+      "description": "Wim Henderickx’s official work catalog explicitly specifies four cellos for the 2011 version of Lamento, one chamber branch of his Belgian contemporary-classical practice. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Wim Henderickx — Lamento, version for four cellos (2011)"
+      ]
+    },
+    {
+      "id": "british_contemporary_classical",
+      "name": "British contemporary classical",
+      "family": "classical",
+      "lineage": "British contemporary classical: Thomas Adès — Traced Overhead, Imogen Cooper premiere (1996). A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        1,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Thomas Adès’s Traced Overhead is explicitly a solo work for unprepared piano, premiered by Imogen Cooper at the 1996 Cheltenham Festival. Its publisher describes a three-movement exploration of register, harmonic space and pedalling. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Thomas Adès — Traced Overhead, Imogen Cooper premiere (1996)"
+      ]
+    },
+    {
+      "id": "british_modern_classical",
+      "name": "British modern classical",
+      "family": "classical",
+      "lineage": "British modern classical: Benjamin Britten — Suite for Cello, Op.72 (1964), Rostropovich premiere. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        1,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "cello"
+      ],
+      "description": "Benjamin Britten’s first Cello Suite is an unaccompanied 1964 work, premiered by Mstislav Rostropovich at Aldeburgh Parish Church in 1965. It develops contrasting textures within one cello part. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Benjamin Britten — Suite for Cello, Op.72 (1964), Rostropovich premiere"
+      ]
+    },
+    {
+      "id": "baltic_classical",
+      "name": "Baltic classical",
+      "family": "classical",
+      "lineage": "Baltic classical: Arvo Pärt — Für Alina, original solo-piano version. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        1,
+        -1,
+        -2,
+        2,
+        -2,
+        -1,
+        -2,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Arvo Pärt’s Für Alina is a 1976 solo-piano work and an early expression of his tintinnabuli method. The composer’s centre identifies Rein Rannap’s first performance in Tallinn. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Arvo Pärt — Für Alina, original solo-piano version"
+      ]
+    },
+    {
+      "id": "brazilian_classical",
+      "name": "Brazilian classical",
+      "family": "classical",
+      "lineage": "Brazilian classical: Heitor Villa-Lobos — A Prole do Bebê No.2, Sonia Rubinsky solo-piano recording. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        1,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Villa-Lobos’s A Prole do Bebê No.2 is represented by Sonia Rubinsky’s Naxos solo-piano performance. The label identifies its toy-animal character pieces within his twentieth-century piano output. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Heitor Villa-Lobos — A Prole do Bebê No.2, Sonia Rubinsky solo-piano recording"
+      ]
+    },
+    {
+      "id": "brazilian_contemporary_classical",
+      "name": "Brazilian contemporary classical",
+      "family": "classical",
+      "lineage": "Brazilian contemporary classical: Almeida Prado — Cartas Celestes No.1, Aleyson Scopel recording. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        1,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Almeida Prado’s first Cartas Celestes is represented by Aleyson Scopel’s solo-piano recording. The label describes the cycle’s exploration of piano resonance and the composer’s transtonal harmonic language. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Almeida Prado — Cartas Celestes No.1, Aleyson Scopel recording"
+      ]
+    },
+    {
+      "id": "austrian_choir",
+      "name": "Austrian choir",
+      "family": "classical",
+      "lineage": "Austrian choir: Arnold Schoenberg Chor — documented unaccompanied concert branch. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble"
+      ],
+      "description": "The Arnold Schoenberg Chor explicitly distinguishes its a cappella practice from its opera and choral-orchestral work. A presenting-festival program positively documents a mixed ensemble with four named singers in each SATB section. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Arnold Schoenberg Chor — documented unaccompanied concert branch"
+      ]
+    },
+    {
+      "id": "baltic_choir",
+      "name": "Baltic choir",
+      "family": "classical",
+      "lineage": "Baltic choir: Latvian Radio Choir — documented a cappella chamber-choral branch. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble"
+      ],
+      "description": "The Latvian Radio Choir’s own account documents unaccompanied concerts and separately lists real singers in soprano, alto, tenor and bass sections. The authored model selects that professional chamber-choral branch. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Latvian Radio Choir — documented a cappella chamber-choral branch"
+      ]
+    },
+    {
+      "id": "british_choir",
+      "name": "British choir",
+      "family": "classical",
+      "lineage": "British choir: The Tallis Scholars — documented unaccompanied sacred-choral branch. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "choir_ensemble"
+      ],
+      "description": "The Tallis Scholars and their own label explicitly describe an unaccompanied sacred-choral practice. The ensemble’s official singer page names multiple individual performers, supporting a real choir rather than layered vocals by one person. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "The Tallis Scholars — documented unaccompanied sacred-choral branch"
+      ]
+    },
+    {
+      "id": "baroque_singing",
+      "name": "Baroque singing",
+      "family": "classical",
+      "lineage": "Baroque singing: Andreas Scholl and Tamar Halperin — Purcell songs, RheinVokal Koblenz program (2014). A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        2,
+        0,
+        -1,
+        2,
+        -1,
+        -1,
+        0,
+        1,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "RheinVokal’s 2014 program explicitly pairs countertenor Andreas Scholl with pianist Tamar Halperin for Purcell’s Music for a while, Sweeter than roses and O solitude in a recital of English song. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Andreas Scholl and Tamar Halperin — Purcell songs, RheinVokal Koblenz program (2014)"
+      ]
+    },
+    {
+      "id": "baroque_ensemble",
+      "name": "Baroque ensemble",
+      "family": "classical",
+      "lineage": "Baroque ensemble: Florilegium — Telemann Paris Quartets Volume2 (2003 recording). A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        2,
+        0,
+        1,
+        2,
+        -1,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "flute",
+        "violin_orchestral",
+        "viola_da_gamba",
+        "cello",
+        "harpsichord"
+      ],
+      "description": "Florilegium’s own Channel Classics booklet identifies five players on flute, violin, bass viol, cello and harpsichord in its second volume of Telemann’s Paris Quartets. The bass viol and cello exchange featured and continuo roles between works. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Florilegium — Telemann Paris Quartets Volume2 (2003 recording)"
+      ]
+    },
+    {
+      "id": "bohemian_baroque",
+      "name": "Bohemian baroque",
+      "family": "classical",
+      "lineage": "Bohemian baroque: Heinrich Ignaz Franz Biber — concluding Passacaglia for solo violin. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        0,
+        2,
+        0,
+        -1,
+        2,
+        -1,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "violin_orchestral"
+      ],
+      "description": "Biber’s concluding Passacaglia represents a solo-violin branch of the Bohemian Baroque composer category. An ensemble’s recording documentation distinguishes it from the fifteen accompanied Rosary Sonatas, while a label biography documents Biber’s Bohemian identity and Salzburg court practice. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Heinrich Ignaz Franz Biber — concluding Passacaglia for solo violin"
+      ]
+    },
+    {
+      "id": "austrian_orchestra",
+      "name": "Austrian orchestra",
+      "family": "classical",
+      "lineage": "Austrian orchestra: Vienna Chamber Orchestra — Dvořák Serenade for Strings in E major, Op.22. A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "upright_bass"
+      ],
+      "description": "The Vienna Chamber Orchestra’s documented Dvořák string-serenade repertoire supplies one instrumental branch of the Austrian orchestra category. The publisher explicitly lists first and second violins, viola, cello and double bass. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "Vienna Chamber Orchestra — Dvořák Serenade for Strings in E major, Op.22"
+      ]
+    },
+    {
+      "id": "british_orchestra",
+      "name": "British orchestra",
+      "family": "classical",
+      "lineage": "British orchestra: English Chamber Orchestra — Elgar Serenade for Strings, Cadogan Hall program (2025). A documented branch is realized as an authored current studio arrangement.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        -2,
+        -1,
+        -1,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "violin_orchestral",
+        "viola_classical",
+        "cello",
+        "upright_bass"
+      ],
+      "description": "The English Chamber Orchestra’s9 March2025 Cadogan Hall program includes Elgar’s Serenade for Strings. The publisher’s parts establish violin sections, viola, cello and double bass for this selected work. Exact gear, tuning, techniques, recording settings and numeric axes are authored choices.",
+      "exemplars": [
+        "English Chamber Orchestra — Elgar Serenade for Strings, Cadogan Hall program (2025)"
+      ]
+    },
+    {
+      "id": "canadian_classical",
+      "name": "Canadian classical",
+      "family": "classical",
+      "lineage": "Canadian classical is represented by Karen Sunabacka / Darryl Friesen — Falling Water (2009), Curlicue track 6. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Canadian classical is represented by Karen Sunabacka’s Falling Water, played by Darryl Friesen on Curlicue. The label’s track credits and composer notes specify the separate solo-piano work; Toronto sessions took place in November 2021. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Karen Sunabacka / Darryl Friesen — Falling Water (2009), Curlicue track 6"
+      ]
+    },
+    {
+      "id": "canadian_classical_piano",
+      "name": "Canadian classical piano",
+      "family": "classical",
+      "lineage": "Canadian classical piano is represented by Angela Hewitt — Ravel Complete Solo Piano Music. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Canadian classical piano is represented by Angela Hewitt’s complete solo Ravel recording. Hyperion credits Hewitt alone on piano and records the sessions at Henry Wood Hall, London, in August 2001. Canada’s National Arts Centre identifies her Canadian background and international classical-piano career. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Angela Hewitt — Ravel Complete Solo Piano Music"
+      ]
+    },
+    {
+      "id": "canadian_contemporary_classical",
+      "name": "Canadian contemporary classical",
+      "family": "classical",
+      "lineage": "Canadian contemporary classical is represented by Ann Southam / Christina Petrowska Quilico — Glass Houses Revisited. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        2
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Canadian contemporary classical is represented by Ann Southam’s Glass Houses Revisited, interpreted by Christina Petrowska Quilico. The pianist documents her collaboration with the Canadian composer on these piano pieces; York University confirms recording at Toronto’s Glenn Gould Studio for the Centrediscs release. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Ann Southam / Christina Petrowska Quilico — Glass Houses Revisited"
+      ]
+    },
+    {
+      "id": "caucasian_classical",
+      "name": "Caucasian classical",
+      "family": "classical",
+      "lineage": "Caucasian classical is represented by Aram Khachaturian / Kariné Poghosyan — Original Piano Works and Transcriptions. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Caucasian classical is represented by an Armenian branch: Kariné Poghosyan’s Khachaturian piano recording for Grand Piano. Naxos credits her piano throughout this instrumental program; the official booklet locates the sessions at Manhattan School of Music in New York. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Aram Khachaturian / Kariné Poghosyan — Original Piano Works and Transcriptions"
+      ]
+    },
+    {
+      "id": "caucasian_classical_piano",
+      "name": "Caucasian classical piano",
+      "family": "classical",
+      "lineage": "Caucasian classical piano is represented by Khatia Buniatishvili — Munich solo recital, 28 March 2023. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Caucasian classical piano is represented by Georgian pianist Khatia Buniatishvili’s Munich recital. The presenter identifies her Batumi background and a solo piano program of Schubert and Liszt at the Isarphilharmonie in March 2023. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Khatia Buniatishvili — Munich solo recital, 28 March 2023"
+      ]
+    },
+    {
+      "id": "chinese_classical",
+      "name": "Chinese classical",
+      "family": "classical",
+      "lineage": "Chinese classical is represented by Tan Dun / Ralph van Raat — Eight Memories in Watercolor piano realization. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Chinese classical is represented by Tan Dun’s Eight Memories in Watercolor as recorded by Ralph van Raat. Naxos presents the album in its 21st Century Chinese Classics series, explicitly credits piano and locates the recording at Amsterdam’s Muziekgebouw in August 2020. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Tan Dun / Ralph van Raat — Eight Memories in Watercolor piano realization"
+      ]
+    },
+    {
+      "id": "chinese_classical_performance",
+      "name": "Chinese classical performance",
+      "family": "classical",
+      "lineage": "Chinese classical performance is represented by Qin Li-Wei / Albert Tiu — Celebrating Beethoven: The Cello Sonatas. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "cello",
+        "grand_piano"
+      ],
+      "description": "Chinese classical performance is represented by Chinese Australian cellist Qin Li-Wei and pianist Albert Tiu’s Beethoven sonata program in Singapore. The presenter names both players, the cello-and-piano format and the Esplanade Concert Hall engagements in April and May 2021. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Qin Li-Wei / Albert Tiu — Celebrating Beethoven: The Cello Sonatas"
+      ]
+    },
+    {
+      "id": "chinese_classical_piano",
+      "name": "Chinese classical piano",
+      "family": "classical",
+      "lineage": "Chinese classical piano is represented by Yuja Wang — The Berlin Recital solo-piano program. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Chinese classical piano is represented by Yuja Wang’s Berlin Recital. Deutsche Grammophon identifies the Beijing-born pianist and explicitly describes a solo program of Rachmaninov, Prokofiev, Scriabin and Ligeti, recorded live in the Berlin Philharmonie’s Kammermusiksaal. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Yuja Wang — The Berlin Recital solo-piano program"
+      ]
+    },
+    {
+      "id": "classical_accordion",
+      "name": "Classical accordion",
+      "family": "classical",
+      "lineage": "Classical accordion is represented by Samuele Telari — Bach Goldberg Variations. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "accordion"
+      ],
+      "description": "Classical accordion is represented by Samuele Telari’s solo Bach Goldberg Variations. Delphian describes the accordion’s bellows and two-manual realization, recorded at Edinburgh’s Queen’s Hall in August 2020. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Samuele Telari — Bach Goldberg Variations"
+      ]
+    },
+    {
+      "id": "classical_baritone",
+      "name": "Classical baritone",
+      "family": "classical",
+      "lineage": "Classical baritone is represented by Gerald Finley / Julius Drake — Schumann Dichterliebe. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Classical baritone is represented by Gerald Finley’s Schumann Dichterliebe with pianist Julius Drake. Hyperion credits one baritone and piano and locates the October 2007 sessions at All Saints’ Church in East Finchley, London. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Gerald Finley / Julius Drake — Schumann Dichterliebe"
+      ]
+    },
+    {
+      "id": "classical_bassoon",
+      "name": "Classical bassoon",
+      "family": "classical",
+      "lineage": "Classical bassoon is represented by Laurence Perkins / Michael Hancock — Hindemith Bassoon Sonata. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "bassoon",
+        "grand_piano"
+      ],
+      "description": "Classical bassoon is represented by Laurence Perkins and pianist Michael Hancock’s Hindemith Sonata. Hyperion explicitly credits both instruments and February 2019 sessions at Wyastone Estate’s Concert Hall in Monmouth. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Laurence Perkins / Michael Hancock — Hindemith Bassoon Sonata"
+      ]
+    },
+    {
+      "id": "classical_cello",
+      "name": "Classical cello",
+      "family": "classical",
+      "lineage": "Classical cello is represented by Alban Gerhardt / Steven Osborne — Alkan and Chopin Cello Sonatas. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "cello",
+        "grand_piano"
+      ],
+      "description": "Classical cello is represented by Alban Gerhardt and Steven Osborne’s Alkan and Chopin sonatas. The label documents a cello-and-piano chamber duo, recorded at Henry Wood Hall in London in December 2007. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Alban Gerhardt / Steven Osborne — Alkan and Chopin Cello Sonatas"
+      ]
+    },
+    {
+      "id": "classical_clarinet",
+      "name": "Classical clarinet",
+      "family": "classical",
+      "lineage": "Classical clarinet is represented by Julian Bliss / Bradley Moore — Glinka, Milhaud and Prokofiev Clarinet Sonatas. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "clarinet",
+        "grand_piano"
+      ],
+      "description": "Classical clarinet is represented by Julian Bliss and pianist Bradley Moore’s recital of French and Russian works. Signum’s release credits specify the duo and May 2013 Wyastone Leys Concert Hall sessions in Monmouthshire. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Julian Bliss / Bradley Moore — Glinka, Milhaud and Prokofiev Clarinet Sonatas"
+      ]
+    },
+    {
+      "id": "classical_contralto",
+      "name": "Classical contralto",
+      "family": "classical",
+      "lineage": "Classical contralto is represented by Nathalie Stutzmann / Inger Södergren — Schubert Winterreise. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Classical contralto is represented by Nathalie Stutzmann’s Winterreise with pianist Inger Södergren. Warner identifies the song-cycle partnership; the institutional catalog of the original Calliope disc records the September 2003 Berlin sessions. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Nathalie Stutzmann / Inger Södergren — Schubert Winterreise"
+      ]
+    },
+    {
+      "id": "classical_countertenor",
+      "name": "Classical countertenor",
+      "family": "classical",
+      "lineage": "Classical countertenor is represented by Iestyn Davies / Joseph Middleton — Adès Four Songs after Purcell, Divine Music. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice",
+        "grand_piano"
+      ],
+      "description": "Classical countertenor is represented by Iestyn Davies and pianist Joseph Middleton in Adès’s Four Songs after Purcell. The release identifies countertenor and piano and August 2020 sessions at Potton Hall near Dunwich in Suffolk. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Iestyn Davies / Joseph Middleton — Adès Four Songs after Purcell, Divine Music"
+      ]
+    },
+    {
+      "id": "classical_flute",
+      "name": "Classical flute",
+      "family": "classical",
+      "lineage": "Classical flute is represented by Emily Beynon / Andrew West — Poulenc Flute Sonata, L’Album des Six. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "flute",
+        "grand_piano"
+      ],
+      "description": "Classical flute is represented by Emily Beynon and Andrew West’s Poulenc Sonata recording. Hyperion credits flute and piano and April 2000 sessions at Henry Wood Hall, London. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Emily Beynon / Andrew West — Poulenc Flute Sonata, L’Album des Six"
+      ]
+    },
+    {
+      "id": "classical_guitar",
+      "name": "Classical guitar",
+      "family": "classical",
+      "lineage": "Classical guitar is represented by Sean Shibe — Bach guitar recital, DCD34233. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "classical_nylon_string_guitar"
+      ],
+      "description": "Classical guitar is represented by Sean Shibe’s Bach recital. Delphian documents three Bach works on guitar and the May and December 2019 Crichton Collegiate Church sessions near Edinburgh. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Sean Shibe — Bach guitar recital, DCD34233"
+      ]
+    },
+    {
+      "id": "classical_guitar_duo",
+      "name": "Classical guitar duo",
+      "family": "classical",
+      "lineage": "Classical guitar duo is represented by Katona Twins — Guitar Duo Recital, SM215. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "classical_nylon_string_guitar"
+      ],
+      "description": "Classical guitar duo is represented by Peter and Zoltán Katona’s SM215 recital. The label classifies the program as instrumental and credits arrangements for two guitars; the duo’s own biography confirms both players and London recital practice. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Katona Twins — Guitar Duo Recital, SM215"
+      ]
+    },
+    {
+      "id": "classical_guitar_quartet",
+      "name": "Classical guitar quartet",
+      "family": "classical",
+      "lineage": "Classical guitar quartet is represented by Mēla Guitar Quartet — Anthony Burgess Complete Guitar Quartets. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "classical_nylon_string_guitar"
+      ],
+      "description": "Classical guitar quartet is represented by Mēla’s Burgess recording with Matthew Robinson, George Tarlton, Daniel Bovey and Jiva Housden. The label marks the release instrumental; the ensemble documents London concert practice. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Mēla Guitar Quartet — Anthony Burgess Complete Guitar Quartets"
+      ]
+    },
+    {
+      "id": "classical_harp",
+      "name": "Classical harp",
+      "family": "classical",
+      "lineage": "Classical harp is represented by Susan Drake — Caprices and Fantasies. This documented branch has an authored present-day studio realization.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "concert_harp"
+      ],
+      "description": "Classical harp is represented by Susan Drake’s Caprices and Fantasies. The label credits her solo harp program, explains the pedal-harp repertoire and locates the December 1988 sessions at Kimpton Parish Church in Hertfordshire. Exact hardware, room, production chain, technique settings, twelve-tone equal-tempered tuning baseline and numeric axes are authored present-day model choices unless explicitly sourced.",
+      "exemplars": [
+        "Susan Drake — Caprices and Fantasies"
+      ]
+    },
+    {
+      "id": "classical_piano",
+      "name": "Classical piano",
+      "family": "classical",
+      "lineage": "Classical piano is represented by Víkingur Ólafsson — Goldberg Variations piano practice. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Ólafsson’s label identifies his Goldberg Variations as a classical instrumental solo recording. Cal Performances documents his all-Goldberg piano recital and Reykjavík broadcast practice. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Víkingur Ólafsson — Goldberg Variations piano practice"
+      ]
+    },
+    {
+      "id": "czech_classical_piano",
+      "name": "Czech classical piano",
+      "family": "classical",
+      "lineage": "Czech classical piano is represented by Jan Bartoš — Janáček: Piano Works (2019). One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Supraphon credits Bartoš alone on piano and explicitly describes this recording as solo Janáček piano works. Its biography identifies him as a Czech pianist and piano teacher in Prague. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Jan Bartoš — Janáček: Piano Works (2019)"
+      ]
+    },
+    {
+      "id": "contemporary_classical_piano",
+      "name": "Contemporary classical piano",
+      "family": "classical",
+      "lineage": "Contemporary classical piano is represented by Bruce Brubaker — Glass Piano (original solo recording). One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        2
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "The artist and InFiné release describe Glass Piano as solo piano versions of Philip Glass works. Brubaker’s institutional biography documents his piano teaching and performing practice in Boston. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Bruce Brubaker — Glass Piano (original solo recording)"
+      ]
+    },
+    {
+      "id": "classical_piano_trio",
+      "name": "Classical piano trio",
+      "family": "classical",
+      "lineage": "Classical piano trio is represented by The Florestan Trio — Mendelssohn: The Piano Trios. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "violin_orchestral",
+        "cello"
+      ],
+      "description": "Hyperion documents the trio’s complete violin, cello and piano roster and the Mendelssohn recording in London. The creator map independently lists the ensemble. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "The Florestan Trio — Mendelssohn: The Piano Trios"
+      ]
+    },
+    {
+      "id": "classical_piano_duo",
+      "name": "Classical piano duo",
+      "family": "classical",
+      "lineage": "Classical piano duo is represented by Tal & Groethuysen — Mozart Sonata for Piano Four-Hands K. 19d. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano"
+      ],
+      "description": "Sony identifies the piano duo and its Mozart K. 19d four-hand recording. The Mozarteum documents the pair’s piano-duo teaching in Salzburg. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Tal & Groethuysen — Mozart Sonata for Piano Four-Hands K. 19d"
+      ]
+    },
+    {
+      "id": "classical_piano_quartet",
+      "name": "Classical piano quartet",
+      "family": "classical",
+      "lineage": "Classical piano quartet is represented by Domus — Fauré Piano Quartets. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "grand_piano",
+        "violin_orchestral",
+        "viola_classical",
+        "cello"
+      ],
+      "description": "Hyperion identifies the original Domus quartet and its Fauré recording in London. Tomes’s own discography confirms her piano role; Osostowicz’s ensemble biography establishes violin. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Domus — Fauré Piano Quartets"
+      ]
+    },
+    {
+      "id": "classical_oboe",
+      "name": "Classical oboe",
+      "family": "classical",
+      "lineage": "Classical oboe is represented by Nicholas Daniel and Julius Drake — Schumann oboe-and-piano program. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "oboe",
+        "grand_piano"
+      ],
+      "description": "Daniel’s official sources credit oboe and piano for their Schumann album and name both roles at the 16 January 2025 Leicester program. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Nicholas Daniel and Julius Drake — Schumann oboe-and-piano program"
+      ]
+    },
+    {
+      "id": "classical_tuba",
+      "name": "Classical tuba",
+      "family": "classical",
+      "lineage": "Classical tuba is represented by Øystein Baadsvik and Niklas Sivelöv — Hindemith Tuba Sonata on Danzas. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "tuba",
+        "grand_piano"
+      ],
+      "description": "BIS explicitly assigns tuba to Baadsvik and piano to Sivelöv on Danzas, including Hindemith’s sonata. Baadsvik’s first-person interview documents his early playing in Trondheim. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Øystein Baadsvik and Niklas Sivelöv — Hindemith Tuba Sonata on Danzas"
+      ]
+    },
+    {
+      "id": "classical_horn",
+      "name": "Classical horn",
+      "family": "classical",
+      "lineage": "Classical horn is represented by Richard Watkins and Julius Drake — The Romantic Horn. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernCommonPractice",
+      "axes": [
+        2,
+        0,
+        1,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "french_horn",
+        "grand_piano"
+      ],
+      "description": "Signum’s recital credits horn and piano. Watkins’s own liner notes discuss the selected classical repertoire; the published recording data locate the session at Snape Maltings. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Richard Watkins and Julius Drake — The Romantic Horn"
+      ]
+    },
+    {
+      "id": "classical_trumpet",
+      "name": "Classical trumpet",
+      "family": "classical",
+      "lineage": "Classical trumpet is represented by Alison Balsom and Tom Poster — Légende trumpet-and-piano recital. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
+      "parent": "artMusic.westernModern",
+      "axes": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        -2,
+        -1,
+        0,
+        -2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "trumpet",
+        "grand_piano"
+      ],
+      "description": "Warner and Balsom’s own discography describe Légende as her first piano-accompanied recital, recorded at St George’s in Bristol. Exact performance and recording defaults are authored modern choices.",
+      "exemplars": [
+        "Alison Balsom and Tom Poster — Légende trumpet-and-piano recital"
       ]
     }
   ]

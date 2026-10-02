@@ -5,7 +5,7 @@
   "lineage": "Solo blues piano of the barrelhouse, rent party and lumber camp circuit, recorded from 1923 and codified by Leroy Carr, Roosevelt Sykes, Little Brother Montgomery, Memphis Slim and Otis Spann — twelve-bar forms from 60 to 200 BPM, a walking or rolling ostinato left hand against right-hand blue-note tremolos and crushed grace notes, on hard-struck upright pianos left deliberately unrepaired.",
   "recipe": "classic North American early-1920s piano blues, functional Song, blues acoustic branch, American jazz boogie woogie, American jazz stride piano, blues electric functional song. thick, breath veiled tone, straight onset, interlocked note trading. stride upright character piano stride tack piano, cedar phosphor bronze bronze parlor acoustic guitar, venice catlin high twist renaissance bass Baroque setup lighter bass bar double bass, vintage ambassador asymmetric brushes-and-sticks drum kit. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 650,
-  "score": 323.639,
+  "score": 326.384,
   "config": {
     "traditions": [
       "piano_blues",
@@ -18,12 +18,12 @@
         "slots": {
           "keyboard_technique": "keyboard_stride_left_hand",
           "upright_use": "upright_studio",
-          "upright_piano_size": "upright_piano_spinet"
+          "upright_piano_size": "upright_piano_concert"
         },
         "scores": {
-          "keyboard_technique": 9.61,
+          "keyboard_technique": 9.834999999999999,
           "upright_use": 1.69,
-          "upright_piano_size": 0.045
+          "upright_piano_size": 0.15
         }
       },
       {
@@ -51,10 +51,10 @@
           "voice_quality": 15.144999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.650000000000002,
+          "voice_vibrato": 16.695000000000004,
           "voice_articulation": 23.009999999999994,
           "voice_microtone": 18.979999999999993,
-          "voice_tradition": 21.0325,
+          "voice_tradition": 21.5575,
           "voice_mechanism_compound": 2.47,
           "voice_estill_quality": 3.380000000000001,
           "voice_speech_song": 22.684999999999995,
@@ -78,7 +78,7 @@
           "acoustic_technique": 2.21,
           "string_tuning": 0,
           "top_wood_parlor": 1.69,
-          "back_sides_parlor": 0,
+          "back_sides_parlor": 0.195,
           "string_acoustic_parlor": 1.885
         }
       },
@@ -105,7 +105,7 @@
           "bass_varnish": -0.05,
           "bass_setup_period": 5.07,
           "bass_play": 17.795,
-          "bass_rosin": 24.57625,
+          "bass_rosin": 25.191250000000004,
           "bass_bow_stick": -0.05
         }
       },
@@ -118,7 +118,7 @@
         },
         "scores": {
           "drum_technique": 27.234999999999992,
-          "drumhead": 20.60375,
+          "drumhead": 21.413750000000004,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -130,7 +130,7 @@
           "tack_piano_context": "tack_piano_studio"
         },
         "scores": {
-          "keyboard_technique": 9.61,
+          "keyboard_technique": 9.834999999999999,
           "tack_density": 9.1,
           "tack_piano_context": 7.15
         }

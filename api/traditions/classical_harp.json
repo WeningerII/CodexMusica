@@ -1,0 +1,60 @@
+{
+  "id": "classical_harp",
+  "name": "Classical harp",
+  "family": "classical",
+  "lineage": "Classical harp is represented by Susan Drake — Caprices and Fantasies. This documented branch has an authored present-day studio realization.",
+  "recipe": "classic classical harp, art Music, western common practice branch. concert harp. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 181,
+  "score": 8.58,
+  "config": {
+    "traditions": [
+      "classical_harp"
+    ],
+    "instruments": [
+      {
+        "id": "concert_harp",
+        "slots": {
+          "harp_strings": "harp_47_string",
+          "harp_pedals": "harp_double_pedal"
+        },
+        "scores": {
+          "harp_strings": 4.29,
+          "harp_pedals": 4.29
+        }
+      }
+    ],
+    "pinned": {
+      "concert_harp": [
+        "harp_pedals"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "harp_pedals": "harp_double_pedal"
+    },
+    "pin_parts": true,
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

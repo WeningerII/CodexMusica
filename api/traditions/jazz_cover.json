@@ -5,7 +5,7 @@
   "lineage": "Jazz cover is represented by Brad Mehldau — Your Mother Should Know solo Beatles interpretations. This documented branch has an authored present-day studio realization.",
   "recipe": "classic jazz cover, improv On Frame, American jazz branch. cold pressed wurzen felt oversize maple tension resonator grand piano. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 230,
-  "score": 5.568,
+  "score": 5.262,
   "config": {
     "traditions": [
       "jazz_cover"
@@ -16,7 +16,7 @@
         "slots": {
           "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
-          "grand_piano_brand": "bosendorfer",
+          "grand_piano_brand": "yamaha_cfx",
           "piano_hammer": "ronsen_wurzen_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
           "piano_soundboard": "european_spruce_soundboard",
@@ -26,12 +26,12 @@
         },
         "scores": {
           "keyboard_technique": -0.035,
-          "grand_piano_size": 0.34650000000000003,
-          "grand_piano_brand": 0.34650000000000003,
+          "grand_piano_size": 0.159,
+          "grand_piano_brand": 0.16799999999999998,
           "piano_hammer": 1.885,
           "piano_rim": 1.885,
           "piano_soundboard": -0.035,
-          "piano_pinblock": 0.2,
+          "piano_pinblock": 0.26,
           "piano_plate": 0.26,
           "piano_pitch_standard": 0.7149999999999999
         }

@@ -1,0 +1,123 @@
+{
+  "id": "irish_modern_jazz",
+  "name": "Irish modern jazz",
+  "family": "jazz",
+  "lineage": "Irish modern jazz: White Rocket — White Rocket, 2008. A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic late-2000s irish modern jazz, improv On Frame, avant branch. yamaha xeno modern Japanese jazz balance trumpet, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, fiberskyn synthetic calf brushes-and-sticks drum kit. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 348,
+  "score": 77.213,
+  "config": {
+    "traditions": [
+      "irish_modern_jazz"
+    ],
+    "instruments": [
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_bebop_lines",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_yamaha_xeno"
+        },
+        "scores": {
+          "wind_articulation": -0.035,
+          "brass_size": 0.3045,
+          "trumpet_mouthpiece": 15.6,
+          "brass_mute": 0.39,
+          "trumpet_technique": -0.035,
+          "trumpet_bell_metal": 0.4095,
+          "trumpet_maker_school": 2.0735
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "yamaha_cfx",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 0.3045,
+          "piano_hammer": 5.359500000000001,
+          "piano_rim": 5.391,
+          "piano_soundboard": 4.9815000000000005,
+          "piano_pinblock": 5.25,
+          "piano_plate": 5.25,
+          "piano_pitch_standard": 7.4235
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "fiberskyn_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 7.279999999999999,
+          "drumhead": 17,
+          "drum_kit_kick_pedal": 0
+        }
+      }
+    ],
+    "pinned": {
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "brass_mute",
+        "trumpet_technique"
+      ],
+      "grand_piano": [
+        "keyboard_technique"
+      ],
+      "drum_kit": [
+        "drum_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_bebop_runs",
+      "brass_size": "trumpet_b_flat",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_bebop_lines",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "drum_technique": "brushes_and_sticks"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

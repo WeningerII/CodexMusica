@@ -1,0 +1,75 @@
+{
+  "id": "belgian_contemporary_classical",
+  "name": "Belgian contemporary classical",
+  "family": "classical",
+  "lineage": "Belgian contemporary classical: Wim Henderickx — Lamento, version for four cellos (2011). A documented branch is realized as an authored current studio arrangement.",
+  "recipe": "classic early-2010s belgian contemporary classical, art Music, western modern branch. synthetic carpathian spruce European maple sycamore maple oil varnish cello. live tracking. large-diaphragm condenser, ultra-clean solid-state pre, parametric EQ. 24-bit digital.",
+  "recipe_chars": 264,
+  "score": 86.518,
+  "config": {
+    "traditions": [
+      "belgian_contemporary_classical"
+    ],
+    "instruments": [
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "carpathian_spruce_cello",
+          "cello_back_wood": "european_maple_cello_back",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 8.355,
+          "cello_strings": 1.95,
+          "cello_top_wood": 8.523,
+          "cello_back_wood": 12.273,
+          "cello_varnish": 12,
+          "cello_setup_period": 13.7055,
+          "cello_bow_grip": 4.29,
+          "cello_rosin": 12.1365,
+          "cello_bow_stick": 13.285
+        }
+      }
+    ],
+    "pinned": {
+      "cello": [
+        "bowed_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "ultra_clean",
+      "console": "clean",
+      "comp": "comp_none",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "ultra_clean",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "digital_high",
+    "chain_console": "clean",
+    "chain_fx": []
+  }
+}

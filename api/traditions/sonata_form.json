@@ -3,14 +3,14 @@
   "name": "Sonata (Classical Instrumental Form)",
   "family": "classical",
   "lineage": "Instrumental genre and formal principle consolidated in Vienna and Mannheim between about 1750 and 1830 by C. P. E. Bach, Haydn, Mozart, Clementi and Beethoven, in which a multi-movement work for solo keyboard or solo instrument with keyboard opens with an exposition presenting contrasting first and second themes in tonic and dominant, develops them through remote keys, and recapitulates both in the tonic, typically followed by a slow movement, a minuet or scherzo, and a rondo or sonata-rondo finale.",
-  "recipe": "classic British early-1750s sonata, art Music, western common practice branch, western early art music, western modern art music musical impressionism microtonal music. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, fortepiano, gut Italian alpine spruce val di fiemme European maple sycamore maple violin orchestral, synthetic Italian alpine spruce val di fiemme European maple sycamore maple cello, composite resin blackwood dust legato clarinet, silver yamaha modern Japanese mid to premium legato flute, silver wound lamb gut core Italian alpine spruce val di fiemme European maple general viola classical. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 733,
-  "score": 432.782,
+  "recipe": "classic British early-1750s sonata, art Music, western common practice branch, western early art music, western modern art music british modern classical austrian contemporary classical. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, English action fortepiano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral, synthetic Italian alpine spruce val di fiemme European maple sycamore maple cello, composite resin blackwood dust legato clarinet, silver yamaha modern Japanese mid to premium legato flute, tungsten wound larsen spirocore viola c canon Italian alpine spruce val di fiemme viola classical. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 770,
+  "score": 537.198,
   "config": {
     "traditions": [
       "sonata_form",
-      "impressionism",
-      "microtonal"
+      "british_modern_classical",
+      "austrian_contemporary_classical"
     ],
     "instruments": [
       {
@@ -27,15 +27,15 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 8.25,
-          "grand_piano_size": 2.0149999999999997,
-          "grand_piano_brand": 0.984375,
-          "piano_hammer": 18.2121875,
-          "piano_rim": 15.444999999999999,
-          "piano_soundboard": 14.25,
-          "piano_pinblock": 14.909375,
-          "piano_plate": 14.1521875,
-          "piano_pitch_standard": 21.7671875
+          "keyboard_technique": 10.75,
+          "grand_piano_size": 0.9099999999999999,
+          "grand_piano_brand": 0.845,
+          "piano_hammer": 20.5121875,
+          "piano_rim": 19.045,
+          "piano_soundboard": 17.5,
+          "piano_pinblock": 18.659375,
+          "piano_plate": 17.9021875,
+          "piano_pitch_standard": 26.067187499999996
         }
       },
       {
@@ -47,15 +47,15 @@
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "fortepiano_action": 0.65,
+          "fortepiano_action": 1.17,
           "fortepiano_era": 0.9515624999999999
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
-          "orch_strings": "gut_strings_orch",
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
           "orch_top_wood": "italian_alpine_spruce_violin",
           "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "oil_amber_varnish_violin",
@@ -66,22 +66,22 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 8.625,
-          "orch_strings": 2.105,
-          "orch_top_wood": 9.984375,
-          "orch_back_wood": 14.575,
-          "orch_varnish": 13.75,
-          "orch_setup_period": 13.194375,
+          "bowed_technique": 10.75,
+          "orch_strings": 0.9099999999999999,
+          "orch_top_wood": 12.484375,
+          "orch_back_wood": 18.325,
+          "orch_varnish": 17.5,
+          "orch_setup_period": 16.444375,
           "orch_bow": 0.6365624999999999,
-          "orch_bow_stick": 15.6921875,
-          "orch_articulation": 1.8199999999999998,
-          "orch_rosin": 13.75
+          "orch_bow_stick": 19.4421875,
+          "orch_articulation": 0.9099999999999999,
+          "orch_rosin": 17.5
         }
       },
       {
         "id": "cello",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
+          "bowed_technique": "bowed_legato_classical",
           "cello_strings": "cello_synthetic",
           "cello_top_wood": "italian_alpine_spruce_cello",
           "cello_back_wood": "european_maple_cello_back",
@@ -92,15 +92,15 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 8.625,
-          "cello_strings": 2.73,
-          "cello_top_wood": 9.984375,
-          "cello_back_wood": 14.575,
-          "cello_varnish": 13.75,
-          "cello_setup_period": 13.194375,
-          "cello_bow_grip": 4.29,
-          "cello_rosin": 13.7978125,
-          "cello_bow_stick": 15.6921875
+          "bowed_technique": 10.75,
+          "cello_strings": 2.4700000000000006,
+          "cello_top_wood": 12.484375,
+          "cello_back_wood": 18.325,
+          "cello_varnish": 17.5,
+          "cello_setup_period": 16.444375,
+          "cello_bow_grip": 5.59,
+          "cello_rosin": 18.3478125,
+          "cello_bow_stick": 19.4421875
         }
       },
       {
@@ -113,11 +113,11 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 8.445,
-          "clarinet_body": 13.75,
-          "clarinet_size": 4.29,
-          "clarinet_reed": 1.6099999999999999,
-          "clarinet_articulation": 0.195
+          "wind_articulation": 11.645,
+          "clarinet_body": 17.5,
+          "clarinet_size": 5.59,
+          "clarinet_reed": 0.9099999999999999,
+          "clarinet_articulation": 0.895
         }
       },
       {
@@ -130,19 +130,19 @@
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 8.445,
-          "flute_size": 0.545,
+          "wind_articulation": 11.645,
+          "flute_size": 0.045,
           "flute_material": 1.245,
-          "flute_technique": 1.9428125,
-          "flute_maker_school": 1.6900000000000004
+          "flute_technique": 2.4428125,
+          "flute_maker_school": 1.5600000000000003
         }
       },
       {
         "id": "viola_classical",
         "slots": {
-          "bowed_technique": "bowed_pizzicato",
-          "viola_size": "viola_17_inch",
-          "viola_strings": "viola_silver_wound_gut",
+          "bowed_technique": "bowed_legato_classical",
+          "viola_size": "viola_15_inch",
+          "viola_strings": "viola_tungsten_wound_c",
           "viola_top_wood": "viola_italian_alpine_spruce",
           "viola_back_wood": "viola_european_maple_general",
           "viola_varnish": "viola_oil_amber",
@@ -151,15 +151,15 @@
           "viola_rosin": "viola_pirastro_obligato_rosin"
         },
         "scores": {
-          "bowed_technique": 8.625,
-          "viola_size": 0.5,
-          "viola_strings": 1.6400000000000001,
-          "viola_top_wood": 9.984375,
-          "viola_back_wood": 14.575,
-          "viola_varnish": 13.75,
-          "viola_setup_period": 13.194375,
-          "viola_bow_stick": 15.6921875,
-          "viola_rosin": 13.75
+          "bowed_technique": 10.75,
+          "viola_size": 0.3,
+          "viola_strings": 1.3,
+          "viola_top_wood": 12.484375,
+          "viola_back_wood": 18.325,
+          "viola_varnish": 17.5,
+          "viola_setup_period": 16.444375,
+          "viola_bow_stick": 19.4421875,
+          "viola_rosin": 17.5
         }
       }
     ],
