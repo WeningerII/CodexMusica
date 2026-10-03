@@ -1,0 +1,160 @@
+{
+  "id": "credited_requinto_unspecified",
+  "name": "Credited requinto (construction unspecified)",
+  "short": "Credited requinto",
+  "family": "acoustic_strings",
+  "class": "source_unspecified_requinto",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_requinto_identity",
+      "name": "Credited requinto role",
+      "variants": [
+        {
+          "id": "credited_requinto_identity_source_unspecified",
+          "name": "Named requinto role in the documented Mexican guitar-and-tuba trio",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_requinto_construction",
+      "name": "Body and resonator construction",
+      "variants": [
+        {
+          "id": "credited_requinto_construction_source_unspecified",
+          "name": "Source-unspecified body size, wood and resonator construction",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_requinto_stringing",
+      "name": "Strings and courses",
+      "variants": [
+        {
+          "id": "credited_requinto_stringing_source_unspecified",
+          "name": "Source-unspecified string material, number and course arrangement",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_requinto_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "credited_requinto_tuning_source_unspecified",
+          "name": "Source-unspecified pitch tuning",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_requinto_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "credited_requinto_technique_source_unspecified",
+          "name": "Source-unspecified exact picking or strumming method",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positive named requinto role in a Mexican guitar/tuba trio. Separate source-unknown construction, stringing, tuning and technique controls preserve uncertainties. Existing requinto_jarocho forces unsupported Veracruz identity; pending requinto_tabasqueno is a drum, not this plucked role. No shared owner edits or invented string count/material. Neutral authored axes.",
+  "sources": [
+    "https://periodicoelpeninsular.com.mx/los-inalcanzables-de-la-baja-en-concierto/"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_requinto_identity",
+      "name": "Credited requinto role",
+      "variants": [
+        {
+          "id": "credited_requinto_identity_source_unspecified",
+          "name": "Named requinto role in the documented Mexican guitar-and-tuba trio",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_requinto_construction",
+      "name": "Body and resonator construction",
+      "variants": [
+        {
+          "id": "credited_requinto_construction_source_unspecified",
+          "name": "Source-unspecified body size, wood and resonator construction",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_requinto_stringing",
+      "name": "Strings and courses",
+      "variants": [
+        {
+          "id": "credited_requinto_stringing_source_unspecified",
+          "name": "Source-unspecified string material, number and course arrangement",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_requinto_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "credited_requinto_tuning_source_unspecified",
+          "name": "Source-unspecified pitch tuning",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "credited_requinto_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "credited_requinto_technique_source_unspecified",
+          "name": "Source-unspecified exact picking or strumming method",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

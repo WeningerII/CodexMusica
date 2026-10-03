@@ -1,0 +1,52 @@
+{
+  "id": "custom_therevox_unspecified",
+  "name": "Custom Therevox synthesizer",
+  "short": "Custom Therevox synthesizer",
+  "family": "electronic",
+  "class": "custom_therevox_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "custom_therevox_unspecified_identity",
+      "name": "Documented model identity",
+      "variants": [
+        {
+          "id": "custom_therevox_unspecified_documented_model",
+          "name": "Custom Therevox synthesizer; undocumented patch controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source explicitly identifies a custom Therevox hardware synthesizer. Exact ET model, customization, control interface and sound-generating architecture remain unspecified; current ET5 specifications are not transferred to an unidentified custom instrument.",
+  "sources": [
+    "https://gamechops.com/metroid-prime-frigate-darkwave-glasys-cover/"
+  ],
+  "_ownParts": [
+    {
+      "id": "custom_therevox_unspecified_identity",
+      "name": "Documented model identity",
+      "variants": [
+        {
+          "id": "custom_therevox_unspecified_documented_model",
+          "name": "Custom Therevox synthesizer; undocumented patch controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

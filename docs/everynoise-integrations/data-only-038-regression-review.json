@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "baseline": "572c288153ab7092b5571f5e572667c311e9828e",
+  "original_snapshot_sha256": "9b51269efdf4ae0a26dadfcbdf1759b7283a04e35b70410dea84c318e4bb6bfa",
+  "initial_result": "1147/1149; exactly two recipe differences",
+  "authorized_exact_fixture_ids": ["goa_trance", "antifolk_nyc"],
+  "reviewed_rows": [
+    {
+      "id": "goa_trance",
+      "baseline_original_snapshot_exact": true,
+      "current_original_regression_log_exact": true,
+      "original_source_extras_unchanged": true,
+      "environment_protection_metadata_identical": true,
+      "instrument_roster_identical": true,
+      "counterfactual_remove_only_new100": {
+        "id": "goa_trance",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional marathi devotional baps devotional music. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay."
+      },
+      "staples_before": ["goa_trance", "marathi_devotional", "baps"],
+      "staples_after": ["goa_trance", "marathi_devotional", "odia_bhajan"],
+      "material_slot_changes": [
+        {
+          "instrument": "digital_subtractive",
+          "part": "electronic_technique",
+          "before": "electronic_bass_sub",
+          "after": "electronic_lead_line",
+          "source_pin_parts": false,
+          "source_variant": "electronic_bass_sub",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "sampler_classic",
+          "part": "sampler_archetypes",
+          "before": "emu_emax",
+          "after": "akai_s1000",
+          "source_pin_parts": false,
+          "source_variant": "akai_s1000",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "interpretation": "Original cross-reference candidate expansion admits new odia_bhajan under ritualDevotional.hindu. Search replaces the BAPS staple with Odia bhajan. Two unprotected owning values change: digital_subtractive electronic_bass_sub→electronic_lead_line and sampler_classic Emu Emax→Akai S1000. Hardware/role presets remain existing valid variants; authored Goa source and all original environment/pinned values are identical. Visible recipe difference is the inherited staple label; source repertoire is not rewritten.",
+      "expected_before": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional marathi devotional baps devotional music. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay.",
+      "reviewed_after": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional marathi devotional odia bhajan. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay."
+    },
+    {
+      "id": "antifolk_nyc",
+      "baseline_original_snapshot_exact": true,
+      "current_original_regression_log_exact": true,
+      "original_source_extras_unchanged": true,
+      "environment_protection_metadata_identical": true,
+      "instrument_roster_identical": true,
+      "counterfactual_remove_only_new100": {
+        "id": "antifolk_nyc",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic 1987-1989 anti-folk, ballad Poetry, anti folk branch, lofi experimental electric bedroom pop hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital."
+      },
+      "staples_before": ["antifolk_nyc", "bedroom_pop", "hypnagogic_pop"],
+      "staples_after": ["antifolk_nyc", "bedroom_pop", "lo_fi_vgm"],
+      "material_slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_jingju_role",
+          "after": "voice_ornament_none",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_pythagorean",
+          "after": "voice_pitch_vedic_three_tone",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "body_wood",
+          "before": "mahogany",
+          "after": "alder",
+          "source_pin_parts": false,
+          "source_variant": "alder",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_12",
+          "after": "g_10",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "scale_length",
+          "before": "scale_short",
+          "after": "scale_gibson",
+          "source_pin_parts": false,
+          "source_variant": "scale_fender",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "interpretation": "Original experimentalElec.lofi cross-reference candidate expansion admits lo_fi_vgm. Search replaces hypnagogic_pop third staple with lo_fi_vgm and changes five unprotected voice/guitar values. Visible compression changes include walnut/clean-strummed versus amp-descriptor emphasis; unchanged amp settings are not physically deleted merely because compressed recipe no longer prints them. Voice Jingju/none and Pythagorean/Vedic choices are existing optimizer vocabulary, not a newly authored claim about Anti-folk.",
+      "expected_before": "classic 1987-1989 anti-folk, ballad Poetry, anti folk branch, lofi experimental electric bedroom pop hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "reviewed_after": "classic 1987-1989 anti-folk, ballad Poetry, anti folk branch, lofi experimental electric bedroom pop lo-fi vgm. thick, breath veiled tone, straight onset, interlocked note trading. walnut steel silk fingerpicked acoustic alnico clean strummed single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital."
+    }
+  ],
+  "pipeline_proof": "pipeline-preservation119.json:261 files unchanged; independent source/browser proof preserves6338 old records and26984 old imported cards.",
+  "update_scope": "Root may use original regression_recipes.js --update --fixture=<one authorized id> for only these two, then rerun full serial suite. No assertion/solver/source edit, no blanket refresh. Reviewer did not mutate snapshots.",
+  "errors": [],
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "geo_only_rebind_proof": "geo-amendment-review119.json"
+}

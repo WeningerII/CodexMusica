@@ -1,0 +1,127 @@
+{
+  "id": "musiqi_ye_zanan",
+  "name": "Musiqi-ye Zanān",
+  "family": "vernacular",
+  "lineage": "Complete The Sun Will Rise, Mahsa Vahdat, KKV FXCD422,2016: all21 issued songs, one solo singer. Her artist discography confirms sole voice and melodies setting classical and contemporary Persian poetry. Producer documents naturally present birds, footsteps, distant church bells/background voices, streams and fountains as retained elements across the recordings. These incidental sounds are preserved as ambience, not additional credited instrumentalists, singers or invented edited samples. Ambient people are not assigned a headcount. Different locations and sounds occur across the album; the union is not claimed simultaneous on every track. Natural room reverberation is not a literal orchestra; no instruments from her other albums are imported. Authored voice-and-incidental-ambience rendition of the complete album palette. BalladPoetry follows the primary-positive classical/contemporary poem settings, not a devotional classification inferred from church locations. Seventeen voice controls retain one unaccompanied sung performer and one lead layer; ambient human voices are context rather than an authored vocal ensemble. Exact register, training, ornament system, physiology and pitch organization remain unspecified; neutral effort and tract are authored. A controlled live-room recapture is editorial and does not reconstruct the album’s varied architectural acoustics. Environmental owner preserves naturally recorded background sounds without a claim to sampler, editing, synthesis or independent accompaniment. No global tuning or invented capture apparatus. Neutral axes are bookkeeping choices, not acoustic measurements.",
+  "recipe": "classic mid-2010s musiqi-ye zanān, ballad Poetry. solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. environmental field recording credited environmental ambience. live tracking.",
+  "recipe_chars": 215,
+  "score": 14.116,
+  "config": {
+    "traditions": [
+      "musiqi_ye_zanan"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 3.38,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 2.6,
+          "voice_multitrack_stack": 5.799999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "credited_environmental_ambience",
+        "slots": {
+          "credited_environmental_ambience_source": "credited_environmental_ambience_incidental_capture"
+        },
+        "scores": {
+          "credited_environmental_ambience_source": 2.3365
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "credited_environmental_ambience": [
+        "credited_environmental_ambience_source"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "credited_environmental_ambience_source": "credited_environmental_ambience_incidental_capture"
+    },
+    "pin_parts": true
+  }
+}

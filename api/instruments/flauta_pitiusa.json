@@ -1,0 +1,59 @@
+{
+  "id": "flauta_pitiusa",
+  "name": "Flaüta pitiüsa (three-hole oleander duct flute)",
+  "short": "flaüta pitiüsa",
+  "family": "wind",
+  "class": "three_hole_duct_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "flauta_pitiusa_form",
+      "name": "Regional construction",
+      "variants": [
+        {
+          "id": "flauta_pitiusa_oleander_three_hole",
+          "name": "Oleander body, pine duct plug and three finger holes",
+          "default": true,
+          "descriptors": [
+            "wood",
+            "one-handed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Official inventory describes oleander hollow body, pine plug directing breath to beveled window, three lower finger holes and paired one-hand drum practice. Pitch set, key and exact dimensions not standardized here; no Basque tuning imported. Numeric axes are neutral editorial scaffold, not measured acoustic characterization.",
+  "sources": [
+    "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2012-9054",
+    "https://ballpages.cat/patrimoni/sonades-i-gaites/"
+  ],
+  "_ownParts": [
+    {
+      "id": "flauta_pitiusa_form",
+      "name": "Regional construction",
+      "variants": [
+        {
+          "id": "flauta_pitiusa_oleander_three_hole",
+          "name": "Oleander body, pine duct plug and three finger holes",
+          "default": true,
+          "descriptors": [
+            "wood",
+            "one-handed"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

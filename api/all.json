@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-03",
-  "count": 6338,
+  "count": 6438,
   "items": [
     {
       "id": "honky_tonk",
@@ -1961,8 +1961,8 @@
       "id": "goa_trance",
       "name": "Goa trance",
       "family": "global",
-      "recipe": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional marathi devotional baps devotional music. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay.",
-      "recipe_chars": 533
+      "recipe": "classic Asian 1994-1996 goa trance, electronic Dance, trance branch, hindu ritual devotional marathi devotional odia bhajan. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, melodic pitched sampler. festival stage. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay phaser flanger analog bucket-brigade delay.",
+      "recipe_chars": 523
     },
     {
       "id": "progressive_trance",
@@ -2325,8 +2325,8 @@
       "id": "antifolk_nyc",
       "name": "Anti-folk",
       "family": "global",
-      "recipe": "classic 1987-1989 anti-folk, ballad Poetry, anti folk branch, lofi experimental electric bedroom pop hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. steel silk fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-      "recipe_chars": 449
+      "recipe": "classic 1987-1989 anti-folk, ballad Poetry, anti folk branch, lofi experimental electric bedroom pop lo-fi vgm. thick, breath veiled tone, straight onset, interlocked note trading. walnut steel silk fingerpicked acoustic alnico clean strummed single coil electric guitar. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 379
     },
     {
       "id": "indie_folk_2000s",
@@ -15807,8 +15807,8 @@
       "id": "paisley_underground",
       "name": "Paisley Underground",
       "family": "rock",
-      "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock knoxville indie armenian indie. thick, breath veiled tone, slow rate, interlocked note trading. hi gain Rickenbacker modern clean strummed twelve string electric, marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 807
+      "recipe": "classic Los Angeles early-1980s paisley underground, distorted Rock, alternative branch, pop rock folk rock, noise rock distorted rock knoxville indie montana roots. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime hi gain Rickenbacker modern twelve string electric, marshall plexi amp British rock amp mahogany rosewood ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, tambourine orch. compound architecture 1958-1970 indie-commercial small la chambers. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 843
     },
     {
       "id": "c86",
@@ -44369,6 +44369,706 @@
       "family": "rock",
       "recipe": "classic mid-2010s mongolian alternative, distorted Rock, alternative branch. small note groups per syllable, solo with instrumental accompaniment, single lead single track no stacking. alder conventional tuning standard pitch humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
       "recipe_chars": 402
+    },
+    {
+      "id": "chill_out_trance",
+      "name": "Chill-Out Trance",
+      "family": "electronic",
+      "recipe": "classic chill-out trance, electronic Dance, trance branch. dj playback mixing unspecified. shoebox concert hall.",
+      "recipe_chars": 112
+    },
+    {
+      "id": "early_music_ensemble",
+      "name": "Early music ensemble",
+      "family": "classical",
+      "recipe": "classic early music ensemble, art Music. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. consort gut tied frets movable underhand grip plain gut viol consort. live tracking.",
+      "recipe_chars": 231
+    },
+    {
+      "id": "indonesian_indigenous_traditional",
+      "name": "Indonesian indigenous traditional",
+      "family": "vernacular",
+      "recipe": "classic indonesian indigenous traditional, ballad Poetry. group vocals, live take. live tracking.",
+      "recipe_chars": 97
+    },
+    {
+      "id": "japanese_beats",
+      "name": "Japanese beats",
+      "family": "electronic",
+      "recipe": "classic japanese beats, experimental Elec. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 89
+    },
+    {
+      "id": "japanese_traditional",
+      "name": "Japanese traditional",
+      "family": "classical",
+      "recipe": "classic late-1960s japanese traditional, art Music, east Asian branch. madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. live tracking.",
+      "recipe_chars": 222
+    },
+    {
+      "id": "japanese_vtuber",
+      "name": "Japanese VTuber",
+      "family": "pop",
+      "recipe": "classic japanese vtuber, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
+      "recipe_chars": 130
+    },
+    {
+      "id": "kazakh_indie",
+      "name": "Kazakh indie",
+      "family": "vernacular",
+      "recipe": "classic kazakh indie, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
+      "recipe_chars": 217
+    },
+    {
+      "id": "lagu_madura",
+      "name": "Lagu Madura",
+      "family": "global",
+      "recipe": "classic lagu madura, art Music. group vocals, unprocessed natural acoustic, live take. shoebox concert hall.",
+      "recipe_chars": 108
+    },
+    {
+      "id": "lagu_timur",
+      "name": "Lagu Timur",
+      "family": "pop",
+      "recipe": "classic lagu timur, functional Song. small note groups per syllable, solo with instrumental accompaniment, single performer unison double recorded take. mahogany phosphor bronze bronze flatpicked acoustic guitar, melodic chordal electronic keyboard credited electronics credited strings unspecified, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 345
+    },
+    {
+      "id": "latincore",
+      "name": "Latincore",
+      "family": "rock_punk",
+      "recipe": "classic mid-2010s latincore, distorted Rock, punk branch. group vocals, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
+      "recipe_chars": 301
+    },
+    {
+      "id": "latintronica",
+      "name": "Latintronica",
+      "family": "electronic",
+      "recipe": "classic latintronica, electronic Dance, Latin electric branch. dj playback mixing unspecified. treated studio.",
+      "recipe_chars": 110
+    },
+    {
+      "id": "liechtenstein",
+      "name": "Liechtenstein",
+      "family": "classical",
+      "recipe": "classic early-1890s liechtenstein, art Music, western common practice branch. henry willis canonical English victorian 1850s 1900 high lead 25 75 canonical flue stops mellow romantic equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic legato pipe organ. shoebox concert hall.",
+      "recipe_chars": 314
+    },
+    {
+      "id": "lo_fi_vgm",
+      "name": "Lo-fi VGM",
+      "family": "electronic",
+      "recipe": "classic lo-fi vgm, experimental Elec, lofi branch. moog matriarch, sequential prophet xl, custom therevox unspecified. live tracking.",
+      "recipe_chars": 133
+    },
+    {
+      "id": "lustrum",
+      "name": "Lustrum",
+      "family": "pop",
+      "recipe": "classic lustrum, functional Song. duet, live take. electronic drum kit credited sound effect credited synthesizer credited strings credited samples unspecified, 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano, alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone. live tracking.",
+      "recipe_chars": 351
+    },
+    {
+      "id": "malaysian_traditional",
+      "name": "Malaysian Traditional",
+      "family": "vernacular",
+      "recipe": "classic malaysian traditional, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. kenyah long bodied contemporary adau carved single bole wire strung sape. live tracking.",
+      "recipe_chars": 240
+    },
+    {
+      "id": "marathi_remix",
+      "name": "Marathi Remix",
+      "family": "electronic",
+      "recipe": "classic marathi remix, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 87
+    },
+    {
+      "id": "montana_roots",
+      "name": "Montana roots",
+      "family": "vernacular",
+      "recipe": "classic mid-2020s montana roots, functional Song, folk rock branch. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 319
+    },
+    {
+      "id": "moog",
+      "name": "Moog",
+      "family": "electronic",
+      "recipe": "classic mid-2020s moog, experimental Elec, ambient branch. moog lineage canonical minimoog 1970 trumansburg ny analog mono synth. treated studio.",
+      "recipe_chars": 145
+    },
+    {
+      "id": "moroccan_traditional",
+      "name": "Moroccan traditional",
+      "family": "vernacular",
+      "recipe": "classic moroccan traditional, ballad Poetry. small note groups per syllable, solo unaccompanied, single lead single track no stacking. live tracking.",
+      "recipe_chars": 149
+    },
+    {
+      "id": "motivation",
+      "name": "Motivation",
+      "family": "vernacular",
+      "recipe": "classic mid-2010s motivation, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, single lead single track no stacking. live tracking.",
+      "recipe_chars": 163
+    },
+    {
+      "id": "multidisciplinary",
+      "name": "Multidisciplinary",
+      "family": "global",
+      "recipe": "classic multidisciplinary, art Music. legato upright piano. live tracking.",
+      "recipe_chars": 74
+    },
+    {
+      "id": "musica_blumenauense",
+      "name": "Música blumenauense",
+      "family": "pop",
+      "recipe": "classic música blumenauense, functional Song. small note groups per syllable, group vocals, unprocessed natural acoustic, live take. strummed open chord ringing overtones dreadnought acoustic alder conventional tuning standard pitch clean strummed humbucker electric guitar, alder fingerstyle locked electric bass, synthetic European maple bosnian source flamed figure oil varnish cello, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 433
+    },
+    {
+      "id": "musica_calabrese",
+      "name": "Musica calabrese",
+      "family": "vernacular",
+      "recipe": "classic mid-2010s musica calabrese, ballad Poetry. small note groups per syllable, solo with instrumental accompaniment. indian rosewood rosewood bronze strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 234
+    },
+    {
+      "id": "musica_capixaba",
+      "name": "Música capixaba",
+      "family": "global",
+      "recipe": "classic música capixaba, experimental Elec. group vocals, plate reverb medium decay vocal classic, live take. full bodied low coloration balanced alder humbucker electric guitar, alder fingerstyle locked electric bass, credited synthesizer credited electronics dj playback mixing live signal processing unspecified. live tracking.",
+      "recipe_chars": 330
+    },
+    {
+      "id": "musica_caririense",
+      "name": "Música caririense",
+      "family": "global",
+      "recipe": "classic 2021-2022 música caririense, improv On Frame. alder maple humbucker electric guitar, plastic pandeirola meia lua. live tracking. digital delay.",
+      "recipe_chars": 151
+    },
+    {
+      "id": "musica_cearense",
+      "name": "Música cearense",
+      "family": "pop",
+      "recipe": "classic early-2020s música cearense, functional Song. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. indian rosewood rosewood strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "musica_chiapaneca",
+      "name": "Música chiapaneca",
+      "family": "global",
+      "recipe": "classic música chiapaneca, functional Song, Mexican branch. multi player full ensemble hormigo tonewood box resonated buzzing tela chiapanecan marimba, plastic glockenspiel, alder fingerstyle locked electric bass, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "musica_colombiana_instrumental",
+      "name": "Música colombiana instrumental",
+      "family": "global",
+      "recipe": "classic música colombiana instrumental, art Music. legato upright piano. live tracking.",
+      "recipe_chars": 87
+    },
+    {
+      "id": "musica_mocambicana",
+      "name": "Música moçambicana",
+      "family": "vernacular",
+      "recipe": "classic música moçambicana, functional Song. duet, live take. viola campanica, credited electronics unspecified. live tracking.",
+      "recipe_chars": 127
+    },
+    {
+      "id": "musica_para_criancas",
+      "name": "Música para crianças",
+      "family": "pop",
+      "recipe": "classic música para crianças, functional Song. small note groups per syllable, single leader group response, unprocessed natural acoustic, live take. mahogany flatpicked acoustic guitar, alder nickel roundwound fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
+      "recipe_chars": 337
+    },
+    {
+      "id": "musica_paranaense",
+      "name": "Música paranaense",
+      "family": "vernacular",
+      "recipe": "classic música paranaense, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
+      "recipe_chars": 222
+    },
+    {
+      "id": "musica_per_bambini",
+      "name": "Musica per bambini",
+      "family": "vernacular",
+      "recipe": "classic musica per bambini, spoken Word, narration branch. no pitch organization speech, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. upright piano. live tracking.",
+      "recipe_chars": 224
+    },
+    {
+      "id": "musica_piauiense",
+      "name": "Música piauiense",
+      "family": "vernacular",
+      "recipe": "classic música piauiense, functional Song. solo with instrumental accompaniment, single lead single track no stacking. alder maple rosewood nickel nitrocellulose single coil electric guitar, alder nickel roundwound fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
+      "recipe_chars": 341
+    },
+    {
+      "id": "musica_piemonteisa",
+      "name": "Mùsica piemontèisa",
+      "family": "vernacular",
+      "recipe": "classic mùsica piemontèisa, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
+      "recipe_chars": 223
+    },
+    {
+      "id": "musica_pitiusa",
+      "name": "Música pitiusa",
+      "family": "vernacular",
+      "recipe": "classic música pitiusa, improv On Frame. flauta pitiusa, pine rope tensioned buzzing tambor pitius, paired hand held castanyoles pitiuses. live tracking.",
+      "recipe_chars": 153
+    },
+    {
+      "id": "musica_puntana",
+      "name": "Música puntana",
+      "family": "vernacular",
+      "recipe": "classic música puntana, functional Song. group vocals, live take. mahogany flatpicked acoustic guitar, alder nickel roundwound fingerstyle locked electric bass, block chord upright piano, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 233
+    },
+    {
+      "id": "musica_rapa_nui",
+      "name": "Música rapa nui",
+      "family": "vernacular",
+      "recipe": "classic música rapa nui, functional Song. duet, live take. alder maple rosewood nickel nitrocellulose single coil electric guitar, alder nickel roundwound fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 304
+    },
+    {
+      "id": "musica_sudcaliforniana",
+      "name": "Música sudcaliforniana",
+      "family": "vernacular",
+      "recipe": "classic música sudcaliforniana, functional Song, Mexican branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany flatpicked acoustic guitar, credited requinto unspecified, brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba. live tracking.",
+      "recipe_chars": 388
+    },
+    {
+      "id": "musica_tabasquena",
+      "name": "Música tabasqueña",
+      "family": "vernacular",
+      "recipe": "classic música tabasqueña, groove Percussion. cane flauta carrizo tabasquena, mahogany double headed requinto mahogany double headed tambor grande tabasqueno. live tracking.",
+      "recipe_chars": 173
+    },
+    {
+      "id": "musica_tradicional_cubana",
+      "name": "Música tradicional cubana",
+      "family": "vernacular",
+      "recipe": "classic música tradicional cubana, functional Song. small note groups per syllable, group vocals, live take. mahogany phosphor bronze bronze flatpicked acoustic guitar, credited requinto unspecified, cedar canonical Cuban steel modern strummed tres laud cubano, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 307
+    },
+    {
+      "id": "musical_advocacy",
+      "name": "Musical advocacy",
+      "family": "pop",
+      "recipe": "classic musical advocacy, functional Song. block chord upright piano. live tracking.",
+      "recipe_chars": 84
+    },
+    {
+      "id": "musicas_espiritas",
+      "name": "Músicas espíritas",
+      "family": "vernacular",
+      "recipe": "classic músicas espíritas, ritual Devotional. duet, unprocessed natural acoustic, live take. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "musiqi_ye_zanan",
+      "name": "Musiqi-ye Zanān",
+      "family": "vernacular",
+      "recipe": "classic mid-2010s musiqi-ye zanān, ballad Poetry. solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. environmental field recording credited environmental ambience. live tracking.",
+      "recipe_chars": 215
+    },
+    {
+      "id": "musique_alsacienne",
+      "name": "Musique alsacienne",
+      "family": "vernacular",
+      "recipe": "classic musique alsacienne, art Music. steel leather bellows articulated accordion. live tracking.",
+      "recipe_chars": 98
+    },
+    {
+      "id": "musique_centrafricaine",
+      "name": "Musique centrafricaine",
+      "family": "vernacular",
+      "recipe": "classic musique centrafricaine, improv On Frame. solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. live tracking.",
+      "recipe_chars": 151
+    },
+    {
+      "id": "musique_mahoraise",
+      "name": "Musique mahoraise",
+      "family": "vernacular",
+      "recipe": "classic musique mahoraise, functional Song. small note groups per syllable, duet, unprocessed natural acoustic, live take. mahogany phosphor bronze bronze flatpicked acoustic guitar, alder nickel roundwound fingerstyle locked electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, steel leather bellows articulated accordion, unsnared rear sound port cajon peruano. live tracking.",
+      "recipe_chars": 414
+    },
+    {
+      "id": "musique_militaire",
+      "name": "Musique militaire",
+      "family": "classical",
+      "recipe": "classic musique militaire, art Music. group vocals, live take. legato upright piano. shoebox concert hall.",
+      "recipe_chars": 106
+    },
+    {
+      "id": "musique_tchadienne",
+      "name": "Musique tchadienne",
+      "family": "global",
+      "recipe": "classic musique tchadienne, functional Song. duet, live take. mahogany phosphor bronze bronze flatpicked acoustic guitar, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "musique_traditionnelle_comorienne",
+      "name": "Musique traditionnelle comorienne",
+      "family": "vernacular",
+      "recipe": "classic mid-1990s musique traditionnelle comorienne, lullaby. solo with instrumental accompaniment, single lead single track no stacking. plastic circular breathing sustaining comorian firimbi. live tracking.",
+      "recipe_chars": 208
+    },
+    {
+      "id": "musique_urbaine_kinshasa",
+      "name": "Musique urbaine Kinshasa",
+      "family": "electronic",
+      "recipe": "classic musique urbaine kinshasa, electronic Dance. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 98
+    },
+    {
+      "id": "muzica_ardeleneasca",
+      "name": "Muzica ardeleneasca",
+      "family": "vernacular",
+      "recipe": "classic late-1950s muzica ardeleneasca, improv On Frame. staccato lively dance driving fluier, syncopated speech rhythm rhythmic spoken flow no pitch human voice ensemble unspecified.",
+      "recipe_chars": 183
+    },
+    {
+      "id": "muzica_bisericeasca",
+      "name": "Muzică bisericească",
+      "family": "classical",
+      "recipe": "classic muzică bisericească, ritual Devotional, christian gospel branch. unprocessed natural acoustic human voice ensemble unspecified. shoebox concert hall.",
+      "recipe_chars": 157
+    },
+    {
+      "id": "muzica_crestina",
+      "name": "Muzică creștină",
+      "family": "global",
+      "recipe": "classic muzică creștină, ritual Devotional. alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, melodic chordal electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 217
+    },
+    {
+      "id": "muzica_moldoveneasca",
+      "name": "Muzica moldoveneasca",
+      "family": "vernacular",
+      "recipe": "classic muzica moldoveneasca, ballad Poetry. human voice ensemble unspecified.",
+      "recipe_chars": 78
+    },
+    {
+      "id": "muzika_lyeladim",
+      "name": "Muzika l’yeladim",
+      "family": "global",
+      "recipe": "classic muzika l’yeladim, art Music. group vocals, live take. silver powell boston canonical American orchestral legato flute. shoebox concert hall.",
+      "recipe_chars": 148
+    },
+    {
+      "id": "nederlandse_hardstyle",
+      "name": "Nederlandse hardstyle",
+      "family": "electronic",
+      "recipe": "classic nederlandse hardstyle, electronic Dance, hardstyle branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 113
+    },
+    {
+      "id": "nederreggae",
+      "name": "Nederreggae",
+      "family": "global",
+      "recipe": "classic nederreggae, bass System, reggae diaspora branch. group vocals, live take. alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble student friendly trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone. live tracking.",
+      "recipe_chars": 698
+    },
+    {
+      "id": "nephop",
+      "name": "NepHop",
+      "family": "hip_hop",
+      "recipe": "classic nephop, mc Rhythm, intl hip hop branch. rap, rhythmic spoken flow no pitch, group vocals, unprocessed natural acoustic. spoken word voice. live tracking.",
+      "recipe_chars": 161
+    },
+    {
+      "id": "normal_indie",
+      "name": "Normal indie",
+      "family": "vernacular",
+      "recipe": "classic normal indie, functional Song. unprocessed natural acoustic human voice ensemble unspecified, mahogany phosphor bronze bronze acoustic guitar. shoebox concert hall.",
+      "recipe_chars": 172
+    },
+    {
+      "id": "norsk_lovsang",
+      "name": "Norsk lovsang",
+      "family": "global",
+      "recipe": "classic early-2010s norsk lovsang, ritual Devotional, christian gospel branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. alder maple humbucker electric guitar, alder fingerstyle locked electric bass, low fundamental tuning all purpose maple drum kit, electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 362
+    },
+    {
+      "id": "north_alabama_indie",
+      "name": "North Alabama indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s north alabama indie, distorted Rock, alternative branch. group vocals, live take. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 410
+    },
+    {
+      "id": "northeast_indian_indie",
+      "name": "Northeast Indian indie",
+      "family": "pop",
+      "recipe": "classic early-2020s northeast indian indie, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. alder maple nickel conventional tuning standard pitch humbucker electric guitar. live tracking.",
+      "recipe_chars": 262
+    },
+    {
+      "id": "northern_irish_indie",
+      "name": "Northern Irish indie",
+      "family": "pop",
+      "recipe": "classic mid-2020s northern irish indie, functional Song. duet, unprocessed natural acoustic, live take. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, mahogany phosphor bronze modern martin dreadnought acoustic alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, credited synthesizer unspecified, maple bronze bell bronze machine hammered symmetric pattern drum kit, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 500
+    },
+    {
+      "id": "northwest_china_indie",
+      "name": "Northwest China indie",
+      "family": "rock_punk",
+      "recipe": "classic early-2020s northwest china indie, distorted Rock, punk branch. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, credited synthesizer unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 390
+    },
+    {
+      "id": "norwegian_experimental",
+      "name": "Norwegian experimental",
+      "family": "global",
+      "recipe": "classic norwegian experimental, art Music. jumbo projection octave doubled phosphor bronze light gauge acoustic guitar 12 string. live tracking.",
+      "recipe_chars": 144
+    },
+    {
+      "id": "nova_musica_carioca",
+      "name": "Nova música carioca",
+      "family": "pop",
+      "recipe": "classic nova música carioca, ballad Poetry. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. block chord upright piano, mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
+      "recipe_chars": 251
+    },
+    {
+      "id": "nu_gabber",
+      "name": "Nu gabber",
+      "family": "electronic",
+      "recipe": "classic nu gabber, electronic Dance, hardstyle branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 207
+    },
+    {
+      "id": "nueva_ola_chilena",
+      "name": "Nueva ola chilena",
+      "family": "pop",
+      "recipe": "classic nueva ola chilena, functional Song. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, block chord upright piano, alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble student friendly trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone. live tracking.",
+      "recipe_chars": 735
+    },
+    {
+      "id": "nueva_ola_peruana",
+      "name": "Nueva ola peruana",
+      "family": "pop",
+      "recipe": "classic nueva ola peruana, functional Song. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 357
+    },
+    {
+      "id": "nz_christian",
+      "name": "NZ Christian",
+      "family": "rock",
+      "recipe": "classic early-2010s nz christian, ritual Devotional, christian gospel branch. group vocals, live take. alder maple conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 373
+    },
+    {
+      "id": "oceania_soundtrack",
+      "name": "Oceania soundtrack",
+      "family": "classical",
+      "recipe": "classic oceania soundtrack, art Music. legato upright piano. shoebox concert hall.",
+      "recipe_chars": 82
+    },
+    {
+      "id": "odia_bhajan",
+      "name": "Odia bhajan",
+      "family": "vernacular",
+      "recipe": "classic odia bhajan, ritual Devotional, hindu branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. flute like credited flute unspecified, indian rosewood rosewood copper tabla, vocal male song accompaniment hand pumped harmonium. live tracking.",
+      "recipe_chars": 305
+    },
+    {
+      "id": "oktoberfest",
+      "name": "Oktoberfest",
+      "family": "vernacular",
+      "recipe": "classic oktoberfest, drinking Song, European branch. grenadilla African blackwood traditional continuous-airflow legato clarinet, low c classical legato bass clarinet. live tracking.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "pinoy_traditional",
+      "name": "Pinoy traditional",
+      "family": "vernacular",
+      "recipe": "classic early-1950s pinoy traditional, ballad Poetry. recitative rhythmically free pitched speech, solo unaccompanied, single lead single track no stacking. live tracking.",
+      "recipe_chars": 171
+    },
+    {
+      "id": "pittsburgh_indie",
+      "name": "Pittsburgh indie",
+      "family": "electronic",
+      "recipe": "classic pittsburgh indie, experimental Elec. credited samples unspecified. treated studio.",
+      "recipe_chars": 90
+    },
+    {
+      "id": "pontianak_indie",
+      "name": "Pontianak indie",
+      "family": "rock",
+      "recipe": "classic pontianak indie, distorted Rock, alternative branch. duet, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral student friendly ensemble trumpet, credited synthesizer unspecified. live tracking.",
+      "recipe_chars": 464
+    },
+    {
+      "id": "popping",
+      "name": "Popping",
+      "family": "electronic",
+      "recipe": "classic early-2020s popping, groove Percussion, funk percussive branch. dj playback mixing unspecified. treated studio.",
+      "recipe_chars": 119
+    },
+    {
+      "id": "psytech",
+      "name": "Psytech",
+      "family": "electronic",
+      "recipe": "classic psytech, electronic Dance, techno branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 96
+    },
+    {
+      "id": "puglia_indie",
+      "name": "Puglia indie",
+      "family": "vernacular",
+      "recipe": "classic puglia indie, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany flatpicked acoustic guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, credited synthesizer unspecified. live tracking.",
+      "recipe_chars": 415
+    },
+    {
+      "id": "purple_sound",
+      "name": "Purple sound",
+      "family": "electronic",
+      "recipe": "classic purple sound, bass System, uk soundsystem branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 104
+    },
+    {
+      "id": "qanun",
+      "name": "Qanun",
+      "family": "global",
+      "recipe": "classic early-2020s qanun, art Music. kanun synthetic kanun. live tracking.",
+      "recipe_chars": 75
+    },
+    {
+      "id": "reiki",
+      "name": "Reiki",
+      "family": "global",
+      "recipe": "classic reiki, experimental Elec, ambient branch. 17 ply hard rock maple sitka spruce diaphragmatic gray iron grand piano, melodic chordal electronic keyboard credited sound effect unspecified. shoebox concert hall.",
+      "recipe_chars": 215
+    },
+    {
+      "id": "rosary",
+      "name": "Rosary",
+      "family": "global",
+      "recipe": "classic rosary, ritual Devotional. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio.",
+      "recipe_chars": 168
+    },
+    {
+      "id": "rozpravky",
+      "name": "Rozprávky",
+      "family": "vernacular",
+      "recipe": "classic rozprávky, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio.",
+      "recipe_chars": 183
+    },
+    {
+      "id": "sad_sierreno",
+      "name": "Sad sierreño",
+      "family": "vernacular",
+      "recipe": "classic sad sierreño, functional Song, Mexican branch. duet, unprocessed natural acoustic, live take. mahogany phosphor bronze modern martin dreadnought acoustic guitar, alder fingerstyle locked electric vintage gut upright bass, tenor horn eb. live tracking.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "smooth_saxophone",
+      "name": "Smooth saxophone",
+      "family": "global",
+      "recipe": "classic mid-2020s smooth saxophone, bass System, Jamaican branch. controlled legato saxophone section soprano alto tenor, alder maple nickel conventional tuning standard pitch humbucker electric guitar, programmed credited programmed drums unspecified. treated studio.",
+      "recipe_chars": 268
+    },
+    {
+      "id": "sound_team",
+      "name": "Sound team",
+      "family": "classical",
+      "recipe": "classic early-2020s sound team, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
+      "recipe_chars": 138
+    },
+    {
+      "id": "springfield_mo_indie",
+      "name": "Springfield MO indie",
+      "family": "rock",
+      "recipe": "classic late-2010s springfield mo indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. live tracking.",
+      "recipe_chars": 363
+    },
+    {
+      "id": "talentkonkurranse",
+      "name": "Talentkonkurranse",
+      "family": "pop",
+      "recipe": "classic talentkonkurranse, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single performer unison double recorded take. alder maple conventional tuning standard pitch clean single coil electric guitar, credited steel guitar electronic keyboard unspecified, block chord upright piano, alder fingerpicked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. live tracking.",
+      "recipe_chars": 440
+    },
+    {
+      "id": "tamaulipas_indie",
+      "name": "Tamaulipas indie",
+      "family": "rock",
+      "recipe": "classic tamaulipas indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, credited samples unspecified. live tracking.",
+      "recipe_chars": 378
+    },
+    {
+      "id": "tearout",
+      "name": "Tearout",
+      "family": "electronic",
+      "recipe": "classic mid-2020s tearout, bass System. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 86
+    },
+    {
+      "id": "thai_bl_ost",
+      "name": "Thai BL OST",
+      "family": "pop",
+      "recipe": "classic thai bl ost, functional Song. legato upright piano. live tracking.",
+      "recipe_chars": 74
+    },
+    {
+      "id": "thai_instrumental",
+      "name": "Thai instrumental",
+      "family": "global",
+      "recipe": "classic thai instrumental, improv On Frame. legato upright piano. live tracking.",
+      "recipe_chars": 80
+    },
+    {
+      "id": "urban_contemporary",
+      "name": "Urban Contemporary",
+      "family": "pop",
+      "recipe": "classic urban contemporary, functional Song. block chord upright piano. shoebox concert hall.",
+      "recipe_chars": 93
+    },
+    {
+      "id": "viet_instrumental",
+      "name": "Viet Instrumental",
+      "family": "global",
+      "recipe": "classic early-2010s viet instrumental, improv On Frame. steel modern paulownia dan tranh. live tracking.",
+      "recipe_chars": 104
+    },
+    {
+      "id": "waiata_mo_tamariki",
+      "name": "Waiata mō Tamariki",
+      "family": "vernacular",
+      "recipe": "classic waiata mō tamariki, functional Song. continuous-phonation, one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. upright piano. shoebox concert hall.",
+      "recipe_chars": 202
+    },
+    {
+      "id": "weightless",
+      "name": "Weightless",
+      "family": "electronic",
+      "recipe": "classic weightless, bass System, uk soundsystem branch. dj playback mixing unspecified. live tracking.",
+      "recipe_chars": 102
+    },
+    {
+      "id": "west_end",
+      "name": "West End",
+      "family": "pop",
+      "recipe": "classic west end, functional Song. block chord upright piano. shoebox concert hall.",
+      "recipe_chars": 83
+    },
+    {
+      "id": "wu_fam",
+      "name": "Wu Fam",
+      "family": "hip_hop",
+      "recipe": "classic mid-2020s wu fam, mc Rhythm. group vocals, unprocessed natural acoustic, live take. live tracking.",
+      "recipe_chars": 106
+    },
+    {
+      "id": "yaoi",
+      "name": "Yaoi",
+      "family": "pop",
+      "recipe": "classic yaoi, functional Song, east Asian pop branch. block chord upright piano. live tracking.",
+      "recipe_chars": 95
     }
   ]
 }

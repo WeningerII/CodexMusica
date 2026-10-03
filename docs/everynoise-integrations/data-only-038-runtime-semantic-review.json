@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "integration_sha256": "2c81811f17c2de9e582190567b5ddb151a43accf5995fa5477e846414b9bec75",
+  "entries": 100,
+  "formats": 400,
+  "changed_or_invalid": [],
+  "method": "Independent exact recipe equality between immutable source checkpoint400 original renders and actual integrated400 browser/connector results; all100 prose read. Prior hash-bound complete source/default semantic peer reviews retain applicability because outputs are identical. Static compiler may choose different fallback/derived prefaces and requires separate final review.",
+  "source_photo_review": "checkpoint100-independent-review119.json",
+  "no_repo_mutations": true,
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "geo_only_rebind_proof": "geo-amendment-review119.json"
+}

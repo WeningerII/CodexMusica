@@ -1,0 +1,50 @@
+{
+  "id": "nederlandse_hardstyle",
+  "name": "Nederlandse hardstyle",
+  "family": "electronic",
+  "lineage": "Nederlandse Hardstyle — complete artist-issued WK2022 ORANJE HARDSTYLE MIX, published11November2022, eight consecutive selections00:00–22:00. The official artist channel explicitly created this promotional mix and credits the constituent artists. Preserve the entire22-minute programme, including remixed Dutch vocal songs; it is not a guessed playback substitute for an opaque studio single. Artist-brand membership in the exact creator corpus is independently positive. No event date or live audience inferred from World Cup branding. Embedded singer totals and separately performed live voice totals are unknown; no added live singer card means neither is asserted zero. Existing architecture-neutral DJ playback/mixing owner retains the documented complete mixing role and all embedded layers. No source decks, scratch technique, synthesizer, media format or per-track original instruments invented. Controlled live-room acoustics are an authored new listening/recording realization, not an event venue claim. No global tuning or source capture chain. ElectronicDance.hardstyle follows the explicit primary style, with neutral numeric axes and protected sole source-role part.",
+  "recipe": "classic nederlandse hardstyle, electronic Dance, hardstyle branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 113,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "nederlandse_hardstyle"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

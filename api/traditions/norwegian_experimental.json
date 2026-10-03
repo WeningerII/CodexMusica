@@ -1,0 +1,62 @@
+{
+  "id": "norwegian_experimental",
+  "name": "Norwegian experimental",
+  "family": "global",
+  "lineage": "Kim Myhr — All Your Limbs Singing, complete solo programme at AngelicA25 (24 May2015). Authored complete solo acoustic rendition. Existing twelve-string owner uses a jumbo steel-string body, standard octave/unison course pairing and light phosphor-bronze strings as explicit editorial construction and tuning choices, not Myhr’s measured make or tuning. His interview describes changing intuitive tunings; this standard-pairing realization does not reconstruct those exact systems. Fingerpicked twelve-string is an explicitly authored rendition selected through the existing owner-specific manual variant; the source programme does not specify a uniform original attack, and this choice is not an exact technique transcription. Global temperament and capture apparatus are omitted; controlled live room is authored. No overdub or electronics claim is inferred from metaphorical orchestral language.",
+  "recipe": "classic norwegian experimental, art Music. jumbo projection octave doubled phosphor bronze light gauge acoustic guitar 12 string. live tracking.",
+  "recipe_chars": 144,
+  "score": 9.163,
+  "config": {
+    "traditions": [
+      "norwegian_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_12_string",
+        "slots": {
+          "twelve_string_body": "twelve_string_jumbo_steel",
+          "twelve_string_tuning": "twelve_string_standard_pairs",
+          "twelve_string_strings": "phosphor_12",
+          "acoustic_technique": "acoustic_twelve_string_fingerpicked"
+        },
+        "scores": {
+          "twelve_string_body": 2.6315,
+          "twelve_string_tuning": 1.3315000000000001,
+          "twelve_string_strings": 3.9000000000000004,
+          "acoustic_technique": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_guitar_12_string": [
+        "acoustic_technique",
+        "twelve_string_body",
+        "twelve_string_tuning",
+        "twelve_string_strings"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "twelve_string_body": "twelve_string_jumbo_steel",
+      "twelve_string_tuning": "twelve_string_standard_pairs",
+      "twelve_string_strings": "phosphor_12",
+      "acoustic_technique": "acoustic_twelve_string_fingerpicked"
+    },
+    "pin_parts": true
+  }
+}

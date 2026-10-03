@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "overlay_sha256": "86fdbaa59f77141d033234349d27c1a1c24fd62f72b5602e5a1a8aa9af00e955",
+  "source_sha256_verified": "2a3101c2d866c4943905e939ef18c930b74b457882cb4fe42b9def8d61d53f4b",
+  "source_evidence": "Actual unmodified issuer receipt lagu-timur-primary-receipt116.json explicitly names Sumba as one of the multi-region song identity references; no village/session claim inferred.",
+  "independent_primary": {
+    "url": "https://www.getty.edu/vow/TGNFullDisplay?english=Y&find=&nation=Togo&place=&subjectid=1078854",
+    "receipt": "turn10421view0",
+    "verified": "Waingapu coordinates -9.6667,120.2667 and Sumba/NTT/Indonesia hierarchy directly reproduced."
+  },
+  "scope": "Editorial on-land regional repertoire anchor; not recording location, birthplace or whole-category restriction. Exactly geo and rationale replacements, no sound/source role/default edits. Root must preserve immutable source and bind finalintegration derivative.",
+  "expected_api_impact": "None: original build_static_api/search/score/translate do not consume entry geo or data/geo.json. Translator does use source room region, which this overlay does not change. Verify final tradition/extras/dependency/signature projections remain identical.",
+  "original_atlas_vm_result": {
+    "method": "Original build_atlas_geo.js loaded in isolated VM without main execution or file mutations; loadLand/makeOnLand/checkOffshore use current countries.geo.json unchanged.",
+    "onLand": true,
+    "offshore_errors": []
+  },
+  "errors": [],
+  "no_repo_mutations": true
+}

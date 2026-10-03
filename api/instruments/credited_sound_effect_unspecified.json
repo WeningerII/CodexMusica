@@ -1,0 +1,52 @@
+{
+  "id": "credited_sound_effect_unspecified",
+  "name": "Credited sound effect (mechanism unspecified)",
+  "short": "Credited sound effect",
+  "family": "ensemble",
+  "class": "credited_sound_effect_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_sound_effect_unspecified_identity",
+      "name": "Source identity",
+      "variants": [
+        {
+          "id": "credited_sound_effect_unspecified_source_identity",
+          "name": "Credited sound effect (mechanism unspecified)",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positive separately credited sound-effect layer; acoustic, electronic, sampled or processed mechanism unspecified. Not a placeholder for unexamined musical backing.",
+  "sources": [
+    "https://www.karaoke-versie.nl/custombackingtrack/jopke-van-dobbenburgh/lotje.html"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_sound_effect_unspecified_identity",
+      "name": "Source identity",
+      "variants": [
+        {
+          "id": "credited_sound_effect_unspecified_source_identity",
+          "name": "Credited sound effect (mechanism unspecified)",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

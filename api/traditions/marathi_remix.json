@@ -1,0 +1,50 @@
+{
+  "id": "marathi_remix",
+  "name": "Marathi Remix",
+  "family": "electronic",
+  "lineage": "Kratex — complete artist-published MVP Marathi House Music DJ set, Mumbai, linked by the artist as Full DJ Set. The official artist website explicitly places this exact program among his DJ sets, and his press biography identifies him as a Mumbai DJ/producer combining Marathi music with house and techno. This retains the positively documented performance of playback and mixing, not guessed production instrumentation of the recorded tracks. One identified DJ; embedded recorded singers and any separately performed live voices remain unknown. No assertion of zero audible voices, and no separately evidenced live vocal or acoustic performer is added. Existing neutral DJ playback/mixing owner models the actual documented DJ performance without inventing deck count, media, controller, sampler, mixer hardware or source-session signal chain. Controlled live-room acoustics and neutral numerical axes are authored rendering choices. Global tuning and microphone chain are omitted because they are not documented or meaningful as a single tuning of heterogeneous recorded tracks. Broad electronicDance follows the artist-described house/techno dance practice, without imposing one narrower subgenre on the full program.",
+  "recipe": "classic marathi remix, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 87,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "marathi_remix"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

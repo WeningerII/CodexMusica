@@ -1,0 +1,82 @@
+{
+  "id": "sound_team",
+  "name": "Sound team",
+  "family": "classical",
+  "lineage": "Yutaka Minobe / Ramon van Engelenhoven — Skies of Arcadia Piano Suite, complete separately issued WAYO-013D digital release (February 2020). Publisher Wayô explicitly credits Minobe as composer and Ramon as arranger and performer, and lists exactly two piano-suite tracks: Voyage en Arcadia and Souvenir d’Arcadia. One pianist, one piano family, no vocal role in this complete piano release. This is the entire two-track arranged edition, not a reduction of the original 69-track soundtrack; original orchestral game recordings are separate editions and are not claimed to be solo piano. Sound Team identifies the institutional game-audio department and associated staff/composer discovery network. Fresh exact creator playlist includes Capcom, SEGA, Falcom jdk, SNK and SIE credited teams alongside named composers; Minobe is explicitly credited with SIE at items30 and91. Capcom’s own seven-role department account and SEGA employee’s account of music-director-guided composition, implementation and team collaboration positively establish this institutional axis. Existing video_game_music spans the whole interactive-score medium, not only this corporate-department network; Sound Team overlaps that umbrella and is not alleged to invent a separate universal musical technique. Existing japanese_soundtrack spans cinema, anime and games; VGM instrumental groups vocal-free reinterpretations regardless of employer and overlaps this chosen solo-piano branch; indie_game_soundtrack follows independent-game production rather than the named company departments. Selected Minobe licensed piano-suite repertoire is connected by the exact creator member and issuer, not by assuming the external pianist is a staff employee. Broad artMusic models this complete composed, arranged instrumental recital suite; it does not classify all Sound Team releases as classical, claim notation alone makes a genre, or force a pop song-form. Nine-foot Steinway D, original-style hammers, maple rim/pinblock and spruce board with classical keyboard touch are authored compatible acoustic reproduction choices, not measured session hardware. Controlled concert-hall room is authored; global tuning and recording apparatus are omitted. No sampled original master, game console or uncredited singer is added.",
+  "recipe": "classic early-2020s sound team, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
+  "recipe_chars": 138,
+  "score": 74.674,
+  "config": {
+    "traditions": [
+      "sound_team"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 9.0315,
+          "grand_piano_size": 2.0315,
+          "grand_piano_brand": 0.063,
+          "piano_hammer": 10.417999999999997,
+          "piano_rim": 13.112499999999997,
+          "piano_soundboard": 11.654999999999998,
+          "piano_pinblock": 12.836999999999998,
+          "piano_plate": 8.95,
+          "piano_pitch_standard": 6.576
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true
+  }
+}

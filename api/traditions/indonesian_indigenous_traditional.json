@@ -1,0 +1,114 @@
+{
+  "id": "indonesian_indigenous_traditional",
+  "name": "Indonesian indigenous traditional",
+  "family": "vernacular",
+  "lineage": "Singers of Desa Gemar Baru / Kenyah Umaq Jalan — Dance Song, complete7:44 Smithsonian1998track SFW40444_101. Full original Smithsonian field notes specify Pekulung soloist with a chorus of22women and14men:37singers in total. The selected complete seven-verse recorded song was commissioned with the singers seated on the floor, not recorded during dancing. Only voices are positively specified for this track; sampeq duets are separately discussed recordings on volume13, not omitted accompaniment here. The website partial performer metadata is not treated as exhaustive headcount; the detailed track-specific booklet supplies the complete37-person formation. No stamping card is added from discussion of a different dance-event context. The verses invite and conclude dancing, offer conventional advice and narrate dispersal at the end of the evening. This broad Indonesian indigenous-tradition field includes documented Kenyah communal vocal poetry beyond actual existing Javanese/Balinese instrumental gamelan, shaken angklung and Sundanese-specific repertoire. No claim these regional traditions are mutually unrelated or exhaust national heritage. The selected source is explicitly Kenyah Umaq Jalan, with formally described solo-and-chorus verse practice, pentatonic melody without semitones and frequent parallel thirds/fourths/fifths. It does not imply all Indonesian indigenous music shares this texture or scale. Broad balladPoetry follows the complete unaccompanied poetic/narrative verses; communal37-person scale is retained rather than pretending a solo intimate singer. Parent does not assert functional chord progressions, a sustained drone, improvisation, worship or concert purpose. The source expressly leaves old-religion ritual usage uncertain; recreational celebration and historical church influence are not relabeled devotional worship. Source-neutral vocal physiology, single combined live ensemble and moderate effort are authored controls. Exact interval frequencies, singer ranges and microphones are not given; global temperament and recording chain are omitted. Controlled live-room rendition is editorial, not the original floor-seated site.",
+  "recipe": "classic indonesian indigenous traditional, ballad Poetry. group vocals, live take. live tracking.",
+  "recipe_chars": 97,
+  "score": 7.8,
+  "config": {
+    "traditions": [
+      "indonesian_indigenous_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 3.8999999999999995,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "thai_instrumental",
+  "name": "Thai instrumental",
+  "family": "global",
+  "lineage": "Pongpan Channet — complete Whispering Hammers LP, all five selections on both sides. The composer-owned issuer explicitly calls the whole album piano solo, gives its five-track programme, and describes spontaneous single-pass performances without later melodic correction. One piano and zero singers; no other issued album, soundtrack layers or vocal releases are folded into this scope. Broad improvOnFrame includes free improvisation and is used only for this explicitly spontaneous piano realization. Authored modern standard-size acoustic studio upright with connected classical-legato phrasing and controlled live room; source piano construction and measured touch are unspecified. No score, fixed chord sequence, concert grand, orchestral reduction, capture chain or measured temperament is invented.",
+  "recipe": "classic thai instrumental, improv On Frame. legato upright piano. live tracking.",
+  "recipe_chars": 80,
+  "score": 4.55,
+  "config": {
+    "traditions": [
+      "thai_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.550000000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

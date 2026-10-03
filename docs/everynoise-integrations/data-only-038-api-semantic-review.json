@@ -1,0 +1,1178 @@
+{
+  "status": "PASS",
+  "integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "rows": [
+    {
+      "id": "chill_out_trance",
+      "status": "PASS",
+      "recipe_sha256": "476036e281d3be3f30a025fb58f669e1b6148669a6968f7ab0a6a3072a65f924",
+      "recipe_chars": 112,
+      "parent": "electronicDance.trance",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "early_music_ensemble",
+      "status": "PASS",
+      "recipe_sha256": "e8cc45a509d2567d7c671635557c131b8c8157ae18b044e7d619d250e7743106",
+      "recipe_chars": 231,
+      "parent": "artMusic",
+      "instruments": ["voice", "viol_consort"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "indonesian_indigenous_traditional",
+      "status": "PASS",
+      "recipe_sha256": "3ab6ba9f5e76a71f6df014221c767429965f6bb1226b4a8c2f9e9e4de02d888b",
+      "recipe_chars": 97,
+      "parent": "balladPoetry",
+      "instruments": ["voice"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "japanese_beats",
+      "status": "PASS",
+      "recipe_sha256": "2dde4682a3a8c1452e8dad973240f8234aee22c16b62aea434d57cf64130decf",
+      "recipe_chars": 89,
+      "parent": "experimentalElec",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "japanese_traditional",
+      "status": "PASS",
+      "recipe_sha256": "ccf77b4ae84033eaa585ace7d47bd5651552ee7969a0eb6fcce94c694599409c",
+      "recipe_chars": 222,
+      "parent": "artMusic.eastAsian",
+      "instruments": ["shakuhachi"],
+      "assessment": "Late1960s corresponds to complete1969 Nonesuch edition. Kinko lineage source-positive; bamboo dimensions/species and legato controls candidly authored. Sole shakuhachi retained.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "japanese_vtuber",
+      "status": "PASS",
+      "recipe_sha256": "9cf156c192d2317110aeb94a1bcdb07e2ab7bbcf4e8ee8ff3debb3b7762d0761",
+      "recipe_chars": 130,
+      "parent": "functionalSong",
+      "instruments": ["grand_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "kazakh_indie",
+      "status": "PASS",
+      "recipe_sha256": "0b1fb078f7413356dcca2faa351d3511943b08b6a70554848c3dfd3e6e7b0474",
+      "recipe_chars": 217,
+      "parent": "balladPoetry",
+      "instruments": ["voice", "acoustic_guitar_om"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "lagu_madura",
+      "status": "PASS",
+      "recipe_sha256": "a21c8349545721bcc9756a4faea577d4ac3488363705da3865c0b272bf74f2df",
+      "recipe_chars": 108,
+      "parent": "artMusic",
+      "instruments": ["voice"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "lagu_timur",
+      "status": "PASS",
+      "recipe_sha256": "1bd3a77d0d2ff4c40d0576e05ba6d3c302a7c521c91f02dd05ed8c417e96d9db",
+      "recipe_chars": 345,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electronic_keyboard_unspecified",
+        "credited_electronics_unspecified",
+        "credited_auxiliary_percussion",
+        "credited_strings_unspecified"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "latincore",
+      "status": "PASS",
+      "recipe_sha256": "4447b7ced358442106f931e45ee71b903553f86c93cd968ff652be930b300a5b",
+      "recipe_chars": 301,
+      "parent": "distortedRock.punk",
+      "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "latintronica",
+      "status": "PASS",
+      "recipe_sha256": "5557d7b1bae7196d22cfa363064bf328bceceefeedac57053f071180e52f7671",
+      "recipe_chars": 110,
+      "parent": "electronicDance.latinElec",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "liechtenstein",
+      "status": "PASS",
+      "recipe_sha256": "5268bb78ca4911800eaf8d834ae1c027182ca8103954c3188c02a5e0bfb61bcc",
+      "recipe_chars": 314,
+      "parent": "artMusic.westernCommonPractice",
+      "instruments": ["pipe_organ"],
+      "assessment": "Early1890s corresponds to complete1891 Rheinberger organ sonata, not national founding or a source recording. Willis/pneumatic/temperament choices are explicitly authored modern score rendition.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "lo_fi_vgm",
+      "status": "PASS",
+      "recipe_sha256": "219f4bf9cf83ce2dc703513efac01f8083decc9a4cb15de138bd30fd1f632a02",
+      "recipe_chars": 133,
+      "parent": "experimentalElec.lofi",
+      "instruments": ["moog_matriarch", "sequential_prophet_xl", "custom_therevox_unspecified"],
+      "assessment": "Three documented electronic owners retained with manufacturer architecture; no opaque full-master sampler replacement or guessed fourth role.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "lustrum",
+      "status": "PASS",
+      "recipe_sha256": "94813c6b13317eb387b25c17e9c2324a2dbe17eed2396f7519dcd1bbb00aae04",
+      "recipe_chars": 351,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electronic_drum_kit_unspecified",
+        "credited_sound_effect_unspecified",
+        "credited_synthesizer_unspecified",
+        "grand_piano",
+        "saxophone",
+        "credited_strings_unspecified",
+        "credited_samples_unspecified"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "malaysian_traditional",
+      "status": "PASS",
+      "recipe_sha256": "9a7a4c8ebc77e8b24da57807f4bcac651e5efd306d2f1cc82988b261f456b2d9",
+      "recipe_chars": 240,
+      "parent": "balladPoetry",
+      "instruments": ["voice", "sape"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "marathi_remix",
+      "status": "PASS",
+      "recipe_sha256": "114a5e3f4c4ae931624c6f0cb11210c6ddf4181df8e4261f698f23cf76e78944",
+      "recipe_chars": 87,
+      "parent": "electronicDance",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "montana_roots",
+      "status": "PASS",
+      "recipe_sha256": "188a5b0dc5cfdd67e658b93db497f93befce55baee8d7b7bd9aa3627125a567d",
+      "recipe_chars": 319,
+      "parent": "functionalSong.popRock.folkRock",
+      "instruments": ["voice", "acoustic_guitar_dread"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "moog",
+      "status": "PASS",
+      "recipe_sha256": "9269298460e8fe430bd28fd416a0cd9de33338a6c27362ee1ee08e9154dcecbd",
+      "recipe_chars": 145,
+      "parent": "experimentalElec.ambient",
+      "instruments": ["analog_mono_synth"],
+      "assessment": "Current source era and1970 instrument lineage are different concepts. Compiled instrument-history wording is owner documentation, not falsely dating the modern source programme.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "moroccan_traditional",
+      "status": "PASS",
+      "recipe_sha256": "15c9ceeb3eaa868adc5b66c1d8d2ad1c0cd7be3e16332ad948be3b8babf9ba53",
+      "recipe_chars": 149,
+      "parent": "balladPoetry",
+      "instruments": ["voice"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "motivation",
+      "status": "PASS",
+      "recipe_sha256": "fcbb9077c73a631ec821cb56697dba3c9f49a7e5660bdf1cf828ccd78061041e",
+      "recipe_chars": 163,
+      "parent": "spokenWord.narration",
+      "instruments": ["voice"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "multidisciplinary",
+      "status": "PASS",
+      "recipe_sha256": "15ce00fb8307e8334d8af7261c6d110e9fe14fd000739d84748f38d86f564c2f",
+      "recipe_chars": 74,
+      "parent": "artMusic",
+      "instruments": ["upright_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_blumenauense",
+      "status": "PASS",
+      "recipe_sha256": "098864e8a21bf47d3f3bee22b0bb961e875d5fa55cbca44f8d9f555c6ede535b",
+      "recipe_chars": 433,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "cello",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_calabrese",
+      "status": "PASS",
+      "recipe_sha256": "f8fbb9f662e5c3bea3c88caa87eae7a6d77e988a1e74bed9ac8ead022d60768e",
+      "recipe_chars": 234,
+      "parent": "balladPoetry",
+      "instruments": ["voice", "acoustic_guitar_dread"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_capixaba",
+      "status": "PASS",
+      "recipe_sha256": "196ad43392c975693e3d10978febe0d10e44d4ed5482fc63b01a55eb6c2f8e85",
+      "recipe_chars": 330,
+      "parent": "experimentalElec",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "credited_synthesizer_unspecified",
+        "credited_electronics_unspecified",
+        "dj_playback_mixing_unspecified",
+        "live_signal_processing_unspecified"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_caririense",
+      "status": "PASS",
+      "recipe_sha256": "79cb86542a4c03c668f22fbfd033dd778607c8c0288c7badccbc2f363d58fe7e",
+      "recipe_chars": 151,
+      "parent": "improvOnFrame",
+      "instruments": ["electric_guitar_humbucker", "pandeirola_meia_lua"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_cearense",
+      "status": "PASS",
+      "recipe_sha256": "96db4460c9d8d755228704fbe789077d00370ab88beb1dbc4a92dc87449aa8d4",
+      "recipe_chars": 298,
+      "parent": "functionalSong",
+      "instruments": ["voice", "acoustic_guitar_dread"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_chiapaneca",
+      "status": "PASS",
+      "recipe_sha256": "307f4131fe32cc68c12b52181ea6cf674b2324edadf6483f0648f8c545353d1f",
+      "recipe_chars": 259,
+      "parent": "functionalSong.mexican",
+      "instruments": [
+        "chiapanecan_marimba",
+        "glockenspiel",
+        "electric_bass",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Full four-family configuration preserved; compressed plastic glockenspiel wording comes from authored mallet control, not a claim metal bars are plastic.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_colombiana_instrumental",
+      "status": "PASS",
+      "recipe_sha256": "c2ad2253911280ba617b8d461ea63e0c185aaf94923a2d15ebd617ad26da7777",
+      "recipe_chars": 87,
+      "parent": "artMusic",
+      "instruments": ["upright_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_mocambicana",
+      "status": "PASS",
+      "recipe_sha256": "c0a8b60cf41974450573fa4465838d84b19124753a497cf7acb373832965982a",
+      "recipe_chars": 127,
+      "parent": "functionalSong",
+      "instruments": ["voice", "viola_campanica", "credited_electronics_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_para_criancas",
+      "status": "PASS",
+      "recipe_sha256": "dcac3c4e69ef83ab891eb696c3375f327951057ee556435422fafc4bccb38c1c",
+      "recipe_chars": 337,
+      "parent": "functionalSong",
+      "instruments": ["voice", "acoustic_guitar_om", "electric_bass", "drum_kit"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_paranaense",
+      "status": "PASS",
+      "recipe_sha256": "a0d800b44e48da93d6e2fbba370c4a167d533f07ccc31591c690dcdc3fea1033",
+      "recipe_chars": 222,
+      "parent": "balladPoetry",
+      "instruments": ["voice", "acoustic_guitar_om"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_per_bambini",
+      "status": "PASS",
+      "recipe_sha256": "c35ebeeb8971c460d49440492bcddbb044757ef79586f3ddec466610b78a2e67",
+      "recipe_chars": 224,
+      "parent": "spokenWord.narration",
+      "instruments": ["voice", "upright_piano"],
+      "assessment": "Spoken narrator plus acoustic piano retained; no attribution of performance to composer inferred. Pure speech pitch organization remains protected.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_piauiense",
+      "status": "PASS",
+      "recipe_sha256": "45a244198ae5bd72f72f7316097babd5b92091969b7fe7072600071c84093253",
+      "recipe_chars": 341,
+      "parent": "functionalSong",
+      "instruments": ["voice", "electric_guitar_single_coil", "electric_bass", "drum_kit"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_piemonteisa",
+      "status": "PASS",
+      "recipe_sha256": "f0fcf26b317021b196cf1d7c33e7b45db435751daf021c2bb806a4f85bf0559a",
+      "recipe_chars": 223,
+      "parent": "balladPoetry",
+      "instruments": ["voice", "acoustic_guitar_om"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_pitiusa",
+      "status": "PASS",
+      "recipe_sha256": "a8ac89007f64a372097acd8714856cd522cb3cccbb9f8e9ca487b06e3fb355af",
+      "recipe_chars": 153,
+      "parent": "improvOnFrame",
+      "instruments": ["flauta_pitiusa", "tambor_pitius", "castanyoles_pitiuses"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_puntana",
+      "status": "PASS",
+      "recipe_sha256": "10f1a5d1243b799d92533e503ed7acb947c6c4c9996e18ac5439bd6891449a6d",
+      "recipe_chars": 233,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electric_bass",
+        "upright_piano",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_rapa_nui",
+      "status": "PASS",
+      "recipe_sha256": "58040f352c343b9298752dd243054b11474a0bae6bcf6e4e789c888444e5a4ba",
+      "recipe_chars": 304,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "drum_kit",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_sudcaliforniana",
+      "status": "PASS",
+      "recipe_sha256": "3c8541843370954c5ed26c1ccd51f9f0cb5c4a37d30fb3e50da39dbabd6cdca4",
+      "recipe_chars": 388,
+      "parent": "functionalSong.mexican",
+      "instruments": ["voice", "acoustic_guitar_om", "credited_requinto_unspecified", "tuba"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_tabasquena",
+      "status": "PASS",
+      "recipe_sha256": "16319928ac611ca487d599aff65ed9d23cbebb1b91f0cc9ca3ea37e45cf54934",
+      "recipe_chars": 173,
+      "parent": "groovePercussion",
+      "instruments": [
+        "flauta_carrizo_tabasquena",
+        "requinto_tabasqueno",
+        "tambor_grande_tabasqueno"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musica_tradicional_cubana",
+      "status": "PASS",
+      "recipe_sha256": "18cb79629ffd314c2ad5c77e2ce76fb3b9cc03db22071946c1a647a0454b2748",
+      "recipe_chars": 307,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "credited_requinto_unspecified",
+        "tres_cubano",
+        "laud_cubano",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musical_advocacy",
+      "status": "PASS",
+      "recipe_sha256": "7cca8fe1c06aaafe7c1278230e151cdc97a295970ab4740cfc98cc29770ee9b5",
+      "recipe_chars": 84,
+      "parent": "functionalSong",
+      "instruments": ["upright_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musicas_espiritas",
+      "status": "PASS",
+      "recipe_sha256": "edb1a4f6e7ea8e398c78a34724e7b06f72a11ace0b8f0566cfd94cb33779f3e1",
+      "recipe_chars": 167,
+      "parent": "ritualDevotional",
+      "instruments": ["voice", "acoustic_guitar_om"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musiqi_ye_zanan",
+      "status": "PASS",
+      "recipe_sha256": "b332935971d22d47bcb978cff6cac45a4312e3f14c6bdc325bf208bb4d959a31",
+      "recipe_chars": 215,
+      "parent": "balladPoetry",
+      "instruments": ["voice", "credited_environmental_ambience"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musique_alsacienne",
+      "status": "PASS",
+      "recipe_sha256": "b5afc66ddd62c2fd5350d99c3bb6202c8d2281aed6a7ce7e2bdbdd7276851ca8",
+      "recipe_chars": 98,
+      "parent": "artMusic",
+      "instruments": ["accordion"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musique_centrafricaine",
+      "status": "PASS",
+      "recipe_sha256": "7a593bacb9d2cd25541d520e8bbbcfd1922d62626a9ad9e3b32f23dca95c5304",
+      "recipe_chars": 151,
+      "parent": "improvOnFrame",
+      "instruments": ["voice"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musique_mahoraise",
+      "status": "PASS",
+      "recipe_sha256": "4e97f216b734921525aefd8f534bfed882bff3446b61ba9a661343753179d522",
+      "recipe_chars": 414,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electric_bass",
+        "grand_piano",
+        "accordion",
+        "cajon_peruano"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musique_militaire",
+      "status": "PASS",
+      "recipe_sha256": "13aeff37cc9c4858cf6fc9ae43119de73c38a9490187e904c72f75807a39e81e",
+      "recipe_chars": 106,
+      "parent": "artMusic",
+      "instruments": ["voice", "upright_piano"],
+      "assessment": "Documented choral/piano institutional programme; group vocals plus piano, not a guessed brass band from category name. Single piano family can represent alternating/four-hands published roles.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musique_tchadienne",
+      "status": "PASS",
+      "recipe_sha256": "78b07e483f7040a24f1e80b2f3ac0d7abf74cb4cc7feca354ad0b7136f91c9ee",
+      "recipe_chars": 167,
+      "parent": "functionalSong",
+      "instruments": ["voice", "acoustic_guitar_om", "credited_auxiliary_percussion"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musique_traditionnelle_comorienne",
+      "status": "PASS",
+      "recipe_sha256": "71ccd29244f77388a8c7fefae64e360c6d972468c9d48c81ef2bbf848b45e4d9",
+      "recipe_chars": 208,
+      "parent": "lullaby",
+      "instruments": ["voice", "comorian_firimbi"],
+      "assessment": "Mid1990s is issued1994 edition; evidence preserves1983 field recording date separately. One singer and two sequential/doubled flute roles retained within voice+firimbi owner; no three simultaneous people claim.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "musique_urbaine_kinshasa",
+      "status": "PASS",
+      "recipe_sha256": "7d9ba69d57117a355bd9aff1b271f153860bb35c4659aadb2db31f903b788329",
+      "recipe_chars": 98,
+      "parent": "electronicDance",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "muzica_ardeleneasca",
+      "status": "PASS",
+      "recipe_sha256": "2dc62f707cc061461005bdfa0e509abb13e7b6b7d29f20f4f29ab5c3c05ca37d",
+      "recipe_chars": 183,
+      "parent": "improvOnFrame",
+      "instruments": ["fluier", "human_voice_ensemble_unspecified"],
+      "assessment": "Positive fluier and spoken-flow performance preserved; unknown voice ensemble cardinality remains unspecified, not inferred from compressed voice label.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "muzica_bisericeasca",
+      "status": "PASS",
+      "recipe_sha256": "03919778b0d72b905a850030a9473a780d6b9cd428a797826f6b473c0b06056a",
+      "recipe_chars": 157,
+      "parent": "ritualDevotional.christianGospel",
+      "instruments": ["human_voice_ensemble_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "muzica_crestina",
+      "status": "PASS",
+      "recipe_sha256": "8b239bcbc1e99c819a73a57b6f2807c6f75e3642d62af09fbdc4cfc1896136ad",
+      "recipe_chars": 217,
+      "parent": "ritualDevotional",
+      "instruments": ["saxophone", "electronic_keyboard_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "muzica_moldoveneasca",
+      "status": "PASS",
+      "recipe_sha256": "a94f66ace811fce5970f7b61d889b7a3fa0441a8da76a8e59436b61741f497a4",
+      "recipe_chars": 78,
+      "parent": "balladPoetry",
+      "instruments": ["human_voice_ensemble_unspecified"],
+      "assessment": "Unaccompanied voice edition preserved with unknown ensemble count; no added accompaniment or claimed full-score page inspection.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "muzika_lyeladim",
+      "status": "PASS",
+      "recipe_sha256": "808f02c6374d5368c86c3d8b9a5628663b28b6ff9963fc06315b393ad35a6f78",
+      "recipe_chars": 148,
+      "parent": "artMusic",
+      "instruments": ["voice", "flute"],
+      "assessment": "ArtMusic applies to elaborated complete SATB/flute arrangement; does not define all children repertoire classical. Scored voices and flute remain complete.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "nederlandse_hardstyle",
+      "status": "PASS",
+      "recipe_sha256": "82e7ff8c86f4ea82276085943172b9fdeeb4b4829e81383cad8bd98add9c6a87",
+      "recipe_chars": 113,
+      "parent": "electronicDance.hardstyle",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "nederreggae",
+      "status": "PASS",
+      "recipe_sha256": "20df04d09294deb1b14d3caf5daa4c84a8522e85308ea90dab6121aa2e50a184",
+      "recipe_chars": 698,
+      "parent": "bassSystem.reggaeDiaspora",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified",
+        "trumpet",
+        "trombone",
+        "saxophone"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "nephop",
+      "status": "PASS",
+      "recipe_sha256": "6257c4d6facea00b3e0d3b8a09c5940aa3610441e39972294393a6930c77d8bf",
+      "recipe_chars": 161,
+      "parent": "mcRhythm.intlHipHop",
+      "instruments": ["voice", "spoken_word_voice"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "normal_indie",
+      "status": "PASS",
+      "recipe_sha256": "a1484276089a6f0f6a59a48fecd082d05f7fe00fdd26ec9c7e39bb8fcd68af82",
+      "recipe_chars": 172,
+      "parent": "functionalSong",
+      "instruments": ["human_voice_ensemble_unspecified", "acoustic_guitar_om"],
+      "assessment": "Unknown singing count preserved by human-voice ensemble owner. Compressed recipe absence of headcount is intentional uncertainty, not one singer claim.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "norsk_lovsang",
+      "status": "PASS",
+      "recipe_sha256": "a7ad49ab518ece820dfc7b31c8ca2a1f6a9080b19828d2c16ebf966890eb18dd",
+      "recipe_chars": 362,
+      "parent": "ritualDevotional.christianGospel",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "north_alabama_indie",
+      "status": "PASS",
+      "recipe_sha256": "cf0d952318e49c682504251095b2f6e1efc227a62714e3a4e197dfbb5502fca0",
+      "recipe_chars": 410,
+      "parent": "distortedRock.alternative",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "northeast_indian_indie",
+      "status": "PASS",
+      "recipe_sha256": "5bc47a0eb25f1e509fa33ec59a24ba42fcc862c378a74cd99d93952964ad031d",
+      "recipe_chars": 262,
+      "parent": "functionalSong",
+      "instruments": ["voice", "electric_guitar_humbucker"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "northern_irish_indie",
+      "status": "PASS",
+      "recipe_sha256": "14482989886ba40e7a518f680998842cbccc886745c97d8e788e9c2dc825597a",
+      "recipe_chars": 500,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "grand_piano",
+        "acoustic_guitar_dread",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "credited_synthesizer_unspecified",
+        "drum_kit",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Complete album-union two voices and nine-family palette preserved. Existing compressor may fold acoustic and electric guitar into one printed noun; config retains both distinct owners.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "northwest_china_indie",
+      "status": "PASS",
+      "recipe_sha256": "275c4a5b40f313780b9ef03461a53b0e862ce326d36cd97e61bafb4404eb3ac2",
+      "recipe_chars": 390,
+      "parent": "distortedRock.punk",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "credited_synthesizer_unspecified",
+        "drum_kit",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Complete credited ensemble and two singers preserved; conventional authored hardware controls do not identify original instruments.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "norwegian_experimental",
+      "status": "PASS",
+      "recipe_sha256": "6f42c2db91250fa2657c162020dbd84a33246716f0dcbbb8f219aecac6103e52",
+      "recipe_chars": 144,
+      "parent": "artMusic",
+      "instruments": ["acoustic_guitar_12_string"],
+      "assessment": "Complete documented twelve-string solo programme preserved. Broad experimental institution distinction retained, not exemplar-only exclusion from all jazz/classical.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "nova_musica_carioca",
+      "status": "PASS",
+      "recipe_sha256": "48a7886682b91f4baab76ca77d36d8359f61ef2956f049ad07424c94e8776487",
+      "recipe_chars": 251,
+      "parent": "balladPoetry",
+      "instruments": ["voice", "upright_piano", "acoustic_guitar_om"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "nu_gabber",
+      "status": "PASS",
+      "recipe_sha256": "ab21f4c22368f82895c443980fccdc066cdebba8ed9552f14c4c8db16ffb1773",
+      "recipe_chars": 207,
+      "parent": "electronicDance.hardstyle",
+      "instruments": ["voice", "dj_playback_mixing_unspecified"],
+      "assessment": "Documented live voice plus DJ role retained; embedded recordings not decomposed into invented live instrumentalists.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "nueva_ola_chilena",
+      "status": "PASS",
+      "recipe_sha256": "e170af323ffda3abb09e2fab57c2dd9969d4116c7053d72e484fd40e82f2ee52",
+      "recipe_chars": 735,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "upright_piano",
+        "saxophone",
+        "trumpet",
+        "trombone"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "nueva_ola_peruana",
+      "status": "PASS",
+      "recipe_sha256": "6918cbf05e0f9262720a176259321ec6edb998a3a408fec213448ddd9fa2db24",
+      "recipe_chars": 357,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "electronic_keyboard_unspecified"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "nz_christian",
+      "status": "PASS",
+      "recipe_sha256": "411ddd850397d73211b9fe0160d23dce5bc077cc5527e0c378d3b4fc4af17e43",
+      "recipe_chars": 373,
+      "parent": "ritualDevotional.christianGospel",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "electronic_keyboard_unspecified",
+        "drum_kit",
+        "credited_auxiliary_percussion"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "oceania_soundtrack",
+      "status": "PASS",
+      "recipe_sha256": "270686ca82c6aaa0165b2607ff5abb6aac98e608f161e39f793c863be1cb0dc9",
+      "recipe_chars": 82,
+      "parent": "artMusic",
+      "instruments": ["upright_piano"],
+      "assessment": "Reviewed upright derivative retains full solo-piano edition. No romantic-orchestra or extra ensemble claim in compiled output; broad acoustic-piano contextual photo limitation preserved.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "odia_bhajan",
+      "status": "PASS",
+      "recipe_sha256": "7f4d408f9e9e0b2a7ca855091137c7797b28a8dd3691b02e11b8473443730560",
+      "recipe_chars": 305,
+      "parent": "ritualDevotional.hindu",
+      "instruments": ["voice", "credited_flute_unspecified", "tabla", "hand_pumped_harmonium"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "oktoberfest",
+      "status": "PASS",
+      "recipe_sha256": "f78a7b25c03bba273982996eac74302ff7d73cd484f4b10966e1437bd814dfb8",
+      "recipe_chars": 182,
+      "parent": "drinkingSong.european",
+      "instruments": ["clarinet", "bass_clarinet"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "pinoy_traditional",
+      "status": "PASS",
+      "recipe_sha256": "4a7cf8db45fc165d458aedb9581c16cd26945cb9a95161b343feea690fadd04f",
+      "recipe_chars": 171,
+      "parent": "balladPoetry",
+      "instruments": ["voice"],
+      "assessment": "Early1950s matches1953 issued complete Ambahan track. Compiled recitative rhythmically-free and solo-unaccompanied exactly preserves source distinction; no forced tempered/pentatonic preset.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "pittsburgh_indie",
+      "status": "PASS",
+      "recipe_sha256": "14b4f4ee57b6f490cbdaa348136fa9e510338de8f8c1fdef1d62020383b80b4c",
+      "recipe_chars": 90,
+      "parent": "experimentalElec",
+      "instruments": ["credited_samples_unspecified"],
+      "assessment": "Actual source-level sampled construction positively supported; complete sampled palette retained, not a shortcut treating any finished master as one sampler.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "pontianak_indie",
+      "status": "PASS",
+      "recipe_sha256": "1b74dc8e65998dad43eded8e4d4201550fdb3bc7f33a756803d538e117d06135",
+      "recipe_chars": 464,
+      "parent": "distortedRock.alternative",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "trumpet",
+        "credited_synthesizer_unspecified"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "popping",
+      "status": "PASS",
+      "recipe_sha256": "d476bbd3e0320eabf4f2a8e47f3310cc381962fe08724a55695606aa85c76d19",
+      "recipe_chars": 119,
+      "parent": "groovePercussion.funkPercussive",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "psytech",
+      "status": "PASS",
+      "recipe_sha256": "7fcd228e1a8e24fa160e3c5093cbe2f647cde8f361b407d6d5154d418ee35736",
+      "recipe_chars": 96,
+      "parent": "electronicDance.techno",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "puglia_indie",
+      "status": "PASS",
+      "recipe_sha256": "6472098021c08782a5bd7231cf3a0be29abbff48faa769df63487d27ad67e715",
+      "recipe_chars": 415,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_om",
+        "electric_bass",
+        "drum_kit",
+        "grand_piano",
+        "credited_synthesizer_unspecified"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "purple_sound",
+      "status": "PASS",
+      "recipe_sha256": "c1e52597c9c59b77c6d3ac07bacd8209eeb87cbdf3dc30b4a9b8206c20c82a95",
+      "recipe_chars": 104,
+      "parent": "bassSystem.ukSoundsystem",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "qanun",
+      "status": "PASS",
+      "recipe_sha256": "89807926571a8513dccc42ace3bc6e937ade178debcf833686fdd93d5acdbca4",
+      "recipe_chars": 75,
+      "parent": "artMusic",
+      "instruments": ["kanun"],
+      "assessment": "Instrument-centered issued repertoire, one kanun. Repeated kanun/synthetic compression reflects authored string choice, not a second instrument or electronic synthesis claim.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "reiki",
+      "status": "PASS",
+      "recipe_sha256": "599d6343423a227f8723e8012ff197c8c431eae6de209fa5fa96384a272b81d3",
+      "recipe_chars": 215,
+      "parent": "experimentalElec.ambient",
+      "instruments": [
+        "grand_piano",
+        "electronic_keyboard_unspecified",
+        "credited_sound_effect_unspecified"
+      ],
+      "assessment": "Piano+unknown-architecture keyboard+credited sound effects all retained. Neutral keyboard melodic_chordal remains valid unprotected compiled choice; no therapeutic efficacy claim.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "rosary",
+      "status": "PASS",
+      "recipe_sha256": "138bb642205abaa075bd71e95abf006fab9723de1a6bbaca2169b09b953e63c0",
+      "recipe_chars": 168,
+      "parent": "ritualDevotional",
+      "instruments": ["voice"],
+      "assessment": "Complete spoken devotional scope, no pitch organization, no fictional accompaniment.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "rozpravky",
+      "status": "PASS",
+      "recipe_sha256": "15dd6741c4e81daef5b1e6128b4e6e6012aafb20a2d9e531a18dc1fc782eaf44",
+      "recipe_chars": 183,
+      "parent": "spokenWord.narration",
+      "instruments": ["voice"],
+      "assessment": "Complete four-story narrator scope, spoken/no-pitch controls retained, no music bed inferred.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "sad_sierreno",
+      "status": "PASS",
+      "recipe_sha256": "2dd1eb1248a6f7ca458d377f79fddb53150513d1e99a09ec94c485e1ad4a8d2b",
+      "recipe_chars": 259,
+      "parent": "functionalSong.mexican",
+      "instruments": [
+        "voice",
+        "acoustic_guitar_dread",
+        "electric_bass",
+        "upright_bass",
+        "tenor_horn_eb"
+      ],
+      "assessment": "Full NPR programme includes both electric/upright bass and nominal E-flat alto-horn owner. Compression may group bass wording; all five families and two singers persist in config.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "smooth_saxophone",
+      "status": "PASS",
+      "recipe_sha256": "421755896f15105b5169ad8642babc7d3044bef1a08ab50c099b32a4a6c9f47c",
+      "recipe_chars": 268,
+      "parent": "bassSystem.jamaican",
+      "instruments": [
+        "saxophone_section_soprano_alto_tenor",
+        "electric_guitar_humbucker",
+        "credited_programmed_drums_unspecified"
+      ],
+      "assessment": "Selected issued track explicitly reggae, so Jamaican branch is source-based without defining all smooth saxophone as reggae. All three sax registers, guitar and programmed drums retained.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "sound_team",
+      "status": "PASS",
+      "recipe_sha256": "dceeff7064789812dcb231daf513f5e47e3508e1cdf74e1b818b881cb145d484",
+      "recipe_chars": 138,
+      "parent": "artMusic",
+      "instruments": ["grand_piano"],
+      "assessment": "Early2020s matches2020 complete two-track piano-suite release, not entire original game soundtrack. Institutional category evidence does not falsely employ external pianist at game studio.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "springfield_mo_indie",
+      "status": "PASS",
+      "recipe_sha256": "08c60ba0a33fdc7b6eaaec249409285e1f4f229ac06560a65ab278914aea538a",
+      "recipe_chars": 363,
+      "parent": "distortedRock.alternative",
+      "instruments": ["voice", "electric_guitar_humbucker", "electric_bass", "drum_kit"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "talentkonkurranse",
+      "status": "PASS",
+      "recipe_sha256": "3f0a236023a56f2f5d155a92366833d4f9e851bd0765cdc1ef3ab184ee11a684",
+      "recipe_chars": 440,
+      "parent": "functionalSong",
+      "instruments": [
+        "voice",
+        "electric_guitar_single_coil",
+        "credited_steel_guitar_unspecified",
+        "upright_piano",
+        "electronic_keyboard_unspecified",
+        "electric_bass",
+        "drum_kit"
+      ],
+      "assessment": "One self-doubled singer, complete seven-family union and neutral steel-guitar owner retained. Neutral keyboard actual melodic_chordal valid and unprotected; source-unspecified steel architecture not replaced with invented pedal/lap hardware.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "tamaulipas_indie",
+      "status": "PASS",
+      "recipe_sha256": "30172b2aa7e5b6fcab420ee310085360abc5bb8c094131221b7373bc5d2c0946",
+      "recipe_chars": 378,
+      "parent": "distortedRock.alternative",
+      "instruments": [
+        "voice",
+        "electric_guitar_humbucker",
+        "electric_bass",
+        "drum_kit",
+        "credited_samples_unspecified"
+      ],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "tearout",
+      "status": "PASS",
+      "recipe_sha256": "af0c5fc4bb7e1cffd263cf9e30d738405aa5647d628beabd0d5c08e16b87c50b",
+      "recipe_chars": 86,
+      "parent": "bassSystem",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "thai_bl_ost",
+      "status": "PASS",
+      "recipe_sha256": "4510af20dfb35e36d78d93eb0b2b96308a639819fc95db7532a5b328865c1d50",
+      "recipe_chars": 74,
+      "parent": "functionalSong",
+      "instruments": ["upright_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "thai_instrumental",
+      "status": "PASS",
+      "recipe_sha256": "433943c506bb4d2db8ea55e999bc94abfd62f7a02301ff83ee59728713af5b51",
+      "recipe_chars": 80,
+      "parent": "improvOnFrame",
+      "instruments": ["upright_piano"],
+      "assessment": "Spontaneous complete five-piece piano album supports improvOnFrame; upright realization candidly authored, not inferred original instrument.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "urban_contemporary",
+      "status": "PASS",
+      "recipe_sha256": "d3fefd15ed501ed47aabb4281b25ed6248836935d7fbd8b47b1e02d9a21b42d0",
+      "recipe_chars": 93,
+      "parent": "functionalSong",
+      "instruments": ["upright_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "viet_instrumental",
+      "status": "PASS",
+      "recipe_sha256": "d1b137197178c9bf06eca1fce3e894397fa3b81fba7409948d633a867aba52a0",
+      "recipe_chars": 104,
+      "parent": "improvOnFrame",
+      "instruments": ["dan_tranh"],
+      "assessment": "Early2010s describes selected issued programme; đàn-tranh solo complete and national listening-field scope not universally reduced to one Southern lineage.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "waiata_mo_tamariki",
+      "status": "PASS",
+      "recipe_sha256": "4f4975762895102160bc219278afb5c29ebf70a8996ac4fc8ba1306fb4b4ee9c",
+      "recipe_chars": 202,
+      "parent": "functionalSong",
+      "instruments": ["voice", "upright_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "weightless",
+      "status": "PASS",
+      "recipe_sha256": "2c891bd91aa922a57c724544f57433eef6c7e46e30d2ec14c426e6053ccca149",
+      "recipe_chars": 102,
+      "parent": "bassSystem.ukSoundsystem",
+      "instruments": ["dj_playback_mixing_unspecified"],
+      "assessment": "Full issued DJ programme with named movement boundary already independently reviewed against instrumental grime; no fabricated live voices or hardware.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "west_end",
+      "status": "PASS",
+      "recipe_sha256": "0328b03b3e167d0eb548e9efa7b0a28a8d10d4ea098b6fde2534bfd0e756c551",
+      "recipe_chars": 83,
+      "parent": "functionalSong",
+      "instruments": ["upright_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "wu_fam",
+      "status": "PASS",
+      "recipe_sha256": "2ac01336b71f569cb716df7516cf52fa6c088e1725e36a44e518911eada80ddb",
+      "recipe_chars": 106,
+      "parent": "mcRhythm",
+      "instruments": ["voice"],
+      "assessment": "Full issued five-rapper acapella retains group human voices; no backing loop invented.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    },
+    {
+      "id": "yaoi",
+      "status": "PASS",
+      "recipe_sha256": "0f7ff5f90eef70e8df04a313acb7555e7ddec93776c467d2ff4715db60cb403a",
+      "recipe_chars": 95,
+      "parent": "functionalSong.eastAsianPop",
+      "instruments": ["upright_piano"],
+      "assessment": "Complete compiled recipe read against accepted complete source scope and authored model: category/parent is the selected documented practice, full credited owner palette remains in config, and physical/technique/room descriptors are disclosed authored settings rather than source hardware measurements. No new missing role, era contradiction or unrelated named-cultural assertion found.",
+      "photo_scope": "Exact inherited receipt/context and current rights already independently verified in checkpoint100-independent-review119.json; source photo unchanged by integration."
+    }
+  ],
+  "pending": [],
+  "all100_full_recipe_strings_read": true,
+  "compiled_fallback_review": "compiled-unpinned-review119.json",
+  "limits": "Static compressed recipe may group owners or omit generic voice noun; structured config/roster and2155 protected applicable controls independently verified. Classic is original compiler header wording, not a new category-wide classical-music assertion. No claim of source waveform listening or original gear identification."
+}

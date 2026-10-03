@@ -1,5 +1,5 @@
 {
-  "count": 1609,
+  "count": 1628,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9654,6 +9654,120 @@
       "name": "Credited synthesizer (architecture unspecified)",
       "family": "electronic",
       "href": "instruments/credited_synthesizer_unspecified.json"
+    },
+    {
+      "id": "electronic_drum_kit_unspecified",
+      "name": "Electronic drum kit (architecture unspecified)",
+      "family": "electronic",
+      "href": "instruments/electronic_drum_kit_unspecified.json"
+    },
+    {
+      "id": "credited_sound_effect_unspecified",
+      "name": "Credited sound effect (mechanism unspecified)",
+      "family": "ensemble",
+      "href": "instruments/credited_sound_effect_unspecified.json"
+    },
+    {
+      "id": "viol_consort",
+      "name": "Viol consort — mixed treble,tenor and bass registers",
+      "family": "bowed",
+      "href": "instruments/viol_consort.json"
+    },
+    {
+      "id": "moog_matriarch",
+      "name": "Moog Matriarch",
+      "family": "electronic",
+      "href": "instruments/moog_matriarch.json"
+    },
+    {
+      "id": "sequential_prophet_xl",
+      "name": "Sequential Prophet XL",
+      "family": "electronic",
+      "href": "instruments/sequential_prophet_xl.json"
+    },
+    {
+      "id": "custom_therevox_unspecified",
+      "name": "Custom Therevox synthesizer",
+      "family": "electronic",
+      "href": "instruments/custom_therevox_unspecified.json"
+    },
+    {
+      "id": "flauta_pitiusa",
+      "name": "Flaüta pitiüsa (three-hole oleander duct flute)",
+      "family": "wind",
+      "href": "instruments/flauta_pitiusa.json"
+    },
+    {
+      "id": "tambor_pitius",
+      "name": "Tambor pitiús (pine double-headed drum)",
+      "family": "percussion",
+      "href": "instruments/tambor_pitius.json"
+    },
+    {
+      "id": "castanyoles_pitiuses",
+      "name": "Castanyoles pitiüses (large juniper hand clappers)",
+      "family": "percussion",
+      "href": "instruments/castanyoles_pitiuses.json"
+    },
+    {
+      "id": "pandeirola_meia_lua",
+      "name": "Pandeirola meia-lua (jingled percussion)",
+      "family": "percussion",
+      "href": "instruments/pandeirola_meia_lua.json"
+    },
+    {
+      "id": "flauta_carrizo_tabasquena",
+      "name": "Flauta de carrizo tabasqueña",
+      "family": "wind",
+      "href": "instruments/flauta_carrizo_tabasquena.json"
+    },
+    {
+      "id": "requinto_tabasqueno",
+      "name": "Requinto tabasqueño (small double-headed drum)",
+      "family": "percussion",
+      "href": "instruments/requinto_tabasqueno.json"
+    },
+    {
+      "id": "tambor_grande_tabasqueno",
+      "name": "Tambor grande tabasqueño (large double-headed drum)",
+      "family": "percussion",
+      "href": "instruments/tambor_grande_tabasqueno.json"
+    },
+    {
+      "id": "comorian_firimbi",
+      "name": "Firimbi — Comorian open-ended flute",
+      "family": "wind",
+      "href": "instruments/comorian_firimbi.json"
+    },
+    {
+      "id": "live_signal_processing_unspecified",
+      "name": "Live signal processing (source-unspecified effects and mixing)",
+      "family": "electronic",
+      "href": "instruments/live_signal_processing_unspecified.json"
+    },
+    {
+      "id": "credited_environmental_ambience",
+      "name": "Credited incidental environmental ambience",
+      "family": "electronic",
+      "href": "instruments/credited_environmental_ambience.json"
+    },
+    {
+      "id": "chiapanecan_marimba",
+      "name": "Marimba chiapaneca",
+      "family": "percussion",
+      "href": "instruments/chiapanecan_marimba.json"
+    },
+    {
+      "id": "credited_requinto_unspecified",
+      "name": "Credited requinto (construction unspecified)",
+      "family": "acoustic_strings",
+      "href": "instruments/credited_requinto_unspecified.json"
+    },
+    {
+      "id": "credited_steel_guitar_unspecified",
+      "name": "Credited steel guitar (architecture unspecified)",
+      "family": "acoustic_strings",
+      "href": "instruments/credited_steel_guitar_unspecified.json"
     }
   ]
 }

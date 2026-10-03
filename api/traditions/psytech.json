@@ -1,0 +1,50 @@
+{
+  "id": "psytech",
+  "name": "Psytech",
+  "family": "electronic",
+  "lineage": "DJ Basilisk — entire five-hour Esoteric Expanse 1, the 81-selection uncut release. Artist documents Traktor 3/Korg Nanokontrol mixing in three sessions, Audacity assembly and Ableton mastering. Preserve the complete mixed programme, including ambient, electro and IDM passages; no assertion that every record is Psytech. This models positive DJ selection, beatmatching and blending, not an undocumented production master or guessed constituent instruments. Embedded vocal count is unknown; no added live voice cards. Existing neutral DJ playback/mixing owner models the documented operation at coarse catalog resolution. Its source-unspecified identity does not contradict the separately retained named software/controller evidence or simulate their exact controls. Authored controlled live-room presentation, not measured source acoustics. No global tuning, guessed physical decks, hardware synthesis or live one-take assertion. Mastering and assembly are documented production processes, not extra instrumental performers.",
+  "recipe": "classic psytech, electronic Dance, techno branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 96,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "psytech"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

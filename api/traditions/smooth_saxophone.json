@@ -1,0 +1,124 @@
+{
+  "id": "smooth_saxophone",
+  "name": "Smooth saxophone",
+  "family": "global",
+  "lineage": "Jerry Johnson — Saxman’s Mellow Mood (4:07), complete track1 of MANY MOODS OF SAXMAN JERRY J (July23,2025). Artist’s full track-indexed credit table explicitly assigns soprano, alto and tenor saxophone to Jerry Johnson on all tracks; guitar to Ainsworth Clark on track1; drum programs to Charles Mellers on track1. Retain all three saxophone registers in the existing three-register palette, one recorded multi-instrumentalist rather than three invented players; keep guitar and source-unspecified programmed drums. No keyboard, bass, live drum, DJ or voice credit attaches to track1. Other album tracks explicitly specify those additional parts and named guests, which are not silently removed from their tracks; they are outside this complete selected track. The malformed keyboard line says tracks comma6,7; its blank item does not positively identify track1, and is disclosed rather than silently completed. Artist-owned primary describes the release with the exact words Smooth Saxophone Reggae Music and sax instrumental/reggae tags. Exact creator Sound of Smooth Saxophone playlist freshly establishes the broader smooth-saxophone discovery field across commercial jazz, pop reinterpretation and Latin acts; this selected Jerry Johnson recording is independently positively classified by its creator, not claimed to appear in that first100 playlist or full map. Existing smooth_jazz_80s covers the1980s-onward commercial jazz-radio format, including Kenny G and David Sanborn, and substantially overlaps the discovery network. The requested instrument-led listening field also admits the artist’s explicitly identified smooth-reggae branch, so the distinction is this cross-style saxophone focus, not merely a different player/date or a claim jazz excludes saxophone. Existing jazz_saxophone is the changes-based American improvisational lineage; existing reggae is the broader Jamaican/diasporic musical umbrella and includes this selected instrumental branch without exhausting the smooth-saxophone listening category. Parent bassSystem.jamaican retains the directly stated reggae practice only for this branch. Three-register legato is authored recorded saxophone doubling, not simultaneous three-person section. Guitar source only names its family: humbucker electric clean strumming with alder body/maple neck/fingerboard and nickel strings is an explicit authored contemporary reggae-compatible realization, not evidence of actual electric subtype/model. Programmed drums retain the actual programmed mechanism with generator unspecified; no invented analog drum machine or sampler. Controlled studio room is authored; global tuning and apparatus omitted.",
+  "recipe": "classic mid-2020s smooth saxophone, bass System, Jamaican branch. controlled legato saxophone section soprano alto tenor, alder maple nickel conventional tuning standard pitch humbucker electric guitar, programmed credited programmed drums unspecified. treated studio.",
+  "recipe_chars": 268,
+  "score": 25.262,
+  "config": {
+    "traditions": [
+      "smooth_saxophone"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone_section_soprano_alto_tenor",
+        "slots": {
+          "soprano_alto_tenor_section_articulation": "soprano_alto_tenor_section_articulation_legato"
+        },
+        "scores": {
+          "soprano_alto_tenor_section_articulation": 2.6
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "maple_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 4.500000000000001,
+          "amp_make": 0,
+          "body_wood": 3.9314999999999993,
+          "neck_wood": 1.4365,
+          "fretboard": 1.3,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 2.6315,
+          "bridge": 0,
+          "scale_length": 0.33599999999999997,
+          "string_gauge": 2.9314999999999993,
+          "finish": 0,
+          "string_tuning": 1.663
+        }
+      },
+      {
+        "id": "credited_programmed_drums_unspecified",
+        "slots": {
+          "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+        },
+        "scores": {
+          "credited_programmed_drums_identity": 3.9314999999999993
+        }
+      }
+    ],
+    "pinned": {
+      "saxophone_section_soprano_alto_tenor": [
+        "soprano_alto_tenor_section_articulation"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "credited_programmed_drums_unspecified": [
+        "credited_programmed_drums_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "soprano_alto_tenor_section_articulation": "soprano_alto_tenor_section_articulation_legato",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "maple_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "credited_programmed_drums_identity": "credited_programmed_drums_generator_unspecified"
+    },
+    "pin_parts": true
+  }
+}

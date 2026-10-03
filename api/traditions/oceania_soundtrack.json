@@ -1,0 +1,58 @@
+{
+  "id": "oceania_soundtrack",
+  "name": "Oceania soundtrack",
+  "family": "classical",
+  "lineage": "Bruce Rowland — The Man from Snowy River, complete Hal Leonard Piano Solo Songbook HL00313565, ISBN9781458407948: all14 arrangements across64pages. Publisher explicitly specifies piano solo and lists the complete contents, including Jessica’s Theme and Clancy’s Theme. One piano family and no vocal part in this independently issued complete arranged edition; no reconstruction or truncation of the original film orchestra. Full score pages have not been inspected; publisher scoring and contents have. Broad artMusic/classical here models composed dramatic instrumental cue repertoire in its complete published piano realization; notation alone is not the category justification. A standard-size studio upright piano with connected classical-legato touch is an authored realization of the publisher’s subtype-unspecified piano scoring, not Rowland’s measured piano or source session; no grand-piano or orchestral timbre is asserted. Concert-hall room is authored; global tuning and recording apparatus omitted. No singer, sampled original soundtrack or uncredited instrument added.",
+  "recipe": "classic oceania soundtrack, art Music. legato upright piano. shoebox concert hall.",
+  "recipe_chars": 82,
+  "score": 10.331,
+  "config": {
+    "traditions": [
+      "oceania_soundtrack"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 10.331499999999998,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

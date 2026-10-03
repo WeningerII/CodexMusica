@@ -1,0 +1,58 @@
+{
+  "id": "musical_advocacy",
+  "name": "Musical advocacy",
+  "family": "pop",
+  "lineage": "Complete separately published seven-page Neil Archer instrumental piano arrangement of We Are the World, Musicnotes MN0257180. Publisher positively specifies one piano, instrumental solo and no lyrics; zero singers and no other instrument parts. This is the whole authorized piano edition, not a reduction inferred by deleting participants from the1985 ensemble master. The creator field lists the original USA for Africa song, not this later arrangement. Authored standard-size studio upright piano with block-chord pop support in a controlled live room realizes the positively scored piano. The published E-major,4/4 pop song supports a functional-song rendition with recurring refrain and tonal chord support; this editorial structural realization is not a transcription claim about every advocacy work. Upright construction and room are editorial, not claimed original recording equipment. No global tuning, capture hardware or source dynamics guessed.",
+  "recipe": "classic musical advocacy, functional Song. block chord upright piano. live tracking.",
+  "recipe_chars": 84,
+  "score": 13.9,
+  "config": {
+    "traditions": [
+      "musical_advocacy"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 13.599999999999998,
+          "upright_use": 0,
+          "upright_piano_size": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

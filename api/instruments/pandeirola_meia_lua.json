@@ -1,0 +1,89 @@
+{
+  "id": "pandeirola_meia_lua",
+  "name": "Pandeirola meia-lua (jingled percussion)",
+  "short": "meia-lua pandeirola",
+  "family": "percussion",
+  "class": "jingle_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "pandeirola_meia_lua_form",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "pandeirola_meia_lua_plastic_jingles",
+          "name": "Plastic body with jingles; exact alloy unspecified",
+          "default": true,
+          "descriptors": [
+            "plastic",
+            "jingling"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "pandeirola_meia_lua_gesture",
+      "name": "Playing action",
+      "variants": [
+        {
+          "id": "pandeirola_meia_lua_foot_pulse",
+          "name": "Foot-played pulse",
+          "default": true,
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source-positive meia-lua percussion, here foot played. Manufacturer substantiates plastic body with metal jingles as authored representative construction. Not a skin-headed pandeiro, no invented membrane/tuning/brand/dimensions. Numeric axes neutral authored scaffold.",
+  "sources": [
+    "https://caninharecs.bandcamp.com/album/algumas-guitarras-2021-2022",
+    "https://www.baquetasliverpool.com.br/product-page/pandeiro-meia-lua"
+  ],
+  "_ownParts": [
+    {
+      "id": "pandeirola_meia_lua_form",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "pandeirola_meia_lua_plastic_jingles",
+          "name": "Plastic body with jingles; exact alloy unspecified",
+          "default": true,
+          "descriptors": [
+            "plastic",
+            "jingling"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "pandeirola_meia_lua_gesture",
+      "name": "Playing action",
+      "variants": [
+        {
+          "id": "pandeirola_meia_lua_foot_pulse",
+          "name": "Foot-played pulse",
+          "default": true,
+          "descriptors": [
+            "rhythmic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

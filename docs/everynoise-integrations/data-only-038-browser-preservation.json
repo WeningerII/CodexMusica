@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "counts": {
+    "instruments": 1609,
+    "traditions": 6338,
+    "cards": 26984
+  },
+  "errors": [],
+  "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+  "no_repo_mutations": true
+}

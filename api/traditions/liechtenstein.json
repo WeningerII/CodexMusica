@@ -1,0 +1,74 @@
+{
+  "id": "liechtenstein",
+  "name": "Liechtenstein",
+  "family": "classical",
+  "lineage": "Josef Gabriel Rheinberger: complete Organ Sonata No.15 in D major, op.168 (1891), Carus50.168/00, 28-page separate complete edition, approximately22minutes. Publisher specifies organ alone, three movements including fantasy, chorale/fugal passages and final introduction/ricercar. All movements retained; no singer, choir or orchestra is specified. This is a new realization of the published complete score, not a claimed historical recording or extracted organ accompaniment. A Romantic/symphonic concert pipe organ, Henry-Willis-style voicing, mellow high-lead flue-pipe baseline, pneumatic action, equal temperament and classical legato are coherent authored controls for a new modern score rendition. They are not Rheinberger's specified organ maker, source registration, universal pipe alloy or historical tuning. The broad pipe-alloy control summarizes an authored flue-rank emphasis, not every pipe in a real organ. Controlled recital-hall acoustics are authored, not a claim of original site. No unsupported capture equipment or global session tuning is asserted; the owner temperament is explicitly editorial.",
+  "recipe": "classic early-1890s liechtenstein, art Music, western common practice branch. henry willis canonical English victorian 1850s 1900 high lead 25 75 canonical flue stops mellow romantic equal temperament modern standard post 1850 pneumatic canonical late 19th century romantic legato pipe organ. shoebox concert hall.",
+  "recipe_chars": 314,
+  "score": 38.922,
+  "config": {
+    "traditions": [
+      "liechtenstein"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_romantic",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_henry_willis",
+          "pipe_organ_pipe_alloy": "pipe_organ_high_lead_25_75",
+          "pipe_organ_temperament": "pipe_organ_equal_temperament",
+          "pipe_organ_action": "pipe_organ_pneumatic"
+        },
+        "scores": {
+          "keyboard_technique": 9.299999999999997,
+          "pipe_organ_class": 0.3045,
+          "pipe_organ_context": 6.76,
+          "pipe_organ_voicing_school": 3.2825,
+          "pipe_organ_pipe_alloy": 9.213,
+          "pipe_organ_temperament": 6.291999999999999,
+          "pipe_organ_action": 3.7700000000000005
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique",
+        "pipe_organ_class",
+        "pipe_organ_context",
+        "pipe_organ_voicing_school",
+        "pipe_organ_pipe_alloy",
+        "pipe_organ_temperament",
+        "pipe_organ_action"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "pipe_organ_class": "pipe_organ_romantic",
+      "pipe_organ_context": "pipe_organ_concert",
+      "pipe_organ_voicing_school": "pipe_organ_henry_willis",
+      "pipe_organ_pipe_alloy": "pipe_organ_high_lead_25_75",
+      "pipe_organ_temperament": "pipe_organ_equal_temperament",
+      "pipe_organ_action": "pipe_organ_pneumatic"
+    },
+    "pin_parts": true
+  }
+}

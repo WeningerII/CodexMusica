@@ -1,0 +1,63 @@
+{
+  "id": "requinto_tabasqueno",
+  "name": "Requinto tabasqueño (small double-headed drum)",
+  "short": "Tabascan requinto drum",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "requinto_tabasqueno_assembly",
+      "name": "Regional drum assembly",
+      "variants": [
+        {
+          "id": "requinto_tabasqueno_mahogany_goat_cord",
+          "name": "Small mahogany double-headed drum, goat skins and cord tension",
+          "default": true,
+          "descriptors": [
+            "mahogany",
+            "double-headed",
+            "goatskin",
+            "rope-tensioned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source-positive smaller requinto drum, distinct from string instruments called requinto; authored mahogany/goat/cord assembly selected from regional construction options. Neutral axes are editorial scaffolding.",
+  "sources": [
+    "https://cultura.tabasco.gob.mx/wp/wp-content/uploads/INFANTIL-DE-TAMBORILEROS-2025-1.pdf",
+    "https://publicacionperiodico.tabasco.gob.mx/documento/6981/firmado_qr.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "requinto_tabasqueno_assembly",
+      "name": "Regional drum assembly",
+      "variants": [
+        {
+          "id": "requinto_tabasqueno_mahogany_goat_cord",
+          "name": "Small mahogany double-headed drum, goat skins and cord tension",
+          "default": true,
+          "descriptors": [
+            "mahogany",
+            "double-headed",
+            "goatskin",
+            "rope-tensioned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

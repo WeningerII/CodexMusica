@@ -1,0 +1,149 @@
+{
+  "changed_existing_slots": [
+    {
+      "id": "antifolk_nyc",
+      "instrument": "voice",
+      "part": "voice_ornament_system",
+      "before": "voice_ornament_jingju_role",
+      "after": "voice_ornament_none",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "voice_ornament_none",
+      "protectedBySource": false
+    },
+    {
+      "id": "antifolk_nyc",
+      "instrument": "voice",
+      "part": "voice_pitch_organization",
+      "before": "voice_pitch_pythagorean",
+      "after": "voice_pitch_vedic_three_tone",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "voice_pitch_equal_tempered_12",
+      "protectedBySource": false
+    },
+    {
+      "id": "antifolk_nyc",
+      "instrument": "electric_guitar_single_coil",
+      "part": "scale_length",
+      "before": "scale_short",
+      "after": "scale_gibson",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "scale_fender",
+      "protectedBySource": false
+    },
+    {
+      "id": "antifolk_nyc",
+      "instrument": "electric_guitar_single_coil",
+      "part": "string_gauge",
+      "before": "g_12",
+      "after": "g_10",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "antifolk_nyc",
+      "instrument": "electric_guitar_single_coil",
+      "part": "body_wood",
+      "before": "mahogany",
+      "after": "alder",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "alder",
+      "protectedBySource": false
+    },
+    {
+      "id": "goa_trance",
+      "instrument": "digital_subtractive",
+      "part": "electronic_technique",
+      "before": "electronic_bass_sub",
+      "after": "electronic_lead_line",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "electronic_bass_sub",
+      "protectedBySource": false
+    },
+    {
+      "id": "goa_trance",
+      "instrument": "sampler_classic",
+      "part": "sampler_archetypes",
+      "before": "emu_emax",
+      "after": "akai_s1000",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "akai_s1000",
+      "protectedBySource": false
+    },
+    {
+      "id": "paisley_underground",
+      "instrument": "voice",
+      "part": "voice_ornament_system",
+      "before": "voice_ornament_none",
+      "after": "voice_ornament_jingju_role",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "paisley_underground",
+      "instrument": "voice",
+      "part": "voice_vibrato",
+      "before": "slow_vibrato",
+      "after": "terminal_vibrato",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "paisley_underground",
+      "instrument": "voice",
+      "part": "voice_tradition",
+      "before": "japanese_min_yo_tradition",
+      "after": "scottish_gaelic_taladh_tradition",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "paisley_underground",
+      "instrument": "voice",
+      "part": "voice_pitch_organization",
+      "before": "voice_pitch_vedic_three_tone",
+      "after": "voice_pitch_just_intonation",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "paisley_underground",
+      "instrument": "voice",
+      "part": "voice_mechanism_compound",
+      "before": "voice_mechanism_false_fold_distorted",
+      "after": "voice_mechanism_M0_pulse_borrowed",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "paisley_underground",
+      "instrument": "electric_bass",
+      "part": "fretted_or_not",
+      "before": "fretless",
+      "after": "fretted",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    }
+  ],
+  "new_instrument_projection_count": 19,
+  "errors": []
+}

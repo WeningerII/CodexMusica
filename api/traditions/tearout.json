@@ -1,0 +1,50 @@
+{
+  "id": "tearout",
+  "name": "Tearout",
+  "family": "electronic",
+  "lineage": "Cassen / Bass Haven — complete Heavy Dubstep Mix 2026: Tearout, Deathstep, Dark Riddim, creator-published26October2025. The2026 marketing title is not claimed upload date. Entire creator-listed programme from Slipknot Duality STVG Flip at0:00 through yvm3 torment at27:51 retained, including multi-record mashups, vocal/metal material and all intermediate selections. Primary issuer explicitly names Cassen as mixer. This models the complete actual DJ mixing practice, not guessed synthesis/instrument roles inside finished constituent tracks. One named DJ; embedded singers and independently performed live vocal totals unknown, not zero. No deck count, scratch gesture, media, physical DJ hardware or source synthesizer inferred. Neutral existing DJ playback/mixing owner retains complete documented performance role. Controlled live-room rendition is authored capture context, not proof of live audience or measured source venue. No global tuning or source microphone chain imposed. Broad bassSystem parent matches positive dubstep-derived sound-system practice without forcing a narrower UK locality or universal tempo.",
+  "recipe": "classic mid-2020s tearout, bass System. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 86,
+  "score": 0.032,
+  "config": {
+    "traditions": [
+      "tearout"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}
