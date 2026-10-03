@@ -8194,7 +8194,7 @@ def _defer_proposer(path, lines=None):
                 chosen.pop()
 
     propose.prefetch = prefetch
-    propose.saved = saved
+    propose.saved = menu_saved
     propose.skipped = skipped
     propose.record = record
 
@@ -8425,7 +8425,7 @@ def _defer_proposer(path, lines=None):
             fh.write("\n")
         dl.stop_cost = max(dl.stop_cost, dl.clock() - t0)
 
-    def saved():
+    def menu_saved():
         """A menu or place was just saved: checkpoint the saved position
         alone, so a kill before the next safe point keeps it (§2.3c). Only
         the cursor moves; `accepted_lines` and every progress field stay."""
