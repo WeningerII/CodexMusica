@@ -923,8 +923,8 @@ catalog, and `--json` piped into `jq` is always complete JSON.
 | Axis-vector search | `node scripts/nearest_neighbor.js --type tradition --axes "harm:1,density:2,…"` |
 | Neighbors of a variant / tree-node / chain-item / room | `--type variant\|tree-node\|chain-item\|room --id <id>` |
 
-Verified: `nearest_neighbor.js --type instrument --id voice` → top neighbor `griot_voice`
-(score 0.80); `--type tradition --id delta_blues` → `hill_country_blues` (1.35).
+Verified: `nearest_neighbor.js --type instrument --id voice` → top neighbor `spoken_dramatic_cast`
+(score 1.30); `--type tradition --id delta_blues` → `hill_country_blues` (1.35).
 
 ### Compare & diagnose
 
