@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "6e0aa3e6c5ffbb516b787ffcef41f45ee2eef53f8788a175c6ce8947284ae031",
+  "entries": 100,
+  "old_merged_preserved": 1566,
+  "new_dependencies": 20,
+  "excluded_possible_overlap_count": 189,
+  "excluded_intersection": [],
+  "required_amendments": [
+    {
+      "id": "mexican_techno",
+      "fields": {
+        "extras.axes.percussion": [0.5, 0],
+        "extras.axes.cyclicity": [0.5, 0]
+      },
+      "reason": "Original integer schema; neutral authored coordinates appropriate to full ambient/drone/dub/minimal-techno release."
+    },
+    {
+      "id": "japanese_chill_rap",
+      "fields": {
+        "tradition.parts.grand_piano_size": ["grand_7_foot", "grand_9_foot"]
+      },
+      "reason": "Coherent authored Steinway D construction; synchronize resolved owning-part audit without claiming source hardware."
+    }
+  ],
+  "semantic_review": {
+    "families_and_existing_parents": "All100 checked; broad parents reflect selected documented practice, not universal category identity. Regional categories are overlapping scenes; narrower metadata clusters explicitly acknowledge existing umbrella overlap.",
+    "source_scope": "Complete released vocal-only editions, positively documented DJ performances, whole announced ensembles, published arrangements and closed source constructions remain separate from reconstruction of unknown original masters. No convenient role omission identified in final scan.",
+    "neutral_dependencies": "All20 scoped owner identities checked; known found objects preserved as simultaneous inventory; generic architecture left unspecified; software singing distinguished from human voices; DAW role owners retain documented tutorial classes without asserting unknown waveform inventory.",
+    "authored_defaults": "Checked piano size/model, cymbal manufacture/finish, singer grouping vs stack, bass technique prose and sampler context/workflow. Only D-size correction above required. Neutral physiological/pitch values retained where sources silent.",
+    "photo_method": "Per-packet primary rights/context reviews and exact historical receipts retained; no new byte/pixel verification claim.",
+    "mechanical_evidence": ["frozen-audit119.json", "queue-preservation119.json"],
+    "remaining_gates": [
+      "Integrated original-source/browser-card preservation",
+      "Completed API compiled protected/unprotected slot audit and old-output causality",
+      "Original regression and exact-head CI"
+    ]
+  },
+  "limitations": "This consolidation relies on retained independent source peer reviews plus current full packet inspection, not a claim that every remote primary was freshly re-fetched in this consolidation.",
+  "integration_sha256": "46c0bf1272252c3c9c77b94ec00cfcade1b3b272e6e8745e0c12751a2f27c47f",
+  "verified_amendment_diff": [
+    ["/entries/8/extras/axes/percussion", 0.5, 0],
+    ["/entries/8/extras/axes/cyclicity", 0.5, 0],
+    ["/entries/48/tradition/parts/grand_piano_size", "grand_7_foot", "grand_9_foot"],
+    ["/entries/48/resolved_parts_audit/4/parts/grand_piano_size", "grand_7_foot", "grand_9_foot"]
+  ],
+  "required_amendments_status": "Both applied and synchronized; no additional differences"
+}

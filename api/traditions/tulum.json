@@ -1,0 +1,97 @@
+{
+  "id": "tulum",
+  "name": "Tulum",
+  "family": "vernacular",
+  "lineage": "Aycan Yeter and Erwan Keravec — separately programmed Interlude, Arter B3 foyer,19February2026. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic tulum, improv On Frame. eastern black sea free flowing goatskin tulum, cane drone reeds traditional arundo donax highland bagpipes. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 238,
+  "score": 10.088,
+  "config": {
+    "traditions": [
+      "tulum"
+    ],
+    "instruments": [
+      {
+        "id": "tulum",
+        "slots": {
+          "tulum_form": "tulum_hemsin",
+          "tulum_play": "tulum_hava",
+          "tulum_skin_reed": "tulum_goatskin_cane"
+        },
+        "scores": {
+          "tulum_form": 2.8415,
+          "tulum_play": 1.0944999999999998,
+          "tulum_skin_reed": 2.46
+        }
+      },
+      {
+        "id": "highland_bagpipes",
+        "slots": {
+          "wind_articulation": "wind_ornament_heavy",
+          "highland_drones": "highland_3_drones",
+          "highland_chanter": "highland_blackwood",
+          "highland_drone_reeds": "highland_cane_drone_reeds",
+          "highland_chanter_reed": "highland_cane_chanter_reed",
+          "highland_bag": "highland_hide_bag"
+        },
+        "scores": {
+          "wind_articulation": -0.10500000000000001,
+          "highland_drones": 0.6,
+          "highland_chanter": 0.25,
+          "highland_drone_reeds": 1.8945,
+          "highland_chanter_reed": 0.663,
+          "highland_bag": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "tulum": [
+        "tulum_form",
+        "tulum_play",
+        "tulum_skin_reed"
+      ],
+      "highland_bagpipes": [
+        "wind_articulation",
+        "highland_drones",
+        "highland_chanter",
+        "highland_drone_reeds",
+        "highland_chanter_reed",
+        "highland_bag"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "tulum_form": "tulum_hemsin",
+      "tulum_play": "tulum_hava",
+      "tulum_skin_reed": "tulum_goatskin_cane",
+      "wind_articulation": "wind_ornament_heavy",
+      "highland_drones": "highland_3_drones",
+      "highland_chanter": "highland_blackwood",
+      "highland_drone_reeds": "highland_cane_drone_reeds",
+      "highland_chanter_reed": "highland_cane_chanter_reed",
+      "highland_bag": "highland_hide_bag"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

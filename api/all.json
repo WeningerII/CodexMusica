@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-03",
-  "count": 6038,
+  "count": 6138,
   "items": [
     {
       "id": "honky_tonk",
@@ -2087,8 +2087,8 @@
       "id": "reggae_fusion_modern",
       "name": "Reggae fusion (modern)",
       "family": "global",
-      "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop german alternative rap. thick, rap, straight onset, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky thumb muted electric bass, pre muffled edge muffled rim clicks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 607
+      "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop chinese melodic rap. thick, rap, straight onset, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky thumb muted electric bass, pre muffled edge muffled rim clicks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 604
     },
     {
       "id": "dub_poetry",
@@ -2689,8 +2689,8 @@
       "id": "tech_house_classic",
       "name": "Tech-house",
       "family": "global",
-      "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance algorave dark techno. digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 393
+      "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance portuguese techno techno argentina. digital subtractive, TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 329
     },
     {
       "id": "minimal_tech_house",
@@ -2717,8 +2717,8 @@
       "id": "jam_band",
       "name": "Jam band",
       "family": "global",
-      "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock nwocr dutch rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 763
+      "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock hard rock brasileiro nwocr. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 783
     },
     {
       "id": "free_improvisation",
@@ -3921,8 +3921,8 @@
       "id": "kapuka_kenyan",
       "name": "Kapuka (Kenyan urban pop)",
       "family": "global",
-      "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm san antonio rap rap marocain. extended whistle, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 529
+      "recipe": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm chinese melodic rap san antonio rap. extended whistle, rap, slow rate, interlocked note trading. TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 480
     },
     {
       "id": "kabyle_music_algerian",
@@ -17249,8 +17249,8 @@
       "id": "bristol_trip_hop",
       "name": "Bristol trip hop",
       "family": "electronic",
-      "recipe": "classic British mid-1990s bristol trip hop, experimental Elec, pop experimental branch, uk soundsystem bass system, intl hip hop MC rhythm, lofi experimental electric motswako chap hop. thick, rap, slow rate, interlocked note trading. field textural sampler, sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, tremolo centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, sub bass analog poly synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 773
+      "recipe": "classic British mid-1990s bristol trip hop, experimental Elec, pop experimental branch, uk soundsystem bass system, intl hip hop MC rhythm, lofi experimental electric motswako 2-step. thick, rap, slow rate, interlocked note trading. field textural sampler, sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, tremolo centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, sub bass analog poly synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 771
     },
     {
       "id": "sheffield_bleep_techno",
@@ -34707,8 +34707,8 @@
       "id": "beatboxing",
       "name": "Beatboxing",
       "family": "global",
-      "recipe": "classic beatboxing, mc Rhythm. bilabial ejective kick drum source vocal percussion voice, dreadnought acoustic guitar, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
-      "recipe_chars": 238
+      "recipe": "classic beatboxing, mc Rhythm. solo with instrumental accompaniment, single lead single track no stacking. bilabial ejective kick drum source vocal percussion voice, dreadnought acoustic guitar, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 314
     },
     {
       "id": "beatdown",
@@ -42269,6 +42269,706 @@
       "family": "rock",
       "recipe": "classic early-2000s zürich indie, distorted Rock. duet, live take. mahogany rosewood conventional tuning standard pitch humbucker electric guitar, electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
       "recipe_chars": 416
+    },
+    {
+      "id": "funky_tech_house",
+      "name": "Funky Tech House",
+      "family": "electronic",
+      "recipe": "classic funky tech house, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 174
+    },
+    {
+      "id": "saxophone_house",
+      "name": "Saxophone House",
+      "family": "electronic",
+      "recipe": "classic saxophone house, electronic Dance. dj playback mixing unspecified, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 184
+    },
+    {
+      "id": "south_african_deep_house",
+      "name": "South African Deep House",
+      "family": "electronic",
+      "recipe": "classic late-2010s south african deep house, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 193
+    },
+    {
+      "id": "swedish_house",
+      "name": "Swedish House",
+      "family": "electronic",
+      "recipe": "classic late-2010s swedish house, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "vapor_house",
+      "name": "Vapor House",
+      "family": "electronic",
+      "recipe": "classic mid-2010s vapor house, experimental Elec. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 180
+    },
+    {
+      "id": "australian_techno",
+      "name": "Australian Techno",
+      "family": "electronic",
+      "recipe": "classic early-2020s australian techno, electronic Dance. credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 189
+    },
+    {
+      "id": "hard_industrial_techno",
+      "name": "Hard Industrial Techno",
+      "family": "electronic",
+      "recipe": "classic hard industrial techno, electronic Dance, techno branch. software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 189
+    },
+    {
+      "id": "israeli_techno",
+      "name": "Israeli Techno",
+      "family": "electronic",
+      "recipe": "classic israeli techno, electronic Dance, techno branch. dark musical bronze bell bronze drum kit, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 206
+    },
+    {
+      "id": "mexican_techno",
+      "name": "Mexican Techno",
+      "family": "electronic",
+      "recipe": "classic mid-2020s mexican techno, electronic Dance, techno branch. software sample playback, modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay.",
+      "recipe_chars": 234
+    },
+    {
+      "id": "portuguese_techno",
+      "name": "Portuguese Techno",
+      "family": "electronic",
+      "recipe": "classic portuguese techno, electronic Dance, techno branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 190
+    },
+    {
+      "id": "raw_techno",
+      "name": "Raw Techno",
+      "family": "electronic",
+      "recipe": "classic mid-2010s raw techno, electronic Dance, techno branch. modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 184
+    },
+    {
+      "id": "somatik_techno",
+      "name": "Somatik Techno",
+      "family": "electronic",
+      "recipe": "classic early-2020s somatik techno, experimental Elec, musique concrete branch. software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 204
+    },
+    {
+      "id": "south_african_techno",
+      "name": "South African Techno",
+      "family": "electronic",
+      "recipe": "classic south african techno, electronic Dance, techno branch. humbucker electric guitar, digital subtractive, drum machine analog, software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital low-gain overdrive digital delay flanger spring reverb tremolo pitch shifter.",
+      "recipe_chars": 333
+    },
+    {
+      "id": "techno_argentina",
+      "name": "Techno Argentina",
+      "family": "electronic",
+      "recipe": "classic techno argentina, electronic Dance, techno branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 189
+    },
+    {
+      "id": "trance_brasileiro",
+      "name": "Trance brasileiro",
+      "family": "electronic",
+      "recipe": "classic trance brasileiro, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 175
+    },
+    {
+      "id": "trance_mexicano",
+      "name": "Trance mexicano",
+      "family": "electronic",
+      "recipe": "classic trance mexicano, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 173
+    },
+    {
+      "id": "french_dnb",
+      "name": "French DnB",
+      "family": "electronic",
+      "recipe": "classic mid-2020s french dnb, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 178
+    },
+    {
+      "id": "german_dnb",
+      "name": "German DnB",
+      "family": "electronic",
+      "recipe": "classic german dnb, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 168
+    },
+    {
+      "id": "modern_jungle",
+      "name": "Modern jungle",
+      "family": "electronic",
+      "recipe": "classic modern jungle, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 171
+    },
+    {
+      "id": "russian_dnb",
+      "name": "Russian DnB",
+      "family": "electronic",
+      "recipe": "classic russian dnb, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 169
+    },
+    {
+      "id": "south_african_dnb",
+      "name": "South African DnB",
+      "family": "electronic",
+      "recipe": "classic south african dnb, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 175
+    },
+    {
+      "id": "bass_trip",
+      "name": "Bass trip",
+      "family": "jazz",
+      "recipe": "classic bass trip, groove Percussion. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electronic keyboard unspecified, conventional tuning standard pitch humbucker electric guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 390
+    },
+    {
+      "id": "experimental_dubstep",
+      "name": "Experimental dubstep",
+      "family": "electronic",
+      "recipe": "classic experimental dubstep, electronic Dance. software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 172
+    },
+    {
+      "id": "grime_brasileiro",
+      "name": "Grime brasileiro",
+      "family": "hip_hop",
+      "recipe": "classic grime brasileiro, mc Rhythm. rhythmic spoken flow no pitch, duet, live take. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 215
+    },
+    {
+      "id": "hard_bass",
+      "name": "Hard bass",
+      "family": "electronic",
+      "recipe": "classic hard bass, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "kawaii_future_bass",
+      "name": "Kawaii future bass",
+      "family": "electronic",
+      "recipe": "classic kawaii future bass, electronic Dance. korg volca sample, korg volca sample2, korg volca keys, korg nts1 digital. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 219
+    },
+    {
+      "id": "russian_grime",
+      "name": "Russian grime",
+      "family": "hip_hop",
+      "recipe": "classic late-2010s russian grime, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 253
+    },
+    {
+      "id": "afghan_rap",
+      "name": "Afghan rap",
+      "family": "hip_hop",
+      "recipe": "classic afghan rap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, group vocals. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 195
+    },
+    {
+      "id": "albanian_hip_hop",
+      "name": "Albanian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic albanian hip hop, mc Rhythm, intl hip hop branch. solo unaccompanied, single performer unison double recorded take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 222
+    },
+    {
+      "id": "arkansas_hip_hop",
+      "name": "Arkansas hip hop",
+      "family": "hip_hop",
+      "recipe": "classic arkansas hip hop, mc Rhythm, us hip hop branch. group vocals, live take. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 382
+    },
+    {
+      "id": "aussie_drill",
+      "name": "Aussie drill",
+      "family": "hip_hop",
+      "recipe": "classic aussie drill, mc Rhythm, drill branch. group vocals, live take. conventional tuning standard pitch clean strummed humbucker electric guitar, maple bronze bell bronze drum kit, credited samples unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 312
+    },
+    {
+      "id": "bangladeshi_hip_hop",
+      "name": "Bangladeshi hip hop",
+      "family": "hip_hop",
+      "recipe": "classic bangladeshi hip hop, mc Rhythm, intl hip hop branch. group vocals, live take. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, saxophone section alto tenor, low fundamental tuning all purpose maple drum kit, credited auxiliary percussion, low fundamental tuning projecting brass tabla, rhodes electric, sub bass analog mono synth, electronic keyboard unspecified, ektara. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 521
+    },
+    {
+      "id": "brisbane_hip_hop",
+      "name": "Brisbane hip hop",
+      "family": "hip_hop",
+      "recipe": "classic brisbane hip hop, mc Rhythm, intl hip hop branch. group vocals, live take. electronic keyboard unspecified, European maple bosnian source flamed figure violin orchestral, European maple bosnian source flamed figure pirastro cellisto cello specific cello, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 439
+    },
+    {
+      "id": "bulgarian_trap",
+      "name": "Bulgarian Trap",
+      "family": "hip_hop",
+      "recipe": "classic bulgarian trap, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 186
+    },
+    {
+      "id": "chill_drill",
+      "name": "Chill Drill",
+      "family": "hip_hop",
+      "recipe": "classic chill drill, mc Rhythm, drill branch. daw melodic source daw phrase source daw bass source daw percussion source unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 232
+    },
+    {
+      "id": "chinese_melodic_rap",
+      "name": "Chinese Melodic Rap",
+      "family": "hip_hop",
+      "recipe": "classic chinese melodic rap, mc Rhythm, intl hip hop branch. clean strummed humbucker electric guitar, electric bass, maple bronze bell bronze drum kit, melodic chordal electronic keyboard credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 321
+    },
+    {
+      "id": "cincinnati_rap",
+      "name": "Cincinnati Rap",
+      "family": "hip_hop",
+      "recipe": "classic cincinnati rap, mc Rhythm, us hip hop branch. rap, rhythmic spoken flow no pitch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 188
+    },
+    {
+      "id": "drill_beats",
+      "name": "Drill Beats",
+      "family": "hip_hop",
+      "recipe": "classic late-2010s drill beats, mc Rhythm, drill branch. software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 181
+    },
+    {
+      "id": "drill_tuga",
+      "name": "Drill Tuga",
+      "family": "hip_hop",
+      "recipe": "classic drill tuga, mc Rhythm, drill branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 175
+    },
+    {
+      "id": "egyptian_hip_hop",
+      "name": "Egyptian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic egyptian hip hop, mc Rhythm. rhythmic spoken flow no pitch, solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 224
+    },
+    {
+      "id": "electronic_trap",
+      "name": "Electronic trap",
+      "family": "electronic",
+      "recipe": "classic electronic trap, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 173
+    },
+    {
+      "id": "gambian_hip_hop",
+      "name": "Gambian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic mid-2020s gambian hip hop, mc Rhythm. group vocals. conventional tuning standard pitch clean strummed humbucker electric guitar, pocket fingerstyle locked electric bass, electronic keyboard unspecified, low fundamental tuning all purpose maple drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 360
+    },
+    {
+      "id": "gothenburg_hip_hop",
+      "name": "Gothenburg hip hop",
+      "family": "hip_hop",
+      "recipe": "classic early-2020s gothenburg hip hop, mc Rhythm. duet, live take. electronic keyboard unspecified, electric bass, low fundamental tuning all purpose maple drum kit, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 276
+    },
+    {
+      "id": "greek_underground_rap",
+      "name": "Greek underground rap",
+      "family": "hip_hop",
+      "recipe": "classic late-2010s greek underground rap, mc Rhythm. rhythmic spoken flow no pitch, duet, live take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 199
+    },
+    {
+      "id": "hip_hop_tuga",
+      "name": "Hip hop tuga",
+      "family": "hip_hop",
+      "recipe": "classic hip hop tuga, mc Rhythm. rhythmic spoken flow no pitch, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 200
+    },
+    {
+      "id": "idaho_hip_hop",
+      "name": "Idaho Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic idaho hip hop, mc Rhythm, us hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 290
+    },
+    {
+      "id": "indonesian_underground_hip_hop",
+      "name": "Indonesian Underground Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic indonesian underground hip hop, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. credited samples unspecified, alder conventional tuning standard pitch clean strummed single coil electric guitar, alder fingerstyle locked electric bass, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth, alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris lyrical saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 575
+    },
+    {
+      "id": "irish_underground_rap",
+      "name": "Irish Underground Rap",
+      "family": "hip_hop",
+      "recipe": "classic early-2010s irish underground rap, mc Rhythm, intl hip hop branch. solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 261
+    },
+    {
+      "id": "japanese_chill_rap",
+      "name": "Japanese Chill Rap",
+      "family": "hip_hop",
+      "recipe": "classic japanese chill rap, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch. conventional tuning standard pitch clean strummed single coil electric guitar, electric bass, maple brushes-and-sticks drum kit, 7 ply quartersawn maple a 440 modern pitch us standard grand piano, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 417
+    },
+    {
+      "id": "japanese_pop_rap",
+      "name": "Japanese Pop Rap",
+      "family": "hip_hop",
+      "recipe": "classic japanese pop rap, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch clean strummed single coil electric guitar, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 441
+    },
+    {
+      "id": "luxembourgian_hip_hop",
+      "name": "Luxembourgian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic luxembourgian hip hop, mc Rhythm. rhythmic spoken flow no pitch, solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 229
+    },
+    {
+      "id": "macedonian_hip_hop",
+      "name": "Macedonian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic macedonian hip hop, mc Rhythm. rhythmic spoken flow no pitch, group vocals, live take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 193
+    },
+    {
+      "id": "maga_rap",
+      "name": "MAGA rap",
+      "family": "hip_hop",
+      "recipe": "classic mid-2020s maga rap, mc Rhythm. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 175
+    },
+    {
+      "id": "maine_hip_hop",
+      "name": "Maine hip hop",
+      "family": "hip_hop",
+      "recipe": "classic early-2020s maine hip hop, mc Rhythm. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 182
+    },
+    {
+      "id": "milwaukee_hip_hop",
+      "name": "Milwaukee hip hop",
+      "family": "hip_hop",
+      "recipe": "classic milwaukee hip hop, mc Rhythm. rhythmic spoken flow no pitch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "nigerian_hip_hop",
+      "name": "Nigerian hip hop",
+      "family": "hip_hop",
+      "recipe": "classic mid-2020s nigerian hip hop, mc Rhythm. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 183
+    },
+    {
+      "id": "norrlandsk_hip_hop",
+      "name": "Norrlandsk hip hop",
+      "family": "hip_hop",
+      "recipe": "classic late-2000s norrlandsk hip hop, mc Rhythm. rhythmic spoken flow no pitch, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 217
+    },
+    {
+      "id": "nottingham_hip_hop",
+      "name": "Nottingham hip hop",
+      "family": "hip_hop",
+      "recipe": "classic nottingham hip hop, mc Rhythm. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 175
+    },
+    {
+      "id": "nz_hip_hop",
+      "name": "NZ hip hop",
+      "family": "hip_hop",
+      "recipe": "classic early-2010s nz hip hop, mc Rhythm. rhythmic spoken flow no pitch, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 210
+    },
+    {
+      "id": "old_school_uk_hip_hop",
+      "name": "Old School UK Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic old school uk hip hop, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 193
+    },
+    {
+      "id": "perth_hip_hop",
+      "name": "Perth Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic perth hip hop, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 222
+    },
+    {
+      "id": "peruvian_hip_hop",
+      "name": "Peruvian Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic late-2010s peruvian hip hop, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 236
+    },
+    {
+      "id": "pinoy_hip_hop",
+      "name": "Pinoy Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic pinoy hip hop, mc Rhythm, intl hip hop branch. group vocals, live take. conventional tuning standard pitch clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, low fundamental tuning all purpose maple drum kit, projecting silver flute, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 407
+    },
+    {
+      "id": "polish_hip_hop",
+      "name": "Polish Hip Hop",
+      "family": "hip_hop",
+      "recipe": "classic polish hip hop, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, solo with instrumental accompaniment, single lead single track no stacking. credited samples credited drums credited electronics electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 347
+    },
+    {
+      "id": "rap_alagoano",
+      "name": "Rap Alagoano",
+      "family": "hip_hop",
+      "recipe": "classic rap alagoano, mc Rhythm, intl hip hop branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. conventional tuning standard pitch clean strummed single coil electric fingerpicked acoustic guitar, pocket fingerstyle locked electric bass, low fundamental tuning all purpose maple drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 451
+    },
+    {
+      "id": "rap_francais",
+      "name": "Rap français (contemporary)",
+      "family": "hip_hop",
+      "recipe": "classic early-2020s rap français, mc Rhythm, intl hip hop branch. rhythmic spoken flow no pitch, single lead single track no stacking. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 299
+    },
+    {
+      "id": "swedish_underground_rap",
+      "name": "Swedish underground rap",
+      "family": "hip_hop",
+      "recipe": "classic early-2010s swedish underground rap, mc Rhythm. rhythmic spoken flow no pitch, solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 243
+    },
+    {
+      "id": "trap_kreyol",
+      "name": "Trap kreyòl",
+      "family": "hip_hop",
+      "recipe": "classic early-2020s trap kreyòl, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 195
+    },
+    {
+      "id": "vocaloid_metal",
+      "name": "Vocaloid metal",
+      "family": "rock",
+      "recipe": "classic vocaloid metal, distorted Rock. software singing synthesis, mahogany maple conventional tuning standard pitch power chord humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 388
+    },
+    {
+      "id": "post_screamo",
+      "name": "Post-screamo",
+      "family": "rock_punk",
+      "recipe": "classic post-screamo, distorted Rock. unprocessed natural acoustic, single lead single track no stacking. mahogany maple conventional tuning standard pitch power chord humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 426
+    },
+    {
+      "id": "hard_rock_brasileiro",
+      "name": "Hard Rock Brasileiro",
+      "family": "rock",
+      "recipe": "classic mid-2000s hard rock brasileiro, distorted Rock, classic branch. group vocals, unprocessed natural acoustic. mahogany maple conventional tuning standard pitch power chord humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 436
+    },
+    {
+      "id": "rock_noise",
+      "name": "Rock Noise",
+      "family": "electronic",
+      "recipe": "classic rock noise, experimental Elec. feedback pedal mixer network. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "chamorro_pop",
+      "name": "Chamorro Pop",
+      "family": "pop",
+      "recipe": "classic late-2010s chamorro pop, improv On Frame. group vocals, unprocessed natural acoustic. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, acoustic guitar, pocket fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, shaker source unspecified, European maple bosnian source flamed figure oil varnish amber tinted violin orchestral, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 540
+    },
+    {
+      "id": "chinese_idol_pop",
+      "name": "Chinese Idol Pop",
+      "family": "pop",
+      "recipe": "classic chinese idol pop, functional Song. duet, unprocessed natural acoustic, live take. 7 ply quartersawn maple a 440 modern pitch us standard grand piano, conventional tuning standard pitch clean strummed single coil electric guitar, pocket fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited strings unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 484
+    },
+    {
+      "id": "cook_islands_pop",
+      "name": "Cook Islands pop",
+      "family": "pop",
+      "recipe": "classic cook islands pop, functional Song. one note per syllable, group vocals. ukulele, found household percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 215
+    },
+    {
+      "id": "fijian_pop",
+      "name": "Fijian pop",
+      "family": "pop",
+      "recipe": "classic mid-2020s fijian pop, bass System, reggae diaspora branch. one note per syllable. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, interlocking pacific slit gong. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 390
+    },
+    {
+      "id": "idol_game",
+      "name": "Idol game",
+      "family": "pop",
+      "recipe": "classic idol game, functional Song, east Asian pop branch. 17 ply hard rock maple 7 ply quartersawn maple gray iron grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 227
+    },
+    {
+      "id": "ilocano_pop",
+      "name": "Ilocano pop",
+      "family": "vernacular",
+      "recipe": "classic ilocano pop, functional Song. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 203
+    },
+    {
+      "id": "indonesian_idol_pop",
+      "name": "Indonesian idol pop",
+      "family": "pop",
+      "recipe": "classic indonesian idol pop, functional Song. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 173
+    },
+    {
+      "id": "kikuyu_pop",
+      "name": "Kikuyu pop",
+      "family": "pop",
+      "recipe": "classic kikuyu pop, functional Song. conventional tuning standard pitch clean strummed humbucker electric guitar, electronic keyboard unspecified, electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 361
+    },
+    {
+      "id": "latin_arena_pop",
+      "name": "Latin arena pop",
+      "family": "pop",
+      "recipe": "classic mid-2020s latin arena pop, functional Song. duet, unprocessed natural acoustic, live take. conventional tuning standard pitch clean strummed humbucker electric acoustic guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 475
+    },
+    {
+      "id": "moldovan_pop",
+      "name": "Moldovan pop",
+      "family": "pop",
+      "recipe": "classic early-2020s moldovan pop, functional Song. unprocessed natural acoustic, single lead single track no stacking. acoustic guitar, electronic keyboard unspecified, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 276
+    },
+    {
+      "id": "namibian_pop",
+      "name": "Namibian pop",
+      "family": "pop",
+      "recipe": "classic namibian pop, functional Song. duet, live take. fingerpicked acoustic guitar, European maple bosnian source flamed figure modern setup pirastro cellisto cello, traditional sustaining iron mbira, calabash cowhide mande traditional modern concert kora, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 388
+    },
+    {
+      "id": "norwegian_pop",
+      "name": "Norwegian pop",
+      "family": "pop",
+      "recipe": "classic early-2020s norwegian pop, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic. 7 ply quartersawn maple block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 267
+    },
+    {
+      "id": "p_pop",
+      "name": "P-pop",
+      "family": "pop",
+      "recipe": "classic early-2020s p-pop, functional Song. group vocals, live take. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 167
+    },
+    {
+      "id": "rwandan_pop",
+      "name": "Rwandan pop",
+      "family": "pop",
+      "recipe": "classic mid-2020s rwandan pop, functional Song. one note per syllable, duet, unprocessed natural acoustic, live take. fingerpicked acoustic guitar, traditional mellow brass tambourine orch, good ones found object percussion, synthetic European maple bosnian source flamed figure oil varnish cello, synthetic European maple bosnian source flamed figure oil varnish violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 481
+    },
+    {
+      "id": "swedish_idol_pop",
+      "name": "Swedish idol pop",
+      "family": "pop",
+      "recipe": "classic swedish idol pop, functional Song. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 209
+    },
+    {
+      "id": "syrian_pop",
+      "name": "Syrian pop",
+      "family": "pop",
+      "recipe": "classic late-2010s syrian pop, functional Song, mid east n African pop branch. one note per syllable, group vocals, live take. electronic keyboard unspecified, apricot canonical anatolian ottoman zurna. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 301
+    },
+    {
+      "id": "v_pop",
+      "name": "V-pop",
+      "family": "pop",
+      "recipe": "classic v-pop, functional Song, east Asian pop branch. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 221
+    },
+    {
+      "id": "yemeni_pop",
+      "name": "Yemeni Pop",
+      "family": "pop",
+      "recipe": "classic yemeni pop, functional Song. group vocals, retune speed 50 100ms subtle nudge producer convention, live take. maple machine hammered symmetric pattern organized rows full lathed drum kit, electric bass, oud, steel canonical modern modern concert arif sag erkan ogur saz baglama, credited auxiliary percussion, kanun synthetic kanun, credited ney, conventional tuning standard pitch clean strummed humbucker electric guitar, credited strings electronic keyboard credited electronics unspecified, synthetic core oil varnish amber tinted modern setup longer neck viola classical. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 683
+    },
+    {
+      "id": "acid_idm",
+      "name": "Acid IDM",
+      "family": "electronic",
+      "recipe": "classic acid idm, experimental Elec, idm glitch branch. hardware tb303 bassline hardware cr78 rhythm hardware tr606 rhythm hardware tr808 rhythm hardware tr909 rhythm complete. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 275
+    },
+    {
+      "id": "arab_electronic",
+      "name": "Arab Electronic",
+      "family": "electronic",
+      "recipe": "classic arab electronic, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 173
+    },
+    {
+      "id": "bosnian_electronic",
+      "name": "Bosnian Electronic",
+      "family": "electronic",
+      "recipe": "classic bosnian electronic, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 176
+    },
+    {
+      "id": "vietnamese_electronic",
+      "name": "Vietnamese electronic",
+      "family": "electronic",
+      "recipe": "classic mid-2010s vietnamese electronic, experimental Elec. environmental field recording environmental sound collage, credited music box unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 249
+    },
+    {
+      "id": "tulum",
+      "name": "Tulum",
+      "family": "vernacular",
+      "recipe": "classic tulum, improv On Frame. eastern black sea free flowing goatskin tulum, cane drone reeds traditional arundo donax highland bagpipes. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 238
+    },
+    {
+      "id": "turkish_alternative",
+      "name": "Turkish Alternative",
+      "family": "rock",
+      "recipe": "classic early-2020s turkish alternative, distorted Rock, alternative branch. conventional tuning standard pitch single coil electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 332
+    },
+    {
+      "id": "turkish_soundtrack",
+      "name": "Turkish Soundtrack",
+      "family": "classical",
+      "recipe": "classic turkish soundtrack, art Music. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 154
+    },
+    {
+      "id": "uk_worship",
+      "name": "UK Worship",
+      "family": "vernacular",
+      "recipe": "classic late-2000s uk worship, ritual Devotional. group vocals, live take. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 241
+    },
+    {
+      "id": "ukrainian_experimental",
+      "name": "Ukrainian Experimental",
+      "family": "classical",
+      "recipe": "classic ukrainian experimental, art Music. one note per syllable, solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, credited organ unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 304
+    },
+    {
+      "id": "vinahouse",
+      "name": "Vinahouse",
+      "family": "electronic",
+      "recipe": "classic early-2020s vinahouse, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 179
     }
   ]
 }

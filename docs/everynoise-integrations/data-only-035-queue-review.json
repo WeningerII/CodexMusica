@@ -1,0 +1,32 @@
+{
+  "original_frozen_sha256": "6e0aa3e6c5ffbb516b787ffcef41f45ee2eef53f8788a175c6ce8947284ae031",
+  "integration_final_sha256": "46c0bf1272252c3c9c77b94ec00cfcade1b3b272e6e8745e0c12751a2f27c47f",
+  "required_predecessor": "0c3e9a6767273aaab31f77f8492b977c72fb40a1",
+  "entries": 100,
+  "dependencies": [
+    "good_ones_found_object_percussion",
+    "feedback_pedal_mixer_network",
+    "found_household_percussion",
+    "credited_music_box_unspecified",
+    "hardware_tb303_bassline_complete",
+    "hardware_cr78_rhythm_complete",
+    "hardware_tr606_rhythm_complete",
+    "hardware_tr808_rhythm_complete",
+    "hardware_tr909_rhythm_complete",
+    "software_singing_synthesis",
+    "daw_melodic_source_unspecified",
+    "daw_phrase_source_unspecified",
+    "daw_bass_source_unspecified",
+    "daw_percussion_source_unspecified",
+    "credited_samples_unspecified",
+    "saxophone_section_alto_tenor",
+    "korg_volca_sample",
+    "korg_volca_sample2",
+    "korg_volca_keys",
+    "korg_nts1_digital"
+  ],
+  "old_merged_preserved": 1566,
+  "source_packets": 97,
+  "excluded_possible_overlap_labels": 189,
+  "errors": []
+}

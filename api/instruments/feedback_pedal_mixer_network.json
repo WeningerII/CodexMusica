@@ -1,0 +1,52 @@
+{
+  "id": "feedback_pedal_mixer_network",
+  "name": "Feedback pedal and mixer network",
+  "short": "Pedal/mixer feedback",
+  "family": "electronic",
+  "class": "feedback_network",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "feedback_pedal_mixer_network_identity",
+      "name": "Feedback network",
+      "variants": [
+        {
+          "id": "feedback_pedal_mixer_network_closed_loop",
+          "name": "Closed feedback loops through effects pedals and mixers",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Closed feedback loops through effects pedals and audio mixers generate the sound and simulated beats. No input guitar, sampler, synthesizer, sequencer or drum machine is asserted. Circuit models and pedal inventory are unspecified; neutral axes are authored coordinates.",
+  "sources": [
+    "https://deathbombarc.bandcamp.com/album/all-critters"
+  ],
+  "_ownParts": [
+    {
+      "id": "feedback_pedal_mixer_network_identity",
+      "name": "Feedback network",
+      "variants": [
+        {
+          "id": "feedback_pedal_mixer_network_closed_loop",
+          "name": "Closed feedback loops through effects pedals and mixers",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

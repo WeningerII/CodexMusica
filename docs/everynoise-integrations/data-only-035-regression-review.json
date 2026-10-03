@@ -1,0 +1,224 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "46c0bf1272252c3c9c77b94ec00cfcade1b3b272e6e8745e0c12751a2f27c47f",
+  "authorized_exact_fixture_ids": [
+    "jam_band",
+    "tech_house_classic",
+    "reggae_fusion_modern",
+    "kapuka_kenyan"
+  ],
+  "source_extras_roster_environment_protected_settings_unchanged": true,
+  "material_unprotected_slot_changes": 15,
+  "rows": [
+    {
+      "id": "jam_band",
+      "old_output": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock nwocr dutch rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "new_output": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock hard rock brasileiro nwocr. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "baseline_staples": ["jam_band", "nwocr", "dutch_rock"],
+      "current_staples": ["jam_band", "hard_rock_brasileiro", "nwocr"],
+      "baseline_score": 233.94,
+      "current_score": 330.7224999999999,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["hard_rock_brasileiro"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "fast_vibrato",
+          "after": "delayed_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "slow_vibrato",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "sean_nos_tradition",
+          "after": "modern_pop_vocal_training",
+          "source_pin_parts": false,
+          "source_variant": "modern_pop_vocal_training",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "body_wood",
+          "before": "basswood_h",
+          "after": "mahogany_maple_cap",
+          "source_pin_parts": false,
+          "source_variant": "alder",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_magnet",
+          "before": "alnico_2_h",
+          "after": "alnico_8_h",
+          "source_pin_parts": false,
+          "source_variant": "alnico_5",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "bridge",
+          "before": "string_thru",
+          "after": "stoptail",
+          "source_pin_parts": false,
+          "source_variant": "vintage_trem",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "scale_length",
+          "before": "scale_gibson_h",
+          "after": "scale_baritone_h",
+          "source_pin_parts": false,
+          "source_variant": "scale_fender",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_gauge",
+          "before": "g_10_hum",
+          "after": "g_11_hum",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_10",
+          "after": "g_11",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "mahogany_b",
+          "after": "alder_b",
+          "source_pin_parts": false,
+          "source_variant": "alder",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretted",
+          "after": "fretless",
+          "source_pin_parts": false,
+          "source_variant": "fretted",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "hydraulic",
+          "after": "ec_pre_muffled_drumhead",
+          "source_pin_parts": false,
+          "source_variant": "single_coated",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "tech_house_classic",
+      "old_output": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance algorave dark techno. digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_output": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance portuguese techno techno argentina. digital subtractive, TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "baseline_staples": ["tech_house_classic", "algorave", "dark_techno"],
+      "current_staples": ["tech_house_classic", "portuguese_techno", "techno_argentina"],
+      "baseline_score": 112.54,
+      "current_score": 97.625,
+      "new_neighbor_ids": ["portuguese_techno", "techno_argentina"],
+      "new_candidate_ids": ["portuguese_techno", "techno_argentina"],
+      "slot_changes": [
+        {
+          "instrument": "digital_subtractive",
+          "part": "va_archetypes",
+          "before": "nord_lead",
+          "after": "novation_supernova",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "sampler_classic",
+          "part": "electronic_technique",
+          "before": "electronic_glitch_textural",
+          "after": "electronic_sample_chopped",
+          "source_pin_parts": false,
+          "source_variant": "electronic_bass_sub",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "sampler_classic",
+          "part": "sampler_workflow",
+          "before": "sampler_microsampling_glitch",
+          "after": "sampler_one_shot_pitched",
+          "source_pin_parts": false,
+          "source_variant": "sampler_loop_layered",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "reggae_fusion_modern",
+      "old_output": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop german alternative rap. thick, rap, straight onset, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky thumb muted electric bass, pre muffled edge muffled rim clicks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_output": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop chinese melodic rap. thick, rap, straight onset, interlocked note trading. clean strummed single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky thumb muted electric bass, pre muffled edge muffled rim clicks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "baseline_staples": ["reggae_fusion_modern", "australian_hip_hop", "german_alternative_rap"],
+      "current_staples": ["reggae_fusion_modern", "australian_hip_hop", "chinese_melodic_rap"],
+      "baseline_score": 281.4975,
+      "current_score": 273.17749999999995,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["chinese_melodic_rap"],
+      "slot_changes": [],
+      "environment_changes": {}
+    },
+    {
+      "id": "kapuka_kenyan",
+      "old_output": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm san antonio rap rap marocain. extended whistle, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_output": "classic East African 2000-2003 kapuka, functional Song, African pop branch, intl hip hop MC rhythm chinese melodic rap san antonio rap. extended whistle, rap, slow rate, interlocked note trading. TR-808, plucked short envelope analog synth, alder pyramid pure nickel bass British mid 60s era electric bass. dar es salaam zanzibar taarab culture club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "baseline_staples": ["kapuka_kenyan", "san_antonio_rap", "rap_maroc"],
+      "current_staples": ["kapuka_kenyan", "chinese_melodic_rap", "san_antonio_rap"],
+      "baseline_score": 172.7975,
+      "current_score": 130.8875,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["chinese_melodic_rap"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice",
+          "source_pin_parts": false,
+          "source_variant": "tempered_voice",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    }
+  ],
+  "causal_method": "Original regression fixture definitions and 100-iteration original solver replay, independently on exact baseline and current catalog. Baseline matches committed snapshot and current matches failed regression log. Removing only new100 traditions/extras from process memory restores both exact recipes, complete configs and scores while retaining all20 new instruments.",
+  "cause": "Hard Rock Brasileiro enters jam-band staple selection; Portuguese Techno and Techno Argentina enter tech-house staple selection; Chinese Melodic Rap enters Reggae Fusion and Kapuka staple selection. New sibling and axis-neighbor contributions also alter scores. Removing all new100 restores the exact baseline; this does not assert each named row alone explains every search choice.",
+  "interpretation": "Jam Band changes11 valid unprotected owner slots; Tech House changes3 and Kapuka1. Reggae Fusion changes staple-derived text without slot movement. These are expected original solver adjacency effects, not new source facts or improvements to old historical reconstructions. Old authored actual browser cards are preserved by separate integration audit.",
+  "errors": [],
+  "scope": "Only listed four fixtures eligible for parent original targeted snapshot update; full serial regression and exact-head CI remain required. Reviewer changed no repository/source/API/snapshot."
+}

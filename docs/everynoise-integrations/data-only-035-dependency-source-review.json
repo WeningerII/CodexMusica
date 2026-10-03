@@ -1,0 +1,176 @@
+{
+  "packet": "/tmp/batch035/frozen.json",
+  "sha256": "6e0aa3e6c5ffbb516b787ffcef41f45ee2eef53f8788a175c6ce8947284ae031",
+  "dependencies": 20,
+  "rows": [
+    {
+      "id": "good_ones_found_object_percussion",
+      "record_sources": [
+        "https://thegoodonesband.bandcamp.com/album/rwanda-sings-with-strings?label=2256245618&tab=music"
+      ],
+      "wrapper_sources": [
+        "https://thegoodonesband.bandcamp.com/album/rwanda-sings-with-strings?label=2256245618&tab=music"
+      ],
+      "wrapper_only": []
+    },
+    {
+      "id": "feedback_pedal_mixer_network",
+      "record_sources": ["https://deathbombarc.bandcamp.com/album/all-critters"],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "found_household_percussion",
+      "record_sources": [],
+      "wrapper_sources": [
+        "https://www.researchgate.net/publication/248947201_Sea_Breeze_Globalisation_and_Cook_Islands_popular_music"
+      ],
+      "wrapper_only": [
+        "https://www.researchgate.net/publication/248947201_Sea_Breeze_Globalisation_and_Cook_Islands_popular_music"
+      ]
+    },
+    {
+      "id": "credited_music_box_unspecified",
+      "record_sources": [
+        "https://soundawakener.bandcamp.com/album/tiny-portraits-sound-awakener",
+        "https://wiswos.com/assets/pdf/WISWOS_London_Event_March_2018.pdf"
+      ],
+      "wrapper_sources": [
+        "https://soundawakener.bandcamp.com/album/tiny-portraits-sound-awakener",
+        "https://wiswos.com/assets/pdf/WISWOS_London_Event_March_2018.pdf"
+      ],
+      "wrapper_only": []
+    },
+    {
+      "id": "hardware_tb303_bassline_complete",
+      "record_sources": [
+        "https://soundcloud.com/slacksradio/musica-dispersa-002-surreal-pneuma-live-may-2026-1",
+        "https://www.roland.com/us/products/tb-3/articles/"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "hardware_cr78_rhythm_complete",
+      "record_sources": [
+        "https://soundcloud.com/slacksradio/musica-dispersa-002-surreal-pneuma-live-may-2026-1",
+        "https://support.roland.com/hc/en-us/articles/201934399-CR-78-Technical-Specifications"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "hardware_tr606_rhythm_complete",
+      "record_sources": [
+        "https://articles.roland.com/drumatix-the-perpetual-appeal-of-the-tr-606/",
+        "https://soundcloud.com/slacksradio/musica-dispersa-002-surreal-pneuma-live-may-2026-1"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "hardware_tr808_rhythm_complete",
+      "record_sources": [
+        "https://soundcloud.com/slacksradio/musica-dispersa-002-surreal-pneuma-live-may-2026-1",
+        "https://www.roland.com/us/promos/roland_tr-909/"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "hardware_tr909_rhythm_complete",
+      "record_sources": [
+        "https://soundcloud.com/slacksradio/musica-dispersa-002-surreal-pneuma-live-may-2026-1",
+        "https://www.roland.com/se/products/rc_tr-909/"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "software_singing_synthesis",
+      "record_sources": [
+        "https://sonicwire.com/product/virtualsinger/special/rinlenv4x?lang=en",
+        "https://www.at-elise.com/elise/JPDPFA07126/"
+      ],
+      "wrapper_sources": [
+        "https://sonicwire.com/product/virtualsinger/special/rinlenv4x?lang=en",
+        "https://www.at-elise.com/elise/JPDPFA07126/"
+      ],
+      "wrapper_only": []
+    },
+    {
+      "id": "daw_melodic_source_unspecified",
+      "record_sources": ["https://www.youtube.com/watch?v=XocuqyTEVhk"],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "daw_phrase_source_unspecified",
+      "record_sources": ["https://www.youtube.com/watch?v=XocuqyTEVhk"],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "daw_bass_source_unspecified",
+      "record_sources": ["https://www.youtube.com/watch?v=XocuqyTEVhk"],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "daw_percussion_source_unspecified",
+      "record_sources": ["https://www.youtube.com/watch?v=XocuqyTEVhk"],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "credited_samples_unspecified",
+      "record_sources": ["https://www.youtube.com/watch?v=pvJI_5-kMCo"],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "saxophone_section_alto_tenor",
+      "record_sources": ["https://www.youtube.com/watch?v=4Q6Yn1LpIBI"],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "korg_volca_sample",
+      "record_sources": [
+        "https://www.korg.com/us/products/dj/volca_sample/",
+        "https://www.korg.live/tr/features/artists/2021/0806/"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "korg_volca_sample2",
+      "record_sources": [
+        "https://www.korg.com/us/products/dj/volca_sample2/",
+        "https://www.korg.live/tr/features/artists/2021/0806/"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "korg_volca_keys",
+      "record_sources": [
+        "https://www.korg.com/us/products/dj/volca_keys/",
+        "https://www.korg.live/tr/features/artists/2021/0806/"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    },
+    {
+      "id": "korg_nts1_digital",
+      "record_sources": [
+        "https://www.korg.com/us/products/dj/nts_1/",
+        "https://www.korg.live/tr/features/artists/2021/0806/"
+      ],
+      "wrapper_sources": [],
+      "wrapper_only": []
+    }
+  ],
+  "status": "PASS",
+  "findings": "No stale donor citations across20 dependencies. Found-household-percussion has source only on wrapper, not record; this matches freshly reviewed Alexeyeff primary observed objects and is valid provenance, not mismatch. Other populated wrappers match record URLs. Optional absent wrapper sources are not errors."
+}

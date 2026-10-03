@@ -1,0 +1,56 @@
+{
+  "id": "rock_noise",
+  "name": "Rock Noise",
+  "family": "electronic",
+  "lineage": "Mincemeat Or Tenspeed — All Critters, complete2008 album restored2018. The complete positive source network is an isolated feedback-pedal/mixer instrument identity. No invented circuit models, pedal brand, oscillator, sampler, drum machine, input guitar or synth architecture. Neutral axes and a dry modern recording chain are authored; feedback is the source-generation mechanism, distinct from optional recording-chain effects. Optional global tuning omitted because no pitched tuning framework is documented. No singers.",
+  "recipe": "classic rock noise, experimental Elec. feedback pedal mixer network. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 167,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "rock_noise"
+    ],
+    "instruments": [
+      {
+        "id": "feedback_pedal_mixer_network",
+        "slots": {
+          "feedback_pedal_mixer_network_identity": "feedback_pedal_mixer_network_closed_loop"
+        },
+        "scores": {
+          "feedback_pedal_mixer_network_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "feedback_pedal_mixer_network": [
+        "feedback_pedal_mixer_network_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "feedback_pedal_mixer_network_identity": "feedback_pedal_mixer_network_closed_loop"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

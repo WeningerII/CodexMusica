@@ -1,0 +1,52 @@
+{
+  "id": "credited_samples_unspecified",
+  "name": "Credited sample performance (source unspecified)",
+  "short": "Credited samples",
+  "family": "electronic",
+  "class": "credited_samples_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_samples_identity",
+      "name": "Credited sample role",
+      "variants": [
+        {
+          "id": "credited_samples_source_unspecified",
+          "name": "Sample performance with unspecified source architecture",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positively credited sample-performance role, preserving all sampled material without inferring hardware, software, sound inventory, bit depth, live players, or uncredited source singers. Neutral routing coordinates are authored.",
+  "sources": [
+    "https://www.youtube.com/watch?v=pvJI_5-kMCo"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_samples_identity",
+      "name": "Credited sample role",
+      "variants": [
+        {
+          "id": "credited_samples_source_unspecified",
+          "name": "Sample performance with unspecified source architecture",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

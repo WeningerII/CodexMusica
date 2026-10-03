@@ -3,27 +3,27 @@
   "name": "Tech-house",
   "family": "global",
   "lineage": "House-and-techno hybrid subgenre codified through Mr. C’s End-Recordings, Terry Francis, Eddie Richards, Layo and Bushwacka — characterized by minimal-techno-derived rhythmic foundation with house-tempo (124-128 BPM), jazz-funk influence, and the European-clubland 2000s production aesthetic",
-  "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance algorave dark techno. digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 393,
-  "score": 112.54,
+  "recipe": "classic mid-2000s tech-house, electronic Dance, tech house branch, techno electronic dance portuguese techno techno argentina. digital subtractive, TR-909, sampler, analog mono synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 329,
+  "score": 97.625,
   "config": {
     "traditions": [
       "tech_house_classic",
-      "algorave",
-      "dark_techno"
+      "portuguese_techno",
+      "techno_argentina"
     ],
     "instruments": [
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "va_archetypes": "nord_lead",
+          "va_archetypes": "novation_supernova",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
           "electronic_technique": 0.585,
-          "va_archetypes": 0.5,
-          "digital_subtractive_context": 16.249999999999996
+          "va_archetypes": 0.15,
+          "digital_subtractive_context": 12.024999999999999
         }
       },
       {
@@ -36,24 +36,24 @@
         "scores": {
           "tr909_voice": 23.490000000000006,
           "drum_machine_909_context": 2.47,
-          "tr909_production_origin": 1.56
+          "tr909_production_origin": 0.7150000000000001
         }
       },
       {
         "id": "sampler_classic",
         "slots": {
-          "electronic_technique": "electronic_glitch_textural",
+          "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "roland_s750",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_microsampling_glitch",
+          "sampler_workflow": "sampler_one_shot_pitched",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 2.6249999999999996,
+          "electronic_technique": -0.07,
           "sampler_archetypes": 0.3,
           "sampler_bit_depth": 0.26,
-          "sampler_workflow": 2.6249999999999996,
-          "sampler_classic_context": 44.88
+          "sampler_workflow": 0.325,
+          "sampler_classic_context": 41.63
         }
       },
       {
@@ -66,7 +66,7 @@
           "mono_maker_lineage": "mono_moog_robert"
         },
         "scores": {
-          "electronic_technique": 18.074999999999996,
+          "electronic_technique": 16.824999999999996,
           "mono_oscillator": 0,
           "mono_filter": 0.39,
           "mono_archetypes": 0.39,

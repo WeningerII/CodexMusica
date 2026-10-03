@@ -1,0 +1,69 @@
+{
+  "id": "vietnamese_electronic",
+  "name": "Vietnamese electronic",
+  "family": "electronic",
+  "lineage": "Sound Awakener / Nhung Nguyen — Nocturnal Scenes (2015), complete4:16 single. WISWOS presenting programme explicitly describes field recordings collected near Goethe Institut Hanoi mixed with processed music box. Retain both the environmental collage and processed music-box source; no other instruments, singers, oscillator architecture or sampler hardware inferred. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2010s vietnamese electronic, experimental Elec. environmental field recording environmental sound collage, credited music box unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 249,
+  "score": 4.563,
+  "config": {
+    "traditions": [
+      "vietnamese_electronic"
+    ],
+    "instruments": [
+      {
+        "id": "environmental_sound_collage",
+        "slots": {
+          "environmental_collage_source": "environmental_field_recording_collage"
+        },
+        "scores": {
+          "environmental_collage_source": 4.563
+        }
+      },
+      {
+        "id": "credited_music_box_unspecified",
+        "slots": {
+          "credited_music_box_identity": "music_box_processed_unspecified"
+        },
+        "scores": {
+          "credited_music_box_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "environmental_sound_collage": [
+        "environmental_collage_source"
+      ],
+      "credited_music_box_unspecified": [
+        "credited_music_box_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "environmental_collage_source": "environmental_field_recording_collage",
+      "credited_music_box_identity": "music_box_processed_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

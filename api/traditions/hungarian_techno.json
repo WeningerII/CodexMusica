@@ -5,7 +5,7 @@
   "lineage": "COMMITTEE — complete2019 Red Light Radio live duo setup. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
   "recipe": "classic hungarian techno, electronic Dance, techno branch. modular synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay high-gain distortion.",
   "recipe_chars": 242,
-  "score": 1.345,
+  "score": 1.24,
   "config": {
     "traditions": [
       "hungarian_techno"
@@ -22,7 +22,7 @@
         "scores": {
           "electronic_technique": 0.26,
           "mod_voltage_source": 0.39,
-          "mod_patch_density": 0.105,
+          "mod_patch_density": 0,
           "mod_lineage": 0.325
         }
       },
