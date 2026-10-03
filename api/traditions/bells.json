@@ -1,0 +1,54 @@
+{
+  "id": "bells",
+  "name": "Bells",
+  "family": "classical",
+  "lineage": "Arie Abbenes — complete inauguration concert on the Abbey of Saint-Maurice carillon, recorded26September2004, issued2005 by RSR and the Abbey. Official issuer lists15 tracks: original carillon works and Abbenes arrangements of Dowland, Chilcot, Field, Bach, Elgar, Joplin and Barrios Mangore. All are performed on carillon; lute/harpsichord/piano/cello/guitar in the original composition titles identify arrangements’ sources, not additional sounding instruments. One solo carillonneur; no vocal part. Abbey explicitly documents49bells/four octaves; count retained in evidence. Existing carillon with played baton-clavier and grand/heavy-bourdon option is an authored compatible realization. Abbey confirms its large49bell instrument and4,100kg low bourdon; no approximately47bell variant used. Whole instrument count remains49 in source evidence; no exact measured casting or action mechanism claim beyond conventional authored played clavier. ModernA440/twelve-tone tuning is an authored recording baseline, not a historical tuning measurement. Neutral axes are an authored editorial baseline, not a measured analysis. Actual abbey capture acoustics and Espace2 microphones remain unspecified. Retain the documented expressive manually played tower carillon; exact capture position, microphone and recording medium remain unspecified and are omitted. This is not a relocation into a recording booth or an automated chime device.",
+  "recipe": "classic bells, art Music. baton clavier grand bourdon carillon.",
+  "recipe_chars": 63,
+  "score": 11,
+  "config": {
+    "traditions": [
+      "bells"
+    ],
+    "instruments": [
+      {
+        "id": "carillon",
+        "slots": {
+          "carillon_action": "carillon_baton_clavier",
+          "carillon_size": "carillon_grand_bourdon"
+        },
+        "scores": {
+          "carillon_action": 7.1,
+          "carillon_size": 3.8999999999999995
+        }
+      }
+    ],
+    "pinned": {
+      "carillon": [
+        "carillon_action",
+        "carillon_size"
+      ]
+    },
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "parts": {
+      "carillon_action": "carillon_baton_clavier",
+      "carillon_size": "carillon_grand_bourdon"
+    },
+    "pin_parts": true
+  }
+}

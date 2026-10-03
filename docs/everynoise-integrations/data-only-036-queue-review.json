@@ -1,0 +1,197 @@
+{
+  "original_frozen_sha256": "838aa5e2f0d3db08eaa492f1ed46095452a80bfd9b7f5743b67e77a981de94fa",
+  "integration_final_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "required_predecessor": "9430927f893a7816a4845a0b0521148a9c00e06b",
+  "entries": 100,
+  "dependencies": [
+    "esencia_spanish_corneta_section",
+    "esencia_processional_drum_set",
+    "analog_sine_oscillator_z3000",
+    "electronic_synthesis_sequencing_unspecified",
+    "software_isochronic_tone_generator",
+    "credited_guira_unspecified",
+    "thom_nuer_four_string",
+    "saxophone_section_alto_two_baritones",
+    "credited_programmed_drums_unspecified"
+  ],
+  "old_merged_preserved": 1586,
+  "source_packets": 100,
+  "excluded_possible_overlap_labels": 189,
+  "equivalences": [
+    {
+      "status": "PASS_EQUIVALENT",
+      "packet_sha256": "dc5097b9af5247e5b9106ba035bcd294493af04491db41264c7a5489f16bac0f",
+      "source_label": "bmore",
+      "target_id": "baltimore_club",
+      "new_entries": 0,
+      "existing_rows_changed": false,
+      "primary_review": [
+        {
+          "url": "https://blogs.ubalt.edu/library/2016/11/07/love-and-bmore-music-unruly-ethics/",
+          "ref": "turn6894view2",
+          "finding": "Firsthand university-hosted Scottie B account names Bmore Club Music as Baltimore house/hip-hop synthesis and identifies Unruly history. This positively establishes the same named practice, rather than inferring equivalence from shared performers."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/0BucwX8Ux9HWxDYgbI445d",
+          "refs": [
+            "turn6894view3",
+            "turn6900view0",
+            "turn6900view1",
+            "turn6900view2",
+            "turn6900view3"
+          ],
+          "finding": "Reviewed all100 exposed playlist positions. Core includes RodLee,KWGriff,DJClass,KSwift,Technics,ScottieB,MissTony and explicitly named Baltimore/Bmore club remixes. The roster also includes Jersey/Philadelphia and wider crossover contributors, remixers and apparent peripheral selections; not every track is asserted canonical Baltimore club. Those discovery-list edges provide no independently documented alternative Bmore tradition."
+        }
+      ],
+      "actual_existing_scope": "Existing baltimore_club explicitly covers early1990s Baltimore sampled house/breakbeat practice, RodLee/KSwift/DJClass/Unruly and crossover exemplars. Source terminology matches that musical lineage and community. The existing row is not restricted to a single artist or historical recording.",
+      "decision": "Treat Bmore as an alias of existing Baltimore club. Do not integrate an additional row or alter old instrumentation. Playlist overlap supports contextual consistency but is not the equivalence proof; firsthand same-practice naming is decisive.",
+      "limitations": "Full exposed100 playlist positions checked, not an assertion of exhaustive all-time repertoire identity or a classification of every peripheral track."
+    },
+    {
+      "id": "chamber_ensemble",
+      "target": "chamber_music",
+      "status": "PASS_EQUIVALENT",
+      "basis": "AFCM performing institution explicitly defines chamber ensembles as the small one-player-per-part conductorless practice, including string/wind/piano combinations. Existing full chamber_music identity expressly covers that broad repertoire beyond its quartet exemplar. Original AIB cataloguing research documents exact creator chamber-ensemble discovery through conventional chamber repertoire; no positive distinct practice found.",
+      "sources": [
+        {
+          "url": "https://www.afcm.com.au/learn/types-of-chamber-ensembles/",
+          "ref": "turn6938view0",
+          "mode": "fresh direct"
+        },
+        {
+          "url": "https://www.aib.it/wp-content/uploads/2023/04/S01_03_Grossi_Schiavone-1.pdf",
+          "ref": "turn6943search12",
+          "mode": "fresh indexed original study with exact creator-playlist screenshot transcription; direct later timeout, no fresh visual screenshot claim"
+        },
+        {
+          "url": "https://aibstudi.aib.it/article/download/13983/12166/26691",
+          "ref": "turn6943search13",
+          "mode": "original cataloguing article identifies chamber ensemble as chamber music in exact EveryNoise context"
+        }
+      ],
+      "limitation": "Not an assertion every ensemble uses same roster or only common-practice repertoire; old entry explicitly includes broader chamber repertoire and modern cross-reference.",
+      "source_label": "chamber ensemble",
+      "packet_sha256": "529f9470d782bae4fe1d9c6e7ff1740dd849db8771fc8ef8b4f5fb4a952e9a74",
+      "review_file": "/tmp/batch036/recovery119-121-equivalence-independent-review119.json",
+      "new_entries": 0,
+      "existing_rows_changed": false,
+      "source_packet": "/tmp/batch036/recovery119-121-equivalence-proposals024-original529f9470.json"
+    },
+    {
+      "status": "PASS_EQUIVALENT",
+      "packet": "/tmp/batch036/recovery127-128-dong-yo-equivalence-proposal.json",
+      "packet_sha256": "f395025ffd8b4fc9957a791a39f5abffb81f0678c95acda44a0256c4cce574ca",
+      "source_id": "dong_yo",
+      "target_id": "korean_dongyo",
+      "reviewer": "research_119",
+      "existing_full_record_and_extras_match_current": true,
+      "basis": "Same named Korean children-song umbrella. Existing full definition covers oral play songs, twentieth-century composed repertoire and ongoing modern childhood use; its single-voice default does not narrow category to unaccompanied history. Institutional encyclopedia explicitly divides dongyo into transmitted and newly composed children songs. Hyphenation is not a musical boundary.",
+      "sources": [
+        {
+          "url": "https://encykorea.aks.ac.kr/Article/E0016700",
+          "ref": "turn7102view1",
+          "mode": "Fresh direct full institutional encyclopedia entry, definition and transmitted/composed categories."
+        },
+        {
+          "url": "https://open.spotify.com/embed/playlist/20lnyPyAJmQD2HbHYyObOp",
+          "refs": ["turn7108view0", "turn7110view0"],
+          "mode": "Exact destination recovered by actual original creator-map click2 turn7105view0; independently reviewed exposed100 positions."
+        }
+      ],
+      "creator_scope": "Broad nursery/play/school/repertoire alongside Korean childrens entertainment producers and choirs. Contemporary arrangements, translated franchise soundtracks, instrumental versions and global-language brand items are included; not every track asserted a canonical Korean folk song. The named category core and continuing childhood scope align with existing umbrella, not merely shared artists.",
+      "action": "Record equivalence only; zero new tradition/instrument slots and no old source/default changes.",
+      "blockers": [],
+      "source_label": "dong-yo"
+    },
+    {
+      "source_label": "big room",
+      "source_url": "https://everynoise.com/engenremap-bigroom.html",
+      "suggested_id": "big_room",
+      "allocation_ordinal": 2877,
+      "allocation_group_id": "116",
+      "status": "verified_equivalent",
+      "target_id": "big_room_house",
+      "rationale": "Proposed shortened name for existing festival big-room-house lineage, not merely shared exemplar. Full existing record explicitly covers early2010s mainstage builds/drops, Hardwell/Revealed/Spinnin ecosystem and contemporary continuations. Creator exact big-room map names Hardwell,W&W,DimitriVegasLikeMike,NickyRomero,SaberZ,KEVU,SickIndividuals; issuing Revealed describes its same sound in full big-room-house and shortened big-room language. Multiple institutional uses tie name, ecosystem and sonic structure; no distinct regional/functional boundary found. No new musical row or dependency and no repair to old defaults requested.",
+      "existing_full_record": {
+        "tradition": {
+          "id": "big_room_house",
+          "name": "Big room house (EDM festival)",
+          "family": "electronic",
+          "lineage": "Early-2010s house subgenre engineered for large festival main-stage performance contexts. Characterized by enormous-build-up-and-drop song-structure, simplified melodic and harmonic content, massive distorted-synth festival-anthem peak-sections, and predictable formulaic arrangement. Hardwell, Martin Garrix, Dimitri Vegas & Like Mike, and the Spinnin' Records-Revealed Recordings label rosters define the canonical sound. Tomorrowland, Ultra Music Festival, and EDC Las Vegas constitute the canonical festival circuit.",
+          "instruments": ["drum_machine_808", "analog_synth"],
+          "room": "studio_distributed_production",
+          "chain_mic": "condenser_ldc",
+          "chain_pre": "transformerless",
+          "chain_medium": "digital_high",
+          "chain_console": "console_in_the_box",
+          "tuning": "twelve_tet",
+          "chain_status": "researched_studio",
+          "chain_comp": "comp_distressor_modern",
+          "chain_eq": "eq_massenburg_mastering",
+          "parts": {
+            "tr808_voice": "tr808_kick_long",
+            "drum_machine_808_context": "drum_machine_808_trap",
+            "tr808_production_origin": "tr808_roland_osaka_canonical",
+            "electronic_technique": "electronic_bass_sub"
+          },
+          "chain_archetype": "arch_festival_edm_itb"
+        },
+        "extras": {
+          "parent": "electronicDance.house",
+          "axes": {
+            "harm": 1,
+            "pitch": 1,
+            "ornament": 1,
+            "meter": 1,
+            "density": 2,
+            "transmission": 1,
+            "improv": 0,
+            "soundTech": 1,
+            "intensity": 2,
+            "voice": -2,
+            "timbre": 1,
+            "percussion": 2,
+            "cyclicity": 2
+          },
+          "description": "Early-2010s house subgenre engineered for large festival main-stage performance contexts. Characterized by enormous-build-up-and-drop song-structure, simplified melodic and harmonic content, massive distorted-synth festival-anthem peak-sections, and predictable formulaic arrangement. Hardwell, Martin Garrix, Dimitri Vegas & Like Mike, and the Spinnin' Records-Revealed Recordings label rosters define the canonical sound. Tomorrowland, Ultra Music Festival, and EDC Las Vegas constitute the canonical festival circuit.",
+          "exemplars": [
+            "Hardwell",
+            "Martin Garrix",
+            "Dimitri Vegas & Like Mike",
+            "Nicky Romero",
+            "W&W",
+            "Spinnin' Records"
+          ],
+          "status": "documented",
+          "crossRefs": ["distortedRock.metal.thrash"]
+        }
+      },
+      "sources": [
+        {
+          "url": "https://furia.com/everynoise_public/engenremap-bigroom.html",
+          "mode": "fresh_direct_primary_creator",
+          "ref": "turn7305view0",
+          "notes": "Exactcategory and full artist map reproduced; not inherited membership guess."
+        },
+        {
+          "url": "https://www.revealedrecordings.com/releases/saberz-kevu-the-uprising",
+          "mode": "fresh_direct_issuing_label",
+          "ref": "turn7303view0",
+          "notes": "Same release description big-room-house plus big-room tendencies, cinematic synth melody, hands-in-air drops,bass,pounding beats; scope matches existing festival lineage."
+        },
+        {
+          "url": "https://www.revealedrecordings.com/releases/blueprint",
+          "mode": "fresh_indexed_issuing_label",
+          "ref": "turn7301search0",
+          "notes": "Issuer describes SickIndividuals/Dannic Dutch big-room-house scene and major festival ecosystem, not novel separate branch."
+        }
+      ],
+      "not_added_count": 0,
+      "review_limitations": "Proposal requires independent semantic review; artist map alone would not establish synonym. No reliance on Wikipedia or mere absence of new boundary.",
+      "proposal": "/tmp/batch036/recovery109-118-bigroom-equivalence-proposal.json",
+      "proposal_sha256": "f3831dd34d670e0bcbce613f51f1ded437c661e97753b8617555471ceb33b5a7",
+      "review": "/tmp/batch036/recovery109-118-bigroom-independent-review-root.json"
+    }
+  ],
+  "errors": []
+}

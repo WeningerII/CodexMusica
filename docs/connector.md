@@ -8,7 +8,7 @@ an instrument — and Claude returns a compact **recipe**: a descriptor stack
 naming the instruments, materials, room, signal chain, and per-instrument
 *prefaces* that tell you how to record it.
 
-- **Catalog:** 6138 traditions · 1586 instruments (with per-part variants) ·
+- **Catalog:** 6238 traditions · 1595 instruments (with per-part variants) ·
   256 rooms · 122 tunings · 740 prefaces, placed in a 13-dimensional parameter space.
 - **Browser app:** <https://codexmusica.com/codex.html>
 - **Endpoint:** `https://mcp.codexmusica.com/mcp` · health: `/health`

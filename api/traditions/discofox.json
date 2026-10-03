@@ -1,0 +1,56 @@
+{
+  "id": "discofox",
+  "name": "Discofox",
+  "family": "electronic",
+  "lineage": "DJ Ronald B — complete Tanz Party im Tanz Club Barbados, 1:56:51 live DJ programme. Complete issuer-published 1:56:51 live party recording, explicitly tagged Disco Fox and German Disco Fox. The artist profile positively describes active mixing of digital recordings, including original tracks and remixes. All embedded musical material is retained through the existing neutral DJ playback/mixing owner; this models the documented DJ performance rather than replacing unspecified studio instrumentation of an individual song. Profile names Pioneer XDJ-RX digital controller, but specific device use on this particular set is not independently established; neutral owner does not pretend to recreate controller circuitry. No tracklist, constituent production roles, exact source musicians, or measured exclusive genre purity inferred. Embedded and separately performed live voice counts remain unknown; zero added voice cards does not assert silence. Studio chain is authored, global tuning omitted. Continental electronic dance is an editorial placement for this digitally mixed European dance-repertoire branch, not an assertion that every Discofox-compatible song descends from house or techno.",
+  "recipe": "classic discofox, electronic Dance, continental branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 186,
+  "score": 0.105,
+  "config": {
+    "traditions": [
+      "discofox"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

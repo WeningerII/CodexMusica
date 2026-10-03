@@ -1,0 +1,88 @@
+{
+  "id": "pop_virale_italiano",
+  "name": "Pop virale italiano",
+  "family": "pop",
+  "lineage": "Olly — Balorda nostalgia, complete Rybnikova Piano.Solo PSO0190709 arrangement. Authored present-day Steinway D nine-foot piano with compatible construction defaults and block-chord pop touch. Source establishes piano solo but not model, construction, gesture or temperament. Broad functionalSong models authored song-form and tonal harmonic support, not a full-score analysis; availability of notation does not make this classical art music. No global tuning asserted.",
+  "recipe": "classic pop virale italiano, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 218,
+  "score": 40.269,
+  "config": {
+    "traditions": [
+      "pop_virale_italiano"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 15.299999999999997,
+          "grand_piano_size": 1.9000000000000001,
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": 3.2,
+          "piano_rim": 3.5000000000000004,
+          "piano_soundboard": 3.3365,
+          "piano_pinblock": 4.800000000000001,
+          "piano_plate": 5.1000000000000005,
+          "piano_pitch_standard": 2.7230000000000003
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

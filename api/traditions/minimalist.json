@@ -3,14 +3,14 @@
   "name": "Minimalist",
   "family": "classical",
   "lineage": "Late-1960s onward American art-music movement characterized by repetitive cells, gradual processual change, sustained tonal centers, and rejection of post-Webern serialism — codified through La Monte Young (early drone works), Terry Riley (In C 1964), Steve Reich (Music for 18 Musicians 1976, Music for Mallet Instruments Voices and Organ), Philip Glass (Music in Twelve Parts 1971-74, Einstein on the Beach 1976), and continuing through John Adams (Shaker Loops 1978)",
-  "recipe": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric deep downtempo fusion música andorra. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, pad like pad analog synth, controlled legato bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-  "recipe_chars": 418,
-  "score": 81.342,
+  "recipe": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric brain waves. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 353,
+  "score": 85.305,
   "config": {
     "traditions": [
       "minimalist",
-      "deep_downtempo_fusion",
-      "musica_andorra"
+      "528hz",
+      "brain_waves"
     ],
     "instruments": [
       {
@@ -19,8 +19,8 @@
           "keyboard_technique": "keyboard_avant_prepared",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "bosendorfer",
-          "piano_hammer": "renner_blue_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_hammer": "renner_standard_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
@@ -30,29 +30,29 @@
           "keyboard_technique": 5.450000000000001,
           "grand_piano_size": 0.7,
           "grand_piano_brand": 1.7400000000000002,
-          "piano_hammer": 8.59,
-          "piano_rim": 8.29,
-          "piano_soundboard": 8.049999999999999,
-          "piano_pinblock": 8.595,
-          "piano_plate": 8.979999999999999,
-          "piano_pitch_standard": 8.785
+          "piano_hammer": 10.684999999999999,
+          "piano_rim": 7.11,
+          "piano_soundboard": 6.9,
+          "piano_pinblock": 6.595000000000001,
+          "piano_plate": 7.630000000000001,
+          "piano_pitch_standard": 9.435
         }
       },
       {
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_pad_drone",
-          "oscillator": "saw_single",
+          "oscillator": "saw_super",
           "filter_topology": "transistor_ladder",
           "envelope": "pad_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 8.91,
-          "oscillator": 1.4949999999999999,
-          "filter_topology": 0.78,
-          "envelope": 4.029999999999999,
-          "modulation": 0.045
+          "electronic_technique": 11.284999999999997,
+          "oscillator": 2.58,
+          "filter_topology": 2.4299999999999997,
+          "envelope": 4.549999999999999,
+          "modulation": 0.6950000000000001
         }
       },
       {
@@ -63,9 +63,9 @@
           "bass_flute_context": "bass_flute_jazz"
         },
         "scores": {
-          "wind_articulation": 3.625,
+          "wind_articulation": 2.5,
           "bass_flute_pitch": 0.045,
-          "bass_flute_context": 2.145
+          "bass_flute_context": 1.95
         }
       }
     ],

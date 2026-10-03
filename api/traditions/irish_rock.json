@@ -3,14 +3,14 @@
   "name": "Irish rock",
   "family": "rock",
   "lineage": "Rock made in Dublin, Belfast and Derry from about 1970, codified by Thin Lizzy's twin-harmony lead guitars and Phil Lynott's narrative singing, Horslips' grafting of jigs and reels onto amplified band instrumentation, and U2's early-1980s delay-drenched arpeggio guitar over open-tuned drone chords — mostly straight 4/4 at 110-150 BPM but frequently borrowing Dorian and Mixolydian modal melody, whistle or pipe countermelodies, and a rhetorical, chest-voice vocal delivery.",
-  "recipe": "classic Northern European 1980-1983 irish rock, distorted Rock, regional branch, Celtic traditional improv on frame, classic distorted rock, pop rock folk rock thai folk rock czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation nitrocellulose single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic tin whistle, traditional low fundamental tuning goat skin canonical Irish bodhran, flat back gdad tuned droning rhythmic open chorded irish bouzouki. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
-  "recipe_chars": 982,
-  "score": 406.633,
+  "recipe": "classic Northern European 1980-1983 irish rock, distorted Rock, regional branch, Celtic traditional improv on frame, classic distorted rock, pop rock folk rock canadian celtic thai folk rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation nitrocellulose single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic tin whistle, goat skin canonical Irish ash pre modern traditional Irish bodhran, flat back gdad tuned droning rhythmic open chorded irish bouzouki. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
+  "recipe_chars": 980,
+  "score": 421.002,
   "config": {
     "traditions": [
       "irish_rock",
-      "thai_folk_rock",
-      "czech_folk_rock"
+      "canadian_celtic",
+      "thai_folk_rock"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 44.37500000000002,
-          "voice_quality": 3.575000000000001,
+          "voice_register": 36.275,
+          "voice_quality": 7.995000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7950000000000004,
-          "voice_articulation": 14.754999999999997,
-          "voice_microtone": 36.20000000000002,
-          "voice_tradition": 21.684999999999995,
-          "voice_mechanism_compound": 4.875,
-          "voice_estill_quality": 2.6000000000000005,
-          "voice_speech_song": 18.849999999999994,
-          "voice_ensemble_config": 14.299999999999995,
-          "voice_ornament_system": 8.32,
+          "voice_vibrato": 3.7900000000000005,
+          "voice_articulation": 18.525,
+          "voice_microtone": 29.225,
+          "voice_tradition": 32.01,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 3.4125000000000005,
+          "voice_speech_song": 24.569999999999993,
+          "voice_ensemble_config": 23.334999999999994,
+          "voice_ornament_system": 18.685,
           "voice_pitch_organization": 3.4450000000000003,
-          "voice_processing_chain": 6.3100000000000005,
-          "voice_multitrack_stack": 3.095
+          "voice_processing_chain": 5.8950000000000005,
+          "voice_multitrack_stack": 3.895
         }
       },
       {
@@ -58,30 +58,30 @@
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
           "body_wood": "pine",
-          "neck_wood": "mahogany_neck",
+          "neck_wood": "wenge_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "nickel_plated",
-          "string_gauge": "g_8",
-          "bridge": "locking_trem",
-          "scale_length": "scale_gibson",
+          "string_gauge": "g_10",
+          "bridge": "vintage_trem",
+          "scale_length": "scale_short",
           "finish": "nitro",
           "string_tuning": "eb_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 6.75,
-          "amp_make": 13.44,
-          "body_wood": 0.315,
-          "neck_wood": 0.195,
-          "fretboard": 0.195,
-          "pickup_magnet": 0.195,
-          "string_material": 0.15,
-          "string_gauge": 1.3,
-          "bridge": 0.24,
-          "scale_length": 0.195,
-          "finish": 1.51,
-          "string_tuning": 13.435,
+          "electric_technique": 3.575,
+          "amp_make": 11.29,
+          "body_wood": 0.9099999999999999,
+          "neck_wood": 0.845,
+          "fretboard": 0.375,
+          "pickup_magnet": 0.09,
+          "string_material": 0.65,
+          "string_gauge": 1.45,
+          "bridge": 0.45499999999999996,
+          "scale_length": 1.5399999999999998,
+          "finish": 1.8599999999999999,
+          "string_tuning": 11.285,
           "single_coil_pickup_construction": 0
         }
       },
@@ -94,7 +94,7 @@
           "neck_wood": "mahogany_neck_h",
           "fretboard": "ebony_fb_h",
           "pickup_magnet": "alnico_4_h",
-          "pickup_winding": "mid_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
           "scale_length": "scale_gibson_h",
@@ -103,26 +103,26 @@
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 6.75,
-          "amp_make": 13.44,
-          "body_wood": 1.4949999999999999,
-          "neck_wood": 0.195,
-          "fretboard": 0.195,
-          "pickup_magnet": 0.21,
-          "pickup_winding": 0.7,
-          "string_material": 0.15,
-          "bridge": 0.98,
-          "scale_length": 0.195,
-          "string_gauge": 0.8,
-          "finish": 1.51,
-          "string_tuning": 13.675
+          "electric_technique": 3.575,
+          "amp_make": 11.29,
+          "body_wood": 1.3,
+          "neck_wood": 0.45499999999999996,
+          "fretboard": 0.375,
+          "pickup_magnet": 0.45499999999999996,
+          "pickup_winding": 0.8300000000000001,
+          "string_material": 0.65,
+          "bridge": 0.8300000000000001,
+          "scale_length": 0.8700000000000001,
+          "string_gauge": 1.45,
+          "finish": 1.8599999999999999,
+          "string_tuning": 11.525
         }
       },
       {
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_late_60s_marshall_plexi",
-          "body_wood": "alder_b",
+          "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
@@ -131,13 +131,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 12.74,
-          "body_wood": 0.525,
+          "amp_make": 10.59,
+          "body_wood": 0.8700000000000001,
           "pickup_config": 0.18,
-          "string_type": 30.840000000000003,
-          "scale_length_b": 0.195,
+          "string_type": 25.465,
+          "scale_length_b": 0.435,
           "fretted_or_not": 1.3,
-          "bass_technique": 31.545000000000005,
+          "bass_technique": 26.17,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,8 +149,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 30.750000000000004,
-          "drumhead": 5.900000000000001,
+          "drum_technique": 25.375,
+          "drumhead": 4.675,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -163,9 +163,9 @@
           "whistle_body_material": "whistle_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 11.074999999999998,
-          "whistle_key": 3.295,
-          "whistle_ornament": 3.6199999999999997,
+          "wind_articulation": 18.074999999999996,
+          "whistle_key": 3.67,
+          "whistle_ornament": 3.17,
           "whistle_body_material": 0
         }
       },
@@ -177,9 +177,9 @@
           "bodhran_shell_wood": "bodhran_ash_traditional"
         },
         "scores": {
-          "bodhran_play": 0.9099999999999999,
-          "bodhran_skin": 2.9899999999999998,
-          "bodhran_shell_wood": 0.65
+          "bodhran_play": 1.885,
+          "bodhran_skin": 3.965,
+          "bodhran_shell_wood": 1.8199999999999998
         }
       },
       {
@@ -187,12 +187,12 @@
         "slots": {
           "irish_bouzouki_form": "irish_bouzouki_standard",
           "irish_bouzouki_playing": "irish_bouzouki_backing",
-          "irish_bouzouki_top_wood": "irish_bouzouki_carved_top"
+          "irish_bouzouki_top_wood": "irish_bouzouki_spruce_top"
         },
         "scores": {
           "irish_bouzouki_form": 1.2349999999999999,
           "irish_bouzouki_playing": 1.625,
-          "irish_bouzouki_top_wood": 0.15
+          "irish_bouzouki_top_wood": 0.65
         }
       }
     ],

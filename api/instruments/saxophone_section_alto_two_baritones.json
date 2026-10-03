@@ -1,0 +1,57 @@
+{
+  "id": "saxophone_section_alto_two_baritones",
+  "name": "Saxophone section (alto and two baritones)",
+  "short": "Alto/two-baritone sax section",
+  "family": "wind",
+  "class": "isolated_saxophone_section_alto_two_baritones",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "alto_two_baritones_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "alto_two_baritones_section_short",
+          "name": "Authored short coordinated horn attacks",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Three credited saxophone roles: one alto and two baritone players. No tenor/soprano or uncredited mouthpiece, reed or maker inferred. Short coordinated attack is authored, not measured recording technique.",
+  "sources": [
+    {
+      "url": "https://ebotaylor.bandcamp.com/album/ebo-taylor-jid022",
+      "title": "Artist-issued track-specific credits",
+      "support_notes": "Feeling track7 credits Jay Flat and Danny Janklow baritone saxophones, Scott Mayo alto.",
+      "checked_date": "2026-10-03"
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "alto_two_baritones_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "alto_two_baritones_section_short",
+          "name": "Authored short coordinated horn attacks",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

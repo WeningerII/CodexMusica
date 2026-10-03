@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "integration_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "original_frozen_sha256": "838aa5e2f0d3db08eaa492f1ed46095452a80bfd9b7f5743b67e77a981de94fa",
+  "baseline": "b39030999b11d58d9ba93e37f954343793a157af; exact merged tree9430927f893a7816a4845a0b0521148a9c00e06b",
+  "raw_and_merged": {
+    "predecessor": "9430927f893a7816a4845a0b0521148a9c00e06b",
+    "head": "9430927f893a7816a4845a0b0521148a9c00e06b",
+    "frozen_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+    "counts": {
+      "raw_traditions_old_unchanged": 6138,
+      "raw_instruments_old_unchanged": 1586,
+      "old_extras_unchanged": 6138,
+      "merged_instruments_old_unchanged": 1586,
+      "data/geo.json_old_keys": 6138,
+      "references/_tradition_signatures.json_old_keys": 4116,
+      "old_images_unchanged": 7674,
+      "new_images": 109
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "esencia_spanish_corneta_section",
+      "esencia_processional_drum_set",
+      "analog_sine_oscillator_z3000",
+      "electronic_synthesis_sequencing_unspecified",
+      "software_isochronic_tone_generator",
+      "credited_guira_unspecified",
+      "thom_nuer_four_string",
+      "saxophone_section_alto_two_baritones",
+      "credited_programmed_drums_unspecified"
+    ],
+    "runtime_independent": {
+      "cards": 333,
+      "effective_parts": 3089,
+      "flat_pins": 2999,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "browser": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1586,
+      "traditions": 6138,
+      "cards": 26379
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "effective_parts": 3089,
+  "protected_parts": 3085,
+  "unprotected_shared_key_slots": [
+    {
+      "id": "tunisian_pop",
+      "slots": [
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "part": "keyboard_technique",
+          "imported_default": "electronic_keyboard_melodic_chordal"
+        }
+      ]
+    },
+    {
+      "id": "canadian_celtic",
+      "slots": [
+        {
+          "instrument": "viola_classical",
+          "part": "bowed_technique",
+          "imported_default": "bowed_legato_classical"
+        },
+        {
+          "instrument": "cello",
+          "part": "bowed_technique",
+          "imported_default": "bowed_legato_classical"
+        }
+      ]
+    },
+    {
+      "id": "ghent_indie",
+      "slots": [
+        {
+          "instrument": "turntable",
+          "part": "electronic_technique",
+          "imported_default": "electronic_sample_chopped"
+        }
+      ]
+    }
+  ],
+  "amendment": {
+    "only_changed_entry": ["french_soundtrack"],
+    "parent": "artMusic",
+    "roles_parts_photos_sources_geo_dependencies_unchanged": true,
+    "source_packet_original_hashes_preserved": true
+  },
+  "source_hash_allocation_exclusion_report": "frozen-audit119.json and final-semantic-review119.json",
+  "limits": "Independent source/app preservation PASS; compiledAPI actual slots and old derived differences pending original final build, then regression and exact-headCI. No blanket snapshot approval.",
+  "no_repository_edits": true
+}

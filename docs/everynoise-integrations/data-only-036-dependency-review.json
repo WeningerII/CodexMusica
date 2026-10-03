@@ -1,0 +1,46 @@
+{
+  "packet_sha256": "838aa5e2f0d3db08eaa492f1ed46095452a80bfd9b7f5743b67e77a981de94fa",
+  "baseline_instruments": 1586,
+  "after_instruments": 1595,
+  "preserved_existing": true,
+  "changed_existing": [],
+  "unknown_descriptor_tokens": [],
+  "new_merged_parts": [
+    {
+      "id": "esencia_spanish_corneta_section",
+      "parts": ["esencia_corneta_upper", "esencia_corneta_lower"]
+    },
+    {
+      "id": "esencia_processional_drum_set",
+      "parts": ["esencia_processional_drum", "esencia_processional_timbal"]
+    },
+    {
+      "id": "analog_sine_oscillator_z3000",
+      "parts": ["z3000_signal_identity"]
+    },
+    {
+      "id": "electronic_synthesis_sequencing_unspecified",
+      "parts": ["electronic_synthesis_sequencing_identity"]
+    },
+    {
+      "id": "software_isochronic_tone_generator",
+      "parts": ["software_isochronic_tone_identity"]
+    },
+    {
+      "id": "credited_guira_unspecified",
+      "parts": ["credited_guira_identity"]
+    },
+    {
+      "id": "thom_nuer_four_string",
+      "parts": ["thom_nuer_identity"]
+    },
+    {
+      "id": "saxophone_section_alto_two_baritones",
+      "parts": ["alto_two_baritones_section_articulation"]
+    },
+    {
+      "id": "credited_programmed_drums_unspecified",
+      "parts": ["credited_programmed_drums_identity"]
+    }
+  ]
+}

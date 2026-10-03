@@ -3,14 +3,14 @@
   "name": "Exotica",
   "family": "pop",
   "lineage": "American instrumental mood music of 1957-1963 codified by Martin Denny at the Hawaiian Village and by Les Baxter and Arthur Lyman on Capitol and HiFi Records — languid rumba and bolero tempos, pentatonic and whole-tone melodies carried on vibraphone, marimba and celesta over congas and bongos, with bird calls, gongs, wordless soprano vocalise, and extravagant stereo reverb evoking an imagined Polynesia.",
-  "recipe": "classic North American mid-1960s exotica, functional Song, pop rock branch, retro aesthetic experimental electric, American jazz smooth vocal, Cuban groove percussion yambú. thick, breath veiled tone, straight onset, interlocked note trading. vibraphone, marimba orchestral, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, mule hide canonical Cuban son premium oak staved canonical Cuban bongos, block chord celesta, gong tamtam, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 717,
-  "score": 259.285,
+  "recipe": "classic North American mid-1960s exotica, functional Song, pop rock branch, retro aesthetic experimental electric, American jazz smooth vocal, Cuban groove percussion coverchill. thick, breath veiled tone, straight onset, interlocked note trading. vibraphone, marimba orchestral, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, oak staved canonical Cuban bongos, block chord celesta, gong tamtam, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 684,
+  "score": 339.933,
   "config": {
     "traditions": [
       "exotica",
       "smooth_jazz_80s",
-      "rumba_yambu"
+      "coverchill"
     ],
     "instruments": [
       {
@@ -23,8 +23,8 @@
         },
         "scores": {
           "percussion_technique": -0.05,
-          "vibe_motor": 10.23,
-          "vibe_mallets": 10.125,
+          "vibe_motor": 20.104999999999997,
+          "vibe_mallets": 19.999999999999996,
           "vibe_bar_material": 0
         }
       },
@@ -50,10 +50,10 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.5350000000000006,
-          "conga_set": 1.4300000000000002,
-          "conga_skin": 2.8499999999999996,
-          "conga_shell_wood": 2.8499999999999996
+          "percussion_technique": 1.755,
+          "conga_set": 1.2349999999999999,
+          "conga_skin": 1,
+          "conga_shell_wood": 1
         }
       },
       {
@@ -65,10 +65,10 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 2.5350000000000006,
-          "bongos_skin": 2.8,
+          "percussion_technique": 1.755,
+          "bongos_skin": 0.95,
           "bongos_context": 0.045,
-          "bongos_shell_wood": 2.8499999999999996
+          "bongos_shell_wood": 1
         }
       },
       {
@@ -79,9 +79,9 @@
           "celesta_context": "celesta_orch"
         },
         "scores": {
-          "keyboard_technique": 10.45,
-          "celesta_model": 0.15,
-          "celesta_context": 2.34
+          "keyboard_technique": 10.325,
+          "celesta_model": 1.7499999999999996,
+          "celesta_context": 1.69
         }
       },
       {
@@ -94,33 +94,33 @@
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "modern_pop_vocal_training",
+          "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 24.634999999999994,
-          "voice_quality": 10.79,
+          "voice_register": 35.26000000000001,
+          "voice_quality": 6.9225,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.719999999999999,
-          "voice_articulation": 20.150000000000002,
-          "voice_microtone": 24.705,
-          "voice_tradition": 12.544999999999998,
+          "voice_vibrato": 19.869999999999997,
+          "voice_articulation": 18.2,
+          "voice_microtone": 35.330000000000005,
+          "voice_tradition": 20.344999999999995,
           "voice_mechanism_compound": 2.145,
           "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 24.895000000000003,
-          "voice_ensemble_config": 20.28,
-          "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 2.145,
-          "voice_processing_chain": 5.669999999999999,
-          "voice_multitrack_stack": 2.925
+          "voice_speech_song": 24.179999999999996,
+          "voice_ensemble_config": 18.72,
+          "voice_ornament_system": 1.4300000000000002,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 7.555,
+          "voice_multitrack_stack": 6.434999999999999
         }
       },
       {
@@ -145,11 +145,11 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 10.45,
-          "drawbar_setting": 11.649999999999999,
-          "rotary_speed": 4.7700000000000005,
-          "percussion_setting": 10.125,
-          "tonewheel_model": 12.835,
+          "keyboard_technique": 10.325,
+          "drawbar_setting": 21.525,
+          "rotary_speed": 5.1450000000000005,
+          "percussion_setting": 19.999999999999996,
+          "tonewheel_model": 22.859999999999996,
           "leslie_cabinet_model": 0.8
         }
       }

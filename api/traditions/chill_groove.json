@@ -5,7 +5,7 @@
   "lineage": "Threestyle — A Little Longer (2016), tenor-sax/guitar/bass core. Representative authored present-day recording model for this documented branch. Source supports named musical roles and locality, not exact hardware, construction, microphone, signal chain, temperament or numeric axes. Those settings are explicitly authored; no universal genre or original-session equipment claim is made.",
   "recipe": "classic mid-2010s chill groove, improv On Frame, smooth vocal branch. tenor selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, electric bass, carved top solid spruce Gibson canon thomastik flatwound archtop. treated studio. large-diaphragm condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 331,
-  "score": 49.369,
+  "score": 49.414,
   "config": {
     "traditions": [
       "chill_groove"
@@ -51,7 +51,7 @@
           "string_type": 0,
           "scale_length_b": 0.168,
           "fretted_or_not": 0,
-          "bass_technique": -0.15000000000000002,
+          "bass_technique": -0.10500000000000001,
           "electric_bass_string_configuration": 0
         }
       },

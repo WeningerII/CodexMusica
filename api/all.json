@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-10-03",
-  "count": 6138,
+  "count": 6238,
   "items": [
     {
       "id": "honky_tonk",
@@ -379,8 +379,8 @@
       "id": "minimalist",
       "name": "Minimalist",
       "family": "classical",
-      "recipe": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric deep downtempo fusion música andorra. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, pad like pad analog synth, controlled legato bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
-      "recipe_chars": 418
+      "recipe": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric brain waves. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "recipe_chars": 353
     },
     {
       "id": "gagaku",
@@ -2717,8 +2717,8 @@
       "id": "jam_band",
       "name": "Jam band",
       "family": "global",
-      "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock hard rock brasileiro nwocr. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 783
+      "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock düsseldorf indie hard rock brasileiro. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple alnico humbucker electric marshall plexi amp British rock amp mahogany maple ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, synthetic remo fiberskyn modern stable mahogany warmer premium congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 862
     },
     {
       "id": "free_improvisation",
@@ -3193,8 +3193,8 @@
       "id": "ethio_pop_modern",
       "name": "Ethio-pop modern",
       "family": "global",
-      "recipe": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion musique comorienne acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 630
+      "recipe": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion ghent indie musique comorienne. thick, breath veiled tone, straight onset, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 611
     },
     {
       "id": "sahel_praise",
@@ -4733,8 +4733,8 @@
       "id": "filin_cubano",
       "name": "Filin (Cuban jazz-trova)",
       "family": "global",
-      "recipe": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal japanese vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 492
+      "recipe": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal japanese vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, strummed open chord ringing overtones parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 518
     },
     {
       "id": "descarga_cubana",
@@ -6189,15 +6189,15 @@
       "id": "german_wiegenlied",
       "name": "German Wiegenlied (cradle song)",
       "family": "global",
-      "recipe": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song nouvelle chanson française. thick, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 312
+      "recipe": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song detskie pesni. thick, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 299
     },
     {
       "id": "russian_kolybelnaya",
       "name": "Russian kolybelnaya (колыбельная, cradle song)",
       "family": "global",
-      "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song lemko folk american romanticism. thick, breath veiled tone, slow rate, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 316
+      "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song detskie pesni lemko folk. thick, breath veiled tone, slow rate, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 309
     },
     {
       "id": "italian_ninna_nanna",
@@ -6210,8 +6210,8 @@
       "id": "french_berceuse",
       "name": "French berceuse (cradle song)",
       "family": "global",
-      "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song nouvelle chanson française. thick, lament wail, straight note core, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 309
+      "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song detskie pesni. thick, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 294
     },
     {
       "id": "portuguese_acalanto",
@@ -6616,8 +6616,8 @@
       "id": "brazilian_mpb_protest",
       "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
       "family": "global",
-      "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-      "recipe_chars": 553
+      "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry brega cantautora mexicana. thick, breath veiled tone, breath pulsed, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_chars": 556
     },
     {
       "id": "greek_entechno_politicized",
@@ -7015,8 +7015,8 @@
       "id": "brazilian_samba_school_enredo",
       "name": "Brazilian samba-school enredo (samba-enredo, Carnaval processional)",
       "family": "global",
-      "recipe": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march andean matrimonio huayno. vocal fry, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 755
+      "recipe": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song brega trinidad calypso-soca road march. vocal fry, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 736
     },
     {
       "id": "mardi_gras_indians",
@@ -7568,15 +7568,15 @@
       "id": "japanese_kodan",
       "name": "Japanese kōdan",
       "family": "global",
-      "recipe": "classic East Asian early-1930s japanese kōdan, art Music, east Asian branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. tatami parlor japanese. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
-      "recipe_chars": 338
+      "recipe": "classic East Asian early-1930s japanese kōdan, art Music, east Asian branch tibetan ache lhamo opera detské pesničky. thick, breath veiled tone, straight note core, interlocked note trading. tatami parlor japanese. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+      "recipe_chars": 349
     },
     {
       "id": "chinese_pingshu",
       "name": "Chinese pingshu storytelling",
       "family": "global",
-      "recipe": "classic East Asian early-1930s chinese pingshu storytelling, art Music, east Asian branch beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
-      "recipe_chars": 358
+      "recipe": "classic East Asian early-1930s chinese pingshu storytelling, art Music, east Asian branch detskie pesni beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+      "recipe_chars": 347
     },
     {
       "id": "chinese_xiangsheng",
@@ -7589,8 +7589,8 @@
       "id": "japanese_kamishibai",
       "name": "Japanese kamishibai narration",
       "family": "global",
-      "recipe": "classic mid-1920s japanese kamishibai narration, art Music, east Asian branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. urban courtyard. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
-      "recipe_chars": 333
+      "recipe": "classic mid-1920s japanese kamishibai narration, art Music, east Asian branch tibetan ache lhamo opera detské pesničky. thick, breath veiled tone, slow rate, interlocked note trading. urban courtyard. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+      "recipe_chars": 335
     },
     {
       "id": "somali_gabay",
@@ -7974,15 +7974,15 @@
       "id": "greek_tragedy_chorus",
       "name": "Greek tragedy chorus declamation",
       "family": "classical",
-      "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch detskie pesni tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 291
     },
     {
       "id": "victorian_melodrama_narration",
       "name": "Victorian melodrama narration",
       "family": "classical",
-      "recipe": "classic early-1870s victorian melodrama narration, art Music, western early branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 282
+      "recipe": "classic early-1870s victorian melodrama narration, art Music, western early branch thai classical detskie pesni. thick, breath veiled tone, slow rate, interlocked note trading. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 271
     },
     {
       "id": "manchu_shamanic_seance",
@@ -8779,8 +8779,8 @@
       "id": "musica_de_fondo",
       "name": "Música de Fondo",
       "family": "pop",
-      "recipe": "classic North American 1954-1956 música de fondo, functional Song, crooners branch, tropical song functional song, europop functional song, American jazz smooth vocal dinner jazz torch song. sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, concert harp, mallets vibraphone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, powell boston canonical American orchestral flute, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow legato saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, block chord celesta. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-      "recipe_chars": 956
+      "recipe": "classic North American 1954-1956 música de fondo, functional Song, crooners branch, tropical song functional song, europop functional song, American jazz smooth vocal dinner jazz coverchill. sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, concert harp, mallets vibraphone, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, powell boston canonical American orchestral flute, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ebonite continuous-airflow legato saxophone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles gallura five voice tripli octave doubled choir ensemble, block chord celesta. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+      "recipe_chars": 918
     },
     {
       "id": "dancefloor_dnb",
@@ -9605,8 +9605,8 @@
       "id": "irish_rock",
       "name": "Irish rock",
       "family": "rock",
-      "recipe": "classic Northern European 1980-1983 irish rock, distorted Rock, regional branch, Celtic traditional improv on frame, classic distorted rock, pop rock folk rock thai folk rock czech folk rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation nitrocellulose single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic tin whistle, traditional low fundamental tuning goat skin canonical Irish bodhran, flat back gdad tuned droning rhythmic open chorded irish bouzouki. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
-      "recipe_chars": 982
+      "recipe": "classic Northern European 1980-1983 irish rock, distorted Rock, regional branch, Celtic traditional improv on frame, classic distorted rock, pop rock folk rock canadian celtic thai folk rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation nitrocellulose single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, melodic tin whistle, goat skin canonical Irish ash pre modern traditional Irish bodhran, flat back gdad tuned droning rhythmic open chorded irish bouzouki. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
+      "recipe_chars": 980
     },
     {
       "id": "scottish_rock",
@@ -10277,8 +10277,8 @@
       "id": "organum",
       "name": "Organum",
       "family": "classical",
-      "recipe": "classic European early-1160s organum, art Music, western early branch, western common practice art music, vocal drone modal croatian istrian two-part-in-istrian-scale armenian duduk-accompanied chant. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, high treble chant doubling portative organ, gut bourdon drone legato vielle medieval, pigs head outline single plectrum line monophonic melodic lead medieval psaltery, sustained handbells rung handbells. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 576
+      "recipe": "classic European early-1160s organum, art Music, western early branch, western common practice art music, vocal drone modal detskie pesni croatian istrian two-part-in-istrian-scale. thick, breath veiled tone, slow rate, interlocked note trading. choir cathedral satb, single rank treble piping chant doubling portative organ, gut bourdon drone legato vielle medieval, single plectrum line monophonic melodic lead medieval psaltery, sustained handbells rung handbells. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 553
     },
     {
       "id": "oratorio",
@@ -10830,8 +10830,8 @@
       "id": "lounge_music",
       "name": "Lounge (cocktail-bar mood music)",
       "family": "pop",
-      "recipe": "classic North American mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song dinner jazz skiffle. vibraphone, bach stradivarius 180 canonical American orchestral breath tone airy low dynamic level jazz balance ensemble trumpet, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, lead cowhide mid tier congas, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 866
+      "recipe": "classic North American mid-1960s lounge, functional Song, crooners branch, American jazz smooth vocal, pop rock functional song coverchill dinner jazz. vibraphone, bach stradivarius 180 canonical American orchestral breath tone airy low dynamic level jazz balance ensemble trumpet, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, cowhide mid tier congas, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 865
     },
     {
       "id": "middle_of_the_road",
@@ -11677,8 +11677,8 @@
       "id": "pirate_metal",
       "name": "Pirate Metal",
       "family": "rock",
-      "recipe": "classic Northern European late-1980s pirate metal, distorted Rock, folk metal branch, atlantic Southeast Asian shanty, power metal, Celtic traditional improv on frame. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base drone like fiddle, melodic tin whistle, ash pre modern traditional Irish bodhran. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 878
+      "recipe": "classic Northern European late-1980s pirate metal, distorted Rock, folk metal branch, atlantic Southeast Asian shanty, power metal, Celtic traditional improv on frame canadian celtic. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, steel leather castagnari Italian premium folk music straight accordion, steel magic rosin modern acrylic base double stops fiddle, melodic tin whistle, goat skin canonical Irish ash pre modern traditional Irish bodhran. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 942
     },
     {
       "id": "math_metal",
@@ -14638,8 +14638,8 @@
       "id": "manx_folk",
       "name": "Manx folk",
       "family": "global",
-      "recipe": "classic Northern European mid-1890s manx folk, ballad Poetry, Celtic balladic branch, Celtic traditional improv on frame, European lullaby scottish folk irish accordion. thick, breath veiled tone, pure, interlocked note trading. fiddle, melodic tin whistle, low mid rich spectrum traditional gut gut string celtic harp, dadgad tuning drone like acoustic guitar, goat skin canonical Irish ash pre modern traditional Irish bodhran. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 593
+      "recipe": "classic Northern European mid-1890s manx folk, ballad Poetry, Celtic balladic branch, Celtic traditional improv on frame, European lullaby scottish folk canadian celtic. thick, breath veiled tone, slow rate, interlocked note trading. plain gut lamb gut whole lamb method magic rosin modern acrylic base fiddle, melodic tin whistle, low mid rich spectrum traditional gut gut string celtic harp, dadgad tuning steel silk drone like acoustic guitar, goat skin canonical Irish ash pre modern traditional Irish bodhran. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 678
     },
     {
       "id": "galician_folk",
@@ -16591,8 +16591,8 @@
       "id": "exotica",
       "name": "Exotica",
       "family": "pop",
-      "recipe": "classic North American mid-1960s exotica, functional Song, pop rock branch, retro aesthetic experimental electric, American jazz smooth vocal, Cuban groove percussion yambú. thick, breath veiled tone, straight onset, interlocked note trading. vibraphone, marimba orchestral, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, mule hide canonical Cuban son premium oak staved canonical Cuban bongos, block chord celesta, gong tamtam, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 717
+      "recipe": "classic North American mid-1960s exotica, functional Song, pop rock branch, retro aesthetic experimental electric, American jazz smooth vocal, Cuban groove percussion coverchill. thick, breath veiled tone, straight onset, interlocked note trading. vibraphone, marimba orchestral, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, oak staved canonical Cuban bongos, block chord celesta, gong tamtam, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ. capitol tower 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 684
     },
     {
       "id": "library_music",
@@ -19657,8 +19657,8 @@
       "id": "protest_folk",
       "name": "Protest folk",
       "family": "vernacular",
-      "recipe": "classic modern protest folk, nursery Rhyme. thick, incomplete closure resting, neutral third half flat, opera quality low larynx anchored. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 394
+      "recipe": "classic modern protest folk, nursery Rhyme. thick, incomplete closure resting, neutral third half flat, m1 with m0 pulse borrowing. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 387
     },
     {
       "id": "traditional_folk",
@@ -42969,6 +42969,706 @@
       "family": "electronic",
       "recipe": "classic early-2020s vinahouse, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
       "recipe_chars": 179
+    },
+    {
+      "id": "mexican_classic_rock",
+      "name": "Mexican classic rock",
+      "family": "rock",
+      "recipe": "classic mexican classic rock, distorted Rock, classic branch. solo with instrumental accompaniment, single lead single track no stacking. alder conventional tuning standard pitch humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 533
+    },
+    {
+      "id": "rock_nacional_feminino",
+      "name": "Rock Nacional Feminino",
+      "family": "rock_punk",
+      "recipe": "classic rock nacional feminino, distorted Rock, metal branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
+      "recipe_chars": 358
+    },
+    {
+      "id": "eritrean_pop",
+      "name": "Eritrean pop",
+      "family": "pop",
+      "recipe": "classic eritrean pop, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, yellow brass modern standard saxophone, fast-attack-transient alder electric bass, block chord electric piano tine, congas, maple machine hammered symmetric pattern organized rows full lathed drum kit, room natural hand clap. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 542
+    },
+    {
+      "id": "garhwali_pop",
+      "name": "Garhwali pop",
+      "family": "pop",
+      "recipe": "classic garhwali pop, functional Song. unprocessed natural acoustic. dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 196
+    },
+    {
+      "id": "himachali_pop",
+      "name": "Himachali pop",
+      "family": "rock",
+      "recipe": "classic himachali pop, distorted Rock. duet, unprocessed natural acoustic. conventional tuning standard pitch humbucker electric guitar, electric bass, credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 284
+    },
+    {
+      "id": "j_pop_girl_group",
+      "name": "J-pop girl group",
+      "family": "pop",
+      "recipe": "classic j-pop girl group, functional Song, east Asian pop branch. 7 ply quartersawn maple block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 213
+    },
+    {
+      "id": "k_pop_reality_show",
+      "name": "K-pop reality show",
+      "family": "pop",
+      "recipe": "classic k-pop reality show, functional Song, east Asian pop branch. 17 ply hard rock maple 7 ply quartersawn maple block chord grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 238
+    },
+    {
+      "id": "malagasy_pop",
+      "name": "Malagasy pop",
+      "family": "pop",
+      "recipe": "classic early-2020s malagasy pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, conventional tuning standard pitch arpeggiated clean humbucker electric guitar, electronic keyboard unspecified. shoebox concert hall.",
+      "recipe_chars": 385
+    },
+    {
+      "id": "pop_argentino",
+      "name": "Pop argentino",
+      "family": "pop",
+      "recipe": "classic early-2020s pop argentino, functional Song. group vocals, live take. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 378
+    },
+    {
+      "id": "pop_costarricense",
+      "name": "Pop costarricense",
+      "family": "pop",
+      "recipe": "classic pop costarricense, functional Song. solo with instrumental accompaniment, single lead single track no stacking. 17 ply hard rock maple 7 ply quartersawn maple gray iron grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 288
+    },
+    {
+      "id": "pop_peruano",
+      "name": "Pop peruano",
+      "family": "pop",
+      "recipe": "classic pop peruano, functional Song. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 202
+    },
+    {
+      "id": "pop_virale_italiano",
+      "name": "Pop virale italiano",
+      "family": "pop",
+      "recipe": "classic pop virale italiano, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 218
+    },
+    {
+      "id": "reunion_pop",
+      "name": "Réunion pop",
+      "family": "pop",
+      "recipe": "classic mid-2020s réunion pop, functional Song. single lead single track no stacking. alder nickel roundwound fingerstyle locked electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, maple bronze bell bronze machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 386
+    },
+    {
+      "id": "russian_alt_pop",
+      "name": "Russian alt pop",
+      "family": "pop",
+      "recipe": "classic russian alt pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 290
+    },
+    {
+      "id": "samoan_pop",
+      "name": "Samoan pop",
+      "family": "pop",
+      "recipe": "classic late-2010s samoan pop, functional Song. duet, live take. traditional koa ukulele, conventional tuning standard pitch clean strummed humbucker electric guitar, pocket fingerstyle locked electric bass, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 337
+    },
+    {
+      "id": "south_sudanese_pop",
+      "name": "South Sudanese pop",
+      "family": "pop",
+      "recipe": "classic south sudanese pop, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. thom nuer four string, djembe, maple bronze bell bronze machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, pocket fingerstyle locked electric bass. shoebox concert hall.",
+      "recipe_chars": 381
+    },
+    {
+      "id": "spanish_noise_pop",
+      "name": "Spanish noise pop",
+      "family": "rock_punk",
+      "recipe": "classic mid-2010s spanish noise pop, distorted Rock, alternative branch. one note per syllable, group vocals, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch single coil electric mahogany phosphor bronze modern martin dreadnought acoustic guitar, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, electronic keyboard unspecified, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 559
+    },
+    {
+      "id": "taiwan_idol_pop",
+      "name": "Taiwan idol pop",
+      "family": "pop",
+      "recipe": "classic taiwan idol pop, functional Song, east Asian pop branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 237
+    },
+    {
+      "id": "tunisian_pop",
+      "name": "Tunisian pop",
+      "family": "pop",
+      "recipe": "classic early-2020s tunisian pop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean humbucker electric guitar, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, electronic keyboard unspecified, alder fingerstyle locked electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, credited auxiliary percussion, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 693
+    },
+    {
+      "id": "ukrainian_viral_pop",
+      "name": "Ukrainian viral pop",
+      "family": "pop",
+      "recipe": "classic ukrainian viral pop, functional Song. duet, unprocessed natural acoustic, live take. mahogany flatpicked acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 228
+    },
+    {
+      "id": "xitsonga_pop",
+      "name": "Xitsonga Pop",
+      "family": "pop",
+      "recipe": "classic mid-2010s xitsonga pop, functional Song. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze modern martin dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 344
+    },
+    {
+      "id": "kids_dance_party",
+      "name": "Kids dance party",
+      "family": "pop",
+      "recipe": "classic kids dance party, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 215
+    },
+    {
+      "id": "fictitious_orchestra",
+      "name": "Fictitious Orchestra",
+      "family": "classical",
+      "recipe": "classic fictitious orchestra, art Music, western common practice branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 245
+    },
+    {
+      "id": "funk_evangelico",
+      "name": "Funk evangélico",
+      "family": "electronic",
+      "recipe": "classic funk evangélico, ritual Devotional, christian gospel branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 199
+    },
+    {
+      "id": "gospel_amapiano",
+      "name": "Gospel Amapiano",
+      "family": "electronic",
+      "recipe": "classic gospel amapiano, ritual Devotional, christian gospel branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 199
+    },
+    {
+      "id": "kikuyu_gospel",
+      "name": "Kikuyu Gospel",
+      "family": "electronic",
+      "recipe": "classic late-2010s kikuyu gospel, ritual Devotional, christian gospel branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 208
+    },
+    {
+      "id": "musica_eletronica_gospel",
+      "name": "Música eletrônica gospel",
+      "family": "electronic",
+      "recipe": "classic música eletrônica gospel, ritual Devotional, christian gospel branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 208
+    },
+    {
+      "id": "norwegian_gospel",
+      "name": "Norwegian Gospel",
+      "family": "blues_gospel",
+      "recipe": "classic norwegian gospel, ritual Devotional, christian gospel branch. one note per syllable, four plus independent lines, unprocessed natural acoustic, live take. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 329
+    },
+    {
+      "id": "pacific_islands_gospel",
+      "name": "Pacific Islands Gospel",
+      "family": "global",
+      "recipe": "classic pacific islands gospel, ritual Devotional, christian gospel branch. responsorial cantor congregation, unprocessed natural acoustic, live take. shoebox concert hall.",
+      "recipe_chars": 172
+    },
+    {
+      "id": "swahili_gospel",
+      "name": "Swahili Gospel",
+      "family": "blues_gospel",
+      "recipe": "classic swahili gospel, ritual Devotional, christian gospel branch. all voices same rhythm, unprocessed natural acoustic, live take. shoebox concert hall.",
+      "recipe_chars": 154
+    },
+    {
+      "id": "zambian_gospel",
+      "name": "Zambian Gospel",
+      "family": "blues_gospel",
+      "recipe": "classic zambian gospel, ritual Devotional, christian gospel branch. four plus independent lines, unprocessed natural acoustic, live take. shoebox concert hall.",
+      "recipe_chars": 159
+    },
+    {
+      "id": "turkish_reggae",
+      "name": "Turkish reggae",
+      "family": "global",
+      "recipe": "classic turkish reggae, bass System, reggae diaspora branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. low output no compression conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, flatwound thumb muted electric bass, articulate short saxophone section alto tenor baritone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble student friendly trumpet. live tracking.",
+      "recipe_chars": 600
+    },
+    {
+      "id": "528hz",
+      "name": "528 Hz",
+      "family": "electronic",
+      "recipe": "classic 528 hz, experimental Elec, ambient branch. analog sine oscillator z3000. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 179
+    },
+    {
+      "id": "bells",
+      "name": "Bells",
+      "family": "classical",
+      "recipe": "classic bells, art Music. baton clavier grand bourdon carillon.",
+      "recipe_chars": 63
+    },
+    {
+      "id": "bisaya_worship",
+      "name": "Bisaya worship",
+      "family": "blues_gospel",
+      "recipe": "classic bisaya worship, ritual Devotional, christian gospel branch. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 232
+    },
+    {
+      "id": "brain_waves",
+      "name": "Brain waves",
+      "family": "electronic",
+      "recipe": "classic brain waves, experimental Elec, ambient branch. software isochronic tone generator. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 190
+    },
+    {
+      "id": "brazilian_percussion",
+      "name": "Brazilian percussion",
+      "family": "global",
+      "recipe": "classic mid-2020s brazilian percussion, groove Percussion. credited auxiliary percussion. live tracking. tape echo.",
+      "recipe_chars": 115
+    },
+    {
+      "id": "brega",
+      "name": "Brega",
+      "family": "global",
+      "recipe": "classic brega, functional Song, Brazilian song branch. small note groups per syllable, group vocals, live take. alder mahogany ebony low output no compression conventional tuning humbucker electric guitar, alder flatwound thumb muted electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, melodic chordal electronic keyboard unspecified, bach 42 canonical American orchestral tenor tenor standard standard backbore trombone, ensemble trumpet. live tracking.",
+      "recipe_chars": 495
+    },
+    {
+      "id": "canadian_celtic",
+      "name": "Canadian Celtic",
+      "family": "vernacular",
+      "recipe": "classic canadian celtic, improv On Frame, Celtic traditional branch. projecting steel fiddle, steel core projecting norway spruce European alpine European maple viola classical, synthetic norway spruce European alpine European maple bosnian source cello. hardwood living.",
+      "recipe_chars": 271
+    },
+    {
+      "id": "canadian_children_s_music",
+      "name": "Canadian children’s music",
+      "family": "pop",
+      "recipe": "classic canadian children’s music, functional Song. one note per syllable, group vocals, live take. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, spoken word voice. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 284
+    },
+    {
+      "id": "caracas_indie",
+      "name": "Caracas indie",
+      "family": "rock",
+      "recipe": "classic caracas indie, distorted Rock, alternative branch. one note per syllable, unprocessed natural acoustic. alder maple conventional tuning standard pitch humbucker electric mahogany phosphor bronze modern martin dreadnought acoustic guitar, pearwood marine band tradition hohner marine band 1896 canonical blues trossingen richter canonical 10 hole diatonic blues harmonica, credited auxiliary percussion, full bodied low coloration balanced alder electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 669
+    },
+    {
+      "id": "cartoon",
+      "name": "Cartoon",
+      "family": "pop",
+      "recipe": "classic cartoon, functional Song. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 200
+    },
+    {
+      "id": "chinese_manyao",
+      "name": "Chinese manyao",
+      "family": "electronic",
+      "recipe": "classic chinese manyao, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 172
+    },
+    {
+      "id": "chinese_wind",
+      "name": "Chinese Wind",
+      "family": "classical",
+      "recipe": "classic mid-2020s chinese wind, art Music. dizi, guzheng. shoebox concert hall.",
+      "recipe_chars": 79
+    },
+    {
+      "id": "christian_afrobeat",
+      "name": "Christian afrobeat",
+      "family": "pop",
+      "recipe": "classic christian afrobeat, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze modern martin flatpicked dreadnought acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 328
+    },
+    {
+      "id": "circuit",
+      "name": "Circuit",
+      "family": "electronic",
+      "recipe": "classic circuit, electronic Dance, house branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 179
+    },
+    {
+      "id": "classic_afrobeat",
+      "name": "Classic afrobeat",
+      "family": "global",
+      "recipe": "classic classic afrobeat, groove Percussion, Afro-diasporic electric branch. small note groups per syllable, group vocals, live take. flatwound fingerstyle locked electric bass, credited organ unspecified, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, maple bronze bell bronze machine hammered symmetric pattern drum kit, hands layered congas, saxophone section alto two baritones, treble-extended projecting silver flute, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore single line trombone, yellow brass canonical 70 30 bach stradivarius student friendly legato trumpet. live tracking.",
+      "recipe_chars": 811
+    },
+    {
+      "id": "classic_anime",
+      "name": "Classic anime",
+      "family": "pop",
+      "recipe": "classic classic anime, functional Song. solo with instrumental accompaniment, single lead single track no stacking. 17 ply hard rock maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 281
+    },
+    {
+      "id": "classic_hardstyle",
+      "name": "Classic hardstyle",
+      "family": "electronic",
+      "recipe": "classic early-2010s classic hardstyle, electronic Dance, hardstyle branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 205
+    },
+    {
+      "id": "cornetas_y_tambores",
+      "name": "Cornetas y tambores",
+      "family": "vernacular",
+      "recipe": "classic 2025-2026 cornetas y tambores, ritual Devotional. esencia spanish corneta section, esencia processional drum set. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 220
+    },
+    {
+      "id": "coverchill",
+      "name": "Coverchill",
+      "family": "jazz",
+      "recipe": "classic coverchill, improv On Frame, smooth vocal branch. solo with instrumental accompaniment, single lead single track no stacking. sitka spruce diaphragmatic 7 ply quartersawn maple grand piano, European maple bosnian source flamed figure modern setup heavier bass bar double pocket fingerstyle locked electric bass, conventional tuning standard pitch clean strummed humbucker electric guitar, maple bronze bell bronze machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 565
+    },
+    {
+      "id": "crank_wave",
+      "name": "Crank wave",
+      "family": "rock_punk",
+      "recipe": "classic crank wave, distorted Rock, punk branch. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 502
+    },
+    {
+      "id": "cuento_infantile",
+      "name": "Cuento infantile",
+      "family": "vernacular",
+      "recipe": "classic cuento infantile, spoken Word, narration branch. conversational, no pitch organization speech, solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "cumbia_del_sureste",
+      "name": "Cumbia del sureste",
+      "family": "vernacular",
+      "recipe": "classic cumbia del sureste, groove Percussion, Latin am branch. vinyl dj playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 181
+    },
+    {
+      "id": "cumbia_lagunera",
+      "name": "Cumbia lagunera",
+      "family": "electronic",
+      "recipe": "classic cumbia lagunera, electronic Dance, Latin electric branch. duet, live take. electronic synthesis sequencing unspecified, timbales stick played. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 249
+    },
+    {
+      "id": "cumbia_salvadorena",
+      "name": "Cumbia salvadoreña",
+      "family": "vernacular",
+      "recipe": "classic cumbia salvadoreña, groove Percussion, Latin am branch. alder maple conventional tuning standard pitch humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple bronze bell bronze full lathed both sides lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 389
+    },
+    {
+      "id": "cumbia_uruguaya",
+      "name": "Cumbia uruguaya",
+      "family": "vernacular",
+      "recipe": "classic cumbia uruguaya, groove Percussion, Latin am branch. group vocals, live take. credited guira electronic keyboard unspecified, alder maple conventional tuning standard pitch humbucker electric guitar, mid rich alder electric bass, student friendly trumpet, tenor standard standard backbore trombone, credited auxiliary percussion, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 514
+    },
+    {
+      "id": "czech_indie",
+      "name": "Czech indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s czech indie, distorted Rock, alternative branch. single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 358
+    },
+    {
+      "id": "dallas_indie",
+      "name": "Dallas indie",
+      "family": "rock",
+      "recipe": "classic early-2020s dallas indie, functional Song, pop rock branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. acoustic conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 451
+    },
+    {
+      "id": "dark_clubbing",
+      "name": "Dark Clubbing",
+      "family": "electronic",
+      "recipe": "classic dark clubbing, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 171
+    },
+    {
+      "id": "death_n_roll",
+      "name": "Death 'n' roll",
+      "family": "rock_punk",
+      "recipe": "classic early-2020s death 'n' roll, distorted Rock, death branch. group vocals, live take. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. live tracking.",
+      "recipe_chars": 370
+    },
+    {
+      "id": "deathstep",
+      "name": "Deathstep",
+      "family": "electronic",
+      "recipe": "classic deathstep, bass System. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 162
+    },
+    {
+      "id": "decije_pesme",
+      "name": "Dečije pesme",
+      "family": "vernacular",
+      "recipe": "classic dečije pesme, nursery Rhyme. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. shoebox concert hall.",
+      "recipe_chars": 232
+    },
+    {
+      "id": "derby_indie",
+      "name": "Derby Indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s derby indie, distorted Rock, alternative branch. group vocals, live take. alder power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 528
+    },
+    {
+      "id": "derry_indie",
+      "name": "Derry Indie",
+      "family": "rock_punk",
+      "recipe": "classic late-2010s derry indie, distorted Rock, punk branch. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 410
+    },
+    {
+      "id": "dessin_anime",
+      "name": "Dessin Animé",
+      "family": "pop",
+      "recipe": "classic dessin animé, functional Song. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 203
+    },
+    {
+      "id": "detske_pesnicky",
+      "name": "Detské Pesničky",
+      "family": "classical",
+      "recipe": "classic mid-1960s detské pesničky, art Music. continuous-phonation, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
+      "recipe_chars": 254
+    },
+    {
+      "id": "detskie_pesni",
+      "name": "Detskie Pesni",
+      "family": "classical",
+      "recipe": "classic early-1880s detskie pesni, art Music, western common practice branch. continuous-phonation, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
+      "recipe_chars": 286
+    },
+    {
+      "id": "discofox",
+      "name": "Discofox",
+      "family": "electronic",
+      "recipe": "classic discofox, electronic Dance, continental branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 186
+    },
+    {
+      "id": "djecje_pjesme",
+      "name": "Dječje Pjesme",
+      "family": "classical",
+      "recipe": "classic dječje pjesme, art Music. continuous-phonation, one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. shoebox concert hall.",
+      "recipe_chars": 242
+    },
+    {
+      "id": "dragspel",
+      "name": "Dragspel",
+      "family": "vernacular",
+      "recipe": "classic dragspel, functional Song. projecting steel accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 161
+    },
+    {
+      "id": "dresden_indie",
+      "name": "Dresden Indie",
+      "family": "rock",
+      "recipe": "classic late-2010s dresden indie, distorted Rock, alternative branch. duet, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 371
+    },
+    {
+      "id": "duhovne_pjesme",
+      "name": "Duhovne Pjesme",
+      "family": "pop",
+      "recipe": "classic mid-2010s duhovne pjesme, ritual Devotional, christian gospel branch. one note per syllable, unprocessed natural acoustic. strummed open chord ringing overtones dreadnought acoustic guitar, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 327
+    },
+    {
+      "id": "duluth_indie",
+      "name": "Duluth Indie",
+      "family": "rock",
+      "recipe": "classic early-2020s duluth indie, distorted Rock, alternative branch. small note groups per syllable, group vocals, live take. low output no compression conventional tuning standard pitch humbucker electric guitar, dark mellow flatwound electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth, saxophone, clarinet. live tracking.",
+      "recipe_chars": 384
+    },
+    {
+      "id": "dundee_indie",
+      "name": "Dundee Indie",
+      "family": "rock_punk",
+      "recipe": "classic mid-2010s dundee indie, distorted Rock, punk branch. one note per syllable, duet, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 440
+    },
+    {
+      "id": "dusseldorf_indie",
+      "name": "Düsseldorf Indie",
+      "family": "rock",
+      "recipe": "classic mid-2010s düsseldorf indie, distorted Rock, classic branch. group vocals. alder maple conventional tuning standard pitch humbucker electric guitar, alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, analog poly synth, credited organ unspecified, yellow brass modern standard saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 471
+    },
+    {
+      "id": "dutch_musical",
+      "name": "Dutch Musical",
+      "family": "pop",
+      "recipe": "classic dutch musical, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 212
+    },
+    {
+      "id": "dytyachi_pisni",
+      "name": "Dytyachi Pisni (Ukrainian children’s songs)",
+      "family": "pop",
+      "recipe": "classic dytyachi pisni, functional Song. group vocals, unprocessed natural acoustic. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. shoebox concert hall.",
+      "recipe_chars": 174
+    },
+    {
+      "id": "ecuadorian_indie",
+      "name": "Ecuadorian Indie",
+      "family": "pop",
+      "recipe": "classic early-2010s ecuadorian indie, functional Song. one note per syllable, group vocals. strummed open chord ringing overtones dreadnought acoustic guitar, electronic keyboard unspecified, European maple bosnian source flamed figure modern setup pirastro cellisto cello, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 481
+    },
+    {
+      "id": "el_paso_indie",
+      "name": "El Paso Indie",
+      "family": "rock",
+      "recipe": "classic late-2010s el paso indie, distorted Rock, alternative branch. one note per syllable, group vocals, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 371
+    },
+    {
+      "id": "elephant_6",
+      "name": "Elephant 6",
+      "family": "rock",
+      "recipe": "classic elephant 6, distorted Rock, alternative branch. unprocessed natural acoustic. acoustic conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 16-bit digital.",
+      "recipe_chars": 381
+    },
+    {
+      "id": "essex_indie",
+      "name": "Essex Indie",
+      "family": "rock_punk",
+      "recipe": "classic essex indie, distorted Rock, punk branch. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. live tracking.",
+      "recipe_chars": 363
+    },
+    {
+      "id": "estonian_indie",
+      "name": "Estonian Indie",
+      "family": "rock",
+      "recipe": "classic early-2010s estonian indie, distorted Rock, alternative branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. alder maple conventional tuning standard pitch power chord humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple bronze bell bronze machine hammered symmetric pattern drum kit. live tracking.",
+      "recipe_chars": 405
+    },
+    {
+      "id": "eugene_indie",
+      "name": "Eugene Indie",
+      "family": "rock_punk",
+      "recipe": "classic mid-2020s eugene indie, distorted Rock, punk branch. group vocals, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. live tracking.",
+      "recipe_chars": 351
+    },
+    {
+      "id": "fado_instrumental",
+      "name": "Fado Instrumental",
+      "family": "jazz",
+      "recipe": "classic early-2020s fado instrumental, improv On Frame. twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, steel norway spruce European alpine European maple bosnian source double bass. hardwood living.",
+      "recipe_chars": 370
+    },
+    {
+      "id": "finlandssvenska_musik",
+      "name": "Finlandssvenska Musik",
+      "family": "pop",
+      "recipe": "classic finlandssvenska musik, functional Song. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. live tracking.",
+      "recipe_chars": 128
+    },
+    {
+      "id": "finnish_indie",
+      "name": "Finnish Indie",
+      "family": "pop",
+      "recipe": "classic mid-2020s finnish indie, functional Song. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch humbucker electric guitar, full bodied low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, electronic keyboard unspecified. live tracking.",
+      "recipe_chars": 384
+    },
+    {
+      "id": "finnish_new_wave",
+      "name": "Finnish New Wave",
+      "family": "rock_punk",
+      "recipe": "classic early-1980s finnish new wave, distorted Rock, punk branch. duet, unprocessed natural acoustic, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. live tracking.",
+      "recipe_chars": 404
+    },
+    {
+      "id": "fort_worth_indie",
+      "name": "Fort Worth Indie",
+      "family": "rock_punk",
+      "recipe": "classic mid-2020s fort worth indie, distorted Rock, punk branch. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 330
+    },
+    {
+      "id": "frankfurt_indie",
+      "name": "Frankfurt Indie",
+      "family": "pop",
+      "recipe": "classic early-2020s frankfurt indie, functional Song. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 322
+    },
+    {
+      "id": "fremantle_indie",
+      "name": "Fremantle Indie",
+      "family": "pop",
+      "recipe": "classic mid-2020s fremantle indie, functional Song. solo with instrumental accompaniment, single lead single track no stacking. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 294
+    },
+    {
+      "id": "french_soundtrack",
+      "name": "French Soundtrack",
+      "family": "classical",
+      "recipe": "classic french soundtrack, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 210
+    },
+    {
+      "id": "friese_muziek",
+      "name": "Friese Muziek",
+      "family": "pop",
+      "recipe": "classic late-2010s friese muziek, functional Song. solo with instrumental accompaniment. low mid rich spectrum full phosphor bronze bronze acoustic guitar. shoebox concert hall.",
+      "recipe_chars": 177
+    },
+    {
+      "id": "furry",
+      "name": "Furry",
+      "family": "classical",
+      "recipe": "classic furry, improv On Frame. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 204
+    },
+    {
+      "id": "german_show_tunes",
+      "name": "German Show Tunes",
+      "family": "pop",
+      "recipe": "classic german show tunes, functional Song. solo with instrumental accompaniment. 7 ply quartersawn maple a 440 modern pitch us standard grand piano, software sample playback. shoebox concert hall.",
+      "recipe_chars": 197
+    },
+    {
+      "id": "ghent_indie",
+      "name": "Ghent indie",
+      "family": "jazz",
+      "recipe": "classic ghent indie, improv On Frame, fusion branch. group vocals, live take. vibraphone, sequential lineage canonical prophet 5 1978 san jose ca analog poly synth, pocket fingerstyle locked electric bass, maple bronze bell bronze full lathed both sides lathed drum kit, turntable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 380
+    },
+    {
+      "id": "girl_group",
+      "name": "Girl group",
+      "family": "pop",
+      "recipe": "classic girl group, functional Song, soul R&B branch. group vocals, live take. electronic keyboard unspecified, alder maple clean strummed humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble student friendly trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, alto yellow brass modern standard ensemble saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 16-bit digital.",
+      "recipe_chars": 712
+    },
+    {
+      "id": "glasgow_indie",
+      "name": "Glasgow indie",
+      "family": "rock_punk",
+      "recipe": "classic glasgow indie, distorted Rock, punk branch. duet, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, low coloration balanced alder electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 376
+    },
+    {
+      "id": "goregrind",
+      "name": "Goregrind",
+      "family": "rock_punk",
+      "recipe": "classic goregrind, distorted Rock, metal branch. duet, unprocessed natural acoustic. alder maple conventional tuning standard pitch palm muted humbucker electric guitar, full bodied low coloration balanced alder electric bass, programmed credited programmed drums unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 375
+    },
+    {
+      "id": "gotlandsk_musik",
+      "name": "Gotländsk musik",
+      "family": "pop",
+      "recipe": "classic gotländsk musik, functional Song. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany flatpicked acoustic guitar, open e song accompaniment lap steel, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, steel European maple bosnian source flamed figure oil varnish cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 463
     }
   ]
 }
