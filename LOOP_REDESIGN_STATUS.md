@@ -1,7 +1,7 @@
 # Revise-loop redesign — status
 
 Branch: `claude/revise-loop-redesign` (from `claude/practical-curie-n66u8c`, PR #460).
-Last update: 2026-10-02. **Phase 3 (build) is under way.** The debate passed,
+Last update: 2026-10-03. **Phase 3 (build) is under way.** The debate passed,
 and the design is version 4. Steps 1-4 are built and committed; step 5 is
 written and waiting for its tests to run.
 
@@ -38,6 +38,43 @@ written and waiting for its tests to run.
 The owner chose **B: save a menu place by place, and allow a stop between two
 places**. It is built; see "Option B" below. The question and the numbers it
 was decided on are kept below as they were.
+
+## Option B: built and measured so far (2026-10-03)
+
+**Built:**
+
+- `3684d633`: a menu is saved place by place, and a call may stop between two places. Each place is keyed by draft, line and place. The deadline times a step without the steps inside it.
+- `438334de`, fixed in `e76a1471` and `76257295`: each saved place or menu is checkpointed at once, so a **killed** call also keeps the places it finished.
+  - `438334de` itself broke every deferred run: a name clash, then a hook registered before it was defined. Both were fixed and pushed within the hour; the branch head is sound.
+- `test_loop_redesign.py` §9 (`97cee5d9`): **all pass.**
+  - A stop between a line's two places keeps the first.
+  - The next call builds only the second.
+  - The menu and the rendered question are byte-identical.
+  - A call **killed** between the two places keeps the first, and the next call builds only the second.
+- Sections 6-8 passed on `3684d633` and are being rerun on the head.
+
+**The 24-line seed-1 first `lyric_revise`, on the CLI with the connector's deadlines** (at `3684d633`; first call 500 s, later calls 600 s):
+
+| call | exit | time | saved places at the end |
+|---|---|---|---|
+| 0 | **5** (stopped before a place) | 292 s | 2 |
+| 1 | **5** (resumed; stopped before a place) | 525 s | 4 |
+| 2 | **4** (resumed; the first question asked) | 325 s | |
+
+So the first question arrives on the **third** call, after 1,142 s in all.
+
+**Through the real connector, first attempt** (at `3684d633`, 600 s tool budget):
+
+- Call 0 stopped with exit 5 at 497 s, with 3 places saved.
+- Call 1 was **killed** at 599 s. A place outran the stop rule, which judges the next step by the longest one so far.
+- The checkpoint the kill kept had none of call 1's places. That is the gap `438334de` closes.
+- That walk was stopped and is being rerun on the head now, logging every call and why it resumed.
+
+**Still to do:**
+
+1. Finish the connector walk and report: calls until the first question, total time, and every call's exit.
+2. Re-pin the 24-line walks in `mcp/test.mjs` and `mcp/test_run_continuation.mjs`: continue an exit-5 call with no answer, and re-record the batch-door walk with dated notes.
+3. Time both tests end to end against CI's 45-minute `verify` limit. That limit is not changed; if they don't fit, it goes to the owner.
 
 ## ~~QUESTION FOR THE OWNER~~ (answered above) (2026-10-02, 22:02 UTC): how fine may a safe point be?
 
