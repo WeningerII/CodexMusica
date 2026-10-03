@@ -1,0 +1,58 @@
+{
+  "id": "vietnamese_idol_pop",
+  "name": "Vietnamese Idol Pop",
+  "family": "pop",
+  "lineage": "松尾 益民 (Matsuo) — complete four-page piano-solo arrangement of Heavy Rotation, PTNA published edition149450, a2015 PTNA/monthly Piano arrangement audition prize work. Publisher explicitly describes a quiet classical-style reworking of the originally upbeat song. This is the separately published Japanese arrangement of the shared AKB48/SGO48 composition, not a transcription of SGO48’s Vietnamese recording or an arrangement issued by SGO48. One piano, zero singers in this instrumental edition; no source idol-group voices or backing production invented. Full paid score and audio not inspected; complete scoring and page count positively published. Standard studio upright and connected legato phrasing in a controlled live room are authored choices fitting the publisher’s quiet arrangement description; construction and performance apparatus unspecified. No fixed global temperament or capture chain. FunctionalSong.eastAsianPop retains this pop-repertoire adaptation; classical-style touch alone does not create a classical genre.",
+  "recipe": "classic vietnamese idol pop, functional Song, east Asian pop branch. legato upright piano. live tracking.",
+  "recipe_chars": 105,
+  "score": 11.354,
+  "config": {
+    "traditions": [
+      "vietnamese_idol_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 11.155,
+          "upright_use": 0.1995,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

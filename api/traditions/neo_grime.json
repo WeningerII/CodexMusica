@@ -1,0 +1,50 @@
+{
+  "id": "neo_grime",
+  "name": "Neo Grime",
+  "family": "electronic",
+  "lineage": "YAKU1Z: complete 1h52, 40-track Wicked Tune DJ mix issued by BAIHUI on 19 January 2023, positively described by its DJ as a wave/neo-grime programme. Preserve every recorded track and all embedded voices and instrumental layers. The source establishes actual DJ mixing, not source studio equipment or a complete synthesis inventory. No particular playback medium, deck count, software, synthesizer or separately performed live singer is identified. Use the existing medium-unspecified DJ playback/mixing identity for the complete documented DJ programme. Omit global tuning and optional signal apparatus because mixed recordings and performance equipment are unspecified. Treated studio is an explicitly authored controlled listening rendition, not measured BAIHUI acoustics. Broad bassSystem.ukSoundsystem places this grime/wave crossover branch within UK-derived bass practice without claiming a fixed rhythm or MC requirement across its repertoire.",
+  "recipe": "classic early-2020s neo grime, bass System, uk soundsystem branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 114,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "neo_grime"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

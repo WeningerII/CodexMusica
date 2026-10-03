@@ -5,7 +5,7 @@
   "lineage": "Dar es Salaam street-studio dance music formed in the Tandale and Manzese quarters in the late 2000s and pushed abroad from 2016 by Sisso Studios and Nyege Nyege — 180-300 BPM loops of sped-up taarab, mchiriku and Bongo Flava samples over a hammering kick, rapid-fire Swahili MCing recorded live in one take, and abrupt tempo escalations designed for street bashment sound systems.",
   "recipe": "classic 2007-2009 singeli, electronic Dance, African dance branch, Afro-diasporic MC rhythm, lofi experimental electric merenrap merengue de calle. extended whistle, breath veiled tone, straight onset, interlocked note trading. sampler drum machine, TR-808, wavetable synth, room natural to palm hand clap. tin roofed shack. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 423,
-  "score": 125.79,
+  "score": 125.64,
   "config": {
     "traditions": [
       "singeli",
@@ -38,7 +38,7 @@
           "voice_quality": 6.890000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.14,
+          "voice_vibrato": 1.095,
           "voice_articulation": 17.224999999999994,
           "voice_microtone": 16.57499999999999,
           "voice_tradition": 6.630000000000001,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 16.119999999999994,
           "voice_ornament_system": 3.575000000000001,
           "voice_pitch_organization": 2.6,
-          "voice_processing_chain": 6.815,
-          "voice_multitrack_stack": 3.6550000000000002
+          "voice_processing_chain": 6.905,
+          "voice_multitrack_stack": 3.3550000000000004
         }
       },
       {
@@ -90,7 +90,7 @@
         },
         "scores": {
           "electronic_technique": 1.6999999999999997,
-          "wt_position": 3.04,
+          "wt_position": 2.8,
           "wt_family": 0.195,
           "wt_polyphony": 0.045
         }
@@ -103,7 +103,7 @@
         },
         "scores": {
           "clap_technique": 1.04,
-          "clap_capture": 1.7349999999999999
+          "clap_capture": 2.0799999999999996
         }
       }
     ],

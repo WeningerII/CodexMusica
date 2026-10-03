@@ -1,0 +1,123 @@
+{
+  "id": "dansk_lovsang",
+  "name": "Dansk Lovsang",
+  "family": "vernacular",
+  "lineage": "Complete approximately one-hour Den Danske Salmeduo anniversary concert as announced by Sankt Lukas Kirke, Aarhus, for 20 September 2026: Christian Vuust doubles saxophone and clarinet; Hans Esbjerg plays piano. Two performers, three instrument families, zero singers in this explicitly instrumental hymn reinterpretation. This is the entire announced duo practice, not an extracted instrumental stem from a vocal song. Exact set list, saxophone register, instrument models and actual attendance are not documented; source announcement is not proof the event occurred. Authored intimate live-room rendition: standard studio upright piano with jazz-comping chords, yellow-brass tenor saxophone with medium reed/hard-rubber mouthpiece and Selmer Mark VI school, grenadilla A clarinet with medium reed and softly tongued legato phrasing. These are coherent editorial construction and technique choices for the source-unspecified instruments, not claims about Vuust or Esbjerg equipment. One reed player alternates the two cards rather than three simultaneous people. No global temperament or recording apparatus inferred. Broad ritualDevotional follows the Christian hymn repertoire; this instrumental concert branch does not assert congregational singing or Black-gospel technique.",
+  "recipe": "classic mid-2020s dansk lovsang, ritual Devotional. upright piano, tenor yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris rubber saxophone, grenadilla African blackwood traditional clarinet. live tracking.",
+  "recipe_chars": 231,
+  "score": 26.835,
+  "config": {
+    "traditions": [
+      "dansk_lovsang"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": -0.035,
+          "upright_use": 0,
+          "upright_piano_size": 0.0315
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "tenor_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.2945,
+          "sax_size": 1.15,
+          "sax_reed": 1.3,
+          "sax_body_alloy": 3.8315000000000006,
+          "sax_mouthpiece": 1.3,
+          "sax_technique": 5.394500000000001,
+          "sax_maker_school": 7.8500000000000005
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "a_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.2945,
+          "clarinet_body": 1.15,
+          "clarinet_size": 0.105,
+          "clarinet_reed": 1.3,
+          "clarinet_articulation": 0.868
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_jazz_comping",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard",
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "tenor_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "a_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet"
+    },
+    "pin_parts": true
+  }
+}

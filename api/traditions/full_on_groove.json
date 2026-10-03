@@ -1,0 +1,50 @@
+{
+  "id": "full_on_groove",
+  "name": "Full On Groove",
+  "family": "electronic",
+  "lineage": "StarLab — complete artist-issued Virtual Burning Man2020 DJ livestream programme for the Own Spirit Festival Stage, played September2020 and uploaded19September2020. Original artist description enumerates all eleven selections from Free Your Soul through Yo Bro; Philip Gordon is credited for visuals, not another musical role. One DJ playback/mixing role retains every recorded musical and embedded vocal layer. The biography mentions earlier bass/guitar playing, but no live bass or guitar is credited to this DJ programme, so those earlier band roles are not transferred. Actual live and embedded voice counts remain unknown; no audition or inferred deck hardware claimed. Existing source-unspecified DJ playback/mixing owner preserves the positive complete performance role without inventing synthesis engines, master stems, vinyl or software, deck models, gestures or measured tempo. Source inputs are a genuine issued DJ set, not a studio master relabeled playback to avoid missing instrument credits. Controlled live-room presentation is an authored spatial rendition, not the virtual event location. No global tuning or capture chain specified.",
+  "recipe": "classic full on groove, electronic Dance, trance branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 103,
+  "score": 0.2,
+  "config": {
+    "traditions": [
+      "full_on_groove"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.1995
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

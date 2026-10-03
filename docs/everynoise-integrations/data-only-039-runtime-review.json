@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "entries": 100,
+  "formats": 400,
+  "all_outputs_byte_identical_to_reviewed_source_projection": true,
+  "integration_sha256": "b8080977df43c25645ed368c75bdd7fa9633477b56c40d6c99472e3a503a0b58",
+  "scope": "Original integrated browser/connector; static API separate"
+}

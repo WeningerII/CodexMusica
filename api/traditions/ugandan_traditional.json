@@ -1,0 +1,135 @@
+{
+  "id": "ugandan_traditional",
+  "name": "Ugandan traditional",
+  "family": "vernacular",
+  "lineage": "Michael Mawoni — complete Hiwumbe Awumba (God Creates And Then Destroys), Smithsonian SFW40504_103, 2:34, issued2003. The issuer explicitly credits the same sole musician with lead vocals and adungu; retain both roles and one singer. This is the whole separately issued Nyole-language track, not an arbitrary layer from the wider Abayudaya album. The chorus, guitars, keyboards and drums on other album tracks are outside this complete selection. Broad ritualDevotional is scoped to this sacred song contemplating God and mortality, supported by the issuer sacred classification and collector transcription; it does not classify every Ugandan tradition as religious. Authored alto-register adungu with nylon strings/hide resonator and gentle devotional accompaniment. The existing church/liturgical setting is used for its nonsectarian devotional descriptors, not a claim of Christian worship. Alur in the instrument name describes its catalog instrument lineage, not the Nyole singer ethnicity. Exact harp size/string material are proposed physical defaults, not measured source facts. All17 original voice controls retained: one accompanied sung voice, source-unspecified physiology, neutral effort/tract, unprocessed single lead. No measured temperament, capture apparatus or extra singers invented. Spacious acoustic shoebox-hall listening setting is a proposed new rendition, not field-recording metadata.",
+  "recipe": "classic ugandan traditional, ritual Devotional. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. resonant hide adungu. shoebox concert hall.",
+  "recipe_chars": 197,
+  "score": 27.804,
+  "config": {
+    "traditions": [
+      "ugandan_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 5.2395,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 2.6945,
+          "voice_multitrack_stack": 7.7075,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "adungu",
+        "slots": {
+          "adungu_size": "adungu_size_alto",
+          "adungu_setting": "adungu_setting_church",
+          "adungu_stringing": "adungu_stringing_nylon_hide"
+        },
+        "scores": {
+          "adungu_size": -0.07,
+          "adungu_setting": 11.082499999999998,
+          "adungu_stringing": 1.15
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "adungu": [
+        "adungu_size",
+        "adungu_setting",
+        "adungu_stringing"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "adungu_size": "adungu_size_alto",
+      "adungu_setting": "adungu_setting_church",
+      "adungu_stringing": "adungu_stringing_nylon_hide"
+    },
+    "pin_parts": true
+  }
+}

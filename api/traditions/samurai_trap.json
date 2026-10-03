@@ -1,0 +1,50 @@
+{
+  "id": "samurai_trap",
+  "name": "Samurai trap",
+  "family": "hip_hop",
+  "lineage": "[dunkelbunt] — complete49:19 Samurai Trap & Glitch Japanese Asian Future Bass Hip-hop, issued on his own Mixcloud and directly linked from his own DJ news page. The practitioner labels the programme Samurai Trap (bass of asia) and identifies DJ selection/spinning. The entire crossover mix is retained, including its expressly named glitch/future-bass neighbours; no subset is excised to pretend a stylistically pure album. Model positive recorded-program playback and mixing rather than inventing the instrument generators inside mastered selections. Actual decks/software, live versus offline assembly, embedded singers and session musicians are unspecified. Zero additional live voice cards does not mean zero voices in the music. Broad mcRhythm with hip_hop family is an authored organizational home for the trap/hip-hop programme, not a claim all selections have MCs. Existing medium-neutral DJ playback/mixing owner retains the full recorded programme and positive mix practice. Treated studio is an authored listening/mixing environment; no source room, exact hardware, global tuning or capture chain is asserted.",
+  "recipe": "classic samurai trap, mc Rhythm. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 80,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "samurai_trap"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

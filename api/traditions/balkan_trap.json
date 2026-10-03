@@ -1,0 +1,50 @@
+{
+  "id": "balkan_trap",
+  "name": "Balkan trap",
+  "family": "hip_hop",
+  "lineage": "DJ FiX — entire27:18 Balkan Trap MiX2022, issued on the DJ’s own Mixcloud account with eleven named selections. The uploader identifies himself as a Balkan-music DJ based in Zagreb. Model the complete recorded-program playback/mixing practice, not a reconstructed studio ensemble for each underlying song. Source medium, mixer/deck/software architecture and whether assembled offline or performed in one live take are unspecified. Embedded vocals and instrumental productions remain in the programme; no zero-singer or instrumental-only claim and no new live vocalist, session musician, sample trigger or synthesizer invented. mcRhythm.intlHipHop with hip_hop family describes the regional trap-song programme; choosing DJ playback does not erase its underlying rap repertoire. Existing medium-neutral DJ owner preserves positive recorded music playback and mixing with its single protected control. There is no claimed vinyl/CDJ hardware, live performance, isolated 808 model, uncredited live singer count or reconstruction of opaque component masters. Treated studio listening/mixing setting and neutral axes are authored; no measured source room, global tuning or capture chain.",
+  "recipe": "classic balkan trap, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 100,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "balkan_trap"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

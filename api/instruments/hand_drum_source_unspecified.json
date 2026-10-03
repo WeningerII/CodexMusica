@@ -1,0 +1,166 @@
+{
+  "id": "hand_drum_source_unspecified",
+  "name": "Hand drum (construction unspecified)",
+  "short": "Hand drum",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "hand_drum_structure_neutral",
+      "name": "Shell or frame geometry and head count",
+      "variants": [
+        {
+          "id": "hand_drum_structure_neutral_source_unspecified",
+          "name": "Shell or frame geometry and head count — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "hand_drum_material_neutral",
+      "name": "Shell and membrane material",
+      "variants": [
+        {
+          "id": "hand_drum_material_neutral_source_unspecified",
+          "name": "Construction substances not specified by source",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "hand_drum_excitation_neutral",
+      "name": "Excitation tool and striking method",
+      "variants": [
+        {
+          "id": "hand_drum_excitation_neutral_source_unspecified",
+          "name": "Excitation tool and striking method — source unspecified",
+          "default": true,
+          "descriptors": [
+            "struck"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hand_drum_damping_neutral",
+      "name": "Damping and resonance control",
+      "variants": [
+        {
+          "id": "hand_drum_damping_neutral_source_unspecified",
+          "name": "Damping and resonance control — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "hand_drum_tension_neutral",
+      "name": "Head tension and pitch setting",
+      "variants": [
+        {
+          "id": "hand_drum_tension_neutral_source_unspecified",
+          "name": "Head tension and pitch setting — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source positively names hand drum but does not resolve frame geometry, hide species, head count, hand versus beater excitation or measured pitch. Hand drum does not mean hand-struck. This isolated physical membranophone retains independent controls for these unknowns; no Dene lineage or communal powwow drum circle is invented. Neutral axes are authored.",
+  "sources": [
+    "https://pholloyo.wordpress.com/2014/02/20/supaman-breaking-new-ground-combining-traditional-apsaalooke-crow-music-with-hip-hop/",
+    "https://ckua.com/listen/supaman-performs-at-the-banff-centre/",
+    "https://www.huckmag.com/article/native-american-rapper-interview-supaman"
+  ],
+  "_ownParts": [
+    {
+      "id": "hand_drum_structure_neutral",
+      "name": "Shell or frame geometry and head count",
+      "variants": [
+        {
+          "id": "hand_drum_structure_neutral_source_unspecified",
+          "name": "Shell or frame geometry and head count — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "hand_drum_material_neutral",
+      "name": "Shell and membrane material",
+      "variants": [
+        {
+          "id": "hand_drum_material_neutral_source_unspecified",
+          "name": "Construction substances not specified by source",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "hand_drum_excitation_neutral",
+      "name": "Excitation tool and striking method",
+      "variants": [
+        {
+          "id": "hand_drum_excitation_neutral_source_unspecified",
+          "name": "Excitation tool and striking method — source unspecified",
+          "default": true,
+          "descriptors": [
+            "struck"
+          ],
+          "match_tokens": [
+            "struck"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hand_drum_damping_neutral",
+      "name": "Damping and resonance control",
+      "variants": [
+        {
+          "id": "hand_drum_damping_neutral_source_unspecified",
+          "name": "Damping and resonance control — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "hand_drum_tension_neutral",
+      "name": "Head tension and pitch setting",
+      "variants": [
+        {
+          "id": "hand_drum_tension_neutral_source_unspecified",
+          "name": "Head tension and pitch setting — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

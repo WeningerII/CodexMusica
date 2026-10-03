@@ -1,0 +1,66 @@
+{
+  "id": "japanese_experimental",
+  "name": "Japanese experimental",
+  "family": "global",
+  "lineage": "Yousei Umeki — Extra Light, complete sixteen-piece acoustic improvisation release (2019). Senri Records explicitly credits the duo Yousei Suzuki and Haruyuki Umeki and describes the full source as improvisation with two acoustic guitars, accumulated during home gatherings over approximately five years. All sixteen pieces and both instrumental performers are included; one existing guitar-family card aggregates the two like instruments, not a claim of a solo performer. No separately credited singer. The issuer explicitly tags Japanese experimental music, avant-garde and primitive guitar; the Japanese text also states two acoustic guitars and improvisation. The actual existing japanoise row specifies maximal-density electronics and saturation; this positively self-described Japanese experimental acoustic improvisation practice demonstrates a broader experimental field rather than a renamed noise subgenre. Existing free_improvisation is a non-idiomatic European/American process tradition and overlaps this selected practice; the regional experimental discovery umbrella also crosses processes and is not asserted to invent a separate guitar technique. Parent improvOnFrame.jamFree explicitly includes loosely structured collective free improvisation and fits this complete release, without asserting every Japanese experimental piece is improvised. Contemporary all-mahogany steel-string dreadnought construction and flatpicked note articulation are a candid representative authored realization of unspecified acoustic guitars, not measured original models, strings or exact gestures. Controlled live-room capture is authored rather than a claim to reconstruct the actual homes.",
+  "recipe": "classic late-2010s japanese experimental, improv On Frame, jam free branch. mahogany phosphor bronze modern martin dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 158,
+  "score": 5.537,
+  "config": {
+    "traditions": [
+      "japanese_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 1.2,
+          "string_tuning": 0,
+          "top_wood": 1.3,
+          "back_sides": 1.3,
+          "string_acoustic": 1.7365000000000002
+        }
+      }
+    ],
+    "pinned": {
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "acoustic_technique": "acoustic_flatpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze"
+    },
+    "pin_parts": true
+  }
+}

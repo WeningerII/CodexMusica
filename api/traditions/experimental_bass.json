@@ -1,0 +1,50 @@
+{
+  "id": "experimental_bass",
+  "name": "Experimental Bass",
+  "family": "electronic",
+  "lineage": "Don Jamal: complete twenty-selection guest DJ programme issued by FUXWITHIT17January2024, with its full published tracklist. The publisher describes experimental bass,140 and drum-and-bass repertoire; the performer explicitly explains the complete cross-genre mix. All twenty selections and embedded voices remain. Actual recorded playback/mixing is documented; constituent studio sound generators, decks and media formats are not. Existing medium-unspecified DJ playback/mixing owner models complete actual DJ practice, not a whole-master shortcut for undocumented studio creation. No source mechanism, hardware, live vocalist or tuning is guessed. Treated studio is an authored controlled listening rendition, not measured venue acoustics. Broad bassSystem parent reflects the explicitly bass-led practice rather than forcing every constituent track into one tempo or UK subgenre.",
+  "recipe": "classic experimental bass, bass System. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 87,
+  "score": 0.032,
+  "config": {
+    "traditions": [
+      "experimental_bass"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

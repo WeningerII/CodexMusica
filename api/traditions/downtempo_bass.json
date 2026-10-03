@@ -1,0 +1,50 @@
+{
+  "id": "downtempo_bass",
+  "name": "Downtempo Bass",
+  "family": "electronic",
+  "lineage": "Super Future: complete issued Future Flowstate Vol1 DJ mix described in his29November2024 firsthand interview as substantially the downtempo programme played on phase1 of Augmented Duality. Preserve the entire issued mix, not merely a track extract or original source stems. He explicitly discusses his DJ sets/mixes and their slowed bass-derived character. No constituent tracklist or equipment roster is supplied here; all embedded layers and unknown voice counts remain through actual recorded playback/mixing. Existing medium-unspecified DJ playback/mixing owner models complete actual DJ practice, not a whole-master shortcut for undocumented studio creation. No source mechanism, hardware, live vocalist or tuning is guessed. Treated studio is an authored controlled listening rendition, not measured venue acoustics. Broad bassSystem parent reflects the explicitly bass-led practice rather than forcing every constituent track into one tempo or UK subgenre.",
+  "recipe": "classic downtempo bass, bass System. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 84,
+  "score": 0.032,
+  "config": {
+    "traditions": [
+      "downtempo_bass"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

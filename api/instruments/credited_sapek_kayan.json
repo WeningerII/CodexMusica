@@ -1,0 +1,217 @@
+{
+  "id": "credited_sapek_kayan",
+  "name": "Sapek Kayan (credited lute)",
+  "short": "Sapek Kayan lute",
+  "family": "plucked_traditional",
+  "class": "isolated_credited_sapek_kayan",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "sapek_kayan_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "sapek_kayan_body_carved_open_back",
+          "name": "One-piece carved wooden hollow body with open back",
+          "default": true,
+          "descriptors": [
+            "wooden",
+            "hollow"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_string_layout",
+      "name": "String count and configuration",
+      "variants": [
+        {
+          "id": "sapek_kayan_string_layout_melody_drone",
+          "name": "Two strings: one melody and one drone",
+          "default": true,
+          "descriptors": [
+            "two-string",
+            "melodic",
+            "drone-like"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_neck_frets",
+      "name": "Neck and fretting",
+      "variants": [
+        {
+          "id": "sapek_kayan_neck_frets_three_scalloped_frets",
+          "name": "Short neck with three scalloped wooden frets",
+          "default": true,
+          "descriptors": [
+            "short",
+            "wooden"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "sapek_kayan_excitation_plucked_lute",
+          "name": "Plucked lute; precise picking implement unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_string_material",
+      "name": "String setup: material disclosure",
+      "variants": [
+        {
+          "id": "sapek_kayan_string_material_source_unspecified",
+          "name": "Source-unspecified string material",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_tuning",
+      "name": "Absolute tuning",
+      "variants": [
+        {
+          "id": "sapek_kayan_tuning_source_unspecified",
+          "name": "Source-unspecified pitches and intervals",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Kayan melody-and-drone lute, separately controlled carved open-backed wooden body, two-string functional layout, short neck and three scalloped wooden frets, plucked excitation, unspecified string material and absolute tuning. Physical type follows firsthand Kayan Mendalam documentation; the 2014 documented specimen is not asserted to be the 2015 recorded instrument. No named dance, ritual or amplified construction inferred.",
+  "sources": [
+    {
+      "url": "https://tresnorecords.bandcamp.com/track/karan-kayu-sapek-kayan-solo-with-male-vocals",
+      "title": "Issuing recordist label: complete selected track",
+      "support_notes": "Fresh turn10273view2 issuer exact complete track: sapek Kayan solo with male vocals, June2015 Kayan field recording. No instrumental roles from neighboring compilation tracks transferred.",
+      "checked_date": "2026-10-03"
+    },
+    {
+      "url": "https://www.auralarchipelago.com/auralarchipelago/sapekayan",
+      "title": "Independent firsthand Kayan lute field documentation",
+      "support_notes": "Fresh turn10273view1 firsthand field documentation: carved wooden open-backed body, short neck, three scalloped wooden frets and two strings with melody/drone functions. Separate2014 specimen, not falsely identified as selected2015 recording.",
+      "checked_date": "2026-10-03"
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sapek_kayan_body",
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "sapek_kayan_body_carved_open_back",
+          "name": "One-piece carved wooden hollow body with open back",
+          "default": true,
+          "descriptors": [
+            "wooden",
+            "hollow"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_string_layout",
+      "name": "String count and configuration",
+      "variants": [
+        {
+          "id": "sapek_kayan_string_layout_melody_drone",
+          "name": "Two strings: one melody and one drone",
+          "default": true,
+          "descriptors": [
+            "two-string",
+            "melodic",
+            "drone-like"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_neck_frets",
+      "name": "Neck and fretting",
+      "variants": [
+        {
+          "id": "sapek_kayan_neck_frets_three_scalloped_frets",
+          "name": "Short neck with three scalloped wooden frets",
+          "default": true,
+          "descriptors": [
+            "short",
+            "wooden"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_excitation",
+      "name": "Excitation",
+      "variants": [
+        {
+          "id": "sapek_kayan_excitation_plucked_lute",
+          "name": "Plucked lute; precise picking implement unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_string_material",
+      "name": "String setup: material disclosure",
+      "variants": [
+        {
+          "id": "sapek_kayan_string_material_source_unspecified",
+          "name": "Source-unspecified string material",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "sapek_kayan_tuning",
+      "name": "Absolute tuning",
+      "variants": [
+        {
+          "id": "sapek_kayan_tuning_source_unspecified",
+          "name": "Source-unspecified pitches and intervals",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

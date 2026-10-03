@@ -1,0 +1,50 @@
+{
+  "id": "turkce_remix",
+  "name": "Türkçe remix",
+  "family": "electronic",
+  "lineage": "Emre Çağlar — complete Türkçe Remix Set2020 (Power Türk Adrenalin Mix2020), dated21March2020 in the title and uploaded23March2020. The DJ-owned upload identifies the mixer and supplies all19 remix selections, from Buray through Aydın Kurtoğlu. Retain the entire issued continuous DJ set and every embedded vocal/instrumental layer; no fragment or opaque individual studio master is substituted for performance. Exact deck count, playback medium, original production devices and embedded singer count remain unknown. Existing medium-unspecified DJ playback/mixing owner represents the actual complete mix, not reconstructed original studios. One protected identity part. No tuning, signal apparatus or additional live singer is inferred. Controlled treated-studio listening presentation is authored, not source-session acoustics. Broad electronicDance captures the positively named disco/club remix practice without forcing deep-house rhythm across the whole programme.",
+  "recipe": "classic türkçe remix, electronic Dance. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 87,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "turkce_remix"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

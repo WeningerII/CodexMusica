@@ -5,7 +5,7 @@
   "lineage": "Recife hybrid formed around 2015-2018 by Shevchenko e Elloco, MC Troia and Japãozin, fusing Pernambucan brega with Rio funk — 128-135 BPM tamborzão-derived programmed beat with a swung, off-grid snare, cheap sampled brass and synth stabs, deep 808 sub, and rapid-fire half-sung MC delivery over two- or four-bar loops, choreographed for viral passinho dance videos.",
   "recipe": "classic South American 2015-2018 brega funk, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm, Brazilian song functional song arrochadeira brega and tecnobrega. kargyraa, breath veiled tone, slow rate, interlocked note trading. melodic pitched sampler, TR-808, sub bass analog poly synth, timbal brasileiro, alder pyramid pure nickel bass British mid 60s era electric bass. recife brazilian northeast forro house. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 529,
-  "score": 163.885,
+  "score": 163.75,
   "config": {
     "traditions": [
       "brega_funk",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 0.9006249999999999,
+          "voice_register": 0.9456249999999998,
           "voice_quality": 6.825000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.4299999999999995,
           "voice_pitch_organization": 1.435,
           "voice_processing_chain": 11.149999999999995,
-          "voice_multitrack_stack": 7.4
+          "voice_multitrack_stack": 7.3100000000000005
         }
       },
       {
@@ -78,7 +78,7 @@
         },
         "scores": {
           "tr808_voice": 3.4125,
-          "drum_machine_808_context": 3.95,
+          "drum_machine_808_context": 3.905,
           "tr808_production_origin": 0.09562499999999999
         }
       },
@@ -92,7 +92,7 @@
         },
         "scores": {
           "electronic_technique": 3.2825000000000006,
-          "poly_archetypes": 0.6950000000000001,
+          "poly_archetypes": 0.65,
           "poly_voices": 0.15,
           "poly_maker_lineage": -2.05
         }

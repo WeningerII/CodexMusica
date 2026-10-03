@@ -1,0 +1,58 @@
+{
+  "id": "swedish_pop_rap",
+  "name": "Swedish pop rap",
+  "family": "hip_hop",
+  "lineage": "TheddyKeys — complete separately published five-page solo-piano arrangement of Tjuvjakt’s Tandtråd. Arranger product explicitly specifies solo piano and no lyrics, one-staff metadata retained without claiming two-staff engraving. His issued piano tutorial identifies intro, two verses, two refrains and outro; he explicitly omits the original song’s last repeated verse/refrain because they repeat earlier piano material. Retain the entirety of this independent published adaptation, not an arbitrary extracted portion of the original group recording. One piano and zero singers in the edition; no claim original rap has no voices or backing. Paid full score not purchased or examined; public arranger scoring metadata and own tutorial structure establish the selected scope. Authored standard-size studio upright and connected legato realize source-unspecified piano construction and touch; exact arranger hardware or measured performance is not asserted. Broad functionalSong describes this song-form piano realization, supported by the arranger’s explicit verse/refrain structure and listed tonal chords. No notation-equals-classical inference. Controlled live room is an authored space, with no global tuning or capture-chain assertion.",
+  "recipe": "classic swedish pop rap, functional Song. legato upright piano. live tracking.",
+  "recipe_chars": 78,
+  "score": 5.15,
+  "config": {
+    "traditions": [
+      "swedish_pop_rap"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.550000000000001,
+          "upright_use": 0.6,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

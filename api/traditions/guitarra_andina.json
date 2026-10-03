@@ -1,0 +1,70 @@
+{
+  "id": "guitarra_andina",
+  "name": "Guitarra Andina",
+  "family": "vernacular",
+  "lineage": "Camilo Pajuelo — complete producer-issued2014 Helme solo-guitar film, adapted by Raúl García Zárate. The producer explicitly documents a continuous three-section instrumental drama: dialogue, tragedy and ayataki. One guitarist and one guitar retained, no singer or band inferred; literary characters and funeral-song origin do not constitute credited vocal roles. Producer confirms filmed Helsinki location and Andean-guitar identity. The exact composition is documented independently in research based on García Zárate testimony; its alternate-tuning practice is known, but exact strings/pitch standard of this2014 performance are not measured or asserted. Source-compatible authored six-string spruce/fan-braced nylon guitar with fingerpicked free-stroke attack, not source instrument make/material identification. Isolated owner preserves all six original meaningful control dimensions while replacing mandatory standard EADGBE with documented Andean variable tuning, exact tuning unknown. This is no arbitrary new timbre-only owner: physical string-tuning incompatibility requires a truthful slot. No existing instrument/shared part is edited. Broad artMusic reflects the expressly arranged continuous three-part instrumental narrative; no verse-chorus or improvisation invented. Spacious recital hall is an authored listening rendition, not original Helsinki building acoustics; optional chain and global temperament omitted.",
+  "recipe": "classic guitarra andina, art Music. distinct tuning spruce nylon fingerpicked andean scordatura guitar. shoebox concert hall.",
+  "recipe_chars": 125,
+  "score": 14.14,
+  "config": {
+    "traditions": [
+      "guitarra_andina"
+    ],
+    "instruments": [
+      {
+        "id": "andean_scordatura_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "andean_guitar_tuning": "andean_guitar_tuning_source_unspecified",
+          "top_wood_classical": "spruce_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "nylon_normal_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 3.450000000000001,
+          "andean_guitar_tuning": 6.581499999999999,
+          "top_wood_classical": 1.3,
+          "bracing_classical": 0.8365,
+          "string_classical": 1.5815000000000001,
+          "attack_technique_cl": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "andean_scordatura_guitar": [
+        "acoustic_technique",
+        "andean_guitar_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "acoustic_technique": "acoustic_fingerpicked",
+      "andean_guitar_tuning": "andean_guitar_tuning_source_unspecified",
+      "top_wood_classical": "spruce_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "nylon_normal_cl",
+      "attack_technique_cl": "tirando_cl"
+    },
+    "pin_parts": true
+  }
+}

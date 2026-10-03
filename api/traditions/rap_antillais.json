@@ -1,0 +1,50 @@
+{
+  "id": "rap_antillais",
+  "name": "Rap antillais",
+  "family": "hip_hop",
+  "lineage": "DJ Greg — complete artist-issued Strictly Greg Touch (La Mixtape), published18May2018. Artist announcement retained by the firsthand interviewer identifies40 selections including9 previously unreleased pieces. Select the whole DJ playback/mixing programme, not the separately released nine-track EP and not reconstructed studio master instruments. Embedded voices and instruments remain within the programme; exact full contributor count, physical medium, mixing architecture and live-versus-offline assembly are unknown. No audio audition or exact duration claim. Existing medium-neutral DJ playback/mixing owner retains the positive whole-program practice with its one protected source-identity control. Treated listening/mixing room and neutral axes are authored; no specific turntable/CDJ, sample-trigger mechanism, live musician, source tempo, global tuning or capture chain inferred. mcRhythm.intlHipHop retains the positive regional rap-repertoire identity even though the selected complete practice is DJ presentation.",
+  "recipe": "classic rap antillais, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 102,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "rap_antillais"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

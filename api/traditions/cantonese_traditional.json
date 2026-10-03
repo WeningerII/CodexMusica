@@ -1,0 +1,58 @@
+{
+  "id": "cantonese_traditional",
+  "name": "Cantonese Traditional",
+  "family": "classical",
+  "lineage": "Wong Kong-Yu — complete Eight Cantonese Folk Songs, T.U.X. People’s Music SE0152 (2023 copyright; first printing May2024), a separately issued eight-piece solo-piano collection. Publisher confirms sole piano scoring; no singers or instrumental accompaniment added. Public perusal PDF identifies all eight selections and explains the arranger’s new harmonies, keys and developed forms; retail listing advertises21pages while public perusal PDF has20pages. These edition counts are reported separately, not silently equated. This is the complete issued arrangement, not a reduction invented from the earlier Han Tien Lei trio. Authored standard studio upright with connected classical legato in a controlled live room; source says piano without a make, size or upright/grand requirement. This is a coherent representative recital rendering, not measured source touch, geometry, microphone chain or historical temperament. All three original piano controls protected; no optional global tuning or apparatus claim. ArtMusic family classical is limited to this documented arranged solo recital branch.",
+  "recipe": "classic early-2020s cantonese traditional, art Music. legato upright piano. live tracking.",
+  "recipe_chars": 90,
+  "score": 11.081,
+  "config": {
+    "traditions": [
+      "cantonese_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 11.081499999999998,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

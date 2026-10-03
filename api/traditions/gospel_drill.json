@@ -1,0 +1,50 @@
+{
+  "id": "gospel_drill",
+  "name": "Gospel Drill",
+  "family": "hip_hop",
+  "lineage": "DJ Update GH — complete separately published UK GOSPEL DRILL VOL.1 MIX, issued30June2024, featuring MANDEM DJ ZERO. Publisher identifies DJ mixing, the uploader identifies club/pub DJ practice, and the indexed release displays53:36. This is the full published mixed programme, not reconstructed individual productions or an excerpt. Both named DJ credits are retained; their exact division of work, deck count, medium and software are unspecified. Embedded and separately performed live voice counts and constituent instruments are unknown. No claim of an exclusively single-style tracklist or absence of vocals. Existing neutral DJ playback/mixing owner preserves every mixed source layer without inventing original studio instruments. Controlled live-room listening presentation is an authored realization, not measured source venue or source BPM. Its up-tempo rendering is an energetic presentation choice consistent with this club-DJ drill-facing scope, not a measured tempo assertion. No unsupported pitch framework or recording chain is supplied. Existing mcRhythm.drill parent and hip_hop family describe the positively named drill branch; devotional designation concerns repertoire and community.",
+  "recipe": "classic gospel drill, mc Rhythm, drill branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 93,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "gospel_drill"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "bisaya_rap",
+  "name": "Bisaya rap",
+  "family": "hip_hop",
+  "lineage": "Kregga versus Mistah Lefty — complete FlipTop Gubat13 Bisaya Conference battle, Mariner’s Court, Cebu City,20April2024, separately issued by the league. Both emcees and the entire contest are retained, not one verse or a backing-free extraction from a studio track. The league explicitly documents its prewritten acappella battle format and labels this pairing a Bisaya Battle; its own participant profiles and post-event account corroborate the actual contest. Scope is the two-emcee artistic contest, not all eight battles, host introductions, adjudication or incidental audience response. No claim of source audio audition or exact video edit duration. Broad spokenWord parent scopes this complete unaccompanied rhythmic spoken contest; hip_hop family preserves the actual rap practice. The back-line requirement of mcRhythm is not invented for this selection. Both emcees share the existing two-performer live-duet voice owner, with rhythmic-spoken-flow explicitly pinned: duet here means two live vocal performers over the whole contest, not simultaneous harmony or two singers. Source alternating rounds remain explicit; no polyphony, tuned interval, backing track or pitched melody asserted. Seventeen voice controls retain source-unspecified physiology, moderate neutral effort, unprocessed live ensemble and no overdub claim for the authored live rendition. Controlled live-room acoustics are authored, not a measured Mariner’s Court capture. No global tuning or recording chain.",
+  "recipe": "classic bisaya rap, spoken Word. rap, rhythmic spoken flow no pitch, duet, unprocessed natural acoustic. live tracking.",
+  "recipe_chars": 119,
+  "score": 59.579,
+  "config": {
+    "traditions": [
+      "bisaya_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 12.9575,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 26.838499999999996,
+          "voice_ensemble_config": 10.525999999999998,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.3315000000000001,
+          "voice_multitrack_stack": 7.925999999999999,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "rap_voice",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

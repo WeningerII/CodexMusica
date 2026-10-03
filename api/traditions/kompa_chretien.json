@@ -1,0 +1,50 @@
+{
+  "id": "kompa_chretien",
+  "name": "Kompa Chrétien",
+  "family": "vernacular",
+  "lineage": "DJ H509 — whole MIX GOSPEL KONPA FIN ANNEE 2022, issued on his own Gospel Muzik SoundCloud account on1December2022. The named DJ mix and Christian message are explicit. Complete programme retained; exact runtime and constituent tracklist unavailable, so no titles, sung languages, number of embedded singers or live announcements are inferred. This is an actual issued DJ mix, not substitution of a playback device for undisclosed studio-album production. Source recordings and any recorded vocals remain within playback/mixing. The separately announced2025 live concert with musicians is not this2022 mix and adds no inferred live performers. Whole issued DJ programme realized with existing source-unspecified playback/mixing owner; no turntable medium, scratching, synthesizer, instrument session roster or carrier count invented. Treated studio is authored controlled listening, not original capture site. Optional tuning and signal chain omitted. Existing ritualDevotional.christianGospel parent reflects positively professed purpose, with neutral editorial axes; no source-wide acoustic gospel ensemble presumed.",
+  "recipe": "classic early-2020s kompa chrétien, ritual Devotional, christian gospel branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 127,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "kompa_chretien"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

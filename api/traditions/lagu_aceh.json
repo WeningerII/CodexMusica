@@ -1,0 +1,58 @@
+{
+  "id": "lagu_aceh",
+  "name": "Lagu Aceh",
+  "family": "vernacular",
+  "lineage": "Ayunia Saputro — complete4:35 Ananda Sukarlan Rapsodia Nusantara no.6, presented on the performer’s own video page. The performer explicitly identifies this as a piano-solo composition based on the Aceh song Bungong Jeumpa. One pianist, one piano and zero vocal parts are retained. This selects the complete independently named concert transformation of the regional melody, not a claim that the original song or every Acehnese performance is instrumental. Other works and ensembles on the same video page are excluded because each is separately titled. Source audio was not personally auditioned. Authored standard studio upright and connected legato realize the source’s subtype-unspecified piano; these are not observed equipment or measured touch. Broad artMusic follows the complete fixed composed rhapsody and an authored concert-listening rendition, not a claim that all Lagu Aceh is classical. No original folk-song tuning, sung language, global tuning, signal chain or recording venue is inferred. Live-room capture is an authored listening presentation.",
+  "recipe": "classic lagu aceh, art Music. legato upright piano. live tracking.",
+  "recipe_chars": 66,
+  "score": 4.582,
+  "config": {
+    "traditions": [
+      "lagu_aceh"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.581500000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "native_american_flute_source_unspecified",
+  "name": "Native American flute (form unspecified)",
+  "short": "Credited Native American flute",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "native_flute_form_neutral",
+      "name": "Form, bore, size and register",
+      "variants": [
+        {
+          "id": "native_flute_form_neutral_source_unspecified",
+          "name": "Form, bore, size and register — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "native_flute_playing_neutral",
+      "name": "Playing context and ornamentation",
+      "variants": [
+        {
+          "id": "native_flute_playing_neutral_source_unspecified",
+          "name": "Playing context and ornamentation — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "native_flute_body_neutral",
+      "name": "Body material and construction",
+      "variants": [
+        {
+          "id": "native_flute_body_neutral_source_unspecified",
+          "name": "Body material and construction — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source positively names Native flute, but no Plains/Lakota courting identity, exact key, bore, body species or ceremonial repertoire is inferred. Retains the original catalog family three distinct meaningful dimensions rather than assigning unrelated regional defaults. Neutral axes are authored routing coordinates.",
+  "sources": [
+    "https://pholloyo.wordpress.com/2014/02/20/supaman-breaking-new-ground-combining-traditional-apsaalooke-crow-music-with-hip-hop/",
+    "https://ckua.com/listen/supaman-performs-at-the-banff-centre/",
+    "https://www.huckmag.com/article/native-american-rapper-interview-supaman"
+  ],
+  "_ownParts": [
+    {
+      "id": "native_flute_form_neutral",
+      "name": "Form, bore, size and register",
+      "variants": [
+        {
+          "id": "native_flute_form_neutral_source_unspecified",
+          "name": "Form, bore, size and register — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "native_flute_playing_neutral",
+      "name": "Playing context and ornamentation",
+      "variants": [
+        {
+          "id": "native_flute_playing_neutral_source_unspecified",
+          "name": "Playing context and ornamentation — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "native_flute_body_neutral",
+      "name": "Body material and construction",
+      "variants": [
+        {
+          "id": "native_flute_body_neutral_source_unspecified",
+          "name": "Body material and construction — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "credited_leather_percussion_unspecified",
+  "name": "Leather percussion (source-unspecified form)",
+  "short": "Credited leather percussion",
+  "family": "percussion",
+  "class": "percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_leather_percussion_identity",
+      "name": "Complete credited percussion role",
+      "variants": [
+        {
+          "id": "credited_leather_percussion_source_unspecified",
+          "name": "Leather percussion; subtype, form, skin species and playing gesture unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positive leather-percussion credit, separate from the named tabla and khanjira. The known leather material is retained; no additional drum form, membrane mounting, species, number of objects or playing technique is inferred.",
+  "sources": [
+    "https://www.aliveindiastudio.com/celebs"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_leather_percussion_identity",
+      "name": "Complete credited percussion role",
+      "variants": [
+        {
+          "id": "credited_leather_percussion_source_unspecified",
+          "name": "Leather percussion; subtype, form, skin species and playing gesture unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

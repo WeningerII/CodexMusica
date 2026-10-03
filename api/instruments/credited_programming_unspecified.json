@@ -1,0 +1,53 @@
+{
+  "id": "credited_programming_unspecified",
+  "name": "Credited programmed sound (generator unspecified)",
+  "short": "credited programmed sound",
+  "family": "electronic",
+  "class": "source_unspecified_electronics",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_programming_unspecified_identity",
+      "name": "Positive programming role",
+      "variants": [
+        {
+          "id": "credited_programming_unspecified_generator_unspecified",
+          "name": "Programmed sound; generator, interface and protocol unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Preserves a positive musical programming credit without guessing MIDI, synthesis, sample playback or hardware. Covers the documented sound-generation/programmed-arrangement role, not opaque playback of a completed mastered work. Separate acoustic, vocal or named programmed instrument roles must still be represented when positively documented.",
+  "sources": [
+    "https://www.esplanade.com/whats-on/festivals-and-series/festivals/2023/baybeats/line-up/jade-eyes",
+    "https://www.esplanade.com/-/media/Esplanade/Download-Component/Press-Room/PR_Baybeats_2023.ashx?hash=1D0E5EA8F90E58B5CD43A020A3599559&rev=c29d03e52e3c4a5b9fef1b2bbc782e48"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_programming_unspecified_identity",
+      "name": "Positive programming role",
+      "variants": [
+        {
+          "id": "credited_programming_unspecified_generator_unspecified",
+          "name": "Programmed sound; generator, interface and protocol unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

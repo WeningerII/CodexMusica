@@ -1,0 +1,147 @@
+{
+  "id": "borneo_traditional",
+  "name": "Borneo traditional",
+  "family": "global",
+  "lineage": "Complete Karan Kayu: Sapek Kayan Solo with Male Vocals, issued2016 by Tresno Records from its own June2015 field recordings in West Kalimantan. Exact track title positively identifies one solo sapek Kayan role plus male singing. Retain both complete roles; individual singer count and whether player also sings are not stated. Other compilation tracks with bronze percussion, belikan and nature recordings are not part of this selected full track. DroneModal.string scopes the positively documented melody-and-drone Kayan lute practice. Existing sape owner only offers named datun-julud dance, belian ritual or modern stage-fusion contexts; none is established for Karan Kayu. Isolated credited sapek Kayan owner retains source identity without importing those contexts or a false modern amplified model. Independent firsthand Kayan documentation supports a carved wooden open-backed lute with two strings, one melodic and one drone; no claim the separately described maker or exact specimen is this recording. Unknown source singer count remains unknown; single accompanied lead is an expressly authored realization, not measured number of humans. No anatomical vocal, pitch-system or global tuning claim. Controlled live-room rendition is explicitly authored, not the actual field recording location or equipment. Optional signal chain omitted. Separate physical controls preserve documented wooden open-backed construction, melody/drone string roles, three scalloped frets and plucked excitation; string material and absolute pitches remain unspecified.",
+  "recipe": "classic borneo traditional, drone Modal, string branch. solo over instrumental drone, single lead single track no stacking. wooden hollow two string drone like short credited sapek kayan. live tracking.",
+  "recipe_chars": 202,
+  "score": 44.247,
+  "config": {
+    "traditions": [
+      "borneo_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_over_drone",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 10.352,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.189,
+          "voice_multitrack_stack": 9.239999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "credited_sapek_kayan",
+        "slots": {
+          "sapek_kayan_body": "sapek_kayan_body_carved_open_back",
+          "sapek_kayan_string_layout": "sapek_kayan_string_layout_melody_drone",
+          "sapek_kayan_neck_frets": "sapek_kayan_neck_frets_three_scalloped_frets",
+          "sapek_kayan_excitation": "sapek_kayan_excitation_plucked_lute",
+          "sapek_kayan_string_material": "sapek_kayan_string_material_source_unspecified",
+          "sapek_kayan_tuning": "sapek_kayan_tuning_source_unspecified"
+        },
+        "scores": {
+          "sapek_kayan_body": 2.768,
+          "sapek_kayan_string_layout": 17.419999999999998,
+          "sapek_kayan_neck_frets": 2.9779999999999998,
+          "sapek_kayan_excitation": 1.3,
+          "sapek_kayan_string_material": 0,
+          "sapek_kayan_tuning": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "credited_sapek_kayan": [
+        "sapek_kayan_body",
+        "sapek_kayan_string_layout",
+        "sapek_kayan_neck_frets",
+        "sapek_kayan_excitation",
+        "sapek_kayan_string_material",
+        "sapek_kayan_tuning"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_over_drone",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "sapek_kayan_body": "sapek_kayan_body_carved_open_back",
+      "sapek_kayan_string_layout": "sapek_kayan_string_layout_melody_drone",
+      "sapek_kayan_neck_frets": "sapek_kayan_neck_frets_three_scalloped_frets",
+      "sapek_kayan_excitation": "sapek_kayan_excitation_plucked_lute",
+      "sapek_kayan_string_material": "sapek_kayan_string_material_source_unspecified",
+      "sapek_kayan_tuning": "sapek_kayan_tuning_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

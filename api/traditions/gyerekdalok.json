@@ -1,0 +1,58 @@
+{
+  "id": "gyerekdalok",
+  "name": "Gyerekdalok",
+  "family": "vernacular",
+  "lineage": "Gryllus Vilmos and arranger Koszorus Imola Dalma — complete authorized Dalok gyerekeknek, EMB20120 (2024), twenty children-song arrangements for piano four hands across48pages. The publisher explicitly identifies one piano played by child and adult/teacher; both players and the complete collection are preserved through one piano-family card. This is the whole issued instrumental score edition, not a reduction of Gryllus commercial albums, not a solo-pianist claim, and not a claim the source songs originally lacked voices. No vocal staff or separate singer is required by the publisher-stated four-hand scoring; original recorded cello/guitar/percussion are not imported into this different authorized edition. Authored standard studio upright piano is a source-compatible model of the unspecified piano, not the publisher instrument make. Block-chord touch represents a simple chordal children-song realization across the four-hand arrangement, not a transcription of every teacher or child gesture. Both players remain in the evidence though one family card cannot encode hands or player distribution. Broad functionalSong is an explicitly authored functional-harmonic song rendition of the published familiar song arrangements, not classification as art music merely because the edition is notated. Controlled live-room is authored; global tuning and optional recording apparatus omitted. No physiological child-voice assumptions arise because this selected edition is instrumental.",
+  "recipe": "classic mid-2020s gyerekdalok, functional Song. block chord upright piano. live tracking.",
+  "recipe_chars": 89,
+  "score": 3.3,
+  "config": {
+    "traditions": [
+      "gyerekdalok"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 3.3,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

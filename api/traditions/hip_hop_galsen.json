@@ -5,7 +5,7 @@
   "lineage": "Senegalese hip-hop scenes; selected Daara J Family Yamatélé-era played-band branch",
   "recipe": "classic modern hip hop galsen, mc Rhythm, Afro-diasporic branch. rap, rhythmic spoken flow no pitch, solo with instrumental accompaniment. clean strummed single coil electric guitar, sub bass rompler workstation, electric bass, drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 382,
-  "score": 23.844,
+  "score": 24.674,
   "config": {
     "traditions": [
       "hip_hop_galsen"
@@ -79,7 +79,7 @@
           "bridge": 0.063,
           "scale_length": 0,
           "finish": 0,
-          "string_tuning": 0,
+          "string_tuning": 0.1365,
           "single_coil_pickup_construction": 0
         }
       },
@@ -92,7 +92,7 @@
           "rompler_lineage": "rompler_lineage_unspecified"
         },
         "scores": {
-          "electronic_technique": 3.80075,
+          "electronic_technique": 3.7670000000000003,
           "rompler_preset_bank": 0,
           "rompler_context": 0,
           "rompler_lineage": 0
@@ -138,15 +138,15 @@
         },
         "scores": {
           "drum_technique": -0.1,
-          "drumhead": 0.0315,
+          "drumhead": 0.168,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 0.0315,
+          "shell_wood": 0.4724999999999999,
           "shell_thickness": 0,
-          "bearing_edges": 0.063,
+          "bearing_edges": 0.1995,
           "snare_wires": 0,
           "cymbal_alloy": -0.2,
           "cymbal_hammering": -0.07,
-          "cymbal_lathing": -0.11850000000000002,
+          "cymbal_lathing": -0.10500000000000001,
           "cymbal_finish": 0
         }
       }

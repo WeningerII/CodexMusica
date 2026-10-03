@@ -1,0 +1,58 @@
+{
+  "id": "russian_viral_rap",
+  "name": "Russian viral rap",
+  "family": "hip_hop",
+  "lineage": "Dzharakhov and Markul repertoire — complete four-page Note-Store Piano.Easy PEA0047275 arrangement of Ya v momente (2021). Publisher explicitly integrates melody and accompaniment on piano, separate from its vocal edition; retain one pianist and zero singers. Public product metadata and format definition inspected, not the paid full score or audio. This is a complete published instrumental adaptation, not a reconstruction of the produced vocal master or its earlier live source. Authored standard upright with connected legato phrasing and controlled live room; publisher does not specify piano subtype, fingering, capture room or tuning. All three existing owning controls protected. Broad functionalSong explicitly models an authored functional-harmonic song-form rendition of the melodic adaptation, not classical taxonomy merely because notated and not an analyzed original chord claim. hip_hop family retains positive publisher repertoire classification; no live rap card added to this piano-only edition.",
+  "recipe": "classic early-2020s russian viral rap, functional Song. legato upright piano. live tracking.",
+  "recipe_chars": 92,
+  "score": 4.55,
+  "config": {
+    "traditions": [
+      "russian_viral_rap"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.550000000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}
