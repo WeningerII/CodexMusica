@@ -1,0 +1,62 @@
+{
+  "id": "techno_kayo",
+  "name": "Techno Kayo",
+  "family": "pop",
+  "lineage": "YMO Technopolis — complete Tetsuro Miwa Yamaha solo-Electone arrangement115975. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
+  "recipe": "classic techno kayo, functional Song, east Asian pop branch. electronic organ unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 189,
+  "score": 0.263,
+  "config": {
+    "traditions": [
+      "techno_kayo"
+    ],
+    "instruments": [
+      {
+        "id": "electronic_organ_unspecified",
+        "slots": {
+          "electronic_organ_identity": "electronic_organ_architecture_unspecified",
+          "keyboard_technique": "electronic_organ_melodic_sustained"
+        },
+        "scores": {
+          "electronic_organ_identity": 0,
+          "keyboard_technique": 0.2625
+        }
+      }
+    ],
+    "pinned": {
+      "electronic_organ_unspecified": [
+        "electronic_organ_identity",
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_organ_identity": "electronic_organ_architecture_unspecified",
+      "keyboard_technique": "electronic_organ_melodic_sustained"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

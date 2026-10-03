@@ -1,0 +1,66 @@
+{
+  "baseline_head": "34ae18f74a18c5b499d062354d7ecb3f742f011c",
+  "current_batch": "034",
+  "current_ui_checks": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 16.0,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 11.8,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 88.4,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 35.5,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 106.3,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 20.8,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.6,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "baseline_basis": "Previous033 final serialization repair proved source semantics and HTML byte-identical. Its current UI receipts therefore apply to exact034predecessor; original UI code unchanged.",
+  "known_local_failures": [
+    {
+      "check": "check_ui_foundation",
+      "finding": "Sole photo enlargement assertion; log byte-identical to predecessor."
+    },
+    {
+      "check": "ui_reachability_check",
+      "finding": "Same file:// ERR_BLOCKED_BY_ADMINISTRATOR; log identical after normalizing temporary PID path and generated embedded artifact byte count."
+    }
+  ],
+  "local_browser": "Existing Chromium /tmp/codex-playwright; full exact-head CI required."
+}

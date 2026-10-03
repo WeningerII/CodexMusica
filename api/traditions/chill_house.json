@@ -1,0 +1,69 @@
+{
+  "id": "chill_house",
+  "name": "Chill House",
+  "family": "electronic",
+  "lineage": "Adam Pietruszko — Cheeze Machine PRO: Chill House, complete 2:02 manufacturer demonstration. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic chill house, electronic Dance. cheeze machine pro, credited drums unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 185,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "chill_house"
+    ],
+    "instruments": [
+      {
+        "id": "cheeze_machine_pro",
+        "slots": {
+          "cheeze_machine_pro_identity": "cheeze_machine_pro_source"
+        },
+        "scores": {
+          "cheeze_machine_pro_identity": 0
+        }
+      },
+      {
+        "id": "credited_drums_unspecified",
+        "slots": {
+          "credited_drums_unspecified_identity": "credited_drums_unspecified_source"
+        },
+        "scores": {
+          "credited_drums_unspecified_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "cheeze_machine_pro": [
+        "cheeze_machine_pro_identity"
+      ],
+      "credited_drums_unspecified": [
+        "credited_drums_unspecified_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "cheeze_machine_pro_identity": "cheeze_machine_pro_source",
+      "credited_drums_unspecified_identity": "credited_drums_unspecified_source"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

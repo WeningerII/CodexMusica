@@ -1,0 +1,82 @@
+{
+  "id": "veena",
+  "name": "Veena",
+  "family": "classical",
+  "lineage": "Jayanthi Kumaresh — Mysterious Duality, complete four-track album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic veena, art Music, south Asian branch. thanjavur canonical south indian veena. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 184,
+  "score": 8.181,
+  "config": {
+    "traditions": [
+      "veena"
+    ],
+    "instruments": [
+      {
+        "id": "veena",
+        "slots": {
+          "plucked_traditional_technique": "plucked_ornamented_melodic",
+          "veena_construction": "ottu",
+          "veena_resonator": "gourd_resonator",
+          "veena_pluck": "wire_plectrum_veena",
+          "veena_body_wood": "veena_jackwood_canonical",
+          "veena_strings": "veena_steel_bronze_modern",
+          "veena_lineage": "veena_thanjavur_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.45,
+          "veena_construction": 0.168,
+          "veena_resonator": 0.363,
+          "veena_pluck": 1.3,
+          "veena_body_wood": 0.78,
+          "veena_strings": 0.78,
+          "veena_lineage": 2.34
+        }
+      }
+    ],
+    "pinned": {
+      "veena": [
+        "plucked_traditional_technique",
+        "veena_construction",
+        "veena_resonator",
+        "veena_pluck",
+        "veena_body_wood",
+        "veena_strings",
+        "veena_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": null,
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": null,
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_ornamented_melodic",
+      "veena_construction": "ottu",
+      "veena_resonator": "gourd_resonator",
+      "veena_pluck": "wire_plectrum_veena",
+      "veena_body_wood": "veena_jackwood_canonical",
+      "veena_strings": "veena_steel_bronze_modern",
+      "veena_lineage": "veena_thanjavur_canonical"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

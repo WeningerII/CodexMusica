@@ -1,0 +1,65 @@
+{
+  "id": "credited_strings_unspecified",
+  "name": "Credited strings (instrumentation unspecified)",
+  "short": "Credited strings (instrumentation unspecified)",
+  "family": "acoustic_strings",
+  "class": "string_ensemble",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_strings_unspecified_identity",
+      "name": "Source-named identity",
+      "variants": [
+        {
+          "id": "credited_strings_unspecified_identity_unspecified",
+          "name": "Credited strings (instrumentation unspecified)",
+          "default": true,
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Retains the explicitly credited role without inventing string instruments, section size and playing method. Routing axes are neutral authored coordinates, not measured source properties.",
+  "sources": [
+    "https://margieadam.com/discography/margie-adam-songwriter/"
+  ],
+  "exclude_family_parts": [
+    "keyboard_technique",
+    "percussion_technique",
+    "bowed_technique"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_strings_unspecified_identity",
+      "name": "Source-named identity",
+      "variants": [
+        {
+          "id": "credited_strings_unspecified_identity_unspecified",
+          "name": "Credited strings (instrumentation unspecified)",
+          "default": true,
+          "descriptors": [
+            "melodic"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

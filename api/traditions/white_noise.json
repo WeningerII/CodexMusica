@@ -1,0 +1,54 @@
+{
+  "id": "white_noise",
+  "name": "White noise",
+  "family": "electronic",
+  "lineage": "Dino Fizzotti — NoiseBlanket generated white-noise file (2017). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic late-2010s white noise, experimental Elec. software white noise generator. treated studio. 24-bit digital.",
+  "recipe_chars": 114,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "white_noise"
+    ],
+    "instruments": [
+      {
+        "id": "software_white_noise_generator",
+        "slots": {
+          "software_white_noise_identity": "software_generated_white_noise"
+        },
+        "scores": {
+          "software_white_noise_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "software_white_noise_generator": [
+        "software_white_noise_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "software_white_noise_identity": "software_generated_white_noise"
+    },
+    "pin_parts": true,
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "whale_environmental_recording",
+  "name": "Whale environmental recording",
+  "short": "Whale field recording",
+  "family": "electronic",
+  "class": "environmental_recording",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "whale_environmental_source",
+      "name": "Environmental source",
+      "variants": [
+        {
+          "id": "whale_field_recording_source",
+          "name": "Whale field recording",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Natural whale vocalizations captured in environmental field recordings. The source is animal sound, not a human singer, synthesized whale imitation or invented sampler performance. Recorder and playback implementation remain unspecified; all routing axes are neutral authored coordinates.",
+  "sources": [
+    "https://soundandscience.net/audio/songs-of-the-humpback-whale/",
+    "https://whale.org/blog/preserving-whales-voices/"
+  ],
+  "_ownParts": [
+    {
+      "id": "whale_environmental_source",
+      "name": "Environmental source",
+      "variants": [
+        {
+          "id": "whale_field_recording_source",
+          "name": "Whale field recording",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

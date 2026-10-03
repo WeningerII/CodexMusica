@@ -1,0 +1,152 @@
+{
+  "integration_sha256": "9c6d6ca4cfc98b91739b03c82b90d01033e6a073a29c94a4e86ce7c2a1545f30",
+  "api_build": [
+    "Done: 6038 traditions (0 failed), 1566 instruments in 646.4s -> /workspace/CodexMusica/api",
+    "Self-verify OK: 6038/6038 traditions, all recipes <=1000 chars, all ids resolve."
+  ],
+  "original_validator": "VALID — 6038 traditions, 317 tree nodes, 1566 instruments, 256 rooms, 84 chain archetypes, 21 production aesthetics. All refs resolve.\n",
+  "supporting_checks": [
+    {
+      "check": "regression_prefaces",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "check_slot_picks",
+      "exit_code": 0,
+      "seconds": 2.1
+    },
+    {
+      "check": "app_recipe_regression",
+      "exit_code": 0,
+      "seconds": 10.3
+    },
+    {
+      "check": "equivalence",
+      "exit_code": 0,
+      "seconds": 11.3
+    },
+    {
+      "check": "check_lazy_app",
+      "exit_code": 0,
+      "seconds": 15.8
+    },
+    {
+      "check": "check_minified_equivalence",
+      "exit_code": 0,
+      "seconds": 28.0
+    },
+    {
+      "check": "check_connector_parity",
+      "exit_code": 0,
+      "seconds": 0.8
+    },
+    {
+      "check": "check_workspace_ops",
+      "exit_code": 0,
+      "seconds": 2.2
+    },
+    {
+      "check": "check_app_parity",
+      "exit_code": 0,
+      "seconds": 108.1
+    },
+    {
+      "check": "check_edit_parity",
+      "exit_code": 0,
+      "seconds": 5.8
+    },
+    {
+      "check": "check_edit_differential",
+      "exit_code": 0,
+      "seconds": 44.6
+    },
+    {
+      "check": "check_connector_contract",
+      "exit_code": 0,
+      "seconds": 1.9
+    },
+    {
+      "check": "check_name_isolation",
+      "exit_code": 0,
+      "seconds": 14.6
+    },
+    {
+      "check": "check_publish_guard",
+      "exit_code": 0,
+      "seconds": 0.3
+    },
+    {
+      "check": "eval_capabilities",
+      "exit_code": 0,
+      "seconds": 53.6
+    }
+  ],
+  "initial_serial_regression": "1147/1149; two derived neighbor changes independently replayed and isolated before targeted snapshot updates.",
+  "targeted_update": "Snapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\nSnapshot updated: /workspace/CodexMusica/tests/regression_snapshot.json\n  1 fixture(s) written\n",
+  "final_serial_regression": "REGRESSION: 1149/1149 fixture(s) match snapshot.",
+  "runtime": "100 traditions times four original browser/connector formats passed.",
+  "ui_checks": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 16.0,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 11.8,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 88.4,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 35.5,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 106.3,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 20.8,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.6,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "ui_baseline_report": "data-only-034-ui-baseline-review.json",
+  "initial_gate_scope": [
+    "validate",
+    "duplicates",
+    "signature tokens and mirrored table",
+    "frozen descriptor DF",
+    "audit"
+  ],
+  "geography": "GEOGRAPHIC EXPANSION: PASS — 96 candidates, 51 instruments, 63 tradition configurations, 252 browser/connector renders.\nGEOGRAPHIC ROUND 2: PASS — 24 traditions, 10 instruments, 96 browser/connector renders.\n",
+  "everynoise": "EVERYNOISE BATCHES: PASS — 2 batches, 50 genres, 200 browser/connector renders; CLI pins retained.\n",
+  "lint": "Original npm run lint passed.",
+  "format": "Original full npm run format:check passed; final added audit reports formatted and full check repeated before commit.",
+  "ci": "Exact published head CI required before merge."
+}

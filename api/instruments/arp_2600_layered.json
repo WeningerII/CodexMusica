@@ -1,0 +1,104 @@
+{
+  "id": "arp_2600_layered",
+  "name": "ARP 2600 layered synthesis",
+  "short": "ARP 2600 layers",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "arp_2600_layered_identity",
+      "name": "Source-documented instrument",
+      "variants": [
+        {
+          "id": "arp_2600_layered_semimodular",
+          "name": "ARP 2600 semi-modular analog synthesizer; three voltage-controlled oscillators",
+          "default": true,
+          "descriptors": [
+            "analog",
+            "synthesized"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arp_2600_layered_palette",
+      "name": "Documented complete source palette",
+      "variants": [
+        {
+          "id": "arp_2600_layered_melodic_percussive",
+          "name": "Layered tonal and synthesized-percussion roles; exact patches unspecified",
+          "default": true,
+          "descriptors": [
+            "layered",
+            "percussive",
+            "melodic"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ],
+  "exclude_family_parts": [
+    "electronic_technique"
+  ],
+  "description": "Isolated ARP2600 owner retains full layered tonal and percussion synthesis palette documented for It's The Arps. Existing mono owner has no2600 archetype and would impose another model. No added drum machine, acoustic instruments or singer. Instrument identity is sourced; neutral axes and representative recording settings are authored, exact patches unknown.",
+  "sources": [
+    "https://smalltownsupersound.com/releases/todd-terje-its-the-arps/",
+    "https://www.korg.com/tw/products/synthesizers/arp2600_fs/index.php"
+  ],
+  "_ownParts": [
+    {
+      "id": "arp_2600_layered_identity",
+      "name": "Source-documented instrument",
+      "variants": [
+        {
+          "id": "arp_2600_layered_semimodular",
+          "name": "ARP 2600 semi-modular analog synthesizer; three voltage-controlled oscillators",
+          "default": true,
+          "descriptors": [
+            "analog",
+            "synthesized"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arp_2600_layered_palette",
+      "name": "Documented complete source palette",
+      "variants": [
+        {
+          "id": "arp_2600_layered_melodic_percussive",
+          "name": "Layered tonal and synthesized-percussion roles; exact patches unspecified",
+          "default": true,
+          "descriptors": [
+            "layered",
+            "percussive",
+            "melodic"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ]
+}

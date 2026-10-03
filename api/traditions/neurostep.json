@@ -5,7 +5,7 @@
   "lineage": "Sample Tools by Cr2 — NEUROSTEP, documented audio-sample production palette. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic neurostep, bass System. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 139,
-  "score": 7.204,
+  "score": 7.201,
   "config": {
     "traditions": [
       "neurostep"
@@ -25,7 +25,7 @@
           "sampler_archetypes": 0.76875,
           "sampler_bit_depth": 0.33749999999999997,
           "sampler_workflow": 0.2,
-          "sampler_classic_context": 5.997499999999999
+          "sampler_classic_context": 5.994374999999999
         }
       }
     ],

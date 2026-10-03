@@ -19479,190 +19479,514 @@
   "santa_fe_indie": [
     "melodic"
   ],
-  "neo_pagan": ["melodic"],
-  "new_jersey_indie": ["melodic"],
-  "nightrun": ["melodic"],
-  "nordnorsk_ponk": ["melodic"],
-  "one_person_band": ["melodic"],
-  "orkiestra_symfoniczna": ["melodic"],
-  "orquesta_cubana": ["melodic"],
-  "orquesta_tropical": ["melodic"],
-  "orquestas_de_galicia": ["melodic"],
-  "ostschlager": ["melodic"],
-  "pagode_baiano": ["melodic"],
-  "pagode_novo": ["melodic"],
+  "neo_pagan": [
+    "melodic"
+  ],
+  "new_jersey_indie": [
+    "melodic"
+  ],
+  "nightrun": [
+    "melodic"
+  ],
+  "nordnorsk_ponk": [
+    "melodic"
+  ],
+  "one_person_band": [
+    "melodic"
+  ],
+  "orkiestra_symfoniczna": [
+    "melodic"
+  ],
+  "orquesta_cubana": [
+    "melodic"
+  ],
+  "orquesta_tropical": [
+    "melodic"
+  ],
+  "orquestas_de_galicia": [
+    "melodic"
+  ],
+  "ostschlager": [
+    "melodic"
+  ],
+  "pagode_baiano": [
+    "melodic"
+  ],
+  "pagode_novo": [
+    "melodic"
+  ],
   "partyschlager": [],
   "pastoral": [],
   "piada": [],
-  "pianissimo": ["melodic"],
-  "pilates": ["melodic"],
-  "popwave": ["melodic"],
-  "pornogrind": ["melodic"],
-  "portuguese_early_music": ["melodic"],
-  "portuguese_experimental": ["melodic"],
-  "pov_indie": ["melodic"],
-  "prog_quebec": ["melodic"],
-  "psicodelia_brasileira": ["melodic"],
-  "psicodelia_chilena": ["melodic"],
-  "psicodelia_mexicana": ["melodic"],
-  "recorder": ["melodic"],
-  "rhode_island_indie": ["melodic"],
-  "rio_grande_do_sul_indie": ["melodic"],
-  "rochester_mn_indie": ["melodic"],
-  "rochester_ny_indie": ["melodic"],
-  "rogaland_indie": ["melodic"],
-  "romanian_indie": ["melodic"],
-  "rome_indie": ["melodic"],
-  "rosario_indie": ["melodic"],
-  "rotterdam_indie": ["melodic"],
-  "russian_oi": ["melodic"],
-  "russian_romanticism": ["melodic"],
-  "rwandan_traditional": ["melodic"],
-  "sad_lo_fi": ["melodic"],
-  "salsa_cristiana": ["melodic"],
-  "salzburg_indie": ["melodic"],
-  "samba_paulista": ["melodic"],
+  "pianissimo": [
+    "melodic"
+  ],
+  "pilates": [
+    "melodic"
+  ],
+  "popwave": [
+    "melodic"
+  ],
+  "pornogrind": [
+    "melodic"
+  ],
+  "portuguese_early_music": [
+    "melodic"
+  ],
+  "portuguese_experimental": [
+    "melodic"
+  ],
+  "pov_indie": [
+    "melodic"
+  ],
+  "prog_quebec": [
+    "melodic"
+  ],
+  "psicodelia_brasileira": [
+    "melodic"
+  ],
+  "psicodelia_chilena": [
+    "melodic"
+  ],
+  "psicodelia_mexicana": [
+    "melodic"
+  ],
+  "recorder": [
+    "melodic"
+  ],
+  "rhode_island_indie": [
+    "melodic"
+  ],
+  "rio_grande_do_sul_indie": [
+    "melodic"
+  ],
+  "rochester_mn_indie": [
+    "melodic"
+  ],
+  "rochester_ny_indie": [
+    "melodic"
+  ],
+  "rogaland_indie": [
+    "melodic"
+  ],
+  "romanian_indie": [
+    "melodic"
+  ],
+  "rome_indie": [
+    "melodic"
+  ],
+  "rosario_indie": [
+    "melodic"
+  ],
+  "rotterdam_indie": [
+    "melodic"
+  ],
+  "russian_oi": [
+    "melodic"
+  ],
+  "russian_romanticism": [
+    "melodic"
+  ],
+  "rwandan_traditional": [
+    "melodic"
+  ],
+  "sad_lo_fi": [
+    "melodic"
+  ],
+  "salsa_cristiana": [
+    "melodic"
+  ],
+  "salzburg_indie": [
+    "melodic"
+  ],
+  "samba_paulista": [
+    "melodic"
+  ],
   "sami": [],
-  "san_diego_indie": ["melodic"],
-  "sandalwood": ["melodic"],
-  "santoor": ["melodic"],
-  "sarangi": ["melodic"],
-  "sardinia_indie": ["melodic"],
-  "sarod": ["melodic"],
-  "saskatchewan_indie": ["melodic"],
-  "sasscore": ["melodic"],
-  "saxophone_trio": ["melodic"],
-  "school_ensemble": ["melodic"],
-  "schrammelmusik": ["melodic"],
-  "scottish_indie": ["melodic"],
-  "scottish_new_wave": ["melodic"],
-  "screamocore": ["melodic"],
-  "sda_a_cappella": ["melodic"],
-  "seattle_indie": ["melodic"],
-  "seinen": ["melodic"],
-  "seiyu": ["melodic"],
-  "semarang_indie": ["melodic"],
-  "senegalese_traditional": ["melodic"],
-  "serbian_indie": ["melodic"],
-  "sertanejo_tradicional": ["melodic"],
-  "shanghai_indie": ["melodic"],
-  "sheffield_indie": ["melodic"],
-  "shehnai": ["melodic"],
-  "shimmer_psych": ["melodic"],
-  "sinaloa_indie": ["melodic"],
-  "singaporean_indie": ["melodic"],
+  "san_diego_indie": [
+    "melodic"
+  ],
+  "sandalwood": [
+    "melodic"
+  ],
+  "santoor": [
+    "melodic"
+  ],
+  "sarangi": [
+    "melodic"
+  ],
+  "sardinia_indie": [
+    "melodic"
+  ],
+  "sarod": [
+    "melodic"
+  ],
+  "saskatchewan_indie": [
+    "melodic"
+  ],
+  "sasscore": [
+    "melodic"
+  ],
+  "saxophone_trio": [
+    "melodic"
+  ],
+  "school_ensemble": [
+    "melodic"
+  ],
+  "schrammelmusik": [
+    "melodic"
+  ],
+  "scottish_indie": [
+    "melodic"
+  ],
+  "scottish_new_wave": [
+    "melodic"
+  ],
+  "screamocore": [
+    "melodic"
+  ],
+  "sda_a_cappella": [
+    "melodic"
+  ],
+  "seattle_indie": [
+    "melodic"
+  ],
+  "seinen": [
+    "melodic"
+  ],
+  "seiyu": [
+    "melodic"
+  ],
+  "semarang_indie": [
+    "melodic"
+  ],
+  "senegalese_traditional": [
+    "melodic"
+  ],
+  "serbian_indie": [
+    "melodic"
+  ],
+  "sertanejo_tradicional": [
+    "melodic"
+  ],
+  "shanghai_indie": [
+    "melodic"
+  ],
+  "sheffield_indie": [
+    "melodic"
+  ],
+  "shehnai": [
+    "melodic"
+  ],
+  "shimmer_psych": [
+    "melodic"
+  ],
+  "sinaloa_indie": [
+    "melodic"
+  ],
+  "singaporean_indie": [
+    "melodic"
+  ],
   "singing_bowl": [],
-  "sinhala_indie": ["melodic"],
-  "sitar": ["melodic"],
-  "skansk_musik": ["melodic"],
-  "slc_indie": ["melodic"],
-  "sleep": ["melodic"],
-  "slovak_indie": ["melodic"],
-  "slovenian_indie": ["melodic"],
-  "slowed_and_reverb": ["melodic"],
-  "small_room": ["melodic"],
-  "socal_indie": ["melodic"],
-  "solo_wave": ["melodic"],
-  "sonora_indie": ["melodic"],
+  "sinhala_indie": [
+    "melodic"
+  ],
+  "sitar": [
+    "melodic"
+  ],
+  "skansk_musik": [
+    "melodic"
+  ],
+  "slc_indie": [
+    "melodic"
+  ],
+  "sleep": [
+    "melodic"
+  ],
+  "slovak_indie": [
+    "melodic"
+  ],
+  "slovenian_indie": [
+    "melodic"
+  ],
+  "slowed_and_reverb": [
+    "melodic"
+  ],
+  "small_room": [
+    "melodic"
+  ],
+  "socal_indie": [
+    "melodic"
+  ],
+  "solo_wave": [
+    "melodic"
+  ],
+  "sonora_indie": [
+    "melodic"
+  ],
   "sound_effects": [],
-  "south_african_alternative": ["melodic"],
-  "south_carolina_indie": ["melodic"],
-  "south_dakota_indie": ["melodic"],
-  "southampton_indie": ["melodic"],
+  "south_african_alternative": [
+    "melodic"
+  ],
+  "south_carolina_indie": [
+    "melodic"
+  ],
+  "south_dakota_indie": [
+    "melodic"
+  ],
+  "southampton_indie": [
+    "melodic"
+  ],
   "spacegrunge": [],
   "spanish_experimental": [],
   "straight_edge": [],
   "string_duo": [],
-  "string_quintet": ["melodic"],
-  "stuttgart_indie": ["melodic"],
-  "sulawesi_indie": ["melodic"],
-  "supergroup": ["melodic"],
-  "swancore": ["melodic"],
-  "swansea_indie": ["melodic"],
-  "psalms": ["melodic"],
-  "rogaland_musikk": ["melodic"],
-  "sevilla_indie": ["melodic"],
-  "shojo": ["melodic"],
-  "shonen": ["melodic"],
-  "show_tunes": ["melodic"],
-  "shred": ["melodic"],
-  "singaporean_mandopop": ["melodic"],
-  "sinogaze": ["melodic"],
-  "slayer": ["melodic"],
-  "slovenske_chvaly": ["melodic"],
-  "solipsynthm": ["melodic"],
-  "sotalaulut": ["melodic"],
-  "south_borneo_indie": ["melodic"],
-  "southern_china_indie": ["melodic"],
+  "string_quintet": [
+    "melodic"
+  ],
+  "stuttgart_indie": [
+    "melodic"
+  ],
+  "sulawesi_indie": [
+    "melodic"
+  ],
+  "supergroup": [
+    "melodic"
+  ],
+  "swancore": [
+    "melodic"
+  ],
+  "swansea_indie": [
+    "melodic"
+  ],
+  "psalms": [
+    "melodic"
+  ],
+  "rogaland_musikk": [
+    "melodic"
+  ],
+  "sevilla_indie": [
+    "melodic"
+  ],
+  "shojo": [
+    "melodic"
+  ],
+  "shonen": [
+    "melodic"
+  ],
+  "show_tunes": [
+    "melodic"
+  ],
+  "shred": [
+    "melodic"
+  ],
+  "singaporean_mandopop": [
+    "melodic"
+  ],
+  "sinogaze": [
+    "melodic"
+  ],
+  "slayer": [
+    "melodic"
+  ],
+  "slovenske_chvaly": [
+    "melodic"
+  ],
+  "solipsynthm": [
+    "melodic"
+  ],
+  "sotalaulut": [
+    "melodic"
+  ],
+  "south_borneo_indie": [
+    "melodic"
+  ],
+  "southern_china_indie": [
+    "melodic"
+  ],
   "spacesynth": [],
   "spanish_prog": [],
   "spectra": [],
-  "st_petersburg_fl_indie": ["melodic"],
+  "st_petersburg_fl_indie": [
+    "melodic"
+  ],
   "staff_band": [],
-  "stl_indie": ["melodic"],
+  "stl_indie": [
+    "melodic"
+  ],
   "stockholm_indie": [],
   "streektaal": [],
-  "street_band": ["melodic"],
-  "strut": ["melodic"],
-  "subliminal_product": ["speech-derived"],
-  "substep": ["melodic"],
-  "sufi": ["melodic"],
-  "sunnlensk_tonlist": ["melodic"],
-  "suomirap": ["melodic"],
-  "surabaya_indie": ["melodic"],
-  "svensk_indie": ["melodic"],
-  "svensk_progg": ["melodic"],
-  "swedish_ebm": ["melodic"],
-  "swedish_electropop": ["melodic"],
-  "swedish_eurodance": ["melodic"],
+  "street_band": [
+    "melodic"
+  ],
+  "strut": [
+    "melodic"
+  ],
+  "subliminal_product": [
+    "speech-derived"
+  ],
+  "substep": [
+    "melodic"
+  ],
+  "sufi": [
+    "melodic"
+  ],
+  "sunnlensk_tonlist": [
+    "melodic"
+  ],
+  "suomirap": [
+    "melodic"
+  ],
+  "surabaya_indie": [
+    "melodic"
+  ],
+  "svensk_indie": [
+    "melodic"
+  ],
+  "svensk_progg": [
+    "melodic"
+  ],
+  "swedish_ebm": [
+    "melodic"
+  ],
+  "swedish_electropop": [
+    "melodic"
+  ],
+  "swedish_eurodance": [
+    "melodic"
+  ],
   "swedish_experimental": [],
-  "swedish_prog": ["melodic"],
-  "swiss_experimental": ["melodic"],
-  "swiss_indie": ["melodic"],
-  "swiss_worship": ["melodic"],
-  "sydney_indie": ["melodic"],
-  "synthesizer": ["melodic"],
+  "swedish_prog": [
+    "melodic"
+  ],
+  "swiss_experimental": [
+    "melodic"
+  ],
+  "swiss_indie": [
+    "melodic"
+  ],
+  "swiss_worship": [
+    "melodic"
+  ],
+  "sydney_indie": [
+    "melodic"
+  ],
+  "synthesizer": [
+    "melodic"
+  ],
   "tabla": [],
-  "tagalog_worship": ["melodic"],
+  "tagalog_worship": [
+    "melodic"
+  ],
   "taiwan_experimental": [],
-  "taiwan_indie": ["melodic"],
-  "taiwan_instrumental": ["melodic"],
-  "taiwanese_indigenous_music": ["melodic"],
-  "talentschau": ["melodic"],
-  "tamil_devotional": ["melodic"],
-  "tamil_worship": ["melodic"],
-  "tampa_indie": ["melodic"],
-  "tanci": ["melodic"],
-  "tango_cancion": ["melodic"],
+  "taiwan_indie": [
+    "melodic"
+  ],
+  "taiwan_instrumental": [
+    "melodic"
+  ],
+  "taiwanese_indigenous_music": [
+    "melodic"
+  ],
+  "talentschau": [
+    "melodic"
+  ],
+  "tamil_devotional": [
+    "melodic"
+  ],
+  "tamil_worship": [
+    "melodic"
+  ],
+  "tampa_indie": [
+    "melodic"
+  ],
+  "tanci": [
+    "melodic"
+  ],
+  "tango_cancion": [
+    "melodic"
+  ],
   "tanzanian_traditional": [],
-  "tanzlmusi": ["melodic"],
-  "tanzorchester": ["melodic"],
-  "tassie_indie": ["melodic"],
-  "technical_thrash": ["melodic"],
-  "telugu_worship": ["melodic"],
-  "tempe_indie": ["melodic"],
-  "tennessee_experimental": ["melodic"],
-  "thai_indie": ["melodic"],
-  "thall": ["melodic"],
+  "tanzlmusi": [
+    "melodic"
+  ],
+  "tanzorchester": [
+    "melodic"
+  ],
+  "tassie_indie": [
+    "melodic"
+  ],
+  "technical_thrash": [
+    "melodic"
+  ],
+  "telugu_worship": [
+    "melodic"
+  ],
+  "tempe_indie": [
+    "melodic"
+  ],
+  "tennessee_experimental": [
+    "melodic"
+  ],
+  "thai_indie": [
+    "melodic"
+  ],
+  "thall": [
+    "melodic"
+  ],
   "theme": [],
   "therapy": [],
-  "theremin": ["melodic"],
-  "thrash_core": ["melodic"],
-  "tijuana_indie": ["melodic"],
-  "tontipop": ["melodic"],
-  "toronto_indie": ["melodic"],
-  "traditional_irish_singing": ["melodic"],
-  "trekkspill": ["melodic"],
-  "trio_cubano": ["melodic"],
-  "trombone_ensemble": ["melodic"],
-  "trondersk_musikk": ["melodic"],
-  "trondheim_indie": ["melodic"],
-  "tucson_indie": ["melodic"],
-  "tulsa_indie": ["melodic"],
-  "tunisian_alternative": ["melodic"],
-  "uk_beatdown": ["melodic"],
-  "ukhc": ["melodic"],
-  "ukulele": ["melodic"],
+  "theremin": [
+    "melodic"
+  ],
+  "thrash_core": [
+    "melodic"
+  ],
+  "tijuana_indie": [
+    "melodic"
+  ],
+  "tontipop": [
+    "melodic"
+  ],
+  "toronto_indie": [
+    "melodic"
+  ],
+  "traditional_irish_singing": [
+    "melodic"
+  ],
+  "trekkspill": [
+    "melodic"
+  ],
+  "trio_cubano": [
+    "melodic"
+  ],
+  "trombone_ensemble": [
+    "melodic"
+  ],
+  "trondersk_musikk": [
+    "melodic"
+  ],
+  "trondheim_indie": [
+    "melodic"
+  ],
+  "tucson_indie": [
+    "melodic"
+  ],
+  "tulsa_indie": [
+    "melodic"
+  ],
+  "tunisian_alternative": [
+    "melodic"
+  ],
+  "uk_beatdown": [
+    "melodic"
+  ],
+  "ukhc": [
+    "melodic"
+  ],
+  "ukulele": [
+    "melodic"
+  ],
   "uppsala_indie": [],
   "utah_indie": [],
   "vancouver_indie": [],
@@ -19671,12 +19995,238 @@
   "vermont_indie": [],
   "victorian_britain": [],
   "vienna_indie": [],
-  "viola": ["melodic"],
-  "viola_da_gamba": ["melodic"],
-  "violin": ["melodic"],
-  "virginia_indie": ["melodic"],
-  "visor": ["melodic"],
+  "viola": [
+    "melodic"
+  ],
+  "viola_da_gamba": [
+    "melodic"
+  ],
+  "violin": [
+    "melodic"
+  ],
+  "virginia_indie": [
+    "melodic"
+  ],
+  "visor": [
+    "melodic"
+  ],
   "vlaamse_cabaret": [],
-  "warrington_indie": ["melodic"],
-  "water": []
+  "warrington_indie": [
+    "melodic"
+  ],
+  "water": [],
+  "future_ambient": [],
+  "chill_house": [
+    "melodic"
+  ],
+  "experimental_house": [],
+  "french_tech_house": [],
+  "italian_tech_house": [],
+  "japanese_progressive_house": [],
+  "mexican_tech_house": [],
+  "norwegian_house": [
+    "melodic"
+  ],
+  "austrian_techno": [
+    "melodic"
+  ],
+  "dark_techno": [],
+  "greek_techno": [],
+  "hungarian_techno": [],
+  "indian_techno": [],
+  "irish_techno": [],
+  "scottish_techno": [],
+  "techno_kayo": [],
+  "deep_dnb": [],
+  "minimal_dnb": [],
+  "nz_dnb": [],
+  "birmingham_grime": [],
+  "alabama_rap": [],
+  "austin_hip_hop": [],
+  "taraneem": [
+    "melodic"
+  ],
+  "thai_worship": [
+    "melodic"
+  ],
+  "tibetan_mantra": [
+    "melodic"
+  ],
+  "tone": [
+    "melodic"
+  ],
+  "transpop": [
+    "melodic"
+  ],
+  "traprun": [
+    "melodic"
+  ],
+  "triangle_indie": [
+    "melodic"
+  ],
+  "tribute": [
+    "melodic"
+  ],
+  "trio_batak": [
+    "melodic"
+  ],
+  "trombone_brasileiro": [
+    "melodic"
+  ],
+  "tropical": [
+    "melodic"
+  ],
+  "tropical_alternativo": [
+    "melodic"
+  ],
+  "tropical_tecladista": [
+    "melodic"
+  ],
+  "trova_mexicana": [
+    "melodic"
+  ],
+  "turin_indie": [
+    "melodic"
+  ],
+  "turkish_experimental": [],
+  "tzadik": [
+    "melodic"
+  ],
+  "uae_indie": [
+    "melodic"
+  ],
+  "ukrainian_indie": [
+    "melodic"
+  ],
+  "ukulele_cover": [
+    "melodic"
+  ],
+  "umea_indie": [
+    "melodic"
+  ],
+  "urbano_mexicano": [],
+  "uruguayan_indie": [],
+  "usbm": [],
+  "uwielbienie": [],
+  "vaikiskos_dainos": [],
+  "vallenato_moderno": [],
+  "vbs": [],
+  "veena": [],
+  "vegas_indie": [],
+  "venezuelan_indie": [],
+  "veracruz_indie": [],
+  "vgm_instrumental": [],
+  "vgm_remix": [],
+  "via": [],
+  "victoria_bc_indie": [],
+  "vlaamse_kinderliedje": [
+    "melodic"
+  ],
+  "vocal_ensemble": [],
+  "voidgaze": [
+    "melodic"
+  ],
+  "wagnerian_singing": [],
+  "washboard": [],
+  "washington_indie": [],
+  "wellington_indie": [
+    "melodic"
+  ],
+  "welsh_indie": [
+    "melodic"
+  ],
+  "west_virginia_indie": [
+    "melodic"
+  ],
+  "west_yorkshire_indie": [
+    "melodic"
+  ],
+  "western_mass_indie": [
+    "melodic"
+  ],
+  "whale_song": [],
+  "white_noise": [],
+  "wind_quintet": [
+    "melodic"
+  ],
+  "windsor_on_indie": [
+    "melodic"
+  ],
+  "wisconsin_indie": [
+    "melodic"
+  ],
+  "women_s_music": [
+    "melodic"
+  ],
+  "worcester_ma_indie": [
+    "melodic"
+  ],
+  "world_chill": [],
+  "world_devotional": [
+    "melodic"
+  ],
+  "world_fusion": [
+    "melodic"
+  ],
+  "wrestling": [
+    "melodic"
+  ],
+  "writing": [
+    "melodic"
+  ],
+  "wrock": [
+    "melodic"
+  ],
+  "wuhan_indie": [
+    "melodic"
+  ],
+  "wyoming_indie": [
+    "melodic"
+  ],
+  "wyoming_roots": [
+    "melodic"
+  ],
+  "xhosa": [
+    "melodic"
+  ],
+  "yemeni_traditional": [
+    "melodic"
+  ],
+  "yoga": [],
+  "yogyakarta_indie": [
+    "melodic"
+  ],
+  "york_indie": [
+    "melodic"
+  ],
+  "yoruba_worship": [
+    "melodic"
+  ],
+  "yugoslav_new_wave": [
+    "melodic"
+  ],
+  "yunnan_traditional": [
+    "melodic"
+  ],
+  "yuri": [
+    "melodic"
+  ],
+  "zcc": [
+    "melodic"
+  ],
+  "zespol_dzieciecy": [
+    "melodic"
+  ],
+  "zhenskiy_rep": [
+    "melodic"
+  ],
+  "zillertal": [
+    "melodic"
+  ],
+  "zolo": [
+    "melodic"
+  ],
+  "zurich_indie": [
+    "melodic"
+  ]
 }

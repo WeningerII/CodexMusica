@@ -5,7 +5,7 @@
   "lineage": "BType — Galactic Dinosaur Patrol. Representative authored present-day studio arrangement for one documented release branch. Primary sources establish roles, locality and the category relationship. Guitar body and pickup design, bass construction, keyboard synthesis and drum-machine architecture, amp choice, room, chain, technique, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts or universal genre traits.",
   "recipe": "classic beatboxing, mc Rhythm. bilabial ejective kick drum source vocal percussion voice, dreadnought acoustic guitar, digital subtractive. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 238,
-  "score": 9.203,
+  "score": 9.825,
   "config": {
     "traditions": [
       "beatboxing"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.35700000000000004,
+          "voice_ensemble_config": 0.48300000000000004,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.345,
-          "voice_multitrack_stack": 0.13949999999999999,
+          "voice_processing_chain": 0.39,
+          "voice_multitrack_stack": 0.3285,
           "voice_tessitura": 0
         }
       },
@@ -64,7 +64,7 @@
           "vocal_percussion_airstream_mechanism": 0,
           "vocal_percussion_beatbox_articulation": 2.6,
           "vocal_percussion_syllabic_drum_system": 0,
-          "vocal_percussion_context": 0.0315
+          "vocal_percussion_context": 0.29400000000000004
         }
       },
       {

@@ -1,0 +1,325 @@
+{
+  "id": "transpop",
+  "name": "Transpop",
+  "family": "pop",
+  "lineage": "Skylar Kergil — Tell Me a Story (2015), complete title track. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic mid-2010s transpop, functional Song. solo with instrumental accompaniment, single lead single track no stacking. acoustic humbucker electric guitar, electric bass, cajon peruano, a 440 modern pitch us standard grand piano, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 360,
+  "score": 9.701,
+  "config": {
+    "traditions": [
+      "transpop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.2445,
+          "voice_ensemble_config": 0.5715000000000001,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 1.3,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.035,
+          "string_acoustic": 0,
+          "acoustic_om_technique": -0.25
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 2.45,
+          "amp_make": 0,
+          "body_wood": 0,
+          "neck_wood": 0,
+          "fretboard": -0.05,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 1.69,
+          "finish": 0,
+          "string_tuning": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+          "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
+        },
+        "scores": {
+          "cajon_peruano_construction": 0,
+          "cajon_peruano_role": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.45,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.1365,
+          "piano_hammer": 0.2,
+          "piano_rim": 0.26,
+          "piano_soundboard": -0.1,
+          "piano_pinblock": -0.1,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 1.184
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "cajon_peruano": [
+        "cajon_peruano_construction",
+        "cajon_peruano_role"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "string_tuning": "standard_tuning",
+      "top_wood": "sitka_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_fingerpicked",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "neck_wood": "mahogany_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+      "cajon_peruano_role": "cajon_peruano_role_source_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

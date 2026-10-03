@@ -1,0 +1,56 @@
+{
+  "id": "vgm_remix",
+  "name": "VGM remix",
+  "family": "electronic",
+  "lineage": "Morphing Bytes — Ascendelic (2:10), complete first track of Saint Villmani (2024). Creator explicitly states100% corruption samples: Donkey Kong Country Simian Segue, Ape Escape drum loop, Shantae corrupted bass and Hands of Time sound effects. Album production explicitly FL Studio with stock plugins. One creator, all four sampled source layers retained through one software sample-playback family; no newly performed acoustic/electric instruments inferred from timbre labels. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s vgm remix, experimental Elec. software sample playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 172,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "vgm_remix"
+    ],
+    "instruments": [
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "software_sample_playback_identity": "software_sample_playback_digital"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

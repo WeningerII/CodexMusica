@@ -1,0 +1,52 @@
+{
+  "id": "fixed_frequency_tone_recording",
+  "name": "Fixed-frequency tone recording",
+  "short": "Recorded fixed-frequency tones",
+  "family": "electronic",
+  "class": "fixed_tone_recording",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "fixed_frequency_recording_identity",
+      "name": "Recorded signal",
+      "variants": [
+        {
+          "id": "fixed_tone_recording_undertones_harmonics",
+          "name": "Recorded fixed-frequency tones with undertones and harmonics; generation architecture unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Known sustained frequency-signal recordings with undertones and harmonics. Retains the complete documented signal palette without inventing an oscillator type, sampler hardware, keyboard performance or pitch temperament. Neutral axes are authored routing coordinates. This owner is not a generic whole-music-master playback shortcut.",
+  "sources": [
+    "https://www.sourcevibrations.com/product/solfeggio-energy-tuners-pure-tone-series/"
+  ],
+  "_ownParts": [
+    {
+      "id": "fixed_frequency_recording_identity",
+      "name": "Recorded signal",
+      "variants": [
+        {
+          "id": "fixed_tone_recording_undertones_harmonics",
+          "name": "Recorded fixed-frequency tones with undertones and harmonics; generation architecture unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

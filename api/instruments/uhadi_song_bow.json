@@ -1,0 +1,101 @@
+{
+  "id": "uhadi_song_bow",
+  "name": "Uhadi gourd bow for sung repertoire",
+  "short": "uhadi gourd bow",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "uhadi_song_bow_body",
+      "name": "Source-documented construction",
+      "variants": [
+        {
+          "id": "uhadi_song_bow_gourd_single_string_struck",
+          "name": "Unbraced single-string bow with chest-facing gourd, struck with thin beater; string material unspecified",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "resonant"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uhadi_song_bow_repertoire",
+      "name": "Documented performance scope",
+      "variants": [
+        {
+          "id": "uhadi_song_bow_song_accompaniment",
+          "name": "Accompanies lyric song; no overtone-vocal technique imposed",
+          "default": true,
+          "descriptors": [
+            "accompaniment"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "SAMRO describes unbraced uhadi with attached gourd held facing the chest and a thin stalk beater. String material may be gut or wire; selected performance material is unspecified. Isolated owner avoids importing the existing mandatory mouth-bow/overtone-singing lineage into documented lyric-song accompaniment. Neutral axes are authored routing coordinates.",
+  "sources": [
+    "https://iamtranscriptions.org/wp-content/uploads/2024/10/3b693-umagungqelindawo-nofinishi-dwyli_jiwe_2019.pdf"
+  ],
+  "exclude_family_parts": [
+    "plucked_technique",
+    "bowed_technique",
+    "string_tuning"
+  ],
+  "_ownParts": [
+    {
+      "id": "uhadi_song_bow_body",
+      "name": "Source-documented construction",
+      "variants": [
+        {
+          "id": "uhadi_song_bow_gourd_single_string_struck",
+          "name": "Unbraced single-string bow with chest-facing gourd, struck with thin beater; string material unspecified",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "resonant"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uhadi_song_bow_repertoire",
+      "name": "Documented performance scope",
+      "variants": [
+        {
+          "id": "uhadi_song_bow_song_accompaniment",
+          "name": "Accompanies lyric song; no overtone-vocal technique imposed",
+          "default": true,
+          "descriptors": [
+            "accompaniment"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

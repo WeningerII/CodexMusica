@@ -1,0 +1,62 @@
+{
+  "id": "norwegian_house",
+  "name": "Norwegian House",
+  "family": "electronic",
+  "lineage": "Todd Terje — It’s The Arps, complete four-track original EP. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic norwegian house, electronic Dance. arp 2600 layered. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 159,
+  "score": 0.663,
+  "config": {
+    "traditions": [
+      "norwegian_house"
+    ],
+    "instruments": [
+      {
+        "id": "arp_2600_layered",
+        "slots": {
+          "arp_2600_layered_identity": "arp_2600_layered_semimodular",
+          "arp_2600_layered_palette": "arp_2600_layered_melodic_percussive"
+        },
+        "scores": {
+          "arp_2600_layered_identity": 0,
+          "arp_2600_layered_palette": 0.663
+        }
+      }
+    ],
+    "pinned": {
+      "arp_2600_layered": [
+        "arp_2600_layered_identity",
+        "arp_2600_layered_palette"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "arp_2600_layered_identity": "arp_2600_layered_semimodular",
+      "arp_2600_layered_palette": "arp_2600_layered_melodic_percussive"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

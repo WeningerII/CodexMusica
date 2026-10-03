@@ -1,0 +1,66 @@
+{
+  "id": "dj_playback_mixing_unspecified",
+  "name": "DJ playback and mixing (source medium unspecified)",
+  "short": "DJ playback and mixing",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "dj_playback_mixing_identity",
+      "name": "Documented DJ practice",
+      "variants": [
+        {
+          "id": "dj_playback_mixing_source_unspecified",
+          "name": "Recorded music playback and mixing; source medium unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified",
+            "layered"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Actual documented DJ playback and mixing practice. Complete recorded musical and vocal layers remain embedded; media format, deck count, controller and hardware unspecified. Neutral axes are authored placeholders, not source measurements.",
+  "sources": [
+    "https://podcasts.apple.com/cy/podcast/monstercat-silk-showcase-700-shingo-nakamura-live-performance/id359588988?i=1000614351644",
+    "https://solo.to/shingonakamura"
+  ],
+  "exclude_family_parts": [
+    "electronic_technique"
+  ],
+  "_ownParts": [
+    {
+      "id": "dj_playback_mixing_identity",
+      "name": "Documented DJ practice",
+      "variants": [
+        {
+          "id": "dj_playback_mixing_source_unspecified",
+          "name": "Recorded music playback and mixing; source medium unspecified",
+          "default": true,
+          "descriptors": [
+            "amplified",
+            "layered"
+          ],
+          "match_tokens": [
+            "electronic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "motif_xf8_sampled_piano",
+  "name": "Motif XF8 sampled-piano keyboard",
+  "short": "Sampled-piano keyboard",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "motif_xf8_sampled_piano_generator",
+      "name": "Documented tone generator",
+      "variants": [
+        {
+          "id": "motif_xf8_sampled_piano_awm2",
+          "name": "Yamaha AWM2 sample-based generator; piano patch",
+          "default": true,
+          "descriptors": [
+            "sampled-realism"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "motif_xf8_sampled_piano_keyboard",
+      "name": "Keyboard mechanism",
+      "variants": [
+        {
+          "id": "motif_xf8_sampled_piano_88_hammer",
+          "name": "88-key Balanced Hammer Effect keyboard",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard_technique",
+      "name": "Authored playing approach",
+      "variants": [
+        {
+          "id": "motif_xf8_sampled_piano_chordal_melodic",
+          "name": "Live melodic and chordal piano-patch playing",
+          "default": true,
+          "descriptors": [
+            "melodic",
+            "chordal"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Source-specific existing-schema instrument owner retains the documented Motif XF8 sampled-piano mechanism without substituting acoustic strings, analog synthesis, sequenced accompaniment or an unknown-architecture keyboard. Hardware facts from Yamaha; piano-patch use from Ron and Russell Mael interview. Neutral numerical routing axes and chordal realization are authored. No shared family or old owner is edited.",
+  "sources": [
+    "https://usa.yamaha.com/products/contents/music_production/synth_chronology/modal/modal_motif_xf8.html",
+    "https://uk.yamaha.com/en/products/music_production/synthesizers/motif_xf/specs.html",
+    "https://www.soundonsound.com/people/sparks"
+  ],
+  "_ownParts": [
+    {
+      "id": "motif_xf8_sampled_piano_generator",
+      "name": "Documented tone generator",
+      "variants": [
+        {
+          "id": "motif_xf8_sampled_piano_awm2",
+          "name": "Yamaha AWM2 sample-based generator; piano patch",
+          "default": true,
+          "descriptors": [
+            "sampled-realism"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "motif_xf8_sampled_piano_keyboard",
+      "name": "Keyboard mechanism",
+      "variants": [
+        {
+          "id": "motif_xf8_sampled_piano_88_hammer",
+          "name": "88-key Balanced Hammer Effect keyboard",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keyboard_technique",
+      "name": "Authored playing approach",
+      "variants": [
+        {
+          "id": "motif_xf8_sampled_piano_chordal_melodic",
+          "name": "Live melodic and chordal piano-patch playing",
+          "default": true,
+          "descriptors": [
+            "melodic",
+            "chordal"
+          ],
+          "match_tokens": [
+            "keyboard"
+          ]
+        }
+      ]
+    }
+  ]
+}

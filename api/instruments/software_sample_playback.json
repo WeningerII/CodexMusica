@@ -1,0 +1,56 @@
+{
+  "id": "software_sample_playback",
+  "name": "Software sample playback and arrangement",
+  "short": "Software sample arrangement",
+  "family": "electronic",
+  "class": "software_sample_playback",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "software_sample_playback_identity",
+      "name": "Sample source",
+      "variants": [
+        {
+          "id": "software_sample_playback_digital",
+          "name": "Digital software sample playback and arrangement",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Software playback and arrangement of positively documented sampled audio. Retains full sampled melody/rhythm/bass/effect layers without inventing live instrumentalists, hardware sampler model, bit-depth or individual processing algorithms. Neutral routing axes are authored coordinates, not measured source properties.",
+  "sources": [
+    "https://morphingbytes.bandcamp.com/album/saint-villmani"
+  ],
+  "_ownParts": [
+    {
+      "id": "software_sample_playback_identity",
+      "name": "Sample source",
+      "variants": [
+        {
+          "id": "software_sample_playback_digital",
+          "name": "Digital software sample playback and arrangement",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

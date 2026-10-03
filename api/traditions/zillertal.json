@@ -1,0 +1,270 @@
+{
+  "id": "zillertal",
+  "name": "Zillertal",
+  "family": "vernacular",
+  "lineage": "Freddy Pfister Band — Unser Garten Eden… (2011), complete label-listed trio arrangement. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic early-2010s zillertal, functional Song. accordion, dance driving steirische harmonika, dreadnought acoustic guitar, electric bass, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 270,
+  "score": 18.522,
+  "config": {
+    "traditions": [
+      "zillertal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.39,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.39,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_hohner_gola"
+        },
+        "scores": {
+          "free_reed_technique": 2.9000000000000004,
+          "accordion_reed_material": 0.6,
+          "musette_offset": 0.3,
+          "reed_config": 0,
+          "bellows": 0.1365,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0
+        }
+      },
+      {
+        "id": "steirische_harmonika",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "steirische_harmonika_form": "steirische_harmonika_four_row",
+          "steirische_harmonika_repertoire": "steirische_harmonika_landler_polka",
+          "steirische_harmonika_bass_reeds": "steirische_harmonika_helicon_bass"
+        },
+        "scores": {
+          "free_reed_technique": 2.9000000000000004,
+          "steirische_harmonika_form": 4.1555,
+          "steirische_harmonika_repertoire": 2.8600000000000003,
+          "steirische_harmonika_bass_reeds": 0.3
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "rosewood_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 2.8,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.05,
+          "string_acoustic": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.3,
+          "fretted_or_not": 0,
+          "bass_technique": 0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "steirische_harmonika": [
+        "free_reed_technique",
+        "steirische_harmonika_form",
+        "steirische_harmonika_repertoire",
+        "steirische_harmonika_bass_reeds"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "accordion_reed_material": "steel_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "cassotto",
+      "accordion_maker_school": "accordion_hohner_gola",
+      "steirische_harmonika_form": "steirische_harmonika_four_row",
+      "steirische_harmonika_repertoire": "steirische_harmonika_landler_polka",
+      "steirische_harmonika_bass_reeds": "steirische_harmonika_helicon_bass",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood": "engelmann",
+      "back_sides": "rosewood_bs",
+      "string_acoustic": "eighty_twenty",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "deep_dnb",
+  "name": "Deep DnB",
+  "family": "electronic",
+  "lineage": "Dr Woe — Keep Da Bass Rollin vol31, complete2022 vinyl video DJ set. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic deep dnb, electronic Dance. vinyl dj playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 153,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "deep_dnb"
+    ],
+    "instruments": [
+      {
+        "id": "vinyl_dj_playback",
+        "slots": {
+          "vinyl_dj_performance": "vinyl_record_playback_mix"
+        },
+        "scores": {
+          "vinyl_dj_performance": 0
+        }
+      }
+    ],
+    "pinned": {
+      "vinyl_dj_playback": [
+        "vinyl_dj_performance"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "vinyl_dj_performance": "vinyl_record_playback_mix"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

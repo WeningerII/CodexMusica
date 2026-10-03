@@ -1,0 +1,54 @@
+{
+  "id": "whale_song",
+  "name": "Whale song",
+  "family": "electronic",
+  "lineage": "Roger Payne, Katharine Payne and Frank Watlington — Songs of the Humpback Whale (1970). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-1970s whale song, experimental Elec. environmental field recording whale environmental recording. treated studio. 24-bit digital.",
+  "recipe_chars": 143,
+  "score": 2.563,
+  "config": {
+    "traditions": [
+      "whale_song"
+    ],
+    "instruments": [
+      {
+        "id": "whale_environmental_recording",
+        "slots": {
+          "whale_environmental_source": "whale_field_recording_source"
+        },
+        "scores": {
+          "whale_environmental_source": 2.563
+        }
+      }
+    ],
+    "pinned": {
+      "whale_environmental_recording": [
+        "whale_environmental_source"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "whale_environmental_source": "whale_field_recording_source"
+    },
+    "pin_parts": true,
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

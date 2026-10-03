@@ -1,0 +1,90 @@
+{
+  "id": "writing",
+  "name": "Writing",
+  "family": "classical",
+  "lineage": "Vadim Chaimovich — Giazotto Adagio in G minor, Francis Pott piano arrangement in Halidon Classical Music for Writing (2022). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s writing, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 212,
+  "score": 61.874,
+  "config": {
+    "traditions": [
+      "writing"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 9.081499999999997,
+          "grand_piano_size": 0.3315,
+          "grand_piano_brand": 0.363,
+          "piano_hammer": 9.667999999999996,
+          "piano_rim": 10.062499999999996,
+          "piano_soundboard": 9.604999999999997,
+          "piano_pinblock": 11.786999999999997,
+          "piano_plate": 9.799999999999997,
+          "piano_pitch_standard": 1.1759999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
