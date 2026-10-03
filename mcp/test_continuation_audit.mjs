@@ -132,25 +132,43 @@ test('a verified rewrite retires its old occurrence reading and retains the orig
   }
 });
 
+// REPINNED 2026-10-02 (LOOP_REDESIGN.md §2.2 option B, owner's ruling): the
+// fold reads the journal it RETURNS against the one it was handed, so the
+// earlier rows, which predate this call, sit in both; the ungraded answer is
+// ~~'unknown'~~ 'pending' until ITS OWN row (same attempt AND question) lands.
 test('group fold receipts cannot use a previous attempt verdict for an ungraded answer', () => {
   const pending = {
     kind: 'propose_group',
     record: { members: [1, 2], round: 1, attempt: 1, question_sha256: 'new-question' },
     answer: 'L1: second answer\nL2: another line',
   };
-  const state = {
-    group_outcomes: [
+  const answered = {
+    propose_group: [
       {
         members: [1, 2],
         round: 1,
-        attempt: 0,
-        accepted: false,
-        reasons: ['earlier answer failed'],
+        attempt: 1,
+        question_sha256: 'new-question',
+        new: ['second answer', 'another line'],
       },
     ],
   };
-  assert.equal(_verdictInternals.foldedOf({ pending }, state).verdict, 'unknown');
-  state.group_outcomes.push({
+  const earlier = [
+    {
+      members: [1, 2],
+      round: 1,
+      attempt: 0,
+      accepted: false,
+      reasons: ['earlier answer failed'],
+    },
+  ];
+  const fold = (rows) =>
+    _verdictInternals.foldedOf(
+      { pending, group_outcomes: earlier },
+      { answered, group_outcomes: rows }
+    );
+  assert.equal(fold([...earlier]).verdict, 'pending');
+  earlier.push({
     members: [1, 2],
     round: 1,
     attempt: 1,
@@ -158,16 +176,20 @@ test('group fold receipts cannot use a previous attempt verdict for an ungraded 
     accepted: false,
     reasons: ['same attempt index, different question'],
   });
-  assert.equal(_verdictInternals.foldedOf({ pending }, state).verdict, 'unknown');
-  state.group_outcomes.push({
-    members: [1, 2],
-    round: 1,
-    attempt: 1,
-    question_sha256: 'new-question',
-    accepted: true,
-    reasons: ['new answer verified'],
-  });
-  assert.equal(_verdictInternals.foldedOf({ pending }, state).verdict, 'accepted');
+  assert.equal(fold([...earlier]).verdict, 'pending', 'another question at the same attempt is not this one');
+  const mine = fold([
+    ...earlier,
+    {
+      members: [1, 2],
+      round: 1,
+      attempt: 1,
+      question_sha256: 'new-question',
+      accepted: true,
+      reasons: ['new answer verified'],
+    },
+  ]);
+  assert.equal(mine.verdict, 'accepted');
+  assert.equal(mine.source, 'outcome');
 });
 
 test('the chat wrapper also keeps uncertified recovery distinct from lyric rejection', () => {
@@ -316,12 +338,16 @@ test('F01/F03: accepted batch progress keeps authoritative counters; malformed r
   assert(journal.outcomes.some((r) => r.line === 2 && r.accepted));
   assert(journal.outcomes.some((r) => r.line !== 2 && !r.accepted));
   assert(Array.isArray(next.folded));
+  // REPINNED 2026-10-02 (LOOP_REDESIGN.md §2.2 option B): an unvisited answer
+  // is ~~'unknown' / unverified~~ 'pending', waiting on the question asked now,
+  // and no row is 'unknown' any more (defect 2).
   assert(
-    next.folded.some((row) => row.verdict === 'unknown'),
-    'unvisited answers stay unverified'
+    next.folded.some((row) => row.verdict === 'pending'),
+    'unvisited answers are pending, waiting on the question asked now'
   );
+  assert(!next.folded.some((row) => row.verdict === 'unknown'), 'no row is unknown');
   for (const row of next.folded) {
-    if (!journal.outcomes.some((o) => o.line === row.line)) assert.equal(row.verdict, 'unknown');
+    if (!journal.outcomes.some((o) => o.line === row.line)) assert.equal(row.verdict, 'pending');
   }
 });
 

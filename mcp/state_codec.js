@@ -1,12 +1,13 @@
 // The connector envelope versions interpretation; worker journal.version stays 1.
 // Bound the decoded representation as well as its wire encoding. For this bound,
 // even an incompressible gzip member + base64 envelope fits STATE_WIRE_BYTES.
-import { createHash } from 'node:crypto';
+import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import { gzipSync, gunzipSync } from 'node:zlib';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import { assertStateFits, HTTP_REQUEST_BYTES } from './payload_limits.js';
 import { runtimeSourceFingerprint } from './build_identity.js';
 import { runtimeAssets } from './runtime_assets.js';
+import { loadChatSecret } from './job_store.js';
 
 export const STATE_DECODED_BYTES = 512 * 1024;
 export const WORKER_STATE_BYTES = 448 * 1024;
@@ -55,9 +56,18 @@ export function assertContinuationSemantics(identity) {
     );
 }
 
+// State keys measured OUTSIDE the worker journal's capacity, exactly as the
+// harness's JOURNAL_OUTSIDE_KEYS (lyric_harness.py): `dispositions` records
+// batch answers the walk passed by without judging (LOOP_REDESIGN.md §2.2
+// option B, §2.8 C), `cursor` is the saved position, and `stalls` is the
+// connector's no-progress count (§2.8 E). Counting them here would refuse a continuation the harness
+// admitted. The decoded-state bound in encodeState below still covers it.
+export const WORKER_OUTSIDE_KEYS = Object.freeze(['dispositions', 'cursor', 'cursor_seal', 'cursor_strip', 'stalls']);
+
 export function assertContinuationCapacity(state) {
   const { connector_declarations, ...worker } = state;
   delete worker.connector_semantic_identity;
+  for (const k of WORKER_OUTSIDE_KEYS) delete worker[k];
   if (Buffer.byteLength(JSON.stringify(worker), 'utf8') > WORKER_STATE_BYTES)
     throw new StateCodecError(
       'CONTINUATION_CAPACITY',
@@ -239,3 +249,99 @@ export function recoverState(wire, { part = 'all' } = {}) {
     );
   return result;
 }
+
+// ---------------------------------------------------------------------------
+// THE SEAL ON A SAVED POSITION (LOOP_REDESIGN.md §2.0.1 and §2.8 F; 2026-10-02)
+// ---------------------------------------------------------------------------
+// A run's state may carry `cursor`, the loop's saved position, so a
+// continuation resumes instead of replaying every answer. Replay was the only
+// authority over what was accepted; a cursor is trusted, so in a state a
+// caller holds it must be unforgeable. Every interview state this connector
+// returns is sealed with an HMAC over its WHOLE worker state except
+// `pending.answer` (the one field a caller legitimately fills in), under a key
+// derived from the server secret and used for nothing else. An incoming state
+// whose seal does not verify keeps its journal and loses only its cursor: the
+// run replays, slower and never wrong, and says why (`cursor_stripped`).
+
+let cursorKeyCache;
+function cursorKey() {
+  if (cursorKeyCache !== undefined) return cursorKeyCache;
+  try {
+    cursorKeyCache = createHmac('sha256', loadChatSecret()).update('lyric-cursor-v1').digest();
+  } catch {
+    // A damaged key file disables sealing for this process; every state then
+    // replays (`cursor_stripped: key_unavailable`). lyric_revise does not fail.
+    cursorKeyCache = null;
+  }
+  return cursorKeyCache;
+}
+
+function canonical(v) {
+  if (Array.isArray(v)) return '[' + v.map(canonical).join(',') + ']';
+  if (v && typeof v === 'object')
+    return (
+      '{' +
+      Object.keys(v)
+        .filter((k) => v[k] !== undefined)
+        .sort()
+        .map((k) => JSON.stringify(k) + ':' + canonical(v[k]))
+        .join(',') +
+      '}'
+    );
+  return JSON.stringify(v === undefined ? null : v);
+}
+
+function sealOf(state, key) {
+  const c = { ...state };
+  delete c.cursor_seal;
+  delete c.cursor_strip;
+  if (c.pending && typeof c.pending === 'object') c.pending = { ...c.pending, answer: null };
+  return createHmac('sha256', key).update(canonical(c)).digest('hex');
+}
+
+/** Encode an INTERVIEW state for the wire, sealing its cursor. The one
+ * function every interview mint calls (lyric_revise's branches, a session's
+ * resume snapshot, the chat's checkpoint recovery). A cursor is never what
+ * ends a run: a sealed state that would not fit is re-encoded without it. */
+export function encodeInterviewWire(state) {
+  const key = cursorKey();
+  const s = { ...state };
+  delete s.cursor_seal;
+  delete s.cursor_strip;
+  if (s.cursor != null && key) s.cursor_seal = sealOf(s, key);
+  else delete s.cursor;
+  try {
+    return encodeState(s);
+  } catch (error) {
+    if (error.code !== 'CONTINUATION_CAPACITY' || s.cursor == null) throw error;
+    const t = { ...s };
+    delete t.cursor;
+    delete t.cursor_seal;
+    return encodeState(t);
+  }
+}
+
+/** Check a decoded interview state's seal BEFORE any connector field is
+ * removed. Mutates it: the seal is removed; an untrusted cursor is removed
+ * and `cursor_strip` names why, for the harness to report. -> the reason, or
+ * null when the cursor (if any) is trusted. */
+export function verifyInterviewCursor(decoded) {
+  const seal = decoded.cursor_seal;
+  delete decoded.cursor_seal;
+  delete decoded.cursor_strip;
+  if (decoded.cursor == null) return null;
+  const key = cursorKey();
+  let reason = null;
+  if (!key) reason = 'key_unavailable';
+  else {
+    const want = Buffer.from(sealOf(decoded, key), 'hex');
+    const got = typeof seal === 'string' && /^[0-9a-f]{64}$/.test(seal) ? Buffer.from(seal, 'hex') : null;
+    if (!got || !timingSafeEqual(want, got)) reason = 'seal';
+  }
+  if (reason) {
+    delete decoded.cursor;
+    decoded.cursor_strip = reason;
+  }
+  return reason;
+}
+

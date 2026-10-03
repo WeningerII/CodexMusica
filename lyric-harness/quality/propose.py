@@ -539,6 +539,18 @@ def _place_phrase(slot_key):
         return f"word at {slot_key}"
 
 
+def _slot_key(slot):
+    """-> a slot object as the key `_place_phrase` reads: None for the
+    default place (the end word), its spelling otherwise."""
+    if slot is None:
+        return None
+    try:
+        from quality import slots as _SL               # noqa: PLC0415
+        return None if _SL.is_default(slot) else str(slot)
+    except Exception:                                  # noqa: BLE001
+        return str(slot)
+
+
 def slot_phrase(brief):
     """-> the WORD this brief asks the writer to change, in words.
 
@@ -1235,6 +1247,25 @@ def render_group(group_brief):
         out.append("  (none offered)")
     out.append("")
 
+    # THE PIVOT'S OWN LINE-QUESTION LISTS, ON THE ESCALATION PATH
+    # (LOOP_REDESIGN.md §2.4, S10; 2026-10-02). One rendering, from the
+    # pivot's own brief on this draft: what the grader enforces now. The
+    # line question is cited only when it was asked on this same draft.
+    path = getattr(g, "path", "")
+    if path == "escalation":
+        cite = getattr(g, "pivot_line_question", "")
+        out.append(f"L{p_no} ON ITS OWN — "
+                   + (f"as offered in {cite}" if cite else
+                      "no line question was asked on this draft; these are "
+                      "the lists the grader enforces now"))
+        p_line_off = _ordered(getattr(g, "pivot_line_offered", ()) or ())
+        p_line_forb = _ordered(getattr(g, "pivot_line_forbidden", ()) or ())
+        out.append("  OFFERED: " + (", ".join(p_line_off) if p_line_off
+                                    else "(none)"))
+        out.append("  FORBIDDEN (rule 3 below): " + (", ".join(p_line_forb)
+                                                     if p_line_forb else "(none)"))
+        out.append("")
+
     # EACH MEMBER'S OWN MANDATE. This block did not exist until 2026-08-17
     # and its absence was defect F: the prompt printed THE RHYME MANDATE ON
     # THE PIVOT, told the writer to move the other line's bound word, and
@@ -1268,8 +1299,27 @@ def render_group(group_brief):
                        f"{list(members)} AND L{a_no}'s own group(s) at once, "
                        f"so the conjunction")
             out.append("   was not solved by this bounded search; no impossibility is established)")
+        elif path == "group_first":
+            out.append(f"  (none offered — this group was asked before any "
+                       f"line question, because L{p_no}'s own field was "
+                       f"empty;")
+            out.append("   no single-line menu was computed for this member)")
         else:
             out.append("  (none offered)")
+        # THE ONE-MOVE MENU (LOOP_REDESIGN.md §2.4, §2.8 G; defect 4): the
+        # words a line question would offer this member at its place while
+        # every other line, the pivot included, keeps its words.
+        one = getattr(a, "one_move", None)
+        if not a_off and one is not None:
+            a_name = _place_phrase(_slot_key(getattr(a, "slot", None)))
+            out.append(f"  IF EVERY OTHER LINE KEEPS ITS WORDS, L{a_no}'s "
+                       f"{a_name} could be:")
+            if one:
+                out.extend(_offered_block(_ordered(one), decl))
+            else:
+                out.append(f"  (none — no single word at L{a_no}'s {a_name} "
+                           f"answers every group bound there with the other "
+                           f"lines unchanged; no impossibility is established)")
         out.append("")
 
     out.append(f"  Every list is OFFERED, not required, and the {k} picks "
@@ -1307,9 +1357,18 @@ def render_group(group_brief):
                "own field (doctrine 9),")
     out.append(f"     and this is checked only for a word a line MOVES TO. "
                f"For L{p_no} the modal head is")
-    out.append("     empty by construction — this tier runs precisely "
-               "because nothing answered all of")
-    out.append(f"     its groups — so in practice item 3 binds {a_list}.")
+    if path == "escalation":
+        # C13 (2026-10-02): on this path the pivot HAD a field, and its
+        # forbidden list (printed above under "L{p} ON ITS OWN") still binds.
+        out.append("     the FORBIDDEN list printed above under its line "
+                   "question: a word it MOVES TO")
+        out.append(f"     may not be on it. For {a_list} it applies only to a "
+                   f"line that carries a")
+        out.append("     finding of its own, against that line's own head.")
+    else:
+        out.append("     empty by construction — this tier runs precisely "
+                   "because nothing answered all of")
+        out.append(f"     its groups — so in practice item 3 binds {a_list}.")
     out.append("  4. The rewrite must FIX something. It may not trade one "
                "defect for another: new FLAG")
     out.append("     findings anywhere in the draft reject it (new NOTES do "

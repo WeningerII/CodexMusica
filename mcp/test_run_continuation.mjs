@@ -327,13 +327,14 @@ try {
           assert.equal(row.verdict, 'rejected');
           assert.equal(row.source, 'outcome');
         } else {
+          // REPINNED 2026-10-02 (LOOP_REDESIGN.md §2.2 option B): ~~'unknown',
+          // 'unverified', no reasons~~ — pending, and still never accepted.
           assert.equal(
             row.verdict,
-            'unknown',
+            'pending',
             'unused attempts cannot label an unvisited answer accepted'
           );
-          assert.equal(row.source, 'unverified');
-          assert.deepEqual(row.reasons, []);
+          assert.equal(row.source, 'waiting');
         }
       }
     }

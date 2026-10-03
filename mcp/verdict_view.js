@@ -44,6 +44,10 @@ const KEPT = [
   // What verify made of the answer this call folded: the writer's own last
   // answer, accepted or not.
   'folded',
+  // Owner-approved 2026-10-02 (LOOP_REDESIGN.md §2.0, §2.3d; Q4, Q5): why a
+  // saved position was not used, and how many calls in a row made no progress.
+  'cursor_stripped',
+  'no_progress_calls',
   'banned_pairs',
   'banned_pairs_reason',
   'structures_uncalibrated',
