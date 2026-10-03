@@ -70,9 +70,33 @@ So the first question arrives on the **third** call, after 1,142 s in all.
 - The checkpoint the kill kept had none of call 1's places. That is the gap `438334de` closes.
 - That walk was stopped and is being rerun on the head now, logging every call and why it resumed.
 
+**Through the real connector, second walk** (at `97cee5d9`, which carries the
+checkpoint-per-place fix; 600 s tool budget; a stop or a kill continued with
+no answer, a question answered with the draft's own lines as the test does):
+
+| call | exit | seconds | asked | saved menus/places at the end |
+|---|---|---|---|---|
+| 0 | 5 (stopped) | 486.8 | | 3 |
+| 1 | **−1 (killed)** | 599.1 | | 3 (no new place) |
+| 2 | 5 (stopped) | 581.5 | | 6 |
+| 3 | 4 | 18.2 | group [1,2,6,7,11,12] | |
+| 4-6 | 4 | 9.9, 7.2, 3.3 | L1, three attempts | |
+| 7 | 4 | 102.2 | group [1,2,6,7,11,12] | |
+| 8-10 | 4 | 3.7, 10.1, 3.8 | L2, three attempts | |
+| 11 | 4 | 346.1 | **batch [3,14,15,17,19,21,23]** | |
+| 12-13 | 4 | 9.8, 4.9 | L3 | |
+| 14 | 4 | 218.3 | group [1,3,5,6,10] | |
+| 15 | 4 | 34.9 | **batch [4,9,16,18,20,22,24]** | |
+
+- **The first question arrives on the 4th call, after 1,685.7 s.** The run then walks to its first batch eight calls later. The 16 calls took 2,439.7 s in all.
+- The coordinator measured the same thing independently at `97cee5d9`: call 1 stopped (exit 5, 491 s), call 2 killed (599 s). That measurement stopped at the kill. This walk shows the run getting past it.
+- **Open: why the killed call finished no place in 599 s.**
+  - The places it still had to build take 225-320 s each when measured alone, and each saved place is checkpointed at once. So the call spent more than 270 s somewhere other than building a place, or one place took more than about 570 s.
+  - A diagnostic rerun of calls 0 and 1, logging the killed call's own report, is running.
+
 **Still to do:**
 
-1. Finish the connector walk and report: calls until the first question, total time, and every call's exit.
+1. Explain the killed call above and report: calls until the first question, total time, and every call's exit.
 2. Re-pin the 24-line walks in `mcp/test.mjs` and `mcp/test_run_continuation.mjs`: continue an exit-5 call with no answer, and re-record the batch-door walk with dated notes.
 3. Time both tests end to end against CI's 45-minute `verify` limit. That limit is not changed; if they don't fit, it goes to the owner.
 
