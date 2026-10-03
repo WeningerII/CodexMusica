@@ -1,0 +1,171 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+  "original_frozen_sha256": "c5287918bbf48d24aae68f6fc4e841a3dcbe8e829f0a339ac8e9c34cfbb4995f",
+  "baseline": "b63d72034c15bff3409665db3cf9e10a7c3d29a9",
+  "amendment_paths": [
+    "/entries/8/tradition/family",
+    "/entries/28/neighbor_distinction",
+    "/entries/28/extras/parent",
+    "/entries/28/extras/description",
+    "/entries/67/extras/parent",
+    "/status"
+  ],
+  "original_queue_and_source_bindings": {
+    "frozen_sha256": "c5287918bbf48d24aae68f6fc4e841a3dcbe8e829f0a339ac8e9c34cfbb4995f",
+    "required_predecessor": "b63d72034c15bff3409665db3cf9e10a7c3d29a9",
+    "entries": 100,
+    "dependencies": [
+      "credited_acoustic_bass",
+      "ilimba_gogo",
+      "microtonal_guitar_unspecified",
+      "microtonal_mandolin_unspecified",
+      "octave_fiddle_unspecified",
+      "munnharpe_unspecified",
+      "party_cans_credited",
+      "tenor_horn_eb",
+      "baritone_horn_bb"
+    ],
+    "old_merged_preserved": 1535,
+    "source_packets": 79,
+    "unknown_dependency_descriptors": [],
+    "errors": []
+  },
+  "source": {
+    "predecessor": "b63d72034c15bff3409665db3cf9e10a7c3d29a9",
+    "head": "b63d72034c15bff3409665db3cf9e10a7c3d29a9",
+    "frozen_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+    "counts": {
+      "raw_traditions_old_unchanged": 5838,
+      "raw_instruments_old_unchanged": 1535,
+      "old_extras_unchanged": 5838,
+      "merged_instruments_old_unchanged": 1535,
+      "data/geo.json_old_keys": 5838,
+      "references/_tradition_signatures.json_old_keys": 3816,
+      "old_images_unchanged": 7323,
+      "new_images": 109
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "credited_acoustic_bass",
+      "ilimba_gogo",
+      "microtonal_guitar_unspecified",
+      "microtonal_mandolin_unspecified",
+      "octave_fiddle_unspecified",
+      "munnharpe_unspecified",
+      "party_cans_credited",
+      "tenor_horn_eb",
+      "baritone_horn_bb"
+    ],
+    "runtime_independent": {
+      "cards": 406,
+      "effective_parts": 3727,
+      "flat_pins": 3595,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "actual_browser_preservation": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1535,
+      "traditions": 5838,
+      "cards": 25337
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "new_parts": {
+    "frozen_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+    "parts": 3727,
+    "protectedParts": 3719,
+    "unpinned": [
+      {
+        "tradition": "slovenske_chvaly",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "solipsynthm",
+        "instrument": "string_machine",
+        "part": "electronic_technique",
+        "flat_value": "electronic_arpeggiated",
+        "imported_default": "electronic_pad_drone",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "stl_indie",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "swedish_ebm",
+        "instrument": "sampler_classic",
+        "part": "electronic_technique",
+        "flat_value": "electronic_arpeggiated",
+        "imported_default": "electronic_sample_chopped",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "swiss_worship",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "toronto_indie",
+        "instrument": "electronic_organ_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_organ_melodic_sustained",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "trondersk_musikk",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      },
+      {
+        "tradition": "tucson_indie",
+        "instrument": "pedal_steel",
+        "part": "electric_technique",
+        "flat_value": "electric_clean_strummed",
+        "imported_default": "electric_steel_pedal_swells",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+      }
+    ],
+    "errors": []
+  },
+  "pipeline_files_checked": 264,
+  "errors": [],
+  "semantic_scope": "All100 category/parent/family/role/default scope narratives inspected;3 recommended new-row taxonomy corrections accepted. Per-packet independent primary/photo reviews remain source evidence, not a claim of100 newly browsed pages in this integration pass.189 exclusion intersection empty.",
+  "fallback_boundary": "Eight unprotected imported settings explicitly disclosed; compiled actual choices require final completed API audit. No promise of compiler retention.",
+  "no_repository_mutation": true,
+  "remaining_required": [
+    "Completed full API causal delta and compiled pins audit",
+    "Regression differences causal review",
+    "Exact-head CI"
+  ]
+}

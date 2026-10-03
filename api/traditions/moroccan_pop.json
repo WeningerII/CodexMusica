@@ -5,7 +5,7 @@
   "lineage": "Casablanca and Marrakech commercial chaabi-pop, professionalized from the early 1970s through Nass El Ghiwane's political song and the later cassette-label boom, combining 6/8 and 12/8 Berber-Gnawa cycles with guembri ostinato, qraqeb clatter, bendir and darbuka, unison violin and oud lines, and call-and-response chorus vocals over synthesizer pads.",
   "recipe": "classic North African 1970-1973 moroccan pop, functional Song, mid east n African pop branch, Sufi ritual devotional, middle east n African protest song algerian raï egyptian political-vocal lineage. extended whistle, breath veiled tone, slow rate, interlocked note trading. guembri, qraqeb, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, spun aluminum Egyptian sombaty fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, padauk Egyptian Syrian premium oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 956,
-  "score": 256.862,
+  "score": 255.284,
   "config": {
     "traditions": [
       "moroccan_pop",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 15.238624999999997,
+          "voice_register": 15.052999999999997,
           "voice_quality": 11.24499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 20.214999999999996,
           "voice_ornament_system": 5.973999999999999,
           "voice_pitch_organization": 6.469,
-          "voice_processing_chain": 8.87375,
-          "voice_multitrack_stack": 6.506500000000001
+          "voice_processing_chain": 8.75,
+          "voice_multitrack_stack": 6.205000000000001
         }
       },
       {
@@ -60,7 +60,7 @@
           "guembri_strings": "guembri_nylon"
         },
         "scores": {
-          "guembri_size": 2.335625,
+          "guembri_size": 2.15,
           "guembri_sersera": 0,
           "guembri_strings": 0.03899999999999999
         }
@@ -121,7 +121,7 @@
           "plucked_traditional_technique": 1.3,
           "oud_school": 4.42,
           "oud_strings": 0.65,
-          "oud_pick": 2.6356249999999997,
+          "oud_pick": 2.4499999999999997,
           "oud_body_wood": 2.7299999999999995,
           "oud_soundboard_wood": 0.45499999999999996,
           "oud_string_material": 0.845
@@ -136,7 +136,7 @@
           "orch_back_wood": "bosnian_flamed_maple_violin",
           "orch_varnish": "oil_amber_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
-          "orch_bow": "baroque_bow",
+          "orch_bow": "modern_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
@@ -144,13 +144,13 @@
         "scores": {
           "bowed_technique": 1.25,
           "orch_strings": 0.595,
-          "orch_top_wood": 2.8976249999999997,
-          "orch_back_wood": 2.11,
+          "orch_top_wood": 2.9899999999999998,
+          "orch_back_wood": 2.3049999999999997,
           "orch_varnish": 1.2,
           "orch_setup_period": 0.26,
-          "orch_bow": 0.160875,
+          "orch_bow": 0,
           "orch_bow_stick": 3.2699999999999996,
-          "orch_articulation": 0.08399999999999999,
+          "orch_articulation": 0.129,
           "orch_rosin": 1.6400000000000001
         }
       },
@@ -166,7 +166,7 @@
           "electronic_technique": 14.834999999999997,
           "poly_archetypes": 0.39,
           "poly_voices": 0.045,
-          "poly_maker_lineage": 3.12
+          "poly_maker_lineage": 3.1149999999999998
         }
       },
       {
@@ -182,11 +182,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.2806250000000006,
-          "body_wood": 2.795,
-          "pickup_config": 0.355875,
-          "string_type": 3.925625,
-          "scale_length_b": 2.6356249999999997,
+          "amp_make": 3.0950000000000006,
+          "body_wood": 2.75,
+          "pickup_config": 0.195,
+          "string_type": 3.74,
+          "scale_length_b": 2.4499999999999997,
           "fretted_or_not": 0.54,
           "bass_technique": 0.7,
           "electric_bass_string_configuration": 0

@@ -1,0 +1,898 @@
+{
+  "baseline_api": "/tmp/batch033/baseline-api/api",
+  "current_api": "/workspace/CodexMusica/api",
+  "old_traditions": 5838,
+  "unchanged_old_traditions": 5792,
+  "changed_old_traditions": 46,
+  "changed_recipe_count": 9,
+  "changed_slots_count": 26,
+  "missing_old_traditions": [],
+  "old_source_or_identity_changes": [],
+  "protected_slot_changes": [],
+  "generated_environment_change_ids": [],
+  "instrument_inventory_changes": [],
+  "old_api_instrument_changes": [],
+  "missing_old_api_instruments": [],
+  "new_tradition_files": [
+    "psalms",
+    "rogaland_musikk",
+    "sevilla_indie",
+    "shojo",
+    "shonen",
+    "show_tunes",
+    "shred",
+    "singaporean_mandopop",
+    "sinogaze",
+    "slayer",
+    "slovenske_chvaly",
+    "solipsynthm",
+    "sotalaulut",
+    "south_borneo_indie",
+    "southern_china_indie",
+    "spacesynth",
+    "spanish_prog",
+    "spectra",
+    "st_petersburg_fl_indie",
+    "staff_band",
+    "stl_indie",
+    "stockholm_indie",
+    "streektaal",
+    "street_band",
+    "strut",
+    "subliminal_product",
+    "substep",
+    "sufi",
+    "sunnlensk_tonlist",
+    "suomirap",
+    "surabaya_indie",
+    "svensk_indie",
+    "svensk_progg",
+    "swedish_ebm",
+    "swedish_electropop",
+    "swedish_eurodance",
+    "swedish_experimental",
+    "swedish_prog",
+    "swiss_experimental",
+    "swiss_indie",
+    "swiss_worship",
+    "sydney_indie",
+    "synthesizer",
+    "tabla",
+    "tagalog_worship",
+    "taiwan_experimental",
+    "taiwan_indie",
+    "taiwan_instrumental",
+    "taiwanese_indigenous_music",
+    "talentschau",
+    "tamil_devotional",
+    "tamil_worship",
+    "tampa_indie",
+    "tanci",
+    "tango_cancion",
+    "tanzanian_traditional",
+    "tanzlmusi",
+    "tanzorchester",
+    "tassie_indie",
+    "technical_thrash",
+    "telugu_worship",
+    "tempe_indie",
+    "tennessee_experimental",
+    "thai_indie",
+    "thall",
+    "theme",
+    "therapy",
+    "theremin",
+    "thrash_core",
+    "tijuana_indie",
+    "tontipop",
+    "toronto_indie",
+    "traditional_irish_singing",
+    "trekkspill",
+    "trio_cubano",
+    "trombone_ensemble",
+    "trondersk_musikk",
+    "trondheim_indie",
+    "tucson_indie",
+    "tulsa_indie",
+    "tunisian_alternative",
+    "uk_beatdown",
+    "ukhc",
+    "ukulele",
+    "uppsala_indie",
+    "utah_indie",
+    "vancouver_indie",
+    "vanuatu_music",
+    "vegan_straight_edge",
+    "vermont_indie",
+    "victorian_britain",
+    "vienna_indie",
+    "viola",
+    "viola_da_gamba",
+    "violin",
+    "virginia_indie",
+    "visor",
+    "vlaamse_cabaret",
+    "warrington_indie",
+    "water"
+  ],
+  "changes": [
+    {
+      "id": "algerian_rai_political",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["algerian_rai_political", "arab_tarab", "uyghur_folk"],
+      "traditions_after": ["algerian_rai_political", "arab_tarab", "uyghur_folk"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "oud",
+          "part": "oud_soundboard_wood",
+          "before": "oud_lebanese_cedar_face",
+          "after": "oud_western_red_cedar_face",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "oud",
+          "part": "oud_string_material",
+          "before": "oud_pyramid_nylon",
+          "after": "oud_gut_historical",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic West African mid-1920s algerian ra\u00ef, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab uyghur folk music. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier pyramid nylon arab school oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion, driving festive gasba, oranais processional heavy beat festive metal body guellal. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+      "recipe_after": "classic West African mid-1920s algerian ra\u00ef, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab uyghur folk music. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier plain gut pre 1900 period correct oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion, driving festive gasba, oranais processional heavy beat festive metal body guellal. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay."
+    },
+    {
+      "id": "ambient_country",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["ambient_country", "south_african_country", "memphis_americana"],
+      "traditions_after": ["ambient_country", "virginia_indie", "south_african_country"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic 2017-2019 ambient country, experimental Elec, ambient branch, americana country, modal electric drone modal south african country memphis americana. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, metal body three cone system national steel resonator guitar, resonant pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, American clean tube combo, tilt EQ. 24-bit digital analog bucket-brigade delay hall reverb.",
+      "recipe_after": "classic 2017-2019 ambient country, experimental Elec, ambient branch, americana country, modal electric drone modal virginia indie south african country. Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, metal body three cone system national steel resonator guitar, resonant pad like pad analog synth. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, transformerless solid-state pre, American clean tube combo, tilt EQ. 24-bit digital analog bucket-brigade delay hall reverb."
+    },
+    {
+      "id": "american_political_stump_oratory",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "american_political_stump_oratory",
+        "egyptian_sayyed_darwish_sheikh_imam",
+        "south_african_freedom_song"
+      ],
+      "traditions_after": [
+        "american_political_stump_oratory",
+        "egyptian_sayyed_darwish_sheikh_imam",
+        "south_african_freedom_song"
+      ],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic North American modern american political stump oratory, protest Song, European branch egyptian political-vocal lineage south african freedom song. thick, breath veiled tone, straight onset, interlocked note trading. us uk civic amateur band hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic North American modern american political stump oratory, protest Song, European branch egyptian political-vocal lineage south african freedom song. thick, breath veiled tone, straight onset, interlocked note trading. us uk civic amateur band hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital."
+    },
+    {
+      "id": "athan_call_prayer",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["athan_call_prayer", "mevlevi_ayin", "sindhi"],
+      "traditions_after": ["athan_call_prayer", "mevlevi_ayin", "sindhi"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic modern ath\u0101n, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin sindhi. vocal fry, breath veiled tone, slow rate, interlocked note trading. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic modern ath\u0101n, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin sindhi. vocal fry, breath veiled tone, slow rate, interlocked note trading. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "bahai",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["bahai"],
+      "traditions_after": ["bahai"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2020s bah\u00e1\u2019\u00ed music, ritual Devotional. solo with instrumental accompaniment, single lead single track no stacking. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2020s bah\u00e1\u2019\u00ed music, ritual Devotional. solo with instrumental accompaniment, single lead single track no stacking. Asian spruce hokkaido source grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "belgian_experimental",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["belgian_experimental"],
+      "traditions_after": ["belgian_experimental"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s belgian experimental, experimental Elec. baritone electric guitar, modular synth, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s belgian experimental, experimental Elec. baritone electric guitar, modular synth, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "bengali_baul",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["bengali_baul", "mevlevi_ayin", "sindhi"],
+      "traditions_after": ["bengali_baul", "mevlevi_ayin", "sindhi"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Eastern European mid-1980s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry mevlevi ayin sindhi. vocal fry, breath veiled tone, slow rate, interlocked note trading. dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh esraj. adobe room. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+      "recipe_after": "classic Eastern European mid-1980s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry mevlevi ayin sindhi. vocal fry, breath veiled tone, slow rate, interlocked note trading. dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh esraj. adobe room. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb."
+    },
+    {
+      "id": "brazilian_mpb_protest",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["brazilian_mpb_protest", "cantautora_mexicana", "folklore_surero"],
+      "traditions_after": ["brazilian_mpb_protest", "cantautora_mexicana", "folklore_surero"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_after": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz."
+    },
+    {
+      "id": "canadian_ccm",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["canadian_ccm"],
+      "traditions_after": ["canadian_ccm"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic canadian ccm, ritual Devotional. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic canadian ccm, ritual Devotional. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "cape_jazz",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["cape_jazz", "spiritual_jazz", "jazz_flute"],
+      "traditions_after": ["cape_jazz", "spiritual_jazz", "swiss_experimental"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pinblock",
+          "before": "hexagrip_7_ply_quartersawn_maple",
+          "after": "asian_multi_laminate_pinblock",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz jazz flute. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+      "recipe_after": "classic Southern African 1957-1959 cape jazz, improv On Frame, American jazz branch, African pop functional song, American jazz avant spiritual jazz swiss experimental. thick, breath veiled tone, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral multiphonic shallow cup lead trumpet ensemble trumpet, African blackwood boxwood premium pre modern tin whistle, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut."
+    },
+    {
+      "id": "chilean_nueva_cancion",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "chilean_nueva_cancion",
+        "andean_matrimonio_huayno",
+        "greek_entechno_politicized"
+      ],
+      "traditions_after": [
+        "chilean_nueva_cancion",
+        "andean_matrimonio_huayno",
+        "greek_entechno_politicized"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "bombo_andino",
+          "part": "bombo_andino_construction",
+          "before": "bombo_andino_leguero",
+          "after": "bombo_andino_stave",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Andean 1970-1973 chilean nueva canci\u00f3n, protest Song, iberian Latin branch, European protest song, Latin am troubadour ballad poetry, americas wedding andean matrimonio huayno greek \u00e9ntechno politicized. thick, forward-resonance, straight note core, interlocked note trading. cedar walnut martin lifespan fingerpicked acoustic guitar, naranjillo andean premium wood cedar andean andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, ceibo canonical Argentine leguero hollowed trunk bombo andino, continuous pour slow inverting rainstick. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic Andean 1970-1973 chilean nueva canci\u00f3n, protest Song, iberian Latin branch, European protest song, Latin am troubadour ballad poetry, americas wedding andean matrimonio huayno greek \u00e9ntechno politicized. thick, forward-resonance, straight note core, interlocked note trading. cedar walnut martin lifespan fingerpicked acoustic guitar, naranjillo andean premium wood cedar andean andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, ceibo canonical Argentine leguero hollowed trunk bombo andino, continuous pour slow inverting rainstick. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "clean_comedy",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["clean_comedy"],
+      "traditions_after": ["clean_comedy"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2020s clean comedy, spoken Word, stage performance branch. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-2020s clean comedy, spoken Word, stage performance branch. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "comedia",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["comedia"],
+      "traditions_after": ["comedia"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s comedia, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s comedia, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "comedienne",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["comedienne"],
+      "traditions_after": ["comedienne"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic comedienne, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic comedienne, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "deconstructed_club",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["deconstructed_club", "electro_industrial", "industrial_hardcore"],
+      "traditions_after": ["deconstructed_club", "electro_industrial", "footwork"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "sampler_classic",
+          "part": "sampler_classic_context",
+          "before": "sampler_classic_industrial",
+          "after": "sampler_classic_edm",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "digital_subtractive",
+          "part": "electronic_technique",
+          "before": "electronic_arpeggiated",
+          "after": "electronic_bass_sub",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_pitched_sample_melodic_bed",
+          "after": "voice_multitrack_2010s_melodyne_microtuned",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_machine_909",
+          "part": "tr909_voice",
+          "before": "tr909_hat",
+          "after": "tr909_kick",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic 2012-2016 deconstructed club, electronic Dance, continental branch, industrial noise experimental electric, footwork electronic dance electro-industrial industrial hardcore. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, digital subtractive, evolving modular granular synth, TR-909. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic 2012-2016 deconstructed club, electronic Dance, continental branch, industrial noise experimental electric, footwork electronic dance electro-industrial. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, digital subtractive, modular granular synth, TR-909. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "egyptian_sayyed_darwish_sheikh_imam",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["egyptian_sayyed_darwish_sheikh_imam", "andalusi_nuba", "ghazal"],
+      "traditions_after": ["egyptian_sayyed_darwish_sheikh_imam", "andalusi_nuba", "ghazal"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic North African egyptian political-vocal lineage, protest Song, middle east n African branch, European protest song, middle eastern classical art music, med east poetic ballad poetry andalus\u012b n\u016bba ghazal. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean oud. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_after": "classic North African egyptian political-vocal lineage, protest Song, middle east n African branch, European protest song, middle eastern classical art music, med east poetic ballad poetry andalus\u012b n\u016bba ghazal. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean oud. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac."
+    },
+    {
+      "id": "guided_meditation",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "guided_meditation",
+        "audiobook_narration",
+        "shipping_forecast_cadence"
+      ],
+      "traditions_after": ["guided_meditation", "audiobook_narration", "shipping_forecast_cadence"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-1970s guided meditation, spoken Word, intimate voice branch audiobook narration shipping forecast cadence. vocal fry, breath veiled tone, slow rate, interlocked note trading. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_after": "classic mid-1970s guided meditation, spoken Word, intimate voice branch audiobook narration shipping forecast cadence. vocal fry, breath veiled tone, slow rate, interlocked note trading. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital."
+    },
+    {
+      "id": "hasidic_niggun",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["hasidic_niggun", "mevlevi_ayin", "qawwali"],
+      "traditions_after": ["hasidic_niggun", "mevlevi_ayin", "qawwali"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Eastern European late-1890s hasidic niggun, ritual Devotional, Jewish branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble. eastern european chassidic farbrengen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic Eastern European late-1890s hasidic niggun, ritual Devotional, Jewish branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody kakhetian three voice two soloists choral drone choir ensemble. eastern european chassidic farbrengen. ORTF stereo pair, portable field-recorder pre. 24-bit digital."
+    },
+    {
+      "id": "islamic_anasheed",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["islamic_anasheed", "mevlevi_ayin", "qawwali"],
+      "traditions_after": ["islamic_anasheed", "mevlevi_ayin", "sufi"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_stutter_edit",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_ensemble_repertoire",
+          "before": "choir_ensemble_romantic",
+          "after": "choir_ensemble_global_traditional",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic early-2000s an\u0101sh\u012bd, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic early-2000s an\u0101sh\u012bd, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "kabarett",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["kabarett"],
+      "traditions_after": ["kabarett"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2010s kabarett, spoken Word, stage performance branch. no pitch organization speech. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2010s kabarett, spoken Word, stage performance branch. no pitch organization speech. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "kundalini",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["kundalini"],
+      "traditions_after": ["kundalini"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2010s kundalini, ritual Devotional. live layered electric cello live looping. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-2010s kundalini, ritual Devotional. live layered electric cello live looping. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "latino_comedy",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["latino_comedy"],
+      "traditions_after": ["latino_comedy"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic latino comedy, spoken Word, stage performance branch. no pitch organization speech, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic latino comedy, spoken Word, stage performance branch. no pitch organization speech, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "malhun_maghrebi",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["malhun_maghrebi", "qawwali", "sufi_sama"],
+      "traditions_after": ["malhun_maghrebi", "qawwali", "sufi_sama"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic North African early-1950s malhun, improv On Frame, Persian arab improv branch, Sufi ritual devotional qawwali sufi sama. vocal fry, declaimed, slow rate, interlocked note trading. padauk Egyptian Syrian premium pyramid nylon arab school oud, spun aluminum Egyptian sombaty iraqi maqam zarb drier finger darbuka. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic North African early-1950s malhun, improv On Frame, Persian arab improv branch, Sufi ritual devotional qawwali sufi sama. vocal fry, declaimed, slow rate, interlocked note trading. padauk Egyptian Syrian premium pyramid nylon arab school oud, spun aluminum Egyptian sombaty iraqi maqam zarb drier finger darbuka. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips."
+    },
+    {
+      "id": "marcha_funebre",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["marcha_funebre"],
+      "traditions_after": ["marcha_funebre"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic early-2020s marcha funebre, ritual Devotional. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic early-2020s marcha funebre, ritual Devotional. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "messianic_praise",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["messianic_praise"],
+      "traditions_after": ["messianic_praise"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s messianic praise, ritual Devotional. dreadnought acoustic conventional tuning standard pitch humbucker electric guitar, credited auxiliary percussion, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s messianic praise, ritual Devotional. dreadnought acoustic conventional tuning standard pitch humbucker electric guitar, credited auxiliary percussion, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "modal_jazz",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["modal_jazz", "viking_folk", "arab_folk"],
+      "traditions_after": ["modal_jazz"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "saxophone",
+          "part": "sax_body_alloy",
+          "before": "nickel_silver_sax",
+          "after": "phosphor_bronze_sax",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "renner_standard_hammer",
+          "after": "ronsen_wurzen_hammer",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pinblock",
+          "before": "hexagrip_7_ply_quartersawn_maple",
+          "after": "asian_multi_laminate_pinblock",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "steinway_17_ply_hard_rock_maple_rim",
+          "after": "mason_hamlin_oversize_rim",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "before": "a_442_european",
+          "after": "a_441_japanese",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "fiberskyn_drumhead",
+          "after": "vintage_ambassador_drumhead",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "before": "brushes_and_sticks",
+          "after": "brushes_jazz",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal viking folk arab folk. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_after": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb."
+    },
+    {
+      "id": "moroccan_pop",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": [
+        "moroccan_pop",
+        "algerian_rai_political",
+        "egyptian_sayyed_darwish_sheikh_imam"
+      ],
+      "traditions_after": [
+        "moroccan_pop",
+        "algerian_rai_political",
+        "egyptian_sayyed_darwish_sheikh_imam"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_bow",
+          "before": "baroque_bow",
+          "after": "modern_bow",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic North African 1970-1973 moroccan pop, functional Song, mid east n African pop branch, Sufi ritual devotional, middle east n African protest song algerian ra\u00ef egyptian political-vocal lineage. extended whistle, breath veiled tone, slow rate, interlocked note trading. guembri, qraqeb, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, spun aluminum Egyptian sombaty fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, padauk Egyptian Syrian premium oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic North African 1970-1973 moroccan pop, functional Song, mid east n African pop branch, Sufi ritual devotional, middle east n African protest song algerian ra\u00ef egyptian political-vocal lineage. extended whistle, breath veiled tone, slow rate, interlocked note trading. guembri, qraqeb, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, spun aluminum Egyptian sombaty fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, padauk Egyptian Syrian premium oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips."
+    },
+    {
+      "id": "musica_indigena_brasileira",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["musica_indigena_brasileira"],
+      "traditions_after": ["musica_indigena_brasileira"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic musica indigena brasileira, ritual Devotional. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic musica indigena brasileira, ritual Devotional. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "musica_indigena_latinoamericana",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["musica_indigena_latinoamericana"],
+      "traditions_after": ["musica_indigena_latinoamericana"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic musica indigena latinoamericana, ritual Devotional. solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic musica indigena latinoamericana, ritual Devotional. solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "musica_instrumental_cristiana",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["musica_instrumental_cristiana"],
+      "traditions_after": ["musica_instrumental_cristiana"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic musica instrumental cristiana, ritual Devotional. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic musica instrumental cristiana, ritual Devotional. grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "naat_devotional",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["naat_devotional", "mevlevi_ayin", "qawwali"],
+      "traditions_after": ["naat_devotional", "mevlevi_ayin", "qawwali"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian mid-1980s na\u02bfat, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, walnut bent frame canonical Persian daf, overtone rich sustained ceremonial reed harmonium indian. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+      "recipe_after": "classic South Asian mid-1980s na\u02bfat, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, walnut bent frame canonical Persian daf, overtone rich sustained ceremonial reed harmonium indian. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay."
+    },
+    {
+      "id": "new_comedy",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["new_comedy"],
+      "traditions_after": ["new_comedy"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic late-2010s new comedy, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic late-2010s new comedy, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "nova_canco",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["nova_canco", "chanson", "cancion_melodica"],
+      "traditions_after": ["nova_canco", "chanson", "cancion_melodica"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Western European nova can\u00e7\u00f3, protest Song, iberian Latin branch, European protest song, chanson fado classic chanson, iberian functional song canci\u00f3n mel\u00f3dica. thick, breath veiled tone, slow rate, interlocked note trading. phosphor bronze bronze fingerpicked acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, French renaissance lyon twisted plain double bass, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, powell boston canonical American orchestral flute. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_after": "classic Western European nova can\u00e7\u00f3, protest Song, iberian Latin branch, European protest song, chanson fado classic chanson, iberian functional song canci\u00f3n mel\u00f3dica. thick, breath veiled tone, slow rate, interlocked note trading. phosphor bronze bronze fingerpicked acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, French renaissance lyon twisted plain double bass, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, powell boston canonical American orchestral flute. intimate paris small studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb."
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["numbers_station_broadcast", "audiobook_narration", "poetry_slam"],
+      "traditions_after": [
+        "numbers_station_broadcast",
+        "audiobook_narration",
+        "documentary_voiceover"
+      ],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_opera",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_speech_song",
+          "before": "voice_rhythmic_spoken_flow",
+          "after": "voice_sprechgesang_notated",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "delayed_vibrato",
+          "after": "slow_vibrato",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic North African mid-1950s numbers-station shortwave broadcast, spoken Word, broadcast branch audiobook narration poetry slam / performance poetry. thick, breath veiled tone, straight onset, interlocked note trading. cement block broadcast booth. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+      "recipe_after": "classic North African mid-1950s numbers-station shortwave broadcast, spoken Word, broadcast branch audiobook narration documentary voiceover. thick, breath veiled tone, slow rate, interlocked note trading. cement block broadcast booth. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette."
+    },
+    {
+      "id": "ocean",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["ocean"],
+      "traditions_after": ["ocean"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-2010s ocean, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic mid-2010s ocean, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "papuri",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["papuri"],
+      "traditions_after": ["papuri"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic papuri, ritual Devotional. live take. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_after": "classic papuri, ritual Devotional. live take. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital."
+    },
+    {
+      "id": "poetry_slam",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["poetry_slam", "oldtime_radio_announcer", "sports_play_by_play"],
+      "traditions_after": ["poetry_slam", "oldtime_radio_announcer", "sports_play_by_play"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic mid-1980s poetry slam / performance poetry, spoken Word, stage performance branch old-time radio announcer sports play-by-play commentary. thick, breath veiled tone, straight onset, interlocked note trading. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_after": "classic mid-1980s poetry slam / performance poetry, spoken Word, stage performance branch old-time radio announcer sports play-by-play commentary. thick, breath veiled tone, straight onset, interlocked note trading. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter."
+    },
+    {
+      "id": "quran_murattal",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["quran_murattal", "arabic_madh_qasida", "sufi_munajat_naat"],
+      "traditions_after": ["quran_murattal", "arabic_madh_qasida", "sufi_munajat_naat"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic North African early-1940s qur'an murattal, ritual Devotional, islamic branch, intimate voice spoken word, middle east n African praise song arabic madh and qasida sufi munajat and naat. extended whistle, declaimed, slow rate, interlocked note trading. three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. stone plaster medina room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+      "recipe_after": "classic North African early-1940s qur'an murattal, ritual Devotional, islamic branch, intimate voice spoken word, middle east n African praise song arabic madh and qasida sufi munajat and naat. extended whistle, declaimed, slow rate, interlocked note trading. three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. stone plaster medina room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb."
+    },
+    {
+      "id": "russian_chanson",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["russian_chanson", "texas_country_folk_storyteller", "liedermacher"],
+      "traditions_after": ["russian_chanson", "texas_country_folk_storyteller", "liedermacher"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Eastern European 1957-1959 russian chanson, ballad Poetry, Slavic bard branch, anglo singer song country folk story, European protest song texas country-folk storyteller liedermacher. thick, breath veiled tone, straight note core, interlocked note trading. cedar fingerpicked classical nylon-string guitar, b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, drum machine analog, analog poly synth, castagnari Italian premium folk music straight accordion. bedroom. dynamic moving-coil, tube pre. Walkman cassette.",
+      "recipe_after": "classic Eastern European 1957-1959 russian chanson, ballad Poetry, Slavic bard branch, anglo singer song country folk story, European protest song texas country-folk storyteller liedermacher. thick, breath veiled tone, straight note core, interlocked note trading. cedar fingerpicked classical nylon-string guitar, b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, drum machine analog, analog poly synth, castagnari Italian premium folk music straight accordion. bedroom. dynamic moving-coil, tube pre. Walkman cassette."
+    },
+    {
+      "id": "sahel_praise",
+      "changed_keys": ["config", "score", "recipe", "recipe_chars"],
+      "recipe_changed": true,
+      "source_identical": true,
+      "traditions_before": ["sahel_praise", "sudanese_aghani_al_banat", "wassoulou"],
+      "traditions_after": ["sahel_praise", "sudanese_aghani_al_banat", "wassoulou"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "open_g",
+          "after": "dadgad",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "griot_voice",
+          "part": "griot_voice_context",
+          "before": "griot_voice_praise",
+          "after": "griot_voice_stage",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. open string slide resonance clean strummed single coil electric guitar, stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_after": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. clean strummed single coil electric guitar, stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb."
+    },
+    {
+      "id": "saraiki_pop",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["saraiki_pop", "qawwali", "rajasthani_folk_thar"],
+      "traditions_after": ["saraiki_pop", "qawwali", "rajasthani_folk_thar"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian mid-1970s saraiki pop, functional Song, south Asian pop branch, Sufi ritual devotional, indian bard ballad poetry qawwali rajasthani folk. extended whistle, declaimed, slow rate, interlocked note trading. goat skin syahi rope laced steel ring dholak, algoza, low overtone rich vocal male harmonium indian, steel single string canonical Punjabi ornamented tumbi, gourd bamboo canonical bengali steel modern ornamented ektara, pitched indian rosewood rosewood tabla. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+      "recipe_after": "classic South Asian mid-1970s saraiki pop, functional Song, south Asian pop branch, Sufi ritual devotional, indian bard ballad poetry qawwali rajasthani folk. extended whistle, declaimed, slow rate, interlocked note trading. goat skin syahi rope laced steel ring dholak, algoza, low overtone rich vocal male harmonium indian, steel single string canonical Punjabi ornamented tumbi, gourd bamboo canonical bengali steel modern ornamented ektara, pitched indian rosewood rosewood tabla. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay."
+    },
+    {
+      "id": "setar_persian_solo",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["setar_persian_solo", "ney_taksim", "oud_taqsim"],
+      "traditions_after": ["setar_persian_solo", "ney_taksim", "oud_taqsim"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic European early-1970s setar, drone Modal, string branch, Sufi ritual devotional, Persian arab improv improv on frame, heterophonic drone modal ney taksim oud taqsim. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bowl canonical Persian gut historical pre modern radif radif setar persian, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, Sufi mystical arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney. parlor. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "recipe_after": "classic European early-1970s setar, drone Modal, string branch, Sufi ritual devotional, Persian arab improv improv on frame, heterophonic drone modal ney taksim oud taqsim. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bowl canonical Persian gut historical pre modern radif radif setar persian, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, Sufi mystical arundo donax cane canonical Persian nine segment canonical 20th century Persian radif continuous-airflow legato ney. parlor. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L."
+    },
+    {
+      "id": "standup_comedy",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["standup_comedy", "sports_play_by_play", "oldtime_radio_announcer"],
+      "traditions_after": ["standup_comedy", "sports_play_by_play", "oldtime_radio_announcer"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_late_1970s_thirds_fifths_octaves",
+          "after": "voice_multitrack_unison_double_take",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic North American 1970-1973 stand-up comedy, spoken Word, stage performance branch sports play-by-play commentary old-time radio announcer. extended whistle, breath veiled tone, straight note core, interlocked note trading. jazz club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_after": "classic North American 1970-1973 stand-up comedy, spoken Word, stage performance branch sports play-by-play commentary old-time radio announcer. extended whistle, breath veiled tone, straight note core, interlocked note trading. jazz club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb."
+    },
+    {
+      "id": "tajik_traditional",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["tajik_traditional", "sindhi", "latmiya"],
+      "traditions_after": ["tajik_traditional", "sindhi", "latmiya"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic Central Asian mid-1930s tajik traditional music, art Music, middle eastern classical branch, Sufi ritual devotional, middle eastern funeral lament sindhi latmiya. sygyt, declaimed, slow rate, interlocked note trading. mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, devotional ornamented lead melodic rubab, sustained legato ghijak pamiri, doira frame drum, walnut bent frame canonical Persian daf, nay tajik. bukhara shashmaqam courtyard chamber. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic Central Asian mid-1930s tajik traditional music, art Music, middle eastern classical branch, Sufi ritual devotional, middle eastern funeral lament sindhi latmiya. sygyt, declaimed, slow rate, interlocked note trading. mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, devotional ornamented lead melodic rubab, sustained legato ghijak pamiri, doira frame drum, walnut bent frame canonical Persian daf, nay tajik. bukhara shashmaqam courtyard chamber. ORTF stereo pair, portable field-recorder pre. 24-bit digital."
+    },
+    {
+      "id": "tarana",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["tarana", "sufi_sama", "qawwali"],
+      "traditions_after": ["tarana", "sufi_sama", "qawwali"],
+      "environment_changes": {},
+      "slot_changes": [],
+      "recipe_before": "classic South Asian early-1950s tarana, improv On Frame, indian classical improv branch, Sufi ritual devotional sufi sama qawwali. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_after": "classic South Asian early-1950s tarana, improv On Frame, indian classical improv branch, Sufi ritual devotional sufi sama qawwali. vocal fry, declaimed, slow rate, interlocked note trading. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips."
+    },
+    {
+      "id": "zikir",
+      "changed_keys": ["config", "score"],
+      "recipe_changed": false,
+      "source_identical": true,
+      "traditions_before": ["zikir", "sufi_zikr_chant", "sindhi"],
+      "traditions_after": ["zikir", "sufi_zikr_chant", "sindhi"],
+      "environment_changes": {},
+      "slot_changes": [
+        {
+          "instrument": "rebana_ubi",
+          "part": "rebana_ubi_size",
+          "before": "rebana_ubi_giant",
+          "after": "rebana_ubi_medium",
+          "runtime_protected": false
+        }
+      ],
+      "recipe_before": "classic modern zikir, ritual Devotional, islamic branch, Sufi ritual devotional, middle east n African praise song sufi zikr chant sindhi. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, snappy to palm hand clap, rebana ubi, kompang frame drum, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_after": "classic modern zikir, ritual Devotional, islamic branch, Sufi ritual devotional, middle east n African praise song sufi zikr chant sindhi. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, snappy to palm hand clap, rebana ubi, kompang frame drum, juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital."
+    }
+  ],
+  "decision": "Pending causal review of changed rows; full comparison is not blanket acceptance."
+}

@@ -1,0 +1,67 @@
+{
+  "baseline_head": "b63d72034c15bff3409665db3cf9e10a7c3d29a9",
+  "current_batch": "033",
+  "current_ui_checks": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.5,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 17.9,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 11.1,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 83.5,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 42.3,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 113.1,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 21.0,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.3,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "known_local_failures": [
+    {
+      "check": "check_ui_foundation",
+      "finding": "Same sole assertion O photo enlargement failure; current and clean predecessor logs byte-identical."
+    },
+    {
+      "check": "ui_reachability_check",
+      "finding": "Same file URL navigation ERR_BLOCKED_BY_ADMINISTRATOR on clean predecessor and current."
+    }
+  ],
+  "local_browser": "Existing Chromium installation at /tmp/codex-playwright; pinned browser download unavailable in this environment as previously recorded. Full exact-head CI required.",
+  "code_change": "None; all UI/browser source preserved.",
+  "baseline_logs": ["baseline-ui-foundation.log", "baseline-ui-reachability.log"]
+}

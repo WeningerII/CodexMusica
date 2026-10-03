@@ -5,7 +5,7 @@
   "lineage": "Soviet and post-Soviet outlaw-song genre grown from prison and Odessa blatnaya pesnya, circulated on magnitizdat reel tapes from the late 1950s through Arkady Severny and Vladimir Vysotsky and commercialized by Radio Chanson from 1998 with Mikhail Krug and Alexander Novikov, using strophic minor-key verses at 90-130 BPM over strummed seven-string guitar, bayan and later cheap synth-and-drum-machine backing, sung in a hoarse chest-voiced criminal-argot narration.",
   "recipe": "classic Eastern European 1957-1959 russian chanson, ballad Poetry, Slavic bard branch, anglo singer song country folk story, European protest song texas country-folk storyteller liedermacher. thick, breath veiled tone, straight note core, interlocked note trading. cedar fingerpicked classical nylon-string guitar, b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, drum machine analog, analog poly synth, castagnari Italian premium folk music straight accordion. bedroom. dynamic moving-coil, tube pre. Walkman cassette.",
   "recipe_chars": 647,
-  "score": 239.475,
+  "score": 239.907,
   "config": {
     "traditions": [
       "russian_chanson",
@@ -38,16 +38,16 @@
           "voice_quality": 6.825000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.279999999999999,
+          "voice_vibrato": 7.174999999999999,
           "voice_articulation": 17.68,
           "voice_microtone": 18.784999999999997,
-          "voice_tradition": 13.001499999999997,
+          "voice_tradition": 12.864999999999998,
           "voice_mechanism_compound": 2.925,
-          "voice_estill_quality": 9.351499999999998,
+          "voice_estill_quality": 9.364999999999998,
           "voice_speech_song": 25.285,
           "voice_ensemble_config": 17.419999999999998,
           "voice_ornament_system": 2.3099999999999996,
-          "voice_pitch_organization": 2.1000000000000005,
+          "voice_pitch_organization": 2.4900000000000007,
           "voice_processing_chain": 4.55,
           "voice_multitrack_stack": 2.5025000000000004
         }
@@ -66,8 +66,8 @@
           "acoustic_technique": 17.499999999999996,
           "string_tuning": 0,
           "top_wood_classical": 5.115,
-          "bracing_classical": 0.585,
-          "string_classical": 0.63,
+          "bracing_classical": 0.63,
+          "string_classical": 0.675,
           "attack_technique_cl": 0.195
         }
       },
@@ -101,9 +101,9 @@
         "scores": {
           "amp_make": 6.734999999999999,
           "body_wood": 0.195,
-          "pickup_config": 0.585,
+          "pickup_config": 0.63,
           "string_type": 0.65,
-          "scale_length_b": 0.585,
+          "scale_length_b": 0.63,
           "fretted_or_not": 0.045,
           "bass_technique": 8.95,
           "electric_bass_string_configuration": 0
@@ -119,9 +119,9 @@
         },
         "scores": {
           "kick_voice": 1.0399999999999998,
-          "snare_voice": 0.585,
+          "snare_voice": 0.63,
           "hat_voice": 0.45499999999999996,
-          "shuffle_quantize": 0.585
+          "shuffle_quantize": 0.63
         }
       },
       {

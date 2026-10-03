@@ -1,0 +1,261 @@
+{
+  "id": "rogaland_musikk",
+  "name": "Rogaland Musikk",
+  "family": "vernacular",
+  "lineage": "Malmin with Åshild Vetrhus — Med Åshild Vetrhus (2025). Present-day authored complete album-palette arrangement, not simultaneous performance on every track. Existing fiddle, Hardanger and Norwegian langeleik construction presets are representative realizations; they do not identify the performers’ actual makes, string materials, sympathetic-string count or instrument regional manufacture. Microtonal guitar/mandolin, octave fiddle and munnharpe retain only their positive nominal identities with unspecified construction. No equal temperament or measured interval system is asserted; global tuning omitted. Bowed local-song melody is an authored technique choice. Studio and recording chain are authored, not reconstruction of Tou lyd.",
+  "recipe": "classic mid-2020s rogaland musikk, drone Modal, string branch. solo with instrumental accompaniment, single lead single track no stacking. melodic bowed song accompaniment fiddle, mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian bowed song accompaniment hardanger fiddle inst, microtonal mandolin microtonal guitar munnharpe melodic bowed song accompaniment octave fiddle unspecified, dance driving langeleik. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 550,
+  "score": 43.884,
+  "config": {
+    "traditions": [
+      "rogaland_musikk"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 3.3799999999999994,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.189,
+          "voice_multitrack_stack": 3.74,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "fiddle_strings": "synthetic_core",
+          "fiddle_bow": "light_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 3.23,
+          "fiddle_strings": 0.3045,
+          "fiddle_bow": 0,
+          "fiddle_mute": 1.9629999999999999,
+          "fiddle_articulation": 0.78,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "hardanger_fiddle_inst",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "hardingfele_strings": "hardingfele_4_taraf",
+          "hardingfele_tuning": "hardingfele_old_norwegian",
+          "hardingfele_strings_material": "hardingfele_synthetic_modern",
+          "hardingfele_inlay": "hardingfele_pearl_bone",
+          "hardingfele_body_wood": "hardingfele_spruce_maple"
+        },
+        "scores": {
+          "bowed_technique": 3.23,
+          "hardingfele_strings": 4.29,
+          "hardingfele_tuning": 1.17,
+          "hardingfele_strings_material": 0.3045,
+          "hardingfele_inlay": 3.7700000000000005,
+          "hardingfele_body_wood": 2.08
+        }
+      },
+      {
+        "id": "microtonal_mandolin_unspecified",
+        "slots": {
+          "microtonal_mandolin_unspecified_identity": "microtonal_mandolin_unspecified_credited"
+        },
+        "scores": {
+          "microtonal_mandolin_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "microtonal_guitar_unspecified",
+        "slots": {
+          "microtonal_guitar_unspecified_identity": "microtonal_guitar_unspecified_credited"
+        },
+        "scores": {
+          "microtonal_guitar_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "munnharpe_unspecified",
+        "slots": {
+          "munnharpe_unspecified_identity": "munnharpe_unspecified_credited"
+        },
+        "scores": {
+          "munnharpe_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "langeleik",
+        "slots": {
+          "langeleik_form": "langeleik_valdres",
+          "langeleik_repertoire": "langeleik_dance_slatt",
+          "langeleik_strings": "langeleik_steel_brass"
+        },
+        "scores": {
+          "langeleik_form": 6.273000000000001,
+          "langeleik_repertoire": 6.020500000000001,
+          "langeleik_strings": -0.07
+        }
+      },
+      {
+        "id": "octave_fiddle_unspecified",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "octave_fiddle_unspecified_identity": "octave_fiddle_unspecified_credited"
+        },
+        "scores": {
+          "bowed_technique": 3.23,
+          "octave_fiddle_unspecified_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "hardanger_fiddle_inst": [
+        "bowed_technique",
+        "hardingfele_strings",
+        "hardingfele_tuning",
+        "hardingfele_strings_material",
+        "hardingfele_inlay",
+        "hardingfele_body_wood"
+      ],
+      "microtonal_mandolin_unspecified": [
+        "microtonal_mandolin_unspecified_identity"
+      ],
+      "microtonal_guitar_unspecified": [
+        "microtonal_guitar_unspecified_identity"
+      ],
+      "munnharpe_unspecified": [
+        "munnharpe_unspecified_identity"
+      ],
+      "langeleik": [
+        "langeleik_form",
+        "langeleik_repertoire",
+        "langeleik_strings"
+      ],
+      "octave_fiddle_unspecified": [
+        "bowed_technique",
+        "octave_fiddle_unspecified_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "bowed_technique": "bowed_local_song_melody",
+      "fiddle_strings": "synthetic_core",
+      "fiddle_bow": "light_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "hardingfele_strings": "hardingfele_4_taraf",
+      "hardingfele_tuning": "hardingfele_old_norwegian",
+      "hardingfele_strings_material": "hardingfele_synthetic_modern",
+      "hardingfele_inlay": "hardingfele_pearl_bone",
+      "hardingfele_body_wood": "hardingfele_spruce_maple",
+      "microtonal_mandolin_unspecified_identity": "microtonal_mandolin_unspecified_credited",
+      "microtonal_guitar_unspecified_identity": "microtonal_guitar_unspecified_credited",
+      "munnharpe_unspecified_identity": "munnharpe_unspecified_credited",
+      "langeleik_form": "langeleik_valdres",
+      "langeleik_repertoire": "langeleik_dance_slatt",
+      "langeleik_strings": "langeleik_steel_brass",
+      "octave_fiddle_unspecified_identity": "octave_fiddle_unspecified_credited"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

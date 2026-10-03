@@ -1,0 +1,123 @@
+{
+  "id": "spacesynth",
+  "name": "Spacesynth",
+  "family": "electronic",
+  "lineage": "Kebu and Madis — Touching the Sun (2026), complete instrumental release. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s spacesynth, experimental Elec. analog mono analog poly synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 199,
+  "score": 12.655,
+  "config": {
+    "traditions": [
+      "spacesynth"
+    ],
+    "instruments": [
+      {
+        "id": "analog_mono_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "mono_oscillator": "mono_voltage_controlled",
+          "mono_filter": "moog_ladder",
+          "mono_archetypes": "minimoog",
+          "mono_maker_lineage": "mono_moog_robert"
+        },
+        "scores": {
+          "electronic_technique": 2.25,
+          "mono_oscillator": 1.605,
+          "mono_filter": 2.0100000000000002,
+          "mono_archetypes": 0.39,
+          "mono_maker_lineage": 0.5499999999999999
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_arpeggiated",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 2.25,
+          "poly_archetypes": 0.3315,
+          "poly_voices": 1.605,
+          "poly_maker_lineage": -0.05
+        }
+      },
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "shuffle_low"
+        },
+        "scores": {
+          "kick_voice": 1.605,
+          "snare_voice": 0.054,
+          "hat_voice": 0,
+          "shuffle_quantize": 0.054
+        }
+      }
+    ],
+    "pinned": {
+      "analog_mono_synth": [
+        "electronic_technique",
+        "mono_oscillator",
+        "mono_filter",
+        "mono_archetypes",
+        "mono_maker_lineage"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_arpeggiated",
+      "mono_oscillator": "mono_voltage_controlled",
+      "mono_filter": "moog_ladder",
+      "mono_archetypes": "minimoog",
+      "mono_maker_lineage": "mono_moog_robert",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "shuffle_low"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

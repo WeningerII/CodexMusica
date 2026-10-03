@@ -5,7 +5,7 @@
   "lineage": "Onsturicheit — In De Nevelen (2018) live electronic sound branch. Representative authored present-day recording arrangement. Sources establish the selected roles and bounded category relationship. Exact construction, hardware, playing settings, room, chain, temperament and numeric axes are authored choices, not original-session facts or universal genre traits.",
   "recipe": "classic late-2010s belgian experimental, experimental Elec. baritone electric guitar, modular synth, sampler drum machine. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 221,
-  "score": 0.02,
+  "score": 0.248,
   "config": {
     "traditions": [
       "belgian_experimental"
@@ -27,7 +27,7 @@
           "amp_make": 0,
           "baritone_use": 0,
           "baritone_electric_tuning": 0,
-          "baritone_electric_scale": 0,
+          "baritone_electric_scale": 0.054,
           "baritone_electric_strings": 0,
           "baritone_electric_pickup": -0.05
         }
@@ -56,10 +56,10 @@
           "sample_processing": "pitched_kick"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sample_bitdepth": 0.3,
+          "electronic_technique": -0.07,
+          "sample_bitdepth": 0.39,
           "sample_swing": 0,
-          "sample_processing": 0.105
+          "sample_processing": 0.159
         }
       }
     ],

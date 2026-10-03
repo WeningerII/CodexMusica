@@ -1,0 +1,82 @@
+{
+  "id": "spectra",
+  "name": "Spectra",
+  "family": "classical",
+  "lineage": "Kali Malone — Spectacle of Ritual, complete composed organ work. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic spectra, art Music. kirnberger iii canonical late Baroque well temperament legato pipe organ. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 200,
+  "score": 12.915,
+  "config": {
+    "traditions": [
+      "spectra"
+    ],
+    "instruments": [
+      {
+        "id": "pipe_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "pipe_organ_class": "pipe_organ_neo_baroque",
+          "pipe_organ_context": "pipe_organ_concert",
+          "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
+          "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+          "pipe_organ_temperament": "pipe_organ_kirnberger_iii",
+          "pipe_organ_action": "pipe_organ_mechanical_tracker"
+        },
+        "scores": {
+          "keyboard_technique": 3.3355,
+          "pipe_organ_class": 0,
+          "pipe_organ_context": 5.9799999999999995,
+          "pipe_organ_voicing_school": 0.8999999999999999,
+          "pipe_organ_pipe_alloy": 0.6,
+          "pipe_organ_temperament": 1.5,
+          "pipe_organ_action": 0.6
+        }
+      }
+    ],
+    "pinned": {
+      "pipe_organ": [
+        "keyboard_technique",
+        "pipe_organ_class",
+        "pipe_organ_context",
+        "pipe_organ_voicing_school",
+        "pipe_organ_pipe_alloy",
+        "pipe_organ_temperament",
+        "pipe_organ_action"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "well_temperament",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "well_temperament",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "pipe_organ_class": "pipe_organ_neo_baroque",
+      "pipe_organ_context": "pipe_organ_concert",
+      "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
+      "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
+      "pipe_organ_temperament": "pipe_organ_kirnberger_iii",
+      "pipe_organ_action": "pipe_organ_mechanical_tracker"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

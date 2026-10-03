@@ -5,7 +5,7 @@
   "lineage": "American solo comic form descending from vaudeville and Borscht Belt monologists through 1950s-60s nightclub soloists like Mort Sahl and Lenny Bruce, who replaced setup-punchline joke telling with personal, conversational material. The craft is built in comedy clubs — The Improv (New York, 1963) and The Comedy Store (Los Angeles, 1972) anchoring the club boom — where a comic works a single handheld microphone against live crowd response, honing timing across nightly sets. Richard Pryor's and George Carlin's early-1970s live albums fixed the recorded canon of the form.",
   "recipe": "classic North American 1970-1973 stand-up comedy, spoken Word, stage performance branch sports play-by-play commentary old-time radio announcer. extended whistle, breath veiled tone, straight note core, interlocked note trading. jazz club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 371,
-  "score": 134.62,
+  "score": 133.899,
   "config": {
     "traditions": [
       "standup_comedy",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
           "voice_register": 2.4050000000000002,
@@ -42,14 +42,14 @@
           "voice_articulation": 17.354999999999997,
           "voice_microtone": 17.159999999999993,
           "voice_tradition": 4.03,
-          "voice_mechanism_compound": 4.952999999999999,
-          "voice_estill_quality": 4.761,
+          "voice_mechanism_compound": 4.563,
+          "voice_estill_quality": 4.566,
           "voice_speech_song": 19.044999999999995,
           "voice_ensemble_config": 18.134999999999994,
           "voice_ornament_system": 1.5250000000000001,
-          "voice_pitch_organization": 3.3495,
+          "voice_pitch_organization": 3.1544999999999996,
           "voice_processing_chain": 3.4050000000000002,
-          "voice_multitrack_stack": 3.321500000000001
+          "voice_multitrack_stack": 3.38
         }
       }
     ],

@@ -1,0 +1,88 @@
+{
+  "id": "viola",
+  "name": "Viola",
+  "family": "classical",
+  "lineage": "John Joubert — Exequy Op.181 (2016), published solo viola score. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Global tuning omitted, not a claim of equal temperament. Exact materials, makes, playing settings, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2010s viola, art Music. norway spruce European alpine European maple bosnian source flamed figure viola classical. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 225,
+  "score": 27.845,
+  "config": {
+    "traditions": [
+      "viola"
+    ],
+    "instruments": [
+      {
+        "id": "viola_classical",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "viola_size": "viola_16_inch",
+          "viola_strings": "viola_synthetic",
+          "viola_top_wood": "viola_norway_spruce",
+          "viola_back_wood": "viola_bosnian_flamed_maple",
+          "viola_varnish": "viola_oil_amber",
+          "viola_setup_period": "viola_modern_setup",
+          "viola_bow_stick": "viola_pernambuco",
+          "viola_rosin": "viola_larsen_rosin"
+        },
+        "scores": {
+          "bowed_technique": 3.1,
+          "viola_size": 0.0315,
+          "viola_strings": 0.3315,
+          "viola_top_wood": 2.45,
+          "viola_back_wood": 4.8735,
+          "viola_varnish": 3.25,
+          "viola_setup_period": 3.5814999999999997,
+          "viola_bow_stick": 3.7145,
+          "viola_rosin": 6.512999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "viola_classical": [
+        "bowed_technique",
+        "viola_size",
+        "viola_strings",
+        "viola_top_wood",
+        "viola_back_wood",
+        "viola_varnish",
+        "viola_setup_period",
+        "viola_bow_stick",
+        "viola_rosin"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "bowed_technique": "bowed_legato_classical",
+      "viola_size": "viola_16_inch",
+      "viola_strings": "viola_synthetic",
+      "viola_top_wood": "viola_norway_spruce",
+      "viola_back_wood": "viola_bosnian_flamed_maple",
+      "viola_varnish": "viola_oil_amber",
+      "viola_setup_period": "viola_modern_setup",
+      "viola_bow_stick": "viola_pernambuco",
+      "viola_rosin": "viola_larsen_rosin"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

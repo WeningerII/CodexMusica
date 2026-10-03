@@ -1,0 +1,159 @@
+{
+  "id": "taiwan_experimental",
+  "name": "Taiwan experimental",
+  "family": "rock",
+  "lineage": "Six Urethras / 天語樂軒 — 報告！您的DEMO來了！ (2015 early demos). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2010s taiwan experimental, distorted Rock, experimental branch. conventional tuning standard pitch humbucker electric guitar, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 314,
+  "score": 43.686,
+  "config": {
+    "traditions": [
+      "taiwan_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_unspecified",
+          "body_wood": "mahogany_maple_cap",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 2.7145,
+          "amp_make": 0,
+          "body_wood": 0.063,
+          "neck_wood": 0.063,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0.126,
+          "string_gauge": 1.3,
+          "finish": 0,
+          "string_tuning": 1.3
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 11.499999999999996,
+          "drumhead": 1.363,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 1.663,
+          "shell_thickness": 0,
+          "bearing_edges": 0.9029999999999999,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 11.494499999999995,
+          "cymbal_lathing": 11.431499999999994,
+          "cymbal_finish": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "electric_technique": "electric_feedback_drone",
+      "amp_make": "amp_unspecified",
+      "body_wood": "mahogany_maple_cap",
+      "neck_wood": "mahogany_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

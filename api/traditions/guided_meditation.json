@@ -5,7 +5,7 @@
   "lineage": "Recorded spoken instruction guiding a listener through relaxation and meditation practice, descending from 1970s self-help relaxation cassettes and the secular-mindfulness turn led by Jon Kabat-Zinn, whose Mindfulness-Based Stress Reduction program (University of Massachusetts, 1979) circulated body-scan recordings as core practice material. Delivery is slow, low-register, and deliberately under-projected, with long structured silences left between instructions. The 2010s app era — Headspace with Andy Puddicombe, Calm with Tamara Levitt — turned the form into a mass studio-produced voice genre.",
   "recipe": "classic mid-1970s guided meditation, spoken Word, intimate voice branch audiobook narration shipping forecast cadence. vocal fry, breath veiled tone, slow rate, interlocked note trading. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 301,
-  "score": 146.928,
+  "score": 146.74,
   "config": {
     "traditions": [
       "guided_meditation",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 5.6875,
           "voice_pitch_organization": 3.185000000000001,
           "voice_processing_chain": 8.255,
-          "voice_multitrack_stack": 9.100000000000001
+          "voice_multitrack_stack": 8.911928571428572
         }
       }
     ],

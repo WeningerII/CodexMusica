@@ -5,7 +5,7 @@
   "lineage": "Pan-Islamic devotional poetry-recitation tradition in praise of the Prophet Muhammad (Arabic naʿat literally means description / praise) — performed at Mawlid an-Nabi celebrations, milad-un-Nabi processions, private home and mosque gatherings; codified through the Urdu-language naat khwani tradition in Pakistan and India (reciters Owais Raza Qadri, Junaid Jamshed, Sami Yusuf), with parallel Arabic-and-Turkish-and-Indonesian language traditions across the broader Muslim world",
   "recipe": "classic South Asian mid-1980s naʿat, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, walnut bent frame canonical Persian daf, overtone rich sustained ceremonial reed harmonium indian. karachi lahore naat devotional majlis. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
   "recipe_chars": 600,
-  "score": 219.353,
+  "score": 219.411,
   "config": {
     "traditions": [
       "naat_devotional",
@@ -42,11 +42,11 @@
           "voice_articulation": 12.609999999999996,
           "voice_microtone": 27.332499999999992,
           "voice_tradition": 30.679999999999996,
-          "voice_mechanism_compound": 6.275,
+          "voice_mechanism_compound": 6.470000000000001,
           "voice_estill_quality": 6.077500000000001,
           "voice_speech_song": 15.794999999999995,
           "voice_ensemble_config": 13.194999999999997,
-          "voice_ornament_system": 23.8495,
+          "voice_ornament_system": 23.712999999999997,
           "voice_pitch_organization": 10.966000000000001,
           "voice_processing_chain": 1.8199999999999998,
           "voice_multitrack_stack": 1.0399999999999998

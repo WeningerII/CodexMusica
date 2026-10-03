@@ -1,0 +1,2335 @@
+{
+  "reviewer": "research_117",
+  "frozen_path": "/tmp/batch033/frozen.json",
+  "sha256": "c5287918bbf48d24aae68f6fc4e841a3dcbe8e829f0a339ac8e9c34cfbb4995f",
+  "photo_count": 109,
+  "tradition_photos": 100,
+  "instrument_photos": 9,
+  "unique_source_pages": {
+    "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg": 106,
+    "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg": 3
+  },
+  "photo_rows": [
+    {
+      "kind": "tradition",
+      "id": "psalms",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "rogaland_musikk",
+      "historical_artifact": "data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone only; not Malmin, album equipment, instruments or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "sevilla_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "shojo",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "background_piano",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "full_sha256": "0cfe3f6af011d9c25cc8f448b11d4fd45b8d596436e9704b6fbe86d31851f9d5",
+      "thumbnail_sha256": "0cfe3f6af011d9c25cc8f448b11d4fd45b8d596436e9704b6fbe86d31851f9d5",
+      "context": "Verified selected instrument-family context only; not the named performer, actual source instrument, source venue or entire ensemble.",
+      "confidence": "high",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "shonen",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "background_piano",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "full_sha256": "0cfe3f6af011d9c25cc8f448b11d4fd45b8d596436e9704b6fbe86d31851f9d5",
+      "thumbnail_sha256": "0cfe3f6af011d9c25cc8f448b11d4fd45b8d596436e9704b6fbe86d31851f9d5",
+      "context": "Verified selected instrument-family context only; not the named performer, actual source instrument, source venue or entire ensemble.",
+      "confidence": "high",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "show_tunes",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "background_piano",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Grand_piano,_Kunsthalle_Mainz.jpg",
+      "full_sha256": "0cfe3f6af011d9c25cc8f448b11d4fd45b8d596436e9704b6fbe86d31851f9d5",
+      "thumbnail_sha256": "0cfe3f6af011d9c25cc8f448b11d4fd45b8d596436e9704b6fbe86d31851f9d5",
+      "context": "Verified selected instrument-family context only; not the named performer, actual source instrument, source venue or entire ensemble.",
+      "confidence": "high",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "shred",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "singaporean_mandopop",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "sinogaze",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "slayer",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "slovenske_chvaly",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "solipsynthm",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "sotalaulut",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "south_borneo_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "southern_china_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "spacesynth",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "spanish_prog",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "spectra",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "st_petersburg_fl_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "staff_band",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "stl_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "stockholm_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "streektaal",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "street_band",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "strut",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "subliminal_product",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "substep",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "sufi",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "sunnlensk_tonlist",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "suomirap",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "surabaya_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "svensk_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "svensk_progg",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "swedish_ebm",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "swedish_electropop",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "swedish_eurodance",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "swedish_experimental",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "swedish_prog",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "swiss_experimental",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "swiss_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the source performers, instruments or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "swiss_worship",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the ICF ensemble or original equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "sydney_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the source performers, instruments or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "synthesizer",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not a Moog synthesizer, the artist or the source session.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tabla",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not tabla or the source concert equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tagalog_worship",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not these performers, hardware or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "taiwan_experimental",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not a depiction of the source band or equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "taiwan_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not DSPS, its gear or its studio.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "taiwan_instrumental",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not Cicada or their source instruments.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "taiwanese_indigenous_music",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not a depiction of the source band or equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "talentschau",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not Michael Schulte or this arrangement.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tamil_devotional",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the source choir or a Tamil ritual performance.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tamil_worship",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not these performers, hardware or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tampa_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the source artists or their equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tanci",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not a depiction of Tanci performers or instruments.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tango_cancion",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tanzanian_traditional",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tanzlmusi",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tanzorchester",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tassie_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "technical_thrash",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "telugu_worship",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tempe_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tennessee_experimental",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "thai_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "thall",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "theme",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "therapy",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "theremin",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "thrash_core",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tijuana_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tontipop",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "toronto_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "traditional_irish_singing",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "trekkspill",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "trio_cubano",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "trombone_ensemble",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "trondersk_musikk",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "trondheim_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tucson_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not named artists, instrument ensemble, venue or actual recording equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tulsa_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "tunisian_alternative",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "uk_beatdown",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "ukhc",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "ukulele",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "uppsala_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "utah_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "vancouver_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "vanuatu_music",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "vegan_straight_edge",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "vermont_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "victorian_britain",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "vienna_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "viola",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "viola_da_gamba",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "violin",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "virginia_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "visor",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "vlaamse_cabaret",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Recording-microphone context. Not the named performers, source location, actual recording equipment or complete genre lineup.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "warrington_indie",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the source artist, ensemble, concert or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "tradition",
+      "id": "water",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the hydrophone or source location.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "credited_acoustic_bass",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not the acoustic bass, performer or actual source equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "ilimba_gogo",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "anime_cv",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not an ilimba, performer or actual source equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "microtonal_guitar_unspecified",
+      "historical_artifact": "data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone only; not Malmin, album equipment, instruments or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "microtonal_mandolin_unspecified",
+      "historical_artifact": "data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone only; not Malmin, album equipment, instruments or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "octave_fiddle_unspecified",
+      "historical_artifact": "data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone only; not Malmin, album equipment, instruments or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "munnharpe_unspecified",
+      "historical_artifact": "data-only-023-evidence.json",
+      "historical_entry": "bajki",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone only; not Malmin, album equipment, instruments or venue.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "party_cans_credited",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "LOW generic recording microphone context; not cans, source musicians or session equipment.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "tenor_horn_eb",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not a tenor or baritone horn depiction.",
+      "confidence": "low",
+      "errors": []
+    },
+    {
+      "kind": "instrument",
+      "id": "baritone_horn_bb",
+      "historical_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+      "historical_entry": "baps",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+      "full_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "thumbnail_sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+      "context": "Generic recording microphone context only; not a tenor or baritone horn depiction.",
+      "confidence": "low",
+      "errors": []
+    }
+  ],
+  "source_identity_checks": [
+    {
+      "id": "psalms",
+      "source_packet": "/tmp/batch031/group167-supplement17.json",
+      "source_sha256": "d7551ba6d8d99b833b39603f4eeaadb25a5a0bcceb8b3a25f70716115c1740d5",
+      "expected_sha256": "d7551ba6d8d99b833b39603f4eeaadb25a5a0bcceb8b3a25f70716115c1740d5",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "rogaland_musikk",
+      "source_packet": "/tmp/batch032/group169-rogaland-recovery119.json",
+      "source_sha256": "7cccae95285352d840c770e02860d97c911cca2b349216ec864a3f026070dd8f",
+      "expected_sha256": "7cccae95285352d840c770e02860d97c911cca2b349216ec864a3f026070dd8f",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "sevilla_indie",
+      "source_packet": "/tmp/batch032/group172-supplement12.json",
+      "source_sha256": "df09b0b2b8e562e8388be4576f2831f9e770a0d918cadc2dc0cd2081988afc1f",
+      "expected_sha256": "df09b0b2b8e562e8388be4576f2831f9e770a0d918cadc2dc0cd2081988afc1f",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "shojo",
+      "source_packet": "/tmp/batch032/group172-supplement7.json",
+      "source_sha256": "082b9992e6c12f275dbf345b0cd47d48578c8d644acfb60dfcb8d84efdb128bd",
+      "expected_sha256": "082b9992e6c12f275dbf345b0cd47d48578c8d644acfb60dfcb8d84efdb128bd",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "shonen",
+      "source_packet": "/tmp/batch032/group172-supplement7.json",
+      "source_sha256": "082b9992e6c12f275dbf345b0cd47d48578c8d644acfb60dfcb8d84efdb128bd",
+      "expected_sha256": "082b9992e6c12f275dbf345b0cd47d48578c8d644acfb60dfcb8d84efdb128bd",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "show_tunes",
+      "source_packet": "/tmp/batch032/group172-supplement11.json",
+      "source_sha256": "8bdac3c3a8e0f0e505f369904b5e527ec9876ee81f87d41f8d971378d1b096bb",
+      "expected_sha256": "8bdac3c3a8e0f0e505f369904b5e527ec9876ee81f87d41f8d971378d1b096bb",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "shred",
+      "source_packet": "/tmp/batch032/group172-supplement10.json",
+      "source_sha256": "2ec8a9f6ce2f0e03691ba771d844d7de72da718a02cec3fe1c2de33bf9055e3a",
+      "expected_sha256": "2ec8a9f6ce2f0e03691ba771d844d7de72da718a02cec3fe1c2de33bf9055e3a",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "singaporean_mandopop",
+      "source_packet": "/tmp/batch032/group172-supplement9.json",
+      "source_sha256": "1a7ed21c6c3850ba018f58542a0df0cf8f35e4e608f08be6fc4b15034810d7d6",
+      "expected_sha256": "1a7ed21c6c3850ba018f58542a0df0cf8f35e4e608f08be6fc4b15034810d7d6",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "sinogaze",
+      "source_packet": "/tmp/batch032/group172-supplement6.json",
+      "source_sha256": "c8172859b254b4cc803be1e447cc38dc1dd48ccfd46f4bc479d972e3ea4f56f3",
+      "expected_sha256": "c8172859b254b4cc803be1e447cc38dc1dd48ccfd46f4bc479d972e3ea4f56f3",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "slayer",
+      "source_packet": "/tmp/batch032/group172-supplement8.json",
+      "source_sha256": "1673f16670c5178e76b2b9d8e95a20a4b6595b931f8dd1b74cb2e6532f5ff00b",
+      "expected_sha256": "1673f16670c5178e76b2b9d8e95a20a4b6595b931f8dd1b74cb2e6532f5ff00b",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "slovenske_chvaly",
+      "source_packet": "/tmp/batch031/group173-supplement10.json",
+      "source_sha256": "c89868528df24b2a54f135e0b8fa1ec1994b8af841a5af3c3614c86a05b6d0d0",
+      "expected_sha256": "c89868528df24b2a54f135e0b8fa1ec1994b8af841a5af3c3614c86a05b6d0d0",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "solipsynthm",
+      "source_packet": "/tmp/batch031/group173-supplement9.json",
+      "source_sha256": "60964be9759b7cefa53940797548aede58839153969ecb8cbe0d7219e60327e9",
+      "expected_sha256": "60964be9759b7cefa53940797548aede58839153969ecb8cbe0d7219e60327e9",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "sotalaulut",
+      "source_packet": "/tmp/batch031/group173-supplement11.json",
+      "source_sha256": "1c8effd1e687d90c251b14948f8fa0dae55c7b6f60da17cf91fe1089bb1f43c5",
+      "expected_sha256": "1c8effd1e687d90c251b14948f8fa0dae55c7b6f60da17cf91fe1089bb1f43c5",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "south_borneo_indie",
+      "source_packet": "/tmp/batch031/group173-supplement8.json",
+      "source_sha256": "bfab8ed9cd5643e4f2bbf62f06e54078b1efcfa9ffedfafa5add00342ec3d416",
+      "expected_sha256": "bfab8ed9cd5643e4f2bbf62f06e54078b1efcfa9ffedfafa5add00342ec3d416",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "southern_china_indie",
+      "source_packet": "/tmp/batch031/group173-supplement8.json",
+      "source_sha256": "bfab8ed9cd5643e4f2bbf62f06e54078b1efcfa9ffedfafa5add00342ec3d416",
+      "expected_sha256": "bfab8ed9cd5643e4f2bbf62f06e54078b1efcfa9ffedfafa5add00342ec3d416",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "spacesynth",
+      "source_packet": "/tmp/batch031/group174-supplement9.json",
+      "source_sha256": "c91517369f91274fd23eb0459e89c209d83dacd2a4c785e3958a7c8b5c264204",
+      "expected_sha256": "c91517369f91274fd23eb0459e89c209d83dacd2a4c785e3958a7c8b5c264204",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "spanish_prog",
+      "source_packet": "/tmp/batch031/group174-supplement4.json",
+      "source_sha256": "1ce7c6341984c6ebe91575cdb1a553ad19e9ea1076962d1c2d08551d470d4007",
+      "expected_sha256": "1ce7c6341984c6ebe91575cdb1a553ad19e9ea1076962d1c2d08551d470d4007",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "spectra",
+      "source_packet": "/tmp/batch031/group174-supplement11.json",
+      "source_sha256": "519c24ade63feeb05a7eb63035af7209ee7120ee1d8e9840642abf414dd83231",
+      "expected_sha256": "519c24ade63feeb05a7eb63035af7209ee7120ee1d8e9840642abf414dd83231",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "st_petersburg_fl_indie",
+      "source_packet": "/tmp/batch031/group174-supplement8.json",
+      "source_sha256": "cd8deda2de98e8050582ed119679d6ca8ec2ab7068cdb7f7c15139f4ee9071dd",
+      "expected_sha256": "cd8deda2de98e8050582ed119679d6ca8ec2ab7068cdb7f7c15139f4ee9071dd",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "staff_band",
+      "source_packet": "/tmp/batch031/group174-supplement3.json",
+      "source_sha256": "9c87e99f046b705e2b73ae4d92309260097c89a67812d0f207ff22fda8f2add5",
+      "expected_sha256": "9c87e99f046b705e2b73ae4d92309260097c89a67812d0f207ff22fda8f2add5",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "stl_indie",
+      "source_packet": "/tmp/batch031/group174-supplement7.json",
+      "source_sha256": "3ea133d0276bebe4b48b74511102d37c1fa74710e9841d581cd6496f503a75aa",
+      "expected_sha256": "3ea133d0276bebe4b48b74511102d37c1fa74710e9841d581cd6496f503a75aa",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "stockholm_indie",
+      "source_packet": "/tmp/batch031/group174-supplement6.json",
+      "source_sha256": "f2a99955372965c456f1fd7d027a5aed7539032bd86c62329bb55d32ccc77fc3",
+      "expected_sha256": "f2a99955372965c456f1fd7d027a5aed7539032bd86c62329bb55d32ccc77fc3",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "streektaal",
+      "source_packet": "/tmp/batch031/group174-supplement5.json",
+      "source_sha256": "10c9d7cb626832a125f64e46fd5cc3f51af6c3a7194cdaf240048703ada6d738",
+      "expected_sha256": "10c9d7cb626832a125f64e46fd5cc3f51af6c3a7194cdaf240048703ada6d738",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "street_band",
+      "source_packet": "/tmp/batch031/group174-supplement10.json",
+      "source_sha256": "6aacc3d086fadceb0a7916fa21efdb87818314181a197d9cbd8649725e640b13",
+      "expected_sha256": "6aacc3d086fadceb0a7916fa21efdb87818314181a197d9cbd8649725e640b13",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "strut",
+      "source_packet": "/tmp/batch031/group175-supplement11.json",
+      "source_sha256": "2a02466ca622df42e208cb3a75d101d9fe37ae279156ffd1d9adff32af363096",
+      "expected_sha256": "2a02466ca622df42e208cb3a75d101d9fe37ae279156ffd1d9adff32af363096",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "subliminal_product",
+      "source_packet": "/tmp/batch031/group175-supplement8.json",
+      "source_sha256": "82126d0ac5da92155a1456d76f917880edf751ebc4ff712b6f3c2607892f2909",
+      "expected_sha256": "82126d0ac5da92155a1456d76f917880edf751ebc4ff712b6f3c2607892f2909",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "substep",
+      "source_packet": "/tmp/batch031/group175-supplement9.json",
+      "source_sha256": "c8ef90ab412d3371bcf906f5beae55dc4f55532bd5fe0f87f5719d798135086d",
+      "expected_sha256": "c8ef90ab412d3371bcf906f5beae55dc4f55532bd5fe0f87f5719d798135086d",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "sufi",
+      "source_packet": "/tmp/batch031/group175-supplement3.json",
+      "source_sha256": "ee06d16ba71cfecd4712cd6d9e06411345da07f40d96380ede807342b1a39df5",
+      "expected_sha256": "ee06d16ba71cfecd4712cd6d9e06411345da07f40d96380ede807342b1a39df5",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "sunnlensk_tonlist",
+      "source_packet": "/tmp/batch031/group175-supplement5.json",
+      "source_sha256": "dc685aa4b9b8bae008ac686b26bc728fd86cf4fd54226888cbbc22224ce6e053",
+      "expected_sha256": "dc685aa4b9b8bae008ac686b26bc728fd86cf4fd54226888cbbc22224ce6e053",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "suomirap",
+      "source_packet": "/tmp/batch031/group175-supplement5.json",
+      "source_sha256": "dc685aa4b9b8bae008ac686b26bc728fd86cf4fd54226888cbbc22224ce6e053",
+      "expected_sha256": "dc685aa4b9b8bae008ac686b26bc728fd86cf4fd54226888cbbc22224ce6e053",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "surabaya_indie",
+      "source_packet": "/tmp/batch031/group175-supplement2.json",
+      "source_sha256": "a3fd7174e26bcafec1649a9fdc9843ca90ee89f12f0e565bbbec58c069099231",
+      "expected_sha256": "a3fd7174e26bcafec1649a9fdc9843ca90ee89f12f0e565bbbec58c069099231",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "svensk_indie",
+      "source_packet": "/tmp/batch031/group175-supplement2.json",
+      "source_sha256": "a3fd7174e26bcafec1649a9fdc9843ca90ee89f12f0e565bbbec58c069099231",
+      "expected_sha256": "a3fd7174e26bcafec1649a9fdc9843ca90ee89f12f0e565bbbec58c069099231",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "svensk_progg",
+      "source_packet": "/tmp/batch031/group175-supplement7.json",
+      "source_sha256": "9402666e85580e07215664e824c9cf4bb7286111d3ce78156eb108b2c96b1238",
+      "expected_sha256": "9402666e85580e07215664e824c9cf4bb7286111d3ce78156eb108b2c96b1238",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "swedish_ebm",
+      "source_packet": "/tmp/batch031/group175-supplement10.json",
+      "source_sha256": "2bed1b178dac6d15149b81ca446371ad2f5cd1e376f025ef4877810af60be36b",
+      "expected_sha256": "2bed1b178dac6d15149b81ca446371ad2f5cd1e376f025ef4877810af60be36b",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "swedish_electropop",
+      "source_packet": "/tmp/batch031/group175-supplement6.json",
+      "source_sha256": "26adff9e2114ef38b1a5bac6fec7ebfd5459da66ef498ec6259a4faf2120e636",
+      "expected_sha256": "26adff9e2114ef38b1a5bac6fec7ebfd5459da66ef498ec6259a4faf2120e636",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "swedish_eurodance",
+      "source_packet": "/tmp/batch031/group175-supplement6.json",
+      "source_sha256": "26adff9e2114ef38b1a5bac6fec7ebfd5459da66ef498ec6259a4faf2120e636",
+      "expected_sha256": "26adff9e2114ef38b1a5bac6fec7ebfd5459da66ef498ec6259a4faf2120e636",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "swedish_experimental",
+      "source_packet": "/tmp/batch031/group175-supplement3.json",
+      "source_sha256": "ee06d16ba71cfecd4712cd6d9e06411345da07f40d96380ede807342b1a39df5",
+      "expected_sha256": "ee06d16ba71cfecd4712cd6d9e06411345da07f40d96380ede807342b1a39df5",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "swedish_prog",
+      "source_packet": "/tmp/batch031/group175-supplement2.json",
+      "source_sha256": "a3fd7174e26bcafec1649a9fdc9843ca90ee89f12f0e565bbbec58c069099231",
+      "expected_sha256": "a3fd7174e26bcafec1649a9fdc9843ca90ee89f12f0e565bbbec58c069099231",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "swiss_experimental",
+      "source_packet": "/tmp/batch031/group175-supplement4.json",
+      "source_sha256": "120a32efefb5e6d3d5eb0f6492b3c96b54e205d7348247ca2ef475c2c3a7e418",
+      "expected_sha256": "120a32efefb5e6d3d5eb0f6492b3c96b54e205d7348247ca2ef475c2c3a7e418",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "swiss_indie",
+      "source_packet": "/tmp/batch032/group176.json",
+      "source_sha256": "b2cddc99639b867c08e9949ffc2f77459b1057d8cb7195c99591822fba4c2cfc",
+      "expected_sha256": "b2cddc99639b867c08e9949ffc2f77459b1057d8cb7195c99591822fba4c2cfc",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "swiss_worship",
+      "source_packet": "/tmp/batch032/group176-supplement6.json",
+      "source_sha256": "429415e78e29a7e202ceaea07f2960d4878cf25794e1490a915e2302f4d690c2",
+      "expected_sha256": "429415e78e29a7e202ceaea07f2960d4878cf25794e1490a915e2302f4d690c2",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "sydney_indie",
+      "source_packet": "/tmp/batch032/group176.json",
+      "source_sha256": "b2cddc99639b867c08e9949ffc2f77459b1057d8cb7195c99591822fba4c2cfc",
+      "expected_sha256": "b2cddc99639b867c08e9949ffc2f77459b1057d8cb7195c99591822fba4c2cfc",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "synthesizer",
+      "source_packet": "/tmp/batch032/group176-supplement11.json",
+      "source_sha256": "2e3c953abd0ffc369368b2da4d604c7ac4f1e8a61befd0ec980badd41ab858e0",
+      "expected_sha256": "2e3c953abd0ffc369368b2da4d604c7ac4f1e8a61befd0ec980badd41ab858e0",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tabla",
+      "source_packet": "/tmp/batch032/group176-supplement4.json",
+      "source_sha256": "238b90aed504f1b404c526222a597b510ffc472179bac9e4876e9fd48643d5f5",
+      "expected_sha256": "238b90aed504f1b404c526222a597b510ffc472179bac9e4876e9fd48643d5f5",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tagalog_worship",
+      "source_packet": "/tmp/batch032/group176-supplement3.json",
+      "source_sha256": "1a904bcdf9fa88465c5a70b051217b93819e54b8e4700a53aca4580cfc059acf",
+      "expected_sha256": "1a904bcdf9fa88465c5a70b051217b93819e54b8e4700a53aca4580cfc059acf",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "taiwan_experimental",
+      "source_packet": "/tmp/batch032/group176-supplement7.json",
+      "source_sha256": "43d15a3b2983b52f61669a3502e702a9506f99a497e84c1aace671316a490353",
+      "expected_sha256": "43d15a3b2983b52f61669a3502e702a9506f99a497e84c1aace671316a490353",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "taiwan_indie",
+      "source_packet": "/tmp/batch032/group176-supplement2.json",
+      "source_sha256": "b207e653bf4d53de643db1e380be16ca9542bf12a308ba21ba46a1ee5af40e38",
+      "expected_sha256": "b207e653bf4d53de643db1e380be16ca9542bf12a308ba21ba46a1ee5af40e38",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "taiwan_instrumental",
+      "source_packet": "/tmp/batch032/group176-supplement9.json",
+      "source_sha256": "2892d14dec83f81c1009d4367c2c7a9b6d70e2eca4811d9051c906c610967f69",
+      "expected_sha256": "2892d14dec83f81c1009d4367c2c7a9b6d70e2eca4811d9051c906c610967f69",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "taiwanese_indigenous_music",
+      "source_packet": "/tmp/batch032/group176-supplement7.json",
+      "source_sha256": "43d15a3b2983b52f61669a3502e702a9506f99a497e84c1aace671316a490353",
+      "expected_sha256": "43d15a3b2983b52f61669a3502e702a9506f99a497e84c1aace671316a490353",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "talentschau",
+      "source_packet": "/tmp/batch032/group176-supplement8.json",
+      "source_sha256": "2260b31a88d095deb4c9691d07afac84e75c9b7f13a3862aa3bda02f60809838",
+      "expected_sha256": "2260b31a88d095deb4c9691d07afac84e75c9b7f13a3862aa3bda02f60809838",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tamil_devotional",
+      "source_packet": "/tmp/batch032/group176-supplement10.json",
+      "source_sha256": "0237fc3cffe3d25baad9f99b42587b3e928d5b6ecd60444d643899f9e22e411d",
+      "expected_sha256": "0237fc3cffe3d25baad9f99b42587b3e928d5b6ecd60444d643899f9e22e411d",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tamil_worship",
+      "source_packet": "/tmp/batch032/group176-supplement3.json",
+      "source_sha256": "1a904bcdf9fa88465c5a70b051217b93819e54b8e4700a53aca4580cfc059acf",
+      "expected_sha256": "1a904bcdf9fa88465c5a70b051217b93819e54b8e4700a53aca4580cfc059acf",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tampa_indie",
+      "source_packet": "/tmp/batch032/group176-supplement1.json",
+      "source_sha256": "aa925f97392e7309c3daead991b8572f635f6e178e007cead19592882e2023d6",
+      "expected_sha256": "aa925f97392e7309c3daead991b8572f635f6e178e007cead19592882e2023d6",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tanci",
+      "source_packet": "/tmp/batch032/group176-supplement5.json",
+      "source_sha256": "3fa66767c25b25443685b3ad28cbd721b1b402757458dbbe89cbfa8255f41582",
+      "expected_sha256": "3fa66767c25b25443685b3ad28cbd721b1b402757458dbbe89cbfa8255f41582",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tango_cancion",
+      "source_packet": "/tmp/batch032/group177-supplement4.json",
+      "source_sha256": "81738ed06bf484ff0f08b046302bd504eb05ffaf5df4b59b3c160411c3a24978",
+      "expected_sha256": "81738ed06bf484ff0f08b046302bd504eb05ffaf5df4b59b3c160411c3a24978",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tanzanian_traditional",
+      "source_packet": "/tmp/batch032/group177-supplement10.json",
+      "source_sha256": "31d79d950f16d5ba27bac5f4cd9276160668c176baa8109bf3241f507a3c021c",
+      "expected_sha256": "31d79d950f16d5ba27bac5f4cd9276160668c176baa8109bf3241f507a3c021c",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tanzlmusi",
+      "source_packet": "/tmp/batch032/group177-supplement5.json",
+      "source_sha256": "b10c90eb22cf30673ba10888b87ac91c2a7d0bcc50e85d5ca7065aaa19d73ef2",
+      "expected_sha256": "b10c90eb22cf30673ba10888b87ac91c2a7d0bcc50e85d5ca7065aaa19d73ef2",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tanzorchester",
+      "source_packet": "/tmp/batch032/group177-supplement8.json",
+      "source_sha256": "ac68ed4329319c812a993ec31998e91472f877a9c8fc1783ba6e864c934f1eb7",
+      "expected_sha256": "ac68ed4329319c812a993ec31998e91472f877a9c8fc1783ba6e864c934f1eb7",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tassie_indie",
+      "source_packet": "/tmp/batch032/group177-supplement.json",
+      "source_sha256": "6656e9f9631248bcef00dd0b7011f460d1f1e4fce22112a4e85cd3e9f139efc3",
+      "expected_sha256": "6656e9f9631248bcef00dd0b7011f460d1f1e4fce22112a4e85cd3e9f139efc3",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "technical_thrash",
+      "source_packet": "/tmp/batch032/group177.json",
+      "source_sha256": "b68fc20841a4a4f20b39d262daf08e9163834c915eb5c99b457106e0949d7a05",
+      "expected_sha256": "b68fc20841a4a4f20b39d262daf08e9163834c915eb5c99b457106e0949d7a05",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "telugu_worship",
+      "source_packet": "/tmp/batch032/group177-supplement9.json",
+      "source_sha256": "959672a27f4faf1cca68b8b00e7b861d8c62f809efc554d42972350942cb1a63",
+      "expected_sha256": "959672a27f4faf1cca68b8b00e7b861d8c62f809efc554d42972350942cb1a63",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tempe_indie",
+      "source_packet": "/tmp/batch032/group177.json",
+      "source_sha256": "b68fc20841a4a4f20b39d262daf08e9163834c915eb5c99b457106e0949d7a05",
+      "expected_sha256": "b68fc20841a4a4f20b39d262daf08e9163834c915eb5c99b457106e0949d7a05",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tennessee_experimental",
+      "source_packet": "/tmp/batch032/group177-supplement.json",
+      "source_sha256": "6656e9f9631248bcef00dd0b7011f460d1f1e4fce22112a4e85cd3e9f139efc3",
+      "expected_sha256": "6656e9f9631248bcef00dd0b7011f460d1f1e4fce22112a4e85cd3e9f139efc3",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "thai_indie",
+      "source_packet": "/tmp/batch032/group177-supplement3.json",
+      "source_sha256": "9bc210af593a84164dbf151fd70cc04fab158d814382439279c06e8e3e73fc43",
+      "expected_sha256": "9bc210af593a84164dbf151fd70cc04fab158d814382439279c06e8e3e73fc43",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "thall",
+      "source_packet": "/tmp/batch032/group177-supplement2.json",
+      "source_sha256": "812c39654a0672470ba16eeefca3ef88223116830e5afbf396c7bd96bafde205",
+      "expected_sha256": "812c39654a0672470ba16eeefca3ef88223116830e5afbf396c7bd96bafde205",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "theme",
+      "source_packet": "/tmp/batch032/group177-supplement7.json",
+      "source_sha256": "ffcc36187b9ea2709c39e2bae9922bd666d87fc9f920d067cc2dee15f21dc76c",
+      "expected_sha256": "ffcc36187b9ea2709c39e2bae9922bd666d87fc9f920d067cc2dee15f21dc76c",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "therapy",
+      "source_packet": "/tmp/batch032/group177-supplement6.json",
+      "source_sha256": "5e9d4e3400faef6b98672fe3d24003e88d9996f1a96df7cbe481c3a4b57420b8",
+      "expected_sha256": "5e9d4e3400faef6b98672fe3d24003e88d9996f1a96df7cbe481c3a4b57420b8",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "theremin",
+      "source_packet": "/tmp/batch033/group178.json",
+      "source_sha256": "29317414abade46cfb5de528f0718738f8aaf8b5b4e349f92d2e1b4bccf232a0",
+      "expected_sha256": "29317414abade46cfb5de528f0718738f8aaf8b5b4e349f92d2e1b4bccf232a0",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "thrash_core",
+      "source_packet": "/tmp/batch033/group178-supplement.json",
+      "source_sha256": "a06d7a46a640f57b2520df7977ff51ab5d7e45e1ae6f1e197baa2a67b1bbe6f9",
+      "expected_sha256": "a06d7a46a640f57b2520df7977ff51ab5d7e45e1ae6f1e197baa2a67b1bbe6f9",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tijuana_indie",
+      "source_packet": "/tmp/batch033/group178.json",
+      "source_sha256": "29317414abade46cfb5de528f0718738f8aaf8b5b4e349f92d2e1b4bccf232a0",
+      "expected_sha256": "29317414abade46cfb5de528f0718738f8aaf8b5b4e349f92d2e1b4bccf232a0",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tontipop",
+      "source_packet": "/tmp/batch033/group178-supplement2.json",
+      "source_sha256": "4424b71af8db626c8493842eb505dd47516db03994ebb6527dbd13a545ed6e17",
+      "expected_sha256": "4424b71af8db626c8493842eb505dd47516db03994ebb6527dbd13a545ed6e17",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "toronto_indie",
+      "source_packet": "/tmp/batch033/group178-supplement3.json",
+      "source_sha256": "6627105268c5ab24ab87f8418b16bc33fd5ce007b7be73278a09cafd93affa92",
+      "expected_sha256": "6627105268c5ab24ab87f8418b16bc33fd5ce007b7be73278a09cafd93affa92",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "traditional_irish_singing",
+      "source_packet": "/tmp/batch033/group178-supplement.json",
+      "source_sha256": "a06d7a46a640f57b2520df7977ff51ab5d7e45e1ae6f1e197baa2a67b1bbe6f9",
+      "expected_sha256": "a06d7a46a640f57b2520df7977ff51ab5d7e45e1ae6f1e197baa2a67b1bbe6f9",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "trekkspill",
+      "source_packet": "/tmp/batch033/group178-supplement6.json",
+      "source_sha256": "daf5cc9feae47022e107b1149d26a77ac13dbac6a00726fbdeba7b0bb180f949",
+      "expected_sha256": "daf5cc9feae47022e107b1149d26a77ac13dbac6a00726fbdeba7b0bb180f949",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "trio_cubano",
+      "source_packet": "/tmp/batch033/group178-supplement2.json",
+      "source_sha256": "4424b71af8db626c8493842eb505dd47516db03994ebb6527dbd13a545ed6e17",
+      "expected_sha256": "4424b71af8db626c8493842eb505dd47516db03994ebb6527dbd13a545ed6e17",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "trombone_ensemble",
+      "source_packet": "/tmp/batch033/group178-supplement5.json",
+      "source_sha256": "04e4d77e73f6c906ee0b443f43ab3a32ec303b7a3df8b8f4a8854b74998ae582",
+      "expected_sha256": "04e4d77e73f6c906ee0b443f43ab3a32ec303b7a3df8b8f4a8854b74998ae582",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "trondersk_musikk",
+      "source_packet": "/tmp/batch033/group178-supplement4.json",
+      "source_sha256": "65418b0a02abf54c1915bfa83a39f44d28dd4425375545412d456dfccacf3188",
+      "expected_sha256": "65418b0a02abf54c1915bfa83a39f44d28dd4425375545412d456dfccacf3188",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "trondheim_indie",
+      "source_packet": "/tmp/batch033/group178-supplement4.json",
+      "source_sha256": "65418b0a02abf54c1915bfa83a39f44d28dd4425375545412d456dfccacf3188",
+      "expected_sha256": "65418b0a02abf54c1915bfa83a39f44d28dd4425375545412d456dfccacf3188",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tucson_indie",
+      "source_packet": "/tmp/batch033/group178-supplement3.json",
+      "source_sha256": "6627105268c5ab24ab87f8418b16bc33fd5ce007b7be73278a09cafd93affa92",
+      "expected_sha256": "6627105268c5ab24ab87f8418b16bc33fd5ce007b7be73278a09cafd93affa92",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tulsa_indie",
+      "source_packet": "/tmp/batch033/group179-supplement3.json",
+      "source_sha256": "05cd9ed126a5b063d6d04ed046ad47c115836bbad04bf7fa8489da3569a9b309",
+      "expected_sha256": "05cd9ed126a5b063d6d04ed046ad47c115836bbad04bf7fa8489da3569a9b309",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "tunisian_alternative",
+      "source_packet": "/tmp/batch033/group179.json",
+      "source_sha256": "26648f8e629fdeac98e356b64a12a98fb38d4aa0efac4323a940d09cb6b78c59",
+      "expected_sha256": "26648f8e629fdeac98e356b64a12a98fb38d4aa0efac4323a940d09cb6b78c59",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "uk_beatdown",
+      "source_packet": "/tmp/batch033/group179-supplement.json",
+      "source_sha256": "1f8ed96108c15e23848f920b753f369cdfce971be0ce884241ad9a4eea208b3a",
+      "expected_sha256": "1f8ed96108c15e23848f920b753f369cdfce971be0ce884241ad9a4eea208b3a",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "ukhc",
+      "source_packet": "/tmp/batch033/group179-supplement2.json",
+      "source_sha256": "08158c7819377faa60e88a4e081f1381e57a4bfb0a06b0038727b72f4ed477a7",
+      "expected_sha256": "08158c7819377faa60e88a4e081f1381e57a4bfb0a06b0038727b72f4ed477a7",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "ukulele",
+      "source_packet": "/tmp/batch033/group179.json",
+      "source_sha256": "26648f8e629fdeac98e356b64a12a98fb38d4aa0efac4323a940d09cb6b78c59",
+      "expected_sha256": "26648f8e629fdeac98e356b64a12a98fb38d4aa0efac4323a940d09cb6b78c59",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "uppsala_indie",
+      "source_packet": "/tmp/batch033/group180.json",
+      "source_sha256": "8450df0da79c95ee7a327e56a667e16f4a6ffaeb97768b1589dd3f37f9ce74b4",
+      "expected_sha256": "8450df0da79c95ee7a327e56a667e16f4a6ffaeb97768b1589dd3f37f9ce74b4",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "utah_indie",
+      "source_packet": "/tmp/batch033/group180.json",
+      "source_sha256": "8450df0da79c95ee7a327e56a667e16f4a6ffaeb97768b1589dd3f37f9ce74b4",
+      "expected_sha256": "8450df0da79c95ee7a327e56a667e16f4a6ffaeb97768b1589dd3f37f9ce74b4",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "vancouver_indie",
+      "source_packet": "/tmp/batch033/group180-supplement4.json",
+      "source_sha256": "7815016d2ecbd9aeeccf1215f24d8f8b120ea677edf8348ac4fe1b8038beeede",
+      "expected_sha256": "7815016d2ecbd9aeeccf1215f24d8f8b120ea677edf8348ac4fe1b8038beeede",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "vanuatu_music",
+      "source_packet": "/tmp/batch033/group180-supplement.json",
+      "source_sha256": "41f1cad31274fb0151201044eaeef80e95ea9edbded282d0d82e440696d70799",
+      "expected_sha256": "41f1cad31274fb0151201044eaeef80e95ea9edbded282d0d82e440696d70799",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "vegan_straight_edge",
+      "source_packet": "/tmp/batch033/group180-supplement3.json",
+      "source_sha256": "19b483645dd7bbd65f3a4673424cdf604bec2ccecccc9719f5d6e2c0e5c670dd",
+      "expected_sha256": "19b483645dd7bbd65f3a4673424cdf604bec2ccecccc9719f5d6e2c0e5c670dd",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "vermont_indie",
+      "source_packet": "/tmp/batch033/group180-supplement2.json",
+      "source_sha256": "f59a27b5a9866655b37859dd31747b5bd9392f22c1128c83c5959d7dc8c525c8",
+      "expected_sha256": "f59a27b5a9866655b37859dd31747b5bd9392f22c1128c83c5959d7dc8c525c8",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "victorian_britain",
+      "source_packet": "/tmp/batch033/group180-supplement6.json",
+      "source_sha256": "b4d089cd767abe0efedb747306be3d830aee02a3ca365d3030d613f86f44d337",
+      "expected_sha256": "b4d089cd767abe0efedb747306be3d830aee02a3ca365d3030d613f86f44d337",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "vienna_indie",
+      "source_packet": "/tmp/batch033/group180-supplement5.json",
+      "source_sha256": "1668522701bd61b935f4371114d745761c98e1c0304ba118e20ef69920753d60",
+      "expected_sha256": "1668522701bd61b935f4371114d745761c98e1c0304ba118e20ef69920753d60",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "viola",
+      "source_packet": "/tmp/batch033/group181.json",
+      "source_sha256": "ce262a46512155696abe22c14cb27ea51e6dc0a74adae518a64aca2a7a3121cb",
+      "expected_sha256": "ce262a46512155696abe22c14cb27ea51e6dc0a74adae518a64aca2a7a3121cb",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "viola_da_gamba",
+      "source_packet": "/tmp/batch033/group181.json",
+      "source_sha256": "ce262a46512155696abe22c14cb27ea51e6dc0a74adae518a64aca2a7a3121cb",
+      "expected_sha256": "ce262a46512155696abe22c14cb27ea51e6dc0a74adae518a64aca2a7a3121cb",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "violin",
+      "source_packet": "/tmp/batch033/group181.json",
+      "source_sha256": "ce262a46512155696abe22c14cb27ea51e6dc0a74adae518a64aca2a7a3121cb",
+      "expected_sha256": "ce262a46512155696abe22c14cb27ea51e6dc0a74adae518a64aca2a7a3121cb",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "virginia_indie",
+      "source_packet": "/tmp/batch033/group181-supplement.json",
+      "source_sha256": "5f08afb3e9bcab5688f7b6ec83ce1210bb4b262c1715c67d736fec72ed657c7a",
+      "expected_sha256": "5f08afb3e9bcab5688f7b6ec83ce1210bb4b262c1715c67d736fec72ed657c7a",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "visor",
+      "source_packet": "/tmp/batch033/group181-supplement3.json",
+      "source_sha256": "3f948859e8eb233eca4c2ef3c7107436fa1ffe02cc1172d40df9767e2d617c06",
+      "expected_sha256": "3f948859e8eb233eca4c2ef3c7107436fa1ffe02cc1172d40df9767e2d617c06",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "vlaamse_cabaret",
+      "source_packet": "/tmp/batch033/group181-supplement2.json",
+      "source_sha256": "21bb86e364114eb7c08bdf37461f6731b5d13ae385f31d3a1df5195fb1b682c0",
+      "expected_sha256": "21bb86e364114eb7c08bdf37461f6731b5d13ae385f31d3a1df5195fb1b682c0",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "warrington_indie",
+      "source_packet": "/tmp/batch033/group182.json",
+      "source_sha256": "f6bcfcd1f3dccc8b3187b4d64aec373a0fd69f5d85e2ae21f35f782f1207fe00",
+      "expected_sha256": "f6bcfcd1f3dccc8b3187b4d64aec373a0fd69f5d85e2ae21f35f782f1207fe00",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    },
+    {
+      "id": "water",
+      "source_packet": "/tmp/batch033/group182-supplement2.json",
+      "source_sha256": "b554a8b74684969e5a7f9472e357e8734ab8c5b08af5117421bf0bd6bafdab2c",
+      "expected_sha256": "b554a8b74684969e5a7f9472e357e8734ab8c5b08af5117421bf0bd6bafdab2c",
+      "hash_matches": true,
+      "different_fields": [],
+      "source_identity_equal": true
+    }
+  ],
+  "errors": [],
+  "fresh_rights_refs": ["turn4662view3", "turn4666view2", "turn4691view0"],
+  "historical_scope": "Exact historical bytes/URL/dimension/hash receipts and inherited visual receipts checked. No fresh download or new pixel inspection claimed.",
+  "dependency_source_identity_checks": [
+    {
+      "id": "credited_acoustic_bass",
+      "matches": [
+        {
+          "source": "/tmp/batch032/group177-supplement9.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    },
+    {
+      "id": "ilimba_gogo",
+      "matches": [
+        {
+          "source": "/tmp/batch032/group177-supplement10.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    },
+    {
+      "id": "microtonal_guitar_unspecified",
+      "matches": [
+        {
+          "source": "/tmp/batch032/group169-rogaland-recovery119.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    },
+    {
+      "id": "microtonal_mandolin_unspecified",
+      "matches": [
+        {
+          "source": "/tmp/batch032/group169-rogaland-recovery119.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    },
+    {
+      "id": "octave_fiddle_unspecified",
+      "matches": [
+        {
+          "source": "/tmp/batch032/group169-rogaland-recovery119.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    },
+    {
+      "id": "munnharpe_unspecified",
+      "matches": [
+        {
+          "source": "/tmp/batch032/group169-rogaland-recovery119.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    },
+    {
+      "id": "party_cans_credited",
+      "matches": [
+        {
+          "source": "/tmp/batch031/group174-supplement10.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    },
+    {
+      "id": "tenor_horn_eb",
+      "matches": [
+        {
+          "source": "/tmp/batch031/group174-supplement3.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    },
+    {
+      "id": "baritone_horn_bb",
+      "matches": [
+        {
+          "source": "/tmp/batch031/group174-supplement3.json",
+          "exact_equal": true,
+          "photo_equal": true,
+          "record_equal": true
+        }
+      ]
+    }
+  ],
+  "status": "PASS",
+  "rights_context_findings": [
+    "106 LOW generic recording-microphone contexts expressly exclude source artist/instrument/venue/equipment; Iain Fergusson/Binksternet CC BY2.5 credit, link and existing crop preserved.",
+    "Three HIGH grand-piano-family context photos occur only in piano-positive Shojo, Shonen and Show Tunes; exact source artist/venue/model excluded. Gerda Arendt CC0 confirmed fresh, no attribution/share-alike obligation invented.",
+    "Historical artifact basename aliases resolved to docs/everynoise-integrations/data-only-023-evidence.json; all exact full/thumbnail receipts and inherited visual observations preserved.",
+    "All100 rows byte-equivalent as parsed to frozen source packets; all packet hashes match. All9 dependency photos and records match authored source packets."
+  ]
+}

@@ -3,14 +3,14 @@
   "name": "Deconstructed Club",
   "family": "electronic",
   "lineage": "Formed circa 2012-2016 around Berlin's Janus parties, Mexico City's NAAFI, Lisbon's Principe and London's Night Slugs/Fade to Mind axis, deconstructed club strips ballroom, grime, reggaeton and trance to skeletal negative-space arrangements — arrhythmic kick placement, metallic percussion and orchestra-hit stabs, sirens, weaponized foley, pitched-down vocal fragments — at 130-150 BPM with dramatic drop-outs replacing conventional build-and-release.",
-  "recipe": "classic 2012-2016 deconstructed club, electronic Dance, continental branch, industrial noise experimental electric, footwork electronic dance electro-industrial industrial hardcore. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, digital subtractive, evolving modular granular synth, TR-909. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 534,
-  "score": 200.343,
+  "recipe": "classic 2012-2016 deconstructed club, electronic Dance, continental branch, industrial noise experimental electric, footwork electronic dance electro-industrial. thick, breath veiled tone, straight note core, interlocked note trading. field textural sampler, digital subtractive, modular granular synth, TR-909. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 505,
+  "score": 180.675,
   "config": {
     "traditions": [
       "deconstructed_club",
       "electro_industrial",
-      "industrial_hardcore"
+      "footwork"
     ],
     "instruments": [
       {
@@ -20,27 +20,27 @@
           "sampler_archetypes": "fairlight_cmi",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
           "sampler_workflow": "sampler_field_recordings",
-          "sampler_classic_context": "sampler_classic_industrial"
+          "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": 7.3999999999999995,
+          "electronic_technique": 5.375,
           "sampler_archetypes": 2,
           "sampler_bit_depth": 0.85,
-          "sampler_workflow": 7.795,
-          "sampler_classic_context": 23.625
+          "sampler_workflow": 5.62,
+          "sampler_classic_context": 21.742499999999996
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
-          "electronic_technique": "electronic_arpeggiated",
+          "electronic_technique": "electronic_bass_sub",
           "va_archetypes": "access_virus",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 0.78,
+          "electronic_technique": 1.7874999999999996,
           "va_archetypes": 1.3,
-          "digital_subtractive_context": 18.135
+          "digital_subtractive_context": 15.469999999999999
         }
       },
       {
@@ -51,9 +51,9 @@
           "granular_synth_source": "granular_synth_synthesized"
         },
         "scores": {
-          "electronic_technique": 7.75,
+          "electronic_technique": 5.375,
           "granular_use": 0.65,
-          "granular_synth_source": 6.825
+          "granular_synth_source": 7.344999999999999
         }
       },
       {
@@ -74,38 +74,38 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.4899999999999993,
-          "voice_quality": 5.460000000000001,
+          "voice_register": 2.0649999999999995,
+          "voice_quality": 6.500000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.9499999999999997,
-          "voice_articulation": 19.24,
-          "voice_microtone": 17.744999999999997,
-          "voice_tradition": 8.2875,
-          "voice_mechanism_compound": 7.215,
-          "voice_estill_quality": 3.4450000000000003,
-          "voice_speech_song": 18.134999999999998,
-          "voice_ensemble_config": 18.265,
+          "voice_vibrato": 1.6899999999999997,
+          "voice_articulation": 16.769999999999996,
+          "voice_microtone": 15.274999999999993,
+          "voice_tradition": 5.85,
+          "voice_mechanism_compound": 2.7300000000000004,
+          "voice_estill_quality": 3.7750000000000004,
+          "voice_speech_song": 15.664999999999996,
+          "voice_ensemble_config": 15.989999999999995,
           "voice_ornament_system": 0.5399999999999999,
-          "voice_pitch_organization": 1.5,
-          "voice_processing_chain": 15.155,
-          "voice_multitrack_stack": 2.795
+          "voice_pitch_organization": 1,
+          "voice_processing_chain": 15.729999999999999,
+          "voice_multitrack_stack": 4.225
         }
       },
       {
         "id": "drum_machine_909",
         "slots": {
-          "tr909_voice": "tr909_hat",
+          "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 0,
-          "drum_machine_909_context": 3.7849999999999993,
-          "tr909_production_origin": 0.3
+          "tr909_voice": 1.67,
+          "drum_machine_909_context": 4.734999999999999,
+          "tr909_production_origin": 0.6499999999999999
         }
       }
     ],

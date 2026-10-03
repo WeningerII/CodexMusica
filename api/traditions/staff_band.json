@@ -1,0 +1,275 @@
+{
+  "id": "staff_band",
+  "name": "Staff Band",
+  "family": "classical",
+  "lineage": "Chicago Staff Band — Andrew Wainwright, Illuminate (2015), complete published score. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2010s staff band, art Music. yellow brass canonical brass band besson sovereign canonical British brass band cornet, low overtone rich spectrum round brass flugelhorn, tenor horn eb, baritone horn bb, tenor standard standard backbore trombone, bass trombone, yellow brass canonical British brass band besson sovereign canonical British brass band euphonium, brass besson sovereign British brass band tuba, low fundamental tuning traditional calfskin timpani, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 600,
+  "score": 64.517,
+  "config": {
+    "traditions": [
+      "staff_band"
+    ],
+    "instruments": [
+      {
+        "id": "cornet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "cornet_pitch": "cornet_bb",
+          "cornet_context": "cornet_brass_band",
+          "cornet_bell_metal": "cornet_yellow_brass",
+          "cornet_maker_school": "cornet_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 2.75,
+          "cornet_pitch": 4.849999999999999,
+          "cornet_context": 0.8999999999999999,
+          "cornet_bell_metal": 4.999999999999998,
+          "cornet_maker_school": 5.331499999999999
+        }
+      },
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_bb",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_couesnon_vintage"
+        },
+        "scores": {
+          "wind_articulation": 2.75,
+          "flugel_use": 1.0259999999999998,
+          "flugelhorn_pitch": 0,
+          "flugelhorn_bell_metal": 0.8999999999999999,
+          "flugelhorn_maker_school": -0.1
+        }
+      },
+      {
+        "id": "tenor_horn_eb",
+        "slots": {
+          "tenor_horn_eb_identity": "tenor_horn_eb_scored"
+        },
+        "scores": {
+          "tenor_horn_eb_identity": 0
+        }
+      },
+      {
+        "id": "baritone_horn_bb",
+        "slots": {
+          "baritone_horn_bb_identity": "baritone_horn_bb_scored"
+        },
+        "scores": {
+          "baritone_horn_bb_identity": 0
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "classical_trb",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.75,
+          "trombone_type": -0.05,
+          "trombone_mouthpiece": 3.0500000000000003,
+          "trombone_mute": 0.6,
+          "trombone_technique": 0,
+          "trombone_bell_metal": 0.8999999999999999,
+          "trombone_maker_school": 0.6315
+        }
+      },
+      {
+        "id": "bass_trombone",
+        "slots": {
+          "bass_trombone_valves": "bass_trombone_single_trigger",
+          "bass_trombone_context": "bass_trombone_orchestral_legato"
+        },
+        "scores": {
+          "bass_trombone_valves": 0,
+          "bass_trombone_context": 0.3315
+        }
+      },
+      {
+        "id": "euphonium",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "euph_use": "euph_brass_band",
+          "euphonium_pitch": "euphonium_bb",
+          "euphonium_bell_metal": "euphonium_yellow_brass",
+          "euphonium_maker_school": "euphonium_besson_sovereign"
+        },
+        "scores": {
+          "wind_articulation": 2.75,
+          "euph_use": 0.8999999999999999,
+          "euphonium_pitch": 5.331499999999999,
+          "euphonium_bell_metal": 5.331499999999999,
+          "euphonium_maker_school": 5.331499999999999
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_bbb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 2.75,
+          "tuba_pitch": 0.0315,
+          "tuba_context": 1.6575,
+          "tuba_bell_metal": 0.9314999999999999,
+          "tuba_valve_system": 0,
+          "tuba_maker_school": 5.331499999999999
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_calfskin"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "timpani_size": 1.3,
+          "timpani_head": 1.3
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "cornet": [
+        "wind_articulation",
+        "cornet_pitch",
+        "cornet_context",
+        "cornet_bell_metal",
+        "cornet_maker_school"
+      ],
+      "flugelhorn": [
+        "wind_articulation",
+        "flugel_use",
+        "flugelhorn_pitch",
+        "flugelhorn_bell_metal",
+        "flugelhorn_maker_school"
+      ],
+      "tenor_horn_eb": [
+        "tenor_horn_eb_identity"
+      ],
+      "baritone_horn_bb": [
+        "baritone_horn_bb_identity"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "bass_trombone": [
+        "bass_trombone_valves",
+        "bass_trombone_context"
+      ],
+      "euphonium": [
+        "wind_articulation",
+        "euph_use",
+        "euphonium_pitch",
+        "euphonium_bell_metal",
+        "euphonium_maker_school"
+      ],
+      "tuba": [
+        "wind_articulation",
+        "tuba_pitch",
+        "tuba_context",
+        "tuba_bell_metal",
+        "tuba_valve_system",
+        "tuba_maker_school"
+      ],
+      "timpani": [
+        "percussion_technique",
+        "timpani_size",
+        "timpani_head"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "cornet_pitch": "cornet_bb",
+      "cornet_context": "cornet_brass_band",
+      "cornet_bell_metal": "cornet_yellow_brass",
+      "cornet_maker_school": "cornet_besson_british",
+      "flugel_use": "flugel_brass_band",
+      "flugelhorn_pitch": "flugelhorn_bb",
+      "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+      "flugelhorn_maker_school": "flugelhorn_couesnon_vintage",
+      "tenor_horn_eb_identity": "tenor_horn_eb_scored",
+      "baritone_horn_bb_identity": "baritone_horn_bb_scored",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "classical_trb",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "bass_trombone_valves": "bass_trombone_single_trigger",
+      "bass_trombone_context": "bass_trombone_orchestral_legato",
+      "euph_use": "euph_brass_band",
+      "euphonium_pitch": "euphonium_bb",
+      "euphonium_bell_metal": "euphonium_yellow_brass",
+      "euphonium_maker_school": "euphonium_besson_sovereign",
+      "tuba_pitch": "tuba_bbb",
+      "tuba_context": "tuba_brass_band",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_piston_american",
+      "tuba_maker_school": "tuba_besson_british",
+      "percussion_technique": "percussion_mallets_orchestral",
+      "timpani_size": "timpani_4_drum_set",
+      "timpani_head": "timpani_calfskin",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

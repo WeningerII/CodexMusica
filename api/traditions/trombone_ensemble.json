@@ -1,0 +1,99 @@
+{
+  "id": "trombone_ensemble",
+  "name": "Trombone Ensemble",
+  "family": "classical",
+  "lineage": "Norwegian Trombone Ensemble — Nibbles (LWC1194,2020), complete quartet album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic early-2020s trombone ensemble, art Music. tenor standard standard backbore trombone, bass trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 206,
+  "score": 4.913,
+  "config": {
+    "traditions": [
+      "trombone_ensemble"
+    ],
+    "instruments": [
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "classical_trb",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "trombone_type": -0.05,
+          "trombone_mouthpiece": 2.45,
+          "trombone_mute": 0,
+          "trombone_technique": 0,
+          "trombone_bell_metal": 0,
+          "trombone_maker_school": 0.0315
+        }
+      },
+      {
+        "id": "bass_trombone",
+        "slots": {
+          "bass_trombone_valves": "bass_trombone_single_trigger",
+          "bass_trombone_context": "bass_trombone_orchestral_legato"
+        },
+        "scores": {
+          "bass_trombone_valves": 0,
+          "bass_trombone_context": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "bass_trombone": [
+        "bass_trombone_valves",
+        "bass_trombone_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "classical_trb",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "bass_trombone_valves": "bass_trombone_single_trigger",
+      "bass_trombone_context": "bass_trombone_orchestral_legato"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

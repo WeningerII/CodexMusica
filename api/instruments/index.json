@@ -1,5 +1,5 @@
 {
-  "count": 1535,
+  "count": 1544,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9210,6 +9210,60 @@
       "name": "Dundun, sangban and kenkeni palette (one player)",
       "family": "percussion",
       "href": "instruments/dunun_three_size_palette.json"
+    },
+    {
+      "id": "credited_acoustic_bass",
+      "name": "Credited acoustic bass (construction unspecified)",
+      "family": "acoustic_strings",
+      "href": "instruments/credited_acoustic_bass.json"
+    },
+    {
+      "id": "ilimba_gogo",
+      "name": "Ilimba (Gogo lamellophone)",
+      "family": "percussion",
+      "href": "instruments/ilimba_gogo.json"
+    },
+    {
+      "id": "microtonal_guitar_unspecified",
+      "name": "Microtonal guitar (source-unspecified architecture)",
+      "family": "acoustic_strings",
+      "href": "instruments/microtonal_guitar_unspecified.json"
+    },
+    {
+      "id": "microtonal_mandolin_unspecified",
+      "name": "Microtonal mandolin (source-unspecified architecture)",
+      "family": "acoustic_strings",
+      "href": "instruments/microtonal_mandolin_unspecified.json"
+    },
+    {
+      "id": "octave_fiddle_unspecified",
+      "name": "Octave fiddle (source-unspecified construction)",
+      "family": "bowed",
+      "href": "instruments/octave_fiddle_unspecified.json"
+    },
+    {
+      "id": "munnharpe_unspecified",
+      "name": "Munnharpe (source-unspecified Norwegian jaw harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/munnharpe_unspecified.json"
+    },
+    {
+      "id": "party_cans_credited",
+      "name": "Party cans (source-credited percussion)",
+      "family": "percussion",
+      "href": "instruments/party_cans_credited.json"
+    },
+    {
+      "id": "tenor_horn_eb",
+      "name": "E-flat tenor horn (alto horn)",
+      "family": "wind",
+      "href": "instruments/tenor_horn_eb.json"
+    },
+    {
+      "id": "baritone_horn_bb",
+      "name": "B-flat baritone horn",
+      "family": "wind",
+      "href": "instruments/baritone_horn_bb.json"
     }
   ]
 }

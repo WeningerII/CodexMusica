@@ -5,7 +5,7 @@
   "lineage": "Aldy Santos — Pagkat Ang Diyos Ay Pag-ibig (Papuri), published SATB choir and piano arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic papuri, ritual Devotional. live take. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 210,
-  "score": 8.72,
+  "score": 9.069,
   "config": {
     "traditions": [
       "papuri"
@@ -47,8 +47,8 @@
           "voice_ensemble_config": 0.39,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.10575,
-          "voice_multitrack_stack": 0.6945,
+          "voice_processing_chain": 0.189,
+          "voice_multitrack_stack": 0.7575,
           "voice_tessitura": 0
         }
       },
@@ -68,9 +68,9 @@
         "scores": {
           "keyboard_technique": -0.1,
           "grand_piano_size": 0.0315,
-          "grand_piano_brand": 0.063,
-          "piano_hammer": 0.7,
-          "piano_rim": 1.04875,
+          "grand_piano_brand": 0.126,
+          "piano_hammer": 0.7314999999999999,
+          "piano_rim": 1.1575,
           "piano_soundboard": 0.7,
           "piano_pinblock": 2.6,
           "piano_plate": 0.7314999999999999,

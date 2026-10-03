@@ -3,9 +3,9 @@
   "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
   "family": "global",
   "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
-  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 562,
-  "score": 159.288,
+  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 553,
+  "score": 159.048,
   "config": {
     "traditions": [
       "brazilian_mpb_protest",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 5.890000000000002,
+          "voice_register": 5.845000000000002,
           "voice_quality": 22.359999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 13.064999999999996,
           "voice_ornament_system": 5.450000000000001,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 3.148125,
+          "voice_processing_chain": 3.043125,
           "voice_multitrack_stack": 2.7300000000000004
         }
       },
@@ -81,7 +81,7 @@
           "cavaquinho_strings": "cavaquinho_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 3.085,
+          "plucked_traditional_technique": 2.995,
           "cavaquinho_origin": 1.6899999999999997,
           "cavaquinho_context": 20.799999999999997,
           "cavaquinho_body_wood": 1.1049999999999998,

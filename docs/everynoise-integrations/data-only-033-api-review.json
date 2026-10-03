@@ -1,0 +1,576 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+  "baseline_head": "b63d72034c15bff3409665db3cf9e10a7c3d29a9",
+  "merged_predecessor_equivalence": null,
+  "current_counts": {
+    "traditions": 5938,
+    "instruments": 1544
+  },
+  "old_api": {
+    "traditions": 5838,
+    "identical": 5792,
+    "derived_changed": 46,
+    "recipe_changed": 9,
+    "material_slot_changes": 26,
+    "material_changed_entries": 11,
+    "old_instruments_identical": 1535,
+    "source_identity_roster_environment_protected_pin_changes": 0
+  },
+  "new_api": {
+    "traditions": 100,
+    "instrument_dependencies": 9,
+    "effective_parts": 3727,
+    "protected_applicable_pins": 3719,
+    "all_protected_pins_preserved": true,
+    "unpinned_actual_choices": [
+      {
+        "tradition": "slovenske_chvaly",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_keyboard_melodic_chordal",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "solipsynthm",
+        "instrument": "string_machine",
+        "part": "electronic_technique",
+        "flat_value": "electronic_arpeggiated",
+        "imported_default": "electronic_pad_drone",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_pad_drone",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "stl_indie",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_keyboard_melodic_chordal",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "swedish_ebm",
+        "instrument": "sampler_classic",
+        "part": "electronic_technique",
+        "flat_value": "electronic_arpeggiated",
+        "imported_default": "electronic_sample_chopped",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_glitch_textural",
+        "changed_from_import": true,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "swiss_worship",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_keyboard_melodic_chordal",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "toronto_indie",
+        "instrument": "electronic_organ_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_organ_melodic_sustained",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_organ_melodic_sustained",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "trondersk_musikk",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_keyboard_melodic_chordal",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "tucson_indie",
+        "instrument": "pedal_steel",
+        "part": "electric_technique",
+        "flat_value": "electric_clean_strummed",
+        "imported_default": "electric_steel_pedal_swells",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electric_steel_pedal_swells",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      }
+    ]
+  },
+  "causal_method": "Unchanged original baseline/current solvers replay all changed API recipes, complete configs and rounded scores exactly. A third temporary process removes ONLY new100 traditions/extras from memory, retains all new instrument definitions, and restores all baseline recipes/configs/scores. No source/API/snapshot edits. At most2 simultaneous review processes.",
+  "causal_interpretation": "Expected original adjacency/staple-candidate scoring effects of new source rows.Existing unprotected selected variants materially move; this is acknowledged as changed derived output, not improved historical reconstruction or mutated authored defaults. Existing actual browser cards preserved independently.",
+  "causal_rows": [
+    {
+      "id": "algerian_rai_political",
+      "baseline_staples": ["algerian_rai_political", "arab_tarab", "uyghur_folk"],
+      "current_staples": ["algerian_rai_political", "arab_tarab", "uyghur_folk"],
+      "new_source_neighbor_ids": ["svensk_progg"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 307.465,
+      "current_score": 303.79249999999996
+    },
+    {
+      "id": "ambient_country",
+      "baseline_staples": ["ambient_country", "south_african_country", "memphis_americana"],
+      "current_staples": ["ambient_country", "virginia_indie", "south_african_country"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["virginia_indie"],
+      "baseline_score": 122.18250000000002,
+      "current_score": 134.635
+    },
+    {
+      "id": "american_political_stump_oratory",
+      "baseline_staples": [
+        "american_political_stump_oratory",
+        "egyptian_sayyed_darwish_sheikh_imam",
+        "south_african_freedom_song"
+      ],
+      "current_staples": [
+        "american_political_stump_oratory",
+        "egyptian_sayyed_darwish_sheikh_imam",
+        "south_african_freedom_song"
+      ],
+      "new_source_neighbor_ids": ["svensk_progg"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 146.87499999999994,
+      "current_score": 146.84949999999995
+    },
+    {
+      "id": "athan_call_prayer",
+      "baseline_staples": ["athan_call_prayer", "mevlevi_ayin", "sindhi"],
+      "current_staples": ["athan_call_prayer", "mevlevi_ayin", "sindhi"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 143.44325,
+      "current_score": 143.50175
+    },
+    {
+      "id": "bahai",
+      "baseline_staples": ["bahai"],
+      "current_staples": ["bahai"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 4.5440000000000005,
+      "current_score": 5.633
+    },
+    {
+      "id": "belgian_experimental",
+      "baseline_staples": ["belgian_experimental"],
+      "current_staples": ["belgian_experimental"],
+      "new_source_neighbor_ids": ["spacesynth"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 0.019999999999999962,
+      "current_score": 0.24799999999999997
+    },
+    {
+      "id": "bengali_baul",
+      "baseline_staples": ["bengali_baul", "mevlevi_ayin", "sindhi"],
+      "current_staples": ["bengali_baul", "mevlevi_ayin", "sindhi"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 207.655,
+      "current_score": 207.26500000000001
+    },
+    {
+      "id": "brazilian_mpb_protest",
+      "baseline_staples": ["brazilian_mpb_protest", "cantautora_mexicana", "folklore_surero"],
+      "current_staples": ["brazilian_mpb_protest", "cantautora_mexicana", "folklore_surero"],
+      "new_source_neighbor_ids": ["svensk_progg"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 159.28812499999998,
+      "current_score": 159.048125
+    },
+    {
+      "id": "canadian_ccm",
+      "baseline_staples": ["canadian_ccm"],
+      "current_staples": ["canadian_ccm"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 2.2695000000000003,
+      "current_score": 3.051
+    },
+    {
+      "id": "cape_jazz",
+      "baseline_staples": ["cape_jazz", "spiritual_jazz", "jazz_flute"],
+      "current_staples": ["cape_jazz", "spiritual_jazz", "swiss_experimental"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["swiss_experimental"],
+      "baseline_score": 471.5937500000001,
+      "current_score": 468.68875
+    },
+    {
+      "id": "chilean_nueva_cancion",
+      "baseline_staples": [
+        "chilean_nueva_cancion",
+        "andean_matrimonio_huayno",
+        "greek_entechno_politicized"
+      ],
+      "current_staples": [
+        "chilean_nueva_cancion",
+        "andean_matrimonio_huayno",
+        "greek_entechno_politicized"
+      ],
+      "new_source_neighbor_ids": ["svensk_progg"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 219.3275,
+      "current_score": 216.79749999999993
+    },
+    {
+      "id": "clean_comedy",
+      "baseline_staples": ["clean_comedy"],
+      "current_staples": ["clean_comedy"],
+      "new_source_neighbor_ids": ["vlaamse_cabaret"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.4235,
+      "current_score": 1.5645000000000002
+    },
+    {
+      "id": "comedia",
+      "baseline_staples": ["comedia"],
+      "current_staples": ["comedia"],
+      "new_source_neighbor_ids": ["vlaamse_cabaret"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.221,
+      "current_score": 1.4295
+    },
+    {
+      "id": "comedienne",
+      "baseline_staples": ["comedienne"],
+      "current_staples": ["comedienne"],
+      "new_source_neighbor_ids": ["vlaamse_cabaret"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.1895000000000002,
+      "current_score": 1.4205
+    },
+    {
+      "id": "deconstructed_club",
+      "baseline_staples": ["deconstructed_club", "electro_industrial", "industrial_hardcore"],
+      "current_staples": ["deconstructed_club", "electro_industrial", "footwork"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["swedish_ebm"],
+      "baseline_score": 200.34250000000003,
+      "current_score": 180.67499999999998
+    },
+    {
+      "id": "egyptian_sayyed_darwish_sheikh_imam",
+      "baseline_staples": ["egyptian_sayyed_darwish_sheikh_imam", "andalusi_nuba", "ghazal"],
+      "current_staples": ["egyptian_sayyed_darwish_sheikh_imam", "andalusi_nuba", "ghazal"],
+      "new_source_neighbor_ids": ["svensk_progg"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 233.52499999999995,
+      "current_score": 229.14499999999992
+    },
+    {
+      "id": "guided_meditation",
+      "baseline_staples": ["guided_meditation", "audiobook_narration", "shipping_forecast_cadence"],
+      "current_staples": ["guided_meditation", "audiobook_narration", "shipping_forecast_cadence"],
+      "new_source_neighbor_ids": ["subliminal_product"],
+      "new_source_candidate_ids": ["vlaamse_cabaret"],
+      "baseline_score": 146.92843749999997,
+      "current_score": 146.74036607142855
+    },
+    {
+      "id": "hasidic_niggun",
+      "baseline_staples": ["hasidic_niggun", "mevlevi_ayin", "qawwali"],
+      "current_staples": ["hasidic_niggun", "mevlevi_ayin", "qawwali"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 146.7715,
+      "current_score": 146.9665
+    },
+    {
+      "id": "islamic_anasheed",
+      "baseline_staples": ["islamic_anasheed", "mevlevi_ayin", "qawwali"],
+      "current_staples": ["islamic_anasheed", "mevlevi_ayin", "sufi"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": ["sufi"],
+      "baseline_score": 187.583875,
+      "current_score": 146.872375
+    },
+    {
+      "id": "kabarett",
+      "baseline_staples": ["kabarett"],
+      "current_staples": ["kabarett"],
+      "new_source_neighbor_ids": ["vlaamse_cabaret"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.6019999999999999,
+      "current_score": 1.8105000000000002
+    },
+    {
+      "id": "kundalini",
+      "baseline_staples": ["kundalini"],
+      "current_staples": ["kundalini"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 3.3129999999999997,
+      "current_score": 3.4075
+    },
+    {
+      "id": "latino_comedy",
+      "baseline_staples": ["latino_comedy"],
+      "current_staples": ["latino_comedy"],
+      "new_source_neighbor_ids": ["vlaamse_cabaret"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.992,
+      "current_score": 2.2005
+    },
+    {
+      "id": "malhun_maghrebi",
+      "baseline_staples": ["malhun_maghrebi", "qawwali", "sufi_sama"],
+      "current_staples": ["malhun_maghrebi", "qawwali", "sufi_sama"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 170.33749999999995,
+      "current_score": 170.00749999999996
+    },
+    {
+      "id": "marcha_funebre",
+      "baseline_staples": ["marcha_funebre"],
+      "current_staples": ["marcha_funebre"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 17.917,
+      "current_score": 18.4195
+    },
+    {
+      "id": "messianic_praise",
+      "baseline_staples": ["messianic_praise"],
+      "current_staples": ["messianic_praise"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 15.0195,
+      "current_score": 15.375
+    },
+    {
+      "id": "modal_jazz",
+      "baseline_staples": ["modal_jazz", "viking_folk", "arab_folk"],
+      "current_staples": ["modal_jazz"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["rogaland_musikk"],
+      "baseline_score": 164.20499999999998,
+      "current_score": 147.78
+    },
+    {
+      "id": "moroccan_pop",
+      "baseline_staples": [
+        "moroccan_pop",
+        "algerian_rai_political",
+        "egyptian_sayyed_darwish_sheikh_imam"
+      ],
+      "current_staples": [
+        "moroccan_pop",
+        "algerian_rai_political",
+        "egyptian_sayyed_darwish_sheikh_imam"
+      ],
+      "new_source_neighbor_ids": ["sufi", "svensk_progg"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 256.862375,
+      "current_score": 255.284
+    },
+    {
+      "id": "musica_indigena_brasileira",
+      "baseline_staples": ["musica_indigena_brasileira"],
+      "current_staples": ["musica_indigena_brasileira"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 0.768,
+      "current_score": 1.02
+    },
+    {
+      "id": "musica_indigena_latinoamericana",
+      "baseline_staples": ["musica_indigena_latinoamericana"],
+      "current_staples": ["musica_indigena_latinoamericana"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 2.19,
+      "current_score": 2.379
+    },
+    {
+      "id": "musica_instrumental_cristiana",
+      "baseline_staples": ["musica_instrumental_cristiana"],
+      "current_staples": ["musica_instrumental_cristiana"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": -0.4505,
+      "current_score": -0.35750000000000004
+    },
+    {
+      "id": "naat_devotional",
+      "baseline_staples": ["naat_devotional", "mevlevi_ayin", "qawwali"],
+      "current_staples": ["naat_devotional", "mevlevi_ayin", "qawwali"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 219.353,
+      "current_score": 219.4115
+    },
+    {
+      "id": "new_comedy",
+      "baseline_staples": ["new_comedy"],
+      "current_staples": ["new_comedy"],
+      "new_source_neighbor_ids": ["vlaamse_cabaret"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.221,
+      "current_score": 1.4295
+    },
+    {
+      "id": "nova_canco",
+      "baseline_staples": ["nova_canco", "chanson", "cancion_melodica"],
+      "current_staples": ["nova_canco", "chanson", "cancion_melodica"],
+      "new_source_neighbor_ids": ["svensk_progg"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 217.58499999999995,
+      "current_score": 217.08999999999992
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "baseline_staples": ["numbers_station_broadcast", "audiobook_narration", "poetry_slam"],
+      "current_staples": [
+        "numbers_station_broadcast",
+        "audiobook_narration",
+        "documentary_voiceover"
+      ],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["vlaamse_cabaret"],
+      "baseline_score": 142.08025,
+      "current_score": 145.28874999999996
+    },
+    {
+      "id": "ocean",
+      "baseline_staples": ["ocean"],
+      "current_staples": ["ocean"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": [],
+      "baseline_score": 14.399354166666667,
+      "current_score": 14.331354166666667
+    },
+    {
+      "id": "papuri",
+      "baseline_staples": ["papuri"],
+      "current_staples": ["papuri"],
+      "new_source_neighbor_ids": ["psalms", "slovenske_chvaly"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 8.72,
+      "current_score": 9.069499999999998
+    },
+    {
+      "id": "poetry_slam",
+      "baseline_staples": ["poetry_slam", "oldtime_radio_announcer", "sports_play_by_play"],
+      "current_staples": ["poetry_slam", "oldtime_radio_announcer", "sports_play_by_play"],
+      "new_source_neighbor_ids": ["vlaamse_cabaret"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 142.09749999999997,
+      "current_score": 142.225
+    },
+    {
+      "id": "quran_murattal",
+      "baseline_staples": ["quran_murattal", "arabic_madh_qasida", "sufi_munajat_naat"],
+      "current_staples": ["quran_murattal", "arabic_madh_qasida", "sufi_munajat_naat"],
+      "new_source_neighbor_ids": ["subliminal_product"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 225.82649999999995,
+      "current_score": 225.903
+    },
+    {
+      "id": "russian_chanson",
+      "baseline_staples": ["russian_chanson", "texas_country_folk_storyteller", "liedermacher"],
+      "current_staples": ["russian_chanson", "texas_country_folk_storyteller", "liedermacher"],
+      "new_source_neighbor_ids": ["svensk_progg"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 239.47549999999998,
+      "current_score": 239.90749999999997
+    },
+    {
+      "id": "sahel_praise",
+      "baseline_staples": ["sahel_praise", "sudanese_aghani_al_banat", "wassoulou"],
+      "current_staples": ["sahel_praise", "sudanese_aghani_al_banat", "wassoulou"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 291.07499999999993,
+      "current_score": 286.18499999999995
+    },
+    {
+      "id": "saraiki_pop",
+      "baseline_staples": ["saraiki_pop", "qawwali", "rajasthani_folk_thar"],
+      "current_staples": ["saraiki_pop", "qawwali", "rajasthani_folk_thar"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 226.21999999999997,
+      "current_score": 226.02499999999995
+    },
+    {
+      "id": "setar_persian_solo",
+      "baseline_staples": ["setar_persian_solo", "ney_taksim", "oud_taqsim"],
+      "current_staples": ["setar_persian_solo", "ney_taksim", "oud_taqsim"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 265.1216964285714,
+      "current_score": 264.37625
+    },
+    {
+      "id": "standup_comedy",
+      "baseline_staples": ["standup_comedy", "sports_play_by_play", "oldtime_radio_announcer"],
+      "current_staples": ["standup_comedy", "sports_play_by_play", "oldtime_radio_announcer"],
+      "new_source_neighbor_ids": ["vlaamse_cabaret"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 134.62,
+      "current_score": 133.8985
+    },
+    {
+      "id": "tajik_traditional",
+      "baseline_staples": ["tajik_traditional", "sindhi", "latmiya"],
+      "current_staples": ["tajik_traditional", "sindhi", "latmiya"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 243.60199999999998,
+      "current_score": 241.73149999999995
+    },
+    {
+      "id": "tarana",
+      "baseline_staples": ["tarana", "sufi_sama", "qawwali"],
+      "current_staples": ["tarana", "sufi_sama", "qawwali"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 184.14449999999997,
+      "current_score": 183.77850000000004
+    },
+    {
+      "id": "zikir",
+      "baseline_staples": ["zikir", "sufi_zikr_chant", "sindhi"],
+      "current_staples": ["zikir", "sufi_zikr_chant", "sindhi"],
+      "new_source_neighbor_ids": ["sufi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 180.83249999999995,
+      "current_score": 180.87749999999994
+    }
+  ],
+  "full_delta_report": "api-delta-independent-review119.json",
+  "projection_and_source_pin_proof": "api-projection-review119.json",
+  "errors": [],
+  "remaining_required": "Root serial regression and any targeted fixture causal review; exact-head CI.",
+  "no_repo_mutations": true
+}

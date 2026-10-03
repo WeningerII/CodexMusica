@@ -3,14 +3,14 @@
   "name": "Anāshīd (Islamic vocal-only devotional)",
   "family": "global",
   "lineage": "Islamic instrument-free devotional vocal tradition (nashīd plural anāshīd: \"hymns\") characterized by male-chorus a cappella or daff frame-drum accompaniment — codified through Sami Yusuf’s 2003 Al-Mu’allim record, Maher Zain, and Mesut Kurtis as canonical late-twentieth-century English-Arabic-bilingual exponents",
-  "recipe": "classic early-2000s anāshīd, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 548,
-  "score": 187.584,
+  "recipe": "classic early-2000s anāshīd, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 570,
+  "score": 146.872,
   "config": {
     "traditions": [
       "islamic_anasheed",
       "mevlevi_ayin",
-      "qawwali"
+      "sufi"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.886625,
-          "voice_quality": 21.694999999999997,
+          "voice_register": 2.536625,
+          "voice_quality": 15.894999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.387500000000001,
-          "voice_articulation": 9.099999999999998,
-          "voice_microtone": 16.347499999999997,
-          "voice_tradition": 30.289999999999996,
-          "voice_mechanism_compound": 5.525,
-          "voice_estill_quality": 5.687500000000001,
-          "voice_speech_song": 10.984999999999994,
-          "voice_ensemble_config": 10.075,
-          "voice_ornament_system": 21.3495,
-          "voice_pitch_organization": 8.466000000000001,
-          "voice_processing_chain": 3.12,
-          "voice_multitrack_stack": 3.6576249999999995
+          "voice_vibrato": 2.7625,
+          "voice_articulation": 7.149999999999999,
+          "voice_microtone": 14.137499999999996,
+          "voice_tradition": 20.15,
+          "voice_mechanism_compound": 4.745,
+          "voice_estill_quality": 3.2175000000000002,
+          "voice_speech_song": 8.579999999999998,
+          "voice_ensemble_config": 8.514999999999999,
+          "voice_ornament_system": 19.213,
+          "voice_pitch_organization": 7.216,
+          "voice_processing_chain": 2.74,
+          "voice_multitrack_stack": 3.3076249999999994
         }
       },
       {
@@ -58,13 +58,13 @@
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_polyrhythmic_layered",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_romantic"
+          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 6.305000000000001,
-          "choir_polyphonic_configuration": 3.776625,
+          "choir_size": 5.46,
+          "choir_polyphonic_configuration": 3.426625,
           "choir_regional_canonical_configuration": 2.47,
-          "choir_ensemble_repertoire": 3.925
+          "choir_ensemble_repertoire": 3.25
         }
       },
       {
@@ -77,9 +77,9 @@
           "daf_jingle_metal": "daf_brass_rings"
         },
         "scores": {
-          "daf_rings": 8.059999999999999,
-          "daf_context": 3.5100000000000002,
-          "daf_shell_wood": 4.29,
+          "daf_rings": 5.199999999999999,
+          "daf_context": 2.8600000000000003,
+          "daf_shell_wood": 3.6399999999999997,
           "daf_head_material": 1.3,
           "daf_jingle_metal": 1.3
         }

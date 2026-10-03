@@ -1,0 +1,68 @@
+{
+  "id": "therapy",
+  "name": "Therapy",
+  "family": "vernacular",
+  "lineage": "Didge Therapy / Joseph B. Carringer — Harmonies of Water (Solo Didgeridoo), Pt. 3. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic therapy, drone Modal, wind pipe branch. drone like circular breathing bare wood didgeridoo. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 198,
+  "score": 12.025,
+  "config": {
+    "traditions": [
+      "therapy"
+    ],
+    "instruments": [
+      {
+        "id": "didgeridoo",
+        "slots": {
+          "wind_articulation": "wind_circular_breathing_drone",
+          "didj_material": "eucalyptus_didj",
+          "didj_mouthpiece": "bare_wood_mouthpiece",
+          "didj_technique": "circular_breathing"
+        },
+        "scores": {
+          "wind_articulation": 10.075,
+          "didj_material": 0.39,
+          "didj_mouthpiece": 1.17,
+          "didj_technique": 0.39
+        }
+      }
+    ],
+    "pinned": {
+      "didgeridoo": [
+        "wind_articulation",
+        "didj_material",
+        "didj_mouthpiece",
+        "didj_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_circular_breathing_drone",
+      "didj_material": "eucalyptus_didj",
+      "didj_mouthpiece": "bare_wood_mouthpiece",
+      "didj_technique": "circular_breathing"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

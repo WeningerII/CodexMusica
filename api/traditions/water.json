@@ -1,0 +1,56 @@
+{
+  "id": "water",
+  "name": "Water",
+  "family": "electronic",
+  "lineage": "R.J. Stefanski — San Diego Underwater (Hydrophone Tests), Reservoir (2020). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s water, experimental Elec, musique concrete branch. environmental field recording environmental sound collage. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 228,
+  "score": 2.86,
+  "config": {
+    "traditions": [
+      "water"
+    ],
+    "instruments": [
+      {
+        "id": "environmental_sound_collage",
+        "slots": {
+          "environmental_collage_source": "environmental_field_recording_collage"
+        },
+        "scores": {
+          "environmental_collage_source": 2.8600000000000003
+        }
+      }
+    ],
+    "pinned": {
+      "environmental_sound_collage": [
+        "environmental_collage_source"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "environmental_collage_source": "environmental_field_recording_collage"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

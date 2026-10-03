@@ -1,0 +1,207 @@
+{
+  "id": "tanzlmusi",
+  "name": "Tanzlmusi",
+  "family": "vernacular",
+  "lineage": "Mathias Rauch — Heimatlandmesse, complete publisher-authorized Tanzlmusi mass scoring. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic tanzlmusi, ritual Devotional. flugelhorn, clarinet, trombone, tuba, accordion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 185,
+  "score": 6.052,
+  "config": {
+    "traditions": [
+      "tanzlmusi"
+    ],
+    "instruments": [
+      {
+        "id": "flugelhorn",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flugel_use": "flugel_brass_band",
+          "flugelhorn_pitch": "flugelhorn_bb",
+          "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+          "flugelhorn_maker_school": "flugelhorn_couesnon_vintage"
+        },
+        "scores": {
+          "wind_articulation": 0.7945,
+          "flugel_use": 0.063,
+          "flugelhorn_pitch": 0,
+          "flugelhorn_bell_metal": 0,
+          "flugelhorn_maker_school": -0.1
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "clarinet_body": "grenadilla_clarinet",
+          "clarinet_size": "b_flat_clarinet",
+          "clarinet_reed": "medium_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 0.7945,
+          "clarinet_body": 0.6499999999999999,
+          "clarinet_size": 0,
+          "clarinet_reed": 0,
+          "clarinet_articulation": 0.168
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "classical_trb",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 0.7945,
+          "trombone_type": -0.035,
+          "trombone_mouthpiece": 0.9999999999999998,
+          "trombone_mute": 0.063,
+          "trombone_technique": 0,
+          "trombone_bell_metal": 0,
+          "trombone_maker_school": 0.3315
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "tuba_pitch": "tuba_cc",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german"
+        },
+        "scores": {
+          "wind_articulation": 0.7945,
+          "tuba_pitch": 0.0315,
+          "tuba_context": 0.726,
+          "tuba_bell_metal": 0,
+          "tuba_valve_system": 0,
+          "tuba_maker_school": 0
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_hohner_gola"
+        },
+        "scores": {
+          "free_reed_technique": -0.11850000000000002,
+          "accordion_reed_material": 0,
+          "musette_offset": 0.063,
+          "reed_config": 0,
+          "bellows": 0,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0.0315
+        }
+      }
+    ],
+    "pinned": {
+      "flugelhorn": [
+        "wind_articulation",
+        "flugel_use",
+        "flugelhorn_pitch",
+        "flugelhorn_bell_metal",
+        "flugelhorn_maker_school"
+      ],
+      "clarinet": [
+        "wind_articulation",
+        "clarinet_body",
+        "clarinet_size",
+        "clarinet_reed",
+        "clarinet_articulation"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "tuba": [
+        "wind_articulation",
+        "tuba_pitch",
+        "tuba_context",
+        "tuba_bell_metal",
+        "tuba_valve_system",
+        "tuba_maker_school"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "flugel_use": "flugel_brass_band",
+      "flugelhorn_pitch": "flugelhorn_bb",
+      "flugelhorn_bell_metal": "flugelhorn_yellow_brass",
+      "flugelhorn_maker_school": "flugelhorn_couesnon_vintage",
+      "clarinet_body": "grenadilla_clarinet",
+      "clarinet_size": "b_flat_clarinet",
+      "clarinet_reed": "medium_clarinet_reed",
+      "clarinet_articulation": "tongued_clarinet",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "classical_trb",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "tuba_pitch": "tuba_cc",
+      "tuba_context": "tuba_brass_band",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_rotary_german",
+      "tuba_maker_school": "tuba_miraphone_german",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "accordion_reed_material": "steel_reeds",
+      "musette_offset": "german_tuning",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "cassotto",
+      "accordion_maker_school": "accordion_hohner_gola"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

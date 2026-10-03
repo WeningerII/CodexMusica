@@ -1,0 +1,34 @@
+{
+  "original_sha256": "c5287918bbf48d24aae68f6fc4e841a3dcbe8e829f0a339ac8e9c34cfbb4995f",
+  "integration_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+  "changes": [
+    {
+      "id": "sinogaze",
+      "path": "tradition.family",
+      "before": "rock_punk",
+      "after": "rock",
+      "reason": "Source alternative shoegaze is not forced punk lineage."
+    },
+    {
+      "id": "sunnlensk_tonlist",
+      "path": "extras.parent",
+      "before": "balladPoetry",
+      "after": "functionalSong",
+      "reason": "Complete eight-player eleven-family song arrangement is not minimal accompaniment; explicit authored chordal song-form rationale added."
+    },
+    {
+      "id": "theremin",
+      "path": "extras.parent",
+      "before": "artMusic.westernModern",
+      "after": "artMusic",
+      "reason": "Publisher proves composed concert-hall duo but no specific modernist harmonic method."
+    },
+    {
+      "id": "sunnlensk_tonlist",
+      "path": "neighbor_distinction",
+      "reason": "Synchronize evidence-only explanation with corrected functionalSong parent; no additional recipe change."
+    }
+  ],
+  "reviewer": "research_119 independent semantic scan; root agrees",
+  "scope": "Only these three new entries changed; source packets and shared code untouched."
+}
