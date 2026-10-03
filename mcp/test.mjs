@@ -5053,6 +5053,7 @@ await check('validation: actionable errors', () => {
       'mcp/test_spend_store.mjs': 'shared corrupt-spend assertion and isolated fault runner',
       'mcp/test_paid_budget.mjs': 'offline shared spending admission regressions',
       'mcp/test_python_bridge.mjs': 'offline worker lifecycle regressions',
+      'mcp/test_lookup_queue.mjs': 'offline lookup-does-not-queue-behind-a-grade regression',
       'mcp/test_lyric_state.mjs': 'offline lyric state and SDK regressions',
       'mcp/test_turn_lifecycle.mjs': 'offline chat lifetime and signed continuation regressions',
       'mcp/test_battery_lifecycle.mjs': 'offline real battery transport regressions',

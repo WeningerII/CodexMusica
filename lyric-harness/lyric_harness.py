@@ -4432,7 +4432,9 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     # EVERY MANDATED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY, ALWAYS.
     # The schemas are not a rescue for pairs the coarse chain charged: each
     # mandated pair's relation set is the coarse relations it stands in PLUS
-    # every schema its two lines stand in, and the pair is satisfied when
+    # every schema its two END WORDS stand in (a letter scheme binds each
+    # line's last word; M-317, owner ruling 2026-10-02), and the pair is
+    # satisfied when
     # that set holds any relation the declaration admits. A declaration
     # that NARROWED `decl.admit` has said which coarse relations count; the
     # schema names are still recorded for every pair.
@@ -4443,9 +4445,13 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     if _asked:
         from quality import phonology as _PH
         from quality.relations import whole_vocabulary_pairs as _WVP
+        # A letter scheme binds each line's LAST word, and a pair stands in
+        # a schema only through an instance covering both (owner ruling
+        # 2026-10-02) -- the binding `quality.revise.grade` passes.
         _wvp = _WVP(list(lines), _PH.get("eng"),
                     bearing={x for pr in mandated for x in pr},
-                    requested_pairs=_asked)
+                    requested_pairs=_asked,
+                    bound={pr: (-1, -1) for pr in _asked})
         from quality.relations import REGISTRY as _REG
         for pr in sorted(_asked):
             if pr in _wvp:
@@ -5899,9 +5905,20 @@ def _record_schemas(r):
     registry names in `satisfied_by` (which also lists coarse relations)."""
     if r.get("schemas") is not None:
         return list(r["schemas"])
-    return [n for n in (r.get("satisfied_by") or ())
-            if n not in ADMITTABLE_RELATIONS and n not in (
-                "REPEAT", NO_ANCHOR)]
+    # A DECLARED relation is stored namespaced (`schema:perfect rhyme`,
+    # `class:RHYME`, `type:pararhyme`). Only the `schema:` namespace names a
+    # registry schema; read as a bare name, `schema:perfect rhyme` resolved to
+    # nothing and a declared perfect rhyme was reported "not heard as end
+    # rhyme", and `class:RHYME` was listed as a schema (2026-10-02).
+    out = []
+    for n in r.get("satisfied_by") or ():
+        if n.startswith("schema:"):
+            out.append(n[len("schema:"):])
+        elif n.startswith(("class:", "type:")):
+            continue
+        elif n not in ADMITTABLE_RELATIONS and n not in ("REPEAT", NO_ANCHOR):
+            out.append(n)
+    return out
 
 
 def schema_default_disclosure(sch_sat):
@@ -12445,12 +12462,19 @@ def main():
                 _gs = dict(getattr(b, "group_slots", {}) or {})
                 _viol = set(getattr(b, "violated_groups", ()) or ())
                 _unjudged = set(getattr(b, "unjudged_groups", ()) or ())
+                # A HOLDING PAIR WITH A PURSUED NOTE IS NOT "VIOLATED"
+                # (2026-10-02): it was, on read/bed, under "0 FLAG, 1 NOTE".
+                _noted = dict(getattr(b, "noted_groups", {}) or {})
+                from quality.revise import held_note_standing  # noqa: PLC0415
                 for lab, mem, calls in b.must_answer:
                     shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
                     _place = (f" at {_gs[lab]}" if _gs.get(lab) is not None
                               else "")
-                    _stand = ((" — VIOLATED; also UNJUDGED" if lab in _viol
+                    _stand = ((" — VIOLATED; also UNJUDGED"
+                               if lab in _viol and lab not in _noted
                                else " — UNJUDGED") if lab in _unjudged else
+                              held_note_standing(_noted[lab]) if lab in _noted
+                              else
                               ((" — VIOLATED" if lab in _viol else " — HOLDS")
                                if _viol else ""))
                     print(f"      must answer group {lab} {mem}{_place}: "

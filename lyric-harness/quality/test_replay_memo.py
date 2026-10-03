@@ -231,11 +231,18 @@ with tempfile.TemporaryDirectory(prefix="rm_unknown_") as unknown_dir:
     # read DH IY0 and `we`; store/gone through assonance), so the run
     # finishes with nothing asked and nothing invented. superseded: rc 4,
     # suspended on an UNKNOWN reading repair.
-    check("the original default-reading fixture finishes without asking a "
-          "question, inventing a pronunciation or changing a line",
-          rc == 0 and unknown["status"] == "finished"
+    # 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner ruling): the
+    # line heads no longer answer for the end words. four/own share no
+    # relation, so the run suspends on a REAL rhyme repair -- L3's end word
+    # against `four` -- and still invents no pronunciation and changes no
+    # line. superseded: rc 0, finished, nothing asked.
+    check("the original default-reading fixture suspends on a real rhyme "
+          "repair (L3 against `four`) without inventing a pronunciation or "
+          "changing a line",
+          rc == 4 and unknown["status"] == "suspended"
           and journal["accepted_lines"] == HISTORICAL_LINES
-          and journal["pending"] is None
+          and (journal["pending"] or {}).get("record", {}).get("line") == 3
+          and "L2 ('four') — VIOLATED" in out
           and not any(journal["answered"].values()), err)
 
 # ── 4. key separation ────────────────────────────────────────────────────

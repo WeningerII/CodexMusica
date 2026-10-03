@@ -126,6 +126,27 @@ RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME",
                   "HOMEOTELEUTON"}
 
+
+def held_note_standing(codes):
+    """-> the standing a mandate line prints for a group whose pair HOLDS but
+    carries a pursued NOTE (`Brief.noted_groups`, 2026-10-02).
+
+    It was printed as "VIOLATED" until 2026-10-02: on read/bed the report
+    said "0 FLAG, 1 NOTE" and the line said "— VIOLATED". The pair holds;
+    what is true is that its rhyme is a predictable one (or another pursued
+    note) and the loop still asks for this word to change (doctrine 9).
+    `Brief.__str__` and the `brief` verb's report print this; the writer
+    prompt (`quality/propose.py`, which imports nothing from here) says the
+    same in its own words.
+    """
+    codes = tuple(codes)
+    named = ", ".join(codes)
+    if {"MODAL_RHYME", "PREDICTABLE_RHYME"} & set(codes):
+        return (f" — HOLDS, but its rhyme is a predictable one (NOTE "
+                f"{named}), which the loop still asks to change")
+    return (f" — HOLDS, but carries NOTE {named}, which the loop still "
+            f"asks to change")
+
 #: Findings whose PRESENCE records that a requirement or a licence HOLDS.
 #: Everything else in the finding set names something WRONG, so its
 #: disappearance is a repair; these name something RIGHT, so their
@@ -522,6 +543,17 @@ class Brief:
     #: empty when neither names a group (e.g. only PREDICTABLE_RHYME),
     #: in which case `slot` is the first group's.
     violated_groups: tuple = ()
+    #: THE GROUPS IN `violated_groups` WHOSE PAIR HOLDS (2026-10-02):
+    #: `{label: (note codes)}` for a group attributed only by NOTE findings
+    #: (MODAL_RHYME, PREDICTABLE_RHYME, HOMEOTELEUTON, SHARED_SUFFIX — the
+    #: pursued notes in `RHYME_FINDINGS`) and by no flag and no incident
+    #: graded violation. `violated_groups` still carries them, because the
+    #: loop still asks for that word to change (doctrine 9) and the place,
+    #: the field and `verify()` are unchanged; this is what lets a renderer
+    #: say the pair HOLDS instead of calling it VIOLATED. Measured on
+    #: read/bed under `--groups=1,2;3,4`: "0 FLAG, 1 NOTE", and the brief
+    #: said "group A [1, 2]: L1 ('read') — VIOLATED".
+    noted_groups: dict = field(default_factory=dict)
     #: The labels of the groups that bind at `slot` — the groups a tier-2
     #: backtrack may rewrite for this pivot. Tier 2 used to walk EVERY group
     #: of the line and intersect their calls across places.
@@ -756,9 +788,12 @@ class Brief:
             _sk = self.group_slots.get(lab, None) if self.group_slots else None
             place = f" at {_sk}" if _sk is not None else ""
             standing = ""
+            _noted = (self.noted_groups or {}).get(lab)
             if lab in self.unjudged_groups:
                 standing = (" — VIOLATED; also UNJUDGED" if lab in self.violated_groups
-                            else " — UNJUDGED")
+                            and not _noted else " — UNJUDGED")
+            elif _noted:
+                standing = held_note_standing(_noted)
             elif self.violated_groups:
                 standing = (" — VIOLATED" if lab in self.violated_groups
                             else " — HOLDS")
@@ -1069,6 +1104,12 @@ def field_memo_clear():
     _END_PAIR_MEMO.clear()
     for k in _FIELD_MEMO_TALLY:
         _FIELD_MEMO_TALLY[k] = 0
+
+
+#: `Reviser._bound_token_schemas`' answers, keyed on the pair's own two lines
+#: (M-317). Bounded like `relations._RESOLVE_MEMO`, oldest out first.
+_BOUND_TOKEN_MEMO = {}
+_BOUND_TOKEN_MEMO_CAP = 50_000
 
 
 class Reviser:
@@ -1573,7 +1614,7 @@ class Reviser:
     # -- grading the mandate ----------------------------------------------
 
     def grade(self, lines, mandate=None, profile=None, sections=None, *,
-              _only_groups=None, _verdicts_only=False):
+              _only_groups=None, _verdicts_only=False, _moot=None):
         """The mandate, diffed against the graph. -> dict, group-scoped.
 
         `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
@@ -2252,8 +2293,11 @@ class Reviser:
         # second half of the instruction whose first half widened the admit
         # set to all four classes on 2026-08-22 (`MISSING.md` M-116, task
         # #86). A mandated pair that declared NO relation and NO structure is
-        # satisfied when its two lines stand in ANY schema the vocabulary
-        # names, judged by the SAME instrument the declared route uses —
+        # satisfied when ~~its two lines~~ THE TWO WORDS ITS GROUP BINDS
+        # stand in ANY schema the vocabulary names (AMENDED 2026-10-02 by
+        # owner ruling, `MISSING.md` M-317: two lines relating at words the
+        # group does not bind no longer satisfy it), judged by the SAME
+        # instrument the declared route uses —
         # `relations.line_pairs_for` over one shared stream — so there is no
         # second judge to drift from (doctrine 1). Declaring a relation
         # remains the NARROWING move and is untouched: a group that says
@@ -2269,7 +2313,7 @@ class Reviser:
         # relation, read here and by `brief()`.
         # EVERY GRADED PAIR IS JUDGED AGAINST THE WHOLE VOCABULARY — not
         # only the pairs the coarse relations failed. Each verdict's relation
-        # set gains every schema its two lines stand in; in a group whose
+        # set gains every schema its BOUND WORDS stand in; in a group whose
         # route is open (nothing narrowed or declared), a pair is satisfied
         # when ANY relation in that set holds.
         _open = [v for v in verdicts if self.schema_route_open(m, v["group"])]
@@ -2281,20 +2325,48 @@ class Reviser:
         _asked = ([v for v in _open
                    if v["why"] and "REPEAT" not in v["relations"]]
                   if _verdicts_only else verdicts)
+        # `_moot` (a trial grade only): obligations (i, j, group) whose
+        # answer the caller reads the same satisfied or undecided -- it left
+        # them undecided on the draft before the change, and the change was
+        # not asked to answer them. One that cannot end FAILED is left
+        # undecided without the search (`can_stay_open`). Conjunctive only:
+        # the disjunctive rule reads per-line answers across obligations.
+        if not (_verdicts_only and self.rdecl.overlap_rule == "conjunctive"):
+            _moot = None
         if _asked:
             from quality import relations as _RF
-            _wvp = _RF.whole_vocabulary_pairs(
-                lines, self._relation_phonology(), sections=sections,
-                bearing={ln - 1 for g in m.groups for ln in g
-                         if 1 <= ln <= len(lines)},
-                requested_pairs={tuple(sorted(v["lines"]))
-                                 for v in _asked},
-                # A trial grade reads pass/fail only: stop asking a pair
-                # once one satisfier holds it (the answer cannot move).
-                settle=_verdicts_only)
+            # THE BOUND WORDS (owner ruling 2026-10-02): a group binds a
+            # word on each line (its slot; the last word by default), and a
+            # pair stands in a schema only through an instance covering both
+            # bound words. Two groups can bind one line pair at different
+            # words, so each distinct binding of a pair is asked on its own.
+            _rounds = []
+            for v in _asked:
+                i, j = sorted(v["lines"])
+                b = (_SL.token_of(m.slot_of(v["group"], i)),
+                     _SL.token_of(m.slot_of(v["group"], j)))
+                for rnd in _rounds:
+                    if rnd.get((i, j), b) == b:
+                        rnd[(i, j)] = b
+                        v["_round"] = rnd
+                        break
+                else:
+                    _rounds.append({(i, j): b})
+                    v["_round"] = _rounds[-1]
+            _wvps = {}
+            for rnd in _rounds:
+                _wvps[id(rnd)] = _RF.whole_vocabulary_pairs(
+                    lines, self._relation_phonology(), sections=sections,
+                    bearing={ln - 1 for g in m.groups for ln in g
+                             if 1 <= ln <= len(lines)},
+                    requested_pairs=set(rnd),
+                    # A trial grade reads pass/fail only: stop asking a pair
+                    # once one satisfier holds it (the answer cannot move).
+                    settle=_verdicts_only, bound=rnd)
             _open_ids = {id(v) for v in _open}
             _fan_unknown = set()
             for v in _asked:
+                _wvp = _wvps[id(v.pop("_round"))]
                 _hit = sorted(_wvp.get(tuple(sorted(v["lines"]))) or ())
                 v["schemas"] = _hit
                 v["relations"] = sorted(set(v["relations"]) | set(_hit))
@@ -2312,6 +2384,45 @@ class Reviser:
                     if v["why"] and "REPEAT" not in v["relations"]:
                         v["why"] = None
                 elif v["why"] and "REPEAT" not in v["relations"]:
+                    if _moot and (*v["lines"], v["group"]) in _moot:
+                        _open_n = [n for n in (getattr(_wvp, "undecided", {})
+                                               .get(tuple(sorted(v["lines"])))
+                                               or ())
+                                   if _RF.REGISTRY[n].normative
+                                   not in ("forbidden", "deprecated")]
+                        if (_open_n and hasattr(_wvp, "can_stay_open")
+                                and _wvp.can_stay_open(v["lines"], _open_n)):
+                            i, j = v["lines"]
+                            k = v["group"]
+                            refusals.append({"lines": (i, j), "endwords": v["endwords"],
+                                             "unreadable": [], "groups": [m.labels[k]],
+                                             "reason": "the default relation remains unresolved in schema(s): "
+                                             + ", ".join(sorted(_open_n))})
+                            refused.add((i, j, k))
+                            unknown.update(((i, k), (j, k)))
+                            _fan_unknown.add(id(v))
+                            continue
+                    # A GROUP BOUND AWAY FROM THE LINE END (owner ruling
+                    # 2026-10-02, the bound words): most schemas stand only
+                    # at the line's last word, so the instance route above
+                    # cannot reach a head or `T<n>` word with them. Each
+                    # schema one token can bind is also asked AT the two
+                    # bound words (`pair_satisfies_any`, the declared-token
+                    # route's judge, any-reading rule and all).
+                    _tsat, _tund = self._bound_token_schemas(
+                        _RF, m, v, lines, sections, first=_verdicts_only)
+                    if _tsat:
+                        v["schemas"] = sorted(set(v["schemas"]) | set(_tsat))
+                        v["relations"] = sorted(set(v["relations"])
+                                                | set(_tsat))
+                        v["satisfied_by"] = sorted(set(v["satisfied_by"])
+                                                   | set(v["admitted"])
+                                                   | set(_tsat))
+                        if any(_tsat.values()):
+                            v["readings"] = {n: w for n, w in _tsat.items()
+                                             if w}
+                        v["why"] = None
+                        continue
                     # Refuse only on an undecided schema that COULD satisfy
                     # the group: a disowned one (forbidden / deprecated)
                     # never satisfies, so its indecision cannot move the
@@ -2341,6 +2452,7 @@ class Reviser:
                             v["readings"] = _rsat
                             v["why"] = None
                             continue
+                    _undecided = sorted(set(_undecided) | set(_tund))
                     if _undecided:
                         i, j = v["lines"]
                         k = v["group"]
@@ -2689,7 +2801,11 @@ class Reviser:
             raise ValueError(
                 f"ReviseDeclaration.group_merge must be 'report' or 'off', "
                 f"got {self.rdecl.group_merge!r}")
-        rep = self.grade(lines, m, profile=profile)
+        # THE SAME GRADE `inspect` RAN, sections and all: the collision set
+        # reads no section, but a grade asked under other coordinates misses
+        # every memo and resolves the whole draft's readings again (M-317;
+        # measured 34 s of a 24-line revise's first 71).
+        rep = self.grade(lines, m, profile=profile, sections=sections)
         _, endwords, _, matrix = self._matrix(lines, profile=profile)
         edges = {tuple(c["lines"]) for c in rep["collisions"]}
         th = self.decl.theta_rhyme
@@ -2767,6 +2883,78 @@ class Reviser:
                                "cannot state a return")})
         return out
 
+    def _bound_token_schemas(self, R, m, v, lines, sections, first=False):
+        """-> ({schema: witness}, [undecided schemas]) for a verdict whose
+        group binds a word away from either line's end, asked AT the two
+        bound words; ({}, []) for an end-to-end pair, which the instance
+        route already answers at the words it binds.
+
+        Every schema one token can bind (`relations.pair_bindable`) that the
+        registry does not disown is judged by `relations.pair_satisfies_any`
+        at the bound tokens -- the judge the declared-token route uses, so
+        the default and a declared `schema:` relation read a slot alike. A
+        witness is the readings that satisfied it ([] when the dictionary's
+        first reading did). `first` stops at the first schema that holds.
+        A schema the judge leaves at None (an anchor with no referent in the
+        bound word, which the any-reading search could not supply) does not
+        apply to these words: it does not hold, and it holds nothing open,
+        as the instance route forms no instance there.
+        """
+        k = v["group"]
+        i, j = v["lines"]
+        si, sj = m.slot_of(k, i), m.slot_of(k, j)
+        if _SL.is_default(si) and _SL.is_default(sj):
+            return {}, []
+        ti, tj = _SL.token_of(si), _SL.token_of(sj)
+        if ti is None or tj is None:
+            return {}, []
+        box = getattr(self, "_bound_tok_box", None)
+        key = (tuple(lines), tuple(sections) if sections else None,
+               tuple(sorted({ln - 1 for g in m.groups for ln in g
+                             if 1 <= ln <= len(lines)})))
+        if box is None or box[0] != key:
+            def _b(ph):
+                st = R.build_stream(
+                    lines, ph, sections=sections,
+                    stanzas=R.stanzas_from_sections(sections),
+                    stanza_source="declared_sections" if sections else "",
+                    declaration={"language": "eng"})
+                if key[2]:
+                    R.mark_refrain_tail(st, lines=list(key[2]))
+                return st
+            build = R.cached_builder(_b)
+            box = self._bound_tok_box = (key, build(self._relation_phonology()),
+                                         build)
+        _, st, build = box
+        sat, und = {}, []
+        # An answer at two bound tokens reads only their two lines, so it is
+        # remembered under the pair's own lines (`relations.
+        # _local_stream_digest`): a trial draft that moved another line asks
+        # nothing again (M-317).
+        ld = R._local_stream_digest(st, (i, j))
+        for name in sorted(R.REGISTRY):
+            sch = R.REGISTRY[name]
+            if (sch.normative in ("forbidden", "deprecated")
+                    or not R.pair_bindable(sch)):
+                continue
+            mk = ("bound-token", ld, name, i, j, ti, tj) if ld else None
+            got = _BOUND_TOKEN_MEMO.get(mk) if mk else None
+            if got is None:
+                got = R.pair_satisfies_any(sch, st, (i - 1, ti), (j - 1, tj),
+                                           build)
+                if mk:
+                    if len(_BOUND_TOKEN_MEMO) >= _BOUND_TOKEN_MEMO_CAP:
+                        _BOUND_TOKEN_MEMO.pop(next(iter(_BOUND_TOKEN_MEMO)))
+                    _BOUND_TOKEN_MEMO[mk] = got
+            ans, wit = got
+            if isinstance(ans, R.Refusal):
+                continue
+            if ans is True:
+                sat[name] = list(wit or ())
+                if first:
+                    break
+        return sat, und
+
     def _schema_satisfies(self, lines, m, pairs, sections=None, among=None):
         """Do ALL these mandated line pairs stand in some registered schema?
 
@@ -2814,11 +3002,13 @@ class Reviser:
             from quality import relations as _RF
             if len(hit) > 8:
                 hit.clear()
+            # Cross pairs of two end-rhyme groups: their bound words are the
+            # line ends, as `grade()` binds a default group's.
             hit[key] = _RF.whole_vocabulary_pairs(
                 lines, self._relation_phonology(), sections=sections,
                 bearing={ln - 1 for g in getattr(m, "groups", ())
                          for ln in g if 1 <= ln <= len(lines)},
-                requested_pairs=asked)
+                requested_pairs=asked, bound={p: (-1, -1) for p in asked})
         wvp = hit[key]
         return all(tuple(sorted(p)) in wvp for p in pairs)
 
@@ -3960,7 +4150,9 @@ class Reviser:
                 whole.append(Finding(
                     "MANDATE_GROUPS_INDISTINGUISHABLE", "note",
                     f"groups {la} {ma} and {lb} {mb} would pass as ONE group "
-                    f"— every cross pair rhymes — so the mandate splits a "
+                    f"— every cross pair scores at or above the collision "
+                    f"cut ({THETA_COLLISION}), rhyme or near rhyme alike "
+                    f"(the edges below name which) — so the mandate splits a "
                     f"group the graph does not, and each of the "
                     f"{len(mg['edges'])} cross pairs is reported as a "
                     f"collision purely because the letters differ",
@@ -4261,7 +4453,7 @@ class Reviser:
                             (i, j, k) in requested_obligations)
                        for i, j, k in obligations)
 
-        baseline_bad = baseline_unknown = None
+        baseline_bad = baseline_unknown = moot = None
         kept, refused = [], []
         for word in dict.fromkeys(candidates):
             text = swap_at_slot(lines[line - 1], slot, word)
@@ -4291,8 +4483,14 @@ class Reviser:
                                       _verdicts_only=True)
                 baseline_bad = failures(baseline)
                 baseline_unknown = set(map(tuple, baseline.get("refused_obligations", ())))
+                # An obligation the draft already left undecided and this
+                # word was not asked to answer is no regression whether the
+                # trial holds it or leaves it undecided: only FAILED moves
+                # the verdict below, so `grade` skips the search there.
+                moot = {o for o in baseline_unknown if not demanded((o,))}
             graded = self.grade(trial, m, profile=profile, sections=sections,
-                                _only_groups=relevant, _verdicts_only=True)
+                                _only_groups=relevant, _verdicts_only=True,
+                                _moot=moot)
             bad = failures(graded)
             unknown = set(map(tuple, graded.get("refused_obligations", ())))
             unanswered = demanded(bad | unknown)
@@ -4667,7 +4865,8 @@ class Reviser:
             # time of `test_revise.py` §24, whose field this is.
             wvp = _RL.whole_vocabulary_pairs(carriers, phon,
                                              requested_pairs={(1, 2)},
-                                             schemas=found)
+                                             schemas=found,
+                                             bound={(1, 2): (-1, -1)})
             found &= set(wvp.get((1, 2)) or ())
         out = frozenset(found)
         store[("end-pair",) + key] = out
@@ -5790,6 +5989,25 @@ class Reviser:
             _violated.update(k for k, _ in groups if m.labels[k] in _incident)
             b.violated_groups = tuple(m.labels[k] for k, _ in groups
                                       if k in _violated)
+            # A GROUP ATTRIBUTED ONLY BY NOTES STILL HOLDS. It stays in
+            # `violated_groups` above — the loop still asks for that word
+            # to change — and is recorded here with its note codes so the
+            # renderers can say so (flags and notes kept apart, never
+            # summed: doctrine 79).
+            _flagged = self._violated_groups(
+                m, ln, groups, [f for f in fs
+                                 if getattr(f, "severity", "flag") != "note"])
+            _flagged.update(k for k, _ in groups
+                            if m.labels[k] in _incident)
+            _noted = {}
+            for f in fs:
+                if getattr(f, "severity", "flag") != "note":
+                    continue
+                for k in self._violated_groups(m, ln, groups, [f]):
+                    if k not in _flagged and f.code not in _noted.get(k, ()):
+                        _noted[k] = _noted.get(k, ()) + (f.code,)
+            b.noted_groups = {m.labels[k]: _noted[k] for k, _ in groups
+                              if k in _noted}
             _by_slot = {}
             for k, _mates in groups:
                 _by_slot.setdefault(_skey[k], []).append(k)

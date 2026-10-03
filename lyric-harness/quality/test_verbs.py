@@ -696,13 +696,17 @@ def test_brief_refuses_instead_of_tracebacking():
     unread_report = _machine_result(unread_out)
     explicit_report = _machine_result(mod_out)
     _dcov = default_report.get("coverage", {})
-    check("the broad default now JUDGES both pairs (any-reading rule): "
-          "dawn/silt holds, again/rebuilt is a judged violation",
+    # 2026-10-02, THE BOUND WORDS (`MISSING.md` M-317, owner ruling):
+    # dawn/silt held only through `internal rhyme` elsewhere in the lines;
+    # at its end words it shares nothing, so BOTH pairs are judged
+    # violations. superseded: dawn/silt held.
+    check("the broad default JUDGES both pairs at their end words: "
+          "dawn/silt and again/rebuilt are both judged violations",
           _dcov.get("certified") is True
           and _dcov.get("pairs_judged") == 2 and _dcov.get("pairs_refused") == 0
           and _dcov.get("refused_obligations") == []
-          and not any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [1, 3]
-                      for f in default_report.get("findings", []))
+          and any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [1, 3]
+                  for f in default_report.get("findings", []))
           and any(f["code"] == "SCHEME_VIOLATION" and f["locations"] == [2, 4]
                   for f in default_report.get("findings", [])),
           str((_dcov.get("certified"), _dcov.get("refused_obligations"))))
@@ -2747,12 +2751,19 @@ def test_the_loop_suspends_instead_of_guessing():
     # one reading, so both pairs are judged and the run certifies at exit 0
     # with nothing to repair. superseded: rc 2, uncertified, rhyme:2:3:0
     # refused, NO_PROGRESS.
-    check("the old premise is now JUDGED under the any-reading rule: it "
-          "certifies at exit 0 with the draft untouched",
-          rc_old == 0 and receipts
+    # 2026-10-02, THE BOUND-WORD RULE (M-317): four/own held only through
+    # OTHER words of the two lines. A group now holds when its bound words
+    # relate, and four/own share neither vowel nor coda, so the pair is
+    # JUDGED AND VIOLATED: still certified (nothing refused), but with no
+    # attempts the run stops at NO_PROGRESS with L3 open, exit 3.
+    # superseded: rc 0, SUCCESS.
+    check("the old premise is JUDGED: every pair answered, nothing refused, "
+          "and four/own is a violation the run leaves open at exit 3",
+          rc_old == 3 and receipts
           and receipts[-1]["coverage"]["certified"] is True
           and receipts[-1]["coverage"]["refused_obligations"] == []
-          and receipts[-1].get("stop_reason") == "SUCCESS"
+          and receipts[-1].get("stop_reason") == "NO_PROGRESS"
+          and receipts[-1].get("unresolved_lines") == [3]
           and receipts[-1].get("final_draft") == NOISY_LINES[:4],
           f"rc {rc_old}")
     # The negative control keeps its subject on a genuinely unresolved pair:

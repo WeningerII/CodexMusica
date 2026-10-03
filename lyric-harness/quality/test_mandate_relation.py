@@ -1116,22 +1116,38 @@ def test_e2_default_grade_reaches_the_registry():
 
     Existing sections cover declared types, schemas and their counterexamples.
     This witness guards the remaining closure claim at the default grade door,
-    where the end words disagree but the internal cat/hat pair rhymes.
+    where the end words share no admitted coarse relation but stand in a
+    registry schema (tip/top, pararhyme). ~~where the end words disagree but
+    the internal cat/hat pair rhymes~~ -- struck 2026-10-02 (M-317): a group
+    is judged at the words it binds.
     """
     from unittest.mock import patch
     from quality import relations as RL
 
     print("\n14. E-2 — the default grader consults the registry")
     rv = Reviser()
-    lines = ["cat spoon", "hat orange"]
+    # REPINNED 2026-10-02 (`MISSING.md` M-317, the bound words, owner
+    # ruling): ~~"cat spoon" / "hat orange", satisfied by the internal
+    # cat/hat rhyme~~. A group binds its END words now, and an internal
+    # rhyme elsewhere in the two lines no longer satisfies it -- that old
+    # witness is the rule's own counterexample, pinned below. The registry
+    # is still consulted at the bound words: tip/top share no admitted
+    # coarse relation and stand in pararhyme.
+    lines = ["we saw the tip", "they kept the top"]
     m = mandate("AA")
     graded = rv.grade(lines, m)
     v = graded["verdicts"][0]
-    check("a pair admitted in NO coarse relation is satisfied by the "
-          "internal-rhyme schema",
+    check("a pair admitted in NO coarse relation is satisfied by a registry "
+          "schema at its end words (pararhyme)",
           not v["admitted"] and v["why"] is None
-          and "internal rhyme" in v.get("satisfied_by", ())
-          and not graded["violations"] and not graded["refusals"])
+          and "pararhyme" in v.get("satisfied_by", ())
+          and not graded["violations"] and not graded["refusals"],
+          v.get("satisfied_by"))
+    old = rv.grade(["cat spoon", "hat orange"], m)
+    check("...and an internal rhyme elsewhere in the lines does not satisfy "
+          "the end words: cat/hat no longer rescues spoon/orange",
+          len(old["violations"]) == 1 and not old["refusals"],
+          [x.get("satisfied_by") for x in old["verdicts"]])
 
     narrowed = rv.grade(lines, mandate("AA", default_relation="class:RHYME"))
     check("an explicit class requirement still rejects those end words",

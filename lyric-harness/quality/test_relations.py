@@ -3475,6 +3475,69 @@ def test_a_remembered_reading_answer_is_the_computed_one():
     RT._RESOLVE_MEMO.clear()
 
 
+def test_a_pair_local_answer_is_keyed_on_its_two_lines():
+    """X9g. A pair-local schema's any-reading answer is remembered under the
+    pair's OWN two lines (`relations._local_stream_digest`, 2026-10-02,
+    M-317): every trial draft `declared_offer` grades moves one line, and
+    the pairs it does not touch were being re-resolved from scratch -- 16
+    resolutions of about 1.4 s per trial on a 24-line revise. The claims: an
+    edit to another line reuses the answer, the reused answer is the one a
+    cold memo computes for EVERY pair of the edited draft, and a pair that
+    contains the edited line is computed again.
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ("we carry the morning to the stone",
+             "we carry the morning to the rain",
+             "we carry the morning to the door",
+             "we carry the morning to the light")
+    every = {(i, j) for i in range(1, 5) for j in range(i + 1, 5)}
+    bound = {p: (3, 5) for p in every}
+
+    def resolve_all(text):
+        w = RT.whole_vocabulary_pairs(text, phon, requested_pairs=every,
+                                      bound=bound)
+        return {p: w.resolve_readings(p, n)
+                for p, n in sorted(w.undecided.items()) if n}
+    calls, real = [], RT.resolve_line_pair
+
+    def spy(*a, **k):
+        calls.append(a[2])
+        return real(*a, **k)
+    edited = list(lines)
+    edited[3] = "we carry the evening to the light"
+    RT._WVP_MEMO.clear()
+    RT._RESOLVE_MEMO.clear()
+    RT.resolve_line_pair = spy
+    try:
+        first = resolve_all(lines)
+        n_first = len(calls)
+        RT._WVP_MEMO.clear()
+        warm = resolve_all(edited)
+        warm_calls = list(calls[n_first:])
+        RT._WVP_MEMO.clear()
+        RT._RESOLVE_MEMO.clear()
+        cold = resolve_all(edited)
+    finally:
+        RT.resolve_line_pair = real
+        RT._WVP_MEMO.clear()
+        RT._RESOLVE_MEMO.clear()
+    untouched = [p for p in first if 4 not in p]
+    check("the comparison examines real undecided pairs on both sides of the "
+          "edit", bool(untouched) and any(4 in p for p in cold),
+          f"{len(first)} undecided pair(s), {n_first} resolution(s)")
+    check("an edit to another line reuses a pair's answer: no pair without "
+          "L4 is resolved again",
+          not any(4 not in tuple(sorted(p)) for p in warm_calls),
+          sorted({tuple(sorted(p)) for p in warm_calls}))
+    check("the reused answers are the ones a cold memo computes, for every "
+          "pair of the edited draft", warm == cold,
+          [p for p in cold if warm.get(p) != cold[p]])
+    check("...and a pair containing the edited line is computed again",
+          any(4 in tuple(sorted(p)) for p in warm_calls))
+
+
 def test_a_whole_song_schema_is_asked_last():
     """X9f. `resolve_readings` asks the pair-local schemas first and a
     whole-song one only while none has held (2026-10-02): every caller
@@ -3497,7 +3560,8 @@ def test_a_whole_song_schema_is_asked_last():
     asked, real = [], RT.resolve_line_pair
 
     def stub(answers):
-        def spy(schema, stream, pair, build, cap=RT.READING_COMBO_CAP):
+        def spy(schema, stream, pair, build, cap=RT.READING_COMBO_CAP,
+                bound=None):
             asked.append(schema.name)
             return answers[schema.name]
         return spy
@@ -4030,6 +4094,7 @@ if __name__ == "__main__":
     test_a_schema_subset_is_the_full_answer_restricted()
     test_a_settled_question_has_the_full_answer()
     test_a_remembered_reading_answer_is_the_computed_one()
+    test_a_pair_local_answer_is_keyed_on_its_two_lines()
     test_a_whole_song_schema_is_asked_last()
     test_a_remembered_edge_is_the_evaluated_one()
     test_the_pair_guard_refuses_before_it_evaluates()
