@@ -1,0 +1,64 @@
+{
+  "id": "guayo_source_unspecified",
+  "name": "Guayo (source-unspecified construction)",
+  "short": "Guayo",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "guayo_source_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "guayo_source_unspecified_named_role",
+          "name": "Named role retained; construction and technique unspecified",
+          "default": true,
+          "descriptors": [
+            "scraped",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "scraped",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "The artist separately credits guayo and guiro. The named guayo scraper is retained without guessing metal alloy, enclosure or conflating it with the separately credited guiro. Axes and descriptive sound words are authored representative values, not measured session facts.",
+  "sources": [
+    "https://olafresca.bandcamp.com/album/elixir"
+  ],
+  "_ownParts": [
+    {
+      "id": "guayo_source_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "guayo_source_unspecified_named_role",
+          "name": "Named role retained; construction and technique unspecified",
+          "default": true,
+          "descriptors": [
+            "scraped",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "scraped",
+            "rhythmic"
+          ]
+        }
+      ]
+    }
+  ]
+}

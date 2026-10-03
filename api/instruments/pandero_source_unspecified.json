@@ -1,0 +1,64 @@
+{
+  "id": "pandero_source_unspecified",
+  "name": "Pandero (source-unspecified construction)",
+  "short": "Pandero",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "pandero_source_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "pandero_source_unspecified_named_role",
+          "name": "Named role retained; construction and technique unspecified",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "The artist credits Obanilu Ire with pandero. Its named frame-drum identity is retained without guessing regional subtype, jingles, dimensions, membrane material or playing pattern. Axes and descriptive sound words are authored representative values, not measured session facts.",
+  "sources": [
+    "https://olafresca.bandcamp.com/album/elixir"
+  ],
+  "_ownParts": [
+    {
+      "id": "pandero_source_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "pandero_source_unspecified_named_role",
+          "name": "Named role retained; construction and technique unspecified",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "percussive"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive"
+          ]
+        }
+      ]
+    }
+  ]
+}

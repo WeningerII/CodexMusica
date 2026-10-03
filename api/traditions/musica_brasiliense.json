@@ -1,0 +1,124 @@
+{
+  "id": "musica_brasiliense",
+  "name": "Música Brasiliense",
+  "family": "vernacular",
+  "lineage": "Pablo Fagundes and Marcus Moraes with Léo Barbosa and Ismael Rattis — Talentos Brasil, 27 October 2012, complete announced broadcast performance palette. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic early-2010s música brasiliense, improv On Frame. solo canonical chromatic lead chromatic harmonica, classical nylon-string guitar, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 268,
+  "score": 5.606,
+  "config": {
+    "traditions": [
+      "musica_brasiliense"
+    ],
+    "instruments": [
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "abs_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_chromatic_jazz",
+          "harmonica_maker_school": "harmonica_maker_unspecified",
+          "harmonica_tuning": "harmonica_solo_chromatic"
+        },
+        "scores": {
+          "harmonica_type": 0.3315,
+          "harmonica_comb": 0.325,
+          "harmonica_reed": 0.26,
+          "harmonica_technique": 1.3815,
+          "harmonica_maker_school": 0,
+          "harmonica_tuning": 2.049
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "tirando_cl"
+        },
+        "scores": {
+          "acoustic_technique": 0.05000000000000002,
+          "string_tuning": 0,
+          "top_wood_classical": 0.6945,
+          "bracing_classical": 0.063,
+          "string_classical": 0.3465,
+          "attack_technique_cl": 0.105
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "harmonica": [
+        "harmonica_type",
+        "harmonica_comb",
+        "harmonica_reed",
+        "harmonica_technique",
+        "harmonica_maker_school",
+        "harmonica_tuning"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "harmonica_type": "chromatic_harm",
+      "harmonica_comb": "abs_comb",
+      "harmonica_reed": "brass_harm",
+      "harmonica_technique": "harm_chromatic_jazz",
+      "harmonica_maker_school": "harmonica_maker_unspecified",
+      "harmonica_tuning": "harmonica_solo_chromatic",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "cedar_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "carbon_cl",
+      "attack_technique_cl": "tirando_cl",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

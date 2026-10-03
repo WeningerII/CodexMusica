@@ -1,0 +1,99 @@
+{
+  "id": "nadaswaram",
+  "name": "Nadaswaram",
+  "family": "classical",
+  "lineage": "Balaganesan and Bageswari with Purushothaman — WOMADelaide 2026. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s nadaswaram, art Music, south Asian branch. large double reed temple volume Tamil temple context nadaswaram concert duo, thavil. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 244,
+  "score": 7.051,
+  "config": {
+    "traditions": [
+      "nadaswaram"
+    ],
+    "instruments": [
+      {
+        "id": "nadaswaram_concert_duo",
+        "slots": {
+          "nadaswaram_register": "nadaswaram_standard",
+          "nadaswaram_concert_ensemble": "nadaswaram_concert_duo_with_thavil",
+          "nadaswaram_body_wood": "nadaswaram_aacha_canonical",
+          "nadaswaram_reed": "nadaswaram_arundo_palm_canonical",
+          "nadaswaram_concert_lineage": "nadaswaram_concert_lineage_unspecified"
+        },
+        "scores": {
+          "nadaswaram_register": 1.9095,
+          "nadaswaram_concert_ensemble": 0.39,
+          "nadaswaram_body_wood": 0.39,
+          "nadaswaram_reed": 0.78,
+          "nadaswaram_concert_lineage": 1.69
+        }
+      },
+      {
+        "id": "thavil",
+        "slots": {
+          "thavil_context": "thavil_concert",
+          "thavil_technique": "thavil_stick_finger",
+          "thavil_shell_wood": "thavil_jackwood",
+          "thavil_head": "thavil_buffalo_goat"
+        },
+        "scores": {
+          "thavil_context": 0.39,
+          "thavil_technique": 0.3315,
+          "thavil_shell_wood": 0.39,
+          "thavil_head": 0.78
+        }
+      }
+    ],
+    "pinned": {
+      "nadaswaram_concert_duo": [
+        "nadaswaram_register",
+        "nadaswaram_concert_ensemble",
+        "nadaswaram_body_wood",
+        "nadaswaram_reed",
+        "nadaswaram_concert_lineage"
+      ],
+      "thavil": [
+        "thavil_context",
+        "thavil_technique",
+        "thavil_shell_wood",
+        "thavil_head"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "just_intonation",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "just_intonation",
+    "room": "treated_studio",
+    "parts": {
+      "nadaswaram_register": "nadaswaram_standard",
+      "nadaswaram_concert_ensemble": "nadaswaram_concert_duo_with_thavil",
+      "nadaswaram_body_wood": "nadaswaram_aacha_canonical",
+      "nadaswaram_reed": "nadaswaram_arundo_palm_canonical",
+      "nadaswaram_concert_lineage": "nadaswaram_concert_lineage_unspecified",
+      "thavil_context": "thavil_concert",
+      "thavil_technique": "thavil_stick_finger",
+      "thavil_shell_wood": "thavil_jackwood",
+      "thavil_head": "thavil_buffalo_goat"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

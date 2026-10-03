@@ -5,7 +5,7 @@
   "lineage": "North Mississippi hill-country style of Marshall, Tate and Panola counties documented by David Evans and Alan Lomax from the 1960s and carried onto record by Mississippi Fred McDowell, R.L. Burnside, Junior Kimbrough and the Turner family fife-and-drum bands — one-chord modal vamps at 85-125 BPM with no chord change, droning guitar riffs over a steady dance groove, and West African-derived polyrhythmic snare-and-bass-drum patterns behind cane fife.",
   "recipe": "classic mid-1960s hill country blues, functional Song, blues acoustic branch, blues narrative delta narrative, modal electric drone modal, American south field work tuareg guitar. thick, worn fold, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric open g tuning slide steel resonator guitar, blues inflected fife, double bass rapid double strokes bass five drum arc tenor drum, pre muffled edge muffled brushes-and-sticks drum kit. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 624,
-  "score": 321.275,
+  "score": 321.717,
   "config": {
     "traditions": [
       "hill_country_blues",
@@ -43,10 +43,10 @@
           "voice_microtone": 27.625,
           "voice_tradition": 19.304999999999996,
           "voice_mechanism_compound": 10.725,
-          "voice_estill_quality": 11.644999999999998,
+          "voice_estill_quality": 11.689999999999998,
           "voice_speech_song": 25.415,
           "voice_ensemble_config": 20.605,
-          "voice_ornament_system": 2.1565,
+          "voice_ornament_system": 2.1774999999999998,
           "voice_pitch_organization": 2.5350000000000006,
           "voice_processing_chain": 5.2975,
           "voice_multitrack_stack": 3.38
@@ -71,7 +71,7 @@
         },
         "scores": {
           "electric_technique": 11.011499999999998,
-          "amp_make": 9.323499999999997,
+          "amp_make": 9.176499999999997,
           "body_wood": 0.258,
           "neck_wood": 0.258,
           "fretboard": 0.2265,
@@ -95,11 +95,11 @@
           "res_strings": "phosphor_res"
         },
         "scores": {
-          "acoustic_technique": 12.963,
-          "string_tuning": 8.895,
+          "acoustic_technique": 13.052999999999999,
+          "string_tuning": 9.225,
           "cone_type": 7.5,
           "body_resonator": 0.258,
-          "res_strings": 0.258
+          "res_strings": 0.30299999999999994
         }
       },
       {
@@ -112,7 +112,7 @@
         },
         "scores": {
           "fife_tradition": 8.71,
-          "fife_build": 3.2315,
+          "fife_build": 3.2,
           "fife_pitch": -0.05,
           "fife_role": 8.71
         }
@@ -124,7 +124,7 @@
           "bass_drum_beater": "bass_drum_double_pedal"
         },
         "scores": {
-          "bass_drum_size": 0.195,
+          "bass_drum_size": 0.24,
           "bass_drum_beater": 1.885
         }
       },
@@ -137,7 +137,7 @@
           "tenor_drum_shell": "tenor_drum_rope_stave"
         },
         "scores": {
-          "tenor_drum_form": 2.4130000000000003,
+          "tenor_drum_form": 2.458,
           "tenor_drum_head": -0.07,
           "tenor_drum_beater": 0.245,
           "tenor_drum_shell": -0.07

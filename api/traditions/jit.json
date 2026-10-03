@@ -3,9 +3,9 @@
   "name": "Jit",
   "family": "global",
   "lineage": "Zimbabwean fast dance-band style of the late 1970s-1980s associated with the Bhundu Boys, the Four Brothers and Jonah Moyo's Devera Ngwena — 140-170 BPM built on a rapid three-drum village jiti pattern transposed to kit, bright chiming lead guitar lines that transcribe mbira interlocking figures onto strings, walking bass, and high unison Shona vocals in short cyclic refrains.",
-  "recipe": "classic Southern African 1977-1979 jit, functional Song, African pop branch, modal electric drone modal tuareg guitar african blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, ampeg svt amp rock bass amp alder la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho, mbira nyunga nyunga. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-  "recipe_chars": 616,
-  "score": 230.321,
+  "recipe": "classic Southern African 1977-1979 jit, functional Song, African pop branch, modal electric drone modal tuareg guitar african blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, alder la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho, mbira nyunga nyunga. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 588,
+  "score": 228.968,
   "config": {
     "traditions": [
       "jit",
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 20.865000000000002,
           "voice_ornament_system": 2.21,
           "voice_pitch_organization": 3.5100000000000007,
-          "voice_processing_chain": 15.32975,
-          "voice_multitrack_stack": 8.076500000000001
+          "voice_processing_chain": 14.962250000000001,
+          "voice_multitrack_stack": 7.940000000000001
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
+          "body_wood": "pine",
           "neck_wood": "maple",
           "fretboard": "ebony_fb",
           "pickup_magnet": "ceramic",
           "string_material": "pure_nickel",
-          "string_gauge": "g_11",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_short",
           "finish": "nitro",
@@ -72,14 +72,14 @@
         "scores": {
           "electric_technique": 4.5352500000000004,
           "amp_make": 2.0149999999999997,
-          "body_wood": 0.21300000000000002,
+          "body_wood": 0.147,
           "neck_wood": 0.3,
-          "fretboard": 1.66675,
+          "fretboard": 1.53025,
           "pickup_magnet": 0.3,
           "string_material": 0.3,
-          "string_gauge": 0.21300000000000002,
-          "bridge": 1.66675,
-          "scale_length": 1.3764999999999998,
+          "string_gauge": 0.387,
+          "bridge": 1.53025,
+          "scale_length": 1.24,
           "finish": 0,
           "string_tuning": 7.409999999999999,
           "single_coil_pickup_construction": 0
@@ -98,11 +98,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.3470000000000004,
+          "amp_make": 2.9825000000000004,
           "body_wood": 1.51675,
           "pickup_config": 1.48525,
           "string_type": 1.17,
-          "scale_length_b": 0.2265,
+          "scale_length_b": 0.09,
           "fretted_or_not": 0.65,
           "bass_technique": 2.125,
           "electric_bass_string_configuration": 0
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 16.965000000000003,
-          "drumhead": 4.42425,
+          "drumhead": 4.5142500000000005,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,7 +129,7 @@
           "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "hosho_form": 4.26675,
+          "hosho_form": 4.13025,
           "hosho_groove": 8.37525,
           "hosho_filler": 2.5765
         }

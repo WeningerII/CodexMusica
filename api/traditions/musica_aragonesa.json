@@ -1,0 +1,175 @@
+{
+  "id": "musica_aragonesa",
+  "name": "Música Aragonesa",
+  "family": "vernacular",
+  "lineage": "Vegetal Jam — complete 75-minute instrumental duo program published in Aragón’s RAEE 2023 circuit catalogue. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic early-2020s música aragonesa, improv On Frame. accordion, European maple bosnian source flamed figure pirastro cellisto cello specific cello, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 311,
+  "score": 13.02,
+  "config": {
+    "traditions": [
+      "musica_aragonesa"
+    ],
+    "instruments": [
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": 0.2315,
+          "accordion_reed_material": 0.3,
+          "musette_offset": 0.063,
+          "reed_config": 0,
+          "bellows": 0.6945,
+          "voicing_chamber": 0,
+          "accordion_maker_school": 0
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 0.313,
+          "cello_strings": 0.78,
+          "cello_top_wood": 0.2,
+          "cello_back_wood": 1.0399999999999998,
+          "cello_varnish": 0.7314999999999999,
+          "cello_setup_period": 0.9099999999999999,
+          "cello_bow_grip": 0.105,
+          "cello_rosin": 1.7365,
+          "cello_bow_stick": 0.7549999999999999
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.313,
+          "orch_strings": 0,
+          "orch_top_wood": 0.2,
+          "orch_back_wood": 1.0399999999999998,
+          "orch_varnish": 0.7314999999999999,
+          "orch_setup_period": 0.9099999999999999,
+          "orch_bow": 0,
+          "orch_bow_stick": 0.7549999999999999,
+          "orch_articulation": 0.3,
+          "orch_rosin": 0.9099999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "cello": [
+        "bowed_technique",
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_reed_material": "steel_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lmm",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "bowed_technique": "bowed_legato_classical",
+      "cello_strings": "cello_synthetic",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello",
+      "orch_strings": "synthetic_orch",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "bosnian_flamed_maple_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "arco_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

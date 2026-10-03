@@ -5,7 +5,7 @@
   "lineage": "Belly dance is represented by George Abdo and the Flames of Araby Orchestra — Noora Ya Noora, from The Joy of Belly Dancing(1975). One positively documented branch is realized as an authored present-day studio arrangement. Exact instrument construction, keyboard architecture, technique and percussion-pattern defaults, room, microphone, other signal-chain choices, equal-tempered baseline and numeric axes are authored choices. They are not historical session facts, source-performer gear claims or universal characteristics of this category.",
   "recipe": "classic mid-1970s belly dance, groove Percussion. group vocals, live take. oud, qanun, fusion lead electric violin, European maple bosnian source flamed figure violin orchestral, oboe, electric bass, bongos, congas, darbuka, zills sagat, claves. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 344,
-  "score": 7.799,
+  "score": 8.198,
   "config": {
     "traditions": [
       "belly_dance"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.9765,
+          "voice_ensemble_config": 1.113,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.5354999999999999,
+          "voice_multitrack_stack": 0.6719999999999999,
           "voice_tessitura": 0
         }
       },
@@ -90,7 +90,7 @@
           "qanun_levers": 0,
           "qanun_pick": 0.1995,
           "qanun_body_wood": 0,
-          "qanun_bridge_skin": 0,
+          "qanun_bridge_skin": 0.0315,
           "qanun_string_material": 0
         }
       },
@@ -145,7 +145,7 @@
         },
         "scores": {
           "wind_articulation": -0.1,
-          "oboe_reed": 0.1365,
+          "oboe_reed": 0.168,
           "oboe_class": 0,
           "oboe_body_wood": -0.035,
           "oboe_maker_school": 0
@@ -185,7 +185,7 @@
         "scores": {
           "percussion_technique": -0.07,
           "bongos_skin": -0.05,
-          "bongos_context": 1.3,
+          "bongos_context": 1.363,
           "bongos_shell_wood": 0
         }
       },

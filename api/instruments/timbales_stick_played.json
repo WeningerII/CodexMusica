@@ -1,0 +1,262 @@
+{
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "id": "timbales_stick_played",
+  "name": "Timbales (stick-played model)",
+  "short": "Stick-played timbales",
+  "parts": [
+    {
+      "id": "timbales_playing",
+      "name": "Authored playing approach",
+      "variants": [
+        {
+          "id": "timbales_stick_pattern",
+          "name": "Stick-played rhythmic pattern; exact performer strokes unspecified",
+          "default": true,
+          "descriptors": [
+            "sticks",
+            "struck",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "sticks",
+            "struck",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbales_shell",
+      "name": "Shell metal",
+      "variants": [
+        {
+          "id": "timbales_brass",
+          "name": "Brass (warm, vintage)",
+          "descriptors": [
+            "pre-modern",
+            "classic-salsa",
+            "mellow",
+            "brass"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_steel",
+          "default": true,
+          "name": "Steel (sharp, canonical)",
+          "descriptors": [
+            "standard",
+            "cutting",
+            "professional",
+            "steel"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_bronze",
+          "name": "Bronze (variant)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "alternative",
+            "jazz-leaning",
+            "bronze"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbales_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "timbales_son",
+          "default": true,
+          "name": "Son montuno traditional",
+          "descriptors": [
+            "paila-pattern",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_salsa",
+          "name": "Salsa big-band",
+          "descriptors": [
+            "driving",
+            "mambo-bell-emphasis",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_descarga",
+          "name": "Latin jazz / descarga",
+          "descriptors": [
+            "virtuosic",
+            "soloistic",
+            "jam"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    }
+  ],
+  "exclude_family_parts": [
+    "percussion_technique"
+  ],
+  "description": "Ola Fresca credits Gabriel Machado on timbales. The original timbales owner imports only hand-layered/open-slap percussion techniques; this isolated owner supplies physically appropriate stick playing while preserving original shell/context parts. LP manufacturer documentation supports stick-played steel timbales as the authored model, not the exact performer brand, sizes or session setup.",
+  "sources": [
+    "https://olafresca.bandcamp.com/album/elixir",
+    "https://www.lpmusic.com/products/lp256ny-city-series-13-14-timbales/"
+  ],
+  "_ownParts": [
+    {
+      "id": "timbales_playing",
+      "name": "Authored playing approach",
+      "variants": [
+        {
+          "id": "timbales_stick_pattern",
+          "name": "Stick-played rhythmic pattern; exact performer strokes unspecified",
+          "default": true,
+          "descriptors": [
+            "sticks",
+            "struck",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "sticks",
+            "struck",
+            "rhythmic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbales_shell",
+      "name": "Shell metal",
+      "variants": [
+        {
+          "id": "timbales_brass",
+          "name": "Brass (warm, vintage)",
+          "descriptors": [
+            "pre-modern",
+            "classic-salsa",
+            "mellow",
+            "brass"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_steel",
+          "default": true,
+          "name": "Steel (sharp, canonical)",
+          "descriptors": [
+            "standard",
+            "cutting",
+            "professional",
+            "steel"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_bronze",
+          "name": "Bronze (variant)",
+          "descriptors": [
+            "low-fundamental-tuning",
+            "alternative",
+            "jazz-leaning",
+            "bronze"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timbales_context",
+      "surface": false,
+      "name": "Stylistic use",
+      "variants": [
+        {
+          "id": "timbales_son",
+          "default": true,
+          "name": "Son montuno traditional",
+          "descriptors": [
+            "paila-pattern",
+            "foundational"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_salsa",
+          "name": "Salsa big-band",
+          "descriptors": [
+            "driving",
+            "mambo-bell-emphasis",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        },
+        {
+          "id": "timbales_descarga",
+          "name": "Latin jazz / descarga",
+          "descriptors": [
+            "virtuosic",
+            "soloistic",
+            "jam"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ]
+        }
+      ]
+    }
+  ]
+}

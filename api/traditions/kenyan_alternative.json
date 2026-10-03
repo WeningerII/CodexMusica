@@ -5,7 +5,7 @@
   "lineage": "Nina Ogot — complete announced August2021 European tour band. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic kenyan alternative, groove Percussion. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, trumpet, saxophone, trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 439,
-  "score": 22.83,
+  "score": 23.319,
   "config": {
     "traditions": [
       "kenyan_alternative"
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 1.17,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.129,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 1.56,
           "voice_tessitura": 0
         }
@@ -72,7 +72,7 @@
         "scores": {
           "electric_technique": -0.15000000000000002,
           "amp_make": 0,
-          "body_wood": 0.168,
+          "body_wood": 0.1995,
           "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -82,7 +82,7 @@
           "scale_length": 0.063,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 1.4365
+          "string_tuning": 1.573
         }
       },
       {
@@ -110,7 +110,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.168,
+          "body_wood": 0.1995,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.0315,
@@ -136,14 +136,14 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 1.4365,
+          "drumhead": 1.573,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.6365,
+          "shell_wood": 2.773,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,
-          "cymbal_alloy": 0.7799999999999998,
-          "cymbal_hammering": 2.5365,
+          "cymbal_alloy": 0.7679999999999999,
+          "cymbal_hammering": 2.5995000000000004,
           "cymbal_lathing": 2.4315,
           "cymbal_finish": 0
         }
@@ -185,7 +185,7 @@
           "sax_size": 0.25,
           "sax_reed": 0,
           "sax_body_alloy": -0.1,
-          "sax_mouthpiece": 0,
+          "sax_mouthpiece": 0.0315,
           "sax_technique": 0.75,
           "sax_maker_school": 0.7
         }
@@ -203,7 +203,7 @@
         },
         "scores": {
           "wind_articulation": 0.8449999999999999,
-          "trombone_type": 0.8865000000000001,
+          "trombone_type": 0.918,
           "trombone_mouthpiece": -0.07,
           "trombone_mute": 0,
           "trombone_technique": 0.168,

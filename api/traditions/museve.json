@@ -5,7 +5,7 @@
   "lineage": "Zimbabwean guitar-band dance style named by Simon Chimbetu in the late 1980s from his dendera branch of sungura, running a fast 4/4 at roughly 130–150 BPM with a rapid rolling snare-and-hi-hat kit pattern, two interlocking clean electric guitars trading cyclic mbira-derived riffs, walking bass and Shona narrative vocals in warm two- and three-part harmony.",
   "recipe": "classic Southern African 1987-1989 museve, functional Song, African pop branch, modal electric drone modal, sub saharan African protest song tuareg guitar african blues. thick, breath veiled tone, wide pitch sway, interlocked note trading. ebony clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, two tone contrasting hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 635,
-  "score": 236.749,
+  "score": 237.163,
   "config": {
     "traditions": [
       "museve",
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 19.175,
           "voice_ornament_system": 4.03,
           "voice_pitch_organization": 3.5100000000000007,
-          "voice_processing_chain": 13.004750000000001,
-          "voice_multitrack_stack": 8.570000000000002
+          "voice_processing_chain": 13.21475,
+          "voice_multitrack_stack": 8.433500000000002
         }
       },
       {
@@ -62,7 +62,7 @@
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
           "string_material": "pure_nickel",
-          "string_gauge": "g_8",
+          "string_gauge": "g_10",
           "bridge": "hardtail",
           "scale_length": "scale_short",
           "finish": "nitro",
@@ -77,7 +77,7 @@
           "fretboard": 1.53025,
           "pickup_magnet": 0.045,
           "string_material": 0.042749999999999996,
-          "string_gauge": 0.195,
+          "string_gauge": 0.387,
           "bridge": 1.53025,
           "scale_length": 0.195,
           "finish": 0,
@@ -117,7 +117,7 @@
         },
         "scores": {
           "drum_technique": 18.655,
-          "drumhead": 4.6815,
+          "drumhead": 4.7715,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -129,9 +129,9 @@
           "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "hosho_form": 5.595,
+          "hosho_form": 5.685,
           "hosho_groove": 9.12525,
-          "hosho_filler": 3.3265
+          "hosho_filler": 3.295
         }
       }
     ],

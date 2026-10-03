@@ -3,13 +3,14 @@
   "name": "Drone",
   "family": "global",
   "lineage": "Sustained-tone music treats duration, closely controlled pitch and the interaction of held tones as form. Tony Conrad’s amplified violin work supplies the selected bowed-string practice model. Drone also includes electronic and other instrumental practices; this default is neither dark ambient nor a comprehensive instrument roster for all drone music.",
-  "recipe": "classic modern drone, drone Modal, string branch, modal electric drone modal, ambient experimental electric drone and dark ambient. copper wound carpathian spruce European maple bosnian source flamed figure violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital.",
-  "recipe_chars": 399,
-  "score": 26.734,
+  "recipe": "classic modern drone, drone Modal, string branch, modal electric drone modal, ambient experimental electric drone and dark ambient musique mauritanienne. copper wound carpathian spruce European maple bosnian source flamed figure violin orchestral. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital.",
+  "recipe_chars": 421,
+  "score": 27.178,
   "config": {
     "traditions": [
       "drone",
-      "drone_dark_ambient"
+      "drone_dark_ambient",
+      "musique_mauritanienne"
     ],
     "instruments": [
       {
@@ -27,16 +28,16 @@
           "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 13.247937499999999,
-          "orch_strings": 7.150000000000001,
-          "orch_top_wood": 1.2834374999999998,
-          "orch_back_wood": 1.2784374999999997,
-          "orch_varnish": 0.7,
-          "orch_setup_period": 1.1049999999999998,
+          "bowed_technique": 14.4179375,
+          "orch_strings": 7.034500000000001,
+          "orch_top_wood": 2.1284375,
+          "orch_back_wood": 2.1234374999999996,
+          "orch_varnish": 1.125,
+          "orch_setup_period": 1.8524999999999998,
           "orch_bow": 0,
-          "orch_bow_stick": 2.01375,
-          "orch_articulation": 0.3,
-          "orch_rosin": 1.755
+          "orch_bow_stick": 2.43875,
+          "orch_articulation": 0.69,
+          "orch_rosin": 2.2671875
         }
       }
     ],

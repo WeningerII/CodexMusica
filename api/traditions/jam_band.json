@@ -3,60 +3,60 @@
   "name": "Jam band",
   "family": "global",
   "lineage": "Late-1960s onward improvisational rock tradition with extended-form live solos and audience-tape-trading culture — Grateful Dead, Allman Brothers, Phish, Widespread Panic, Dave Matthews Band, String Cheese Incident",
-  "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock dutch rock dutch stoner rock. thick, conversational, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 839,
-  "score": 211.697,
+  "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock nwocr dutch rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 763,
+  "score": 233.94,
   "config": {
     "traditions": [
       "jam_band",
-      "dutch_rock",
-      "dutch_stoner_rock"
+      "nwocr",
+      "dutch_rock"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "speech_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "sean_nos_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 11.094999999999994,
-          "voice_quality": 0.7,
+          "voice_register": 13.344999999999994,
+          "voice_quality": 1.6899999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.98,
-          "voice_articulation": 6.890000000000001,
-          "voice_microtone": 10.999999999999996,
+          "voice_vibrato": 1.48,
+          "voice_articulation": 7.475,
+          "voice_microtone": 13.249999999999996,
           "voice_tradition": 3.4800000000000004,
-          "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 3.2500000000000004,
-          "voice_speech_song": 6.175000000000001,
-          "voice_ensemble_config": 5.135000000000002,
-          "voice_ornament_system": 1.8299999999999998,
-          "voice_pitch_organization": 1.0899999999999999,
-          "voice_processing_chain": 6.955000000000001,
-          "voice_multitrack_stack": 3.7700000000000005
+          "voice_mechanism_compound": 2.665000000000001,
+          "voice_estill_quality": 1.9499999999999997,
+          "voice_speech_song": 7.605,
+          "voice_ensemble_config": 5.915000000000001,
+          "voice_ornament_system": 1.5599999999999996,
+          "voice_pitch_organization": 0.6499999999999999,
+          "voice_processing_chain": 6.695,
+          "voice_multitrack_stack": 2.7300000000000004
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "maple_neck_h",
           "fretboard": "pau_ferro_fb_h",
@@ -64,57 +64,57 @@
           "pickup_winding": "mid_wind",
           "string_material": "nickel_plated_h",
           "bridge": "string_thru",
-          "scale_length": "scale_baritone_h",
-          "string_gauge": "g_11_hum",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "eb_standard"
         },
         "scores": {
-          "electric_technique": 2.7300000000000004,
-          "amp_make": 5.785000000000001,
+          "electric_technique": 2.9250000000000007,
+          "amp_make": 6.89,
           "body_wood": 2.16,
-          "neck_wood": 1.98,
-          "fretboard": 1.98,
+          "neck_wood": 1.48,
+          "fretboard": 1.48,
           "pickup_magnet": 0.195,
-          "pickup_winding": 2.8600000000000003,
-          "string_material": 1.98,
-          "bridge": 0.85,
-          "scale_length": 2.34,
-          "string_gauge": 0.885,
+          "pickup_winding": 3.445,
+          "string_material": 1.48,
+          "bridge": 1,
+          "scale_length": 1.7700000000000002,
+          "string_gauge": 1.045,
           "finish": 0.435,
-          "string_tuning": 9.36
+          "string_tuning": 11.7
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_power_chord",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany",
           "neck_wood": "maple",
           "fretboard": "pau_ferro_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
-          "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "eb_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 2.7300000000000004,
-          "amp_make": 5.785000000000001,
+          "electric_technique": 2.9250000000000007,
+          "amp_make": 6.89,
           "body_wood": 0.885,
-          "neck_wood": 1.98,
-          "fretboard": 1.98,
-          "pickup_magnet": 1.98,
-          "string_material": 1.98,
-          "string_gauge": 0.885,
-          "bridge": 0.15,
+          "neck_wood": 1.48,
+          "fretboard": 1.48,
+          "pickup_magnet": 1.48,
+          "string_material": 1.48,
+          "string_gauge": 1.045,
+          "bridge": 0,
           "scale_length": 1.7700000000000002,
           "finish": 0.435,
-          "string_tuning": 9.36,
+          "string_tuning": 11.309999999999999,
           "single_coil_pickup_construction": 0
         }
       },
@@ -126,18 +126,18 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 7.41,
+          "amp_make": 7.93,
           "body_wood": 1.7700000000000002,
           "pickup_config": 0.045,
-          "string_type": 14.625,
+          "string_type": 17.55,
           "scale_length_b": 0.885,
-          "fretted_or_not": 0.5,
-          "bass_technique": 11.334999999999999,
+          "fretted_or_not": 0,
+          "bass_technique": 13.584999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -149,8 +149,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 11.34,
-          "drumhead": 1.9949999999999999,
+          "drum_technique": 13.59,
+          "drumhead": 1.645,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -162,15 +162,15 @@
           "rotary_speed": "fast_tremolo",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_122_canonical"
+          "leslie_cabinet_model": "leslie_147_alt"
         },
         "scores": {
           "keyboard_technique": -0.07,
-          "drawbar_setting": 11.385,
-          "rotary_speed": 11.2,
-          "percussion_setting": 5.85,
-          "tonewheel_model": 3.0550000000000006,
-          "leslie_cabinet_model": -0.035
+          "drawbar_setting": 13.635,
+          "rotary_speed": 13.45,
+          "percussion_setting": 7.02,
+          "tonewheel_model": 4.225,
+          "leslie_cabinet_model": 0.78
         }
       },
       {
@@ -182,8 +182,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 0.06499999999999999,
-          "conga_set": 0.65,
+          "percussion_technique": -0.07,
+          "conga_set": 0.195,
           "conga_skin": 0.9749999999999999,
           "conga_shell_wood": 0.9749999999999999
         }

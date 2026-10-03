@@ -1,0 +1,321 @@
+{
+  "id": "musica_acoriana",
+  "name": "Música açoriana",
+  "family": "vernacular",
+  "lineage": "Manuel Costa — Eu Sou uma Ilha concert, Teatro Micaelense, 26 January 2019. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic late-2010s música açoriana, functional Song. single lead single track no stacking. acoustic guitar, upright bass, 7 ply quartersawn maple a 440 modern pitch us standard grand piano, European maple bosnian source flamed figure violin orchestral, viola da terra, credited auxiliary percussion, steel canonical Portuguese guitarra portuguesa. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 446,
+  "score": 13.82,
+  "config": {
+    "traditions": [
+      "musica_acoriana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.39,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0,
+          "voice_multitrack_stack": 0.6,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.035,
+          "string_acoustic": 0.8999999999999999,
+          "acoustic_om_technique": -0.25
+        }
+      },
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": -0.05
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 0.25,
+          "grand_piano_size": 1.2,
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": -0.1,
+          "piano_rim": 0.2,
+          "piano_soundboard": 0.26,
+          "piano_pinblock": 1.2,
+          "piano_plate": 0.7999999999999998,
+          "piano_pitch_standard": 1.823
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
+          "orch_top_wood": "norway_spruce_alpine_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 0.25,
+          "orch_strings": 0,
+          "orch_top_wood": -0.1,
+          "orch_back_wood": 1.5,
+          "orch_varnish": -0.1,
+          "orch_setup_period": 0.49999999999999994,
+          "orch_bow": 0.1365,
+          "orch_bow_stick": -0.15000000000000002,
+          "orch_articulation": 0.8999999999999999,
+          "orch_rosin": -0.1
+        }
+      },
+      {
+        "id": "viola_da_terra",
+        "slots": {
+          "viola_da_terra_construction": "viola_da_terra_micaelense_twelve_wire",
+          "viola_da_terra_playing": "viola_da_terra_plucked_chordal"
+        },
+        "scores": {
+          "viola_da_terra_construction": 0.3,
+          "viola_da_terra_playing": 0.3
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      },
+      {
+        "id": "guitarra_portuguesa",
+        "slots": {
+          "guitarra_tuning_school": "guitarra_lisboa_d_d_a_b_a",
+          "guitarra_body_wood": "guitarra_jacaranda_body",
+          "guitarra_top_wood": "guitarra_spruce_top",
+          "guitarra_strings": "guitarra_steel_canonical",
+          "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
+        },
+        "scores": {
+          "guitarra_tuning_school": 0.6,
+          "guitarra_body_wood": 0.8499999999999999,
+          "guitarra_top_wood": 0,
+          "guitarra_strings": 1.2,
+          "guitarra_technique": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ],
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "violin_orchestral": [
+        "bowed_technique",
+        "orch_strings",
+        "orch_top_wood",
+        "orch_back_wood",
+        "orch_varnish",
+        "orch_setup_period",
+        "orch_bow",
+        "orch_bow_stick",
+        "orch_articulation",
+        "orch_rosin"
+      ],
+      "viola_da_terra": [
+        "viola_da_terra_construction",
+        "viola_da_terra_playing"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ],
+      "guitarra_portuguesa": [
+        "guitarra_tuning_school",
+        "guitarra_body_wood",
+        "guitarra_top_wood",
+        "guitarra_strings",
+        "guitarra_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "string_tuning": "standard_tuning",
+      "top_wood": "sitka_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_fingerpicked",
+      "upright_strings": "gut_upright",
+      "upright_play": "pizz_upright",
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "bowed_technique": "bowed_legato_classical",
+      "orch_strings": "synthetic_orch",
+      "orch_top_wood": "norway_spruce_alpine_violin",
+      "orch_back_wood": "bosnian_flamed_maple_violin",
+      "orch_varnish": "oil_amber_varnish_violin",
+      "orch_setup_period": "modern_setup_violin",
+      "orch_bow": "modern_bow",
+      "orch_bow_stick": "pernambuco_stick_orch",
+      "orch_articulation": "arco_orch",
+      "orch_rosin": "pirastro_gold_rosin_orch",
+      "viola_da_terra_construction": "viola_da_terra_micaelense_twelve_wire",
+      "viola_da_terra_playing": "viola_da_terra_plucked_chordal",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "guitarra_tuning_school": "guitarra_lisboa_d_d_a_b_a",
+      "guitarra_body_wood": "guitarra_jacaranda_body",
+      "guitarra_top_wood": "guitarra_spruce_top",
+      "guitarra_strings": "guitarra_steel_canonical",
+      "guitarra_technique": "guitarra_pluck_with_metal_fingerpicks"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
