@@ -5,6 +5,28 @@ Last update: 2026-10-03. **Phase 3 (build) is under way.** The debate passed,
 and the design is version 4. Steps 1-4 are built and committed; step 5 is
 written and waiting for its tests to run.
 
+## HANDOFF (2026-10-03): stopped here at the owner's request
+
+The work stops at `0b7c2674` plus this note. Everything is committed and
+pushed. Nothing was half-applied.
+
+**Built and passing:** Phase 3 steps 1-5 and the owner's ruling B (§7 of
+`lyric-harness/quality/LOOP_REDESIGN.md`).
+
+- `quality/test_loop_redesign.py`, all 9 sections, passes.
+- So do `test_loop`, `test_revise`, `test_verbs`, `test_replay_memo`, `test_production_journal`, and every connector suite except the two below.
+
+**Left for the next session, in order:**
+
+1. **The killed call.** Through the connector, the 24-line seed-1 first `lyric_revise` stops cleanly (exit 5), but the *next* call is killed at 599 s without saving any place. Two independent measurements show it: mine, and the coordinator's at `97cee5d9`. On the CLI, with a fresh process per call, the same continuation stops in time (292 s / 525 s / 325 s, then the question). The difference found so far is that through the connector **both calls run in the same warm Python worker**: the verdict's `path` is `warm` for both.
+   - Suspects: state the warm worker keeps between calls, such as the replay memo's per-run registry in `quality/replay_memo.py`, or the `place_hook` set on a reviser that the memo keeps alive.
+   - To reproduce: run two `finish` calls in one Python process, with `LYRIC_REQUEST_DEADLINE_MS` set for each and every reviser step timed. I was running exactly that when I stopped; it did not finish.
+   - The run still reaches its question on the 4th call (1,685.7 s), because a killed call costs only that one call. Fix this only within ruling B; anything needing a new rule goes to the owner.
+2. **The two connector tests** that still fail on this case: `mcp/test.mjs` ("lyric family") and `mcp/test_run_continuation.mjs`.
+   - Continue an exit-5 call with no answer, rather than failing on it.
+   - Re-pin `test_run_continuation.mjs`'s batch-door walk to the measured one, keeping the old values visible with a dated note (doctrine 17). The measured walk is in the table under "Option B" below: group [1,2,6,7,11,12], L1 ×3, the group again, L2 ×3, then the first batch [3,14,15,17,19,21,23].
+3. **Time both tests end to end** against CI's `verify` limit (45 minutes). The measured walk alone took about 40 minutes over 16 calls, so they probably do not fit. **That is a question for the owner, not something to change.**
+
 ## Where this stands (2026-10-03, read this first)
 
 **The assigned task:** redesign the revise loop so 100+ line songs work, with
