@@ -8194,6 +8194,7 @@ def _defer_proposer(path, lines=None):
                 chosen.pop()
 
     propose.prefetch = prefetch
+    propose.saved = saved
     propose.skipped = skipped
     propose.record = record
 
@@ -8423,6 +8424,18 @@ def _defer_proposer(path, lines=None):
             json.dump(st, fh, indent=2)
             fh.write("\n")
         dl.stop_cost = max(dl.stop_cost, dl.clock() - t0)
+
+    def saved():
+        """A menu or place was just saved: checkpoint the saved position
+        alone, so a kill before the next safe point keeps it (§2.3c). Only
+        the cursor moves; `accepted_lines` and every progress field stay."""
+        _snap = _snapshot()
+        if _snap is None:
+            return
+        st["cursor"] = _snap
+        print("  lyric checkpoint: " + json.dumps(
+            dict(st, transport_token=os.environ.get("LYRIC_CONTROL_TOKEN")),
+            ensure_ascii=False, separators=(",", ":")), flush=True)
 
     def stopped(step):
         """A safe-point stop (exit 5): the last checkpoint holds the stop

@@ -1125,6 +1125,31 @@ def test_menus_resume_place_by_place():
     check("...and once the whole menu is saved, its places are not saved a "
           "second time", len(rows) == 1 and "'brief'" in rows[0][0],
           str([k for k, _ in rows]))
+    # A KILL between the two places, through the real deferred proposer: the
+    # first place was checkpointed when it was saved, so the next call builds
+    # only the second. Before each save printed a checkpoint, the kill kept
+    # the last unit-start checkpoint and the next call rebuilt both.
+    rd = RV.ReviseDeclaration(max_rounds=1, attempts_per_line=1,
+                              backtrack_width=1)
+    base = _inproc(lines, mand, rd, calls=4)
+    at = next(((c["call"], i + 1) for c in base
+               for i in range(1, len(c["steps"]))
+               if c["steps"][i] == "place" and c["steps"][i - 1] == "place"),
+              None)
+    check("PREMISE: the run builds this line's menu as two places in a row",
+          at is not None, str([c["steps"] for c in base]))
+    if at is not None:
+        run = _inproc(lines, mand, rd, plan={at[0]: (at[1], True)}, calls=4)
+        killed, nxt = run[at[0]], run[at[0] + 1]
+        kept = [k for k, _ in ((killed["after"] or {}).get("cursor", {})
+                               .get("loop", {}).get("menus") or ())]
+        check("a call killed between the two places keeps the first place "
+              "in its last checkpoint", killed["kind"] == "killed"
+              and any("'place'" in k for k in kept), str(kept))
+        check("...and the next call builds only the second place",
+              nxt["steps"].count("place") == 1, str(nxt["steps"]))
+        check("...and the run asks the same questions as without the kill",
+              _prompts(run) == _prompts(base))
 
 
 def test_kills_keep_the_run():

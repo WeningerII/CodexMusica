@@ -1867,6 +1867,7 @@ class _VerdictCache:
         self._tally = tally
         self._deadline = deadline
         self._menus = {}
+        self.on_save = None
 
     def __getattr__(self, name):
         return getattr(self._inner, name)
@@ -1928,6 +1929,12 @@ class _VerdictCache:
             if _menu_decode(enc) == out:
                 self._menus[key] = (_draft_key(lines), enc, out)
                 self._live.setdefault("menus", []).append([key, enc])
+                # A KILL KEEPS ONLY THE LAST CHECKPOINT (§2.3c), so a saved
+                # menu or place is checkpointed at once: a call killed before
+                # its next safe point still hands the next call every place
+                # it finished.
+                if self.on_save is not None:
+                    self.on_save()
         except (TypeError, KeyError, AttributeError, ValueError):
             pass
         return out
@@ -2275,6 +2282,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         reviser = _VerdictCache(reviser, _unit_cache, _live,
                                 getattr(propose, "verify_tally", None),
                                 deadline=deadline)
+        reviser.on_save = getattr(propose, "saved", None)
         _position(_live)
     _resume = resume if isinstance(resume, dict) else None
     if _resume is not None and _position is not None:
