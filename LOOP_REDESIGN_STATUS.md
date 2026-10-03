@@ -5,6 +5,32 @@ Last update: 2026-10-03. **Phase 3 (build) is under way.** The debate passed,
 and the design is version 4. Steps 1-4 are built and committed; step 5 is
 written and waiting for its tests to run.
 
+## Where this stands (2026-10-03, read this first)
+
+**The assigned task:** redesign the revise loop so 100+ line songs work, with
+the four known defects fixed.
+
+**Done and pushed:**
+
+- Phase 1, all four defects reproduced.
+- Phase 2, the design debated and passed.
+- Phase 3, steps 1-5: no replay, a verdict for every batch answer, runs that survive a deadline, menus for group questions.
+- The owner's two later rulings, on Q1-Q7 and on safe points (B).
+- All suites pass except two connector checks.
+
+**What is left, all from the owner's B instructions (relayed 13:27 UTC):**
+
+1. Measure the 24-line first `lyric_revise` through the connector until it asks.
+   - Done: it asks on call 4, after 1,685.7 s.
+   - One call in that walk was killed without saving anything, and the coordinator asked me to find out why. That diagnosis is running now.
+2. Change the two connector tests (`mcp/test.mjs`, `mcp/test_run_continuation.mjs`) to continue an exit-5 call, and re-pin their walk to what was measured.
+3. Time both tests against CI's 45-minute limit, and ask the owner if they don't fit.
+
+**Why it is slow:** every measurement on the 24-line fixture costs 10-30
+minutes of wall clock, because one call on it takes up to 600 s. My own
+mistake cost an hour more: `438334de` broke deferred runs, and it took two
+fix commits.
+
 ## Phase 3 progress
 
 | step | what | state |
