@@ -5,7 +5,7 @@
   "lineage": "Steve Bell — Christian fingerstyle troubadour practice. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic canadian ccm, ritual Devotional. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 262,
-  "score": 2.061,
+  "score": 2.198,
   "config": {
     "traditions": [
       "canadian_ccm"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.624,
+          "voice_ensemble_config": 0.7785,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.6315,
-          "voice_multitrack_stack": 0.7680000000000001,
+          "voice_multitrack_stack": 0.7725000000000001,
           "voice_tessitura": 0
         }
       },
@@ -65,7 +65,7 @@
           "string_tuning": 0,
           "top_wood": 0,
           "back_sides": -0.035,
-          "string_acoustic": 0.3225,
+          "string_acoustic": 0.3,
           "acoustic_om_technique": -0.25
         }
       }

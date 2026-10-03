@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "e41d5ad3d5bc8601dac27584f61b31a72a316988298ab7141458a66ecf54af1e",
+  "baseline": "82bf152ed33536398587c8c75c4ab6faf722c3bc",
+  "source": {
+    "predecessor": "82bf152ed33536398587c8c75c4ab6faf722c3bc",
+    "head": "82bf152ed33536398587c8c75c4ab6faf722c3bc",
+    "frozen_sha256": "e41d5ad3d5bc8601dac27584f61b31a72a316988298ab7141458a66ecf54af1e",
+    "counts": {
+      "raw_traditions_old_unchanged": 5538,
+      "raw_instruments_old_unchanged": 1489,
+      "old_extras_unchanged": 5538,
+      "merged_instruments_old_unchanged": 1489,
+      "data/geo.json_old_keys": 5538,
+      "references/_tradition_signatures.json_old_keys": 3516,
+      "old_images_unchanged": 6977,
+      "new_images": 117
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "ngoma_equatorial_harp",
+      "nadaswaram_concert_duo",
+      "braguinha_madeira",
+      "viola_arame_madeira",
+      "dominican_metal_guiro",
+      "vivo_tahitian",
+      "pandero_source_unspecified",
+      "shaker_source_unspecified",
+      "guayo_source_unspecified",
+      "agogo_source_unspecified",
+      "timbales_stick_played",
+      "conga_family_multi_register",
+      "comorian_gambusi",
+      "viola_da_terra",
+      "hand_cranked_paper_music_box",
+      "toy_piano_concert",
+      "timple_canario"
+    ],
+    "runtime_independent": {
+      "cards": 448,
+      "effective_parts": 4191,
+      "flat_pins": 4066,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "actual_browser_preservation": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1489,
+      "traditions": 5538,
+      "cards": 24080
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "original_pipeline": {
+    "baseline": "82bf152ed33536398587c8c75c4ab6faf722c3bc",
+    "pipeline_files_checked": 178,
+    "changed_pipeline_files": [],
+    "frozen_sha256": "42f3d40d72af77c541c2b4bc26f46e3d45d4c771f1b24615ad144f877b0c22a9"
+  },
+  "compiled_api": "Pending completion; no partial API inspected",
+  "semantics": "final-semantic-review119.json",
+  "remaining_required": "Original full API audit; regression causal review if differences; exact-head CI.",
+  "previous_frozen_sha256": "42f3d40d72af77c541c2b4bc26f46e3d45d4c771f1b24615ad144f877b0c22a9",
+  "agogo_label_addendum": "agogo-label-amendment119.json: new dependency short label only, collision removed without source-role/default/old-owner change; long/photo names already explicitly source-unspecified."
+}

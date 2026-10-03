@@ -1,0 +1,18 @@
+{
+  "before_sha256": "42f3d40d72af77c541c2b4bc26f46e3d45d4c771f1b24615ad144f877b0c22a9",
+  "after_sha256": "e41d5ad3d5bc8601dac27584f61b31a72a316988298ab7141458a66ecf54af1e",
+  "changes": [
+    {
+      "path": "frozen/instrument_dependencies/9/record/short",
+      "before": "Agogo",
+      "after": "source-unspecified agogo"
+    },
+    {
+      "path": "references/02_instruments.js:new agogo_source_unspecified.short",
+      "before": "Agogo",
+      "after": "source-unspecified agogo"
+    }
+  ],
+  "authorization": "Parent explicit new dependency duplicate-label repair",
+  "scope": "Only new agogo_source_unspecified.short changed. Long name, manifest/photo names already Agogo (source-unspecified construction), so remain identical. No role, default, part, existing owner, photo URL/rights/bytes or shared code change. Original source packet preserved; authoritative frozen dependency override prevents collector regression."
+}

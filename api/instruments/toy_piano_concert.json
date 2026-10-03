@@ -1,0 +1,198 @@
+{
+  "name": "Toy piano (concert playing model)",
+  "short": "Concert toy piano",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "id": "toy_piano_concert",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Authored concert approach",
+      "variants": [
+        {
+          "id": "toy_piano_concert_delicate_melodic",
+          "name": "Delicate melodic concert touch; exact gestures source-unspecified",
+          "default": true,
+          "descriptors": [
+            "delicate",
+            "melodic",
+            "percussive"
+          ],
+          "match_tokens": [
+            "delicate",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toy_piano_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "toy_piano_schoenhut_rods",
+          "default": true,
+          "name": "Schoenhut struck-rods",
+          "descriptors": [
+            "schoenhut-rods",
+            "plinky",
+            "naive"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "toy_piano_generic_metal_rods",
+          "default": false,
+          "name": "Generic metal-rod",
+          "descriptors": [
+            "metal-rods",
+            "tinkling",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toy_piano_aesthetic",
+      "name": "Aesthetic",
+      "surface": false,
+      "variants": [
+        {
+          "id": "toy_piano_naive_celeste",
+          "default": true,
+          "name": "Naïve celeste",
+          "descriptors": [
+            "naive-celeste",
+            "childlike",
+            "music-box"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "toy_piano_prepared_experimental",
+          "default": false,
+          "name": "Prepared / experimental",
+          "descriptors": [
+            "prepared-experimental",
+            "clangy",
+            "avant"
+          ],
+          "match_tokens": [
+            "experimental-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "The Melbourne Recital Centre program explicitly credits Margaret Leng Tan on Schoenhut toy piano for the selected Chen work. The original toy-piano owner only exposes a pop block-chord keyboard technique; this isolated owner preserves its physical type and timbral choices while providing a neutral authored concert approach. The existing owner is not changed. Exact keyboard gestures and preparation are not established by the source.",
+  "sources": [
+    "https://mrc-assets.s3.amazonaws.com/assets/File/9775.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Authored concert approach",
+      "variants": [
+        {
+          "id": "toy_piano_concert_delicate_melodic",
+          "name": "Delicate melodic concert touch; exact gestures source-unspecified",
+          "default": true,
+          "descriptors": [
+            "delicate",
+            "melodic",
+            "percussive"
+          ],
+          "match_tokens": [
+            "delicate",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toy_piano_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "toy_piano_schoenhut_rods",
+          "default": true,
+          "name": "Schoenhut struck-rods",
+          "descriptors": [
+            "schoenhut-rods",
+            "plinky",
+            "naive"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "toy_piano_generic_metal_rods",
+          "default": false,
+          "name": "Generic metal-rod",
+          "descriptors": [
+            "metal-rods",
+            "tinkling",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toy_piano_aesthetic",
+      "name": "Aesthetic",
+      "surface": false,
+      "variants": [
+        {
+          "id": "toy_piano_naive_celeste",
+          "default": true,
+          "name": "Naïve celeste",
+          "descriptors": [
+            "naive-celeste",
+            "childlike",
+            "music-box"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "toy_piano_prepared_experimental",
+          "default": false,
+          "name": "Prepared / experimental",
+          "descriptors": [
+            "prepared-experimental",
+            "clangy",
+            "avant"
+          ],
+          "match_tokens": [
+            "experimental-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

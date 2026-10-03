@@ -1,0 +1,56 @@
+{
+  "id": "ngoma_equatorial_harp",
+  "name": "Ngoma (Equatorial Guinean traditional harp)",
+  "short": "Traditional ngoma harp",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "ngoma_equatorial_harp_identity",
+      "name": "Documented instrument identity",
+      "variants": [
+        {
+          "id": "ngoma_equatorial_harp_traditional_harp",
+          "name": "Equatorial Guinean traditional harp; construction unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ngoma_equatorial_harp_identity",
+      "name": "Documented instrument identity",
+      "variants": [
+        {
+          "id": "ngoma_equatorial_harp_traditional_harp",
+          "name": "Equatorial Guinean traditional harp; construction unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

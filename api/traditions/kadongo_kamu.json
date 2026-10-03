@@ -3,14 +3,14 @@
   "name": "Kadongo Kamu",
   "family": "global",
   "lineage": "Ugandan Luganda-language narrative song style whose name means 'one little guitar', formed in Kampala in the 1960s with Elly Wamala and Fred Masagazi and codified by Christopher Sebaduka, Herman Basudde and Paulo Kafeero — moderate 90-110 BPM rolling guitar arpeggios in a repeated two- or three-chord loop, a light kick-and-shaker groove, and long strophic verses of proverb-laden storytelling delivered in a conversational near-spoken tenor.",
-  "recipe": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry malian traditional musique soninke. extended whistle, declaimed, slow rate, interlocked note trading. coated nanoweb strummed open chord ringing overtones dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 589,
-  "score": 174.368,
+  "recipe": "classic mid-1960s kadongo kamu, functional Song, African pop branch, west African griot ballad poetry malian traditional musica guineense. extended whistle, declaimed, pure, interlocked note trading. coated nanoweb fingerpicked dreadnought acoustic clean strummed single coil electric guitar, coated elixir nanoweb fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, adungu. no single room 2015-present distributed distributed production. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 560,
+  "score": 140.35,
   "config": {
     "traditions": [
       "kadongo_kamu",
       "malian_traditional",
-      "soninke_music"
+      "musica_guineense"
     ],
     "instruments": [
       {
@@ -20,7 +20,7 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
@@ -28,45 +28,45 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 4.98,
-          "voice_quality": 11.949999999999998,
+          "voice_register": 4.105,
+          "voice_quality": 7.325000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.975,
-          "voice_articulation": 14.754999999999995,
-          "voice_microtone": 14.559999999999992,
-          "voice_tradition": 28.567499999999995,
-          "voice_mechanism_compound": 3.12,
-          "voice_estill_quality": 3.5750000000000006,
-          "voice_speech_song": 22.034999999999993,
-          "voice_ensemble_config": 15.469999999999994,
-          "voice_ornament_system": 0.7149999999999997,
-          "voice_pitch_organization": 1.15,
-          "voice_processing_chain": 3.38,
+          "voice_vibrato": 0.585,
+          "voice_articulation": 12.609999999999994,
+          "voice_microtone": 12.414999999999992,
+          "voice_tradition": 23.399999999999995,
+          "voice_mechanism_compound": 1.885,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 18.979999999999997,
+          "voice_ensemble_config": 12.934999999999995,
+          "voice_ornament_system": 0.78,
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 2.08,
           "voice_multitrack_stack": 2.6850000000000005
         }
       },
       {
         "id": "acoustic_guitar_dread",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
+          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "d_standard",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
           "string_acoustic": "coated_nano_acoustic"
         },
         "scores": {
-          "acoustic_technique": 5.575,
+          "acoustic_technique": 4.8950000000000005,
           "string_tuning": 0.2,
           "top_wood": 0.195,
           "back_sides": 0.195,
-          "string_acoustic": 1.83
+          "string_acoustic": 1.3
         }
       },
       {
@@ -79,7 +79,7 @@
           "fretboard": "maple_fb",
           "pickup_magnet": "alnico_5",
           "string_material": "pure_nickel",
-          "string_gauge": "g_12",
+          "string_gauge": "g_10",
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
@@ -87,14 +87,14 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 4.575,
+          "electric_technique": 3.7,
           "amp_make": 0,
           "body_wood": 0.195,
           "neck_wood": 0.3,
           "fretboard": 0,
           "pickup_magnet": 0.195,
           "string_material": 0,
-          "string_gauge": 0.9950000000000001,
+          "string_gauge": 1.3,
           "bridge": 0.525,
           "scale_length": 0.39,
           "finish": 0.3,
@@ -118,7 +118,7 @@
           "amp_make": 0.325,
           "body_wood": 0.39,
           "pickup_config": 0.525,
-          "string_type": 1.83,
+          "string_type": 1.3,
           "scale_length_b": 0.72,
           "fretted_or_not": 0.24,
           "bass_technique": 1.745,
@@ -133,8 +133,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 15.404999999999994,
-          "drumhead": 5.3100000000000005,
+          "drum_technique": 13.064999999999996,
+          "drumhead": 4.585,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -147,7 +147,7 @@
         },
         "scores": {
           "adungu_size": -0.07,
-          "adungu_setting": 3.5700000000000003,
+          "adungu_setting": 0.8449999999999999,
           "adungu_stringing": -0.15000000000000002
         }
       }

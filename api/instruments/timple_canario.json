@@ -1,0 +1,60 @@
+{
+  "id": "timple_canario",
+  "name": "Timple (Canary Islands plucked lute)",
+  "short": "Canary timple",
+  "family": "plucked_traditional",
+  "class": "lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "timple_canario_form",
+      "name": "Source-identified instrument form",
+      "variants": [
+        {
+          "id": "timple_canario_source_identified",
+          "name": "Canary timple; stringing and construction unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonant"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "timple_canario_form",
+      "name": "Source-identified instrument form",
+      "variants": [
+        {
+          "id": "timple_canario_source_identified",
+          "name": "Canary timple; stringing and construction unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonant"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "lineage": "An overlapping ambient discovery category represented on the author map by Max Corbacho, Rudy Adrian, Dirk Serries and others. Documented examples range from electronic drones to looped electroacoustic layers. This default selects the credited synthesizer and guitar-loop sources on Steve Roach and Dirk Serries’ Low Volume Music; it is one branch of the wider listening category.",
   "recipe": "classic modern deep ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, alder rosewood alnico single coil electric guitar. professional grade domestic 1980-present auteur-home-pro auteur home pro. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
   "recipe_chars": 385,
-  "score": 31.627,
+  "score": 31.833,
   "config": {
     "traditions": [
       "deep_ambient"
@@ -21,9 +21,9 @@
           "modulation": "lfo_filter"
         },
         "scores": {
-          "electronic_technique": 11.640214285714285,
-          "oscillator": 0.045,
-          "filter_topology": 3.1230714285714285,
+          "electronic_technique": 11.472214285714283,
+          "oscillator": 0.09,
+          "filter_topology": 3.0915714285714286,
           "envelope": 5.719999999999999,
           "modulation": 0
         }
@@ -46,18 +46,18 @@
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
-          "electric_technique": 1.69,
+          "electric_technique": 1.6379285714285714,
           "amp_make": 0,
-          "body_wood": 1.5282142857142857,
+          "body_wood": 1.5417142857142858,
           "neck_wood": 0.3229285714285714,
-          "fretboard": 1.4782142857142857,
-          "pickup_magnet": 1.5282142857142857,
+          "fretboard": 1.4467142857142856,
+          "pickup_magnet": 1.4967142857142857,
           "string_material": 0,
-          "string_gauge": 0,
-          "bridge": 1.5944285714285713,
+          "string_gauge": 0.24,
+          "bridge": 1.5314285714285714,
           "scale_length": 0,
           "finish": 0.03599999999999999,
-          "string_tuning": 0.1954285714285714,
+          "string_tuning": 0.4804285714285714,
           "single_coil_pickup_construction": 0
         }
       }

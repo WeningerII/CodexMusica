@@ -1,0 +1,90 @@
+{
+  "id": "braguinha_madeira",
+  "name": "Braguinha (Madeiran four-string machete)",
+  "short": "Braguinha",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "braguinha_madeira_identity",
+      "name": "Regional instrument identity",
+      "variants": [
+        {
+          "id": "braguinha_madeira_documented_form",
+          "name": "Madeiran four-string braguinha, distinct from Brazilian five-string viola machete",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "braguinha_madeira_gesture",
+      "name": "Authored accompaniment approach",
+      "variants": [
+        {
+          "id": "braguinha_madeira_strummed",
+          "name": "Authored strummed accompaniment",
+          "default": true,
+          "descriptors": [
+            "strummed"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "braguinha_madeira_identity",
+      "name": "Regional instrument identity",
+      "variants": [
+        {
+          "id": "braguinha_madeira_documented_form",
+          "name": "Madeiran four-string braguinha, distinct from Brazilian five-string viola machete",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "braguinha_madeira_gesture",
+      "name": "Authored accompaniment approach",
+      "variants": [
+        {
+          "id": "braguinha_madeira_strummed",
+          "name": "Authored strummed accompaniment",
+          "default": true,
+          "descriptors": [
+            "strummed"
+          ],
+          "match_tokens": [
+            "strummed"
+          ]
+        }
+      ]
+    }
+  ]
+}

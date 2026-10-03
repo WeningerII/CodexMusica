@@ -5,7 +5,7 @@
   "lineage": "Indian classical is represented by Ustad Sultan Khan and Shri Rij Ram — Raga Bageshree, Sarangi: The Music of India. One documented branch is realized as an authored present-day studio arrangement. Sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, raga-informed tuning preset, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
   "recipe": "classic indian classical, art Music, south Asian branch. sarangi, indian rosewood rosewood copper tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 203,
-  "score": 12.03,
+  "score": 12.062,
   "config": {
     "traditions": [
       "indian_classical"
@@ -26,7 +26,7 @@
           "sarangi_belly": 0.6090267857142857,
           "sarangi_taraf": 0.1365,
           "sarangi_bow": 0,
-          "sarangi_main_strings": 0.3,
+          "sarangi_main_strings": 0.3315,
           "sarangi_body_wood": 0.4095
         }
       },

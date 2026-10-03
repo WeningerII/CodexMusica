@@ -1,0 +1,83 @@
+{
+  "id": "music_box",
+  "name": "Music box",
+  "family": "classical",
+  "lineage": "Phyllis Chen — Cobwebbed Carousel, Margaret Leng Tan at Melbourne Recital Centre, 23 August 2019. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic late-2010s music box, art Music, western modern branch. music box naive celeste toy piano concert, hand cranked paper music box. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 235,
+  "score": 8.96,
+  "config": {
+    "traditions": [
+      "music_box"
+    ],
+    "instruments": [
+      {
+        "id": "toy_piano_concert",
+        "slots": {
+          "keyboard_technique": "toy_piano_concert_delicate_melodic",
+          "toy_piano_type": "toy_piano_schoenhut_rods",
+          "toy_piano_aesthetic": "toy_piano_naive_celeste"
+        },
+        "scores": {
+          "keyboard_technique": 0.39,
+          "toy_piano_type": 0.6,
+          "toy_piano_aesthetic": 7.279999999999999
+        }
+      },
+      {
+        "id": "hand_cranked_paper_music_box",
+        "slots": {
+          "paper_music_box_mechanism": "paper_music_box_punched_strip",
+          "paper_music_box_control": "paper_music_box_manual_crank"
+        },
+        "scores": {
+          "paper_music_box_mechanism": 0.39,
+          "paper_music_box_control": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "toy_piano_concert": [
+        "keyboard_technique",
+        "toy_piano_type",
+        "toy_piano_aesthetic"
+      ],
+      "hand_cranked_paper_music_box": [
+        "paper_music_box_mechanism",
+        "paper_music_box_control"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "toy_piano_concert_delicate_melodic",
+      "toy_piano_type": "toy_piano_schoenhut_rods",
+      "toy_piano_aesthetic": "toy_piano_naive_celeste",
+      "paper_music_box_mechanism": "paper_music_box_punched_strip",
+      "paper_music_box_control": "paper_music_box_manual_crank"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "id": "nadaswaram_concert_duo",
+  "name": "Nadaswaram (documented concert duo)",
+  "family": "wind",
+  "class": "double_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Concert nadaswaram",
+  "parts": [
+    {
+      "id": "nadaswaram_register",
+      "name": "Register",
+      "variants": [
+        {
+          "id": "nadaswaram_standard",
+          "default": true,
+          "name": "Standard nadaswaram (Carnatic / Tamil temple)",
+          "descriptors": [
+            "large-double-reed",
+            "temple-volume",
+            "auspicious-ceremonial",
+            "tamil-temple-context"
+          ],
+          "match_tokens": [
+            "wind",
+            "double-reed",
+            "carnatic-tradition",
+            "tamil-tradition",
+            "temple-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_concert_ensemble",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "nadaswaram_concert_duo_with_thavil",
+          "name": "Two nadaswaram players with thavil accompaniment",
+          "default": true,
+          "descriptors": [
+            "melodic",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "melodic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "nadaswaram_aacha_canonical",
+          "default": true,
+          "name": "Aacha / Hardwickia binata (canonical Tamil)",
+          "descriptors": [
+            "aacha-hardwickia-binata-canonical-tamil"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_redwood_alt",
+          "name": "Redwood (alternative)",
+          "descriptors": [
+            "redwood-alternative"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_ebony_premium",
+          "name": "Ebony (premium ceremonial)",
+          "descriptors": [
+            "ebony-premium-ceremonial"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_reed",
+      "surface": false,
+      "name": "Reed (sealed double-reed)",
+      "variants": [
+        {
+          "id": "nadaswaram_arundo_palm_canonical",
+          "default": true,
+          "name": "Arundo donax with palm-leaf binding (canonical Tamil sippli reed)",
+          "descriptors": [
+            "arundo-palm-leaf-binding-canonical-tamil-sippli"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_concert_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "nadaswaram_concert_lineage_unspecified",
+          "name": "Named teachers documented; catalog regional lineage unspecified",
+          "default": true,
+          "descriptors": [
+            "classical",
+            "melodic"
+          ],
+          "match_tokens": [
+            "classical",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "WOMADelaide documents Balaganesan and Bageswari on nadaswaram with Purushothaman on thavil. The source names their teachers but does not establish either existing catalog regional-lineage choice or a larger periya-melam ensemble. This isolated owner preserves the exact double-reed instrument and physical options while supplying documented duo context and source-unspecified catalog lineage. Aacha wood and arundo/palm reed are authored representative construction, not claimed performer materials.",
+  "sources": [
+    "https://www.womadelaide.com.au/lineup/season-2026/balaganesan-bageswari"
+  ],
+  "_ownParts": [
+    {
+      "id": "nadaswaram_register",
+      "name": "Register",
+      "variants": [
+        {
+          "id": "nadaswaram_standard",
+          "default": true,
+          "name": "Standard nadaswaram (Carnatic / Tamil temple)",
+          "descriptors": [
+            "large-double-reed",
+            "temple-volume",
+            "auspicious-ceremonial",
+            "tamil-temple-context"
+          ],
+          "match_tokens": [
+            "wind",
+            "double-reed",
+            "carnatic-tradition",
+            "tamil-tradition",
+            "temple-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_concert_ensemble",
+      "name": "Ensemble context",
+      "variants": [
+        {
+          "id": "nadaswaram_concert_duo_with_thavil",
+          "name": "Two nadaswaram players with thavil accompaniment",
+          "default": true,
+          "descriptors": [
+            "melodic",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "melodic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "nadaswaram_aacha_canonical",
+          "default": true,
+          "name": "Aacha / Hardwickia binata (canonical Tamil)",
+          "descriptors": [
+            "aacha-hardwickia-binata-canonical-tamil"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_redwood_alt",
+          "name": "Redwood (alternative)",
+          "descriptors": [
+            "redwood-alternative"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        },
+        {
+          "id": "nadaswaram_ebony_premium",
+          "name": "Ebony (premium ceremonial)",
+          "descriptors": [
+            "ebony-premium-ceremonial"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_reed",
+      "surface": false,
+      "name": "Reed (sealed double-reed)",
+      "variants": [
+        {
+          "id": "nadaswaram_arundo_palm_canonical",
+          "default": true,
+          "name": "Arundo donax with palm-leaf binding (canonical Tamil sippli reed)",
+          "descriptors": [
+            "arundo-palm-leaf-binding-canonical-tamil-sippli"
+          ],
+          "match_tokens": [
+            "wind",
+            "carnatic-tradition",
+            "tamil-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nadaswaram_concert_lineage",
+      "surface": false,
+      "name": "Performance lineage",
+      "variants": [
+        {
+          "id": "nadaswaram_concert_lineage_unspecified",
+          "name": "Named teachers documented; catalog regional lineage unspecified",
+          "default": true,
+          "descriptors": [
+            "classical",
+            "melodic"
+          ],
+          "match_tokens": [
+            "classical",
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

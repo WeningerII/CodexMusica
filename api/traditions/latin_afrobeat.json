@@ -5,7 +5,7 @@
   "lineage": "Bixiga70 — III full2015album performing roster. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic latin afrobeat, groove Percussion. ensemble trumpet, bach 42 canonical American orchestral tenor ensemble tenor standard standard backbore trombone, saxophone section tenor baritone, conventional tuning standard pitch humbucker electric guitar, analog poly synth, electric bass, low fundamental tuning maple drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 455,
-  "score": 27.854,
+  "score": 28.727,
   "config": {
     "traditions": [
       "latin_afrobeat"
@@ -23,11 +23,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 5.7090000000000005,
+          "wind_articulation": 5.8455,
           "brass_size": 0,
           "trumpet_mouthpiece": -0.07,
           "brass_mute": 0,
-          "trumpet_technique": 5.7090000000000005,
+          "trumpet_technique": 5.8455,
           "trumpet_bell_metal": 0.3,
           "trumpet_maker_school": 0.3
         }
@@ -44,7 +44,7 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 5.7090000000000005,
+          "wind_articulation": 5.8455,
           "trombone_type": -0.035,
           "trombone_mouthpiece": 1.0999999999999999,
           "trombone_mute": 0,
@@ -82,7 +82,7 @@
         "scores": {
           "electric_technique": -0.1,
           "amp_make": 0,
-          "body_wood": 0.168,
+          "body_wood": 0.1995,
           "neck_wood": 0.0315,
           "fretboard": -0.035,
           "pickup_magnet": 0,
@@ -92,7 +92,7 @@
           "scale_length": 0.063,
           "string_gauge": 1.69,
           "finish": 0,
-          "string_tuning": 1.4365
+          "string_tuning": 1.573
         }
       },
       {
@@ -124,7 +124,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.168,
+          "body_wood": 0.1995,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0.0315,
@@ -150,9 +150,9 @@
         },
         "scores": {
           "drum_technique": -0.05,
-          "drumhead": 1.4365,
+          "drumhead": 1.573,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 1.5625,
+          "shell_wood": 1.69,
           "shell_thickness": 0,
           "bearing_edges": 0,
           "snare_wires": 0,

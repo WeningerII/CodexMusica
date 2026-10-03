@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "e41d5ad3d5bc8601dac27584f61b31a72a316988298ab7141458a66ecf54af1e",
+  "effective_parts": 4191,
+  "protected_parts": 4187,
+  "unprotected_parts": 4,
+  "compiled_choices": [
+    {
+      "id": "musica_ecuatoguineana",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "compiled_actual": "electronic_keyboard_melodic_chordal",
+      "runtime_protected": false
+    },
+    {
+      "id": "musica_mato_grossense",
+      "instrument": "midi_programmed_sound_unspecified",
+      "part": "electronic_technique",
+      "imported_default": "midi_programmed_event_sequence",
+      "compiled_actual": "midi_programmed_event_sequence",
+      "runtime_protected": false
+    },
+    {
+      "id": "ohio_indie",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "compiled_actual": "electronic_keyboard_melodic_chordal",
+      "runtime_protected": false
+    },
+    {
+      "id": "palestinian_alternative",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "compiled_actual": "electronic_keyboard_melodic_chordal",
+      "runtime_protected": false
+    }
+  ],
+  "note": "Flat-key collisions explicitly unprotected; original static choices equal disclosed imported defaults."
+}

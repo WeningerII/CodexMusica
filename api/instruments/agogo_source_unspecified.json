@@ -1,0 +1,64 @@
+{
+  "id": "agogo_source_unspecified",
+  "name": "Agogo (source-unspecified construction)",
+  "short": "source-unspecified agogo",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "agogo_source_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "agogo_source_unspecified_named_role",
+          "name": "Named role retained; construction and technique unspecified",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "metallic"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "The artist credits agogo on Bandera. Named struck-bell identity is retained without guessing bell count, alloy or assigning an unsupported Brazilian candomble or samba context. Axes and descriptive sound words are authored representative values, not measured session facts.",
+  "sources": [
+    "https://olafresca.bandcamp.com/album/elixir"
+  ],
+  "_ownParts": [
+    {
+      "id": "agogo_source_unspecified_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "agogo_source_unspecified_named_role",
+          "name": "Named role retained; construction and technique unspecified",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "metallic"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic"
+          ]
+        }
+      ]
+    }
+  ]
+}

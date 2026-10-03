@@ -1,0 +1,136 @@
+{
+  "id": "neotango",
+  "name": "Neotango",
+  "family": "jazz",
+  "lineage": "Pablo Aslan Trio — La Boca Blues2022 complete trio recording. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic neotango, improv On Frame. upright bass, bellows articulated bandoneon, tuning stability 7 ply quartersawn maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 232,
+  "score": 15.832,
+  "config": {
+    "traditions": [
+      "neotango"
+    ],
+    "instruments": [
+      {
+        "id": "upright_bass",
+        "slots": {
+          "upright_strings": "gut_upright",
+          "upright_play": "pizz_upright"
+        },
+        "scores": {
+          "upright_strings": 0,
+          "upright_play": 4
+        }
+      },
+      {
+        "id": "bandoneon",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "bandoneon_action": "bandoneon_bisonoric",
+          "bandoneon_use": "bandoneon_tango",
+          "bandoneon_maker_school": "bandoneon_alfred_arnold_aa",
+          "bandoneon_reed_material": "bandoneon_steel_reeds_canonical"
+        },
+        "scores": {
+          "free_reed_technique": 3.5814999999999997,
+          "bandoneon_action": 1.668,
+          "bandoneon_use": 0,
+          "bandoneon_maker_school": -0.05,
+          "bandoneon_reed_material": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 0.75,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.0315,
+          "piano_hammer": 0.7,
+          "piano_rim": 0.7945,
+          "piano_soundboard": 0.7314999999999999,
+          "piano_pinblock": 2.5999999999999996,
+          "piano_plate": 0.7,
+          "piano_pitch_standard": 0.325
+        }
+      }
+    ],
+    "pinned": {
+      "upright_bass": [
+        "upright_strings",
+        "upright_play"
+      ],
+      "bandoneon": [
+        "free_reed_technique",
+        "bandoneon_action",
+        "bandoneon_use",
+        "bandoneon_maker_school",
+        "bandoneon_reed_material"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "upright_strings": "gut_upright",
+      "upright_play": "pizz_upright",
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "bandoneon_action": "bandoneon_bisonoric",
+      "bandoneon_use": "bandoneon_tango",
+      "bandoneon_maker_school": "bandoneon_alfred_arnold_aa",
+      "bandoneon_reed_material": "bandoneon_steel_reeds_canonical",
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

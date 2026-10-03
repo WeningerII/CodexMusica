@@ -3,14 +3,14 @@
   "name": "Ambient",
   "family": "electronic",
   "lineage": "Long-form atmospheric electronic-music genre codified by Brian Eno from 1975 onward — Discreet Music 1975, then the Ambient series Ambient 1: Music for Airports 1978 establishing both the genre name and the founding aesthetic of music as functional environment-shaping; extended through Apollo: Atmospheres and Soundtracks 1983 with Daniel Lanois and Roger Eno, Harold Budd collaborations, the modern continuation through Stars of the Lid, William Basinski (The Disintegration Loops 2002), Tim Hecker, Grouper",
-  "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal tuareg guitar african blues. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
-  "recipe_chars": 558,
-  "score": 43.657,
+  "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal musique mauritanienne tuareg guitar. pad like pad analog synth, tape replay keyboard, handpan, structures sonores original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+  "recipe_chars": 566,
+  "score": 44.077,
   "config": {
     "traditions": [
       "ambient",
-      "tuareg_guitar",
-      "african_blues"
+      "musique_mauritanienne",
+      "tuareg_guitar"
     ],
     "instruments": [
       {
@@ -18,14 +18,14 @@
         "slots": {
           "electronic_technique": "electronic_pad_drone",
           "oscillator": "saw_single",
-          "filter_topology": "resonant_acid",
+          "filter_topology": "transistor_ladder",
           "envelope": "pad_env",
           "modulation": "no_mod"
         },
         "scores": {
           "electronic_technique": 14.685142857142854,
-          "oscillator": 1.8265,
-          "filter_topology": 0.65,
+          "oscillator": 2.2165,
+          "filter_topology": 0.195,
           "envelope": 7.409999999999999,
           "modulation": 0.49499999999999994
         }
@@ -38,7 +38,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 1.3649999999999998,
+          "keyboard_technique": 0.7149999999999999,
           "tape_voice": 0.78,
           "tape_state": 0.3
         }
@@ -50,8 +50,8 @@
           "handpan_maker": "handpan_western"
         },
         "scores": {
-          "handpan_scale": 7.799999999999999,
-          "handpan_maker": 1.845
+          "handpan_scale": 7.344999999999999,
+          "handpan_maker": 1.89
         }
       },
       {
@@ -63,7 +63,7 @@
         },
         "scores": {
           "cristal_baschet_form": 2.21,
-          "cristal_baschet_touch": 4.55,
+          "cristal_baschet_touch": 4.095000000000001,
           "cristal_baschet_resonator": 0.7149999999999999
         }
       }

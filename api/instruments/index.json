@@ -1,5 +1,5 @@
 {
-  "count": 1489,
+  "count": 1506,
   "items": [
     {
       "id": "choir_ensemble",
@@ -8934,6 +8934,108 @@
       "name": "Credited horns (source-unspecified instruments)",
       "family": "wind",
       "href": "instruments/credited_horns_unspecified.json"
+    },
+    {
+      "id": "ngoma_equatorial_harp",
+      "name": "Ngoma (Equatorial Guinean traditional harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/ngoma_equatorial_harp.json"
+    },
+    {
+      "id": "nadaswaram_concert_duo",
+      "name": "Nadaswaram (documented concert duo)",
+      "family": "wind",
+      "href": "instruments/nadaswaram_concert_duo.json"
+    },
+    {
+      "id": "braguinha_madeira",
+      "name": "Braguinha (Madeiran four-string machete)",
+      "family": "plucked_traditional",
+      "href": "instruments/braguinha_madeira.json"
+    },
+    {
+      "id": "viola_arame_madeira",
+      "name": "Viola de arame (Madeiran ten-string viola)",
+      "family": "plucked_traditional",
+      "href": "instruments/viola_arame_madeira.json"
+    },
+    {
+      "id": "dominican_metal_guiro",
+      "name": "Dominican metal güiro (pattern unspecified)",
+      "family": "percussion",
+      "href": "instruments/dominican_metal_guiro.json"
+    },
+    {
+      "id": "vivo_tahitian",
+      "name": "Vivo (Tahitian bamboo nose flute)",
+      "family": "wind",
+      "href": "instruments/vivo_tahitian.json"
+    },
+    {
+      "id": "pandero_source_unspecified",
+      "name": "Pandero (source-unspecified construction)",
+      "family": "percussion",
+      "href": "instruments/pandero_source_unspecified.json"
+    },
+    {
+      "id": "shaker_source_unspecified",
+      "name": "Shaker (source-unspecified construction)",
+      "family": "percussion",
+      "href": "instruments/shaker_source_unspecified.json"
+    },
+    {
+      "id": "guayo_source_unspecified",
+      "name": "Guayo (source-unspecified construction)",
+      "family": "percussion",
+      "href": "instruments/guayo_source_unspecified.json"
+    },
+    {
+      "id": "agogo_source_unspecified",
+      "name": "Agogo (source-unspecified construction)",
+      "family": "percussion",
+      "href": "instruments/agogo_source_unspecified.json"
+    },
+    {
+      "id": "timbales_stick_played",
+      "name": "Timbales (stick-played model)",
+      "family": "percussion",
+      "href": "instruments/timbales_stick_played.json"
+    },
+    {
+      "id": "conga_family_multi_register",
+      "name": "Conga family (credited multi-register set)",
+      "family": "percussion",
+      "href": "instruments/conga_family_multi_register.json"
+    },
+    {
+      "id": "comorian_gambusi",
+      "name": "Gambusi (Comorian four-string lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/comorian_gambusi.json"
+    },
+    {
+      "id": "viola_da_terra",
+      "name": "Viola da terra (Azorean twelve-string model)",
+      "family": "acoustic_strings",
+      "href": "instruments/viola_da_terra.json"
+    },
+    {
+      "id": "hand_cranked_paper_music_box",
+      "name": "Hand-cranked punch-tape music box",
+      "family": "percussion",
+      "href": "instruments/hand_cranked_paper_music_box.json"
+    },
+    {
+      "id": "toy_piano_concert",
+      "name": "Toy piano (concert playing model)",
+      "family": "keyboard",
+      "href": "instruments/toy_piano_concert.json"
+    },
+    {
+      "id": "timple_canario",
+      "name": "Timple (Canary Islands plucked lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/timple_canario.json"
     }
   ]
 }

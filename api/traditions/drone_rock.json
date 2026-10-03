@@ -5,7 +5,7 @@
   "lineage": "A rock practice that builds extended passages from repetitive accompaniment and sustained guitar feedback. Spacemen 3’s live Geneva album is explicitly described as drone rock by its label; Sonic Boom’s firsthand notes describe sustained keys and feedback guitars. The modern recording chain and instrument build choices are representative, not a reconstruction of the 1989 stage rig.",
   "recipe": "classic late-1980s drone rock, distorted Rock, experimental branch, modal electric drone modal, noise rock distorted rock no wave trash rock. solo with instrumental accompaniment, drone organized harmonic series overtone selection, single lead single track no stacking. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, rock canon ernie ball slinky electric bass, sticks backbeat drum kit. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, ultra-clean solid-state pre, clean digital mastering EQ. 24-bit digital silicon fuzz analog bucket-brigade delay.",
   "recipe_chars": 634,
-  "score": 111.85,
+  "score": 111.145,
   "config": {
     "traditions": [
       "drone_rock",
@@ -39,7 +39,7 @@
           "pickup_magnet": 1.585,
           "string_material": 1.54,
           "string_gauge": 0.845,
-          "bridge": 1.045,
+          "bridge": 1.09,
           "scale_length": 0.9600000000000002,
           "finish": 0.195,
           "string_tuning": 17.679999999999996,
@@ -61,11 +61,11 @@
         "scores": {
           "amp_make": 0,
           "body_wood": 0.9600000000000002,
-          "pickup_config": 1,
-          "string_type": 36.01499999999999,
-          "scale_length_b": 1.135,
+          "pickup_config": 1.09,
+          "string_type": 35.175,
+          "scale_length_b": 1.18,
           "fretted_or_not": 0.39,
-          "bass_technique": -0.10500000000000002,
+          "bass_technique": -0.15000000000000002,
           "electric_bass_string_configuration": 0
         }
       },

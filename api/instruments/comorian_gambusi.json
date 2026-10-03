@@ -1,0 +1,56 @@
+{
+  "id": "comorian_gambusi",
+  "name": "Gambusi (Comorian four-string lute)",
+  "short": "Comorian gambusi",
+  "family": "plucked_traditional",
+  "class": "lute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "comorian_gambusi_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "comorian_gambusi_nawal_four_string",
+          "name": "Nawal four-string hollow wood-body lute with goatskin face",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": [
+            "gambusi"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "comorian_gambusi_form",
+      "name": "Documented form",
+      "variants": [
+        {
+          "id": "comorian_gambusi_nawal_four_string",
+          "name": "Nawal four-string hollow wood-body lute with goatskin face",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": [
+            "gambusi"
+          ]
+        }
+      ]
+    }
+  ]
+}

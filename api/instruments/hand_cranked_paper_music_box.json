@@ -1,0 +1,106 @@
+{
+  "id": "hand_cranked_paper_music_box",
+  "name": "Hand-cranked punch-tape music box",
+  "short": "Punch-tape music box",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "parts": [
+    {
+      "id": "paper_music_box_mechanism",
+      "name": "Program mechanism",
+      "variants": [
+        {
+          "id": "paper_music_box_punched_strip",
+          "name": "Punched paper strip fed through a mechanical music-box movement",
+          "default": true,
+          "descriptors": [
+            "mechanical",
+            "melodic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "mechanical",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paper_music_box_control",
+      "name": "Performance control",
+      "variants": [
+        {
+          "id": "paper_music_box_manual_crank",
+          "name": "Manual crank controls strip traversal; exact mechanism model unspecified",
+          "default": true,
+          "descriptors": [
+            "mechanical",
+            "repeating"
+          ],
+          "match_tokens": [
+            "mechanical",
+            "repeating"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Composer Phyllis Chen identifies the punch-tape music-box mechanism in Carousel/Cobwebbed Carousel; the artist album identifies hand cranking, and Exploratorium demonstrates the corresponding programmable hand-cranked paper-strip principle. No note count, tuning, comb alloy or exact maker is invented. Axes and descriptive timbral defaults are authored.",
+  "sources": [
+    "https://mrc-assets.s3.amazonaws.com/assets/File/9775.pdf",
+    "https://phyllischen.bandcamp.com/album/mesmers",
+    "https://www.exploratoriumstore.com/products/make-your-own-music-box"
+  ],
+  "_ownParts": [
+    {
+      "id": "paper_music_box_mechanism",
+      "name": "Program mechanism",
+      "variants": [
+        {
+          "id": "paper_music_box_punched_strip",
+          "name": "Punched paper strip fed through a mechanical music-box movement",
+          "default": true,
+          "descriptors": [
+            "mechanical",
+            "melodic",
+            "ringing"
+          ],
+          "match_tokens": [
+            "mechanical",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paper_music_box_control",
+      "name": "Performance control",
+      "variants": [
+        {
+          "id": "paper_music_box_manual_crank",
+          "name": "Manual crank controls strip traversal; exact mechanism model unspecified",
+          "default": true,
+          "descriptors": [
+            "mechanical",
+            "repeating"
+          ],
+          "match_tokens": [
+            "mechanical",
+            "repeating"
+          ]
+        }
+      ]
+    }
+  ]
+}

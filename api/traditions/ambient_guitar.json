@@ -5,7 +5,7 @@
   "lineage": "1990s onward guitar-centered ambient practice represented by Windy & Carl: extended electric-string tones, bass foundation, and occasional keyboard sustain shape pieces without a conventional drum rhythm section. Their firsthand account emphasizes played textures through pedals and rack delays rather than computer transformation; this beatless guitar-bass-keyboard recipe uses an authored domestic tape model.",
   "recipe": "classic mid-1990s ambient guitar, experimental Elec, ambient branch, modal electric drone modal. maple pau ferro ceramic conventional tuning standard pitch single coil electric guitar, ampeg svt amp rock bass amp electric bass, sustained pad analog synth. bedroom. dynamic moving-coil, console-strip pre, solid-state clean, cassette portastudio, tilt EQ. tascam portastudio 4-track cassette digital delay hall reverb.",
   "recipe_chars": 417,
-  "score": 29.774,
+  "score": 30.51,
   "config": {
     "traditions": [
       "ambient_guitar"
@@ -31,16 +31,16 @@
         "scores": {
           "electric_technique": 0.26,
           "amp_make": 0.7149999999999997,
-          "body_wood": 0.11121428571428571,
+          "body_wood": 0.1562142857142857,
           "neck_wood": 1.4712142857142858,
           "fretboard": 1.4712142857142858,
           "pickup_magnet": 1.4712142857142858,
           "string_material": 0,
           "string_gauge": 0.29314285714285715,
-          "bridge": 0.2856428571428571,
+          "bridge": 0.3306428571428571,
           "scale_length": 0.22242857142857142,
           "finish": 0.03471428571428571,
-          "string_tuning": 1.11925,
+          "string_tuning": 1.3,
           "single_coil_pickup_construction": 0
         }
       },
@@ -57,12 +57,12 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 3.1499999999999995,
-          "body_wood": 0.11121428571428571,
+          "amp_make": 3.1949999999999994,
+          "body_wood": 0.1562142857142857,
           "pickup_config": 0,
           "string_type": -0.07,
-          "scale_length_b": 0.4386428571428571,
-          "fretted_or_not": 0.30274999999999996,
+          "scale_length_b": 0.48364285714285704,
+          "fretted_or_not": 0.34775,
           "bass_technique": 0.2,
           "electric_bass_string_configuration": 0
         }
@@ -78,9 +78,9 @@
         },
         "scores": {
           "electronic_technique": 12.202678571428569,
-          "oscillator": 3.0805,
-          "filter_topology": 2.7877142857142854,
-          "envelope": 0.03899999999999999,
+          "oscillator": 3.1254999999999997,
+          "filter_topology": 2.8327142857142853,
+          "envelope": 0.23399999999999999,
           "modulation": 0.0765
         }
       }

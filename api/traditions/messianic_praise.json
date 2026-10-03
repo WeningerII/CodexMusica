@@ -5,7 +5,7 @@
   "lineage": "Eli Haitov / Ashira — To You (2017), complete single. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-2010s messianic praise, ritual Devotional. dreadnought acoustic conventional tuning standard pitch humbucker electric guitar, credited auxiliary percussion, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 394,
-  "score": 14.896,
+  "score": 14.854,
   "config": {
     "traditions": [
       "messianic_praise"
@@ -65,8 +65,8 @@
           "acoustic_technique": -0.25,
           "string_tuning": 0,
           "top_wood": 0,
-          "back_sides": -0.05,
-          "string_acoustic": 0.0225
+          "back_sides": -0.035,
+          "string_acoustic": 0
         }
       },
       {
@@ -109,12 +109,12 @@
         "scores": {
           "electric_technique": 2.45,
           "amp_make": 0,
-          "body_wood": 0.054,
+          "body_wood": 0.063,
           "neck_wood": 0,
           "fretboard": -0.05,
           "pickup_magnet": 0,
           "pickup_winding": 0,
-          "string_material": 0.0225,
+          "string_material": 0,
           "bridge": 0,
           "scale_length": 0,
           "string_gauge": 1.69,
@@ -136,7 +136,7 @@
         },
         "scores": {
           "amp_make": 0,
-          "body_wood": 0.054,
+          "body_wood": 0.063,
           "pickup_config": 0,
           "string_type": 0,
           "scale_length_b": 0,
@@ -164,9 +164,9 @@
           "drum_technique": -0.05,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.08,
+          "shell_wood": 2.0725000000000002,
           "shell_thickness": 0,
-          "bearing_edges": 0.0225,
+          "bearing_edges": 0,
           "snare_wires": 0,
           "cymbal_alloy": 0.13000000000000003,
           "cymbal_hammering": 2.4225000000000003,
