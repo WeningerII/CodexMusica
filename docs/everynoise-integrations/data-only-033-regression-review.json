@@ -1,0 +1,229 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "a0e3a36bbadb5291318dcb97771bd44b674bf64572a0d0f76d3f58f6f191ceac",
+  "authorized_exact_fixture_ids": [
+    "sahel_praise",
+    "modal_jazz",
+    "algerian_rai_political",
+    "islamic_anasheed",
+    "brazilian_mpb_protest"
+  ],
+  "source_extras_roster_environment_protected_settings_unchanged": true,
+  "material_unprotected_slot_changes": 14,
+  "rows": [
+    {
+      "id": "sahel_praise",
+      "old_output": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. open string slide resonance clean strummed single coil electric guitar, stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "new_output": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. clean strummed single coil electric guitar, stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "baseline_staples": ["sahel_praise", "sudanese_aghani_al_banat", "wassoulou"],
+      "current_staples": ["sahel_praise", "sudanese_aghani_al_banat", "wassoulou"],
+      "baseline_score": 291.07499999999993,
+      "current_score": 286.18499999999995,
+      "new_neighbor_ids": ["sufi"],
+      "new_candidate_ids": [],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_microtone",
+          "before": "maqam_inflected",
+          "after": "tempered_voice",
+          "source_pin_parts": false,
+          "source_variant": "tempered_voice",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "open_g",
+          "after": "dadgad",
+          "source_pin_parts": false,
+          "source_variant": "standard_tuning",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "griot_voice",
+          "part": "griot_voice_context",
+          "before": "griot_voice_praise",
+          "after": "griot_voice_stage",
+          "source_pin_parts": false,
+          "source_variant": "griot_voice_praise",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "modal_jazz",
+      "old_output": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal viking folk arab folk. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "new_output": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator a 441 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "baseline_staples": ["modal_jazz", "viking_folk", "arab_folk"],
+      "current_staples": ["modal_jazz"],
+      "baseline_score": 164.20499999999998,
+      "current_score": 147.78,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["rogaland_musikk"],
+      "slot_changes": [
+        {
+          "instrument": "saxophone",
+          "part": "sax_body_alloy",
+          "before": "nickel_silver_sax",
+          "after": "phosphor_bronze_sax",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "renner_standard_hammer",
+          "after": "ronsen_wurzen_hammer",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "steinway_17_ply_hard_rock_maple_rim",
+          "after": "mason_hamlin_oversize_rim",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pinblock",
+          "before": "hexagrip_7_ply_quartersawn_maple",
+          "after": "asian_multi_laminate_pinblock",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pitch_standard",
+          "before": "a_442_european",
+          "after": "a_441_japanese",
+          "source_pin_parts": false,
+          "source_variant": "a_440_modern",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drum_technique",
+          "before": "brushes_and_sticks",
+          "after": "brushes_jazz",
+          "source_pin_parts": false,
+          "source_variant": "brushes_jazz",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "fiberskyn_drumhead",
+          "after": "vintage_ambassador_drumhead",
+          "source_pin_parts": false,
+          "source_variant": "calfskin_drum",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "algerian_rai_political",
+      "old_output": "classic West African mid-1920s algerian ra\u00ef, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab uyghur folk music. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier pyramid nylon arab school oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion, driving festive gasba, oranais processional heavy beat festive metal body guellal. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+      "new_output": "classic West African mid-1920s algerian ra\u00ef, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab uyghur folk music. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier plain gut pre 1900 period correct oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion, driving festive gasba, oranais processional heavy beat festive metal body guellal. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+      "baseline_staples": ["algerian_rai_political", "arab_tarab", "uyghur_folk"],
+      "current_staples": ["algerian_rai_political", "arab_tarab", "uyghur_folk"],
+      "baseline_score": 307.465,
+      "current_score": 303.79249999999996,
+      "new_neighbor_ids": ["svensk_progg"],
+      "new_candidate_ids": [],
+      "slot_changes": [
+        {
+          "instrument": "oud",
+          "part": "oud_soundboard_wood",
+          "before": "oud_lebanese_cedar_face",
+          "after": "oud_western_red_cedar_face",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "oud",
+          "part": "oud_string_material",
+          "before": "oud_pyramid_nylon",
+          "after": "oud_gut_historical",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "islamic_anasheed",
+      "old_output": "classic early-2000s an\u0101sh\u012bd, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin qawwali. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_output": "classic early-2000s an\u0101sh\u012bd, ritual Devotional, islamic branch, Sufi ritual devotional mevlevi ayin. vocal fry, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "baseline_staples": ["islamic_anasheed", "mevlevi_ayin", "qawwali"],
+      "current_staples": ["islamic_anasheed", "mevlevi_ayin", "sufi"],
+      "baseline_score": 187.583875,
+      "current_score": 146.872375,
+      "new_neighbor_ids": ["sufi"],
+      "new_candidate_ids": ["sufi"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_stutter_edit",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_retune_50_100ms_subtle",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_ensemble_repertoire",
+          "before": "choir_ensemble_romantic",
+          "after": "choir_ensemble_global_traditional",
+          "source_pin_parts": false,
+          "source_variant": "choir_ensemble_global_traditional",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "brazilian_mpb_protest",
+      "old_output": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "new_output": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "baseline_staples": ["brazilian_mpb_protest", "cantautora_mexicana", "folklore_surero"],
+      "current_staples": ["brazilian_mpb_protest", "cantautora_mexicana", "folklore_surero"],
+      "baseline_score": 159.28812499999998,
+      "current_score": 159.048125,
+      "new_neighbor_ids": ["svensk_progg"],
+      "new_candidate_ids": [],
+      "slot_changes": [],
+      "environment_changes": {}
+    }
+  ],
+  "causal_method": "Original regression fixture definitions and 100-iteration original solver replay, independently on exact baseline and current catalog. Baseline matches committed snapshot and current matches failed regression log. Removing only new100 traditions/extras from process memory restores all five exact recipes, complete configs and scores while retaining9 new instruments. A narrower independent replay removing only sufi, svensk_progg and rogaland_musikk also restores all five.",
+  "cause": "New sufi enters devotional neighbor/staple set for Sahel and Anasheed; svensk_progg changes protest-song neighbor scoring for Algerian Rai and Brazilian MPB; rogaland_musikk enters modal-jazz staple candidate set. Evidence proves the collective three-row change sufficient; no unsupported claim that each individual removal alone suffices.",
+  "interpretation": "Four fixtures materially change existing valid unprotected selected variants; Brazilian MPB changes rendered neighbor-derived wording without slot movement. These are expected original solver adjacency effects, not new source facts or improvements to old historical reconstructions. Old authored actual browser cards are preserved by separate integration audit.",
+  "errors": [],
+  "scope": "Only listed five fixtures eligible for parent original targeted snapshot update; full serial regression and exact-head CI remain required. Reviewer changed no repository/source/API/snapshot."
+}

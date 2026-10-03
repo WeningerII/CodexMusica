@@ -1,0 +1,20 @@
+{
+  "frozen_sha256": "c5287918bbf48d24aae68f6fc4e841a3dcbe8e829f0a339ac8e9c34cfbb4995f",
+  "required_predecessor": "b63d72034c15bff3409665db3cf9e10a7c3d29a9",
+  "entries": 100,
+  "dependencies": [
+    "credited_acoustic_bass",
+    "ilimba_gogo",
+    "microtonal_guitar_unspecified",
+    "microtonal_mandolin_unspecified",
+    "octave_fiddle_unspecified",
+    "munnharpe_unspecified",
+    "party_cans_credited",
+    "tenor_horn_eb",
+    "baritone_horn_bb"
+  ],
+  "old_merged_preserved": 1535,
+  "source_packets": 79,
+  "unknown_dependency_descriptors": [],
+  "errors": []
+}

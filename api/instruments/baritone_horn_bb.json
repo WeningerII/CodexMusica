@@ -1,0 +1,52 @@
+{
+  "id": "baritone_horn_bb",
+  "name": "B-flat baritone horn",
+  "short": "b-flat baritone horn",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "baritone_horn_bb_identity",
+      "name": "Instrument identity and nominal key",
+      "variants": [
+        {
+          "id": "baritone_horn_bb_scored",
+          "name": "B-flat baritone horn — scored ensemble part",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "baritone_horn_bb_identity",
+      "name": "Instrument identity and nominal key",
+      "variants": [
+        {
+          "id": "baritone_horn_bb_scored",
+          "name": "B-flat baritone horn — scored ensemble part",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

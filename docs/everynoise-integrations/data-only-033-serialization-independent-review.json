@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "traditions": 5938,
+  "extras": 5938,
+  "traditions_semantically_identical": true,
+  "extras_semantically_identical": true,
+  "files": {
+    "05_traditions.js": {
+      "old_characters": 9600486,
+      "common_prefix_characters": 9600483,
+      "old_prefix_byte_length": 9613937,
+      "old_closing_delimiter_only_replaced": true,
+      "old_tail": "];\n",
+      "current_tail": "  {\"id\":\"psalms\",\"name\":\"Psalms\",\"family\":\"vernacular\",\"lineage\":\"The Psalms Sung — Psalm139 to Highland Cathedral (A Ca",
+      "sha256": "16e853acc2018d96d7ffe2dce7e7ca4907ba92d1d1be5f0f5f0c2accbaeb5402"
+    },
+    "06_extras.js": {
+      "old_characters": 5927027,
+      "common_prefix_characters": 5927024,
+      "old_prefix_byte_length": 5951382,
+      "old_closing_delimiter_only_replaced": true,
+      "old_tail": "};\n",
+      "current_tail": "  \"psalms\": {\"parent\":\"ritualDevotional\",\"axes\":{\"harm\":0,\"pitch\":0,\"ornament\":0,\"meter\":0,\"density\":-1,\"transmission\":0",
+      "sha256": "eb3072ffb4549b6b53987f2ae75ced4ae50131c30c0ab675e1cea4313d4bc2f7"
+    }
+  },
+  "new_packet_errors": [],
+  "original_fault_literal_matches": true,
+  "original_fault_replacement_changes_source": true,
+  "changed_files": ["references/05_traditions.js", "references/06_extras.js"],
+  "no_shared_code_changes": true
+}

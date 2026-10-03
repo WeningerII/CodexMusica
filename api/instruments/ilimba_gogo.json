@@ -1,0 +1,62 @@
+{
+  "id": "ilimba_gogo",
+  "name": "Ilimba (Gogo lamellophone)",
+  "short": "Ilimba",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "ilimba_gogo_identity",
+      "name": "Source-supported instrument identity",
+      "variants": [
+        {
+          "id": "ilimba_gogo_metal_keys_unspecified_layout",
+          "name": "Plucked metal-key Gogo lamellophone; layout and exact tuning unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Ilimba is identified by Tanzania Heritage Project as the traditional Gogo lamellophone with metal keys, and Anania Ngoliga as its performer. His precise key count, tuning, wood species and resonator form are not specified. No 17-key Western kalimba, Shona tuning or Hukwe Zawose-specific 66–72-key expansion is imposed. Neutral axes are authored routing coordinates.",
+  "sources": [
+    "https://www.tanzaniaheritageproject.org/urithi-wa-leo-the-new-heritage/"
+  ],
+  "_ownParts": [
+    {
+      "id": "ilimba_gogo_identity",
+      "name": "Source-supported instrument identity",
+      "variants": [
+        {
+          "id": "ilimba_gogo_metal_keys_unspecified_layout",
+          "name": "Plucked metal-key Gogo lamellophone; layout and exact tuning unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

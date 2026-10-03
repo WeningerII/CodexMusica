@@ -1,0 +1,15 @@
+{
+  "status": "PASS_TARGETED_REPAIR",
+  "reason": "Exacthead d292d010 remoteCI fault injection escaped because literal room singlequote replacement no longer matched after integration amendment serialized05/06 asJSON. Original faults.js/validator unchanged; restored predecessor literalprefix and appended100 amendedrows with originalintegrationlayout.",
+  "before_head": "d292d0104f6a970a78fabf9c98fc8cccbaaaeb76",
+  "baseline_prefix": "b63d72034c15bff3409665db3cf9e10a7c3d29a9",
+  "semantic_proof": "Entire5938 traditions and extras normalizedJSON exactly identical before/after. Existing5838prefix bytepreserved; diff frombaseline100appendonlylines each05/06. No instrumentation/source/recipe/signature change.",
+  "checks": [
+    "Original validate PASS5938/1544",
+    "OriginalHTMLbuild byteidentical tocommittedcodex.html",
+    "Exactoriginalfaultliteral injection nowchangesroom andunchangedvalidator returns1 for zzz_fault brokenref"
+  ],
+  "remote_previous_run": 37092218352,
+  "remote_previous_result": "API/HTML/discovery freshbuild byteidentical;48/49faultclasses caught, broken-ref escaped before repair. ExactnewheadfullCI required.",
+  "targeted_log": "Original broken-ref literal injection caught, exit1; full local report archived outside repository."
+}

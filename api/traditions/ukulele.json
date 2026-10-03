@@ -1,0 +1,66 @@
+{
+  "id": "ukulele",
+  "name": "Ukulele",
+  "family": "vernacular",
+  "lineage": "Jake Shimabukuro — complete KPLU studio music set, 29 March 2011. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic early-2010s ukulele, functional Song. fingerpicked koa ukulele. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 170,
+  "score": 7.486,
+  "config": {
+    "traditions": [
+      "ukulele"
+    ],
+    "instruments": [
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_tenor",
+          "ukulele_style": "ukulele_fingerstyle",
+          "ukulele_wood": "ukulele_koa"
+        },
+        "scores": {
+          "ukulele_size": 2.25,
+          "ukulele_style": 2.55,
+          "ukulele_wood": 2.6864999999999997
+        }
+      }
+    ],
+    "pinned": {
+      "ukulele": [
+        "ukulele_size",
+        "ukulele_style",
+        "ukulele_wood"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "ukulele_size": "ukulele_tenor",
+      "ukulele_style": "ukulele_fingerstyle",
+      "ukulele_wood": "ukulele_koa"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

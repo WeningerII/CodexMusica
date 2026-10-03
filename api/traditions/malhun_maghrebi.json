@@ -5,7 +5,7 @@
   "lineage": "Moroccan-Algerian sung-poetry (al-malhun) tradition originating in 16th-century Tafilalt and codified through 18th-19th-century Fez and Meknes urban poetic circles — preserves a corpus of classical-Maghrebi-Arabic poetry set to elaborate melodic-modal vocal compositions in the Andalusi-derived modal vocabulary; figures: Houcine Toulali, El Haj Houcine Toulali, the post-WWII Fez and Marrakech malhun masters",
   "recipe": "classic North African early-1950s malhun, improv On Frame, Persian arab improv branch, Sufi ritual devotional qawwali sufi sama. vocal fry, declaimed, slow rate, interlocked note trading. padauk Egyptian Syrian premium pyramid nylon arab school oud, spun aluminum Egyptian sombaty iraqi maqam zarb drier finger darbuka. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 426,
-  "score": 170.337,
+  "score": 170.007,
   "config": {
     "traditions": [
       "malhun_maghrebi",
@@ -42,12 +42,12 @@
           "voice_articulation": 8.58,
           "voice_microtone": 17.159999999999993,
           "voice_tradition": 32.435,
-          "voice_mechanism_compound": 10.4615,
+          "voice_mechanism_compound": 10.6565,
           "voice_estill_quality": 9.2625,
           "voice_speech_song": 9.879999999999999,
           "voice_ensemble_config": 8.515,
           "voice_ornament_system": 15.574999999999998,
-          "voice_pitch_organization": 13.5305,
+          "voice_pitch_organization": 13.373000000000001,
           "voice_processing_chain": 1.625,
           "voice_multitrack_stack": 3.055
         }
@@ -84,7 +84,7 @@
         "scores": {
           "percussion_technique": 0.06499999999999999,
           "darbuka_material": 1.563,
-          "darbuka_skin": 0.5175,
+          "darbuka_skin": 0.15,
           "darbuka_regional_style": 1.0305
         }
       }

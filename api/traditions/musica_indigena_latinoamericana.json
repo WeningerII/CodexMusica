@@ -5,7 +5,7 @@
   "lineage": "Ye’kuana woman, Jiwitiña — Fertility Chant, Smithsonian anthology track21. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic musica indigena latinoamericana, ritual Devotional. solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 216,
-  "score": 2.19,
+  "score": 2.379,
   "config": {
     "traditions": [
       "musica_indigena_latinoamericana"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.39,
-          "voice_ensemble_config": 0.5355000000000001,
+          "voice_ensemble_config": 0.6300000000000001,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0.0945,
+          "voice_processing_chain": 0.189,
           "voice_multitrack_stack": 1.17,
           "voice_tessitura": 0
         }

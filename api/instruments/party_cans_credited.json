@@ -1,0 +1,56 @@
+{
+  "id": "party_cans_credited",
+  "name": "Party cans (source-credited percussion)",
+  "short": "credited party cans",
+  "family": "percussion",
+  "class": "percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "party_cans_identity",
+      "name": "Source-credited object identity",
+      "variants": [
+        {
+          "id": "party_cans_source_unspecified",
+          "name": "Party cans; material, mounting and playing method unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "A neutral data owner for positively credited party cans in The Party Band Mad Cadenza. Preserves the source object identity without guessing material, construction, tuning, struck/shaken mechanism or number of objects. Neutral axes are authored coordinates.",
+  "sources": [
+    "https://partybandlowell.bandcamp.com/album/mad-cadenza"
+  ],
+  "_ownParts": [
+    {
+      "id": "party_cans_identity",
+      "name": "Source-credited object identity",
+      "variants": [
+        {
+          "id": "party_cans_source_unspecified",
+          "name": "Party cans; material, mounting and playing method unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ]
+}

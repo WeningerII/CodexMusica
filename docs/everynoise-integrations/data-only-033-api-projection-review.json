@@ -1,0 +1,292 @@
+{
+  "changed_existing_slots": [
+    {
+      "id": "algerian_rai_political",
+      "instrument": "oud",
+      "part": "oud_soundboard_wood",
+      "before": "oud_lebanese_cedar_face",
+      "after": "oud_western_red_cedar_face",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "algerian_rai_political",
+      "instrument": "oud",
+      "part": "oud_string_material",
+      "before": "oud_pyramid_nylon",
+      "after": "oud_gut_historical",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "cape_jazz",
+      "instrument": "grand_piano",
+      "part": "piano_pinblock",
+      "before": "hexagrip_7_ply_quartersawn_maple",
+      "after": "asian_multi_laminate_pinblock",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "chilean_nueva_cancion",
+      "instrument": "bombo_andino",
+      "part": "bombo_andino_construction",
+      "before": "bombo_andino_leguero",
+      "after": "bombo_andino_stave",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "bombo_andino_leguero",
+      "protectedBySource": false
+    },
+    {
+      "id": "deconstructed_club",
+      "instrument": "sampler_classic",
+      "part": "sampler_classic_context",
+      "before": "sampler_classic_industrial",
+      "after": "sampler_classic_edm",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "deconstructed_club",
+      "instrument": "digital_subtractive",
+      "part": "electronic_technique",
+      "before": "electronic_arpeggiated",
+      "after": "electronic_bass_sub",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "deconstructed_club",
+      "instrument": "voice",
+      "part": "voice_multitrack_stack",
+      "before": "voice_multitrack_pitched_sample_melodic_bed",
+      "after": "voice_multitrack_2010s_melodyne_microtuned",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "deconstructed_club",
+      "instrument": "drum_machine_909",
+      "part": "tr909_voice",
+      "before": "tr909_hat",
+      "after": "tr909_kick",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "islamic_anasheed",
+      "instrument": "voice",
+      "part": "voice_processing_chain",
+      "before": "voice_processing_melodyne_microtuned",
+      "after": "voice_processing_stutter_edit",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "voice_processing_retune_50_100ms_subtle",
+      "protectedBySource": false
+    },
+    {
+      "id": "islamic_anasheed",
+      "instrument": "choir_ensemble",
+      "part": "choir_ensemble_repertoire",
+      "before": "choir_ensemble_romantic",
+      "after": "choir_ensemble_global_traditional",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "choir_ensemble_global_traditional",
+      "protectedBySource": false
+    },
+    {
+      "id": "modal_jazz",
+      "instrument": "saxophone",
+      "part": "sax_body_alloy",
+      "before": "nickel_silver_sax",
+      "after": "phosphor_bronze_sax",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "modal_jazz",
+      "instrument": "grand_piano",
+      "part": "piano_hammer",
+      "before": "renner_standard_hammer",
+      "after": "ronsen_wurzen_hammer",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "modal_jazz",
+      "instrument": "grand_piano",
+      "part": "piano_pinblock",
+      "before": "hexagrip_7_ply_quartersawn_maple",
+      "after": "asian_multi_laminate_pinblock",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "modal_jazz",
+      "instrument": "grand_piano",
+      "part": "piano_rim",
+      "before": "steinway_17_ply_hard_rock_maple_rim",
+      "after": "mason_hamlin_oversize_rim",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "modal_jazz",
+      "instrument": "grand_piano",
+      "part": "piano_pitch_standard",
+      "before": "a_442_european",
+      "after": "a_441_japanese",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "a_440_modern",
+      "protectedBySource": false
+    },
+    {
+      "id": "modal_jazz",
+      "instrument": "drum_kit",
+      "part": "drumhead",
+      "before": "fiberskyn_drumhead",
+      "after": "vintage_ambassador_drumhead",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "calfskin_drum",
+      "protectedBySource": false
+    },
+    {
+      "id": "modal_jazz",
+      "instrument": "drum_kit",
+      "part": "drum_technique",
+      "before": "brushes_and_sticks",
+      "after": "brushes_jazz",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "brushes_jazz",
+      "protectedBySource": false
+    },
+    {
+      "id": "moroccan_pop",
+      "instrument": "violin_orchestral",
+      "part": "orch_bow",
+      "before": "baroque_bow",
+      "after": "modern_bow",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "instrument": "voice",
+      "part": "voice_estill_quality",
+      "before": "voice_estill_nasal_twang",
+      "after": "voice_estill_opera",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "voice_estill_speech",
+      "protectedBySource": false
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "instrument": "voice",
+      "part": "voice_speech_song",
+      "before": "voice_rhythmic_spoken_flow",
+      "after": "voice_sprechgesang_notated",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "voice_pure_spoken_no_pitch",
+      "protectedBySource": false
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "instrument": "voice",
+      "part": "voice_vibrato",
+      "before": "delayed_vibrato",
+      "after": "slow_vibrato",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "straight_tone",
+      "protectedBySource": false
+    },
+    {
+      "id": "sahel_praise",
+      "instrument": "voice",
+      "part": "voice_microtone",
+      "before": "maqam_inflected",
+      "after": "tempered_voice",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "tempered_voice",
+      "protectedBySource": false
+    },
+    {
+      "id": "sahel_praise",
+      "instrument": "electric_guitar_single_coil",
+      "part": "string_tuning",
+      "before": "open_g",
+      "after": "dadgad",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "standard_tuning",
+      "protectedBySource": false
+    },
+    {
+      "id": "sahel_praise",
+      "instrument": "griot_voice",
+      "part": "griot_voice_context",
+      "before": "griot_voice_praise",
+      "after": "griot_voice_stage",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "griot_voice_praise",
+      "protectedBySource": false
+    },
+    {
+      "id": "standup_comedy",
+      "instrument": "voice",
+      "part": "voice_multitrack_stack",
+      "before": "voice_multitrack_late_1970s_thirds_fifths_octaves",
+      "after": "voice_multitrack_unison_double_take",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": "voice_multitrack_single_lead",
+      "protectedBySource": false
+    },
+    {
+      "id": "zikir",
+      "instrument": "rebana_ubi",
+      "part": "rebana_ubi_size",
+      "before": "rebana_ubi_giant",
+      "after": "rebana_ubi_medium",
+      "runtime_protected": false,
+      "source_pin_parts": false,
+      "source_variant": null,
+      "protectedBySource": false
+    }
+  ],
+  "new_instrument_projection_count": 9,
+  "errors": []
+}
