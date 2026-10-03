@@ -51,7 +51,7 @@ was decided on are kept below as they were.
   - The next call builds only the second.
   - The menu and the rendered question are byte-identical.
   - A call **killed** between the two places keeps the first, and the next call builds only the second.
-- Sections 6-8 passed on `3684d633` and are being rerun on the head.
+- Sections 6-8 pass on the head as well (rerun after the fixes).
 
 **The 24-line seed-1 first `lyric_revise`, on the CLI with the connector's deadlines** (at `3684d633`; first call 500 s, later calls 600 s):
 
