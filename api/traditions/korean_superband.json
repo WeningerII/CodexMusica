@@ -1,0 +1,82 @@
+{
+  "id": "korean_superband",
+  "name": "Korean superband",
+  "family": "pop",
+  "lineage": "Youngso Kim, Like A Star (Piano Version), complete five-page Emily Chua / The Green Book solo-piano edition71507. The arranger’s listing specifies solo piano and no lyrics. One pianist, zero singers; its maximum three voices means notated piano voices, not three people. JTBC directly identifies the underlying original composition in Kim’s12April2019 Superband producer audition. This separately published complete piano interpretation realizes that positively documented competition repertoire; it does not reconstruct the original guitar audition, the Hoppipolla band, any whole TV episode or later studio master. No paid score or audio audition was inspected. Authored popular instrumental-song rendition, with recurring tonal melodic sections and block-chord accompaniment as editorial arrangement choices rather than measured notation. Broad functionalSong preserves the cross-genre television repertoire without forcing every participant under rock, an Anglosphere branch or Western classical music. Publisher KPOP/Newage categorization corroborates the selected popular instrumental branch. Nine-foot Steinway D, original felt hammers, maple rim and pinblock, spruce soundboard, iron plate, A440 and live-room capture are coherent authored defaults, not stated source hardware or broadcast conditions. Global tuning and optional recording chain omitted.",
+  "recipe": "classic korean superband, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
+  "recipe_chars": 131,
+  "score": 41.819,
+  "config": {
+    "traditions": [
+      "korean_superband"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 5.05,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": 7.7,
+          "piano_rim": 7.7,
+          "piano_soundboard": 5.9365000000000006,
+          "piano_pinblock": 7.1000000000000005,
+          "piano_plate": 6.1000000000000005,
+          "piano_pitch_standard": 1.5230000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true
+  }
+}

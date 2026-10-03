@@ -5,7 +5,7 @@
   "lineage": "Banda peruana: Banda Sinfonía Junín de Jauja. Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic banda peruana, carnival Processional. softer tone ebonite hard rubber klezmer tradition clarinet, gold brass warmer tone split tone overblown saxophone, big tone large cup large rim orchestral bottom heavy trumpet, euphonium, trombone, tuba, bass drum. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 359,
-  "score": 12.773,
+  "score": 14.764,
   "config": {
     "traditions": [
       "banda_peruana"
@@ -25,7 +25,7 @@
           "clarinet_body": 1.17,
           "clarinet_size": 0,
           "clarinet_reed": 0,
-          "clarinet_articulation": 0.0225
+          "clarinet_articulation": 0.23249999999999998
         }
       },
       {
@@ -40,8 +40,8 @@
           "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
-          "sax_size": -0.05,
+          "wind_articulation": -0.10500000000000001,
+          "sax_size": -0.035,
           "sax_reed": 0,
           "sax_body_alloy": 1.56,
           "sax_mouthpiece": 0,
@@ -61,13 +61,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "brass_size": 0,
           "trumpet_mouthpiece": 1.2349999999999999,
           "brass_mute": 0,
-          "trumpet_technique": -0.12750000000000003,
-          "trumpet_bell_metal": 0.3225,
-          "trumpet_maker_school": 0.11249999999999999
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 0.39,
+          "trumpet_maker_school": 0.5219999999999999
         }
       },
       {
@@ -80,7 +80,7 @@
           "euphonium_maker_school": "euphonium_besson_sovereign"
         },
         "scores": {
-          "wind_articulation": -0.05,
+          "wind_articulation": -0.035,
           "euph_use": 0.78,
           "euphonium_pitch": 0.78,
           "euphonium_bell_metal": 0.78,
@@ -92,20 +92,20 @@
         "slots": {
           "wind_articulation": "wind_punchy_ensemble",
           "trombone_type": "bass_trombone",
-          "trombone_mouthpiece": "bach_trombone_mp_1half_g",
+          "trombone_mouthpiece": "bach_trombone_mp_3g",
           "trombone_mute": "straight_mute_trb",
-          "trombone_technique": "tailgate_slide",
+          "trombone_technique": "classical_trb",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "trombone_type": 0,
           "trombone_mouthpiece": 0.325,
           "trombone_mute": 0.075,
-          "trombone_technique": 0,
-          "trombone_bell_metal": 0.3225,
-          "trombone_maker_school": 0.13499999999999998
+          "trombone_technique": 0.21,
+          "trombone_bell_metal": 0.39,
+          "trombone_maker_school": 0.6809999999999998
         }
       },
       {
@@ -119,11 +119,11 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "tuba_pitch": 0.39,
-          "tuba_context": 0.69,
-          "tuba_bell_metal": 0.3225,
-          "tuba_valve_system": 0.11249999999999999,
+          "tuba_context": 0.78,
+          "tuba_bell_metal": 0.39,
+          "tuba_valve_system": 0.249,
           "tuba_maker_school": 0.78
         }
       },
@@ -135,7 +135,7 @@
         },
         "scores": {
           "bass_drum_size": 0,
-          "bass_drum_beater": 0.345
+          "bass_drum_beater": 0.39
         }
       }
     ],

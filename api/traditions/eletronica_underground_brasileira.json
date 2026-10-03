@@ -1,0 +1,50 @@
+{
+  "id": "eletronica_underground_brasileira",
+  "name": "Eletrônica underground brasileira",
+  "family": "electronic",
+  "lineage": "Complete broadcaster-issued Renato Cohen Boiler Room x DGTL São Paulo2023 program, published on the official channel10January2024. Broadcaster supplies a continuous audio/video DJ program with a record tracklist and one named performer. The visible ungated tracklist shows only its first two records; no complete track count or duration is invented. A documented DJ performance is modeled, not the internal sound generators of an opaque produced single. Other festival performers, Cohen’s separate live-PA show at The Town and instruments mentioned in his general biography are not imported. Actual embedded or live vocal counts remain unknown; no separately credited added live singer is documented. Source-positive DJ playback and mixing retained with existing neutral owner. Exact decks, mixer, playback medium and generators unknown. No sampler-only studio-production claim or universal Brazilian acoustic percussion. Unknown voice counts remain null. No global tuning or signal chain imposed. Controlled live room and neutral axes are explicitly authored present-day capture; not the measured outdoor festival acoustics. Broad electronicDance parent follows the independently documented house/techno/disco DJ dance-program practice.",
+  "recipe": "classic eletrônica underground brasileira, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 107,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "eletronica_underground_brasileira"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

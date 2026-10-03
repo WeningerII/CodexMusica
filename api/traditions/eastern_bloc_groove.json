@@ -1,0 +1,50 @@
+{
+  "id": "eastern_bloc_groove",
+  "name": "Eastern Bloc groove",
+  "family": "global",
+  "lineage": "Issuer documents an actual complete vinyl DJ program: BLOC Side A29:58 and Side B27:34, released21January2026. Dr. Smeđi Šećer compiled and mixed Soviet-era jazz, funk, soul, disco and beat records from11 named countries into these two continuous sides. The selected performance role is this positively documented vinyl mixing, not guessed production of individual masters. One named mixer; embedded recorded voices and separately performed live singer counts are unknown. No separately credited added live voice or acoustic performer is documented. Artwork and mastering credits do not add performance cards. Existing neutral DJ playback/mixing owner retains the documented performance. Vinyl is source-positive, but deck count, mixer, cartridges and amplification are not specified and are not invented. Source cassette issue and mastering provenance are retained in prose; no historic cassette formulation or mix-session room is inferred. No global tuning, microphone, preamp or signal chain asserted. Controlled live-room acoustics and neutral axes are an explicitly authored contemporary rendition. Broad groovePercussion follows the issuer’s funk/soul/disco and rare-groove rhythmic repertoire, an Afro-diasporic musical lineage circulating in Eastern Europe; it does not assert African geography, one measured drum pattern, or that every archival selection is dance-functional.",
+  "recipe": "classic eastern bloc groove, groove Percussion. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 94,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "eastern_bloc_groove"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

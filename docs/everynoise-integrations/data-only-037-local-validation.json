@@ -1,0 +1,282 @@
+{
+  "integration_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+  "api_build": [
+    "Done: 6338 traditions (0 failed), 1609 instruments in 670.8s -> /workspace/CodexMusica/api",
+    "Self-verify OK: 6338/6338 traditions, all recipes <=1000 chars, all ids resolve."
+  ],
+  "validator": "VALID — 6338 traditions, 317 tree nodes, 1609 instruments, 256 rooms, 84 chain archetypes, 21 production aesthetics. All refs resolve.\n",
+  "supporting_checks": [
+    {
+      "check": "regression_prefaces",
+      "exit_code": 0,
+      "seconds": 0.9
+    },
+    {
+      "check": "check_slot_picks",
+      "exit_code": 0,
+      "seconds": 2.2
+    },
+    {
+      "check": "app_recipe_regression",
+      "exit_code": 0,
+      "seconds": 11.2
+    },
+    {
+      "check": "equivalence",
+      "exit_code": 0,
+      "seconds": 11.1
+    },
+    {
+      "check": "check_lazy_app",
+      "exit_code": 0,
+      "seconds": 16.8
+    },
+    {
+      "check": "check_minified_equivalence",
+      "exit_code": 0,
+      "seconds": 28.8
+    },
+    {
+      "check": "check_connector_parity",
+      "exit_code": 0,
+      "seconds": 0.9
+    },
+    {
+      "check": "check_workspace_ops",
+      "exit_code": 0,
+      "seconds": 2.4
+    },
+    {
+      "check": "check_app_parity",
+      "exit_code": 0,
+      "seconds": 104.8
+    },
+    {
+      "check": "check_edit_parity",
+      "exit_code": 0,
+      "seconds": 5.3
+    },
+    {
+      "check": "check_edit_differential",
+      "exit_code": 0,
+      "seconds": 43.9
+    },
+    {
+      "check": "check_connector_contract",
+      "exit_code": 0,
+      "seconds": 1.8
+    },
+    {
+      "check": "check_name_isolation",
+      "exit_code": 0,
+      "seconds": 12.0
+    },
+    {
+      "check": "check_publish_guard",
+      "exit_code": 0,
+      "seconds": 0.2
+    },
+    {
+      "check": "eval_capabilities",
+      "exit_code": 0,
+      "seconds": 50.6
+    }
+  ],
+  "initial_serial_regression": "1136/1149;13exact original-solver changes independently replayed and isolated before targeted snapshot updates.",
+  "targeted_update": {
+    "status": "PASS",
+    "authorized_exact_fixture_ids": [
+      "choro",
+      "maya_marimba",
+      "tarantella_napoletana",
+      "freak_folk_2000s",
+      "samba_jazz",
+      "japanese_matsuri_taiko",
+      "mizrahi_israeli",
+      "festejo_afroperuano",
+      "currulao_pacifico",
+      "forro_pe_de_serra",
+      "lambada_carimbo",
+      "bengali_ghum_paranir_gan",
+      "bengali_chhotoder_chora"
+    ],
+    "actually_changed": [
+      "bengali_chhotoder_chora",
+      "bengali_ghum_paranir_gan",
+      "choro",
+      "currulao_pacifico",
+      "festejo_afroperuano",
+      "forro_pe_de_serra",
+      "freak_folk_2000s",
+      "japanese_matsuri_taiko",
+      "lambada_carimbo",
+      "maya_marimba",
+      "mizrahi_israeli",
+      "samba_jazz",
+      "tarantella_napoletana"
+    ],
+    "unchanged_fixture_count": 1136,
+    "results": [
+      {
+        "fixture": "choro",
+        "exit_code": 0
+      },
+      {
+        "fixture": "maya_marimba",
+        "exit_code": 0
+      },
+      {
+        "fixture": "tarantella_napoletana",
+        "exit_code": 0
+      },
+      {
+        "fixture": "freak_folk_2000s",
+        "exit_code": 0
+      },
+      {
+        "fixture": "samba_jazz",
+        "exit_code": 0
+      },
+      {
+        "fixture": "japanese_matsuri_taiko",
+        "exit_code": 0
+      },
+      {
+        "fixture": "mizrahi_israeli",
+        "exit_code": 0
+      },
+      {
+        "fixture": "festejo_afroperuano",
+        "exit_code": 0
+      },
+      {
+        "fixture": "currulao_pacifico",
+        "exit_code": 0
+      },
+      {
+        "fixture": "forro_pe_de_serra",
+        "exit_code": 0
+      },
+      {
+        "fixture": "lambada_carimbo",
+        "exit_code": 0
+      },
+      {
+        "fixture": "bengali_ghum_paranir_gan",
+        "exit_code": 0
+      },
+      {
+        "fixture": "bengali_chhotoder_chora",
+        "exit_code": 0
+      }
+    ]
+  },
+  "final_serial_regression": "REGRESSION: 1149/1149 fixture(s) match snapshot.",
+  "runtime": "100 integrated traditions times4 original browser/connector formats; allparity,max1000; final lineage-only amendment leaves all400renders byte-identical.",
+  "ui": {
+    "status": "IDENTICAL_BASELINE_FAILURES_CONFIRMED",
+    "tested_integration_sha256": "4bc92224a8f8d9c1d077b13b5463adc346e2f24d8d26e3626f22fe0f7d00190f",
+    "baseline_sha": "25032b44098122db2d453bf66583a684aa38c6eb",
+    "current": [
+      {
+        "check": "check_layout_geometry",
+        "exit_code": 0,
+        "seconds": 0.4,
+        "log": "check_layout_geometry.log"
+      },
+      {
+        "check": "check_workbench",
+        "exit_code": 0,
+        "seconds": 16.7,
+        "log": "check_workbench.log"
+      },
+      {
+        "check": "check_chat_counter",
+        "exit_code": 0,
+        "seconds": 9.7,
+        "log": "check_chat_counter.log"
+      },
+      {
+        "check": "check_mobile_layout",
+        "exit_code": 0,
+        "seconds": 83.7,
+        "log": "check_mobile_layout.log"
+      },
+      {
+        "check": "check_layout_usability",
+        "exit_code": 0,
+        "seconds": 35.1,
+        "log": "check_layout_usability.log"
+      },
+      {
+        "check": "check_ui_foundation",
+        "exit_code": 1,
+        "seconds": 109.5,
+        "log": "check_ui_foundation.log"
+      },
+      {
+        "check": "check_lyrics_page",
+        "exit_code": 0,
+        "seconds": 20.1,
+        "log": "check_lyrics_page.log"
+      },
+      {
+        "check": "ui_reachability_check",
+        "exit_code": 2,
+        "seconds": 6.8,
+        "log": "ui_reachability_check.log"
+      }
+    ],
+    "baseline": [
+      {
+        "check": "check_ui_foundation",
+        "exit_code": 1,
+        "seconds": 109.4
+      },
+      {
+        "check": "ui_reachability_check",
+        "exit_code": 2,
+        "seconds": 8.1
+      }
+    ],
+    "foundation": "Entire failure log byte-identical: existing DeltaBlues enlarged-image thumbnail retention.",
+    "reachability": "Both fail browser policy ERR_BLOCKED_BY_ADMINISTRATOR navigating generated fileURL; paths and bundle sizes differ.",
+    "scope": "Six other UI checks passed; original UI/engine/tests unmodified. Exact final-head CI required.",
+    "final_integration_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+    "post_ui_metadata_change": "Only one new record lineage comparative wording changed after these UI runs. Source owners/cards/parts/photos/UI code unchanged; all400 integrated browser/connector outputs exactly identical. Final-head CI still required."
+  },
+  "initial_gates": [
+    "validate",
+    "duplicates",
+    "signature tokens and mirror",
+    "frozen descriptor DF",
+    "audit"
+  ],
+  "geography": "GEOGRAPHIC EXPANSION: PASS — 96 candidates, 51 instruments, 63 tradition configurations, 252 browser/connector renders.\nGEOGRAPHIC ROUND 2: PASS — 24 traditions, 10 instruments, 96 browser/connector renders.\n",
+  "everynoise": "EVERYNOISE BATCHES: PASS — 2 batches, 50 genres, 200 browser/connector renders; CLI pins retained.\n",
+  "atlas": "Original complete check:atlas passed.",
+  "lint": "Original npm run lint passed.",
+  "format": "Final complete format check required before commit.",
+  "ci": "Exact published-head CI required before merge.",
+  "sequencing": {
+    "original_frozen_packet": "frozen.json",
+    "final_packet": "integration-final.json",
+    "approved_amendments": [
+      "Mluvene authored dry booth,17voicepins unchanged",
+      "IndonesianNeo lineage-only old-neighbor comparison, contemporary2025 source corrected to mid2020s by original compiler"
+    ],
+    "initial_api_exit": 143,
+    "initial_api_reason": "Explicitly terminated before completion to correct new narration row; no partial API consumed.",
+    "final_api_exit": 0,
+    "final_source_validation": "VALID — 6338 traditions, 317 tree nodes, 1609 instruments, 256 rooms, 84 chain archetypes, 21 production aesthetics. All refs resolve.",
+    "integrated_runtime": "400formatsPASS, browser/connector parity, max1000",
+    "final_api_build": [
+      "Done: 6338 traditions (0 failed), 1609 instruments in 670.8s -> /workspace/CodexMusica/api",
+      "Self-verify OK: 6338/6338 traditions, all recipes <=1000 chars, all ids resolve."
+    ],
+    "integration_final_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+    "previous_complete_api": "6338zero failures688.4s; held for new-row semantic era mismatch",
+    "final_serial_regression": "REGRESSION: 1149/1149 fixture(s) match snapshot.",
+    "concurrency": "Original API jobs2 and one serial regression process; about8GB available RAM. Supporting checks sequential after regression completed."
+  }
+}

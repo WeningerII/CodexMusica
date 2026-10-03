@@ -3,39 +3,39 @@
   "name": "Samba-jazz",
   "family": "global",
   "lineage": "Rio de Janeiro 1962-1970 small-group jazz-samba tradition centered on the Forma and Som Maior label catalog — codified through Sergio Mendes’s Bossa Rio (1964) and Brasil 66, Tamba Trio (Luiz Eça-Bebeto-Helcio Milito), Sambalanço Trio, Edu Lobo, and Milton Banana Trio; characterized by piano-trio-plus-singer instrumentation, advanced-harmonic vocabulary, and energetic-up-tempo samba-derived rhythmic foundation",
-  "recipe": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode roda de samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 621,
-  "score": 167.882,
+  "recipe": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion bloco forró instrumental. no chemical hardener t rivet beech laminated maple laminated European tradition grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, samba bateria, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, tight backbore high register lead trumpet trumpet, yamaha modern Japanese mid to premium flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 694,
+  "score": 221.357,
   "config": {
     "traditions": [
       "samba_jazz",
-      "pagode",
-      "roda_de_samba"
+      "bloco",
+      "forro_instrumental"
     ],
     "instruments": [
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_block_chord_pop",
-          "grand_piano_size": "grand_7_foot",
+          "keyboard_technique": "keyboard_jazz_comping",
+          "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "yamaha_cfx",
-          "piano_hammer": "ronsen_wurzen_hammer",
-          "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_hammer": "abel_hammer",
+          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "v_pro_vacuum_cast_plate",
-          "piano_pitch_standard": "a_432_alternative"
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
-          "keyboard_technique": 1.2999999999999998,
-          "grand_piano_size": 0.39,
+          "keyboard_technique": 2.06,
+          "grand_piano_size": 0.35,
           "grand_piano_brand": 0.75,
-          "piano_hammer": 1.9825,
-          "piano_rim": 2.405,
-          "piano_soundboard": 1.9825,
-          "piano_pinblock": 1.0725,
-          "piano_plate": 0.44499999999999995,
-          "piano_pitch_standard": 3.9050000000000002
+          "piano_hammer": 5.625,
+          "piano_rim": 4.1925,
+          "piano_soundboard": 8.874999999999998,
+          "piano_pinblock": 3.175,
+          "piano_plate": 1.97,
+          "piano_pitch_standard": 9.905
         }
       },
       {
@@ -45,20 +45,20 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 15.124999999999998,
-          "upright_play": 15.124999999999998
+          "upright_strings": 16.375,
+          "upright_play": 16.525
         }
       },
       {
         "id": "drum_kit",
         "slots": {
           "drum_technique": "brushes_and_sticks",
-          "drumhead": "vintage_ambassador_drumhead",
+          "drumhead": "fiberskyn_drumhead",
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 29.477499999999992,
-          "drumhead": 15.809999999999999,
+          "drum_technique": 32.49999999999999,
+          "drumhead": 18,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -69,67 +69,67 @@
           "context": "sb_quadra"
         },
         "scores": {
-          "sections": 0.585,
-          "context": 0.195
+          "sections": 2.08,
+          "context": 0.09
         }
       },
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
+          "wind_articulation": "wind_bebop_runs",
           "sax_size": "alto_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 1.8199999999999998,
-          "sax_size": 1.65,
+          "wind_articulation": 2.375,
+          "sax_size": 3.925,
           "sax_reed": 0.75,
-          "sax_body_alloy": 16.014999999999997,
+          "sax_body_alloy": 18.09,
           "sax_mouthpiece": 0.75,
-          "sax_technique": 15.124999999999998,
-          "sax_maker_school": 16.11
+          "sax_technique": 16.375,
+          "sax_maker_school": 18.009999999999998
         }
       },
       {
         "id": "trumpet",
         "slots": {
-          "wind_articulation": "wind_punchy_ensemble",
-          "brass_size": "trumpet_b_flat",
+          "wind_articulation": "wind_bebop_runs",
+          "brass_size": "flugelhorn",
           "trumpet_mouthpiece": "schilke_trumpet_mp_14a4a",
-          "brass_mute": "straight_mute",
-          "trumpet_technique": "trumpet_punchy_ensemble",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_bebop_lines",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 1.8199999999999998,
-          "brass_size": 0.75,
-          "trumpet_mouthpiece": 16.639999999999997,
-          "brass_mute": 0.375,
-          "trumpet_technique": 1.8199999999999998,
-          "trumpet_bell_metal": 0.84,
-          "trumpet_maker_school": 0.9450000000000001
+          "wind_articulation": 2.375,
+          "brass_size": 0.8450000000000001,
+          "trumpet_mouthpiece": 18.74,
+          "brass_mute": 1.09,
+          "trumpet_technique": 2.375,
+          "trumpet_bell_metal": 0.845,
+          "trumpet_maker_school": 0.845
         }
       },
       {
         "id": "flute",
         "slots": {
-          "wind_articulation": "wind_breath_quiet",
+          "wind_articulation": "wind_bebop_runs",
           "flute_size": "piccolo_flute",
-          "flute_material": "gold_flute",
+          "flute_material": "platinum_flute",
           "flute_technique": "classical_flute",
-          "flute_maker_school": "flute_powell_boston"
+          "flute_maker_school": "flute_yamaha"
         },
         "scores": {
-          "wind_articulation": 0.9849999999999999,
+          "wind_articulation": 2.375,
           "flute_size": 0.75,
-          "flute_material": 0.195,
-          "flute_technique": 0.21,
-          "flute_maker_school": 0.9450000000000001
+          "flute_material": 0.15,
+          "flute_technique": 1.8599999999999999,
+          "flute_maker_school": 3.509999999999999
         }
       }
     ],

@@ -1,0 +1,50 @@
+{
+  "id": "hardgroove",
+  "name": "Hardgroove",
+  "family": "electronic",
+  "lineage": "Ben Sims — complete artist-issued Hard Groove Trax/1997 Mixtape (Techno), uploaded3May2011. Sims first-person description identifies the earlier complete mix tape as one circulated to promoters for bookings. Positive DJ selection and mixing practice is modeled, retaining the full mixed instrumental/vocal layers; no invented individual studio instruments or source-track inventory is inferred. Hardgroove is a named funk-driven techno branch associated with Ben Sims and his scene/label, not every track with a loop or sample. Sims explicitly distinguishes this identity in his first-person2024 interview; festival issuer also identifies the named subgenre. Existing techno is a broad Detroit-derived umbrella and schranz specifically describes the distorted Frankfurt grinding-loop lineage. Hardgroove intentionally overlaps techno but is not a lexical alias for the whole umbrella or merely a new artist playing identical category. The existing neutral DJ playback-and-mixing owner preserves complete practice without asserting media format, deck count, scratch technique or playback hardware. Embedded singer number and layering remain unknown; no separately credited live singer is inferred. Controlled studio room is an authored recording realization, not measured1997 equipment/location. Global tuning omitted. Broader electronicDance.techno parent follows artist explicit classification.",
+  "recipe": "classic late-1990s hardgroove, electronic Dance, techno branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 111,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "hardgroove"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

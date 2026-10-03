@@ -1,0 +1,62 @@
+{
+  "id": "egyptian_traditional",
+  "name": "Egyptian traditional",
+  "family": "vernacular",
+  "lineage": "Muhammad El-Arabi — complete Darabukka solo, UNESCO UNES08038_106. Smithsonian Folkways issues Muhammad El-Arabi Darabukka solo as complete track6 UNES08038_106,3:58,1971, explicitly instrumental and credited only to El-Arabi on darabukka. Original UNESCO booklet identifies an earthenware single-skin drum and successive sama i thaqil10/8, darij3/4, nawakht7/8, aksak9/8, murabba13/4 and mukhammas16/8 rhythmic patterns, ending in a variation. No melodic instruments or singers from the other compilation tracks enter this complete solo scope. One clay darabukka preserves positively documented material and whole solo palette. Fish-skin membrane, Egyptian playing-school preset and open/slap hand technique are coherent authored traditional Egyptian choices; the source does not identify skin species, exact drum size or a Sombaty model. The existing Egyptian style label is an editorial regional realization, not an exact historical construction claim. Broad improvOnFrame follows the documented succession of rhythmic frames and final variation, not a melodic maqam imposed on an unpitched drum. Controlled live-room acoustic is authored, with unknown capture hardware and global tuning omitted. Rendered up-tempo wording is authored energetic solo affect, not a measured BPM claim about all source rhythmic sections.",
+  "recipe": "classic early-1970s egyptian traditional, improv On Frame. clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka. live tracking.",
+  "recipe_chars": 208,
+  "score": 33.035,
+  "config": {
+    "traditions": [
+      "egyptian_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "darbuka",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "darbuka_material": "darbuka_clay_traditional",
+          "darbuka_skin": "darbuka_fish_skin",
+          "darbuka_regional_style": "darbuka_egyptian_sombaty"
+        },
+        "scores": {
+          "percussion_technique": 7.8260000000000005,
+          "darbuka_material": 4.504499999999999,
+          "darbuka_skin": 13.904499999999999,
+          "darbuka_regional_style": 6.799999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "darbuka": [
+        "percussion_technique",
+        "darbuka_material",
+        "darbuka_skin",
+        "darbuka_regional_style"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "percussion_technique": "percussion_open_slap",
+      "darbuka_material": "darbuka_clay_traditional",
+      "darbuka_skin": "darbuka_fish_skin",
+      "darbuka_regional_style": "darbuka_egyptian_sombaty"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "gym_hardstyle",
+  "name": "Gym hardstyle",
+  "family": "electronic",
+  "lineage": "Ru-Style, ZYZZ WOULD LISTEN TO Episode1 (Gym Hardstyle Mix), complete artist-issued mixed programme published13February2025. The primary upload supplies a sequential tracklist starting with Tevvez Code and ending with The Viper and G-Town Madness, Come As One (Sefa Remix), which begins39:35; final duration is not asserted. One named mix creator, with all playback layers retained through the architecture-neutral DJ playback/mixing owner. This is a positively titled authored mix by an organizer-identified DJ, not invented playback of an opaque studio album. Embedded singers, source instruments and exact live-versus-edited workflow remain unspecified; they are not falsely counted as zero or modeled as extra live performers. Existing architecture-neutral DJ owner protects the whole recorded programme, without guessing decks, turntables, samplers, source synth models or live singer count. Treated studio and neutral clean digital capture are explicitly authored new-recording choices. Global tuning omitted. Generic street-pulsing affect is compatible with this rhythmic hard-dance playback branch, not a literal street location. Existing electronicDance.hardstyle parent follows direct hardstyle identity; no physiological workout-benefit claim.",
+  "recipe": "classic gym hardstyle, electronic Dance, hardstyle branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 189,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "gym_hardstyle"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

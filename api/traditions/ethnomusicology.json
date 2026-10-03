@@ -1,0 +1,66 @@
+{
+  "id": "ethnomusicology",
+  "name": "Ethnomusicology",
+  "family": "classical",
+  "lineage": "Nonesuch Explorer Series — Goro Yamaguchi, A Bell Ringing in the Empty Sky, whole1969album. Entire two-piece1969 Nonesuch Explorer H72025 album A Bell Ringing in the Empty Sky: Goro Yamaguchi alone on shakuhachi. Publisher specifies KinkoKurosawa-school repertoire and instrumental scoring. SokakuReibo12:12 and KokuReibo15:18 both retained, no singer or other Nipponia/Explorer albums imported. Japanese repertoire anchor; actual recording site unknown. Full source solo performance realized with existing shakuhachi. Kinko lineage and bamboo instrument supported by issuer;1.8shaku/D length, madake species, continuous phrasing and meri/kari bends are candid authored physical/playing choices, not measured source instrument or every recorded gesture. New controlled live-room recital realization, no claimed historic room or capture apparatus. Optional global tuning omitted; no equal-tempered replacement imposed on regional pitch practice.",
+  "recipe": "classic ethnomusicology, art Music, east Asian branch. madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. live tracking.",
+  "recipe_chars": 206,
+  "score": 12.635,
+  "config": {
+    "traditions": [
+      "ethnomusicology"
+    ],
+    "instruments": [
+      {
+        "id": "shakuhachi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "shaku_length": "one_eight",
+          "shaku_technique": "meri_kari",
+          "shakuhachi_body_material": "shakuhachi_madake_canonical",
+          "shakuhachi_lineage": "shakuhachi_kinko"
+        },
+        "scores": {
+          "wind_articulation": 4.6575,
+          "shaku_length": -0.035,
+          "shaku_technique": 0.47250000000000003,
+          "shakuhachi_body_material": 5.46,
+          "shakuhachi_lineage": 2.08
+        }
+      }
+    ],
+    "pinned": {
+      "shakuhachi": [
+        "wind_articulation",
+        "shaku_length",
+        "shaku_technique",
+        "shakuhachi_body_material",
+        "shakuhachi_lineage"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "shaku_length": "one_eight",
+      "shaku_technique": "meri_kari",
+      "shakuhachi_body_material": "shakuhachi_madake_canonical",
+      "shakuhachi_lineage": "shakuhachi_kinko"
+    },
+    "pin_parts": true
+  }
+}

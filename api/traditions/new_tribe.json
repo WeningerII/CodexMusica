@@ -5,7 +5,7 @@
   "lineage": "Davide Swarup — Music for Hang, complete solo album (2007). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
   "recipe": "classic late-2000s new tribe, improv On Frame. handpan. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 154,
-  "score": 5.031,
+  "score": 5.576,
   "config": {
     "traditions": [
       "new_tribe"
@@ -18,8 +18,8 @@
           "handpan_maker": "handpan_hang"
         },
         "scores": {
-          "handpan_scale": 3.6999999999999993,
-          "handpan_maker": 1.3315000000000001
+          "handpan_scale": 4.276,
+          "handpan_maker": 1.3
         }
       }
     ],

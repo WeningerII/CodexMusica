@@ -1,0 +1,52 @@
+{
+  "id": "credited_synthesizer_unspecified",
+  "name": "Credited synthesizer (architecture unspecified)",
+  "short": "Credited synthesizer",
+  "family": "electronic",
+  "class": "credited_synthesizer_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_synthesizer_identity",
+      "name": "Credited synthesizer identity",
+      "variants": [
+        {
+          "id": "credited_synthesizer_architecture_unspecified",
+          "name": "Synthesizer; source-unspecified architecture and control interface",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positive synthesizer role, with analog/digital architecture, polyphony, control interface and sequencing unspecified. Neutral authored routing axes; no inferred keyboard, sampler or sequencer.",
+  "sources": [
+    "https://ensmb.bandcamp.com/album/voyage-of-the-funknomancer"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_synthesizer_identity",
+      "name": "Credited synthesizer identity",
+      "variants": [
+        {
+          "id": "credited_synthesizer_architecture_unspecified",
+          "name": "Synthesizer; source-unspecified architecture and control interface",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

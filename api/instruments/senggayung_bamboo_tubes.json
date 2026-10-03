@@ -1,0 +1,119 @@
+{
+  "id": "senggayung_bamboo_tubes",
+  "name": "Senggayung struck bamboo tubes",
+  "short": "senggayung bamboo tubes",
+  "family": "percussion",
+  "class": "struck_bamboo_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "senggayung_tube_construction",
+      "name": "Tube construction",
+      "variants": [
+        {
+          "id": "senggayung_tube_bamboo_node_tongue",
+          "name": "Fresh bamboo tube closed at one node, with cut tongue-like wall extension",
+          "default": true,
+          "descriptors": [
+            "bamboo"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "senggayung_excitation",
+      "name": "Excitation and pitch selection",
+      "variants": [
+        {
+          "id": "senggayung_paired_striking_grip_muting",
+          "name": "Two handheld tubes struck together; tighter grip damps one while the looser tube sounds",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "muted"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "senggayung_ensemble_layout",
+      "name": "Selected Upper Jelai ensemble configuration",
+      "variants": [
+        {
+          "id": "senggayung_upper_jelai_seven_pairs",
+          "name": "Seven tuned pairs: pa’indai, pangait, anak julat and four anak jurut pairs",
+          "default": true,
+          "descriptors": [
+            "pitched"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source-documented paired bamboo idiophones for Upper Jelai senggayung repertoire. Each tube has one closed node and cut-away wall/tongue; tongue proportion sets pitch. Paired striking and differential grip muting select sounding pitch. Selected Upper Jelai ensemble uses seven pairs with named register roles; not a universal claim for other regional ensembles (source also describes three-pair Randau). Source approximate pitch letters are not encoded as exact temperament. Neutral routing axes are authored, not acoustic measurements. Distinct from shaken frame-mounted angklung and suspended xylophone tubes.",
+  "sources": [
+    "https://folkways-media.si.edu/docs/folkways/artwork/SFW40444.pdf",
+    "https://folkways.si.edu/bamboo-senggayung-ensemble/dusun-t/kalait-cambung/islamica-world/music/track/smithsonian"
+  ],
+  "_ownParts": [
+    {
+      "id": "senggayung_tube_construction",
+      "name": "Tube construction",
+      "variants": [
+        {
+          "id": "senggayung_tube_bamboo_node_tongue",
+          "name": "Fresh bamboo tube closed at one node, with cut tongue-like wall extension",
+          "default": true,
+          "descriptors": [
+            "bamboo"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "senggayung_excitation",
+      "name": "Excitation and pitch selection",
+      "variants": [
+        {
+          "id": "senggayung_paired_striking_grip_muting",
+          "name": "Two handheld tubes struck together; tighter grip damps one while the looser tube sounds",
+          "default": true,
+          "descriptors": [
+            "struck",
+            "muted"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "senggayung_ensemble_layout",
+      "name": "Selected Upper Jelai ensemble configuration",
+      "variants": [
+        {
+          "id": "senggayung_upper_jelai_seven_pairs",
+          "name": "Seven tuned pairs: pa’indai, pangait, anak julat and four anak jurut pairs",
+          "default": true,
+          "descriptors": [
+            "pitched"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

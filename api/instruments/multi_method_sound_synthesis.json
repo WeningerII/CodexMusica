@@ -1,0 +1,53 @@
+{
+  "id": "multi_method_sound_synthesis",
+  "name": "Multi-method sound synthesis",
+  "short": "Multi-method synthesis",
+  "family": "electronic",
+  "class": "source_unspecified_electronics",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "multi_method_sound_synthesis_identity",
+      "name": "Documented synthesis processes",
+      "variants": [
+        {
+          "id": "multi_method_sound_synthesis_fm_physical_additive_subtractive_wavetable_granular_spectral",
+          "name": "FM, physical modeling, additive, subtractive, wavetable, granular and spectral synthesis",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Aggregate of seven positively documented sound-generation methods. Retains FM, physical modeling, additive, subtractive, wavetable, granular and spectral synthesis without assigning one device, software package, oscillator design or keyboard. This models the source generation processes, not playback of a completed mixed recording. Method combination across compositions is preserved, not asserted simultaneous at every instant. Neutral routing axes are authored coordinates.",
+  "sources": [
+    "https://foxydigitalis.zone/2022/03/29/irans-majesty-and-decay-an-interview-with-sote/",
+    "https://subrosalabel.bandcamp.com/album/majestic-noise-made-in-beautiful-rotten-iran"
+  ],
+  "_ownParts": [
+    {
+      "id": "multi_method_sound_synthesis_identity",
+      "name": "Documented synthesis processes",
+      "variants": [
+        {
+          "id": "multi_method_sound_synthesis_fm_physical_additive_subtractive_wavetable_granular_spectral",
+          "name": "FM, physical modeling, additive, subtractive, wavetable, granular and spectral synthesis",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

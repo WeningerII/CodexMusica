@@ -3,9 +3,9 @@
   "name": "Mizrahi (Israeli Mediterranean Music)",
   "family": "global",
   "lineage": "Israeli urban style formed in the 1970s among Yemenite, Iraqi, Moroccan and Turkish immigrant communities of south Tel Aviv and Jerusalem's Kerem HaTeimanim, circulated on kiosk cassettes ('musiqa qassetot') and codified by Zohar Argov, Daklon and arranger Moshe Ben-Mush — Hebrew lyrics sung with dense Arab-style silsulim melisma over 4/4 or 8/8 darbuka-and-bass grooves at 100-130 BPM, with electric guitar or bouzouki playing oud-derived maqam lines against synthesizer strings.",
-  "recipe": "classic North African mid-1970s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, middle eastern classical art music khaleeji-iraqi song uzbek traditional music. thick, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium drone like modal qanun, goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, mahogany pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 865,
-  "score": 334.325,
+  "recipe": "classic North African mid-1970s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, middle eastern classical art music khaleeji-iraqi song uzbek traditional music. thick, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. stone plaster medina room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 845,
+  "score": 335.315,
   "config": {
     "traditions": [
       "mizrahi",
@@ -38,24 +38,24 @@
           "voice_quality": 10.984999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.840000000000002,
+          "voice_vibrato": 10.765,
           "voice_articulation": 17.224999999999998,
           "voice_microtone": 31.524999999999995,
-          "voice_tradition": 15.93,
-          "voice_mechanism_compound": 13.27,
-          "voice_estill_quality": 8.915000000000001,
+          "voice_tradition": 15.705,
+          "voice_mechanism_compound": 13.315,
+          "voice_estill_quality": 8.765,
           "voice_speech_song": 20.019999999999996,
           "voice_ensemble_config": 19.044999999999995,
-          "voice_ornament_system": 15.735000000000003,
-          "voice_pitch_organization": 16.425,
-          "voice_processing_chain": 7.1000000000000005,
-          "voice_multitrack_stack": 3.2000000000000006
+          "voice_ornament_system": 15.690000000000003,
+          "voice_pitch_organization": 16.335,
+          "voice_processing_chain": 7.340000000000001,
+          "voice_multitrack_stack": 3.3950000000000005
         }
       },
       {
         "id": "oud",
         "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
+          "plucked_traditional_technique": "plucked_classical_idiom",
           "oud_school": "oud_arab_classic",
           "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
@@ -64,19 +64,19 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 7.895,
-          "oud_school": 4.485,
+          "plucked_traditional_technique": 7.745000000000001,
+          "oud_school": 4.53,
           "oud_strings": 3.5100000000000002,
-          "oud_pick": 2.6350000000000002,
+          "oud_pick": 2.83,
           "oud_body_wood": 4.2,
-          "oud_soundboard_wood": 4.615,
-          "oud_string_material": 2.7350000000000003
+          "oud_soundboard_wood": 4.405,
+          "oud_string_material": 2.99
         }
       },
       {
         "id": "qanun",
         "slots": {
-          "plucked_traditional_technique": "plucked_drone_modal",
+          "plucked_traditional_technique": "plucked_classical_idiom",
           "qanun_strings": "qanun_arab_72",
           "qanun_levers": "mandal_brass",
           "qanun_pick": "qanun_finger_picks",
@@ -85,13 +85,13 @@
           "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 7.895,
+          "plucked_traditional_technique": 7.745000000000001,
           "qanun_strings": 3.5100000000000002,
-          "qanun_levers": 0.045,
+          "qanun_levers": 0.09,
           "qanun_pick": 3.705,
           "qanun_body_wood": 2.5350000000000006,
           "qanun_bridge_skin": 0.15,
-          "qanun_string_material": 0.09
+          "qanun_string_material": 0.6299999999999999
         }
       },
       {
@@ -105,8 +105,8 @@
         "scores": {
           "percussion_technique": 1.1999999999999997,
           "darbuka_material": 0.46499999999999997,
-          "darbuka_skin": 3.84,
-          "darbuka_regional_style": 5.425
+          "darbuka_skin": 3.795,
+          "darbuka_regional_style": 5.38
         }
       },
       {
@@ -128,13 +128,13 @@
         },
         "scores": {
           "electric_technique": 8.5,
-          "amp_make": 2.7700000000000005,
+          "amp_make": 2.5300000000000007,
           "body_wood": 2.545,
           "neck_wood": 2.545,
           "fretboard": 2.495,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
-          "string_gauge": 2.935,
+          "string_gauge": 3.055,
           "bridge": 0.495,
           "scale_length": 2.74,
           "finish": 0,
@@ -146,7 +146,7 @@
         "id": "electric_bass",
         "slots": {
           "amp_make": "amp_british_orange",
-          "body_wood": "mahogany_b",
+          "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
@@ -156,12 +156,12 @@
         },
         "scores": {
           "amp_make": 2.3450000000000006,
-          "body_wood": 2.74,
-          "pickup_config": 0.3,
+          "body_wood": 2.845,
+          "pickup_config": 0.495,
           "string_type": 3.9450000000000003,
           "scale_length_b": 2.545,
           "fretted_or_not": 0.39,
-          "bass_technique": 1.3499999999999999,
+          "bass_technique": 1.545,
           "electric_bass_string_configuration": 0
         }
       },
@@ -174,7 +174,7 @@
         },
         "scores": {
           "drum_technique": 17.485,
-          "drumhead": 6.690000000000001,
+          "drumhead": 6.9300000000000015,
           "drum_kit_kick_pedal": 0
         }
       },

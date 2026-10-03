@@ -1,0 +1,143 @@
+{
+  "id": "kent_indie",
+  "name": "Kent indie",
+  "family": "vernacular",
+  "lineage": "Complete nine-track Demos Of Minnie by Will Varley, recorded by the artist at home in summer2017 and separately issued11November2022. Artist expressly describes raw solo acoustic versions preceding the later full-band Spirit Of Minnie. One singer-songwriter and acoustic guitar retained throughout the separately released source unit; later studio musicians are not removed from a full-band recording but belong to a different edition. Presenter corroborates the artist solo acoustic-guitar practice, and his own interview describes guitar-carrying solo tours. No personal audio inspection or exact original guitar-model claim. Authored intimate acoustic rendition preserving sole accompanied voice and one steel-string OM guitar. Mahogany top and back/sides, phosphor-bronze strings, conventional guitar tuning and flatpicked melodic accompaniment are coherent representative editorial choices, not documented exact gear or a transcription. Source-unspecified voice physiology/delivery, natural single lead and a controlled live room are authored capture; no global temperament or fictitious measured effects. Flatpicked melodic accompaniment is an editorial option within acoustic songwriter practice, not claimed as source fact.",
+  "recipe": "classic kent indie, ballad Poetry, anglo singer song branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany phosphor bronze bronze flatpicked acoustic guitar. live tracking.",
+  "recipe_chars": 241,
+  "score": 35.114,
+  "config": {
+    "traditions": [
+      "kent_indie"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 8.501,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 8.671499999999998,
+          "voice_multitrack_stack": 6.7835,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_flatpicked_lead"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 1.552,
+          "back_sides": 1.5835,
+          "string_acoustic": 5.472999999999999,
+          "acoustic_om_technique": 2.55
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top_om",
+      "back_sides": "mahogany_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_flatpicked_lead"
+    },
+    "pin_parts": true
+  }
+}

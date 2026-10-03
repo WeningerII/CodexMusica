@@ -1,0 +1,58 @@
+{
+  "id": "honky_tonk_piano",
+  "name": "Honky-tonk piano",
+  "family": "vernacular",
+  "lineage": "Stefan Veit — Honky Tonk Piano: Play Songs & Improvise!, complete Schott ED21245 piano teaching edition. Selected sound model realizes its published piano-only repertoire and improvisation exercises, not an assertion about every source hit recording or the accompanying CD sound palette. Publisher identifies piano instrumentation,136pages, transcriptions, original compositions and improvisation work. Listed repertoire includes Honky Tonkin, Shine, Honky Tonk, Honky Tonk Train Blues, Barrelhouse Shake-Down, Boxcar Boogie, Honky Tonk Blues, Nottamun Town and Black and White Rag. One pianist, no scored voice or added band. Broad improvOnFrame fits the positively instructional improvisation-on-repertoire practice. A standard-sized upright with deliberately detuned honky-tonk color and the existing honky-tonk playing setting is an authored realization of this piano practice, not a documented instrument in the book recording. No thumbtacks, concert-grand equipment, performer singing or band invented. Live-room acoustics are editorial; no equal-tempered global tuning or unspecified capture hardware is asserted.",
+  "recipe": "classic honky-tonk piano, improv On Frame. upright piano. live tracking.",
+  "recipe_chars": 72,
+  "score": 18.4,
+  "config": {
+    "traditions": [
+      "honky_tonk_piano"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_honky_tonk",
+          "upright_use": "upright_honky_tonk",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 18.400000000000006,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_honky_tonk",
+      "upright_use": "upright_honky_tonk",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

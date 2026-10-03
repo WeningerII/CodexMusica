@@ -1,0 +1,303 @@
+{
+  "status": "PASS",
+  "original_frozen_sha256": "a86ececfb3060fb93628fdf301aace42ae0a87b8f393e99edefeeed0e990ac09",
+  "integration_final_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+  "required_predecessor": "25032b44098122db2d453bf66583a684aa38c6eb",
+  "entries": 100,
+  "dependencies": [
+    "human_voice_ensemble_unspecified",
+    "credited_bouzouki_unspecified",
+    "zoom_rt123_rhythm_bass_machine",
+    "multi_method_sound_synthesis",
+    "digital_percussion_pad",
+    "hand_pumped_harmonium",
+    "igbo_tonal_skin_drum_ensemble",
+    "credited_flute_unspecified",
+    "accordina",
+    "txirula",
+    "spoken_dramatic_cast",
+    "heligonka_cf",
+    "senggayung_bamboo_tubes",
+    "credited_synthesizer_unspecified"
+  ],
+  "old_merged_preserved": 1595,
+  "source_packets": 100,
+  "excluded_possible_overlap_labels": 189,
+  "equivalences": [
+    {
+      "source_label": "guitarra clasica",
+      "source_url": "https://everynoise.com/engenremap-guitarraclasica.html",
+      "suggested_id": "guitarra_clasica",
+      "allocation_ordinal": 3387,
+      "allocation_group_id": "136",
+      "status": "independently_verified_equivalent_no_new_record",
+      "existing_id": "classical_guitar",
+      "proposal": "/tmp/batch037/guitarra-clasica-equivalence-proposal117.json",
+      "review": "/tmp/batch037/guitarra-clasica-equivalence-independent-review-source_audit.json",
+      "proposal_sha256": "d5e550048de0e005af3000f2145b89ccdfcef43743536db2e2aad28a6c319895",
+      "count_as_addition": false,
+      "proposal_evidence": {
+        "status": "PROPOSAL_REQUIRES_INDEPENDENT_APPROVAL",
+        "source_id": "guitarra_clasica",
+        "allocation_ordinal": 3387,
+        "existing_id": "classical_guitar",
+        "count_as_addition": false,
+        "rationale": "Spanish classical-guitar name, not a bounded national genre. Creator includes Brouwer, Segovia, Barrios, Villegas, Yepes, Barrueco and Scottish David Russell, so Hispanic-only restriction is not justified. Existing full classical_guitar record expressly uses Shibe Bach as documented branch and does not define the category as exclusively British or Bach. Primary bilingual music-school and university curricula explicitly equate Guitarra Clásica with Classical Guitar and teach the same international repertory. Separate creator clustering alone has not established a substantive practice distinction.",
+        "sources": [
+          {
+            "url": "https://www.amla.org/portfolio/amla-pcgs-classical-guitar-classes-for-youth/",
+            "ref": "turn7759search1",
+            "support": "One bilingual classical-guitar program with Philadelphia Classical Guitar Society; Latin American repertoire included in same category."
+          },
+          {
+            "url": "https://ucampus.uchile.cl/m/artes_catalogo/programa?bajar=1&id=73105",
+            "ref": "turn7759search12",
+            "support": "Official University of Chile curriculum gives Spanish and English activity title and Giuliani/Sor/Carcassi/Regondi/Coste/Tarrega plus Segovia repertoire."
+          },
+          {
+            "url": "https://furia.com/everynoise_public/engenremap-guitarraclasica.html",
+            "ref": "turn7709view0",
+            "support": "Positive original creator map raw response saved guitarra-clasica-creator-primary117.json"
+          }
+        ]
+      },
+      "independent_review": {
+        "status": "PASS_EQUIVALENCE",
+        "packet": "/tmp/batch037/guitarra-clasica-equivalence-proposal117.json",
+        "sha256": "d5e550048de0e005af3000f2145b89ccdfcef43743536db2e2aad28a6c319895",
+        "reviewer": "source_audit",
+        "existing_id": "classical_guitar",
+        "source_id": "guitarra_clasica",
+        "count_as_addition": false,
+        "findings": [
+          "Read full live loader tradition and extras: unqualified Classical guitar category represented by a documented Shibe Bach branch, with no British-only or Bach-only category restriction.",
+          "Fresh primary bilingual AMLA/Philadelphia Classical Guitar Society program uses both names for the same teaching and performance practice, including Latin American repertoire. This supports lexical equivalence rather than a national-category split.",
+          "Read retained unmodified creator map receipt: broad international artists and ensembles include David Russell, Segovia, Brouwer, Barrios and others. Separate creator proximity does not establish a positive narrower musical boundary.",
+          "No original catalog record, default, image, dependency or recipe changed. No new addition counted."
+        ],
+        "sources": [
+          {
+            "url": "https://www.amla.org/portfolio/amla-pcgs-classical-guitar-classes-for-youth/",
+            "ref": "turn7767view0",
+            "mode": "fresh direct primary"
+          },
+          {
+            "url": "https://furia.com/everynoise_public/engenremap-guitarraclasica.html",
+            "mode": "retained unmodified creator receipt",
+            "artifact": "/tmp/batch037/guitarra-clasica-creator-primary117.json"
+          }
+        ],
+        "retrieval_limitations": [
+          "University Chile direct URL failed during independent retrieval; not needed for conclusion supported by fresh bilingual institutional program."
+        ]
+      }
+    },
+    {
+      "source_label": "folklore quebecois",
+      "source_url": "https://everynoise.com/engenremap-folklorequebecois.html",
+      "suggested_id": "folklore_quebecois",
+      "allocation_ordinal": 3302,
+      "allocation_group_id": "133",
+      "status": "independently_verified_equivalent_no_new_record",
+      "existing_id": "trad_quebecois",
+      "proposal": "/tmp/batch037/recovery133-134-folklore-quebecois-equivalence-proposal461.json",
+      "review": "/tmp/batch037/recovery133-134-folklore-quebecois-equivalence-independent-review116.json",
+      "proposal_sha256": "2f47d33e5f8eabf0a45af731093f986d2028f403ad02114dd393db4f209faebd",
+      "count_as_addition": false,
+      "proposal_evidence": {
+        "status": "equivalence_proposed_independent_review_required",
+        "count_as_delivered": false,
+        "author": "review_461",
+        "source_label": "folklore quebecois",
+        "suggested_id": "folklore_quebecois",
+        "allocation_ordinal": 3302,
+        "allocation_group_id": "133",
+        "existing_id": "trad_quebecois",
+        "existing_record": {
+          "id": "trad_quebecois",
+          "name": "Musique traditionnelle québécoise",
+          "family": "vernacular",
+          "lineage": "Québec's French-Canadian dance and song tradition of the Saint Lawrence valley, documented from the nineteenth century, professionalized by La Bolduc and fiddler Jean Carignan and revived from the 1970s by La Bottine Souriante and Le Vent du Nord — crooked reels and gigues at 110-130 BPM driven by seated podorythmie foot percussion, diatonic accordion and fiddle in unison, ragtime-inflected piano backing, and chansons à répondre with turlutte mouth-music refrains.",
+          "instruments": [
+            "fiddle",
+            "foot_tap",
+            "melodeon_diatonic",
+            "upright_piano",
+            "acoustic_guitar_dread",
+            "voice",
+            "spoons",
+            "harmonica"
+          ],
+          "room": "hardwood_living",
+          "chain_mic": "condenser_sdc",
+          "chain_pre": "pre_500_series_modern",
+          "chain_medium": "digital_std",
+          "chain_console": "clean",
+          "tuning": "celtic_irish_modal_dorian_mixolydian",
+          "chain_status": "researched_field_recording",
+          "chain_archetype": "arch_ethnographic_field_digital"
+        },
+        "existing_extras": {
+          "parent": "improvOnFrame.celticTraditional",
+          "axes": {
+            "harm": -1,
+            "pitch": 0,
+            "ornament": 1,
+            "meter": 0,
+            "density": 0,
+            "transmission": -2,
+            "improv": 0,
+            "soundTech": -1,
+            "intensity": 1,
+            "voice": 1,
+            "timbre": 0,
+            "percussion": 1,
+            "cyclicity": 2
+          },
+          "description": "Traditional Québécois music is the kitchen-party and veillée repertoire of French Canada, built on fiddle-and-accordion dance tunes and responsorial song, and continuously performed rather than reconstructed. Its unmistakable features are podorythmie — the fiddler's own seated foot-tapping as the rhythm section — irregular 'crooked' tune structures with added or dropped beats, a piano accompaniment style borrowed from ragtime and vaudeville, and turlutte vocal mouth-music standing in for instruments. It shares Celtic modal tune shapes with Irish and Cape Breton traditions but is distinguished by the foot-percussion drive, the French song layer, and the tolerance for asymmetrical bar counts that Scottish and Irish repertoires largely regularized away.",
+          "exemplars": [
+            "La Bottine Souriante",
+            "Le Vent du Nord",
+            "Jean Carignan",
+            "La Bolduc",
+            "De Temps Antan",
+            "Genticorum"
+          ],
+          "crossRefs": ["balladPoetry.celticBalladic"],
+          "status": "documented"
+        },
+        "sources": [
+          {
+            "url": "https://mnemo.qc.ca/duval/Duval_Jean_2012_these-L.pdf",
+            "ref": "turn393129search1",
+            "role": "Original doctoral research explicitly identifies folklore du Quebec and musique folklorique quebecoise as alternate names for the same traditional Quebec music; describes rural/oral majority without excluding urban, literate or wider participation."
+          },
+          {
+            "url": "https://circulationmusique.com/res/document/CQM-Initiation_musique_Traditionnelle-brochure-2019-v6-PAGES.pdf",
+            "ref": "turn393129search0",
+            "role": "Conseil quebecois de la musique2019 education guide explicitly traces the names French/Canadian/Quebec folklore and trad. Distinguishes historical emphasis of folklore from living-trad emphasis, but within same tradition and transmission; full existing catalog expressly includes old practitioners and later revival."
+          },
+          {
+            "url": "https://quebecfolklore.qc.ca/notre-mission",
+            "ref": "turn882163view3",
+            "role": "Actual practice institution equates its folklore-preservation mission with traditional Quebec music/song/dance and current living practice."
+          },
+          {
+            "url": "https://open.spotify.com/embed/playlist/1dYPwHG9KYpf9sYClhTC2k",
+            "ref": "turn263973view0",
+            "role": "Exact creator playlist directly reproduced; older fiddlers, response singers and French-Canadian song artists, including Jean Carignan and Bolduc already explicitly within target lineage. Neither playlist participant identity nor song title alone is the equivalence proof."
+          }
+        ],
+        "scope_analysis": "Full existing target includes French-Canadian Saint Lawrence dance AND song practice from nineteenth-century documentation, Bolduc/Carignan professionalization and1970srevival; not a revival-only cutoff. It explicitly includes reels/gigues, response songs, turlutte, fiddle/accordion/piano and feet. Creator older folklorist emphasis maps to the already included historical repertoire, rather than demanding a distinct modern scene. Scholarly and institutional explicit alternate-name evidence establishes same umbrella beyond a shared exemplar. Recorded art-song arrangements and occasional country/holiday selections in the discovery playlist are acknowledged peripheral intersections, not proof the entire category is a separate classical or country practice.",
+        "limitations": "PDF direct pages challenge; actual indexed full relevant primary passages freshly reproduced, not claimed full-PDF physical inspection. Exact playlist and mission page direct success. Proposal requires independent comparison of whole old record and creator scope; no catalog modification or delivery credit yet."
+      },
+      "independent_review": {
+        "status": "PASS",
+        "reviewer": "research_116",
+        "packet": "/tmp/batch037/recovery133-134-folklore-quebecois-equivalence-proposal461.json",
+        "sha256": "2f47d33e5f8eabf0a45af731093f986d2028f403ad02114dd393db4f209faebd",
+        "source_label": "folklore quebecois",
+        "existing_id": "trad_quebecois",
+        "judgment": "Equivalent umbrella; resolve to existing tradition, not a new data row.",
+        "evidence": [
+          "Actual current loader full tradition and extras match proposal, expressly include nineteenth-century sources, Bolduc/Carignan and revival; not revival-only.",
+          "Fresh CQM indexed primary turn7777search5 explicitly traces successive folklore français/canadien/québécois/trad names for same practice; distinguishes historical emphasis without making unrelated musical umbrella.",
+          "Fresh institution mission turn7779view0 treats folklore preservation and traditional Quebec music/song/dance as same living practice.",
+          "Fresh exact creator playlist turn7779view1 complete94items inspected: historical song/dance center, including Carignan/Bolduc; peripheral art-song, country and holiday selections acknowledged. Equivalence rests on positive nomenclature evidence and complete old scope, not merely shared artists."
+        ],
+        "limitations": [
+          "Duval thesis exact indexed retry empty; no independent full thesis inspection claimed. CQM relevant indexed primary passage reproduced; direct PDF blocked. Existing default instrumentation is a realization, not universal claim every playlist member uses same ensemble."
+        ],
+        "catalog_mutated": false,
+        "new_entry_count": 0
+      }
+    },
+    {
+      "source_label": "jewish cantorial",
+      "source_url": "https://everynoise.com/engenremap-jewishcantorial.html",
+      "suggested_id": "jewish_cantorial",
+      "allocation_ordinal": 3580,
+      "allocation_group_id": "144",
+      "status": "independently_verified_equivalent_no_new_record",
+      "existing_id": "cantorial_khazonus",
+      "proposal": "/tmp/batch037/jewish-cantorial-equivalence-proposal117.json",
+      "review": "/tmp/batch037/jewish-cantorial-equivalence-independent-review-root.json",
+      "proposal_sha256": "2788f2204445f45b74b555714bdcfdbc70ee92ce308f1696f03bb3bfbbb775b0",
+      "count_as_addition": false,
+      "proposal_evidence": {
+        "status": "proposed_equivalence_pending_independent_review",
+        "source": {
+          "source_label": "jewish cantorial",
+          "source_url": "https://everynoise.com/engenremap-jewishcantorial.html",
+          "suggested_id": "jewish_cantorial",
+          "allocation_ordinal": 3580,
+          "allocation_group_id": "144"
+        },
+        "existing_id": "cantorial_khazonus",
+        "new_entry_count": 0,
+        "rationale": "Existing full record explicitly names Ashkenazi synagogue cantorial khazonus/chazzanut, solo cantor with choir and golden-age Rosenblatt, Koussevitzky, Pinchik. Exact source creator Jewish Cantorial map names these three plus Hershman, Sirota and modern successors. Institutional first-person cantorial-school account uses chazzanut for precisely this same nusach/ornamented synagogue practice and explicitly names Rosenblatt/Koussevitzky/Hershman/Kwartin. No independent source-defined contrasting practice supports duplicate addition. English label Jewish Cantorial can be broader in general usage (Sephardic chazzanut also taught), but mapped source membership and recorded artistic lineage here strongly correspond to existing record; no claim all world Jewish song/cantillation equivalent. Existing instrument/default inaccuracies are outside this alias resolution and remain untouched.",
+        "sources": [
+          {
+            "url": "https://furia.com/everynoise_public/engenremap-jewishcantorial.html",
+            "ref": "turn7903view0",
+            "evidence": "Direct full map positive named exact existing exemplars."
+          },
+          {
+            "url": "https://www.yu.edu/news/elevating-the-music-of-prayer",
+            "ref": "turn7905view0",
+            "evidence": "Primary cantorial teacher interview equates chazzanut and cantorial profession, nusach and same named masters."
+          },
+          {
+            "url": "https://www.yu.edu/belz/programs",
+            "ref": "turn7905view1",
+            "evidence": "Institution also teaches Sephardic chazzanut; breadth caveat preserved, not hidden."
+          }
+        ],
+        "checked_date": "2026-10-03"
+      },
+      "independent_review": {
+        "status": "PASS_EQUIVALENCE",
+        "proposal_sha256": "2788f2204445f45b74b555714bdcfdbc70ee92ce308f1696f03bb3bfbbb775b0",
+        "reviewer": "root",
+        "existing_id": "cantorial_khazonus",
+        "source_refs": ["turn955526view0", "turn955526view1", "turn736172view0"],
+        "review": "Full actual record and extras explicitly Ashkenazi synagogue cantor/nusach lineage, including golden-age masters and cantor-to-opera crossover, read. YU firsthand institutional interview positively uses chazzanut for same practice/masters; full linked creator playlist99 items freshly reproduced and retained raw reviewed. Modern successors, choral/instrumental arrangements and female/crossover peripheral artists do not define another category; existing tenor/golden-age description is center not universal membership fence.",
+        "scope_caveat": "Jewish cantorial can denote broader Sephardic traditions in general usage, as YU program explicitly confirms. Equivalence applies to this creator-defined source network, not all world Jewish music or all meanings of English phrase. Original map direct retries failed, actual linked creator playlist positively recovered through cached source. No catalog defaults repaired or silently broadened.",
+        "count_as_addition": false
+      }
+    }
+  ],
+  "approved_amendments": [
+    {
+      "original": "/tmp/batch037/recovery150-152-1.json",
+      "original_sha256": "0f17d40699d908918c2ffd74ae74b001ddf997c48a2044b61423858854bd2ea9",
+      "derivative": "/tmp/batch037/recovery150-152-1-room-repaired119.json",
+      "derivative_sha256": "b8b4082131c6803580dfe27c12eb69738d8cb4732524a52d0330a53094e355c6",
+      "changes": [
+        "tradition.room live_room to treated_studio",
+        "repeated authored room disclosure synchronized"
+      ],
+      "reason": "Visible lobbying preface contradicts literary-narration source; original integrated renderer with dry booth produces narrating in all four formats.",
+      "preserved": "All17 pins,source roles,source records,photo,geo,taxonomy,axes/signatures unchanged.",
+      "probe": "/tmp/batch037/mluvene-room-probe119.json"
+    },
+    {
+      "status": "PASS",
+      "source": "/tmp/batch037/recovery141-143-13.json",
+      "source_sha256": "92b43c5be091d34f81f09dfb65e140c5212d43c254cf533df134f96eb6382518",
+      "derivative": "/tmp/batch037/recovery141-143-13-era-repaired119.json",
+      "derivative_sha256": "4542e49937458d115add3dcd133fed33a67f781d4dc02b61da8f7ca59502afdf",
+      "changes": [
+        {
+          "path": "entries.0.tradition.lineage",
+          "before": "Nusantara Beat — Nusantara Beat (2025), complete eleven-song debut. The artist/Glitterbeat release credits the full six-person album ensemble: Gino Groeneveld percussion, Jordy Sanger guitar, Megan de Klerk vocals, Michael Joshua Yonata bass, Rouzy Portier guitar/keys, Sonny Groeneveld drums. The six-person credits are supplemented by the full descriptive sound inventory: modern synthesizers, explicit Balinese gamelan-instrument samples, and kecapi zither, kendang drum and Balinese gong sounds. Every named sound class is retained; two guitar players share one family card. Bare keys remain a separate neutral keyboard role because the page also names lush keyboards beyond its explicit synth textures. Unspecified percussion remains neutral without invented conga identity. Complete eleven-song original album selected, not a shortened excerpt or opaque master playback. The label and quoted musicians explicitly describe Indonesian heritage research and contemporary reimagining of older Indonesian folk/pop into new psychedelic grooves. Official Gurtenfestival2026 artist programme independently calls the sextet neo-psychedelia blended with Indonesian gamelan/keroncong influences. The specific sampled gamelan layer is positively documented, not merely inferred from influence. A neutral sample-performance card retains the unspecified sampled gamelan instrumentation; separately named kecapi, kendang and Balinese gong sound families use their corresponding physical owners as authored reproductions. The source does not settle whether those three named sounds were recorded live or sampled, and the packet makes neither claim nor invents additional musicians. Existing indonesian_psychedelia explicitly describes original late1960s/1970s Koes/AKA/Panbers/DaraPuspita guitar-band practice. This is a positively documented contemporary revival and diaspora reinterpretation project, formed2021 through intentional ancestral-repertoire research and creating new originals; not a claim old date alone excludes later musicians, nor a different artist as sole boundary. Gurtenfestival names neo-psychedelia and the label explains the distinct revival process. Shared Indonesian psychedelic heritage remains explicit. functionalSong is limited to an authored functional-harmonic verse/refrain realization of these lyric-bearing contemporary pop songs; no measured original harmonic transcription or universal genre form is asserted. Single-coil tremolo guitar with alder body/maple neck and clean strummed articulation, fingerstyle alder dual-single-coil bass, conventional maple kit with traditional cymbals and source-neutral keyboard, synthesizer and unspecified percussion are authored modern choices, not source makes or unreported instrument subtypes. The source explicitly identifies electric-style whammy-bar guitar use. No guessed backing singers or synthesized drums. For the named traditional sound layers, authored large boat-zither with steel strings, modern pop-Sunda repertoire and pelog-degung tuning, Sundanese-context medium kendang with mahogany shell/cowhide heads, and pitched bossed gong struck with a soft mallet preserve the named physical families. Exact subtype, material and technique are candid authored choices, not source session observations. Pelog is expressly mentioned by the artist; no exact scale-frequency transcription is claimed. The sample card does not replace any positively named physical or synthesis role.",
+          "after": "Nusantara Beat — Nusantara Beat (2025), complete eleven-song debut. The artist/Glitterbeat release credits the full six-person album ensemble: Gino Groeneveld percussion, Jordy Sanger guitar, Megan de Klerk vocals, Michael Joshua Yonata bass, Rouzy Portier guitar/keys, Sonny Groeneveld drums. The six-person credits are supplemented by the full descriptive sound inventory: modern synthesizers, explicit Balinese gamelan-instrument samples, and kecapi zither, kendang drum and Balinese gong sounds. Every named sound class is retained; two guitar players share one family card. Bare keys remain a separate neutral keyboard role because the page also names lush keyboards beyond its explicit synth textures. Unspecified percussion remains neutral without invented conga identity. Complete eleven-song original album selected, not a shortened excerpt or opaque master playback. The label and quoted musicians explicitly describe Indonesian heritage research and contemporary reimagining of older Indonesian folk/pop into new psychedelic grooves. Official Gurtenfestival2026 artist programme independently calls the sextet neo-psychedelia blended with Indonesian gamelan/keroncong influences. The specific sampled gamelan layer is positively documented, not merely inferred from influence. A neutral sample-performance card retains the unspecified sampled gamelan instrumentation; separately named kecapi, kendang and Balinese gong sound families use their corresponding physical owners as authored reproductions. The source does not settle whether those three named sounds were recorded live or sampled, and the packet makes neither claim nor invents additional musicians. Existing indonesian_psychedelia explicitly describes original earlier psychedelic-era Koes/AKA/Panbers/DaraPuspita guitar-band practice. This is a positively documented contemporary revival and diaspora reinterpretation project, formed2021 through intentional ancestral-repertoire research and creating new originals; not a claim old date alone excludes later musicians, nor a different artist as sole boundary. Gurtenfestival names neo-psychedelia and the label explains the distinct revival process. Shared Indonesian psychedelic heritage remains explicit. functionalSong is limited to an authored functional-harmonic verse/refrain realization of these lyric-bearing contemporary pop songs; no measured original harmonic transcription or universal genre form is asserted. Single-coil tremolo guitar with alder body/maple neck and clean strummed articulation, fingerstyle alder dual-single-coil bass, conventional maple kit with traditional cymbals and source-neutral keyboard, synthesizer and unspecified percussion are authored modern choices, not source makes or unreported instrument subtypes. The source explicitly identifies electric-style whammy-bar guitar use. No guessed backing singers or synthesized drums. For the named traditional sound layers, authored large boat-zither with steel strings, modern pop-Sunda repertoire and pelog-degung tuning, Sundanese-context medium kendang with mahogany shell/cowhide heads, and pitched bossed gong struck with a soft mallet preserve the named physical families. Exact subtype, material and technique are candid authored choices, not source session observations. Pelog is expressly mentioned by the artist; no exact scale-frequency transcription is claimed. The sample card does not replace any positively named physical or synthesis role."
+        }
+      ],
+      "scope": "Only lineage comparative phrase changed; old dated comparison remains exactly intact in extras/neighbor/evidence. All other fields identical; no roles/parts/axes/geo/photo/signature/source/dependency change.",
+      "probe": "neo-era-probe119.json",
+      "reason": "Original decade-priority scanner read old-neighbor date as contemporary source era. Accurate earlier-era wording prevents false1970s while preserving all historical source evidence elsewhere."
+    }
+  ],
+  "errors": []
+}

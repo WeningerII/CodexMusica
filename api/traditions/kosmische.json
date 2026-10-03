@@ -3,14 +3,14 @@
   "name": "Kosmische Musik",
   "family": "rock",
   "lineage": "West German electronic-psychedelic practice of roughly 1969-1978, centred on Berlin and Cologne around Tangerine Dream, Klaus Schulze, Ash Ra Tempel, Popol Vuh and producer Conny Plank — long-form sequencer and modular-synthesiser pieces over static or slowly shifting drones, minimal or absent vocals, tape-delay guitar washes, and either free-floating pulseless expanses or steady motorik eighth-note drumming.",
-  "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal bristol trip hop berlin school. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca pad analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 952,
-  "score": 124.711,
+  "recipe": "classic Central European mid-1970s kosmische musik, distorted Rock, experimental branch, ambient experimental electric, modal electric drone modal bristol trip hop hyperpop français. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key block chord mellotron, pre muffled edge muffled brushes-and-sticks drum kit, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, block chord tape replay keyboard. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 922,
+  "score": 147.505,
   "config": {
     "traditions": [
       "kosmische",
       "bristol_trip_hop",
-      "berlin_school"
+      "hyperpop_francais"
     ],
     "instruments": [
       {
@@ -22,25 +22,25 @@
           "mod_lineage": "mod_buchla_west_coast"
         },
         "scores": {
-          "electronic_technique": 16.734,
+          "electronic_technique": 18.609,
           "mod_voltage_source": 1.69,
-          "mod_patch_density": 4.16,
-          "mod_lineage": 6.76
+          "mod_patch_density": 1.69,
+          "mod_lineage": 4.615
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
-          "electronic_technique": "electronic_pad_drone",
+          "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.2700000000000005,
-          "poly_archetypes": 3.6144999999999996,
+          "electronic_technique": 7.8999999999999995,
+          "poly_archetypes": 3.4644999999999997,
           "poly_voices": 0.6599999999999999,
-          "poly_maker_lineage": 1.2349999999999999
+          "poly_maker_lineage": 1.4299999999999997
         }
       },
       {
@@ -48,16 +48,16 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "mellotron_voice": "mellotron_strings",
-          "mellotron_context": "mellotron_prog",
+          "mellotron_context": "mellotron_indie",
           "mellotron_model": "mellotron_m400_canonical",
           "mellotron_tape_material": "mellotron_polyester_tape_canonical"
         },
         "scores": {
-          "keyboard_technique": 1.825,
-          "mellotron_voice": 3.4644999999999997,
-          "mellotron_context": 2.0700000000000003,
-          "mellotron_model": 5.85,
-          "mellotron_tape_material": 1.2349999999999999
+          "keyboard_technique": 6.449999999999999,
+          "mellotron_voice": 3.3145,
+          "mellotron_context": 2.1125,
+          "mellotron_model": 4.81,
+          "mellotron_tape_material": 0.39
         }
       },
       {
@@ -68,8 +68,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 16.184999999999995,
-          "drumhead": 3.1745,
+          "drum_technique": 19.5,
+          "drumhead": 8.1745,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -78,32 +78,32 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_british_marshall_jcm800",
-          "body_wood": "basswood_h",
+          "body_wood": "mahogany_maple_cap",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
-          "scale_length": "scale_gibson_h",
-          "string_gauge": "g_12_hum",
+          "scale_length": "scale_baritone_h",
+          "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 3.125,
-          "amp_make": 3.8395,
-          "body_wood": 1.105,
+          "electric_technique": 7.374999999999998,
+          "amp_make": 3.6895000000000002,
+          "body_wood": 1.4949999999999999,
           "neck_wood": 0.87,
           "fretboard": 0.78,
-          "pickup_magnet": 1.105,
-          "pickup_winding": 0.45499999999999996,
+          "pickup_magnet": 0.65,
+          "pickup_winding": 0.9845,
           "string_material": 0.78,
           "bridge": 0.87,
-          "scale_length": 1.7400000000000002,
-          "string_gauge": 1.3,
+          "scale_length": 4.9905,
+          "string_gauge": 0.87,
           "finish": 0,
-          "string_tuning": 3.8349999999999995
+          "string_tuning": 5.290499999999999
         }
       },
       {
@@ -111,7 +111,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretless",
@@ -119,13 +119,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 4.6545,
+          "amp_make": 4.5045,
           "body_wood": 1.7400000000000002,
-          "pickup_config": 0.5,
-          "string_type": 8.4895,
+          "pickup_config": 0.5205,
+          "string_type": 8.1145,
           "scale_length_b": 0.87,
-          "fretted_or_not": 0.5,
-          "bass_technique": 7.75,
+          "fretted_or_not": 1.15,
+          "bass_technique": 7.374999999999999,
           "electric_bass_string_configuration": 0
         }
       },
@@ -137,7 +137,7 @@
           "tape_state": "aged_tape"
         },
         "scores": {
-          "keyboard_technique": 1.825,
+          "keyboard_technique": 6.449999999999999,
           "tape_voice": 0.6599999999999999,
           "tape_state": 0.09
         }

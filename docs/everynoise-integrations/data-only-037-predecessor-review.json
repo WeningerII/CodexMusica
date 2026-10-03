@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "baseline": "4382c91aa26b620e8044761ad6868f057dc55697",
+  "merged_main": "25032b44098122db2d453bf66583a684aa38c6eb",
+  "baseline_tree": "76576d8a841ba8c0ab1a0f91af1ad0fb21c927f8",
+  "merged_tree": "76576d8a841ba8c0ab1a0f91af1ad0fb21c927f8",
+  "diff_names": "",
+  "snapshot": "/workspace/genre-continuation/research/batch037-baseline/source",
+  "meaning": "Complete tree identity retains all baseline source/API/browser evidence; no rebuild or copy required."
+}

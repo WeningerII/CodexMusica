@@ -1,0 +1,56 @@
+{
+  "id": "jumptek",
+  "name": "Jumptek",
+  "family": "electronic",
+  "lineage": "devnull / blog to the oldskool, complete Jump Tek / Tekstyle Mix December09,51:41. The artist explicitly calls this a mix of tekstyle, jumptek and related sounds, naming E-Max, Conjo S, Junior Waxx, SLY and Orson Keith among the included artists. The whole recorded DJ program is retained, including every embedded instrumental and vocal layer. Full track-by-track credits and embedded singer count are unavailable; no zero-singer claim, guessed synthesis architecture, deck hardware or live-versus-edited workflow is imposed. Existing architecture-neutral DJ playback/mixing owner retains the complete mix. The hardstyle-and-hardcore-techno tree is the same existing hard-dance branch used by jumpstyle, not a claim that all source tracks follow a particular tempo or hardstyle kick design. Neutral axes, treated-studio and clean digital chain are an authored rendering model, not source measurements. Global tuning omitted; no extra singer, sampler, MIDI or source instrument fabrication.",
+  "recipe": "classic jumptek, electronic Dance, hardstyle branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 183,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "jumptek"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

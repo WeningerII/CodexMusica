@@ -1,0 +1,56 @@
+{
+  "id": "credited_flute_unspecified",
+  "name": "Credited flute (source-unspecified construction)",
+  "short": "credited flute",
+  "family": "wind",
+  "class": "wind",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_flute_identity",
+      "name": "Positively credited flute; construction unspecified",
+      "variants": [
+        {
+          "id": "credited_flute_source_unspecified",
+          "name": "Flute; regional subtype, material and playing mechanism details unspecified",
+          "default": true,
+          "descriptors": [
+            "flute-like"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positively credited flute role without sufficient evidence to select regional construction, blowing orientation, duct, key/finger-hole design, material or exact technique. Wind sound-source identity retained; numeric axes neutral editorial scaffold, not measured source acoustics. This isolated owner does not replace existing concrete flute models.",
+  "sources": [
+    "https://mupadhyahiri.blogspot.com/2012/10/audio_17.html"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_flute_identity",
+      "name": "Positively credited flute; construction unspecified",
+      "variants": [
+        {
+          "id": "credited_flute_source_unspecified",
+          "name": "Flute; regional subtype, material and playing mechanism details unspecified",
+          "default": true,
+          "descriptors": [
+            "flute-like"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

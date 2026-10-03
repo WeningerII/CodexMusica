@@ -1,0 +1,88 @@
+{
+  "id": "escape_room",
+  "name": "Escape Room",
+  "family": "pop",
+  "lineage": "Dario D’aversa’s complete five-page Signature Artist instrumental-solo adaptation of Lizzo’s Truth Hurts, Musicnotes MN0200435. Publisher explicitly specifies piano only, solo form and no lyrics; no singer, flute or original pop-recording production is imported. Public complete-edition metadata was read; purchased score pages and full performance audio were not inspected. Key C major and stated76BPM belong to this arrangement; they do not establish a measured temperament or the original-master instrumentation. One nine-foot Steinway-D grand with matching conventional construction and block-chord pop gesture is an authored realization of the publisher piano role, not an asserted source keyboard make or literal bar-by-bar transcription. All nine merged owner parts protected. Room and capture chain are editorial new recording choices; global tuning omitted. functionalSong.popRock is the existing Anglo-American pop-song branch for the selected US repertoire and its authored functional-harmonic song rendition, not a classification as art music merely because it has notation.",
+  "recipe": "classic escape room, functional Song, pop rock branch. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 220,
+  "score": 37.57,
+  "config": {
+    "traditions": [
+      "escape_room"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 22.740999999999993,
+          "grand_piano_size": 1.3945,
+          "grand_piano_brand": 0.2625,
+          "piano_hammer": 1.8199999999999998,
+          "piano_rim": 3.5100000000000002,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": 1.563,
+          "piano_plate": 1.263,
+          "piano_pitch_standard": 5.085999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

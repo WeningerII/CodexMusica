@@ -3,9 +3,9 @@
   "name": "Israeli Pop",
   "family": "pop",
   "lineage": "Tel Aviv commercial song from the 1970s onward, formed when the Ashkenazi-European Shirei Eretz Yisrael tradition was overtaken by Mizrahi cassette culture from the Yemenite and Iraqi neighbourhoods — bouzouki and oud tremolo lines, darbuka doubling a rock kit, Hebrew lyric sung with Arabic-derived melisma, and 100-130 BPM verse-chorus forms.",
-  "recipe": "classic mid-1970s israeli pop, functional Song, mid east n African pop branch, Jewish ritual devotional, europop functional song balkan pop belarusian pop. thick, breath veiled tone, slow rate, interlocked note trading. dance rhythm strummed bouzouki, walnut ribs canonical mid tier oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mahogany rosewood clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth. treated studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
-  "recipe_chars": 708,
-  "score": 282.267,
+  "recipe": "classic mid-1970s israeli pop, functional Song, mid east n African pop branch, Jewish ritual devotional, europop functional song balkan pop belarusian pop. thick, breath veiled tone, slow rate, interlocked note trading. dance rhythm strummed bouzouki, walnut ribs canonical mid tier oud, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, mahogany rosewood lower tension down tuning clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. treated studio. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 688,
+  "score": 282.492,
   "config": {
     "traditions": [
       "israeli_pop",
@@ -34,36 +34,36 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 26.029999999999994,
+          "voice_register": 25.984999999999992,
           "voice_quality": 9.684999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.885,
           "voice_articulation": 14.3,
-          "voice_microtone": 21.994999999999994,
-          "voice_tradition": 20.909999999999997,
+          "voice_microtone": 22.189999999999994,
+          "voice_tradition": 20.474999999999998,
           "voice_mechanism_compound": 3.8349999999999995,
           "voice_estill_quality": 3.4450000000000003,
           "voice_speech_song": 22.035,
           "voice_ensemble_config": 15.989999999999997,
           "voice_ornament_system": 4.7,
           "voice_pitch_organization": 4.010000000000001,
-          "voice_processing_chain": 4.15,
-          "voice_multitrack_stack": 3.500000000000001
+          "voice_processing_chain": 4.390000000000001,
+          "voice_multitrack_stack": 3.695000000000001
         }
       },
       {
         "id": "bouzouki",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "bouzouki_courses": "tetrachordo",
+          "bouzouki_courses": "trichordo",
           "bouzouki_pick": "bouzouki_thin",
           "bouzouki_body_wood": "bouzouki_walnut_bowl",
           "bouzouki_strings": "bouzouki_steel_modern"
         },
         "scores": {
           "plucked_traditional_technique": 4.735,
-          "bouzouki_courses": 0.28500000000000003,
+          "bouzouki_courses": 0.195,
           "bouzouki_pick": 1.3900000000000001,
           "bouzouki_body_wood": 0.39,
           "bouzouki_strings": 0.345
@@ -74,7 +74,7 @@
         "slots": {
           "plucked_traditional_technique": "plucked_ornamented_melodic",
           "oud_school": "oud_arab_classic",
-          "oud_strings": "oud_thirteen",
+          "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
           "oud_body_wood": "oud_walnut_body",
           "oud_soundboard_wood": "oud_western_red_cedar_face",
@@ -83,11 +83,11 @@
         "scores": {
           "plucked_traditional_technique": 1.195,
           "oud_school": 2.145,
-          "oud_strings": 0.63,
-          "oud_pick": 1.83,
-          "oud_body_wood": 1.545,
+          "oud_strings": 1.17,
+          "oud_pick": 1.95,
+          "oud_body_wood": 1.5,
           "oud_soundboard_wood": 0.78,
-          "oud_string_material": 0.585
+          "oud_string_material": 0.49499999999999994
         }
       },
       {
@@ -100,9 +100,9 @@
         },
         "scores": {
           "percussion_technique": 0.52,
-          "darbuka_material": 0.6599999999999999,
+          "darbuka_material": 0.46499999999999997,
           "darbuka_skin": 1.345,
-          "darbuka_regional_style": 3.15
+          "darbuka_regional_style": 3.105
         }
       },
       {
@@ -119,22 +119,22 @@
           "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
-          "string_tuning": "drop_d",
+          "string_tuning": "d_standard",
           "single_coil_pickup_construction": "single_coil_construction_unspecified"
         },
         "scores": {
           "electric_technique": 19.875,
           "amp_make": 1.9499999999999997,
-          "body_wood": 1.74,
-          "neck_wood": 1.74,
-          "fretboard": 1.69,
+          "body_wood": 1.695,
+          "neck_wood": 1.695,
+          "fretboard": 1.645,
           "pickup_magnet": 0.195,
           "string_material": 0.15,
           "string_gauge": 1.95,
-          "bridge": 0.435,
-          "scale_length": 1.95,
+          "bridge": 0.24,
+          "scale_length": 1.8900000000000001,
           "finish": 0,
-          "string_tuning": 1.8849999999999998,
+          "string_tuning": 1.885,
           "single_coil_pickup_construction": 0
         }
       },
@@ -143,21 +143,21 @@
         "slots": {
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
-          "fretted_or_not": "fretless",
+          "fretted_or_not": "fretted",
           "bass_technique": "pick_aggressive",
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 1.6400000000000001,
-          "body_wood": 1.9949999999999999,
-          "pickup_config": 0.24,
-          "string_type": 3.34,
-          "scale_length_b": 1.74,
+          "amp_make": 1.745,
+          "body_wood": 2.145,
+          "pickup_config": 0.195,
+          "string_type": 3.25,
+          "scale_length_b": 1.695,
           "fretted_or_not": 0.195,
-          "bass_technique": 3.2,
+          "bass_technique": 3.395,
           "electric_bass_string_configuration": 0
         }
       },
@@ -170,7 +170,7 @@
         },
         "scores": {
           "drum_technique": 13.78,
-          "drumhead": 18.564999999999998,
+          "drumhead": 18.805,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -184,9 +184,9 @@
         },
         "scores": {
           "electronic_technique": 18.944999999999997,
-          "poly_archetypes": 1.48,
+          "poly_archetypes": 1.3900000000000001,
           "poly_voices": 0.15,
-          "poly_maker_lineage": 1.0999999999999999
+          "poly_maker_lineage": 0.95
         }
       }
     ],

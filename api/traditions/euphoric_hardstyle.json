@@ -1,0 +1,56 @@
+{
+  "id": "euphoric_hardstyle",
+  "name": "Euphoric Hardstyle",
+  "family": "electronic",
+  "lineage": "TrixX DJ — Euphoric Hardstyle Mix27 (The Power of Euphoric), complete2023 programme. Entire issuer-published TrixX DJ Euphoric Hardstyle Mix27 (The Power of Euphoric), published30May2023, explicitly mixed by TrixX. Full22-selection programme from Loreen/Sound Rush Tattoo to Ran-D/Adaro Thunderbolts Of Lightning retained as recorded-program playback and mixing. Source expressly advocates the euphoric scene; this is actual mixed-program practice, not a single opaque produced master or unperformed playlist. No exact medium, deck hardware, live-versus-edited workflow or duration inferred. Existing neutral DJ playback/mixing owner preserves every embedded source instrument and voice without guessed decomposition or invented live singers. Embedded voice count and separately performed live voice count unknown; zero added voice cards does not mean zero voices in media. Neutral treated-studio capture chain and axes are authored realization choices, not source mixing apparatus or measured session. Global tuning omitted.",
+  "recipe": "classic euphoric hardstyle, electronic Dance, hardstyle branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 194,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "euphoric_hardstyle"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

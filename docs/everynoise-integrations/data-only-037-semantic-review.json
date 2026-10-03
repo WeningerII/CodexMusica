@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "integration_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+  "original_source_queue": {
+    "status": "PASS",
+    "reviewer": "research_119",
+    "frozen": "/tmp/batch037/frozen.json",
+    "frozen_sha256": "a86ececfb3060fb93628fdf301aace42ae0a87b8f393e99edefeeed0e990ac09",
+    "required_predecessor": "25032b44098122db2d453bf66583a684aa38c6eb",
+    "baseline_source_head": "4382c91aa26b620e8044761ad6868f057dc55697",
+    "predecessor_tree_equivalence": "/tmp/batch037/predecessor-equivalence119.json",
+    "new_entries": 100,
+    "unique_ids": 100,
+    "source_packets_verified": 100,
+    "accepted_reviews_exact_hash_bound": 100,
+    "frozen_entries_equal_author_sources": true,
+    "immutable_allocations_verified": 100,
+    "excluded_possible_overlap_labels": 189,
+    "excluded_labels_added": 0,
+    "equivalences": {
+      "count": 3,
+      "counted_as_additions": 0,
+      "proposal_and_review_bytes_verified": true,
+      "targets": ["classical_guitar", "trad_quebecois", "cantorial_khazonus"]
+    },
+    "dependencies": {
+      "count": 14,
+      "valid_existing_families": true,
+      "raw_loader_caches": 0,
+      "old_merged_owners_unchanged": 1595,
+      "combined_owners": 1609,
+      "new_descriptor_types_vs_entire_baseline": [],
+      "frozen_df_note": "Copied human-voice variants contain 38 descriptor types absent frozen DF, all independently found in unchanged baseline catalog; no new descriptor types introduced."
+    },
+    "pins": {
+      "effective_owning_parts": 2358,
+      "protected_owning_parts": 2357,
+      "unprotected": [
+        {
+          "id": "folclore_navarra",
+          "parts": 54,
+          "protected": 53,
+          "unprotected": [
+            {
+              "instrument": "accordina",
+              "part": "free_reed_technique",
+              "imported_default": "accordina_breath_articulation_source_unspecified"
+            }
+          ]
+        }
+      ],
+      "orphan_or_inapplicable_flat_pins": 0
+    },
+    "photos": {
+      "entry_receipts_checked": 100,
+      "dependency_receipts_checked": 14,
+      "checks": "Full and thumbnail requested URL, byte count, SHA256, dimensions and content type equal named historical023 receipts; fresh source rights/context remains documented in hash-bound accepted source reviews. No fresh downloads claimed by this queue audit.",
+      "errors": []
+    },
+    "semantic_review": "Valid tradition families and exact existing taxonomy nodes for all100. Inspected scoped-source descriptions and narrower-category disclosures, including instrumental documentary Ethnomusicology, Halloween complete independently programmed organ work, fixed-composition Senggayung, Navarre full twelve-family band practice, solo-improvised handpan, whole vinyl Eastern Bloc mix, and composer/concept-defined early avant-garde. No new blocking contradiction identified. Source-level peer proofs retained rather than pretending100 freshly re-fetched sources in this queue audit.",
+    "limits": [
+      "Pre-integration queue review only. Original integration must preserve raw/browser defaults and all existing source records.",
+      "After original full API build, inspect all new compiled slots and actual recipe text, including the intentional unprotected accordina/free_reed_technique collision in folclore_navarra.",
+      "Causal review of any old derived changes and regression snapshots remains required."
+    ],
+    "supporting_reports": [
+      "frozen-audit119.json",
+      "frozen-preservation119.json",
+      "frozen-mechanical119.json",
+      "source-ledger-review119.json",
+      "dependency-descriptor-baseline119.json"
+    ],
+    "errors": [],
+    "repository_mutations": false
+  },
+  "approved_final_amendment": {
+    "status": "PASS",
+    "original_frozen_sha256": "a86ececfb3060fb93628fdf301aace42ae0a87b8f393e99edefeeed0e990ac09",
+    "final_integration_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+    "changed_paths": [
+      "/entries/70/tradition/lineage",
+      "/entries/98/extras/description",
+      "/entries/98/instrument_role_audit/authored_defaults",
+      "/entries/98/model_policy",
+      "/entries/98/tradition/lineage",
+      "/entries/98/tradition/room",
+      "/integration_amendments"
+    ],
+    "interpretation": "Two bounded new-row amendments only: Mluvene Slovo authored treated-studio room and synchronized narrative evidence; IndonesianNeo lineage-only historical-neighbor date wording. Full historical dates retained in extras/neighbor/source evidence. All source links, rosters, counts, parts/pins, geo, signatures, photos and dependencies unchanged. Originalfrozen historicalqueue proof retained. Finalappend/browser/pipeline independently rerunPASS."
+  },
+  "final_runtime_semantics": {
+    "status": "PASS",
+    "integration_final_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+    "entries": 100,
+    "formats": 400,
+    "all_parity": true,
+    "max_chars": 1000,
+    "review": "All100 actual prose outputs inspected. One misleading lobbying label for literary Czech narration corrected by explicitly authored dry booth; all17voicepins preserved. GuitarArgentina choro-bantering corresponds to full album AyalaChoro track6; Maithili khol technique not a devotional category claim. Generic editorial timbral words assessed against literal rendered context.",
+    "amendment": {
+      "status": "PASS",
+      "original_sha256": "0f17d40699d908918c2ffd74ae74b001ddf997c48a2044b61423858854bd2ea9",
+      "derivative_sha256": "b8b4082131c6803580dfe27c12eb69738d8cb4732524a52d0330a53094e355c6",
+      "integration_sha256": "4bc92224a8f8d9c1d077b13b5463adc346e2f24d8d26e3626f22fe0f7d00190f",
+      "changed_fields": ["tradition", "extras", "model_policy", "instrument_role_audit"],
+      "preserved": "all17voiceparts,sources,photo,geo,taxonomy,axes,signaturetokens,other99entries",
+      "probe": "four original-engine formats narrating; authored dry booth explicit, historical room unknown"
+    },
+    "era_amendment": {
+      "status": "PASS",
+      "previous_integration_sha256": "4bc92224a8f8d9c1d077b13b5463adc346e2f24d8d26e3626f22fe0f7d00190f",
+      "final_integration_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+      "original_source_sha256": "92b43c5be091d34f81f09dfb65e140c5212d43c254cf533df134f96eb6382518",
+      "approved_derivative_sha256": "4542e49937458d115add3dcd133fed33a67f781d4dc02b61da8f7ca59502afdf",
+      "change": "Only new IndonesianNeo tradition.lineage old-neighbor comparative phrase, allhistoricalfacts retainedextras/evidence; no owner/parts/axes/signatures/photo/geography changes.",
+      "probe": "Originalcompile differs only mid1970s to correctmid2020s"
+    },
+    "browser_runtime_after_era_amendment": "All400 final browser/connector outputs byte-identical to prior audited renders"
+  }
+}

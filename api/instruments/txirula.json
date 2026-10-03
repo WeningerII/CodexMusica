@@ -1,0 +1,53 @@
+{
+  "id": "txirula",
+  "name": "Txirula",
+  "short": "Txirula",
+  "family": "wind",
+  "class": "txirula",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "txirula_identity",
+      "name": "Txirula documented identity",
+      "variants": [
+        {
+          "id": "txirula_three_hole_flute",
+          "name": "Explicitly credited three-hole flute identity, retained separately from simultaneous full-practice standard txistu. Exact pitch and material unknown.",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Explicitly credited three-hole flute identity, retained separately from simultaneous full-practice standard txistu. Exact pitch and material unknown. Neutral axes are editorial routing values, not measured performance. No shared owner overrides.",
+  "sources": [
+    "https://mielotxin.com/en/mielotxin-eng/",
+    "https://www.soinuenea.eus/es/soinu-tresnak/xirula-txirula/er-30505/"
+  ],
+  "_ownParts": [
+    {
+      "id": "txirula_identity",
+      "name": "Txirula documented identity",
+      "variants": [
+        {
+          "id": "txirula_three_hole_flute",
+          "name": "Explicitly credited three-hole flute identity, retained separately from simultaneous full-practice standard txistu. Exact pitch and material unknown.",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

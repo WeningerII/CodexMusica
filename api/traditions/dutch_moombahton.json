@@ -1,0 +1,50 @@
+{
+  "id": "dutch_moombahton",
+  "name": "Dutch moombahton",
+  "family": "electronic",
+  "lineage": "Complete publisher-issued Moombahton & Afro House Mix 2018 guest program by Versano Laroz on the verified Adrian Noble channel, published 12 June 2018. The full description supplies 19 timecoded records; 17:20 is the final record start, not an invented program duration. One guest DJ is named. MC and singer credits attached to played records are not separately performed live vocals. Actual embedded and live voice counts remain unknown. The source explicitly documents DJ playback/mixing, not inferred internal generators of a produced single. Host-channel footer equipment is not established as the guest apparatus and is not imported. Actual DJ playback and mixing use the existing neutral owner, with unknown medium, decks, mixer and internal generators preserved. One applicable identity is protected. No global tuning or signal chain imposed. Live-room capture and zero axes are authored neutral present-day scaffolding, not measured original acoustics. Broad electronicDance parent fits the explicitly mixed moombahton and Afro-house dance program without forcing all played records into one rhythmic subnode.",
+  "recipe": "classic late-2010s dutch moombahton, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 101,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "dutch_moombahton"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

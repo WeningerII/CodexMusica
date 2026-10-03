@@ -1,0 +1,50 @@
+{
+  "id": "future_bounce",
+  "name": "Future Bounce",
+  "family": "electronic",
+  "lineage": "Mike Williams — complete artist-issued ADE Warm Up Mix2016, published28September2016. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Future House Music explicitly names Future Bounce as a future-house subgenre and identifies Mike Williams, Brooks, Mesto, Justin Mylo, Keanu Silva and Jordan Jay as its network. This is a documented narrower named branch inside broad existing future_house, not a claim of wholly separate ancestry, a date-only distinction or an equivalence with Australian melbourne_bounce. Existing future_house discusses the wider Tchami/Heldens/Don Diablo/Curbi lineage; overlap is acknowledged. The selected complete early artist DJ programme can contain other house styles; it is one documented practitioner realization, not a claim every mixed selection belongs exclusively to Future Bounce. Jamz Supernova’s identically named UK record label is not the category used here. Playback hardware, media format, deck count, source-track studio instruments and total embedded singer count remain unspecified. There are zero separately credited live vocal roles, not zero voices in the mixed music. Modern controlled room capture is an authored editorial setting, not the source’s measured location or equipment. No actual source tempo, global tuning or precise synthesis model is inferred.",
+  "recipe": "classic future bounce, electronic Dance, house branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 102,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "future_bounce"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}
