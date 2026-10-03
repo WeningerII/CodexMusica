@@ -1,0 +1,116 @@
+{
+  "id": "acoustic_guitar_bass_register",
+  "name": "Acoustic guitar with bass-register function",
+  "short": "Bass-register acoustic guitar",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "acoustic_guitar_bass_register_identity",
+      "name": "Documented source identity",
+      "variants": [
+        {
+          "id": "acoustic_guitar_bass_register_acoustic",
+          "name": "Acoustic guitar; exact body, strings and pickup unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "acoustic_guitar_bass_register_role",
+      "name": "Documented additional register function",
+      "variants": [
+        {
+          "id": "acoustic_guitar_bass_register_bass_function",
+          "name": "Same acoustic guitar also supplies bass-register sound; mechanism unspecified",
+          "default": true,
+          "descriptors": [
+            "low-register"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "acoustic_technique",
+      "name": "Authored playing technique",
+      "variants": [
+        {
+          "id": "acoustic_guitar_bass_register_fingerpicked",
+          "name": "Fingerpicked present-day realization",
+          "default": true,
+          "descriptors": [
+            "fingerpicked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source-specific acoustic guitar retains the promoter-documented bass-register function of Andrea Baileni’s instrument. No separate bassist, electric bass, oscillator, sampler or specific pickup mechanism is inferred. Exact construction remains unspecified; neutral routing axes and own fingerpicked technique are authored. Original acoustic_strings family and existing guitar owners remain untouched.",
+  "sources": [
+    "https://www.looplive.org/show/20190322164/giardini-di-miro-"
+  ],
+  "_ownParts": [
+    {
+      "id": "acoustic_guitar_bass_register_identity",
+      "name": "Documented source identity",
+      "variants": [
+        {
+          "id": "acoustic_guitar_bass_register_acoustic",
+          "name": "Acoustic guitar; exact body, strings and pickup unspecified",
+          "default": true,
+          "descriptors": [
+            "plucked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "acoustic_guitar_bass_register_role",
+      "name": "Documented additional register function",
+      "variants": [
+        {
+          "id": "acoustic_guitar_bass_register_bass_function",
+          "name": "Same acoustic guitar also supplies bass-register sound; mechanism unspecified",
+          "default": true,
+          "descriptors": [
+            "low-register"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "acoustic_technique",
+      "name": "Authored playing technique",
+      "variants": [
+        {
+          "id": "acoustic_guitar_bass_register_fingerpicked",
+          "name": "Fingerpicked present-day realization",
+          "default": true,
+          "descriptors": [
+            "fingerpicked"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

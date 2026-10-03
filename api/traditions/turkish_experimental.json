@@ -1,0 +1,70 @@
+{
+  "id": "turkish_experimental",
+  "name": "Turkish Experimental",
+  "family": "vernacular",
+  "lineage": "Cevdet Erek — Davul2017, all seven original solo improvisations, excluding the separately labelled bonus remix. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic turkish experimental, improv On Frame, jam free branch. davul experimental solo. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 187,
+  "score": 1.305,
+  "config": {
+    "traditions": [
+      "turkish_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "davul_experimental_solo",
+        "slots": {
+          "davul_experimental_solo_form": "davul_experimental_solo_double_headed",
+          "davul_experimental_solo_implements": "davul_experimental_solo_soft_mallet_small_tools",
+          "davul_experimental_solo_technique": "davul_experimental_solo_strike_scrape_pressure",
+          "davul_experimental_solo_tension": "davul_experimental_solo_lower_than_customary"
+        },
+        "scores": {
+          "davul_experimental_solo_form": 0.6,
+          "davul_experimental_solo_implements": 0.6,
+          "davul_experimental_solo_technique": 0,
+          "davul_experimental_solo_tension": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "davul_experimental_solo": [
+        "davul_experimental_solo_form",
+        "davul_experimental_solo_implements",
+        "davul_experimental_solo_technique",
+        "davul_experimental_solo_tension"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "unpitched_percussion",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "unpitched_percussion",
+    "room": "treated_studio",
+    "parts": {
+      "davul_experimental_solo_form": "davul_experimental_solo_double_headed",
+      "davul_experimental_solo_implements": "davul_experimental_solo_soft_mallet_small_tools",
+      "davul_experimental_solo_technique": "davul_experimental_solo_strike_scrape_pressure",
+      "davul_experimental_solo_tension": "davul_experimental_solo_lower_than_customary"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "packet_sha256": "535772d99877be6dc9bd1bfa3a3c848347301bbb0400cfb10d3a171f152fd746",
+  "baseline_instruments": 1544,
+  "after_instruments": 1566,
+  "preserved_existing": true,
+  "changed_existing": [],
+  "unknown_descriptor_tokens": [],
+  "new_merged_parts": [
+    {
+      "id": "dj_playback_mixing_unspecified",
+      "parts": ["dj_playback_mixing_identity"]
+    },
+    {
+      "id": "software_sample_playback",
+      "parts": ["software_sample_playback_identity"]
+    },
+    {
+      "id": "digital_multiengine_synthesizer",
+      "parts": ["digital_multiengine_synthesizer_identity"]
+    },
+    {
+      "id": "digital_synthesis_drum_machine",
+      "parts": ["digital_synthesis_drum_machine_identity"]
+    },
+    {
+      "id": "davul_experimental_solo",
+      "parts": [
+        "davul_experimental_solo_form",
+        "davul_experimental_solo_implements",
+        "davul_experimental_solo_technique",
+        "davul_experimental_solo_tension"
+      ]
+    },
+    {
+      "id": "acoustic_guitar_bass_register",
+      "parts": [
+        "acoustic_guitar_bass_register_identity",
+        "acoustic_guitar_bass_register_role",
+        "acoustic_technique"
+      ]
+    },
+    {
+      "id": "arp_2600_layered",
+      "parts": ["arp_2600_layered_identity", "arp_2600_layered_palette"]
+    },
+    {
+      "id": "cheeze_machine_pro",
+      "parts": ["cheeze_machine_pro_identity"]
+    },
+    {
+      "id": "credited_drums_unspecified",
+      "parts": ["credited_drums_unspecified_identity"]
+    },
+    {
+      "id": "motif_xf8_sampled_piano",
+      "parts": [
+        "motif_xf8_sampled_piano_generator",
+        "motif_xf8_sampled_piano_keyboard",
+        "keyboard_technique"
+      ]
+    },
+    {
+      "id": "garifuna_primero_drum",
+      "parts": ["garifuna_primero_identity"]
+    },
+    {
+      "id": "credited_organ_unspecified",
+      "parts": ["credited_organ_unspecified_identity"]
+    },
+    {
+      "id": "uhadi_song_bow",
+      "parts": ["uhadi_song_bow_body", "uhadi_song_bow_repertoire"]
+    },
+    {
+      "id": "credited_washboard_unspecified",
+      "parts": ["credited_washboard_identity"]
+    },
+    {
+      "id": "fixed_frequency_tone_recording",
+      "parts": ["fixed_frequency_recording_identity"]
+    },
+    {
+      "id": "credited_strings_unspecified",
+      "parts": ["credited_strings_unspecified_identity"]
+    },
+    {
+      "id": "credited_temple_bells",
+      "parts": ["credited_temple_bells_identity"]
+    },
+    {
+      "id": "flute_whisper_tones",
+      "parts": ["flute_whisper_tone_identity"]
+    },
+    {
+      "id": "credited_ney",
+      "parts": ["credited_ney_identity"]
+    },
+    {
+      "id": "credited_kawala",
+      "parts": ["credited_kawala_identity"]
+    },
+    {
+      "id": "whale_environmental_recording",
+      "parts": ["whale_environmental_source"]
+    },
+    {
+      "id": "software_white_noise_generator",
+      "parts": ["software_white_noise_identity"]
+    }
+  ]
+}

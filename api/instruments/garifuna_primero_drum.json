@@ -1,0 +1,55 @@
+{
+  "id": "garifuna_primero_drum",
+  "name": "Garifuna primero drum",
+  "short": "Garifuna primero drum",
+  "family": "percussion",
+  "class": "credited_hand_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "exclude_family_parts": [
+    "percussion_technique"
+  ],
+  "parts": [
+    {
+      "id": "garifuna_primero_identity",
+      "name": "Credited drum identity",
+      "variants": [
+        {
+          "id": "garifuna_primero_source_unspecified",
+          "name": "Garifuna primero; construction and precise technique unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Retains explicitly named Garifuna primero drum without substituting Cuban conga or inventing dimensions, membrane materials, tuning or source stroke pattern. Routing axes neutral and authored.",
+  "sources": [
+    "https://nyctrust.bandcamp.com/album/ya-veran"
+  ],
+  "_ownParts": [
+    {
+      "id": "garifuna_primero_identity",
+      "name": "Credited drum identity",
+      "variants": [
+        {
+          "id": "garifuna_primero_source_unspecified",
+          "name": "Garifuna primero; construction and precise technique unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "credited_organ_unspecified",
+  "name": "Credited organ (mechanism unspecified)",
+  "short": "Credited organ (mechanism unspecified)",
+  "family": "keyboard",
+  "class": "keyboard",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_organ_unspecified_identity",
+      "name": "Source-named identity",
+      "variants": [
+        {
+          "id": "credited_organ_unspecified_identity_unspecified",
+          "name": "Credited organ (mechanism unspecified)",
+          "default": true,
+          "descriptors": [
+            "sustained"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Retains the explicitly credited role without inventing pipe, reed or electronic mechanism and registration. Routing axes are neutral authored coordinates, not measured source properties.",
+  "sources": [
+    "https://margieadam.com/discography/margie-adam-songwriter/"
+  ],
+  "exclude_family_parts": [
+    "keyboard_technique",
+    "percussion_technique",
+    "bowed_technique"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_organ_unspecified_identity",
+      "name": "Source-named identity",
+      "variants": [
+        {
+          "id": "credited_organ_unspecified_identity_unspecified",
+          "name": "Credited organ (mechanism unspecified)",
+          "default": true,
+          "descriptors": [
+            "sustained"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

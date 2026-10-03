@@ -1,0 +1,65 @@
+{
+  "id": "credited_temple_bells",
+  "name": "Credited temple bells (construction unspecified)",
+  "short": "Credited temple bells (construction unspecified)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_temple_bells_identity",
+      "name": "Source-named identity",
+      "variants": [
+        {
+          "id": "credited_temple_bells_identity_unspecified",
+          "name": "Credited temple bells (construction unspecified)",
+          "default": true,
+          "descriptors": [
+            "resonant"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Retains the explicitly credited role without inventing physical form, material, pitch and playing method. Routing axes are neutral authored coordinates, not measured source properties.",
+  "sources": [
+    "https://margieadam.com/discography/margie-adam-songwriter/"
+  ],
+  "exclude_family_parts": [
+    "keyboard_technique",
+    "percussion_technique",
+    "bowed_technique"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_temple_bells_identity",
+      "name": "Source-named identity",
+      "variants": [
+        {
+          "id": "credited_temple_bells_identity_unspecified",
+          "name": "Credited temple bells (construction unspecified)",
+          "default": true,
+          "descriptors": [
+            "resonant"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

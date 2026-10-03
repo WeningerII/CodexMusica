@@ -1,0 +1,93 @@
+{
+  "id": "experimental_house",
+  "name": "Experimental House",
+  "family": "electronic",
+  "lineage": "A_A — Cyan, complete B1 track from Midori (2023). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s experimental house, experimental Elec. drum machine analog, doepfer eurorack canonical 1995 present small format standardization modular modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 270,
+  "score": 12.368,
+  "config": {
+    "traditions": [
+      "experimental_house"
+    ],
+    "instruments": [
+      {
+        "id": "drum_machine_analog",
+        "slots": {
+          "kick_voice": "sine_burst_kick",
+          "snare_voice": "two_oscillator_snare",
+          "hat_voice": "square_summed_hat",
+          "shuffle_quantize": "straight_quantize"
+        },
+        "scores": {
+          "kick_voice": 0.705,
+          "snare_voice": 0,
+          "hat_voice": 0,
+          "shuffle_quantize": -0.05
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_random",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": 9.255499999999998,
+          "mod_voltage_source": 0,
+          "mod_patch_density": 0.378,
+          "mod_lineage": 2.08
+        }
+      }
+    ],
+    "pinned": {
+      "drum_machine_analog": [
+        "kick_voice",
+        "snare_voice",
+        "hat_voice",
+        "shuffle_quantize"
+      ],
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "kick_voice": "sine_burst_kick",
+      "snare_voice": "two_oscillator_snare",
+      "hat_voice": "square_summed_hat",
+      "shuffle_quantize": "straight_quantize",
+      "electronic_technique": "electronic_modular_patch",
+      "mod_voltage_source": "mod_random",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

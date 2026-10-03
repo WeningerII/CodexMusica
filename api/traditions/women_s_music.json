@@ -1,0 +1,460 @@
+{
+  "id": "women_s_music",
+  "name": "Women's music",
+  "family": "pop",
+  "lineage": "Margie Adam — Songwriter, complete1976 album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic women's music, functional Song. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano, credited organ credited strings unspecified, analog poly synth, acoustic guitar, harmonica, flute, maple machine hammered symmetric pattern organized rows full lathed drum kit, conga family multi register, electric bass, timpani, credited temple bells. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 457,
+  "score": 22.749,
+  "config": {
+    "traditions": [
+      "women_s_music"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 0.273,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.45,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.1905,
+          "piano_hammer": 0.8079999999999999,
+          "piano_rim": 1.3,
+          "piano_soundboard": 0.7,
+          "piano_pinblock": 2,
+          "piano_plate": 0.7,
+          "piano_pitch_standard": 1.3649999999999998
+        }
+      },
+      {
+        "id": "credited_organ_unspecified",
+        "slots": {
+          "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+        },
+        "scores": {
+          "credited_organ_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_pad_drone",
+          "poly_archetypes": "prophet_5",
+          "poly_voices": "poly_5_voice",
+          "poly_maker_lineage": "poly_sequential_smith"
+        },
+        "scores": {
+          "electronic_technique": 0.2,
+          "poly_archetypes": 0,
+          "poly_voices": 0.3,
+          "poly_maker_lineage": -0.05
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "sitka_om",
+          "back_sides": "rosewood_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_fingerpicked"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.035,
+          "string_acoustic": 0,
+          "acoustic_om_technique": 0.05000000000000002
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "diatonic_blues",
+          "harmonica_comb": "pearwood_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_blues_cross",
+          "harmonica_maker_school": "harmonica_hohner_marine_band",
+          "harmonica_tuning": "harmonica_richter_canonical"
+        },
+        "scores": {
+          "harmonica_type": 0,
+          "harmonica_comb": -0.07,
+          "harmonica_reed": -0.07,
+          "harmonica_technique": -0.1,
+          "harmonica_maker_school": -0.07,
+          "harmonica_tuning": 0.3
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_classical_legato",
+          "flute_size": "concert_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": -0.05,
+          "flute_size": 0,
+          "flute_material": 0.354,
+          "flute_technique": 0,
+          "flute_maker_school": 0.108
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 1.3,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 1.954,
+          "shell_thickness": 0,
+          "bearing_edges": 0.354,
+          "snare_wires": 0,
+          "cymbal_alloy": 0.5199999999999999,
+          "cymbal_hammering": 3.254,
+          "cymbal_lathing": 3.2,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "conga_family_multi_register",
+        "slots": {
+          "conga_complement": "conga_complement_quinto_conga_tumba",
+          "percussion_technique": "percussion_hands_layered",
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "conga_complement": 0,
+          "percussion_technique": -0.1,
+          "conga_skin": 0.6,
+          "conga_shell_wood": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": -0.15000000000000002,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "credited_strings_unspecified",
+        "slots": {
+          "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified"
+        },
+        "scores": {
+          "credited_strings_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "timpani",
+        "slots": {
+          "percussion_technique": "percussion_mallets_orchestral",
+          "timpani_size": "timpani_4_drum_set",
+          "timpani_head": "timpani_synthetic"
+        },
+        "scores": {
+          "percussion_technique": -0.05,
+          "timpani_size": 0.18,
+          "timpani_head": 0.6
+        }
+      },
+      {
+        "id": "credited_temple_bells",
+        "slots": {
+          "credited_temple_bells_identity": "credited_temple_bells_identity_unspecified"
+        },
+        "scores": {
+          "credited_temple_bells_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "credited_organ_unspecified": [
+        "credited_organ_unspecified_identity"
+      ],
+      "analog_poly_synth": [
+        "electronic_technique",
+        "poly_archetypes",
+        "poly_voices",
+        "poly_maker_lineage"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ],
+      "harmonica": [
+        "harmonica_type",
+        "harmonica_comb",
+        "harmonica_reed",
+        "harmonica_technique",
+        "harmonica_maker_school",
+        "harmonica_tuning"
+      ],
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique",
+        "flute_maker_school"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "conga_family_multi_register": [
+        "conga_complement",
+        "percussion_technique",
+        "conga_skin",
+        "conga_shell_wood"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "credited_strings_unspecified": [
+        "credited_strings_unspecified_identity"
+      ],
+      "timpani": [
+        "timpani_size",
+        "timpani_head"
+      ],
+      "credited_temple_bells": [
+        "credited_temple_bells_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified",
+      "electronic_technique": "electronic_pad_drone",
+      "poly_archetypes": "prophet_5",
+      "poly_voices": "poly_5_voice",
+      "poly_maker_lineage": "poly_sequential_smith",
+      "string_tuning": "standard_tuning",
+      "top_wood": "sitka_om",
+      "back_sides": "rosewood_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_fingerpicked",
+      "harmonica_type": "diatonic_blues",
+      "harmonica_comb": "pearwood_comb",
+      "harmonica_reed": "brass_harm",
+      "harmonica_technique": "harm_blues_cross",
+      "harmonica_maker_school": "harmonica_hohner_marine_band",
+      "harmonica_tuning": "harmonica_richter_canonical",
+      "wind_articulation": "wind_classical_legato",
+      "flute_size": "concert_flute",
+      "flute_material": "silver_flute",
+      "flute_technique": "classical_flute",
+      "flute_maker_school": "flute_powell_boston",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "conga_complement": "conga_complement_quinto_conga_tumba",
+      "percussion_technique": "percussion_hands_layered",
+      "conga_skin": "conga_synthetic_head",
+      "conga_shell_wood": "conga_oak_staved",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified",
+      "timpani_size": "timpani_4_drum_set",
+      "timpani_head": "timpani_synthetic",
+      "credited_temple_bells_identity": "credited_temple_bells_identity_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

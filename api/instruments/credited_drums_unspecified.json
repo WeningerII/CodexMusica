@@ -1,0 +1,64 @@
+{
+  "id": "credited_drums_unspecified",
+  "name": "Credited drums (source technology unspecified)",
+  "short": "Credited drums (source technology unspecified)",
+  "family": "percussion",
+  "class": "percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_drums_unspecified_identity",
+      "name": "Documented source identity",
+      "variants": [
+        {
+          "id": "credited_drums_unspecified_source",
+          "name": "Drum role; acoustic/sampled/synthesized technology unspecified",
+          "default": true,
+          "descriptors": [
+            "percussive"
+          ],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Positively credited drums with no source identification of acoustic kit, sample playback or drum synthesis. No hardware, material or playing technique inferred. Neutral axes authored.",
+  "sources": [
+    "https://m.soundcloud.com/2getheraudio/sets/cheeze-machine-pro"
+  ],
+  "exclude_family_parts": [
+    "electronic_technique",
+    "percussion_technique"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_drums_unspecified_identity",
+      "name": "Documented source identity",
+      "variants": [
+        {
+          "id": "credited_drums_unspecified_source",
+          "name": "Drum role; acoustic/sampled/synthesized technology unspecified",
+          "default": true,
+          "descriptors": [
+            "percussive"
+          ],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ]
+}

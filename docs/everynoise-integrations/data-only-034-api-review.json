@@ -1,0 +1,170 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "9c6d6ca4cfc98b91739b03c82b90d01033e6a073a29c94a4e86ce7c2a1545f30",
+  "baseline_head": "34ae18f74a18c5b499d062354d7ecb3f742f011c",
+  "merged_predecessor_equivalence": null,
+  "current_counts": {
+    "traditions": 6038,
+    "instruments": 1566
+  },
+  "old_api": {
+    "traditions": 5938,
+    "identical": 5930,
+    "derived_changed": 8,
+    "recipe_changed": 2,
+    "material_slot_changes": 2,
+    "material_changed_entries": 1,
+    "old_instruments_identical": 1544,
+    "source_identity_roster_environment_protected_pin_changes": 0
+  },
+  "new_api": {
+    "traditions": 100,
+    "instrument_dependencies": 22,
+    "effective_parts": 3217,
+    "protected_applicable_pins": 3212,
+    "all_protected_pins_preserved": true,
+    "unpinned_actual_choices": [
+      {
+        "tradition": "nz_dnb",
+        "instrument": "sampler_classic",
+        "part": "electronic_technique",
+        "flat_value": "electronic_pad_drone",
+        "imported_default": "electronic_sample_chopped",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_sample_chopped",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "uruguayan_indie",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_keyboard_melodic_chordal",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "west_yorkshire_indie",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_block_chord_pop",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_keyboard_melodic_chordal",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "women_s_music",
+        "instrument": "timpani",
+        "part": "percussion_technique",
+        "flat_value": "percussion_hands_layered",
+        "imported_default": "percussion_mallets_orchestral",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "percussion_mallets_orchestral",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "yoga",
+        "instrument": "modular_synth",
+        "part": "electronic_technique",
+        "flat_value": "electronic_sustained_layering",
+        "imported_default": "electronic_pad_drone",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_modular_patch",
+        "changed_from_import": true,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      }
+    ]
+  },
+  "causal_method": "Unchanged original baseline/current solvers replay all changed API recipes, complete configs and rounded scores exactly. A third temporary process removes ONLY new100 traditions/extras from memory, retains all new instrument definitions, and restores all baseline recipes/configs/scores. No source/API/snapshot edits. At most2 simultaneous review processes.",
+  "causal_interpretation": "Expected original adjacency/staple-candidate scoring effects of new source rows.Existing unprotected selected variants materially move; this is acknowledged as changed derived output, not improved historical reconstruction or mutated authored defaults. Existing actual browser cards preserved independently.",
+  "causal_rows": [
+    {
+      "id": "bases_de_freestyle",
+      "baseline_staples": ["bases_de_freestyle"],
+      "current_staples": ["bases_de_freestyle"],
+      "new_source_neighbor_ids": ["birmingham_grime", "zhenskiy_rep"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 0.608,
+      "current_score": 0.7655000000000001
+    },
+    {
+      "id": "bboy",
+      "baseline_staples": ["bboy"],
+      "current_staples": ["bboy"],
+      "new_source_neighbor_ids": ["birmingham_grime", "zhenskiy_rep"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 0.8780000000000001,
+      "current_score": 1.0355
+    },
+    {
+      "id": "beatboxing",
+      "baseline_staples": ["beatboxing"],
+      "current_staples": ["beatboxing"],
+      "new_source_neighbor_ids": ["birmingham_grime", "zhenskiy_rep"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 9.203,
+      "current_score": 9.8255
+    },
+    {
+      "id": "beats",
+      "baseline_staples": ["beats"],
+      "current_staples": ["beats"],
+      "new_source_neighbor_ids": ["birmingham_grime", "zhenskiy_rep"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.4215,
+      "current_score": 1.579
+    },
+    {
+      "id": "neurostep",
+      "baseline_staples": ["neurostep"],
+      "current_staples": ["neurostep"],
+      "new_source_neighbor_ids": ["scottish_techno"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 7.2037499999999985,
+      "current_score": 7.200624999999999
+    },
+    {
+      "id": "plunderphonics",
+      "baseline_staples": ["plunderphonics", "alternative_hip_hop", "gangsta_rap"],
+      "current_staples": ["plunderphonics", "gangsta_rap", "houston_chopped_screwed"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["alabama_rap"],
+      "baseline_score": 99.51750000000001,
+      "current_score": 97.37749999999997
+    },
+    {
+      "id": "spacesynth",
+      "baseline_staples": ["spacesynth"],
+      "current_staples": ["spacesynth"],
+      "new_source_neighbor_ids": ["vgm_remix"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 12.654500000000002,
+      "current_score": 12.7625
+    },
+    {
+      "id": "tech_house_classic",
+      "baseline_staples": ["tech_house_classic", "algorave", "norwegian_techno"],
+      "current_staples": ["tech_house_classic", "algorave", "dark_techno"],
+      "new_source_neighbor_ids": ["hungarian_techno", "indian_techno"],
+      "new_source_candidate_ids": ["dark_techno"],
+      "baseline_score": 115.97999999999999,
+      "current_score": 112.54
+    }
+  ],
+  "full_delta_report": "api-delta-independent-review119.json",
+  "projection_and_source_pin_proof": "api-projection-review119.json",
+  "errors": [],
+  "remaining_required": "Root serial regression and any targeted fixture causal review; exact-head CI.",
+  "no_repo_mutations": true
+}

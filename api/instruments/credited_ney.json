@@ -1,0 +1,62 @@
+{
+  "id": "credited_ney",
+  "name": "Credited ney",
+  "short": "Credited ney",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_ney_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "credited_ney_source_unspecified",
+          "name": "Credited ney; construction, pitch and lineage unspecified",
+          "default": true,
+          "descriptors": [
+            "breath-tone-airy",
+            "flute-like"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Isolated source-named instrument owner preserves Credited ney without assigning unsupported construction, pitch and lineage unspecified. Neutral routing axes are authored. No existing owner or shared family part is altered.",
+  "sources": [
+    "https://www.youtube.com/watch?v=5t02fPfr3bo"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_ney_identity",
+      "name": "Credited instrument identity",
+      "variants": [
+        {
+          "id": "credited_ney_source_unspecified",
+          "name": "Credited ney; construction, pitch and lineage unspecified",
+          "default": true,
+          "descriptors": [
+            "breath-tone-airy",
+            "flute-like"
+          ],
+          "match_tokens": [
+            "melodic"
+          ]
+        }
+      ]
+    }
+  ]
+}

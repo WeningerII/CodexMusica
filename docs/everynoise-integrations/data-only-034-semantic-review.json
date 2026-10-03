@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "535772d99877be6dc9bd1bfa3a3c848347301bbb0400cfb10d3a171f152fd746",
+  "entries": 100,
+  "source_packets": 93,
+  "source_hash_and_immutable_audit": "/tmp/batch034/frozen-audit119.json",
+  "mechanical": {
+    "parts": 3217,
+    "protected_parts": 3212,
+    "errors": [],
+    "unprotected": [
+      ["nz_dnb", [["sampler_classic", "electronic_technique"]]],
+      ["uruguayan_indie", [["electronic_keyboard_unspecified", "keyboard_technique"]]],
+      ["west_yorkshire_indie", [["electronic_keyboard_unspecified", "keyboard_technique"]]],
+      ["women_s_music", [["timpani", "percussion_technique"]]],
+      ["yoga", [["modular_synth", "electronic_technique"]]]
+    ]
+  },
+  "required_corrections": [
+    {
+      "id": "wrock",
+      "field": "tradition.family",
+      "before": "rock_punk",
+      "after": "rock",
+      "reason": "Fresh artist primary5405view0 explicitly alternative/rock/wizard-rock, no punk source; broadrock existing parent retained."
+    },
+    {
+      "id": "wrestling",
+      "field": "tradition.family",
+      "before": "rock_punk",
+      "after": "rock",
+      "reason": "Fresh composer primary5409view0 explicitly instrumental rock/metal; rock family coherent and parent retained."
+    }
+  ],
+  "retained_after_fresh_source_review": {
+    "wuhan_indie": "5405view1 fullprimary punk rock/emo tags; retainrock_punk",
+    "windsor_on_indie": "5403view0 fullprimary posthardcore/postpunk; retainrock_punk",
+    "worcester_ma_indie": "5408view0 fullprimary poppunk/indiepunk and ownbio; retainrock_punk",
+    "wisconsin_indie": "Explicit piano-rock artist practice provides positive piano timbre branch despite generic keyboard credit; candid authored acoustic grand acceptable."
+  },
+  "exclusions": {
+    "possible_overlap_queue": 189,
+    "intersection": [],
+    "classic_progressive_house_absent": true,
+    "three_equivalences": "Vogue, VintageTango, VintageBroadway retain zeroaddition and noorphandep status; previously primaryreviewed."
+  },
+  "semantic_scope": "All100 supplied category/parent/family/role/default narratives reviewed with peer-reviewed source packets; fresh primary checks targeted ambiguous rockfamily claims. This is not claim100 primary pages newly browsed during freeze audit. No arbitrary roster reduction found beyond honestly scoped published editions, full dated lineups, actual DJ programs or positively documented field/sample construction. Candid source-vs-authored settings retained.",
+  "default_scope": "AllD9 dimensions coherent; no machinehammer/handfinish contradiction; sampler workflows source-compatible or openly authored. Five unprotected slot boundaries explicit in evidence and require completed API actualchoice audit. No universal source mechanism asserted from authored settings.",
+  "photos": "Original exactbyte receipts checked by baseline mechanical helper; independently approved sourcepacket photo/rights reviews retained. Rootseparate generic source-label normalization permitted onlymetadata; no newdownload/visual claim.",
+  "old_merged_owners_preserved": 1544,
+  "new_dependency_unknown_df_tokens": [],
+  "no_repo_mutations": true,
+  "integration_final_sha256": "9c6d6ca4cfc98b91739b03c82b90d01033e6a073a29c94a4e86ce7c2a1545f30",
+  "correction_acceptance": "Both recommended family changes verified; all other scope/defaults preserved. Root25photo-source fields and single unsupported signature token removal independently bounded."
+}

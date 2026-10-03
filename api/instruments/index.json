@@ -1,5 +1,5 @@
 {
-  "count": 1544,
+  "count": 1566,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9264,6 +9264,138 @@
       "name": "B-flat baritone horn",
       "family": "wind",
       "href": "instruments/baritone_horn_bb.json"
+    },
+    {
+      "id": "dj_playback_mixing_unspecified",
+      "name": "DJ playback and mixing (source medium unspecified)",
+      "family": "electronic",
+      "href": "instruments/dj_playback_mixing_unspecified.json"
+    },
+    {
+      "id": "software_sample_playback",
+      "name": "Software sample playback and arrangement",
+      "family": "electronic",
+      "href": "instruments/software_sample_playback.json"
+    },
+    {
+      "id": "digital_multiengine_synthesizer",
+      "name": "Digital multi-engine synthesizer",
+      "family": "electronic",
+      "href": "instruments/digital_multiengine_synthesizer.json"
+    },
+    {
+      "id": "digital_synthesis_drum_machine",
+      "name": "Digital synthesis drum machine",
+      "family": "electronic",
+      "href": "instruments/digital_synthesis_drum_machine.json"
+    },
+    {
+      "id": "davul_experimental_solo",
+      "name": "Solo experimental davul",
+      "family": "percussion",
+      "href": "instruments/davul_experimental_solo.json"
+    },
+    {
+      "id": "acoustic_guitar_bass_register",
+      "name": "Acoustic guitar with bass-register function",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_guitar_bass_register.json"
+    },
+    {
+      "id": "arp_2600_layered",
+      "name": "ARP 2600 layered synthesis",
+      "family": "electronic",
+      "href": "instruments/arp_2600_layered.json"
+    },
+    {
+      "id": "cheeze_machine_pro",
+      "name": "Cheeze Machine PRO virtual-analog synthesizer",
+      "family": "electronic",
+      "href": "instruments/cheeze_machine_pro.json"
+    },
+    {
+      "id": "credited_drums_unspecified",
+      "name": "Credited drums (source technology unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_drums_unspecified.json"
+    },
+    {
+      "id": "motif_xf8_sampled_piano",
+      "name": "Motif XF8 sampled-piano keyboard",
+      "family": "keyboard",
+      "href": "instruments/motif_xf8_sampled_piano.json"
+    },
+    {
+      "id": "garifuna_primero_drum",
+      "name": "Garifuna primero drum",
+      "family": "percussion",
+      "href": "instruments/garifuna_primero_drum.json"
+    },
+    {
+      "id": "credited_organ_unspecified",
+      "name": "Credited organ (mechanism unspecified)",
+      "family": "keyboard",
+      "href": "instruments/credited_organ_unspecified.json"
+    },
+    {
+      "id": "uhadi_song_bow",
+      "name": "Uhadi gourd bow for sung repertoire",
+      "family": "plucked_traditional",
+      "href": "instruments/uhadi_song_bow.json"
+    },
+    {
+      "id": "credited_washboard_unspecified",
+      "name": "Washboard with source-unspecified construction",
+      "family": "percussion",
+      "href": "instruments/credited_washboard_unspecified.json"
+    },
+    {
+      "id": "fixed_frequency_tone_recording",
+      "name": "Fixed-frequency tone recording",
+      "family": "electronic",
+      "href": "instruments/fixed_frequency_tone_recording.json"
+    },
+    {
+      "id": "credited_strings_unspecified",
+      "name": "Credited strings (instrumentation unspecified)",
+      "family": "acoustic_strings",
+      "href": "instruments/credited_strings_unspecified.json"
+    },
+    {
+      "id": "credited_temple_bells",
+      "name": "Credited temple bells (construction unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_temple_bells.json"
+    },
+    {
+      "id": "flute_whisper_tones",
+      "name": "Flute whisper tones",
+      "family": "wind",
+      "href": "instruments/flute_whisper_tones.json"
+    },
+    {
+      "id": "credited_ney",
+      "name": "Credited ney",
+      "family": "wind",
+      "href": "instruments/credited_ney.json"
+    },
+    {
+      "id": "credited_kawala",
+      "name": "Credited kawala",
+      "family": "wind",
+      "href": "instruments/credited_kawala.json"
+    },
+    {
+      "id": "whale_environmental_recording",
+      "name": "Whale environmental recording",
+      "family": "electronic",
+      "href": "instruments/whale_environmental_recording.json"
+    },
+    {
+      "id": "software_white_noise_generator",
+      "name": "Software white-noise generator",
+      "family": "electronic",
+      "href": "instruments/software_white_noise_generator.json"
     }
   ]
 }

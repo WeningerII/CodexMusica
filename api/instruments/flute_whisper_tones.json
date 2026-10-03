@@ -1,0 +1,55 @@
+{
+  "id": "flute_whisper_tones",
+  "name": "Flute whisper tones",
+  "short": "Flute whisper tones",
+  "family": "wind",
+  "class": "wind_blown",
+  "exclude_family_parts": [
+    "wind_articulation"
+  ],
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "flute_whisper_tone_identity",
+      "name": "Source technique",
+      "variants": [
+        {
+          "id": "flute_whisper_tones_source_unspecified",
+          "name": "Flute whisper tones; construction and pitch layout unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Retains explicitly credited flute whisper tones without replacing this delicate source technique with overblowing, beatboxing or Irish rolls. Neutral routing axes are authored. Physical flute construction remains unspecified.",
+  "sources": [
+    "https://praful.bandcamp.com/track/om-mani-padme-hum-instrumental"
+  ],
+  "_ownParts": [
+    {
+      "id": "flute_whisper_tone_identity",
+      "name": "Source technique",
+      "variants": [
+        {
+          "id": "flute_whisper_tones_source_unspecified",
+          "name": "Flute whisper tones; construction and pitch layout unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

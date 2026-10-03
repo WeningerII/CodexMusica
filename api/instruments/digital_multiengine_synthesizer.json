@@ -1,0 +1,56 @@
+{
+  "id": "digital_multiengine_synthesizer",
+  "name": "Digital multi-engine synthesizer",
+  "short": "Digital multi-engine synthesizer",
+  "family": "electronic",
+  "class": "digital_multiengine_synthesizer",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "digital_multiengine_synthesizer_identity",
+      "name": "Digital source identity",
+      "variants": [
+        {
+          "id": "digital_multiengine_synthesizer_digital",
+          "name": "Digital multi-engine synthesizer",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Preserves a positively credited multi-engine digital synthesizer without selecting only one of its available architectures. Source Monomachine provides SuperWave, SID, DigiPRO, FM+ and VO engines; session-selected algorithms and patches remain unspecified. Neutral routing axes are authored coordinates, not hardware measurements.",
+  "sources": [
+    "https://www.elektron.se/wp-content/uploads/2024/09/Monomachine_J.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "digital_multiengine_synthesizer_identity",
+      "name": "Digital source identity",
+      "variants": [
+        {
+          "id": "digital_multiengine_synthesizer_digital",
+          "name": "Digital multi-engine synthesizer",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

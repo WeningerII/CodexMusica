@@ -1,0 +1,52 @@
+{
+  "id": "credited_washboard_unspecified",
+  "name": "Washboard with source-unspecified construction",
+  "short": "Credited washboard percussion",
+  "family": "percussion",
+  "class": "percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_washboard_identity",
+      "name": "Washboard identity",
+      "variants": [
+        {
+          "id": "credited_washboard_source_unspecified",
+          "name": "Washboard; construction unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positively credited musical washboard. Frame, metal, attachments and striking implements are unspecified. Does not substitute the specifically zydeco wearable frottoir or invent a construction. Axes are neutral authored routing values.",
+  "sources": [
+    "https://tinmen1.bandcamp.com/track/smoke-my-peace-pipe"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_washboard_identity",
+      "name": "Washboard identity",
+      "variants": [
+        {
+          "id": "credited_washboard_source_unspecified",
+          "name": "Washboard; construction unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

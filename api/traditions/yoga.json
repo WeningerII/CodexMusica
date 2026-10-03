@@ -1,0 +1,95 @@
+{
+  "id": "yoga",
+  "name": "Yoga",
+  "family": "electronic",
+  "lineage": "Kaitlyn Aurelia Smith — Tides: Music for Meditation and Yoga, complete 2013 recorded album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2010s yoga, experimental Elec. buchla west coast modular canonical 1965 1980s berkeley sequencer touchplate timbral modular modular synth, field sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 266,
+  "score": 14.306,
+  "config": {
+    "traditions": [
+      "yoga"
+    ],
+    "instruments": [
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_modular_patch",
+          "mod_voltage_source": "mod_sequencer",
+          "mod_patch_density": "mod_west_coast",
+          "mod_lineage": "mod_buchla_west_coast"
+        },
+        "scores": {
+          "electronic_technique": 4.7755,
+          "mod_voltage_source": 0.38849999999999996,
+          "mod_patch_density": 0,
+          "mod_lineage": 1.885
+        }
+      },
+      {
+        "id": "sampler_classic",
+        "slots": {
+          "electronic_technique": "electronic_sustained_layering",
+          "sampler_archetypes": "mpc_modern",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
+          "sampler_workflow": "sampler_field_recordings",
+          "sampler_classic_context": "sampler_classic_post"
+        },
+        "scores": {
+          "electronic_technique": 1.5,
+          "sampler_archetypes": -0.05,
+          "sampler_bit_depth": 0,
+          "sampler_workflow": 5.7445,
+          "sampler_classic_context": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "modular_synth": [
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ],
+      "sampler_classic": [
+        "electronic_technique",
+        "sampler_archetypes",
+        "sampler_bit_depth",
+        "sampler_workflow",
+        "sampler_classic_context"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "electronic_technique": "electronic_sustained_layering",
+      "mod_voltage_source": "mod_sequencer",
+      "mod_patch_density": "mod_west_coast",
+      "mod_lineage": "mod_buchla_west_coast",
+      "sampler_archetypes": "mpc_modern",
+      "sampler_bit_depth": "sampler_twentyfour_bit",
+      "sampler_workflow": "sampler_field_recordings",
+      "sampler_classic_context": "sampler_classic_post"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "9c6d6ca4cfc98b91739b03c82b90d01033e6a073a29c94a4e86ce7c2a1545f30",
+  "unpinned": [
+    {
+      "tradition": "nz_dnb",
+      "instrument": "sampler_classic",
+      "part": "electronic_technique",
+      "flat_value": "electronic_pad_drone",
+      "imported_default": "electronic_sample_chopped",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+      "compiled_choice": "electronic_sample_chopped",
+      "changed_from_import": false,
+      "compiled_protected": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "uruguayan_indie",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "changed_from_import": false,
+      "compiled_protected": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "west_yorkshire_indie",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "changed_from_import": false,
+      "compiled_protected": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "women_s_music",
+      "instrument": "timpani",
+      "part": "percussion_technique",
+      "flat_value": "percussion_hands_layered",
+      "imported_default": "percussion_mallets_orchestral",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+      "compiled_choice": "percussion_mallets_orchestral",
+      "changed_from_import": false,
+      "compiled_protected": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "yoga",
+      "instrument": "modular_synth",
+      "part": "electronic_technique",
+      "flat_value": "electronic_sustained_layering",
+      "imported_default": "electronic_pad_drone",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+      "compiled_choice": "electronic_modular_patch",
+      "changed_from_import": true,
+      "compiled_protected": false,
+      "valid_owning_variant": true
+    }
+  ],
+  "errors": []
+}
