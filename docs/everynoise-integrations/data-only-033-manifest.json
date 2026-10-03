@@ -1460,6 +1460,8 @@
     "data-only-033-runtime-review.json",
     "data-only-033-scope-review.json",
     "data-only-033-semantic-review.json",
+    "data-only-033-serialization-independent-review.json",
+    "data-only-033-serialization-review.json",
     "data-only-033-ui-baseline-review.json"
   ],
   "static_unprotected_fallbacks": {
@@ -1474,5 +1476,6 @@
         "reason": "Flat map has another electronic owner value; invalid on sampler, optimizer fallback remains unprotected."
       }
     ]
-  }
+  },
+  "source_serialization": "Original predecessorliteralprefix restored with100amended appendonlyrecords; all5938 normalizedsemanticobjects andgeneratedHTML unchanged. Originalbrokenreffault nowinjects. See serializationreviews."
 }
