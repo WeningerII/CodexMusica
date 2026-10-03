@@ -98,7 +98,33 @@ methods in that one process; the repository's code ran unchanged.
   - So under B the first question arrives on the **second** call. That estimate adds up the measured steps; it has not been run.
 - **C (stop inside one place)** is not needed for this menu: no single place comes near a call.
 - Four of the seven places offer 0 words and cost 840.5 s between them. They are the whole-lexicon widening on an empty menu, the same cost as the 60-line finding.
-- The batch holds L1 alone, because every other line here shares a group with L1. The next menus come on later calls. They are being measured now (L2 and L3, the walk's next lines, the same way) and will be added here.
+- The batch holds L1 alone, because every other line here shares a group with L1. The next menus come on later calls.
+
+**The next two menus** (L2 and L3, the walk's next lines), built on the same
+draft and mandate in the same process, right after L1's. Measured at `79e03e79`,
+with the same code as `58b59b28`, in a fresh container after a restart. This
+run was about 24% slower overall than the run above: L1's menu took 1,052.8 s
+here against 851.3 s there. The numbers are as they ran; none is scaled.
+
+| menu | place | seconds | words offered |
+|---|---|---|---|
+| L1 (this run) | largest place `1.T3` | 320.7 | 0 |
+| L1 (this run) | whole menu | 1,052.8 | 0 |
+| L2 | `2.T2` | 10.9 | 18 |
+| L2 | `2.endword` | **107.4** | 0 |
+| L2 | whole menu | **124.0** | 0 |
+| L3 | `3.head` | 0.7 | 2 |
+| L3 | `3.T3` | **258.5** | 0 |
+| L3 | `3.endword` | 130.5 | 0 |
+| L3 | whole menu | **391.8** | 2 |
+
+- Across both runs and all three menus, **the largest single place is 320.7 s** (the slower run's L1 `1.T3`). Every place fits in a 600 s call with room for the stop.
+- L2's and L3's whole menus each fit in one call too. **Only L1's whole menu does not**, and that is the first question the run asks.
+- Again, the places that offer 0 words are the expensive ones.
+
+**For the choice above:** under B, every measured place fits in a call, so the
+run would always reach a safe point. Under A, a call that has to build L1's
+menu is killed every time. C is not needed by any menu measured here.
 
 **My recommendation: B, after one measurement.** First time each place of that
 line's menu separately on this fixture. That is a read-only measurement that
