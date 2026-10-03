@@ -5,7 +5,7 @@
   "lineage": "Lao-Isan sung poetry of northeast Thailand and Laos, traditionally performed by a mo lam expert declaiming rhymed klon verse in rapid syllabic patter against the free-reed khaen mouth organ, and modernized from the 1960s-70s into lam sing and the electrified molam band with phin lute, electric bass, kit and ching timekeeping, running fast anhemitonic pentatonic lines over a driving cyclic groove in the khaen's near-equal heptatonic tuning.",
   "recipe": "classic Southeast Asian mid-1960s molam, functional Song, east Asian pop branch, indian bard ballad poetry, wind pipe drone modal greek clarinet lok dohori. thick, breath veiled tone, fast rate, interlocked note trading. khaen, phin, lao ching chap open and damped ching, saw u, alder pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
   "recipe_chars": 618,
-  "score": 233.098,
+  "score": 233.7,
   "config": {
     "traditions": [
       "molam",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
@@ -47,9 +47,9 @@
           "voice_speech_song": 18.654999999999998,
           "voice_ensemble_config": 16.834999999999997,
           "voice_ornament_system": 2.6975000000000002,
-          "voice_pitch_organization": 3.7475000000000005,
-          "voice_processing_chain": 4.4,
-          "voice_multitrack_stack": 2.7675
+          "voice_pitch_organization": 3.9000000000000004,
+          "voice_processing_chain": 4.49,
+          "voice_multitrack_stack": 2.9625000000000004
         }
       },
       {
@@ -74,7 +74,7 @@
         },
         "scores": {
           "phin_form": 22.944999999999997,
-          "phin_repertoire": 13.555,
+          "phin_repertoire": 13.33,
           "phin_construction": 3.895
         }
       },
@@ -83,7 +83,7 @@
         "slots": {
           "ching_form": "ching_lao",
           "ching_stroke": "ching_open_closed",
-          "ching_alloy": "ching_bronze"
+          "ching_alloy": "ching_brass"
         },
         "scores": {
           "ching_form": 4.57,
@@ -140,7 +140,7 @@
         },
         "scores": {
           "drum_technique": 15.079999999999997,
-          "drumhead": 5.789999999999999,
+          "drumhead": 6.18,
           "drum_kit_kick_pedal": 0
         }
       }

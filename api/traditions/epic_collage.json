@@ -1,0 +1,56 @@
+{
+  "id": "epic_collage",
+  "name": "Epic Collage",
+  "family": "electronic",
+  "lineage": "Complete issuer-published Total Freedom 40 Min Mix, Boiler Room Los Angeles, official June2013 video f1c6XPPxwFQ. One credited DJ performance with the entire playback/mixing programme retained. No tracklist is supplied; embedded instruments, singers, source count, apparatus and separately performed live voice count are unknown, rather than asserted absent. No other performers from the surrounding multi-act event are imported into this separately issued set. The indexed issuer page explicitly identifies Total Freedom on the decks in Los Angeles; its direct page redirects to the same official video. This is an actual documented DJ set, not an invented sampler playback of a finished studio album. Existing architecture-neutral DJ playback/mixing owner preserves all programme layers without inventing decks, CDJs, sampler model, synthesizers or a live choir. Room and capture chain are explicitly authored new recording scaffolding, not measured source hardware. Global tuning omitted. Street-pulsing, if rendered, is a generic rhythmic club affect and not a literal street location.",
+  "recipe": "classic epic collage, experimental Elec. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 171,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "epic_collage"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

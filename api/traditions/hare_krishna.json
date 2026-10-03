@@ -3,9 +3,9 @@
   "name": "Hare Krishna Kirtan (ISKCON)",
   "family": "global",
   "lineage": "Gaudiya Vaishnava congregational chant carried from Bengal and Vrindavan to the West by A. C. Bhaktivedanta Swami Prabhupada from 1965, built on the sixteen-word maha-mantra sung antiphonally by leader and assembly over khol two-headed drum and karatala hand cymbals in a 1-2-3 clapping cycle, harmonium drone accompaniment, and a long accelerando from slow meditative tempo to ecstatic double time.",
-  "recipe": "classic South Asian mid-1960s hare krishna kirtan, ritual Devotional, hindu branch, indian bard ballad poetry, Sufi ritual devotional sufi zikr chant sindhi. kargyraa, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, liturgical fiberglass khol, small steady tala keeping manjira, harmonium indian, suited to female vocal wooden body miraj style drone like modal tanpura, mridangam. vrindavan braj mandir bhajan. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
-  "recipe_chars": 650,
-  "score": 228.05,
+  "recipe": "classic South Asian mid-1960s hare krishna kirtan, ritual Devotional, hindu branch, indian bard ballad poetry, Sufi ritual devotional sufi zikr chant sindhi. kargyraa, declaimed, slow rate, interlocked note trading. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, liturgical fiberglass khol, small steady tala keeping manjira, overtone rich sustained reed harmonium indian, suited to female vocal wooden body miraj style drone like modal tanpura, palghat lineage canonical carnatic mridangam. vrindavan braj mandir bhajan. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 714,
+  "score": 229.042,
   "config": {
     "traditions": [
       "hare_krishna",
@@ -35,13 +35,13 @@
         },
         "scores": {
           "voice_register": 1.1049999999999998,
-          "voice_quality": 14.12,
+          "voice_quality": 14.315,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.38,
           "voice_articulation": 15.989999999999997,
           "voice_microtone": 17.09499999999999,
-          "voice_tradition": 16.3475,
+          "voice_tradition": 16.235,
           "voice_mechanism_compound": 2.5349999999999997,
           "voice_estill_quality": 7.085,
           "voice_speech_song": 19.694999999999997,
@@ -75,8 +75,8 @@
           "khol_body": "khol_body_fiberglass"
         },
         "scores": {
-          "khol_form": 8.360000000000001,
-          "khol_repertoire": 10.375000000000002,
+          "khol_form": 7.790000000000001,
+          "khol_repertoire": 10.765,
           "khol_body": 1.2
         }
       },
@@ -88,7 +88,7 @@
           "manjira_metal": "manjira_brass"
         },
         "scores": {
-          "manjira_form": 10.405000000000003,
+          "manjira_form": 10.795000000000003,
           "manjira_stroke": 5.1850000000000005,
           "manjira_metal": -0.035
         }
@@ -98,13 +98,13 @@
         "slots": {
           "free_reed_technique": "free_reed_overblow_modern",
           "harmonium_action": "harmonium_foot_pump",
-          "harmonium_voicing": "harmonium_male",
+          "harmonium_voicing": "harmonium_double",
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
           "free_reed_technique": 0,
           "harmonium_action": 1.95,
-          "harmonium_voicing": 0.45499999999999996,
+          "harmonium_voicing": 1.065,
           "harmonium_use": 5.265000000000001
         }
       },
@@ -137,11 +137,11 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 1.2000000000000002,
+          "mridangam_heads": 1.0950000000000002,
           "mridangam_use": 0,
           "mridangam_shell_wood": 0.84,
           "mridangam_heads_material": 0.6449999999999999,
-          "mridangam_lineage": 0.9899999999999999
+          "mridangam_lineage": 1.1849999999999998
         }
       }
     ],

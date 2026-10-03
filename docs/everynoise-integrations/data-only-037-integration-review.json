@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "integration_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+  "raw_and_merged": {
+    "predecessor": "25032b44098122db2d453bf66583a684aa38c6eb",
+    "head": "25032b44098122db2d453bf66583a684aa38c6eb",
+    "frozen_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+    "counts": {
+      "raw_traditions_old_unchanged": 6238,
+      "raw_instruments_old_unchanged": 1595,
+      "old_extras_unchanged": 6238,
+      "merged_instruments_old_unchanged": 1595,
+      "data/geo.json_old_keys": 6238,
+      "references/_tradition_signatures.json_old_keys": 4216,
+      "old_images_unchanged": 7783,
+      "new_images": 114
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "human_voice_ensemble_unspecified",
+      "credited_bouzouki_unspecified",
+      "zoom_rt123_rhythm_bass_machine",
+      "multi_method_sound_synthesis",
+      "digital_percussion_pad",
+      "hand_pumped_harmonium",
+      "igbo_tonal_skin_drum_ensemble",
+      "credited_flute_unspecified",
+      "accordina",
+      "txirula",
+      "spoken_dramatic_cast",
+      "heligonka_cf",
+      "senggayung_bamboo_tubes",
+      "credited_synthesizer_unspecified"
+    ],
+    "runtime_independent": {
+      "cards": 272,
+      "effective_parts": 2358,
+      "flat_pins": 2306,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "browser": {
+    "status": "PASS",
+    "counts": {
+      "instruments": 1595,
+      "traditions": 6238,
+      "cards": 26712
+    },
+    "errors": [],
+    "method": "Original browser makeCard/importTradition through unchanged _load_app. Project only baseline recorded fields to omit transient UI IDs.",
+    "no_repo_mutations": true
+  },
+  "amendment": {
+    "status": "PASS",
+    "original_frozen_sha256": "a86ececfb3060fb93628fdf301aace42ae0a87b8f393e99edefeeed0e990ac09",
+    "final_integration_sha256": "eb18192411b631df3142eb1b9aaf8573060b36f1d26d58156103ac6719b07843",
+    "changed_paths": [
+      "/entries/70/tradition/lineage",
+      "/entries/98/extras/description",
+      "/entries/98/instrument_role_audit/authored_defaults",
+      "/entries/98/model_policy",
+      "/entries/98/tradition/lineage",
+      "/entries/98/tradition/room",
+      "/integration_amendments"
+    ],
+    "interpretation": "Two bounded new-row amendments only: Mluvene Slovo authored treated-studio room and synchronized narrative evidence; IndonesianNeo lineage-only historical-neighbor date wording. Full historical dates retained in extras/neighbor/source evidence. All source links, rosters, counts, parts/pins, geo, signatures, photos and dependencies unchanged. Originalfrozen historicalqueue proof retained. Finalappend/browser/pipeline independently rerunPASS."
+  },
+  "root_amendment_review": {
+    "status": "PASS",
+    "original_sha256": "0f17d40699d908918c2ffd74ae74b001ddf997c48a2044b61423858854bd2ea9",
+    "derivative_sha256": "b8b4082131c6803580dfe27c12eb69738d8cb4732524a52d0330a53094e355c6",
+    "integration_sha256": "4bc92224a8f8d9c1d077b13b5463adc346e2f24d8d26e3626f22fe0f7d00190f",
+    "changed_fields": ["tradition", "extras", "model_policy", "instrument_role_audit"],
+    "preserved": "all17voiceparts,sources,photo,geo,taxonomy,axes,signaturetokens,other99entries",
+    "probe": "four original-engine formats narrating; authored dry booth explicit, historical room unknown"
+  }
+}

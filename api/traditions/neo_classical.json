@@ -5,7 +5,7 @@
   "lineage": "Neo-classical is represented by Simeon Walker — Gleam, from Imprints (2021). One documented branch is realized as an authored present-day recording arrangement. Primary sources establish exemplar, musical roles, category and practice locality. Exact instrument construction, technique defaults, equal-tempered baseline, room, microphone, signal chain and numeric axes are authored choices, not original-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s neo-classical, art Music, western modern branch. legato upright piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 189,
-  "score": 9.205,
+  "score": 9.479,
   "config": {
     "traditions": [
       "neo_classical"
@@ -21,7 +21,7 @@
         "scores": {
           "keyboard_technique": 8.25,
           "upright_use": 0.40950000000000003,
-          "upright_piano_size": 0.546
+          "upright_piano_size": 0.8190000000000001
         }
       }
     ],

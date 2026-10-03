@@ -5,7 +5,7 @@
   "lineage": "Village song of the mid-Himalayan belt from Kumaon and Nepal through Sikkim and Bhutan, transmitted orally and documented by ethnographers from the mid-20th century — seasonal, agricultural and wedding songs in narrow-range modal melody with heavy nasal vocal placement, accompanied by madal or damphu hand drum, murali/bansuri flute and sarangi, in walking-tempo duple or free-metered outdoor calls.",
   "recipe": "classic early-1940s himalayan folk, domestic Rhythm, south Asian branch, indian bard ballad poetry, south Asian field work, south Asian pop functional song chutney punjabi folk. thick, breath veiled tone, slow rate, interlocked note trading. dance driving slung madal, self accompanied damped bent pitch damphu, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, four string nepali sarangi, hand clap. mountain valley. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 536,
-  "score": 273.58,
+  "score": 275.38,
   "config": {
     "traditions": [
       "himalayan_folk",
@@ -41,13 +41,13 @@
           "voice_vibrato": 2.535,
           "voice_articulation": 17.224999999999994,
           "voice_microtone": 17.419999999999995,
-          "voice_tradition": 19.464000000000002,
+          "voice_tradition": 19.749000000000002,
           "voice_mechanism_compound": 5.915,
           "voice_estill_quality": 6.76,
           "voice_speech_song": 25.154999999999998,
           "voice_ensemble_config": 17.029999999999994,
           "voice_ornament_system": 8.614999999999998,
-          "voice_pitch_organization": 8.32,
+          "voice_pitch_organization": 8.71,
           "voice_processing_chain": 4.9399999999999995,
           "voice_multitrack_stack": 4.517500000000001
         }
@@ -76,7 +76,7 @@
           "damphu_head": "damphu_head_warmed"
         },
         "scores": {
-          "damphu_form": 8.634999999999998,
+          "damphu_form": 9.024999999999999,
           "damphu_technique": 8.295,
           "damphu_role": 17.57,
           "damphu_head": 0.26
@@ -109,7 +109,7 @@
         },
         "scores": {
           "bowed_technique": -0.035,
-          "nepali_sarangi_form": 13.605,
+          "nepali_sarangi_form": 13.8,
           "nepali_sarangi_context": 14.045,
           "nepali_sarangi_build": 0.975
         }
@@ -118,11 +118,11 @@
         "id": "hand_clap",
         "slots": {
           "clap_technique": "clap_fingers_to_palm",
-          "clap_capture": "clap_close_dry"
+          "clap_capture": "clap_room_natural"
         },
         "scores": {
           "clap_technique": 0.39,
-          "clap_capture": 0.045
+          "clap_capture": 0.585
         }
       }
     ],

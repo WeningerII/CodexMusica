@@ -1,0 +1,52 @@
+{
+  "id": "credited_bouzouki_unspecified",
+  "name": "Credited bouzouki (configuration unspecified)",
+  "short": "Credited bouzouki",
+  "family": "plucked_traditional",
+  "class": "credited_bouzouki_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_bouzouki_unspecified_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_bouzouki_unspecified_source_unspecified",
+          "name": "Credited bouzouki; construction and technique unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positively credited bouzouki without source-specified courses, tuning, maker, Greek or Irish construction. Neutral routing axes are authored uncertainty coordinates, not physical measurements.",
+  "sources": [
+    "https://www.banlieuesbleues.org/content/uploads/sites/3/2019/02/1508_BB_FESTIVAL19_PROGRAMME_20190218_Web.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_bouzouki_unspecified_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_bouzouki_unspecified_source_unspecified",
+          "name": "Credited bouzouki; construction and technique unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

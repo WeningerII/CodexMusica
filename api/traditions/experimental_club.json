@@ -1,0 +1,56 @@
+{
+  "id": "experimental_club",
+  "name": "Experimental Club",
+  "family": "electronic",
+  "lineage": "SHALT — In Session, complete2020DJ mix. Entire published In Session: SHALT DJ mix,8December2020, with issuer full32-selection tracklist. First-person interview expressly explains layered tracks, broad tempo movement and REMADE selection concept. Neutral DJ performance card retains whole mixed programme including embedded melodic,percussive and vocal content; underlying masters are not reduced to invented live instruments. Actual playback medium, controller/deck count, simultaneous source channels and live voice contribution unspecified. No separate live vocal cards added; embedded singer count unknown. Existing neutral DJ playback/mixing identity models the positively documented DJ practice, not an opaque album master used as an instrument. All source layers retained in the programme; no inferred MPC, synth,vinyl,CDJ or live choir. Authored room and neutral owner do not reconstruct actual venue/apparatus. Global temperament omitted.",
+  "recipe": "classic experimental club, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 175,
+  "score": 1.3,
+  "config": {
+    "traditions": [
+      "experimental_club"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 1.3
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

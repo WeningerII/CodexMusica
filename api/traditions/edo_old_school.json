@@ -1,0 +1,50 @@
+{
+  "id": "edo_old_school",
+  "name": "Edo old school",
+  "family": "vernacular",
+  "lineage": "DJ DEE ONE — complete artist-issued Best of the Best Edo Old School Mix, official artist channel publication20February2022. The program title explicitly identifies Alaska, Osayomore Joseph, Ohenhen and Akaba Man; description identifies Edo/Benin repertoire and supplies official listening/download routes. Actual complete issued DJ mix is the selected practice, not a reconstructed studio master or an arbitrary sampled excerpt. Full track sequence and duration are not published in the retrieved description and are not invented. One named DJ playback/mixing role is documented; embedded musicians and voices remain complete in that role, with unknown counts. No separate live singer is credited or inferred. Same artist’s later Audiomack VOL1 release is corroborating DJ practice only, not asserted byte-identical to this2022edition. Existing neutral DJ playback/mixing owner retains the positively published mix practice. Medium, decks, generator inventory and embedded vocal counts stay unspecified. No tuning or signal chain imposed; live room and zero axes are candid authored capture choices, not measured source venue. Broad groovePercussion parent follows documented West-African highlife/funk dance repertoire rather than treating use of playback as proof that historical repertoire is electronic dance. No universal acoustic lineup, exact BPM, or ethnic identity is assigned to the source DJ.",
+  "recipe": "classic edo old school, groove Percussion. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 89,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "edo_old_school"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

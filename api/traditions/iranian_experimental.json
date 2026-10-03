@@ -1,0 +1,50 @@
+{
+  "id": "iranian_experimental",
+  "name": "Iranian experimental",
+  "family": "electronic",
+  "lineage": "Sote — Majestic Noise Made in Beautiful Rotten Iran, complete eight-piece synthesis release. Complete publisher release lists eight pieces and describes an all-electronic synthetic compositional project. In firsthand discussion of this exact album, Sote enumerates FM, physical modeling, additive, subtractive, wavetable, granular and spectral synthesis. All seven methods are retained as one explicitly aggregate generation palette, without substituting a playback of the opaque final master. Acoustic collaborators from different Sote projects and generic early-career found-object/cassette practice are not imported. No separately credited singer is added. Publisher2020 date and March2022 contemporary interview chronology differ; no exact issue-date reconciliation is asserted. Iranian experimental is a cross-medium experimental-arts network. Exact creator map includes Sote, Saba Alizadeh and Crows in the Rain; Sote firsthand describes the Iranian experimental composer community and Zabte Sote platform. Crows in the Rain own store explicitly identifies post-rock/ambient band practice, positively supporting a network beyond electronic composition alone. Existing persian_electronic is a broad overlapping national electronic category, not restricted to its Ash Koosha sampling exemplar; synthetic Sote works legitimately overlap it. The distinction is the wider experimental art/rock/composer community across media, not different nationality labels, dates or one alternative synthesizer. No claim every Iranian experimental artist is electronic. The selected fully synthetic deconstructive-composition branch supports broad experimentalElec. The isolated aggregate owner preserves every positively named synthesis method and intentionally leaves actual hardware/software, physical controllers, detailed algorithms and sequencing protocol unspecified. No added live percussion, acoustic strings or singer is fabricated from symphonic metaphors. Optional global tuning is omitted because composer specifically alters modal and tonal codes. Neutral axes and treated studio are authored rendering coordinates, not a measured room or claims about an analog capture chain.",
+  "recipe": "classic iranian experimental, experimental Elec. multi method sound synthesis. treated studio.",
+  "recipe_chars": 94,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "iranian_experimental"
+    ],
+    "instruments": [
+      {
+        "id": "multi_method_sound_synthesis",
+        "slots": {
+          "multi_method_sound_synthesis_identity": "multi_method_sound_synthesis_fm_physical_additive_subtractive_wavetable_granular_spectral"
+        },
+        "scores": {
+          "multi_method_sound_synthesis_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "multi_method_sound_synthesis": [
+        "multi_method_sound_synthesis_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "multi_method_sound_synthesis_identity": "multi_method_sound_synthesis_fm_physical_additive_subtractive_wavetable_granular_spectral"
+    },
+    "pin_parts": true
+  }
+}

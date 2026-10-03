@@ -1,0 +1,345 @@
+{
+  "id": "bloco",
+  "name": "Bloco",
+  "family": "vernacular",
+  "lineage": "Complete dated24-member Monobloco performing-group roster preserved by anthropologist Marina Bay Frydberg in2014 fieldwork paper, footnote12 explicitly attributed to contemporaneous artist website accessed1June2014. Five named singers: Biguli,Fábio Allman,Momo,Pedro Luís,Pedro Quental. Three cavaquinho players: Alessandro,Cachaça,Carlinhos. Momo also guitar; Igor Araújo chocalho/bass. André Schmidt and Leo Saad agogô; C.A.Ferrari repique; Caco Chagas,Gabriel Lopes,Mário Moura,Maurão surdo; Celso Alvim,Fred Castilho,Gui Rodrigues,Marcos Feijão,Pitito caixa; Fábio Groove,Júnior Teixeira,Sidon Silva tamborim. Ten family cards preserve all26 credited human-role assignments and24 people, not ten performers. This is the documented standing group, not the expanded Carnaval student parade or an inferred individual recording session. Five credited voices do not establish simultaneous harmony voicing. Broad groovePercussion.brazilian follows the positively documented samba bateria-based eclectic dance practice. Cavaquinho samba and agogô bateria contexts are authored appropriate realization; no Portuguese fado or Candomblé context inferred. Source-generic guitar/bass map to authored electric single-coil guitar and electric bass; construction/gear are editorial, not documentary equipment. Caixas map to standalone snare, explicitly authored steel model not source hardware. Chocalho is source-neutral shaker, no inferred seed/jingle construction. One surdo family represents four players with authored primeira bass realization, not a claim all four play the same register. Repique uses authored existing samba repinique practice, not measured hand technique. All voice physiology and precise pitch practice remain source-unspecified; live-group voicing unknown. Controlled live-room acoustics are authored; unspecified capture hardware is omitted and no original session location is claimed. No global temperament asserted. Authored repair: a dual-single-coil fretted roundwound electric bass and controlled live-room acoustic replace the prior split-coil/neutral-studio realization. Unspecified capture apparatus is omitted. The five credited singers retain their count; small sung note groups per syllable are a newly authored musical choice, not measured source vocal technique or an extra clapping role. All other source roles remain intact.",
+  "recipe": "classic bloco, groove Percussion, Brazilian branch. small note groups per syllable, group vocals, unprocessed natural acoustic, live take. samba foundation jacaranda rosewood canonical Portuguese steel modern cavaquinho, conventional tuning standard pitch single coil electric guitar, growly articulate nickel roundwound electric bass, agogo, nylon canonical rio carnival aluminum canonical modern rio escola surdo, multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, snare drum, shaker source unspecified. live tracking.",
+  "recipe_chars": 589,
+  "score": 78.138,
+  "config": {
+    "traditions": [
+      "bloco"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 7.241,
+          "voice_ensemble_config": 8.331,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.573,
+          "voice_multitrack_stack": 4.399499999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_folk_strummed",
+          "cavaquinho_origin": "cavaquinho_brazilian",
+          "cavaquinho_context": "cavaquinho_samba",
+          "cavaquinho_body_wood": "cavaquinho_jacaranda",
+          "cavaquinho_strings": "cavaquinho_steel"
+        },
+        "scores": {
+          "plucked_traditional_technique": 1.625,
+          "cavaquinho_origin": 6.239999999999998,
+          "cavaquinho_context": 0.39,
+          "cavaquinho_body_wood": 1.625,
+          "cavaquinho_strings": 1.69
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": -0.1,
+          "amp_make": 0,
+          "body_wood": 0.45149999999999996,
+          "neck_wood": 0.105,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "string_material": 0.0315,
+          "string_gauge": 0.847,
+          "bridge": 0.16799999999999998,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 1.3,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.45149999999999996,
+          "pickup_config": 0,
+          "string_type": 1.3,
+          "scale_length_b": 0.105,
+          "fretted_or_not": 0.105,
+          "bass_technique": -0.10500000000000001,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "agogo",
+        "slots": {
+          "agogo_bell": "agogo_double",
+          "agogo_context": "agogo_bateria"
+        },
+        "scores": {
+          "agogo_bell": 7.929999999999998,
+          "agogo_context": 0.39
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_primeira",
+          "surdo_skin": "surdo_nylon",
+          "surdo_shell": "surdo_aluminum_canonical"
+        },
+        "scores": {
+          "surdo_size": 0,
+          "surdo_skin": 2.8600000000000003,
+          "surdo_shell": 2.8600000000000003
+        }
+      },
+      {
+        "id": "tamborim",
+        "slots": {
+          "tamborim_skin": "tamborim_nylon",
+          "tamborim_striker": "tamborim_cluster",
+          "tamborim_shell": "tamborim_aluminum_canonical"
+        },
+        "scores": {
+          "tamborim_skin": 0.39,
+          "tamborim_striker": 6.629999999999998,
+          "tamborim_shell": 2.8600000000000003
+        }
+      },
+      {
+        "id": "repinique",
+        "slots": {
+          "repinique_shell": "repinique_metal",
+          "repinique_technique": "repinique_one_stick_one_hand"
+        },
+        "scores": {
+          "repinique_shell": 9.619999999999997,
+          "repinique_technique": 6.239999999999998
+        }
+      },
+      {
+        "id": "snare_drum",
+        "slots": {
+          "standalone_snare_construction": "standalone_snare_yamaha_sss1455"
+        },
+        "scores": {
+          "standalone_snare_construction": 0.105
+        }
+      },
+      {
+        "id": "shaker_source_unspecified",
+        "slots": {
+          "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+        },
+        "scores": {
+          "shaker_source_unspecified_identity": 0.5145000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "cavaquinho": [
+        "plucked_traditional_technique",
+        "cavaquinho_origin",
+        "cavaquinho_context",
+        "cavaquinho_body_wood",
+        "cavaquinho_strings"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning",
+        "single_coil_pickup_construction"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "agogo": [
+        "agogo_bell",
+        "agogo_context"
+      ],
+      "surdo": [
+        "surdo_size",
+        "surdo_skin",
+        "surdo_shell"
+      ],
+      "tamborim": [
+        "tamborim_skin",
+        "tamborim_striker",
+        "tamborim_shell"
+      ],
+      "repinique": [
+        "repinique_shell",
+        "repinique_technique"
+      ],
+      "snare_drum": [
+        "standalone_snare_construction"
+      ],
+      "shaker_source_unspecified": [
+        "shaker_source_unspecified_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "plucked_traditional_technique": "plucked_folk_strummed",
+      "cavaquinho_origin": "cavaquinho_brazilian",
+      "cavaquinho_context": "cavaquinho_samba",
+      "cavaquinho_body_wood": "cavaquinho_jacaranda",
+      "cavaquinho_strings": "cavaquinho_steel",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning",
+      "single_coil_pickup_construction": "single_coil_construction_unspecified",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "agogo_bell": "agogo_double",
+      "agogo_context": "agogo_bateria",
+      "surdo_size": "surdo_primeira",
+      "surdo_skin": "surdo_nylon",
+      "surdo_shell": "surdo_aluminum_canonical",
+      "tamborim_skin": "tamborim_nylon",
+      "tamborim_striker": "tamborim_cluster",
+      "tamborim_shell": "tamborim_aluminum_canonical",
+      "repinique_shell": "repinique_metal",
+      "repinique_technique": "repinique_one_stick_one_hand",
+      "standalone_snare_construction": "standalone_snare_yamaha_sss1455",
+      "shaker_source_unspecified_identity": "shaker_source_unspecified_named_role"
+    },
+    "pin_parts": true
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Banda carnavalera: La Carnavalera de Samuel González — Luces de Invierno, Parque de la Consolación (2026). Representative authored present-day recording arrangement for the selected documented branch. Sources establish musical roles, category and locality. Exact construction, hardware, playing settings, room, signal chain, twelve-tone equal-tempered baseline and numeric axes are authored choices, not source-session facts, performer equipment claims or universal genre characteristics.",
   "recipe": "classic mid-2020s banda carnavalera, carnival Processional. big tone large cup large rim orchestral bottom heavy trumpet, trombone, tuba. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 236,
-  "score": 2.823,
+  "score": 6.042,
   "config": {
     "traditions": [
       "banda_carnavalera"
@@ -23,13 +23,13 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "brass_size": 0,
           "trumpet_mouthpiece": 1.2349999999999999,
           "brass_mute": 0,
-          "trumpet_technique": -0.12750000000000003,
-          "trumpet_bell_metal": 0.0765,
-          "trumpet_maker_school": 0.11249999999999999
+          "trumpet_technique": -0.10500000000000001,
+          "trumpet_bell_metal": 0.44399999999999995,
+          "trumpet_maker_school": 0.5219999999999999
         }
       },
       {
@@ -39,18 +39,18 @@
           "trombone_type": "bass_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_1half_g",
           "trombone_mute": "straight_mute_trb",
-          "trombone_technique": "tailgate_slide",
+          "trombone_technique": "classical_trb",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "trombone_type": 0,
           "trombone_mouthpiece": 0.325,
           "trombone_mute": 0.075,
-          "trombone_technique": 0,
-          "trombone_bell_metal": 0.0765,
-          "trombone_maker_school": 0.13499999999999998
+          "trombone_technique": 0.21,
+          "trombone_bell_metal": 0.44399999999999995,
+          "trombone_maker_school": 0.6809999999999998
         }
       },
       {
@@ -64,12 +64,12 @@
           "tuba_maker_school": "tuba_besson_british"
         },
         "scores": {
-          "wind_articulation": -0.12750000000000003,
+          "wind_articulation": -0.10500000000000001,
           "tuba_pitch": 0.39,
-          "tuba_context": 0.19799999999999998,
-          "tuba_bell_metal": 0.0765,
-          "tuba_valve_system": 0.11249999999999999,
-          "tuba_maker_school": 0.5205
+          "tuba_context": 0.7334999999999999,
+          "tuba_bell_metal": 0.17099999999999999,
+          "tuba_valve_system": 0.249,
+          "tuba_maker_school": 0.9824999999999998
         }
       }
     ],

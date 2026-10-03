@@ -1,0 +1,390 @@
+{
+  "id": "indonesian_neo_psychedelia",
+  "name": "Indonesian neo-psychedelia",
+  "family": "rock",
+  "lineage": "Nusantara Beat — Nusantara Beat (2025), complete eleven-song debut. The artist/Glitterbeat release credits the full six-person album ensemble: Gino Groeneveld percussion, Jordy Sanger guitar, Megan de Klerk vocals, Michael Joshua Yonata bass, Rouzy Portier guitar/keys, Sonny Groeneveld drums. The six-person credits are supplemented by the full descriptive sound inventory: modern synthesizers, explicit Balinese gamelan-instrument samples, and kecapi zither, kendang drum and Balinese gong sounds. Every named sound class is retained; two guitar players share one family card. Bare keys remain a separate neutral keyboard role because the page also names lush keyboards beyond its explicit synth textures. Unspecified percussion remains neutral without invented conga identity. Complete eleven-song original album selected, not a shortened excerpt or opaque master playback. The label and quoted musicians explicitly describe Indonesian heritage research and contemporary reimagining of older Indonesian folk/pop into new psychedelic grooves. Official Gurtenfestival2026 artist programme independently calls the sextet neo-psychedelia blended with Indonesian gamelan/keroncong influences. The specific sampled gamelan layer is positively documented, not merely inferred from influence. A neutral sample-performance card retains the unspecified sampled gamelan instrumentation; separately named kecapi, kendang and Balinese gong sound families use their corresponding physical owners as authored reproductions. The source does not settle whether those three named sounds were recorded live or sampled, and the packet makes neither claim nor invents additional musicians. Existing indonesian_psychedelia explicitly describes original earlier psychedelic-era Koes/AKA/Panbers/DaraPuspita guitar-band practice. This is a positively documented contemporary revival and diaspora reinterpretation project, formed2021 through intentional ancestral-repertoire research and creating new originals; not a claim old date alone excludes later musicians, nor a different artist as sole boundary. Gurtenfestival names neo-psychedelia and the label explains the distinct revival process. Shared Indonesian psychedelic heritage remains explicit. functionalSong is limited to an authored functional-harmonic verse/refrain realization of these lyric-bearing contemporary pop songs; no measured original harmonic transcription or universal genre form is asserted. Single-coil tremolo guitar with alder body/maple neck and clean strummed articulation, fingerstyle alder dual-single-coil bass, conventional maple kit with traditional cymbals and source-neutral keyboard, synthesizer and unspecified percussion are authored modern choices, not source makes or unreported instrument subtypes. The source explicitly identifies electric-style whammy-bar guitar use. No guessed backing singers or synthesized drums. For the named traditional sound layers, authored large boat-zither with steel strings, modern pop-Sunda repertoire and pelog-degung tuning, Sundanese-context medium kendang with mahogany shell/cowhide heads, and pitched bossed gong struck with a soft mallet preserve the named physical families. Exact subtype, material and technique are candid authored choices, not source session observations. Pelog is expressly mentioned by the artist; no exact scale-frequency transcription is claimed. The sample card does not replace any positively named physical or synthesis role.",
+  "recipe": "classic mid-2020s indonesian neo-psychedelia, functional Song. solo with instrumental accompaniment, single lead single track no stacking. alder maple conventional tuning standard pitch clean single coil electric guitar, alder fingerstyle locked electric bass, electronic keyboard credited synthesizer credited samples unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, boat shaped kenanga carved steel strung kacapi, lively gamelan sundanese mahogany mid tier modern cowhide modern alternative kendang indonesian, nipple pitched soft mallet gong tamtam. live tracking.",
+  "recipe_chars": 640,
+  "score": 146.678,
+  "config": {
+    "traditions": [
+      "indonesian_neo_psychedelia"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 8.3715,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 7.723999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "neck_wood": "maple",
+          "fretboard": "rosewood_fb",
+          "pickup_magnet": "alnico_2",
+          "string_material": "pure_nickel",
+          "string_gauge": "g_10",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_fender",
+          "finish": "nitro",
+          "string_tuning": "standard_tuning",
+          "single_coil_pickup_construction": "single_coil_construction_unspecified"
+        },
+        "scores": {
+          "electric_technique": 12.299999999999999,
+          "amp_make": 0,
+          "body_wood": 5.199999999999999,
+          "neck_wood": 2.6539999999999995,
+          "fretboard": -0.05,
+          "pickup_magnet": 0,
+          "string_material": 0.054,
+          "string_gauge": 4.29,
+          "bridge": 3.8999999999999995,
+          "scale_length": 0,
+          "finish": 0,
+          "string_tuning": 2.6,
+          "single_coil_pickup_construction": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 5.199999999999999,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 1.15,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 2.6365,
+          "drumhead": 1.3,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 3.9539999999999993,
+          "shell_thickness": 0,
+          "bearing_edges": 3.9539999999999993,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.14,
+          "cymbal_hammering": 22.054,
+          "cymbal_lathing": 24.6,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      },
+      {
+        "id": "credited_synthesizer_unspecified",
+        "slots": {
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        },
+        "scores": {
+          "credited_synthesizer_identity": 0
+        }
+      },
+      {
+        "id": "credited_samples_unspecified",
+        "slots": {
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        },
+        "scores": {
+          "credited_samples_identity": 0
+        }
+      },
+      {
+        "id": "kacapi",
+        "slots": {
+          "kacapi_form": "kacapi_indung",
+          "kacapi_repertoire": "kacapi_wanda_anyar",
+          "kacapi_laras": "kacapi_pelog_degung",
+          "kacapi_construction": "kacapi_kenanga_steel"
+        },
+        "scores": {
+          "kacapi_form": 4.450000000000001,
+          "kacapi_repertoire": 1.9000000000000001,
+          "kacapi_laras": 0,
+          "kacapi_construction": 1.3
+        }
+      },
+      {
+        "id": "kendang_indonesian",
+        "slots": {
+          "kendang_size": "kendang_ciblon",
+          "kendang_context": "kendang_sundanese",
+          "kendang_shell_wood": "kendang_mahogany",
+          "kendang_head": "kendang_cowhide_alternative"
+        },
+        "scores": {
+          "kendang_size": 5.954,
+          "kendang_context": 6.499999999999999,
+          "kendang_shell_wood": 5.199999999999999,
+          "kendang_head": 5.254
+        }
+      },
+      {
+        "id": "gong_tamtam",
+        "slots": {
+          "gong_type": "gong_nipple_pitched",
+          "gong_striker": "gong_soft_mallet"
+        },
+        "scores": {
+          "gong_type": 1.3,
+          "gong_striker": 2.6
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electric_guitar_single_coil": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "string_material",
+        "string_gauge",
+        "bridge",
+        "scale_length",
+        "finish",
+        "string_tuning",
+        "single_coil_pickup_construction"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ],
+      "credited_synthesizer_unspecified": [
+        "credited_synthesizer_identity"
+      ],
+      "credited_samples_unspecified": [
+        "credited_samples_identity"
+      ],
+      "kacapi": [
+        "kacapi_form",
+        "kacapi_repertoire",
+        "kacapi_laras",
+        "kacapi_construction"
+      ],
+      "kendang_indonesian": [
+        "kendang_size",
+        "kendang_context",
+        "kendang_shell_wood",
+        "kendang_head"
+      ],
+      "gong_tamtam": [
+        "gong_type",
+        "gong_striker"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electric_technique": "electric_clean_strummed",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder",
+      "neck_wood": "maple",
+      "fretboard": "rosewood_fb",
+      "pickup_magnet": "alnico_2",
+      "string_material": "pure_nickel",
+      "string_gauge": "g_10",
+      "bridge": "two_point_trem",
+      "scale_length": "scale_fender",
+      "finish": "nitro",
+      "string_tuning": "standard_tuning",
+      "single_coil_pickup_construction": "single_coil_construction_unspecified",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+      "credited_samples_identity": "credited_samples_source_unspecified",
+      "kacapi_form": "kacapi_indung",
+      "kacapi_repertoire": "kacapi_wanda_anyar",
+      "kacapi_laras": "kacapi_pelog_degung",
+      "kacapi_construction": "kacapi_kenanga_steel",
+      "kendang_size": "kendang_ciblon",
+      "kendang_context": "kendang_sundanese",
+      "kendang_shell_wood": "kendang_mahogany",
+      "kendang_head": "kendang_cowhide_alternative",
+      "gong_type": "gong_nipple_pitched",
+      "gong_striker": "gong_soft_mallet"
+    },
+    "pin_parts": true
+  }
+}

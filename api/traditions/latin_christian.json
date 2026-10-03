@@ -1,0 +1,84 @@
+{
+  "id": "latin_christian",
+  "name": "Latin Christian",
+  "family": "global",
+  "lineage": "Marcos Witt — Renuévame, complete advanced solo-piano edition arranged/interpreted/produced by Eliab Sandoval and issued by Himnos Pista Piano. Publisher explicitly lists Piano Solo and church/rehearsal/personal-practice use. This is a separately issued complete instrumental adaptation, not removal of voices or a band from Witt’s original recording. One piano performer, zero scored singers; unseen score notes and original audio not asserted. All nine grand-piano parts explicitly authored: coherent nine-foot Steinway D construction, A440, sustain-rich arpeggiation and controlled live-room acoustic. These are new rendition choices, not source equipment, original gesture transcription or proof the overall category is instrumental. Equal temperament is editorial modern-piano realization.",
+  "recipe": "classic latin christian, ritual Devotional, christian gospel branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
+  "recipe_chars": 157,
+  "score": 30.383,
+  "config": {
+    "traditions": [
+      "latin_christian"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.5000000000000004,
+          "grand_piano_size": 0.294,
+          "grand_piano_brand": 0.273,
+          "piano_hammer": 3.8000000000000003,
+          "piano_rim": 5.946000000000001,
+          "piano_soundboard": 3.2,
+          "piano_pinblock": 3.2,
+          "piano_plate": 3.2,
+          "piano_pitch_standard": 7.969499999999999
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true
+  }
+}

@@ -3,9 +3,9 @@
   "name": "Dambora (Hazara long-neck lute song)",
   "family": "global",
   "lineage": "Hazarajat highland tradition of central Afghanistan built on the fretless two-string long-necked dambora lute, sustained orally by village and shrine singers and brought to recording through Dawood Sarkhosh and Sarwar Sarkhosh from the 1980s exile period onward, marked by strummed drone-plus-melody right-hand patterns, no fixed fretting, moderate duple pulse, and Hazaragi-dialect poetry of exile, love and mourning delivered in a nasal high-tessitura solo voice.",
-  "recipe": "classic mid-1980s dambora, drone Modal, string branch, indian bard ballad poetry, vocal drone modal karelian folk music alpine yodeling. sygyt, breath veiled tone, slow rate, interlocked note trading. turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar, teardrop bodied driving strummed dombyra, zerbaghali, daf. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 451,
-  "score": 177.752,
+  "recipe": "classic mid-1980s dambora, drone Modal, string branch, indian bard ballad poetry, vocal drone modal karelian folk music alpine yodeling. sygyt, breath veiled tone, breath pulsed, interlocked note trading. turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar, teardrop bodied driving strummed dombyra, zerbaghali, daf. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 455,
+  "score": 177.796,
   "config": {
     "traditions": [
       "dambora",
@@ -63,7 +63,7 @@
           "daf_rings": 0.645,
           "daf_context": 1.365,
           "daf_shell_wood": 0.39,
-          "daf_head_material": 0.6449999999999999,
+          "daf_head_material": 0.8399999999999999,
           "daf_jingle_metal": 0.69
         }
       },
@@ -74,7 +74,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -88,22 +88,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.42,
+          "voice_register": 3.615,
           "voice_quality": 10.854999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.925,
+          "voice_vibrato": 3.0456250000000002,
           "voice_articulation": 20.279999999999994,
           "voice_microtone": 23.464999999999993,
           "voice_tradition": 17.16,
           "voice_mechanism_compound": 8.905000000000001,
-          "voice_estill_quality": 5.5512500000000005,
+          "voice_estill_quality": 5.32625,
           "voice_speech_song": 22.879999999999992,
           "voice_ensemble_config": 21.709999999999994,
           "voice_ornament_system": 4.0950000000000015,
-          "voice_pitch_organization": 9.41125,
+          "voice_pitch_organization": 9.186250000000001,
           "voice_processing_chain": 6.24,
-          "voice_multitrack_stack": 3.705
+          "voice_multitrack_stack": 3.6881250000000003
         }
       }
     ],

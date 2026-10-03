@@ -1,0 +1,67 @@
+{
+  "id": "igbo_traditional",
+  "name": "Igbo traditional",
+  "family": "global",
+  "lineage": "Complete original Side B band6(a), Ibo Drummers and Dancers, recorded by Stanley Diamond in Owerri Province during1958–59. Issuer liner notes explicitly describe a travelling five-musician orchestra: four musicians play skin-headed drums and one plays a hollow-log slit drum. Drums are precisely tuned and played melodically; caption documents wooden-stick playing and a set of four differently sized skin-covered drums in the pictured subset. Four skin-drum musicians does not mean only four total drums. All five players and both sound families are retained. This is the whole separately documented original6(a) performance, not the adjacent6(b) national celebration or the entire multi-ethnic album. Digital track206 combines both sub-selections; no unverified digital edit timestamp is supplied. A single whole skin-drum-ensemble card retains all four players and their multiple tuned drums; exact individual drum counts, dimensions, tuning frequencies and shell material remain unspecified. It is not replaced with the existing conical hand-played igba. The hollow-log role uses existing Igbo ekwe with authored medium two-tone size and interlocking dance support; size, pitch count and exact timeline are editorial choices, not measured original parameters. The documented instrumental orchestra has zero separately credited singers; incidental crowd sounds are not claimed absent. Authored controlled-room re-recording, no original field-recorder reconstruction, capture apparatus or global tuning claimed. Neutral instrument axes are placeholders, not acoustic measurements.",
+  "recipe": "classic igbo traditional, groove Percussion. melodic tuned igbo tonal skin drum ensemble, ekwe. live tracking.",
+  "recipe_chars": 110,
+  "score": 5.473,
+  "config": {
+    "traditions": [
+      "igbo_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "igbo_tonal_skin_drum_ensemble",
+        "slots": {
+          "igbo_tonal_skin_drum_ensemble_identity": "igbo_tonal_skin_drum_ensemble_owerri"
+        },
+        "scores": {
+          "igbo_tonal_skin_drum_ensemble_identity": 2.5999999999999996
+        }
+      },
+      {
+        "id": "ekwe",
+        "slots": {
+          "ekwe_size": "ekwe_medium",
+          "ekwe_role": "ekwe_timeline"
+        },
+        "scores": {
+          "ekwe_size": 1.4365,
+          "ekwe_role": 1.4365
+        }
+      }
+    ],
+    "pinned": {
+      "igbo_tonal_skin_drum_ensemble": [
+        "igbo_tonal_skin_drum_ensemble_identity"
+      ],
+      "ekwe": [
+        "ekwe_size",
+        "ekwe_role"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "igbo_tonal_skin_drum_ensemble_identity": "igbo_tonal_skin_drum_ensemble_owerri",
+      "ekwe_size": "ekwe_medium",
+      "ekwe_role": "ekwe_timeline"
+    },
+    "pin_parts": true
+  }
+}

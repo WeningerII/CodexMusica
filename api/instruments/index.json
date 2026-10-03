@@ -1,5 +1,5 @@
 {
-  "count": 1595,
+  "count": 1609,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9570,6 +9570,90 @@
       "name": "Credited programmed drums (generator unspecified)",
       "family": "electronic",
       "href": "instruments/credited_programmed_drums_unspecified.json"
+    },
+    {
+      "id": "human_voice_ensemble_unspecified",
+      "name": "Human voice — source-unspecified ensemble and tracking",
+      "family": "voice",
+      "href": "instruments/human_voice_ensemble_unspecified.json"
+    },
+    {
+      "id": "credited_bouzouki_unspecified",
+      "name": "Credited bouzouki (configuration unspecified)",
+      "family": "plucked_traditional",
+      "href": "instruments/credited_bouzouki_unspecified.json"
+    },
+    {
+      "id": "zoom_rt123_rhythm_bass_machine",
+      "name": "Zoom RT-123 rhythm and bass machine",
+      "family": "electronic",
+      "href": "instruments/zoom_rt123_rhythm_bass_machine.json"
+    },
+    {
+      "id": "multi_method_sound_synthesis",
+      "name": "Multi-method sound synthesis",
+      "family": "electronic",
+      "href": "instruments/multi_method_sound_synthesis.json"
+    },
+    {
+      "id": "digital_percussion_pad",
+      "name": "Digital percussion pad (SPD-30 internal sound bank)",
+      "family": "electronic",
+      "href": "instruments/digital_percussion_pad.json"
+    },
+    {
+      "id": "hand_pumped_harmonium",
+      "name": "Hand-pumped harmonium",
+      "family": "free_reed",
+      "href": "instruments/hand_pumped_harmonium.json"
+    },
+    {
+      "id": "igbo_tonal_skin_drum_ensemble",
+      "name": "Owerri Igbo tonal skin-drum ensemble",
+      "family": "percussion",
+      "href": "instruments/igbo_tonal_skin_drum_ensemble.json"
+    },
+    {
+      "id": "credited_flute_unspecified",
+      "name": "Credited flute (source-unspecified construction)",
+      "family": "wind",
+      "href": "instruments/credited_flute_unspecified.json"
+    },
+    {
+      "id": "accordina",
+      "name": "Accordina",
+      "family": "free_reed",
+      "href": "instruments/accordina.json"
+    },
+    {
+      "id": "txirula",
+      "name": "Txirula",
+      "family": "wind",
+      "href": "instruments/txirula.json"
+    },
+    {
+      "id": "spoken_dramatic_cast",
+      "name": "Spoken dramatic cast",
+      "family": "voice",
+      "href": "instruments/spoken_dramatic_cast.json"
+    },
+    {
+      "id": "heligonka_cf",
+      "name": "Heligónka (two-row C/F)",
+      "family": "free_reed",
+      "href": "instruments/heligonka_cf.json"
+    },
+    {
+      "id": "senggayung_bamboo_tubes",
+      "name": "Senggayung struck bamboo tubes",
+      "family": "percussion",
+      "href": "instruments/senggayung_bamboo_tubes.json"
+    },
+    {
+      "id": "credited_synthesizer_unspecified",
+      "name": "Credited synthesizer (architecture unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_synthesizer_unspecified.json"
     }
   ]
 }

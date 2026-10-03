@@ -1,0 +1,70 @@
+{
+  "id": "hammond_organ",
+  "name": "Hammond organ",
+  "family": "global",
+  "lineage": "Douglas Katelus as SOLO ORGAN — complete two-track Atom Heart and Beyond the Infinite (2015): Atom Heart Mother22:09 and And the World Weeps / Beyond / AXIS18:08. The artist explicitly says the project is precisely solo Hammond organ, and links its debut album from that description. One instrumental performer and no credited singer; the original Pink Floyd ensemble is not transferred into this separately made solo-organ rendition. Artist describes heavy free-form sound between noise and blues, drawing drone from a four-chord rock-and-roll structure. No band-member or guest-role omissions. Broad improvOnFrame follows the artist explicit heavy free-form description and rock-chord frame, without asserting a particular jazz lineage. A Hammond B3 with Leslie122, broad rock drawbars, slow rotary chorale, percussion off and recurring keyboard ostinato is a coherent authored organ realization. Exact source model, cabinet, registration and articulation are not documented; none is presented as measured artist equipment. Source continuous organ sound is retained; there is no added bass player, drum machine or vocalist. Controlled live-room acoustics are authored, unspecified capture apparatus and global tuning omitted.",
+  "recipe": "classic mid-2010s hammond organ, improv On Frame. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched slow chorale tonewheel organ. live tracking.",
+  "recipe_chars": 208,
+  "score": 43.321,
+  "config": {
+    "traditions": [
+      "hammond_organ"
+    ],
+    "instruments": [
+      {
+        "id": "tonewheel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_ostinato_groove",
+          "drawbar_setting": "rock_drawbars",
+          "rotary_speed": "slow_chorale",
+          "percussion_setting": "percussion_off",
+          "tonewheel_model": "tonewheel_hammond_b3",
+          "leslie_cabinet_model": "leslie_122_canonical"
+        },
+        "scores": {
+          "keyboard_technique": 1.2,
+          "drawbar_setting": 10.499999999999998,
+          "rotary_speed": 2.5000000000000004,
+          "percussion_setting": 4.715249999999999,
+          "tonewheel_model": 18.356249999999992,
+          "leslie_cabinet_model": 6.049999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "tonewheel_organ": [
+        "keyboard_technique",
+        "drawbar_setting",
+        "rotary_speed",
+        "percussion_setting",
+        "tonewheel_model",
+        "leslie_cabinet_model"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_ostinato_groove",
+      "drawbar_setting": "rock_drawbars",
+      "rotary_speed": "slow_chorale",
+      "percussion_setting": "percussion_off",
+      "tonewheel_model": "tonewheel_hammond_b3",
+      "leslie_cabinet_model": "leslie_122_canonical"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "middle_earth",
+  "name": "Middle-earth music",
+  "family": "pop",
+  "lineage": "Enya — May It Be, complete Tobias Beiler two-page piano-solo arrangement MN0235409. Broad functionalSong/pop places this selected adult-contemporary film-song piano rendition as authored functional-harmonic song accompaniment rather than declaring classical art music merely because a score exists. Coherent nine-foot Steinway D construction, original hammer, Sitka soundboard, Hexagrip pinblock, iron plate and block-chord pop touch are authored timbral choices, not evidence of the arranger’s actual piano. A440 instrument baseline and controlled room are editorial; global tuning omitted. No voice or orchestra is added to the explicitly instrumental-solo scoring.",
+  "recipe": "classic middle-earth music, functional Song. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
+  "recipe_chars": 133,
+  "score": 38.136,
+  "config": {
+    "traditions": [
+      "middle_earth"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 11.549999999999997,
+          "grand_piano_size": 0.3,
+          "grand_piano_brand": 1.4905,
+          "piano_hammer": 3.3080000000000003,
+          "piano_rim": 3.524,
+          "piano_soundboard": 4.800000000000001,
+          "piano_pinblock": 4.500000000000001,
+          "piano_plate": 5.800000000000001,
+          "piano_pitch_standard": 2.8640000000000003
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true
+  }
+}

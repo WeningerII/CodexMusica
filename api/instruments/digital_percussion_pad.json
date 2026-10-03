@@ -1,0 +1,53 @@
+{
+  "id": "digital_percussion_pad",
+  "name": "Digital percussion pad (SPD-30 internal sound bank)",
+  "short": "Digital percussion pad",
+  "family": "electronic",
+  "class": "digital_percussion_pad",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "digital_percussion_pad_identity",
+      "name": "Documented digital percussion-pad identity",
+      "variants": [
+        {
+          "id": "digital_percussion_pad_spd30_internal_bank",
+          "name": "Roland SPD-30 digital pad with internal sound bank; selected preset and routing unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Whole manufacturer-documented digitalpercussionpad role, eight onboard triggers and internal sounds. Does not assert which sounds,pads,external controllers or looping were used. Neutral axes are routing placeholders, not measurements. No single preset stands for whole instrument.",
+  "sources": [
+    "https://thehappystrange.bandcamp.com/track/remain",
+    "https://www.roland.com/global/products/octapad_spd-30/"
+  ],
+  "_ownParts": [
+    {
+      "id": "digital_percussion_pad_identity",
+      "name": "Documented digital percussion-pad identity",
+      "variants": [
+        {
+          "id": "digital_percussion_pad_spd30_internal_bank",
+          "name": "Roland SPD-30 digital pad with internal sound bank; selected preset and routing unknown",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

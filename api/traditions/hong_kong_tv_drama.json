@@ -1,0 +1,84 @@
+{
+  "id": "hong_kong_tv_drama",
+  "name": "Hong Kong TV drama",
+  "family": "pop",
+  "lineage": "Joseph Koo — 上海灘 (Shanghai Bund), complete solo-piano arrangement listed as item1 of New Century Workshop’s Joseph Koo classic works piano-solo volume 隨想曲. The issuer explicitly identifies the entire series as piano-solo scores and offers a companion piano-solo CD; this model selects the complete named arrangement, not an excerpt or a conjectured reduction of Frances Yip’s vocal soundtrack master. One piano performer, zero separately scored vocal parts. The TV broadcaster explicitly identifies Shanghai Bund among Koo’s television drama theme compositions. The instrumental arrangement retains the full selected edition; voices and orchestral roles from different recorded versions are not asserted or selectively omitted. Parent functionalSong.eastAsianPop retains the original Cantonese television-theme pop-song branch in its published instrumental realization. Merely owning a piano score does not turn this into artMusic or imply the entire category is instrumental. Coherent nine-foot Steinway D, original felt hammers, maple rim/pinblock, spruce board, iron plate and A440 are authored modern piano choices, not publisher recording equipment. Sustain-rich arpeggiation, controlled live-room acoustics and equal temperament are editorial choices, not a transcription of an unseen score or original television session.",
+  "recipe": "classic hong kong tv drama, functional Song, east Asian pop branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
+  "recipe_chars": 156,
+  "score": 54.254,
+  "config": {
+    "traditions": [
+      "hong_kong_tv_drama"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 12.081499999999998,
+          "grand_piano_size": 2.9000000000000004,
+          "grand_piano_brand": 0.273,
+          "piano_hammer": 6.1885,
+          "piano_rim": 6.1885,
+          "piano_soundboard": 5.831500000000001,
+          "piano_pinblock": 4.6365,
+          "piano_plate": 7.4,
+          "piano_pitch_standard": 8.7545
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true
+  }
+}

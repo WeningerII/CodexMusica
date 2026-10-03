@@ -1,0 +1,188 @@
+{
+  "id": "hokkaido_indie",
+  "name": "Hokkaido indie",
+  "family": "rock",
+  "lineage": "Necoyama Ice — complete twelve-track Domestic Rock’n Roll (2017). The artist credits vocals and guitars to Necoyama Ice and bass and drums to the ZOOM RhythmTrak RT-123. All credited performing roles are retained: one human singer, guitar family and the named rhythm/bass machine encompassing both programmed bass and drums. The Fostex X-12 cassette recorder is documented capture equipment, not an additional performing instrument. Album and artist page explicitly place this home recording in Hokkaido and the project in Asahikawa, with indie rock and indie pop tags. Broad functionalSong models authored recurring lyric refrains with tonal chord support; no Anglosphere-specific child or measured source chord scheme is asserted. The source does not identify guitar pickup/construction: alder-body humbucker guitar with mahogany neck, standard tuning and ringing power-chord playing is a coherent authored garage-rock realization. Voice uses neutral physiology and source-unspecified register, with newly authored small-note-groups-per-syllable singing. Exact source vocal layering is unknown; one credited singer is not a claim of a single recording take. Controlled live-room acoustics are authored contemporary realization, not the source home room; documented cassette recording remains in provenance without inventing a current hardware chain. Global tuning and capture apparatus omitted. RT-123 drum and bass programs are positive source roles, but selected kit/program, pattern, swing and pitches remain unspecified.",
+  "recipe": "classic late-2010s hokkaido indie, functional Song. small note groups per syllable, solo with instrumental accompaniment, single lead single track no stacking. alder mahogany conventional tuning standard pitch power chord humbucker electric guitar, zoom rt123 rhythm bass machine. live tracking.",
+  "recipe_chars": 295,
+  "score": 32.554,
+  "config": {
+    "traditions": [
+      "hokkaido_indie"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 7.9905,
+          "voice_ensemble_config": 5.7715,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 5.07,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "mahogany_neck_h",
+          "fretboard": "ebony_fb_h",
+          "pickup_magnet": "ceramic_h",
+          "pickup_winding": "high_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 5.1,
+          "amp_make": 0,
+          "body_wood": 1.6,
+          "neck_wood": 1.3,
+          "fretboard": 0,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0.054,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 1.3,
+          "finish": 0,
+          "string_tuning": 3.8999999999999995
+        }
+      },
+      {
+        "id": "zoom_rt123_rhythm_bass_machine",
+        "slots": {
+          "zoom_rt123_rhythm_bass_machine_identity": "zoom_rt123_rhythm_bass_machine_documented"
+        },
+        "scores": {
+          "zoom_rt123_rhythm_bass_machine_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "zoom_rt123_rhythm_bass_machine": [
+        "zoom_rt123_rhythm_bass_machine_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electric_technique": "electric_power_chord",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "neck_wood": "mahogany_neck_h",
+      "fretboard": "ebony_fb_h",
+      "pickup_magnet": "ceramic_h",
+      "pickup_winding": "high_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "zoom_rt123_rhythm_bass_machine_identity": "zoom_rt123_rhythm_bass_machine_documented"
+    },
+    "pin_parts": true
+  }
+}

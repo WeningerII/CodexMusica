@@ -1,0 +1,82 @@
+{
+  "id": "hinos_ccb",
+  "name": "Hinos CCB",
+  "family": "blues_gospel",
+  "lineage": "Vanessa Moraes — E-Book 2 (10 Hinos CCB), complete ten-piece solo-piano score collection. The arranger-issued product explicitly identifies solo piano for all ten hymns; her own profile identifies her as a Congregação Cristã no Brasil organist and hymn arranger. This is an instrumental realization of the complete published piano edition, with zero sung voices; it does not omit the voices or orchestra of a selected recording, claim every CCB service is instrumental, or reconstruct an unexamined video. Separate organ/keyboard adaptations are optional alternatives, not additional simultaneous instruments. The existing broad Christian sacred-song parent follows the explicitly CCB hymn purpose rather than treating notation alone as classical art music. A coherent nine-foot Steinway D, original felt hammers, maple rim/pinblock, spruce soundboard, iron plate and A440 are authored contemporary piano choices, not a claimed source instrument. Sustain-rich arpeggiated playing is an authored hymn realization, not a transcription of all ten scores. Controlled live-room acoustics are authored; no measured recording venue or capture hardware is asserted.",
+  "recipe": "classic hinos ccb, ritual Devotional, christian gospel branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. live tracking.",
+  "recipe_chars": 151,
+  "score": 40.983,
+  "config": {
+    "traditions": [
+      "hinos_ccb"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 3.8000000000000007,
+          "grand_piano_size": 0.294,
+          "grand_piano_brand": 1.573,
+          "piano_hammer": 5.800000000000001,
+          "piano_rim": 6.346000000000001,
+          "piano_soundboard": 5.800000000000001,
+          "piano_pinblock": 4.500000000000001,
+          "piano_plate": 5.800000000000001,
+          "piano_pitch_standard": 7.0695
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_arpeggio_sustain_rich",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true
+  }
+}
