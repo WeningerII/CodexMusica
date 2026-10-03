@@ -1,0 +1,58 @@
+{
+  "id": "russian_emo_rap",
+  "name": "Russian emo rap",
+  "family": "hip_hop",
+  "lineage": "Pyrokinesis repertoire — complete Note-Store Piano.Solo PSO0179363 arrangement of Raduga zemnogo tyagoteniya (2022). Publisher expressly transfers the instrumental and vocal parts entirely onto piano, separately selling piano/vocal versions; retain one pianist and zero singers. Public product metadata and format definition inspected, not the paid full score or audio; page count is not supplied. This published instrumental adaptation does not reconstruct the original produced vocal master. Authored standard upright with connected legato phrasing and controlled live room; publisher does not specify piano subtype, fingering, capture room or tuning. All three existing owning controls protected. Broad functionalSong explicitly models an authored functional-harmonic song-form rendition of the melodic adaptation, not classical taxonomy merely because notated and not an analyzed original chord claim. hip_hop family retains positive publisher rap/hip-hop repertoire classification; no live rap card added to this piano-only edition.",
+  "recipe": "classic early-2020s russian emo rap, functional Song. legato upright piano. live tracking.",
+  "recipe_chars": 90,
+  "score": 4.55,
+  "config": {
+    "traditions": [
+      "russian_emo_rap"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.550000000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

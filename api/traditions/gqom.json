@@ -5,7 +5,7 @@
   "lineage": "South African Durban-Zulu late-2000s minimal-bass dance subgenre, codified through Naked Boys, DJ Lag, Citizen Boy, and Rudeboyz starting circa 2010 — characterized by repetitive 4/4 sub-bass-driven drum patterns at 120-130 BPM, sparse hi-hats, vocal chants in isiZulu, and the deliberately dark / minimal aesthetic distinguishing it from house and amapiano",
   "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm merenrap ghanaian hip hop. vocal fry, rap, straight note core, interlocked note trading. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
   "recipe_chars": 359,
-  "score": 125.078,
+  "score": 125.522,
   "config": {
     "traditions": [
       "gqom",
@@ -29,26 +29,26 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.24425,
+          "voice_register": 2.3649999999999998,
           "voice_quality": 7.279999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.1949999999999994,
           "voice_articulation": 13.194999999999997,
           "voice_microtone": 11.569999999999993,
-          "voice_tradition": 12.5785,
+          "voice_tradition": 12.82,
           "voice_mechanism_compound": 2.0799999999999996,
-          "voice_estill_quality": 2.4949999999999997,
+          "voice_estill_quality": 2.69,
           "voice_speech_song": 13.064999999999996,
           "voice_ensemble_config": 13.064999999999996,
           "voice_ornament_system": 4.290000000000002,
-          "voice_pitch_organization": 1.4721250000000001,
-          "voice_processing_chain": 6.464999999999999,
+          "voice_pitch_organization": 1.6449999999999998,
+          "voice_processing_chain": 6.554999999999999,
           "voice_multitrack_stack": 4.8100000000000005
         }
       },
@@ -60,8 +60,8 @@
           "tr808_production_origin": "tr808_behringer_clone"
         },
         "scores": {
-          "tr808_voice": 5.797124999999999,
-          "drum_machine_808_context": 5.092124999999999,
+          "tr808_voice": 5.76,
+          "drum_machine_808_context": 5.055,
           "tr808_production_origin": 0.195
         }
       },
@@ -74,8 +74,8 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 5.742125,
-          "wave_acid": 0.19799999999999998,
+          "electronic_technique": 5.705,
+          "wave_acid": 0,
           "filter_acid": 2.6750000000000003,
           "accent_acid": 2.4499999999999997
         }
@@ -84,15 +84,15 @@
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_bass_sub",
-          "poly_archetypes": "jupiter_8",
+          "poly_archetypes": "prophet_5",
           "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.742125,
-          "poly_archetypes": 0.03712499999999999,
+          "electronic_technique": 5.705,
+          "poly_archetypes": 0.045,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -2.0128749999999997
+          "poly_maker_lineage": -2.05
         }
       }
     ],

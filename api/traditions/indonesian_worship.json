@@ -1,0 +1,143 @@
+{
+  "id": "indonesian_worship",
+  "name": "Indonesian Worship",
+  "family": "global",
+  "lineage": "JPCC Worship Choir — Bersinar Terang, complete official lyric-video edition issued8April2021 from the FOUND choir EP. Publisher credits Devina Karyasasmita lead vocal and Yehuda Manusama acoustic guitar; the named choir ensemble is retained in full with unknown headcount and unknown vocal layering. This is not reduced to the one named lead singer. Vocal arrangers Marthin and Denny Saba and producer Pongky Prasetyo are not invented additional performers. Other FOUND tracks have different credits and their electric guitar, drums, bass or strings are not transferred to this track. Complete published credited palette, not a listening-based assertion of waveform exclusivity; no duration invented. Authored present-day choir-and-acoustic-guitar sacred-song realization. The human-voice ensemble owner keeps lead plus choir while source headcount, tracking, physiology and registers remain unspecified. Small note-group singing is editorial phrasing, not a transcription of every syllable. Generic credited acoustic guitar becomes an all-mahogany steel-string dreadnought with phosphor-bronze strings, standard guitar tuning and flatpicked notes; these are authored construction/gesture choices, not measured source equipment. Controlled live room is editorial, not the measured Practice Room/Baritone studios credited by the publisher. Optional capture apparatus and global tuning are omitted. Christian sacred-song parent follows the explicit worship function, without inferring Pentecostal denomination.",
+  "recipe": "classic indonesian worship, ritual Devotional, christian gospel branch. small note groups per syllable neumatic singing small groups per syllable unprocessed natural acoustic human voice ensemble unspecified, mahogany phosphor bronze modern martin dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 291,
+  "score": 18.513,
+  "config": {
+    "traditions": [
+      "indonesian_worship"
+    ],
+    "instruments": [
+      {
+        "id": "human_voice_ensemble_unspecified",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 5.473,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 4.199999999999999,
+          "human_voice_ensemble_source_status": 0,
+          "human_voice_tracking_source_status": 0,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": 1.2,
+          "string_tuning": 0,
+          "top_wood": 1.3,
+          "back_sides": 1.3,
+          "string_acoustic": 5.04
+        }
+      }
+    ],
+    "pinned": {
+      "human_voice_ensemble_unspecified": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "human_voice_ensemble_source_status",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "human_voice_tracking_source_status",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "acoustic_technique": "acoustic_flatpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze"
+    },
+    "pin_parts": true
+  }
+}

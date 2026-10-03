@@ -1,0 +1,58 @@
+{
+  "id": "chechen_pop",
+  "name": "Chechen Pop",
+  "family": "pop",
+  "lineage": "Complete Note-Store Piano.Easy arrangement PEA0106847 of Vozmi moe serdtse associated with Makka Sagaipova, music/words Tamara Dadasheva, work year2016 as catalogued. Issuer explicitly places both melody and accompaniment on one piano and separately lists a Piano&Vocal version. Preserve this complete simplified instrumental edition with one pianist and zero singers; do not reconstruct the original produced song or infer absent original backline. Public product metadata inspected, not purchased full score, audio or source pitches. Authored standard studio upright and connected legato phrasing realize the source-unspecified piano type; neither is claimed to be Sagaipova actual equipment or printed fingering. FunctionalSong models an explicitly authored functional-harmonic verse/refrain pop-song rendition, not a claim based only on sheet music or an analyzed original chord sequence. Pop family follows positive regional estrada/pop field, not classical taxonomy from notation. Controlled live room, no global tuning or capture chain.",
+  "recipe": "classic chechen pop, functional Song. legato upright piano. live tracking.",
+  "recipe_chars": 74,
+  "score": 4.55,
+  "config": {
+    "traditions": [
+      "chechen_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.550000000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

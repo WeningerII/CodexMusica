@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "updated_ids": [
+    "chinese_traditional_ensemble",
+    "coupe_decale_ivorian",
+    "ethio_pop_modern",
+    "freak_folk_2000s",
+    "modal_jazz",
+    "salsa_dura"
+  ],
+  "unchanged_fixtures": 1143,
+  "original_snapshot_sha256": "36e315c4a45f656b67567a8917f959014a3e6de7e1871919de8510b1d01f6f9a",
+  "updated_snapshot_sha256": "632aea57afc06f54bee01785ab575c66b9a4393e46e69557a179b5eb46d4a524",
+  "independent_review": "regression-independent-review119.json",
+  "method": "Original regression_recipes.js --update --fixture individually; exact six reviewed output fields only, all other metadata unchanged; no assertion logic changes",
+  "verification_note": "External helper initially compared entire snapshot object to output string; corrected verification to actual output field and separately proved metadata unchanged, no test or source change."
+}

@@ -1,0 +1,58 @@
+{
+  "id": "t_pop_girl_group",
+  "name": "T-Pop Girl Group",
+  "family": "pop",
+  "lineage": "Whole separately published four-page piano-solo arrangement of4EVE วัดป่ะหล่ะ(Test Me), issuer page154077 by Siriporn Yookaew (indexed credit ploycris), BanPianoBangsaen account. Product explicitly piano,solo,no lyrics. Its4-staves metadata describes notation, not four players;1/5 preview carousel is not the explicitly four-page score count. Zero singers in this instrumental edition, not a claim about the original seven-member group recording. No paid fullscore read or source audio audition claimed; original band arrangement not stripped by the researcher. Authored standard studio upright with connected legato phrasing in a controlled live room. Source piano construction unspecified; no claim exact source upright or source performance technique. Broad functionalSong models an explicitly authored recurring verse/refrain, functional-harmonic pop-song realization, not classical genre inferred from notation nor measured source chord analysis. No global tuning or recording chain imposed.",
+  "recipe": "classic t-pop girl group, functional Song. legato upright piano. live tracking.",
+  "recipe_chars": 79,
+  "score": 4.55,
+  "config": {
+    "traditions": [
+      "t_pop_girl_group"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.550000000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

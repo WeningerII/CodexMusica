@@ -1,0 +1,50 @@
+{
+  "id": "deep_full_on",
+  "name": "Deep Full On",
+  "family": "electronic",
+  "lineage": "Archive (MMD Records) — complete artist-issued Live from the basement vol II, 2:04:35 DJ programme. The issuer labels the whole programme full-on night psychedelic and names selections by Omega Flight, Contrast, T.k.o, Jhesha & Iron Lotus, Qube & Dyce and others. The incomplete displayed tracklist is not replaced with guessed titles. All mixed recorded layers, including any embedded vocals, remain in one actual playback/mixing role; this is not an opaque studio album repackaged as a DJ set. No release year is inferred from relative page age. Actual live or recorded voice counts, carriers, deck count and device models remain unknown. Existing medium-unspecified DJ playback/mixing owner retains the complete documented mixed programme without invented synthesis, sampling or scratching mechanisms. Treated studio is an authored controlled-listening rendition, not measured basement acoustics. Global tuning and capture apparatus are omitted. Existing electronicDance.trance parent follows the expressly named psychedelic/full-on trance practice; neutral axes are editorial coordinates.",
+  "recipe": "classic deep full on, electronic Dance, trance branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 102,
+  "score": 0.2,
+  "config": {
+    "traditions": [
+      "deep_full_on"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.1995
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

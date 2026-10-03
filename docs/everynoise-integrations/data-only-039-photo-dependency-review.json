@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "integration_sha256": "b8080977df43c25645ed368c75bdd7fa9633477b56c40d6c99472e3a503a0b58",
+  "source_checkpoint_sha256": "0c0f1633967952dc6687bd2c1ca770fd2d5f029ed328495ee82a702cb79926b2",
+  "source_entries": 100,
+  "new_isolated_instruments": 10,
+  "photo_receipts": 110,
+  "old_instruments_preserved": 1628,
+  "old_images_preserved": 8016,
+  "source_proofs": ["queue-review", "raw-merged-preservation", "descriptor-review"],
+  "amendments": "Only three Manado prose fields clarify existing Lagu Timur overlap. No photo, signature, geography, musical role, instrument, part or default alteration."
+}

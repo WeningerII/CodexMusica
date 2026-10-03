@@ -1,0 +1,54 @@
+{
+  "id": "glass",
+  "name": "Glass",
+  "family": "classical",
+  "lineage": "Thomas Bloch — Mozart Adagio K356, complete solo track6 from Music for Glass Harmonica. Source-supported Franklin-type rotating bowls and wet-finger excitation are both pinned. One complete solo work, no quartet or album singers imported. No specific historical pitch or global temperament imposed: performer reports instruments at442 and430Hz, selected session pitch unspecified. Authored spacious concert-hall listening rendition supports sustained acoustic tones; this is a source-compatible modern recital setting, not a claim about original Naxos session acoustics or apparatus. Optional signal-chain apparatus is omitted. Western common-practice parent applies to selected Mozart work, not every Glass network member.",
+  "recipe": "classic glass, art Music, western common practice branch. spun bowls wetted finger glass harmonica. shoebox concert hall.",
+  "recipe_chars": 121,
+  "score": 3.099,
+  "config": {
+    "traditions": [
+      "glass"
+    ],
+    "instruments": [
+      {
+        "id": "glass_harmonica",
+        "slots": {
+          "glass_harmonica_type": "glass_harmonica_spun_bowls",
+          "glass_harmonica_technique": "glass_harmonica_wetted_finger"
+        },
+        "scores": {
+          "glass_harmonica_type": 1.6315000000000002,
+          "glass_harmonica_technique": 1.468
+        }
+      }
+    ],
+    "pinned": {
+      "glass_harmonica": [
+        "glass_harmonica_type",
+        "glass_harmonica_technique"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "glass_harmonica_type": "glass_harmonica_spun_bowls",
+      "glass_harmonica_technique": "glass_harmonica_wetted_finger"
+    },
+    "pin_parts": true
+  }
+}

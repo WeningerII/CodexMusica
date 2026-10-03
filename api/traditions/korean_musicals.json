@@ -1,0 +1,58 @@
+{
+  "id": "korean_musicals",
+  "name": "Korean Musicals",
+  "family": "pop",
+  "lineage": "Will Aronson / Hue Park — Why Love (James’s Piano Solo), complete separately issued two-page instrumental piano edition MN0309208, administered by Hal Leonard through Musicnotes. The publisher explicitly specifies one piano and instrumental solo. Zero singers in this edition; lyricist metadata credits the underlying theatrical work, not a sung part. This is the whole named independent edition, not a selection of convenient bars or an assertion that the complete musical or cast recording is solo piano. Full paid score not accessed. The English-titled publication belongs to the work’s international circulation; no Korean-language performance or original Seoul orchestration is claimed. Authored standard studio upright and connected legato realize the publisher’s subtype-unspecified piano without claiming original equipment or measured touch. Broad artMusic models this complete fixed composed instrumental dramatic miniature in an authored concert-listening rendition, rather than inferring verse/chorus form from a recurring theme. It does not classify all Korean musicals as classical, nor use notation alone as the rationale. Controlled live-room recording is authored; no global tuning, apparatus or actual cast performer is inferred.",
+  "recipe": "classic korean musicals, art Music. legato upright piano. live tracking.",
+  "recipe_chars": 72,
+  "score": 4.582,
+  "config": {
+    "traditions": [
+      "korean_musicals"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.581500000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

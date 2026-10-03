@@ -1,0 +1,58 @@
+{
+  "id": "marathi_pop",
+  "name": "Marathi pop",
+  "family": "pop",
+  "lineage": "Bollypiano — Gulabi Sadi, complete nine-page intermediate solo-piano sheet edition of Sanju Rathod’s2024 song. Publisher separately sells melody sheets, lead sheets and MIDI; this selected solo edition supplies piano notes and chords for one pianist. Zero singers in this instrumental adaptation, not a reconstruction of the original produced song. Paid full score and original audio not inspected; complete edition identity and scoring rely on arranger-issued product metadata. Authored standard studio upright and connected legato phrasing in a controlled live room, not source piano construction or measured touch. No recording apparatus or global temperament claim. South Asian pop parent retains the documented regional popular-song repertoire; functional-harmonic song realization is authored, not a measured analysis of the original master. All three existing piano controls protected.",
+  "recipe": "classic marathi pop, functional Song, south Asian pop branch. upright piano. live tracking.",
+  "recipe_chars": 91,
+  "score": 1.897,
+  "config": {
+    "traditions": [
+      "marathi_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 1.25,
+          "upright_use": 0.34650000000000003,
+          "upright_piano_size": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

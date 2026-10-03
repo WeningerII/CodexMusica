@@ -1,0 +1,50 @@
+{
+  "id": "arab_trap",
+  "name": "Arab Trap",
+  "family": "hip_hop",
+  "lineage": "DJ Kaboo: complete nineteen-selection DJcity Podcast mix issued10June2019. Retain all recorded programme layers, including Arab Trap1/2, Arabic repertoire remixes, and international hip-hop/pop/dancehall crossover selections. This is positively documented DJ playback and mixing, not reconstruction of the constituent original productions. Source does not identify playback hardware/media or additional live musicians; all embedded singers and instrumental layers remain recorded and their counts unknown. Existing source-medium-unspecified DJ owner preserves actual full mixed programme without guessed synthesis or acoustic instruments. Authored treated-studio listening environment is not source venue geometry. No global tuning or optional apparatus asserted. International hip-hop parent applies to the selected documented rap/trap-led DJ repertoire with recorded rhythmic verse, not a claim every Arab Trap release has a live MC.",
+  "recipe": "classic arab trap, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 98,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "arab_trap"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

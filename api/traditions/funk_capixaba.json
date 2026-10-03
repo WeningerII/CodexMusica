@@ -5,7 +5,7 @@
   "lineage": "Espírito Santo regional funk from Vitória and Serra, taking shape from about 2018 through DJ Deivinho ES and local Vila Velha producers — mid-130s BPM tracks over a dry, heavily gated kick-clap pattern with rimshot-driven off-beats, low-passed sub, sparse pitched sirens and looped erotic or provocative MC hooks, often released as long DJ-mixed 'set' files rather than discrete singles.",
   "recipe": "classic Southern American late-2010s funk capixaba, electronic Dance, Latin electric branch, Afro-diasporic MC rhythm funk consciente cameroonian hip hop. vocal fry, rap, slow rate, interlocked note trading. TR-808, melodic pitched sampler, low sub bass analog poly synth, low sub bass monosynth acid bass. rio favela home baile funk. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 433,
-  "score": 138.698,
+  "score": 138.43,
   "config": {
     "traditions": [
       "funk_capixaba",
@@ -60,7 +60,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 4.723999999999999,
+          "tr808_voice": 4.685,
           "drum_machine_808_context": 3.575,
           "tr808_production_origin": 0.195
         }
@@ -77,8 +77,8 @@
         "scores": {
           "electronic_technique": 2.415,
           "sampler_archetypes": 1.9949999999999999,
-          "sampler_bit_depth": 2.074,
-          "sampler_workflow": 3.1580000000000004,
+          "sampler_bit_depth": 2.035,
+          "sampler_workflow": 2.95,
           "sampler_classic_context": 15.534999999999997
         }
       },
@@ -87,13 +87,13 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "prophet_5",
-          "poly_voices": "poly_8_voice",
+          "poly_voices": "poly_16_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
-          "electronic_technique": 5.968999999999999,
-          "poly_archetypes": 0,
-          "poly_voices": 0,
+          "electronic_technique": 5.93,
+          "poly_archetypes": 0.045,
+          "poly_voices": 0.09,
           "poly_maker_lineage": -2.05
         }
       },
@@ -106,10 +106,10 @@
           "accent_acid": "no_accent_acid"
         },
         "scores": {
-          "electronic_technique": 5.968999999999999,
+          "electronic_technique": 5.93,
           "wave_acid": 0,
           "filter_acid": 2.525,
-          "accent_acid": 0.9890000000000001
+          "accent_acid": 0.9500000000000001
         }
       }
     ],

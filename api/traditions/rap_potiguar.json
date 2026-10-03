@@ -1,0 +1,114 @@
+{
+  "id": "rap_potiguar",
+  "name": "Rap Potiguar",
+  "family": "hip_hop",
+  "lineage": "Batuque de Mulheres, Rafaela Brito and Pretta Soul — complete separately issued Saudade da Preta (Acapella),4:04, track3 of Batuque de Mulheres23,11March2024, Guria Produtora/Pólen Aceleradora. Producer explicitly planned separate acapella, drums, instrumental and full versions; issuer-distributed five-track release confirms the actual edition. Preserve all sung and rapped human-vocal material. The producer lists26 named voice contributors plus the two principal artists, while prose says23 group members; retain this discrepancy without forcing a precise human count or exact overdub stack. Instrument credits for the separate full version are not imported into the positively unaccompanied edition. No audio audition or source effects measurement claimed. Existing human_voice_ensemble_unspecified preserves all17 human-vocal controls and unknown group/stack. Neutral sung/spoken setting retains both the credited rap and singing without forcing one delivery across the ensemble. Unprocessed vocal delivery is an authored realization, not measured original effects. Broad functionalSong models an explicitly authored verse/refrain and functional-harmonic song rendition of the documented collaborative text; no analyzed original chord sequence asserted. Spacious reverberant presentation is authored, not live concert or source venue. No global temperament or capture chain imposed.",
+  "recipe": "classic rap potiguar, functional Song. unprocessed natural acoustic human voice ensemble unspecified. shoebox concert hall.",
+  "recipe_chars": 123,
+  "score": 1.69,
+  "config": {
+    "traditions": [
+      "rap_potiguar"
+    ],
+    "instruments": [
+      {
+        "id": "human_voice_ensemble_unspecified",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.69,
+          "human_voice_ensemble_source_status": 0,
+          "human_voice_tracking_source_status": 0,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "human_voice_ensemble_unspecified": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "human_voice_ensemble_source_status",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "human_voice_tracking_source_status",
+        "voice_tessitura"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified"
+    },
+    "pin_parts": true
+  }
+}

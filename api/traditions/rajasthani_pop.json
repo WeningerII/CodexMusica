@@ -1,0 +1,314 @@
+{
+  "id": "rajasthani_pop",
+  "name": "Rajasthani pop",
+  "family": "pop",
+  "lineage": "Mame Khan — complete Alive India Episode 1, We Are India/Rajasthani studio programme. Issuer credits one singer, Sawai Khan Janra on dholak, Sadam Khan Langa on sarangi, Jovith Tellis on guitars, Puneeth Padeel on bass guitar, Reuben Machado on flute, and Biplab Bhattacharya on tabla, khanjira and leather percussion. All nine instrumental/vocal families retained; three percussion roles belong to one credited musician, not three invented people or a simultaneous-playing claim. Music production and engineering credits do not establish additional performed synthesizer, sampler or vocals. No video listening, programme duration or unprovided session date asserted. Authored representative folk-pop arrangement with functional chordal song framing, not a transcription of measured harmony. One singer with neutral source-unspecified physiology and ornament/pitch school; acoustic mahogany dreadnought flatpicking and a long-scale alder dual-single-coil fingerstyle electric bass are editorial realizations of generic guitar/bass credits, not actual gear claims. Sarangi uses an authored tun/gut/goatskin/35-sympathetic-string setup with local song bowing; dholak uses an authored mango/sheesham-category wooden shell, goatskin heads and rope tension; tabla uses shisham/brass/fresh syahi; khanjira uses modern goatskin/jackwood/brass-jingle ensemble configuration. These construction choices are not measurements of the session. Flute subtype remains unknown. Separate leather-percussion credit preserves known material without guessing instrument form, species, count or technique. Contemporary live-room spatial rendition authored; original microphones, signal chain and global tuning unknown and omitted.",
+  "recipe": "classic rajasthani pop, functional Song, south Asian pop branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. sheesham mango goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar bowed song accompaniment sarangi, mahogany phosphor bronze modern martin dreadnought acoustic guitar, alder fingerstyle locked electric bass, flute like credited flute credited leather percussion unspecified, low fundamental tuning projecting brass tabla, jackwood frame canonical carnatic brass jingle pair kanjira. live tracking.",
+  "recipe_chars": 600,
+  "score": 70.044,
+  "config": {
+    "traditions": [
+      "rajasthani_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 6.722499999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.6,
+          "voice_multitrack_stack": 3.7670000000000003,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "dholak",
+        "slots": {
+          "dholak_use": "dholak_folk_song",
+          "dholak_construction": "dholak_mango",
+          "dholak_head": "dholak_goat_skin_canonical",
+          "dholak_tensioning": "dholak_rope_tuning"
+        },
+        "scores": {
+          "dholak_use": 0.5145,
+          "dholak_construction": 4.0495,
+          "dholak_head": 1.69,
+          "dholak_tensioning": 1.69
+        }
+      },
+      {
+        "id": "sarangi",
+        "slots": {
+          "bowed_technique": "bowed_local_song_melody",
+          "sarangi_belly": "goat_skin_sarangi",
+          "sarangi_taraf": "sarangi_35_strings",
+          "sarangi_bow": "horse_hair_loose",
+          "sarangi_main_strings": "sarangi_gut_main",
+          "sarangi_body_wood": "sarangi_tun_body"
+        },
+        "scores": {
+          "bowed_technique": 5.719999999999999,
+          "sarangi_belly": 6.008499999999999,
+          "sarangi_taraf": 0.3,
+          "sarangi_bow": 1.51,
+          "sarangi_main_strings": 5.005000000000001,
+          "sarangi_body_wood": 1.69
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_flatpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top",
+          "back_sides": "mahogany_bs",
+          "string_acoustic": "phosphor_bronze"
+        },
+        "scores": {
+          "acoustic_technique": -0.1,
+          "string_tuning": 0,
+          "top_wood": 1.3,
+          "back_sides": 1.3,
+          "string_acoustic": 2.3515
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 1.51,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.1365,
+          "bass_technique": 1.15,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "credited_flute_unspecified",
+        "slots": {
+          "credited_flute_identity": "credited_flute_source_unspecified"
+        },
+        "scores": {
+          "credited_flute_identity": 2.7364999999999995
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": -0.035,
+          "tabla_bayan": 4.130999999999999,
+          "tabla_syahi": 0
+        }
+      },
+      {
+        "id": "kanjira",
+        "slots": {
+          "kanjira_skin": "kanjira_goat",
+          "kanjira_context": "kanjira_fusion",
+          "kanjira_shell_wood": "kanjira_jackwood_canonical",
+          "kanjira_jingle": "kanjira_brass_jingle"
+        },
+        "scores": {
+          "kanjira_skin": 4.036499999999999,
+          "kanjira_context": 4.577999999999999,
+          "kanjira_shell_wood": 1.69,
+          "kanjira_jingle": 4.855499999999999
+        }
+      },
+      {
+        "id": "credited_leather_percussion_unspecified",
+        "slots": {
+          "credited_leather_percussion_identity": "credited_leather_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_leather_percussion_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "dholak": [
+        "dholak_use",
+        "dholak_construction",
+        "dholak_head",
+        "dholak_tensioning"
+      ],
+      "sarangi": [
+        "bowed_technique",
+        "sarangi_belly",
+        "sarangi_taraf",
+        "sarangi_bow",
+        "sarangi_main_strings",
+        "sarangi_body_wood"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "credited_flute_unspecified": [
+        "credited_flute_identity"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ],
+      "kanjira": [
+        "kanjira_skin",
+        "kanjira_context",
+        "kanjira_shell_wood",
+        "kanjira_jingle"
+      ],
+      "credited_leather_percussion_unspecified": [
+        "credited_leather_percussion_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "dholak_use": "dholak_folk_song",
+      "dholak_construction": "dholak_mango",
+      "dholak_head": "dholak_goat_skin_canonical",
+      "dholak_tensioning": "dholak_rope_tuning",
+      "bowed_technique": "bowed_local_song_melody",
+      "sarangi_belly": "goat_skin_sarangi",
+      "sarangi_taraf": "sarangi_35_strings",
+      "sarangi_bow": "horse_hair_loose",
+      "sarangi_main_strings": "sarangi_gut_main",
+      "sarangi_body_wood": "sarangi_tun_body",
+      "acoustic_technique": "acoustic_flatpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top",
+      "back_sides": "mahogany_bs",
+      "string_acoustic": "phosphor_bronze",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "credited_flute_identity": "credited_flute_source_unspecified",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi",
+      "kanjira_skin": "kanjira_goat",
+      "kanjira_context": "kanjira_fusion",
+      "kanjira_shell_wood": "kanjira_jackwood_canonical",
+      "kanjira_jingle": "kanjira_brass_jingle",
+      "credited_leather_percussion_identity": "credited_leather_percussion_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

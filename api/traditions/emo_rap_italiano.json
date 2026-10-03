@@ -1,0 +1,58 @@
+{
+  "id": "emo_rap_italiano",
+  "name": "Emo rap italiano",
+  "family": "hip_hop",
+  "lineage": "Roma Pianist — complete four-page solo-piano arrangement of Fasma and GG’s Parlami, issued 3 March 2021. The arranger directly specifies two staves, solo piano and no lyrics; one piano, zero singers. This is the entire separately published instrumental adaptation, not a transcription claim about Fasma’s studio master or Sanremo orchestra. No original voice, guitar, trap drums or concert accompaniment is silently omitted from that different recording. Authored standard studio upright with connected legato is a coherent piano realization where source construction and measured touch are unspecified. Controlled live-room acoustics are authored; no original session venue, capture chain or global temperament asserted. Broad functionalSong is an authored recurring melodic-song and functional-harmony rendition, not an assertion that notation makes rap classical art music or a measured harmonic analysis of the unseen full score. Regional origin anchor Rome follows Fasma interview, not arranger location.",
+  "recipe": "classic early-2020s emo rap italiano, functional Song. legato upright piano. live tracking.",
+  "recipe_chars": 91,
+  "score": 4.55,
+  "config": {
+    "traditions": [
+      "emo_rap_italiano"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.550000000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

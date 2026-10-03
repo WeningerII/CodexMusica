@@ -1,5 +1,5 @@
 {
-  "count": 1628,
+  "count": 1638,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9768,6 +9768,66 @@
       "name": "Credited steel guitar (architecture unspecified)",
       "family": "acoustic_strings",
       "href": "instruments/credited_steel_guitar_unspecified.json"
+    },
+    {
+      "id": "native_american_flute_source_unspecified",
+      "name": "Native American flute (form unspecified)",
+      "family": "wind",
+      "href": "instruments/native_american_flute_source_unspecified.json"
+    },
+    {
+      "id": "hand_drum_source_unspecified",
+      "name": "Hand drum (construction unspecified)",
+      "family": "percussion",
+      "href": "instruments/hand_drum_source_unspecified.json"
+    },
+    {
+      "id": "live_loop_recording_playback",
+      "name": "Live loop recording and playback",
+      "family": "electronic",
+      "href": "instruments/live_loop_recording_playback.json"
+    },
+    {
+      "id": "credited_leather_percussion_unspecified",
+      "name": "Leather percussion (source-unspecified form)",
+      "family": "percussion",
+      "href": "instruments/credited_leather_percussion_unspecified.json"
+    },
+    {
+      "id": "credited_sapek_kayan",
+      "name": "Sapek Kayan (credited lute)",
+      "family": "plucked_traditional",
+      "href": "instruments/credited_sapek_kayan.json"
+    },
+    {
+      "id": "credited_programming_unspecified",
+      "name": "Credited programmed sound (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_programming_unspecified.json"
+    },
+    {
+      "id": "gaita_extremena",
+      "name": "Gaita extremeña (three-hole tabor pipe)",
+      "family": "wind",
+      "href": "instruments/gaita_extremena.json"
+    },
+    {
+      "id": "andean_scordatura_guitar",
+      "name": "Andean scordatura guitar",
+      "family": "acoustic_strings",
+      "href": "instruments/andean_scordatura_guitar.json"
+    },
+    {
+      "id": "gene_iii_drum_machine",
+      "name": "Gene III analog polyrhythmic drum machine",
+      "family": "electronic",
+      "href": "instruments/gene_iii_drum_machine.json"
+    },
+    {
+      "id": "credited_beat_unspecified",
+      "name": "Credited beat (production mechanism unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_beat_unspecified.json"
     }
   ]
 }

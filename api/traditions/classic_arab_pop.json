@@ -1,0 +1,58 @@
+{
+  "id": "classic_arab_pop",
+  "name": "Classic Arab Pop",
+  "family": "pop",
+  "lineage": "Complete six-page Leon Thomasian Signature Artist piano solo Addesh Kan Fi Nas, Musicnotes MN0234007, publishing administered by Universal Music Publishing Group. The publisher connects the song to Fairuz and credits the Rahbani composers, work year1973. Exact edition explicitly instrumental solo, one pianist without other musicians, no lyrics. G-major4/4 and86BPM relaxed/melancholic are published score metadata, not independent analysis or an assertion about every classic Arab song. Retain the entire licensed arrangement, not a piano-only extraction from the original vocal recording; no full paid-score inspection or audio audition claimed. Authored connected legato phrasing on a standard studio upright preserves the edition piano role without asserting original instrument construction. Controlled live-room rendition is editorial. functionalSong.midEastNAfricanPop describes an explicitly authored functional-harmonic song realization of the published popular-song melody, not classical genre identity inferred from notation. No global temperament or capture chain imposed; source score key is retained only as evidence, not forced across the whole category.",
+  "recipe": "classic classic arab pop, functional Song, mid east n African pop branch. legato upright piano. live tracking.",
+  "recipe_chars": 110,
+  "score": 8,
+  "config": {
+    "traditions": [
+      "classic_arab_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 6.050000000000001,
+          "upright_use": 1.95,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

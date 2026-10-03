@@ -1,0 +1,50 @@
+{
+  "id": "japanese_boom_bap",
+  "name": "Japanese Boom Bap",
+  "family": "hip_hop",
+  "lineage": "DJ Woodz-N / NOIR WORDZ — whole33:16 Japanese Boom Bap MIX Vol.2, self-issued15June2022 on own SoundCloud. Issuer explicitly calls it a DJ mix and attributes DJ Woodz-N; entire published programme retained as recorded-program playback/mixing. Available primary text exposes only opening three full selections and truncated fourth: MILES WORD/NAGMATIC WordUp; DUSTY HUSKY featuring MILES WORD GapToKub; BES featuring BLAHRMY LockdownStory. These do not become a falsely complete tracklist or a three-track reduction. No source production instruments, deck medium, software, live versus edited mixing workflow, embedded voice count or separately performed voice count are inferred. No additional live singer card. Artist profile separately describes Kyoto rapper identity; that does not imply live rapping over this issued DJ mix. Authored playback/mixing realization using existing neutral DJ owner. This preserves all mixed source layers without reconstructing individual masters or replacing unknown music production with a sampler. Controlled live-room listening presentation is editorial, not original mixing venue or recording apparatus. All medium/controller/patch/live voice uncertainties remain explicit; optional global tuning and capture chain omitted. International hip-hop parent represents this Japanese repertoire selection, not a claim the DJ mechanism is unique to hip-hop.",
+  "recipe": "classic japanese boom bap, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 105,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "japanese_boom_bap"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

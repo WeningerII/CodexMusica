@@ -1,0 +1,52 @@
+{
+  "id": "credited_beat_unspecified",
+  "name": "Credited beat (production mechanism unspecified)",
+  "short": "Credited beat",
+  "family": "electronic",
+  "class": "credited_beat_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_beat_identity",
+      "name": "Credited rhythmic-production role",
+      "variants": [
+        {
+          "id": "credited_beat_mechanism_unspecified",
+          "name": "Beat credited; sounding mechanism and production workflow unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Literal positively credited beat/rhythmic-production role in a produced composition. This isolated owner does not assert drum kit, drum machine, sampler, DAW, MIDI, synthesis architecture or whole finished master. Electronic family is editorial routing for the production role, not a source hardware finding; neutral axes are not measured acoustics. Other separately credited roles must remain separate.",
+  "sources": [
+    "https://ddddeeeellllaaa.bandcamp.com/album/diavola"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_beat_identity",
+      "name": "Credited rhythmic-production role",
+      "variants": [
+        {
+          "id": "credited_beat_mechanism_unspecified",
+          "name": "Beat credited; sounding mechanism and production workflow unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "czech_drill",
+  "name": "Czech Drill",
+  "family": "hip_hop",
+  "lineage": "DJ WADDUP — complete opening DJ slot announced for 3 June 2022 at La Grotta, Brno, starting21:00 before the separately scheduled23:00 Sergei Barracuda/DJ BUSY show. Promoter explicitly identifies Czech drill, UK drill, Czech rap and hip-hop across this full programme. Model covers this announced DJ practice, not an auditioned recording or verified exact two-hour duration. Subsequent headline and afterparty performers are different sets, not omitted participants in WADDUP’s slot. All embedded material remains within actual playback/mixing; individual recorded voices and original studio instruments are unknown. Existing medium-unspecified DJ owner represents documented playback/mixing without inventing decks, sampler architecture or constituent studio generators. Treated studio is an authored listening realization, not source venue measurement. No global tuning, capture chain or extra live singer invented. Broad mcRhythm.intlHipHop reflects the expressly rap/drill regional programme; no claim every embedded passage has live rap.",
+  "recipe": "classic early-2020s czech drill, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 112,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "czech_drill"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

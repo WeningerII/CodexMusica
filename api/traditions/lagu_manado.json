@@ -1,0 +1,58 @@
+{
+  "id": "lagu_manado",
+  "name": "Lagu Manado",
+  "family": "vernacular",
+  "lineage": "Complete Ananda Sukarlan Rapsodia Nusantara no.8, selected as the independently named concluding work of Agus Sandjaya’s 12 April2019 solo pianoforte programme at St Stephen’s Friday Music, Sydney. The presenter lists only Sandjaya/pianoforte for this date. Other named works and other dates’ euphonium or organ players are outside this complete-work scope. Retain one pianist, one piano and zero vocal parts. Composer’s own2013 notes identify the finished eighth rhapsody as variations on O Inani Keke from North Sulawesi; his early2011 provisional numbering concerned a different work and is not transferred. This is a concert transformation of the regional song, not a claim that all Manado songs are instrumental. Source pianoforte subtype is unspecified. Standard studio upright and connected classical legato are explicitly authored realizations, not measured original equipment or touch. Broad artMusic applies only to this fixed composed concert work, not all regional song. Original folk tuning, sung language, global temperament, microphone chain and actual recording venue are not inferred. Controlled live-room listening presentation is authored.",
+  "recipe": "classic lagu manado, art Music. legato upright piano. live tracking.",
+  "recipe_chars": 68,
+  "score": 4.582,
+  "config": {
+    "traditions": [
+      "lagu_manado"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.581500000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

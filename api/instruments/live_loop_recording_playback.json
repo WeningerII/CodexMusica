@@ -1,0 +1,148 @@
+{
+  "id": "live_loop_recording_playback",
+  "name": "Live loop recording and playback",
+  "short": "Live loop recording and playback",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "live_loop_hardware_neutral",
+      "name": "Hardware or software architecture",
+      "variants": [
+        {
+          "id": "live_loop_hardware_neutral_source_unspecified",
+          "name": "Hardware or software architecture — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "live_loop_capture_neutral",
+      "name": "Capture and overdub workflow",
+      "variants": [
+        {
+          "id": "live_loop_capture_neutral_source_unspecified",
+          "name": "Live captured and layered loops; exact overdub controls unspecified",
+          "default": true,
+          "descriptors": [
+            "live",
+            "looped",
+            "layered"
+          ],
+          "match_tokens": [
+            "live",
+            "looped",
+            "layered"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "live_loop_timing_neutral",
+      "name": "Synchronization and loop timing",
+      "variants": [
+        {
+          "id": "live_loop_timing_neutral_source_unspecified",
+          "name": "Synchronization and loop timing — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "live_loop_processing_neutral",
+      "name": "Pitch, tempo and effect processing",
+      "variants": [
+        {
+          "id": "live_loop_processing_neutral_source_unspecified",
+          "name": "Pitch, tempo and effect processing — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Documented live recording and repeated playback of performed sources, distinct from an opaque mastered backing track. Hardware brand, software, synchronization mode, sample resolution and effects are unspecified. Live looped layered workflow is positively documented, not an assumption inferred from electronic genre. Neutral axes are authored.",
+  "sources": [
+    "https://pholloyo.wordpress.com/2014/02/20/supaman-breaking-new-ground-combining-traditional-apsaalooke-crow-music-with-hip-hop/",
+    "https://ckua.com/listen/supaman-performs-at-the-banff-centre/",
+    "https://www.huckmag.com/article/native-american-rapper-interview-supaman"
+  ],
+  "_ownParts": [
+    {
+      "id": "live_loop_hardware_neutral",
+      "name": "Hardware or software architecture",
+      "variants": [
+        {
+          "id": "live_loop_hardware_neutral_source_unspecified",
+          "name": "Hardware or software architecture — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "live_loop_capture_neutral",
+      "name": "Capture and overdub workflow",
+      "variants": [
+        {
+          "id": "live_loop_capture_neutral_source_unspecified",
+          "name": "Live captured and layered loops; exact overdub controls unspecified",
+          "default": true,
+          "descriptors": [
+            "live",
+            "looped",
+            "layered"
+          ],
+          "match_tokens": [
+            "live",
+            "looped",
+            "layered"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "live_loop_timing_neutral",
+      "name": "Synchronization and loop timing",
+      "variants": [
+        {
+          "id": "live_loop_timing_neutral_source_unspecified",
+          "name": "Synchronization and loop timing — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "live_loop_processing_neutral",
+      "name": "Pitch, tempo and effect processing",
+      "variants": [
+        {
+          "id": "live_loop_processing_neutral_source_unspecified",
+          "name": "Pitch, tempo and effect processing — source unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

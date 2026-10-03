@@ -1,0 +1,83 @@
+{
+  "id": "folclore_extremeno",
+  "name": "Folclore extremeño",
+  "family": "vernacular",
+  "lineage": "Complete tamborilero instrumental practice explicitly described by Canal Extremadura on18September2026, particularly in Sierra de Gata: one performer simultaneously plays the three-hole gaita with one hand and tamboril with the other, maintaining melody and rhythm without voice. Two instrument cards, one person, zero singers. This is the documented practice, not the full radio programme or an invented isolated stem of the separately named Manantial Folk recordings.",
+  "recipe": "classic folclore extremeño, improv On Frame. ornamented one handed self accompanied gaita extremena, self accompanied foundational one handed tabor. live tracking.",
+  "recipe_chars": 163,
+  "score": 13.165,
+  "config": {
+    "traditions": [
+      "folclore_extremeno"
+    ],
+    "instruments": [
+      {
+        "id": "gaita_extremena",
+        "slots": {
+          "gaita_extremena_form": "gaita_extremena_three_hole",
+          "gaita_extremena_context": "gaita_extremena_self_accompanied",
+          "gaita_extremena_body": "gaita_extremena_wood_unspecified"
+        },
+        "scores": {
+          "gaita_extremena_form": 0,
+          "gaita_extremena_context": 5.588999999999999,
+          "gaita_extremena_body": 0
+        }
+      },
+      {
+        "id": "tabor",
+        "slots": {
+          "tabor_form": "tabor_tamboril_iberian",
+          "tabor_context": "tabor_pipe_and_tabor",
+          "tabor_snare": "tabor_snare_batter",
+          "tabor_heads": "tabor_calfskin_slack"
+        },
+        "scores": {
+          "tabor_form": -0.05,
+          "tabor_context": 6.675999999999999,
+          "tabor_snare": 0.7,
+          "tabor_heads": 0.25
+        }
+      }
+    ],
+    "pinned": {
+      "gaita_extremena": [
+        "gaita_extremena_form",
+        "gaita_extremena_context",
+        "gaita_extremena_body"
+      ],
+      "tabor": [
+        "tabor_form",
+        "tabor_context",
+        "tabor_snare",
+        "tabor_heads"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "gaita_extremena_form": "gaita_extremena_three_hole",
+      "gaita_extremena_context": "gaita_extremena_self_accompanied",
+      "gaita_extremena_body": "gaita_extremena_wood_unspecified",
+      "tabor_form": "tabor_tamboril_iberian",
+      "tabor_context": "tabor_pipe_and_tabor",
+      "tabor_snare": "tabor_snare_batter",
+      "tabor_heads": "tabor_calfskin_slack"
+    },
+    "pin_parts": true
+  }
+}

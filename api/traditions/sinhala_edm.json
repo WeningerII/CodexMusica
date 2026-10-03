@@ -1,0 +1,50 @@
+{
+  "id": "sinhala_edm",
+  "name": "Sinhala EDM",
+  "family": "electronic",
+  "lineage": "DJ Mass — entire specially commissioned Bandwagon Mix090 embedded in the MARQUEE Singapore resident-DJ feature published26November2019. The commissioning publisher explicitly requested resident mixes and embeds this named DJ edition immediately after Mass’s first-person interview. The exact linked Mixcloud object resolves but its parsed body is empty: duration, tracklist and medium remain unknown, and no selected excerpt or exhaustive invented tracklist is substituted. This is the whole published DJ performance, with every embedded musical, vocal and effect layer retained by the neutral playback/mixing role. The performer describes open-format mainstream EDM with trap at this venue; this selected diaspora performance is not claimed exclusively Sinhala-language or exclusively Sinhala EDM repertoire. One credited mixer does not determine embedded or live singer headcounts. Existing source-unspecified DJ playback/mixing identity preserves an actual commissioned mixed performance, not an opaque finished studio song substituted for its instrumental palette. Controlled live-room listening presentation and neutral axes are authored; no exact equipment, turntable/CDJ model, source booth, measured tempo, global tuning or tracking construction is inferred. ElectronicDance/electronic parent follows positive electronic dance practice.",
+  "recipe": "classic sinhala edm, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 85,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "sinhala_edm"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

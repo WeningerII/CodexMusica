@@ -1,0 +1,50 @@
+{
+  "id": "hip_hop_reunionnais",
+  "name": "Hip Hop Réunionnais",
+  "family": "hip_hop",
+  "lineage": "DJ FLYWEED — both complete announced DJ appearances at Réunion Rap Tour / La Cerise, Saint-Paul,19September2026: opening warm-up at19h and aftershow at22h. The separate21h GAB’S album showcase is not this selected DJ-practice scope. Organizer explicitly distinguishes the two DJ slots and the rapper showcase; no live GAB’S role is silently subtracted from a shared ensemble. No actual tracklist, deck medium, recorded mix, total duration, embedded voices or additional live voices are documented. This models the full announced paired DJ presentation, not a claim independently hearing that it occurred or that every selection was exclusively Réunion rap. Existing neutral DJ playback/mixing owner retains all source layers in the two announced DJ programmes. No invented constituent studio palette, source hardware or extra live singer. A controlled live-room listening realization is authored for the concert-club setting, not measured venue acoustics or BPM. No tuning or signal chain is imposed. Existing mcRhythm.intlHipHop places the positive regional rap practice; it does not assert every played record is rap.",
+  "recipe": "classic hip hop réunionnais, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 107,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "hip_hop_reunionnais"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

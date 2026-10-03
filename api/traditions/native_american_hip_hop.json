@@ -1,0 +1,237 @@
+{
+  "id": "native_american_hip_hop",
+  "name": "Native American hip hop",
+  "family": "hip_hop",
+  "lineage": "Complete Supaman Prayer Loop Song performance filmed by Lloyd Blunk at the Gazette studio in 2014. Original filmmaker identifies a one-person loop-machine performance with live drum and flute layers and scratching an old record of Crow songs; CKUA explicitly identifies beatboxing, singing and rapping in the same video. All six source families are retained: vocal delivery, vocal percussion, Native flute, hand drum, live loop capture/playback and turntable scratching. The sampled old Crow record stays within the turntable source layer; its embedded performers and voices are unknown, not zero or invented live musicians. Authored recording realization of the full documented performance. One live human supplies both vocal cards and instrumental roles; repeated loops do not multiply performer count. Mixed sung/rap delivery and physiology remain source unspecified. The existing beatbox owner requires a gesture: an explicitly authored pulmonic-egressive velar-affricate snare is a compatible representative technique, not a phonetic measurement of Supaman. Ensemble-layer beatbox describes the combined loop texture, not extra people. Scratch/chopped variants realize positive vinyl scratching, not a measured scratch vocabulary or East Coast performer identity. All three isolated owners retain independent physical/workflow controls with unknown options. Room and signal chain are authored; no source hardware model, flute key, drum species or total embedded voice count is invented. Global tuning omitted.",
+  "recipe": "classic mid-2010s native american hip hop, mc Rhythm. solo with instrumental accompaniment, single lead single track no stacking. pulmonic egressive percussive vocal percussion ensemble layer pulmonic egressive velar affricate snare vocal percussion voice, native american flute source hand drum source unspecified, live layered live loop recording playback, sampled chopped turntable. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 484,
+  "score": 38.065,
+  "config": {
+    "traditions": [
+      "native_american_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 4.446,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.0945,
+          "voice_multitrack_stack": 1.69,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "vocal_percussion_voice",
+        "slots": {
+          "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
+          "vocal_percussion_beatbox_articulation": "beatbox_snare_kx_affricate",
+          "vocal_percussion_syllabic_drum_system": "syllabic_system_none",
+          "vocal_percussion_context": "vocal_percussion_context_ensemble"
+        },
+        "scores": {
+          "vocal_percussion_airstream_mechanism": 2.6,
+          "vocal_percussion_beatbox_articulation": 6.5,
+          "vocal_percussion_syllabic_drum_system": 0,
+          "vocal_percussion_context": 9.614499999999998
+        }
+      },
+      {
+        "id": "native_american_flute_source_unspecified",
+        "slots": {
+          "native_flute_form_neutral": "native_flute_form_neutral_source_unspecified",
+          "native_flute_playing_neutral": "native_flute_playing_neutral_source_unspecified",
+          "native_flute_body_neutral": "native_flute_body_neutral_source_unspecified"
+        },
+        "scores": {
+          "native_flute_form_neutral": 0,
+          "native_flute_playing_neutral": 0,
+          "native_flute_body_neutral": 0
+        }
+      },
+      {
+        "id": "hand_drum_source_unspecified",
+        "slots": {
+          "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+          "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+          "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+          "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+          "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified"
+        },
+        "scores": {
+          "hand_drum_structure_neutral": 0,
+          "hand_drum_material_neutral": 0,
+          "hand_drum_excitation_neutral": 0,
+          "hand_drum_damping_neutral": 0,
+          "hand_drum_tension_neutral": 0
+        }
+      },
+      {
+        "id": "live_loop_recording_playback",
+        "slots": {
+          "live_loop_hardware_neutral": "live_loop_hardware_neutral_source_unspecified",
+          "live_loop_capture_neutral": "live_loop_capture_neutral_source_unspecified",
+          "live_loop_timing_neutral": "live_loop_timing_neutral_source_unspecified",
+          "live_loop_processing_neutral": "live_loop_processing_neutral_source_unspecified"
+        },
+        "scores": {
+          "live_loop_hardware_neutral": 0,
+          "live_loop_capture_neutral": 5.525499999999999,
+          "live_loop_timing_neutral": 0,
+          "live_loop_processing_neutral": 0
+        }
+      },
+      {
+        "id": "turntable",
+        "slots": {
+          "electronic_technique": "electronic_sample_chopped",
+          "turntable_technique": "turntable_scratch"
+        },
+        "scores": {
+          "electronic_technique": 4.0815,
+          "turntable_technique": 3.5130000000000003
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "vocal_percussion_voice": [
+        "vocal_percussion_airstream_mechanism",
+        "vocal_percussion_beatbox_articulation",
+        "vocal_percussion_syllabic_drum_system",
+        "vocal_percussion_context"
+      ],
+      "native_american_flute_source_unspecified": [
+        "native_flute_form_neutral",
+        "native_flute_playing_neutral",
+        "native_flute_body_neutral"
+      ],
+      "hand_drum_source_unspecified": [
+        "hand_drum_structure_neutral",
+        "hand_drum_material_neutral",
+        "hand_drum_excitation_neutral",
+        "hand_drum_damping_neutral",
+        "hand_drum_tension_neutral"
+      ],
+      "live_loop_recording_playback": [
+        "live_loop_hardware_neutral",
+        "live_loop_capture_neutral",
+        "live_loop_timing_neutral",
+        "live_loop_processing_neutral"
+      ],
+      "turntable": [
+        "electronic_technique",
+        "turntable_technique"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "vocal_percussion_airstream_mechanism": "vocal_percussion_pulmonic_egressive",
+      "vocal_percussion_beatbox_articulation": "beatbox_snare_kx_affricate",
+      "vocal_percussion_syllabic_drum_system": "syllabic_system_none",
+      "vocal_percussion_context": "vocal_percussion_context_ensemble",
+      "electronic_technique": "electronic_sample_chopped",
+      "turntable_technique": "turntable_scratch",
+      "native_flute_form_neutral": "native_flute_form_neutral_source_unspecified",
+      "native_flute_playing_neutral": "native_flute_playing_neutral_source_unspecified",
+      "native_flute_body_neutral": "native_flute_body_neutral_source_unspecified",
+      "hand_drum_structure_neutral": "hand_drum_structure_neutral_source_unspecified",
+      "hand_drum_material_neutral": "hand_drum_material_neutral_source_unspecified",
+      "hand_drum_excitation_neutral": "hand_drum_excitation_neutral_source_unspecified",
+      "hand_drum_damping_neutral": "hand_drum_damping_neutral_source_unspecified",
+      "hand_drum_tension_neutral": "hand_drum_tension_neutral_source_unspecified",
+      "live_loop_hardware_neutral": "live_loop_hardware_neutral_source_unspecified",
+      "live_loop_capture_neutral": "live_loop_capture_neutral_source_unspecified",
+      "live_loop_timing_neutral": "live_loop_timing_neutral_source_unspecified",
+      "live_loop_processing_neutral": "live_loop_processing_neutral_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

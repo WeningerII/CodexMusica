@@ -1,0 +1,50 @@
+{
+  "id": "alaska_hip_hop",
+  "name": "Alaska hip hop",
+  "family": "hip_hop",
+  "lineage": "Complete opening DJ hour, 10–11pm, at the July8 Tubby and Friends Denali Park event at The Salmon Bake: organizer James Tubby Storlie names Gre, Polo and Bee One and positively separates their programme from the later rapper performances beginning at11pm. The three DJs share the source-unspecified playback/mixing role; this does not reduce their human count to one or assert three simultaneous decks. Embedded recordings and vocals remain intact and unknown in number. No separately performing singer is credited within this opening programme. The later rappers and closing DJ set are outside this positively delimited complete opening programme, not omitted from a supposed reconstruction of the entire event. No heard recording, tracklist, equipment type or event year asserted; the2026 archive date is not the event date. Authored regional US hip-hop DJ rendition with a source-unspecified playback/mixing owner preserving the complete recorded layers. No vinyl, software, deck model, synthesis patch, scratch gesture, measured tempo, original microphone, global tuning or embedded vocal physiology is invented. Neutral axes are editorial placeholders. Authored treated live-room spatial model is not measured Salmon Bake acoustics.",
+  "recipe": "classic alaska hip hop, mc Rhythm, us hip hop branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 100,
+  "score": 0.137,
+  "config": {
+    "traditions": [
+      "alaska_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.1365
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

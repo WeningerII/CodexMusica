@@ -1,0 +1,58 @@
+{
+  "id": "macedonian_pop",
+  "name": "Macedonian Pop",
+  "family": "pop",
+  "lineage": "Complete four-page Piano.Solo PSO0013358 edition of Tamara Todevska’s Proud(2019), published by Note-Store and arranged by Ars Etic. Publisher explicitly defines this format as the entire melody and accompaniment integrated for a single pianist, requiring no separate voice or other instrumental parts. Selected source is the complete separately published arrangement, not the Eurovision vocal/orchestral backing master. One piano and zero singers; original song vocal credits or printed lyric metadata do not add a scored voice to this edition. Public scoring metadata inspected, not the purchased full score or audio. Authored standard acoustic studio upright with connected legato touch and controlled live-room rendition; publisher specifies piano only, not subtype, hardware, fingering, source recording site or temperament. Broad functionalSong and pop family represent an explicitly authored tonal/chordal popular-song realization; source melody-and-accompaniment format and harmonic progressions support that choice, not classical taxonomy merely because notation exists. No global tuning or capture chain inferred.",
+  "recipe": "classic late-2010s macedonian pop, functional Song. legato upright piano. live tracking.",
+  "recipe_chars": 88,
+  "score": 4.838,
+  "config": {
+    "traditions": [
+      "macedonian_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.784000000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0.054
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

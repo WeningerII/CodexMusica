@@ -1,0 +1,58 @@
+{
+  "id": "west_bengali_pop",
+  "name": "West Bengali Pop",
+  "family": "pop",
+  "lineage": "KumarjitDey — complete self-published six-page,130-measure solo-piano arrangement Jawl Phoring — Anupam Roy, MuseScore score26579233, uploaded30July2025 and updated8September2025. Arranger metadata explicitly identifies one piano part and duration2:49. This is the entire separately published community arrangement, not an official film score or transcription of the original studio instrumentation; full notation and audio were not inspected. Zero singers in this instrumental edition. SVF identifies Anupam Roy as Hemlock Society music director and its own press archive identifies Jawlphoring as his composition; the original film vocal and backing roles are not transferred. Standard modern studio upright, connected legato phrasing and controlled live room are a coherent authored performance realization of the source-unspecified piano, not claimed arranger hardware, measured touch or recording location. No global tuning or capture chain specified. FunctionalSong.southAsianPop follows regional film/pop composition, with authored functional-harmonic song realization, not a claim that notation alone makes art music.",
+  "recipe": "classic west bengali pop, functional Song, south Asian pop branch. upright piano. live tracking.",
+  "recipe_chars": 96,
+  "score": 1.597,
+  "config": {
+    "traditions": [
+      "west_bengali_pop"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 1.25,
+          "upright_use": 0.34650000000000003,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}
