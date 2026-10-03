@@ -1,0 +1,261 @@
+{
+  "id": "lustrum",
+  "name": "Lustrum",
+  "family": "pop",
+  "lineage": "Complete2:47 publisher studio remake of Lotje, all musical stems enabled: electronic drum kit; sound effect; bass synth; piano; alto saxophone; strings; sampled background vocal; female backing vocal; male backing vocal; Roeland-role lead; Jopke-role lead. These eleven stem roles are retained in eight family cards. Lead labels refer to roles from the original, not proof original artists sang this newly recorded remake. Unnamed studio musicians and backing singer headcounts remain unknown. The optional count-in/click is a rehearsal aid, not a musical song stem; omitted from the authored rendition. This is the complete publisher remake, not one isolated backing stem, and not the original recording. Neutral electronic-drum, sound-effect and synthesizer identities preserve source claims without inventing pads, oscillators, sequencing or sample mechanisms. Synth owner specifically realizes the documented bass-synth function. Existing credited strings leaves section size, physical versus synthesized realization and instrumentation unknown; positively sampled backing voice uses credited sample owner, not assumed live singer. Voice card combines two lead roles and male/female backing groups as an authored duet-plus-chorus ensemble rendition; live-ensemble setting describes this new combined recording plan, not original take simultaneity or known human count. Physiology stays neutral. Piano is explicitly authored SteinwayD9 with coherent construction and block-chord pop gesture; alto sax source size preserved with authored brass Selmer/mediumreed/hardrubber/legato choices. Live-room environment is editorial, not publisher studio measurement. No global tuning inferred from the documented Am key.",
+  "recipe": "classic lustrum, functional Song. duet, live take. electronic drum kit credited sound effect credited synthesizer credited strings credited samples unspecified, 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano, alto yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone. live tracking.",
+  "recipe_chars": 351,
+  "score": 38.845,
+  "config": {
+    "traditions": [
+      "lustrum"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_duet_chorus",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 1.3,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 7.799999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electronic_drum_kit_unspecified",
+        "slots": {
+          "electronic_drum_kit_unspecified_identity": "electronic_drum_kit_unspecified_source_identity"
+        },
+        "scores": {
+          "electronic_drum_kit_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "credited_sound_effect_unspecified",
+        "slots": {
+          "credited_sound_effect_unspecified_identity": "credited_sound_effect_unspecified_source_identity"
+        },
+        "scores": {
+          "credited_sound_effect_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "credited_synthesizer_unspecified",
+        "slots": {
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        },
+        "scores": {
+          "credited_synthesizer_identity": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 9.799999999999999,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.1905,
+          "piano_hammer": 0.8079999999999999,
+          "piano_rim": 2.324,
+          "piano_soundboard": 0.7,
+          "piano_pinblock": 2,
+          "piano_plate": 0.7,
+          "piano_pitch_standard": 4.363999999999999
+        }
+      },
+      {
+        "id": "saxophone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "sax_size": "alto_sax",
+          "sax_reed": "medium_reed",
+          "sax_body_alloy": "yellow_brass_sax",
+          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_technique": "sax_continuous_legato",
+          "sax_maker_school": "sax_selmer_mark_vi"
+        },
+        "scores": {
+          "wind_articulation": 1.2,
+          "sax_size": 2.6039999999999996,
+          "sax_reed": 0,
+          "sax_body_alloy": 1.9999999999999998,
+          "sax_mouthpiece": 0.1365,
+          "sax_technique": 1.25,
+          "sax_maker_school": 1.2
+        }
+      },
+      {
+        "id": "credited_strings_unspecified",
+        "slots": {
+          "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified"
+        },
+        "scores": {
+          "credited_strings_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "credited_samples_unspecified",
+        "slots": {
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        },
+        "scores": {
+          "credited_samples_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electronic_drum_kit_unspecified": [
+        "electronic_drum_kit_unspecified_identity"
+      ],
+      "credited_sound_effect_unspecified": [
+        "credited_sound_effect_unspecified_identity"
+      ],
+      "credited_synthesizer_unspecified": [
+        "credited_synthesizer_identity"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "saxophone": [
+        "wind_articulation",
+        "sax_size",
+        "sax_reed",
+        "sax_body_alloy",
+        "sax_mouthpiece",
+        "sax_technique",
+        "sax_maker_school"
+      ],
+      "credited_strings_unspecified": [
+        "credited_strings_unspecified_identity"
+      ],
+      "credited_samples_unspecified": [
+        "credited_samples_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_duet_chorus",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electronic_drum_kit_unspecified_identity": "electronic_drum_kit_unspecified_source_identity",
+      "credited_sound_effect_unspecified_identity": "credited_sound_effect_unspecified_source_identity",
+      "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "wind_articulation": "wind_continuous_legato",
+      "sax_size": "alto_sax",
+      "sax_reed": "medium_reed",
+      "sax_body_alloy": "yellow_brass_sax",
+      "sax_mouthpiece": "hard_rubber_mp",
+      "sax_technique": "sax_continuous_legato",
+      "sax_maker_school": "sax_selmer_mark_vi",
+      "credited_strings_unspecified_identity": "credited_strings_unspecified_identity_unspecified",
+      "credited_samples_identity": "credited_samples_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "status": "IDENTICAL_BASELINE_FAILURES_CONFIRMED",
+  "tested_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "baseline_sha": "572c288153ab7092b5571f5e572667c311e9828e",
+  "current": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 15.9,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 9.9,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 86.4,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 34.5,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 107.2,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 21.0,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.9,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "baseline": [
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 105.3
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 7.0
+    }
+  ],
+  "foundation": "Entire failure log byte-identical: existing DeltaBlues enlarged-image thumbnail retention.",
+  "reachability": "Both fail browser policy ERR_BLOCKED_BY_ADMINISTRATOR navigating generated fileURL; paths and bundle sizes differ.",
+  "scope": "Six other UI checks passed; original UI/engine/tests unmodified. Exact final-head CI required."
+}

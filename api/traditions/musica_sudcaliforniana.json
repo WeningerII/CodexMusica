@@ -1,0 +1,205 @@
+{
+  "id": "musica_sudcaliforniana",
+  "name": "Música sudcaliforniana",
+  "family": "vernacular",
+  "lineage": "Complete announced4July2025 Los Inalcanzables de la Baja concert at Parque Piedras y Pájaros, La Paz, for Festival Tuma Umutú. Presenter’s first-person release names current trio Marco Trasviña (tuba), Damián Avilés (guitar and voice), Juan Flores (requinto); Juan explicitly replaces historical film member Luis Fernando Olachea. Retain one positively credited singer and all three instrument roles. Six named film corridos plus further repertoire form the whole concert. Film itself is not selected: its independent score and historical personnel are not erased or mixed into this live trio. No second voice or extra drums inferred. FunctionalSong.mexican follows positively documented corrido and sierreña song repertoire. Authored neutral solo voice with syllabic delivery, single lead and no exact physiological training claims. Bare guitar is realized as mahogany OM steel-string, standard tuning and flatpicked accompaniment; these are editorial choices, not measured guitar construction. The separately credited requinto retains its specific role through an isolated neutral owner: body, stringing, tuning and exact playing method remain unspecified, with no Veracruz/jarocho identity or guessed nylon/twelve-string architecture. Source tuba is realized as an authored BBb yellow-brass Besson Sovereign with piston valves and punchy ensemble phrasing; brass-band tuba context is an editorial supporting-bass registration, not a claim the trio is a brass band. Controlled live room and unprocessed voice are authored; no source capture chain or global tuning asserted.",
+  "recipe": "classic música sudcaliforniana, functional Song, Mexican branch. one note per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. mahogany flatpicked acoustic guitar, credited requinto unspecified, brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba. live tracking.",
+  "recipe_chars": 388,
+  "score": 59.563,
+  "config": {
+    "traditions": [
+      "musica_sudcaliforniana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 3.38,
+          "voice_ensemble_config": 8.442499999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 2.3095,
+          "voice_multitrack_stack": 8.7135,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_flatpicked_lead"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 1.3,
+          "back_sides": 1.3,
+          "string_acoustic": 0.39,
+          "acoustic_om_technique": 1.25
+        }
+      },
+      {
+        "id": "credited_requinto_unspecified",
+        "slots": {
+          "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
+          "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
+          "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
+          "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
+          "credited_requinto_technique": "credited_requinto_technique_source_unspecified"
+        },
+        "scores": {
+          "credited_requinto_identity": 0,
+          "credited_requinto_construction": 0,
+          "credited_requinto_stringing": 0,
+          "credited_requinto_tuning": 0,
+          "credited_requinto_technique": 0
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "tuba_pitch": "tuba_bbb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_piston_american",
+          "tuba_maker_school": "tuba_besson_british"
+        },
+        "scores": {
+          "wind_articulation": 1.4949999999999999,
+          "tuba_pitch": 1.3315000000000001,
+          "tuba_context": 9.868500000000001,
+          "tuba_bell_metal": 6.145,
+          "tuba_valve_system": 2.915,
+          "tuba_maker_school": 10.722999999999999
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ],
+      "credited_requinto_unspecified": [
+        "credited_requinto_identity",
+        "credited_requinto_construction",
+        "credited_requinto_stringing",
+        "credited_requinto_tuning",
+        "credited_requinto_technique"
+      ],
+      "tuba": [
+        "wind_articulation",
+        "tuba_pitch",
+        "tuba_context",
+        "tuba_bell_metal",
+        "tuba_valve_system",
+        "tuba_maker_school"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top_om",
+      "back_sides": "mahogany_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_flatpicked_lead",
+      "credited_requinto_identity": "credited_requinto_identity_source_unspecified",
+      "credited_requinto_construction": "credited_requinto_construction_source_unspecified",
+      "credited_requinto_stringing": "credited_requinto_stringing_source_unspecified",
+      "credited_requinto_tuning": "credited_requinto_tuning_source_unspecified",
+      "credited_requinto_technique": "credited_requinto_technique_source_unspecified",
+      "wind_articulation": "wind_punchy_ensemble",
+      "tuba_pitch": "tuba_bbb",
+      "tuba_context": "tuba_brass_band",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_piston_american",
+      "tuba_maker_school": "tuba_besson_british"
+    },
+    "pin_parts": true
+  }
+}

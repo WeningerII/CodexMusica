@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "before_sha256": "2c81811f17c2de9e582190567b5ddb151a43accf5995fa5477e846414b9bec75",
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "exact_entry_changes": [
+    {
+      "id": "lagu_timur",
+      "field": "geo",
+      "before": [-2.5, 118, "Indonesia", "Southeast Asia"],
+      "after": [-9.6667, 120.2667, "Waingapu", "Southeast Asia"]
+    },
+    {
+      "id": "lagu_timur",
+      "field": "geo_rationale",
+      "before": "Country anchor for explicitly multi-region Eastern Indonesian repertoire; not claimed original recording or any specific island performance location.",
+      "after": "Editorial on-land regional reference in Waingapu on Sumba, one of the places explicitly named by Rayen Pono as representing the Eastern Indonesian identity of this multi-region release. Getty TGN1078854 supplies Waingapu coordinates and Sumba/Indonesia hierarchy. This pin does not claim the recording, performance or artist residence was in Waingapu and does not restrict the broader Eastern Indonesian repertoire to Sumba."
+    }
+  ],
+  "all_tradition_extras_signature_photo_dependency_inputs_identical": true,
+  "metadata_ledger_appended": 1,
+  "independent_geo_report": "lagu-timur-geo-overlay-independent-review119.json",
+  "original_API_rebuild_required": false,
+  "reason": "Original compiler consumes traditions/extras/instruments/rooms and signatures, all identical. Entry geo changes only atlas/evidence; room regions unchanged. Original baseline/current/remove100 proof remains exact for same compiled inputs.",
+  "errors": []
+}

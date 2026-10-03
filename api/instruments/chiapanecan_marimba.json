@@ -1,0 +1,265 @@
+{
+  "id": "chiapanecan_marimba",
+  "name": "Marimba chiapaneca",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Chiapanecan marimba",
+  "parts": [
+    {
+      "id": "chiapanecan_marimba_form",
+      "name": "Chiapanecan marimba form",
+      "variants": [
+        {
+          "id": "chiapanecan_marimba_chiapaneca",
+          "name": "Chiapanecan marimba, source-identified regional type",
+          "descriptors": [
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "chiapas"
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "chiapanecan_marimba_ensemble",
+      "name": "Ensemble and arrangement practice",
+      "variants": [
+        {
+          "id": "chiapanecan_marimba_grande_tenor",
+          "default": true,
+          "name": "Authored multi-player marimba grande and tenor ensemble",
+          "descriptors": [
+            "multi-player",
+            "chordal",
+            "full-ensemble"
+          ],
+          "match_tokens": [
+            "struck",
+            "polyphonic",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": []
+        },
+        {
+          "id": "chiapanecan_marimba_orquesta",
+          "name": "Authored arranged marimba ensemble",
+          "descriptors": [
+            "arranged",
+            "virtuosic",
+            "concert",
+            "refined"
+          ],
+          "match_tokens": [
+            "struck",
+            "polyphonic"
+          ],
+          "canonical_tags": [],
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "chiapanecan_marimba_material",
+      "surface": false,
+      "name": "Bar wood & resonator construction",
+      "variants": [
+        {
+          "id": "marimba_centroamericana_hormigo",
+          "default": true,
+          "name": "Hormigo bars, cedar/pine box resonators with tela mirliton",
+          "descriptors": [
+            "hormigo-tonewood",
+            "box-resonated",
+            "warm",
+            "buzzing-tela"
+          ],
+          "match_tokens": [
+            "struck",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_tecomate_gourd",
+          "name": "Hardwood bars over tuned gourd (tecomate) resonators + membrane",
+          "descriptors": [
+            "gourd-resonated",
+            "rustic",
+            "nasal-buzz"
+          ],
+          "match_tokens": [
+            "struck",
+            "gourd-resonated"
+          ],
+          "canonical_tags": [
+            "archaic"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_granadillo",
+          "name": "Granadillo / rosewood bars, wax-tuned resonators",
+          "descriptors": [
+            "granadillo",
+            "bright",
+            "hard-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars"
+          ],
+          "canonical_tags": [
+            "tonewood"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Source-positive Chiapanecan marimba, an existing Central American instrument type with regional identity stated by its performers. Retains three separate original controls: regional form, ensemble practice and bar/resonator construction. No fixed Guatemalan display identity or automatic son-istmeño genre assertion. Grande/tenor and hormigo box-resonator construction are explicitly authored, not measured source hardware. No shared owner or merger modification.",
+  "sources": [
+    {
+      "url": "https://marionandayapaquartet.bandcamp.com/album/mexican-marimba-2",
+      "title": "Artist complete original album",
+      "support_notes": "Fresh9127view0 all16tracks/fullfour-person roster/positiveinstrumental tags; actual URL recovered by clicking track album link, unsuffixed URL unavailable.",
+      "checked_date": "2026-10-03"
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chiapanecan_marimba_form",
+      "name": "Chiapanecan marimba form",
+      "variants": [
+        {
+          "id": "chiapanecan_marimba_chiapaneca",
+          "name": "Chiapanecan marimba, source-identified regional type",
+          "descriptors": [
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "chiapas"
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "chiapanecan_marimba_ensemble",
+      "name": "Ensemble and arrangement practice",
+      "variants": [
+        {
+          "id": "chiapanecan_marimba_grande_tenor",
+          "default": true,
+          "name": "Authored multi-player marimba grande and tenor ensemble",
+          "descriptors": [
+            "multi-player",
+            "chordal",
+            "full-ensemble"
+          ],
+          "match_tokens": [
+            "struck",
+            "polyphonic",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": []
+        },
+        {
+          "id": "chiapanecan_marimba_orquesta",
+          "name": "Authored arranged marimba ensemble",
+          "descriptors": [
+            "arranged",
+            "virtuosic",
+            "concert",
+            "refined"
+          ],
+          "match_tokens": [
+            "struck",
+            "polyphonic"
+          ],
+          "canonical_tags": [],
+          "default": false
+        }
+      ]
+    },
+    {
+      "id": "chiapanecan_marimba_material",
+      "surface": false,
+      "name": "Bar wood & resonator construction",
+      "variants": [
+        {
+          "id": "marimba_centroamericana_hormigo",
+          "default": true,
+          "name": "Hormigo bars, cedar/pine box resonators with tela mirliton",
+          "descriptors": [
+            "hormigo-tonewood",
+            "box-resonated",
+            "warm",
+            "buzzing-tela"
+          ],
+          "match_tokens": [
+            "struck",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_tecomate_gourd",
+          "name": "Hardwood bars over tuned gourd (tecomate) resonators + membrane",
+          "descriptors": [
+            "gourd-resonated",
+            "rustic",
+            "nasal-buzz"
+          ],
+          "match_tokens": [
+            "struck",
+            "gourd-resonated"
+          ],
+          "canonical_tags": [
+            "archaic"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_granadillo",
+          "name": "Granadillo / rosewood bars, wax-tuned resonators",
+          "descriptors": [
+            "granadillo",
+            "bright",
+            "hard-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars"
+          ],
+          "canonical_tags": [
+            "tonewood"
+          ]
+        }
+      ]
+    }
+  ]
+}

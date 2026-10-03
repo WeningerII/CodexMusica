@@ -1,0 +1,50 @@
+{
+  "id": "latintronica",
+  "name": "Latintronica",
+  "family": "electronic",
+  "lineage": "El Búho: complete Boiler Room Tulum DJ performance from2016, reissued by the performer in2026 as the full1h04 recording, explicitly longer than the48-minute YouTube edit. Retain the entire mixed recorded programme, all embedded instruments and voices, and actual playback/mixing practice. No constituent track list, number of decks, physical controller, source-media format or separate live vocalist roster is published here; none is invented. This models the documented DJ performance, not a substitute sampler for an undocumented studio production. Use the existing source-medium-unspecified DJ playback/mixing identity. All source audio layers remain recorded material; no invented acoustic ensemble, synthesis engine, live singer or hardware controls. Authored treated-room listening realization is not the measured outdoor Tulum venue. Omit global tuning because source repertoire intervals and mixed recording tunings are unknown. Broad Latin electronic dance parent describes the selected Latin-roots electronic DJ-program branch, not a universal four-on-floor, dembow, language or dance-only requirement for every Latintronica work.",
+  "recipe": "classic latintronica, electronic Dance, Latin electric branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 110,
+  "score": 0.105,
+  "config": {
+    "traditions": [
+      "latintronica"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

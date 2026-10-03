@@ -1,0 +1,61 @@
+{
+  "id": "castanyoles_pitiuses",
+  "name": "Castanyoles pitiüses (large juniper hand clappers)",
+  "short": "castanyoles pitiüses",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "castanyoles_pitiuses_form",
+      "name": "Regional construction",
+      "variants": [
+        {
+          "id": "castanyoles_pitiuses_juniper_badall",
+          "name": "Large juniper paired halves, badall spacer and hand ties",
+          "default": true,
+          "descriptors": [
+            "wood",
+            "paired",
+            "hand-held"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Island source specifies juniper, paired shells with separating wooden badall, ribbon hand attachment and usual10–15cm length. No flamenco finger technique or rosewood construction asserted. Numeric axes are neutral editorial scaffold, not measured acoustic characterization.",
+  "sources": [
+    "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2012-9054",
+    "https://ballpages.cat/patrimoni/sonades-i-gaites/"
+  ],
+  "_ownParts": [
+    {
+      "id": "castanyoles_pitiuses_form",
+      "name": "Regional construction",
+      "variants": [
+        {
+          "id": "castanyoles_pitiuses_juniper_badall",
+          "name": "Large juniper paired halves, badall spacer and hand ties",
+          "default": true,
+          "descriptors": [
+            "wood",
+            "paired",
+            "hand-held"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

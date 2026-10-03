@@ -1,0 +1,76 @@
+{
+  "id": "lo_fi_vgm",
+  "name": "Lo-fi VGM",
+  "family": "electronic",
+  "lineage": "GLASYS Metroid Prime Frigate: complete released2023 lofi synth arrangement, not an excerpt of a broader album. Issuer positively names three hardware sources: Moog Matriarch, Sequential ProphetXL and custom Therevox. Performer credits keys/synths, programming, production and mix to Gil Assayas. All three model roles retained individually; programming does not establish an extra uncredited software sound generator or actual sequencer settings. No live acoustic instrument or singer inferred from synthesized/sample-based timbres. Graphic assets and video editing are not sound-source credits. Isolated source-identity owners preserve documented architecture without unknown patch, oscillator, sample library, sequencing or physical-controller claims. ProphetXL full hybrid mechanism retained rather than treating it as analog Prophet5 or opaque whole-master sample playback. Custom Therevox exactmodel remains unknown despite separate makerET5documentation. No global tuning inferred; no timbral singers or drum kit added from unknown synth patches. Live-room acoustic is an authored new recording environment, not measured original studio. Embedded sample voice provenance/count remains unknown, with no separately added human-voice card.",
+  "recipe": "classic lo-fi vgm, experimental Elec, lofi branch. moog matriarch, sequential prophet xl, custom therevox unspecified. live tracking.",
+  "recipe_chars": 133,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "lo_fi_vgm"
+    ],
+    "instruments": [
+      {
+        "id": "moog_matriarch",
+        "slots": {
+          "moog_matriarch_identity": "moog_matriarch_documented_model"
+        },
+        "scores": {
+          "moog_matriarch_identity": 0
+        }
+      },
+      {
+        "id": "sequential_prophet_xl",
+        "slots": {
+          "sequential_prophet_xl_identity": "sequential_prophet_xl_documented_model"
+        },
+        "scores": {
+          "sequential_prophet_xl_identity": 0
+        }
+      },
+      {
+        "id": "custom_therevox_unspecified",
+        "slots": {
+          "custom_therevox_unspecified_identity": "custom_therevox_unspecified_documented_model"
+        },
+        "scores": {
+          "custom_therevox_unspecified_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "moog_matriarch": [
+        "moog_matriarch_identity"
+      ],
+      "sequential_prophet_xl": [
+        "sequential_prophet_xl_identity"
+      ],
+      "custom_therevox_unspecified": [
+        "custom_therevox_unspecified_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "moog_matriarch_identity": "moog_matriarch_documented_model",
+      "sequential_prophet_xl_identity": "sequential_prophet_xl_documented_model",
+      "custom_therevox_unspecified_identity": "custom_therevox_unspecified_documented_model"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "viet_instrumental",
+  "name": "Viet Instrumental",
+  "family": "global",
+  "lineage": "Vân-Ánh Võ — complete Vòng Cổ8:27 opening track from Three-Mountain Pass, Innova866(2013). Artist interview expressly identifies this as solo đàn tranh and explains its master-apprentice Southern opera theme transmission. One performer, one zither, no voice. Other album tracks include voices, percussion, monochords and Kronos Quartet; those are not silently excluded from an alleged whole-album palette because this scope is the specifically documented complete solo track. Existing sixteen-string đàn tranh represents the positively identified instrument. Steel strings, paulownia body and ornamented sustained playing are explicitly authored physical/interpretive choices, not measured session materials. Folk-song-use preset is an authored lyrical timbral realization of the Southern opera melody, not an assertion of accompaniment or a court ensemble. No global temperament, fixed source pitches or unheard vocal role asserted. Broad improvOnFrame/global describes this selected master-taught theme-and-variation practice positively explained by issuer, not every member of the whole listening category. Controlled live-room acoustic capture is an authored new solo realization, not a source venue or historic ensemble claim.",
+  "recipe": "classic early-2010s viet instrumental, improv On Frame. steel modern paulownia dan tranh. live tracking.",
+  "recipe_chars": 104,
+  "score": 7.807,
+  "config": {
+    "traditions": [
+      "viet_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "dan_tranh",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "dan_tranh_use": "dan_tranh_folk",
+          "dan_tranh_strings": "dan_tranh_sixteen",
+          "dan_tranh_string_material": "dan_tranh_steel_modern",
+          "dan_tranh_body_wood": "dan_tranh_paulownia"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.676,
+          "dan_tranh_use": 1.3,
+          "dan_tranh_strings": 0.39,
+          "dan_tranh_string_material": 1.8415000000000001,
+          "dan_tranh_body_wood": 1.6
+        }
+      }
+    ],
+    "pinned": {
+      "dan_tranh": [
+        "plucked_traditional_technique",
+        "dan_tranh_use",
+        "dan_tranh_strings",
+        "dan_tranh_string_material",
+        "dan_tranh_body_wood"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "dan_tranh_use": "dan_tranh_folk",
+      "dan_tranh_strings": "dan_tranh_sixteen",
+      "dan_tranh_string_material": "dan_tranh_steel_modern",
+      "dan_tranh_body_wood": "dan_tranh_paulownia"
+    },
+    "pin_parts": true
+  }
+}

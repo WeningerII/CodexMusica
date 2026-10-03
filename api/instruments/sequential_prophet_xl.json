@@ -1,0 +1,53 @@
+{
+  "id": "sequential_prophet_xl",
+  "name": "Sequential Prophet XL",
+  "short": "Sequential Prophet XL",
+  "family": "electronic",
+  "class": "sequential_prophet_xl",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "sequential_prophet_xl_identity",
+      "name": "Documented model identity",
+      "variants": [
+        {
+          "id": "sequential_prophet_xl_documented_model",
+          "name": "Sequential Prophet XL; undocumented patch controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Sample-plus-digital-oscillator synthesizer through analog filters; actual samples, oscillators, voice mode, patches and sequencer use unspecified.",
+  "sources": [
+    "https://gamechops.com/metroid-prime-frigate-darkwave-glasys-cover/",
+    "https://sequential.com/product/prophet-xl/"
+  ],
+  "_ownParts": [
+    {
+      "id": "sequential_prophet_xl_identity",
+      "name": "Documented model identity",
+      "variants": [
+        {
+          "id": "sequential_prophet_xl_documented_model",
+          "name": "Sequential Prophet XL; undocumented patch controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

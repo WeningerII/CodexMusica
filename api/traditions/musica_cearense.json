@@ -1,0 +1,143 @@
+{
+  "id": "musica_cearense",
+  "name": "Música cearense",
+  "family": "pop",
+  "lineage": "Vitor Colares — complete eight-song música alheia (Mercúrio Música, 23 June 2020). The issuing label credits Vitor C. with voice and steel-string acoustic guitar, and Diego Maia only with mixing/mastering. The artist describes home-recorded acoustic versions of songs by fellow Ceará artists. All eight songs and both positively credited performing roles are retained; one singer. Listed songwriters and artwork contributors are not extra performers. No instrumentation of the original bands or the separate Clau Aniz/Vitor Colares duet is imported into these solo versions. Authored contemporary solo-song realization of the complete album: source-positive steel-string guitar is modeled by a strummed dreadnought with Engelmann top, rosewood back/sides, standard tuning and80/20strings. Exact size, woods, strings and strumming gesture are authored, not measured original gear. All17 human voice controls remain; a single accompanied singer uses source-unspecified physiology and an explicitly authored small-note-group neumatic setting. Broad functionalSong represents this authored recurring lyrical verse/refrain and chordal accompaniment, not an assertion that all Ceará music has the same form. Controlled live-room capture is an authored new recording environment; original source says recorded at home. Global tuning and recording apparatus are unspecified.",
+  "recipe": "classic early-2020s música cearense, functional Song. small note groups per syllable, solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. indian rosewood rosewood strummed open chord ringing overtones dreadnought acoustic guitar. live tracking.",
+  "recipe_chars": 298,
+  "score": 25.614,
+  "config": {
+    "traditions": [
+      "musica_cearense"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 4.0905000000000005,
+          "voice_ensemble_config": 8.971499999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 3.3679999999999994,
+          "voice_multitrack_stack": 3.38,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "rosewood_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": 4.5,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": 1.25,
+          "string_acoustic": 0.054
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "string_tuning": "standard_tuning",
+      "top_wood": "engelmann",
+      "back_sides": "rosewood_bs",
+      "string_acoustic": "eighty_twenty"
+    },
+    "pin_parts": true
+  }
+}

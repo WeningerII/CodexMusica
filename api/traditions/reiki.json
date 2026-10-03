@@ -1,0 +1,110 @@
+{
+  "id": "reiki",
+  "name": "Reiki",
+  "family": "global",
+  "lineage": "Complete Agnus Dei Reiki-1: Heavens Gift, Sandrose/Indigomusic2004, two continuous parts35:57 and36:57. Artist defines the project’s CDs as entirely instrumental piano with keyboard orchestration; wife Hilde’s poetry is in printed booklets, not narrated audio. Album explicitly retains ocean/wave sounds between musical selections. Gerald Krampl composes and performs; piano, architecture-unspecified keyboards and ocean/wave sound-effect layer all retained. Ocean provenance/recording versus synthesized mechanism unknown, so neutral sound-effect identity used rather than invented field recording. No vocals added from booklet poetry. Authored acoustic SteinwayD nine-foot piano with matching original hammer/rim/soundboard/pinblock/plate, modernA440 piano construction setting and connected legato playing. Source only establishes piano, not this model. Bare keyboard retains existing neutral architecture owner and its imported melodic/chordal playing default, which is UNPINNED because flat keyboard_technique pins piano legato; compiled optimizer may choose any valid owner value. Existing queued neutral sound-effect identity preserves ocean layer without invented mechanism. Authored spacious reverberant listening presentation using the existing concert-hall-shoebox acoustic model; this is not a claim of concert performance, measured venue, or actual source recording location. Spatially expansive ocean transitions remain sound effects, not new musical tempo. No capture chain or global pitch system imposed on environmental sounds. No singers.",
+  "recipe": "classic reiki, experimental Elec, ambient branch. 17 ply hard rock maple sitka spruce diaphragmatic gray iron grand piano, melodic chordal electronic keyboard credited sound effect unspecified. shoebox concert hall.",
+  "recipe_chars": 215,
+  "score": 13.783,
+  "config": {
+    "traditions": [
+      "reiki"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.6864999999999997,
+          "grand_piano_size": 0.7,
+          "grand_piano_brand": 0,
+          "piano_hammer": -0.07,
+          "piano_rim": 1.347,
+          "piano_soundboard": 1.2,
+          "piano_pinblock": 0.26,
+          "piano_plate": 1.2,
+          "piano_pitch_standard": 3.8280000000000003
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0,
+          "keyboard_technique": 2.6315
+        }
+      },
+      {
+        "id": "credited_sound_effect_unspecified",
+        "slots": {
+          "credited_sound_effect_unspecified_identity": "credited_sound_effect_unspecified_source_identity"
+        },
+        "scores": {
+          "credited_sound_effect_unspecified_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity"
+      ],
+      "credited_sound_effect_unspecified": [
+        "credited_sound_effect_unspecified_identity"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "credited_sound_effect_unspecified_identity": "credited_sound_effect_unspecified_source_identity"
+    },
+    "pin_parts": true
+  }
+}

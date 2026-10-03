@@ -1,0 +1,58 @@
+{
+  "id": "urban_contemporary",
+  "name": "Urban Contemporary",
+  "family": "pop",
+  "lineage": "The John Legend Collection for Piano Solo, Hal Leonard00233195: complete48-page publication containing14 instrumental arrangements, expressly piano solo with no lyrics. One piano and zero separately scored singers preserve the full published collection. This models the issued arrangements, not the original studio masters, John Legend live accompaniment or a complete radio programme. No copyrighted score personally inspected. Broad functionalSong/pop placement models this selected collection as authored tonal popular-song piano renditions; it does not assert every rap or other broadcast-format work shares that form. Standard upright-piano construction, block-chord pop gesture and shoebox-hall recital are coherent authored performance choices where the publisher specifies piano but no construction, technique or recording room. No source grand/upright model, exact score articulation, radio studio, recording apparatus or global tuning asserted.",
+  "recipe": "classic urban contemporary, functional Song. block chord upright piano. shoebox concert hall.",
+  "recipe_chars": 93,
+  "score": 11.55,
+  "config": {
+    "traditions": [
+      "urban_contemporary"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 11.549999999999997,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

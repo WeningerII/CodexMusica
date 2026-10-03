@@ -1,0 +1,283 @@
+{
+  "id": "musique_mahoraise",
+  "name": "Musique mahoraise",
+  "family": "vernacular",
+  "lineage": "Babali Acoustic Band as documented by its Lorient neighborhood journal on29September2023: Abdou Anli/Babali guitar and lead singing, Stéphane cajón, Gwendale bass, Damien piano and accordion, Mathilde backing singing. All five people, two singers and six instrument cards retained as the complete documented ensemble practice. Piano and accordion are the same performer’s doubling, not evidence of two simultaneous keyboard players. This concerns the full band formed after Babali’s earlier solo neighborhood appearance; neither that earlier solo nor an unrelated later studio album substitutes for this roster. No exact recorded take or backing interval is claimed. Authored new ensemble rendition of the full documented practice. FunctionalSong describes the editorial verse/refrain organization and functional chord support selected for these documented popular songs, not measured analysis of every source song or all Mahorais music. One lead and one backing singer are modeled as an accompanied live duo with neutral source-unspecified physiology and authored small-note-group neumatic delivery; intervals remain unspecified. The source-generic guitar is realized on an all-mahogany steel-string OM with phosphor strings and flatpicked accompaniment; bass is an alder fretted34-inch nickel-roundwound active-soapbar instrument played fingerstyle. Piano is an authored SteinwayD nine-foot concert instrument with original matched hammer/rim/board/pinblock and block chords. Accordion uses dry LM steel-reed registration, cardboard/leather bellows, unchambered voicing and articulated bellows, maker unspecified. Credited cajón is rendered as an unsnared wooden rear-port box using the existing neutral role option, with no Afro-Peruvian festejo or marinera pattern assertion. These are explicit new recording choices, not claims of source instruments, measured tuning or performer-owned models. Controlled live room authored; global temperament and capture hardware absent.",
+  "recipe": "classic musique mahoraise, functional Song. small note groups per syllable, duet, unprocessed natural acoustic, live take. mahogany phosphor bronze bronze flatpicked acoustic guitar, alder nickel roundwound fingerstyle locked electric bass, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, steel leather bellows articulated accordion, unsnared rear sound port cajon peruano. live tracking.",
+  "recipe_chars": 414,
+  "score": 74.405,
+  "config": {
+    "traditions": [
+      "musique_mahoraise"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 6.9095,
+          "voice_ensemble_config": 5.336499999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.3,
+          "voice_multitrack_stack": 6.636499999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "acoustic_guitar_om",
+        "slots": {
+          "string_tuning": "standard_tuning",
+          "top_wood": "mahogany_top_om",
+          "back_sides": "mahogany_bs_om",
+          "string_acoustic": "phosphor_om",
+          "acoustic_om_technique": "om_flatpicked_lead"
+        },
+        "scores": {
+          "string_tuning": 0,
+          "top_wood": 2.6,
+          "back_sides": 2.6,
+          "string_acoustic": 3.8999999999999995,
+          "acoustic_om_technique": 2.5500000000000003
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "soapbar",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 1.3,
+          "pickup_config": 2.5999999999999996,
+          "string_type": 2.6,
+          "scale_length_b": 0,
+          "fretted_or_not": 0,
+          "bass_technique": 1.15,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 2.5000000000000004,
+          "grand_piano_size": 2.5999999999999996,
+          "grand_piano_brand": 3.0094999999999996,
+          "piano_hammer": 1.2,
+          "piano_rim": 3.8,
+          "piano_soundboard": 2.6365000000000003,
+          "piano_pinblock": 1.2,
+          "piano_plate": 2.5,
+          "piano_pitch_standard": 1.1049999999999998
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_bellows_articulated",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "dry_tuning",
+          "reed_config": "lm_only",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_maker_unspecified"
+        },
+        "scores": {
+          "free_reed_technique": 3.8,
+          "accordion_reed_material": 2.5999999999999996,
+          "musette_offset": 0,
+          "reed_config": 1.6,
+          "bellows": 1.7365000000000002,
+          "voicing_chamber": 0.735,
+          "accordion_maker_school": 0
+        }
+      },
+      {
+        "id": "cajon_peruano",
+        "slots": {
+          "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+          "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
+        },
+        "scores": {
+          "cajon_peruano_construction": 3.9000000000000004,
+          "cajon_peruano_role": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "acoustic_guitar_om": [
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic",
+        "acoustic_om_technique"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "accordion": [
+        "free_reed_technique",
+        "accordion_reed_material",
+        "musette_offset",
+        "reed_config",
+        "bellows",
+        "voicing_chamber",
+        "accordion_maker_school"
+      ],
+      "cajon_peruano": [
+        "cajon_peruano_construction",
+        "cajon_peruano_role"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "string_tuning": "standard_tuning",
+      "top_wood": "mahogany_top_om",
+      "back_sides": "mahogany_bs_om",
+      "string_acoustic": "phosphor_om",
+      "acoustic_om_technique": "om_flatpicked_lead",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "soapbar",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "free_reed_technique": "free_reed_bellows_articulated",
+      "accordion_reed_material": "steel_reeds",
+      "musette_offset": "dry_tuning",
+      "reed_config": "lm_only",
+      "bellows": "cardboard_leather",
+      "voicing_chamber": "no_cassotto",
+      "accordion_maker_school": "accordion_maker_unspecified",
+      "cajon_peruano_construction": "cajon_peruano_unsnared_rear_port_box",
+      "cajon_peruano_role": "cajon_peruano_role_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

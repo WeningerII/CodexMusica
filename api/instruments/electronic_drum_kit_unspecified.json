@@ -1,0 +1,52 @@
+{
+  "id": "electronic_drum_kit_unspecified",
+  "name": "Electronic drum kit (architecture unspecified)",
+  "short": "Electronic drum kit",
+  "family": "electronic",
+  "class": "electronic_drum_kit_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "electronic_drum_kit_unspecified_identity",
+      "name": "Source identity",
+      "variants": [
+        {
+          "id": "electronic_drum_kit_unspecified_source_identity",
+          "name": "Electronic drum kit (architecture unspecified)",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positive complete electronic drum-kit role; pad/trigger interface, sequencing, sample versus synthesis architecture and individual kit voices unspecified. No acoustic shell or invented hardware.",
+  "sources": [
+    "https://www.karaoke-versie.nl/custombackingtrack/jopke-van-dobbenburgh/lotje.html"
+  ],
+  "_ownParts": [
+    {
+      "id": "electronic_drum_kit_unspecified_identity",
+      "name": "Source identity",
+      "variants": [
+        {
+          "id": "electronic_drum_kit_unspecified_source_identity",
+          "name": "Electronic drum kit (architecture unspecified)",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

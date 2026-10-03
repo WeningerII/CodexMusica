@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "integration_sha256": "2c81811f17c2de9e582190567b5ddb151a43accf5995fa5477e846414b9bec75",
+  "new_traditions": 100,
+  "cards": 269,
+  "parts": 2157,
+  "applicable_source_pins_materialized": 2155,
+  "unprotected_imported_slots": [
+    {
+      "id": "reiki",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported": "electronic_keyboard_melodic_chordal",
+      "protected_by_source": false
+    },
+    {
+      "id": "talentkonkurranse",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported": "electronic_keyboard_melodic_chordal",
+      "protected_by_source": false
+    }
+  ],
+  "errors": [],
+  "method": "Actual unchanged browser importTradition materializes all source-applicable values, roster, room/tuning and declared chain including FX. Browser card objects do not carry compiler pinned maps; protected flags are checked separately in completed compiled API. Source pin_parts=true and applicable-owner membership determine compiler obligation.",
+  "no_repo_mutations": true,
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "geo_only_rebind_proof": "geo-amendment-review119.json"
+}

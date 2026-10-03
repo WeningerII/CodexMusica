@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "original_sha256": "6f7beb9a7480ab968eb0fe447d260677da5050c5e65aa8e4923f53fddb88a8e1",
+  "integration_sha256": "2c81811f17c2de9e582190567b5ddb151a43accf5995fa5477e846414b9bec75",
+  "exact_entry_changes": [
+    {
+      "id": "pinoy_traditional",
+      "field": "signature_tokens",
+      "before": "absent",
+      "after": []
+    },
+    {
+      "id": "qanun",
+      "field": "signature_tokens",
+      "before": "absent",
+      "after": []
+    },
+    {
+      "id": "viet_instrumental",
+      "field": "signature_tokens",
+      "before": "absent",
+      "after": []
+    }
+  ],
+  "all_other_original_fields_identical": true,
+  "new_integration_metadata": {
+    "required_predecessor": "572c288153ab7092b5571f5e572667c311e9828e",
+    "expected_additions": 100,
+    "expected_traditions": 6438,
+    "expected_instruments": 1628,
+    "equivalences": 7,
+    "original_source_checkpoint_sha256": "6f7beb9a7480ab968eb0fe447d260677da5050c5e65aa8e4923f53fddb88a8e1"
+  },
+  "equivalence_ids": ["murga", "rakugo", "quran", "trival", "tekno", "rap", "spanish_pop"],
+  "equivalences_zero_additions": true,
+  "errors": [],
+  "limitations": "Existing peer reports establish seven equivalence mappings; this check confirms they remain metadata and do not consume any of100 additions. API and exact-head CI separate gates.",
+  "no_repo_mutations": true,
+  "metadata_status_transition": {
+    "before": "Frozen independently reviewed100-entry source checkpoint only. PR037 unmerged; final source integration/static API/signatures/CI outstanding.",
+    "after": "Frozen100 independently accepted actual additions; original pipeline required."
+  },
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "geo_only_rebind_proof": "geo-amendment-review119.json"
+}

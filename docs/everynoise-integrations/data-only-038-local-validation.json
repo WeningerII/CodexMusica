@@ -1,0 +1,268 @@
+{
+  "status": "PASS",
+  "integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "api": {
+    "traditions": 6438,
+    "instruments": 1628,
+    "failed": 0,
+    "self_verify": 6438,
+    "seconds": 647.4
+  },
+  "supporting_checks": [
+    {
+      "check": "regression_prefaces",
+      "exit_code": 0,
+      "seconds": 0.8
+    },
+    {
+      "check": "check_slot_picks",
+      "exit_code": 0,
+      "seconds": 2.0
+    },
+    {
+      "check": "app_recipe_regression",
+      "exit_code": 0,
+      "seconds": 10.2
+    },
+    {
+      "check": "equivalence",
+      "exit_code": 0,
+      "seconds": 11.0
+    },
+    {
+      "check": "check_lazy_app",
+      "exit_code": 0,
+      "seconds": 16.0
+    },
+    {
+      "check": "check_minified_equivalence",
+      "exit_code": 0,
+      "seconds": 28.9
+    },
+    {
+      "check": "check_connector_parity",
+      "exit_code": 0,
+      "seconds": 1.0
+    },
+    {
+      "check": "check_workspace_ops",
+      "exit_code": 0,
+      "seconds": 2.3
+    },
+    {
+      "check": "check_app_parity",
+      "exit_code": 0,
+      "seconds": 106.5
+    },
+    {
+      "check": "check_edit_parity",
+      "exit_code": 0,
+      "seconds": 5.3
+    },
+    {
+      "check": "check_edit_differential",
+      "exit_code": 0,
+      "seconds": 45.7
+    },
+    {
+      "check": "check_connector_contract",
+      "exit_code": 0,
+      "seconds": 1.7
+    },
+    {
+      "check": "check_name_isolation",
+      "exit_code": 0,
+      "seconds": 12.2
+    },
+    {
+      "check": "check_publish_guard",
+      "exit_code": 0,
+      "seconds": 0.2
+    },
+    {
+      "check": "eval_capabilities",
+      "exit_code": 0,
+      "seconds": 50.9
+    }
+  ],
+  "initial_serial_regression": "1147/1149; exactly goa_trance and antifolk_nyc independently replayed and restored by removing the new 100 traditions.",
+  "targeted_update": {
+    "status": "PASS",
+    "integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+    "authorized_exact_fixture_ids": ["goa_trance", "antifolk_nyc"],
+    "actually_changed": ["antifolk_nyc", "goa_trance"],
+    "unchanged_fixture_count": 1147,
+    "outputs_match_independent_review": true
+  },
+  "final_serial_regression": "REGRESSION: 1149/1149 fixture(s) match snapshot.",
+  "runtime": {
+    "entries": 100,
+    "formats": 400,
+    "original_browser_connector_parity": "PASS",
+    "comparison": {
+      "status": "PASS",
+      "entries": 100,
+      "formats": 400,
+      "compared_to": "checkpoint100-runtime-root.json",
+      "changed_ids": [],
+      "interpretation": "When unchanged, earlier complete semantic source/render reviews apply byte-for-byte to actual integrated original browser/connector output."
+    }
+  },
+  "ui_results": [
+    {
+      "check": "check_layout_geometry",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "log": "check_layout_geometry.log"
+    },
+    {
+      "check": "check_workbench",
+      "exit_code": 0,
+      "seconds": 15.9,
+      "log": "check_workbench.log"
+    },
+    {
+      "check": "check_chat_counter",
+      "exit_code": 0,
+      "seconds": 9.9,
+      "log": "check_chat_counter.log"
+    },
+    {
+      "check": "check_mobile_layout",
+      "exit_code": 0,
+      "seconds": 86.4,
+      "log": "check_mobile_layout.log"
+    },
+    {
+      "check": "check_layout_usability",
+      "exit_code": 0,
+      "seconds": 34.5,
+      "log": "check_layout_usability.log"
+    },
+    {
+      "check": "check_ui_foundation",
+      "exit_code": 1,
+      "seconds": 107.2,
+      "log": "check_ui_foundation.log"
+    },
+    {
+      "check": "check_lyrics_page",
+      "exit_code": 0,
+      "seconds": 21.0,
+      "log": "check_lyrics_page.log"
+    },
+    {
+      "check": "ui_reachability_check",
+      "exit_code": 2,
+      "seconds": 6.9,
+      "log": "ui_reachability_check.log"
+    }
+  ],
+  "ui_baseline_review": {
+    "status": "IDENTICAL_BASELINE_FAILURES_CONFIRMED",
+    "tested_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+    "baseline_sha": "572c288153ab7092b5571f5e572667c311e9828e",
+    "current": [
+      {
+        "check": "check_layout_geometry",
+        "exit_code": 0,
+        "seconds": 0.4,
+        "log": "check_layout_geometry.log"
+      },
+      {
+        "check": "check_workbench",
+        "exit_code": 0,
+        "seconds": 15.9,
+        "log": "check_workbench.log"
+      },
+      {
+        "check": "check_chat_counter",
+        "exit_code": 0,
+        "seconds": 9.9,
+        "log": "check_chat_counter.log"
+      },
+      {
+        "check": "check_mobile_layout",
+        "exit_code": 0,
+        "seconds": 86.4,
+        "log": "check_mobile_layout.log"
+      },
+      {
+        "check": "check_layout_usability",
+        "exit_code": 0,
+        "seconds": 34.5,
+        "log": "check_layout_usability.log"
+      },
+      {
+        "check": "check_ui_foundation",
+        "exit_code": 1,
+        "seconds": 107.2,
+        "log": "check_ui_foundation.log"
+      },
+      {
+        "check": "check_lyrics_page",
+        "exit_code": 0,
+        "seconds": 21.0,
+        "log": "check_lyrics_page.log"
+      },
+      {
+        "check": "ui_reachability_check",
+        "exit_code": 2,
+        "seconds": 6.9,
+        "log": "ui_reachability_check.log"
+      }
+    ],
+    "baseline": [
+      {
+        "check": "check_ui_foundation",
+        "exit_code": 1,
+        "seconds": 105.3
+      },
+      {
+        "check": "ui_reachability_check",
+        "exit_code": 2,
+        "seconds": 7.0
+      }
+    ],
+    "foundation": "Entire failure log byte-identical: existing DeltaBlues enlarged-image thumbnail retention.",
+    "reachability": "Both fail browser policy ERR_BLOCKED_BY_ADMINISTRATOR navigating generated fileURL; paths and bundle sizes differ.",
+    "scope": "Six other UI checks passed; original UI/engine/tests unmodified. Exact final-head CI required."
+  },
+  "logs": {
+    "build-api.log": {
+      "sha256": "4e31086eec55cc2ef68a3064fb41741b2ea2d9dc1e718bf0096522fc6b835962",
+      "tail": "  ...100 traditions\n  ...200 traditions\n  ...300 traditions\n  ...400 traditions\n  ...500 traditions\n  ...600 traditions\n  ...700 traditions\n  ...800 traditions\n  ...900 traditions\n  ...1000 traditions\n  ...1100 traditions\n  ...1200 traditions\n  ...1300 traditions\n  ...1400 traditions\n  ...1500 traditions\n  ...1600 traditions\n  ...1700 traditions\n  ...1800 traditions\n  ...1900 traditions\n  ...2000 traditions\n  ...2100 traditions\n  ...2200 traditions\n  ...2300 traditions\n  ...2400 traditions\n  ...2500 traditions\n  ...2600 traditions\n  ...2700 traditions\n  ...2800 traditions\n  ...2900 traditions\n  ...3000 traditions\n  ...3100 traditions\n  ...3200 traditions\n  ...3300 traditions\n  ...3400 traditions\n  ...3500 traditions\n  ...3600 traditions\n  ...3700 traditions\n  ...3800 traditions\n  ...3900 traditions\n  ...4000 traditions\n  ...4100 traditions\n  ...4200 traditions\n  ...4300 traditions\n  ...4400 traditions\n  ...4500 traditions\n  ...4600 traditions\n  ...4700 traditions\n  ...4800 traditions\n  ...4900 traditions\n  ...5000 traditions\n  ...5100 traditions\n  ...5200 traditions\n  ...5300 traditions\n  ...5400 traditions\n  ...5500 traditions\n  ...5600 traditions\n  ...5700 traditions\n  ...5800 traditions\n  ...5900 traditions\n  ...6000 traditions\n  ...6100 traditions\n  ...6200 traditions\n  ...6300 traditions\n  ...6400 traditions\nDone: 6438 traditions (0 failed), 1628 instruments in 647.4s -> /workspace/CodexMusica/api\nSelf-verify OK: 6438/6438 traditions, all recipes <=1000 chars, all ids resolve.\n"
+    },
+    "validate.log": {
+      "sha256": "d0160741721bddae1b2b02dd9e24f58a2902d69f7c9159f76150b0fd4f013606",
+      "tail": "VALID — 6438 traditions, 317 tree nodes, 1628 instruments, 256 rooms, 84 chain archetypes, 21 production aesthetics. All refs resolve.\n"
+    },
+    "full-check-docs.log": {
+      "sha256": "e4f54f933c16c5cc1ff18510324fe28701ff8754a80a68c6083fa546588e7f05",
+      "tail": "\n> codex-music-tool@2.0.0 check-docs\n> node scripts/check_docs.js && node scripts/check_doc_commands.js && node scripts/check_doc_paths.js && node scripts/check_doc_behaviors.js\n\n=== Documentation verification ===\n(172 active docs scanned: *.md + llms.txt + index.html + atlas.html; CHANGELOG/tests + codex.html excluded)\n\n[NUMERIC CLAIMS]  (22 count types)\n  ✓ All canonical counts match current catalog state.\n\n[SCRIPT REFERENCES]  (95 unique refs across active docs)\n  ✓ All script refs resolve to existing files.\n\nPASS — no drift detected.\n(Run with --with-audits for fast audit-count checks, or --all for full sweep.)\n=== Documented command execution (13 concrete commands) ===\nPASS — all 13 documented script commands exit 0.\n=== Documented path existence ===\n  present 291   ignored 0   declared-unreproducible 8   MISSING 0\n  (four counts, never summed — doctrine 79)\nPASS — every documented path is present, git-ignored, or declared unreproducible.\n=== Documented behavior assertions (8) ===\nPASS — all 8 documented behaviors hold.\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+    },
+    "geography.log": {
+      "sha256": "5dd9298097fb4b62f9ef013975e9be8450285542a04ed6fc95704673bcf959ba",
+      "tail": "\n> codex-music-tool@2.0.0 test:geography\n> node scripts/check_geographic_expansion.js && node scripts/check_geographic_round2.js\n\nGEOGRAPHIC EXPANSION: PASS — 96 candidates, 51 instruments, 63 tradition configurations, 252 browser/connector renders.\nGEOGRAPHIC ROUND 2: PASS — 24 traditions, 10 instruments, 96 browser/connector renders.\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+    },
+    "everynoise.log": {
+      "sha256": "80b4df695df1d15204f10032ff1d4eef9a3aff54c22b446ed26c57f3d81a38e8",
+      "tail": "\n> codex-music-tool@2.0.0 test:everynoise\n> node scripts/check_everynoise_pilot.js\n\nEVERYNOISE BATCHES: PASS — 2 batches, 50 genres, 200 browser/connector renders; CLI pins retained.\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+    },
+    "atlas-geo.log": {
+      "sha256": "e4760e0384babac664d3fd1c06eac1129e77921d172de15e745641b9cc1ec3dd",
+      "tail": "build_atlas_geo: wrote data/atlas-geo.json — 6438 traditions on 2842 coordinates; 1930 left exact, 4508 spread across 912 stacks (largest 109)\n"
+    },
+    "check-atlas.log": {
+      "sha256": "b6a140fcd3a1da1051a4d47fbcc688bc9ce6e31eaa5713003fd191c2cf630ff6",
+      "tail": "s_tree.js --check && node scripts/check_atlas_publish.js && node scripts/check_atlas_publish.js --self-test && node scripts/check_earth_tiles.js && node --test scripts/test_atlas_tiles.js scripts/test_atlas_controls.js\n\nbuild_atlas_basemap: OK — 242 features, 1621 polygons, 52190 vertices\nbuild_atlas_geo: OK — atlas-geo.json matches data/geo.json (4508 spread, 1930 exact)\nbuild_atlas_tree: OK — 317 nodes, 6438 placed traditions, 0 unplaced\n=== Atlas sidecars are publishable ===\n\n  29 referenced path(s); Pages serves this tree verbatim (.nojekyll present)\n  ✓ every path exists, is tracked, and is servable\n=== check_atlas_publish self-test ===\n\n  ✓ underscore sidecar, no .nojekyll → refused\n  ✓ same tree, .nojekyll present → accepted\n  ✓ runtime image missing → refused\n  ✓ sidecar deleted → refused as missing, marker or not\n  ✓ no fetch literals → refused as an empty check\nEarth tiles: 16737 tracked, hashed tiles; 108.81 MB total; overview and manifest within budgets.\n✔ panels close and switch consistently; genre filters stay visible and clearable (662.862317ms)\n✔ every collection opens real members, no editorial blurb or implied migration line (710.659313ms)\n✔ focusing empty search preserves a collection; typing replaces it without stale controls (386.915357ms)\n✔ switching from collection to genre group clears the hidden collection constraint (410.755271ms)\n✔ search with no results explains the empty map and can be cleared (329.646239ms)\n✔ routes expose all catalogued links and clickable genre endpoints, with a real off action (4147.702491ms)\n✔ collection detail can return, close, and clear without a stale back button (365.242469ms)\n✔ a route and a filter are never active together, in either order (1211.897973ms)\n✔ overview needs no tiles; retina/zoom selects detail; off-world view is empty (4.084708ms)\n✔ rapid zoom skips intermediate levels and caps requests/cache; disposal releases pixels (19.685285ms)\n✔ 404 and timeout retain fallback without repeated attempts (1.561798ms)\n✔ drawing uses the same Equal Earth extent and retains loaded parents during zoom (2.356018ms)\n✔ large displays keep complete viewport coverage within the tile budget (1.018157ms)\nℹ tests 13\nℹ suites 0\nℹ pass 13\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 8584.137629\nnpm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+    },
+    "check-api.log": {
+      "sha256": "e96acf53ec556a1f7b44cc7ebdb32476678327bbdb5b0b5a3b618376394c2811",
+      "tail": "  …validated 6438 tradition files\n  …validated 1628 instrument files\n=== Static API contract (api) ===\nPASS — artifact honors every documented promise:\n  ✓ 6438 traditions complete (index + per-id files + all.json)\n  ✓ 1628 instruments complete\n  ✓ every recipe <= 1000 chars, recipe_chars accurate\n  ✓ every config id resolves against the catalog\n"
+    }
+  },
+  "pending": [],
+  "format": "Final complete format check required after applying staged reports.",
+  "ci": "Exact published-head CI required before merge; no claim of remote CI success."
+}

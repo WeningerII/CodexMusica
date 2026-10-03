@@ -1,0 +1,55 @@
+{
+  "id": "live_signal_processing_unspecified",
+  "name": "Live signal processing (source-unspecified effects and mixing)",
+  "short": "Live signal processing",
+  "family": "electronic",
+  "class": "source_unspecified_live_processing",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "live_signal_processing_identity",
+      "name": "Documented live processing",
+      "variants": [
+        {
+          "id": "live_signal_processing_source_unspecified",
+          "name": "Live signal effects and mixing; architecture, inputs and routing unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "exclude_family_parts": [
+    "electronic_technique"
+  ],
+  "description": "Source-positive performed live effects/mixing role, distinct from a source generator and from studio postproduction. No invented oscillator, sample mechanism, hardware mixer, software, knob or filter. Neutral axes are authored routing coordinates. Existing synthesizer/DJ/electronics owners retain their original controls unchanged. Source does not identify a physical apparatus permitting further construction controls.",
+  "sources": [
+    "https://musicainsolita.bandcamp.com/album/entre-ar"
+  ],
+  "_ownParts": [
+    {
+      "id": "live_signal_processing_identity",
+      "name": "Documented live processing",
+      "variants": [
+        {
+          "id": "live_signal_processing_source_unspecified",
+          "name": "Live signal effects and mixing; architecture, inputs and routing unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

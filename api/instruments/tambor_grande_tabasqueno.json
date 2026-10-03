@@ -1,0 +1,63 @@
+{
+  "id": "tambor_grande_tabasqueno",
+  "name": "Tambor grande tabasqueño (large double-headed drum)",
+  "short": "Tabascan large drum",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "tambor_grande_tabasqueno_assembly",
+      "name": "Regional drum assembly",
+      "variants": [
+        {
+          "id": "tambor_grande_tabasqueno_mahogany_goat_cord",
+          "name": "Large mahogany double-headed drum, goat skins and cord tension",
+          "default": true,
+          "descriptors": [
+            "mahogany",
+            "double-headed",
+            "goatskin",
+            "rope-tensioned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source-positive large/bajo drum, not bass guitar; authored mahogany/goat/cord assembly from official regional construction options. Exact diameter and relative tuning unspecified. Neutral axes are editorial scaffolding.",
+  "sources": [
+    "https://cultura.tabasco.gob.mx/wp/wp-content/uploads/INFANTIL-DE-TAMBORILEROS-2025-1.pdf",
+    "https://publicacionperiodico.tabasco.gob.mx/documento/6981/firmado_qr.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "tambor_grande_tabasqueno_assembly",
+      "name": "Regional drum assembly",
+      "variants": [
+        {
+          "id": "tambor_grande_tabasqueno_mahogany_goat_cord",
+          "name": "Large mahogany double-headed drum, goat skins and cord tension",
+          "default": true,
+          "descriptors": [
+            "mahogany",
+            "double-headed",
+            "goatskin",
+            "rope-tensioned"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

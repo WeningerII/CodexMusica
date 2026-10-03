@@ -1,0 +1,76 @@
+{
+  "id": "musica_tabasquena",
+  "name": "Música tabasqueña",
+  "family": "vernacular",
+  "lineage": "Complete instrumental ensemble format specified by the Tabasco Culture Secretariat for its2025 state children’s tamborileros competition: requinto drum, large drum and cane flute, performing three pieces across danza, son and zapateo. The published rules require at least eight participants; three cards represent instrument classes, not three people. No exact distribution or actual winning group asserted. This is the full prescribed instrumental practice, not an arbitrary extracted track or a claim to all Tabascan music. No singer role in the stated inventory; dancers are not invented vocalists. The2026 version adds medium drums and other performances can add turtle shells; neither is silently transferred into the selected2025 specification. Authored controlled live-room realization of the entire published instrumental format. Percussion-led dance parent follows the positive dance/son/zapateo function. Isolated regional flute retains cane construction, seven openings and wax mouthpiece plug; no invented key, hole distribution or concert-recorder geometry. Regional requinto and large drum retain distinct sizes and double heads. Mahogany shell, goat skins and cord tension are editorial choices within the official heritage document’s described construction possibilities, not measured competitor equipment. Regional assemblies are single coherent compound controls; exact dimensions, drum pitches, species of tension cord, sticking patterns and participant distribution remain unspecified. No global equal temperament, amplification or studio hardware asserted. No inherited old-owner alterations.",
+  "recipe": "classic música tabasqueña, groove Percussion. cane flauta carrizo tabasquena, mahogany double headed requinto mahogany double headed tambor grande tabasqueno. live tracking.",
+  "recipe_chars": 173,
+  "score": 7.926,
+  "config": {
+    "traditions": [
+      "musica_tabasquena"
+    ],
+    "instruments": [
+      {
+        "id": "flauta_carrizo_tabasquena",
+        "slots": {
+          "flauta_carrizo_tabasquena_assembly": "flauta_carrizo_tabasquena_seven_openings"
+        },
+        "scores": {
+          "flauta_carrizo_tabasquena_assembly": 2.5999999999999996
+        }
+      },
+      {
+        "id": "requinto_tabasqueno",
+        "slots": {
+          "requinto_tabasqueno_assembly": "requinto_tabasqueno_mahogany_goat_cord"
+        },
+        "scores": {
+          "requinto_tabasqueno_assembly": 2.6630000000000003
+        }
+      },
+      {
+        "id": "tambor_grande_tabasqueno",
+        "slots": {
+          "tambor_grande_tabasqueno_assembly": "tambor_grande_tabasqueno_mahogany_goat_cord"
+        },
+        "scores": {
+          "tambor_grande_tabasqueno_assembly": 2.6630000000000003
+        }
+      }
+    ],
+    "pinned": {
+      "flauta_carrizo_tabasquena": [
+        "flauta_carrizo_tabasquena_assembly"
+      ],
+      "requinto_tabasqueno": [
+        "requinto_tabasqueno_assembly"
+      ],
+      "tambor_grande_tabasqueno": [
+        "tambor_grande_tabasqueno_assembly"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "flauta_carrizo_tabasquena_assembly": "flauta_carrizo_tabasquena_seven_openings",
+      "requinto_tabasqueno_assembly": "requinto_tabasqueno_mahogany_goat_cord",
+      "tambor_grande_tabasqueno_assembly": "tambor_grande_tabasqueno_mahogany_goat_cord"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "rozpravky",
+  "name": "Rozprávky",
+  "family": "vernacular",
+  "lineage": "Complete Janko Hraško four-story Slovak reading issued8April2013 by Legamus, total1:05:34. Reader Andrej Konušík explicitly documents this as a solo recording in four mono MP3 files with Genre:Speech; final publisher credits him alone as reader, with Stanka Ratulovská proof-listening and Viktor cataloguing, not additional performers. Retain all four stories: Janko Hraško, Radúz a Ľudmila, Pani Mačička and Ružová Anička. One speaker, zero singers, no fictional characters multiplied into extra people. Voice-only authored realization follows the positive solo speech production record, not an unsupported reduction of a dramatic cast or known musical soundtrack. No waveform audition or universal no-music rule for Legamus claimed. Authored dry treated-studio solo spoken narration with pure-spoken/no-pitch choice, natural unprocessed one-lead voice, source-unspecified physiology, register, training and pitch organization. No global tuning or electronic apparatus specified. Original mono encoding and sole reader are documented; exact microphone, vocal anatomy and studio acoustics are not. No music, effects or extra voice cards added without positive source roles.",
+  "recipe": "classic rozprávky, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, unprocessed natural acoustic, single lead single track no stacking. treated studio.",
+  "recipe_chars": 183,
+  "score": 32.313,
+  "config": {
+    "traditions": [
+      "rozpravky"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_pure_spoken_no_pitch",
+          "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 15.9885,
+          "voice_ensemble_config": 4.130999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 2.7365,
+          "voice_multitrack_stack": 9.456999999999999,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

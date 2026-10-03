@@ -1,0 +1,50 @@
+{
+  "id": "pittsburgh_indie",
+  "name": "Pittsburgh indie",
+  "family": "electronic",
+  "lineage": "Girl Talk — All Day, the complete twelve-section continuous71-minute2010 album, published by the official Illegal Art archive. The label explicitly describes construction from hundreds of woven samples spanning pop, rap, rock, R&B and dance. Retain the whole sample collage and all embedded instrumental and vocal layers; this is the positively documented source-level sample construction, not playback of an otherwise undocumented completed master. Gregg Gillis is Girl Talk, with additional production/assistance by Frank Musarra; mastering by Jonathan Schenke is not invented as another instrumental role. Architecture and sample-source singer count are unspecified. No additional live singer card means no separately credited live vocal performance, not zero sampled singers. Use existing credited_samples_unspecified to retain the complete documented sample construction without guessing sampler hardware/software or individual source instruments. Sole identity part is protected; neutral axes are authored. Broad experimentalElec describes this selected production-led plunderphonic collage, not every Pittsburgh indie work. Authored treated-room listening realization is not the actual source studio. No global tuning or apparatus supplied; embedded voices and intervals remain unknown.",
+  "recipe": "classic pittsburgh indie, experimental Elec. credited samples unspecified. treated studio.",
+  "recipe_chars": 90,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "pittsburgh_indie"
+    ],
+    "instruments": [
+      {
+        "id": "credited_samples_unspecified",
+        "slots": {
+          "credited_samples_identity": "credited_samples_source_unspecified"
+        },
+        "scores": {
+          "credited_samples_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_samples_unspecified": [
+        "credited_samples_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "credited_samples_identity": "credited_samples_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

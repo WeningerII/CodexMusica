@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "source_checkpoint_review": {
+    "status": "PASS",
+    "reviewer": "research_119",
+    "checkpoint": "/tmp/batch038/source-checkpoint100.json",
+    "checkpoint_sha256": "6f7beb9a7480ab968eb0fe447d260677da5050c5e65aa8e4923f53fddb88a8e1",
+    "counts": {
+      "entries": 100,
+      "unique_ids": 100,
+      "source_packet_hashes_verified": 100,
+      "exact_peer_hashes_verified": 100,
+      "new_dependencies": 19,
+      "old_merged_owners_preserved": 1609,
+      "combined_owners": 1628,
+      "owning_parts": 2157,
+      "protected_owning_parts": 2155
+    },
+    "unprotected_slots": [
+      {
+        "id": "reiki",
+        "parts": [["electronic_keyboard_unspecified", "keyboard_technique"]]
+      },
+      {
+        "id": "talentkonkurranse",
+        "parts": [["electronic_keyboard_unspecified", "keyboard_technique"]]
+      }
+    ],
+    "allocations": "All100 ordinal/group/id checked against immutable allocations. Explicit existing canonical normalization muzika_l_yeladim -> muzika_lyeladim accepted; source label preserved.",
+    "excluded_possible_overlap_count": 189,
+    "excluded_added": [],
+    "new_df_descriptor_types": [],
+    "dependencies": "All19 raw records use valid existing family, contain image_manifest and no _ownParts cache; original merge compares every old1609 object byte-equivalent. No existing instrument mutation.",
+    "photos": {
+      "exact_historical_receipts_checked": 119,
+      "context_review": "Reviewed all entry/dependency manifest contexts; microphone fallbacks remain LOW and disclaim source/performer depiction. Oceania MEDIUM grand image explicitly differs from authored upright. North Alabama/Northern Irish piano context LOW; Sound Team grand family image HIGH scoped to family, not actual source model. No unsupported donor-caption transplant found. Fresh rights are retained in exact-hash peer reports; this queue audit did not redownload images."
+    },
+    "semantic_scope": "All100 parent IDs and tradition families valid. Reviewed scoped parent/palette and photo summaries; accepted primary/source/full-neighbor proof delegated to100 verified exact-hash independent reports, not asserted as100 newly fetched sources. Specific full choral military programme, two-story/children narrative branches, score-specific piano arrangements, industrial/urban DJ programmes and documented unknown-role controls retain their honest selected-source boundaries.",
+    "runtime": "Root checkpoint100-runtime-root.json supplies400 original renders. Independent per-source reviews are exact-hash bound. Final integrated browser and compiled API review remains required, especially Reiki and Talentkonkurranse unprotected neutral-keyboard techniques.",
+    "supporting_reports": [
+      "frozen-audit119.json",
+      "checkpoint-ledger119.json",
+      "source-checkpoint100-mechanical119.json"
+    ],
+    "limits": [
+      "Pre-integration source checkpoint only; does not authorize skipping original integrated validation, full API or exact-head CI.",
+      "037 approved documentation/test expectation patch and eventual merge are parent-owned; this review makes no claim that pending037CI has passed."
+    ],
+    "errors": [],
+    "repository_mutations": false
+  },
+  "final_raw_merged_photo_preservation": {
+    "predecessor": "572c288153ab7092b5571f5e572667c311e9828e",
+    "head": "572c288153ab7092b5571f5e572667c311e9828e",
+    "frozen_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+    "counts": {
+      "raw_traditions_old_unchanged": 6338,
+      "raw_instruments_old_unchanged": 1609,
+      "old_extras_unchanged": 6338,
+      "merged_instruments_old_unchanged": 1609,
+      "data/geo.json_old_keys": 6338,
+      "references/_tradition_signatures.json_old_keys": 4316,
+      "old_images_unchanged": 7897,
+      "new_images": 119
+    },
+    "additions": 100,
+    "instrument_additions": [
+      "electronic_drum_kit_unspecified",
+      "credited_sound_effect_unspecified",
+      "viol_consort",
+      "moog_matriarch",
+      "sequential_prophet_xl",
+      "custom_therevox_unspecified",
+      "flauta_pitiusa",
+      "tambor_pitius",
+      "castanyoles_pitiuses",
+      "pandeirola_meia_lua",
+      "flauta_carrizo_tabasquena",
+      "requinto_tabasqueno",
+      "tambor_grande_tabasqueno",
+      "comorian_firimbi",
+      "live_signal_processing_unspecified",
+      "credited_environmental_ambience",
+      "chiapanecan_marimba",
+      "credited_requinto_unspecified",
+      "credited_steel_guitar_unspecified"
+    ],
+    "runtime_independent": {
+      "cards": 269,
+      "effective_parts": 2157,
+      "flat_pins": 2115,
+      "checks": "Original seedTraditionCards: exact roster, every applicable effective part, room,tuning,all six declared chain sections"
+    },
+    "app_scope": {
+      "added_signature_rows": 100,
+      "removed_rows": 0,
+      "logic_changes": false
+    },
+    "errors": [],
+    "warnings": [],
+    "reviewer_notes": {
+      "method": "Independent reviewer complete mechanical comparison of complete predecessor/current data using original loaders; per-packet source reviews retained separately.",
+      "limitation": "API/regression/exact-head CI separate required gates."
+    }
+  },
+  "source_entries": 100,
+  "new_isolated_instruments": 19,
+  "photo_receipts": 119,
+  "old_instruments_preserved": 1609,
+  "old_images_preserved": 7897,
+  "amendments": "Three empty signature arrays and Lagu Timur editorial geography only; no photo/audio/source-role alteration."
+}

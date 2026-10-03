@@ -1,0 +1,58 @@
+{
+  "id": "thai_bl_ost",
+  "name": "Thai BL OST",
+  "family": "pop",
+  "lineage": "Complete Yamaha Music Entertainment published piano-solo edition479451 of Kan Goo, the ending theme of 2gether, credited to Achariya Dulyapaiboon and arranger 西夏緒. Publisher specifies four A4 pages, solo piano and no printed lyrics. This scored realization has one piano and zero sung voices; original Bright vocal recording and the later eleven-person GMMTV fan-fest performance are distinct versions, not omitted personnel from this piano edition. Yamaha explicitly identifies a gentle pop-song arrangement with melody, moving left-hand bass and chord changes. Broad functionalSong is a deliberately authored tonal song realization of that edition, not classical merely because notation exists. Standard-size acoustic studio upright and restrained connected legato phrasing in a controlled live room are coherent editorial choices; piano construction and actual recording apparatus are unspecified. No grand-orchestra use, conductor, voice, soundtrack layers or globally measured tuning is invented.",
+  "recipe": "classic thai bl ost, functional Song. legato upright piano. live tracking.",
+  "recipe_chars": 74,
+  "score": 4.85,
+  "config": {
+    "traditions": [
+      "thai_bl_ost"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 4.550000000000001,
+          "upright_use": 0,
+          "upright_piano_size": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

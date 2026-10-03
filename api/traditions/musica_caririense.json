@@ -1,0 +1,120 @@
+{
+  "id": "musica_caririense",
+  "name": "Música caririense",
+  "family": "global",
+  "lineage": "João Botelho — complete six-recording Algumas Guitarras (2021–2022), issued2024. Artist explicitly describes free guitar improvisations recorded at home without overdubs; issuer details live looping with delays throughout. João plays electric guitar and delays, plus foot-played meia-lua on track2; LôAngelo operates delays on track5. Both credited people and the complete guitar/processing/percussion palette remain. No voice, prerecorded backing or instruments from earlier albums mentioned as background are transferred into this release. Authored rendition of the full live-improvised release. Existing alder/maple humbucker guitar uses feedback/drone gesture as a source-compatible realization of sustained, distorted loop textures; hardware and woods are editorial. Existing digital-delay effect realizes the explicitly credited live echo/loop processing, with digital architecture authored rather than identified; processor performer is retained in evidence rather than miscounted as another guitarist. The original shared chain applies the authored delay to both rendered cards; the source specifically establishes guitar delays, so the new percussion echo is disclosed editorial processing rather than a source-session fact. The source-positive foot-played meia-lua uses an isolated percussion owner, plastic body and metal jingles as an authored construction corroborated by the manufacturer, not a claim João used that brand. No exact alloy, jingle count, mounting mechanism or dimensions claimed. Broad improvOnFrame reflects explicit freely improvised iterative layers, not a jazz lineage. Controlled room is authored, original recordings occurred at home; no capture apparatus or global temperament asserted.",
+  "recipe": "classic 2021-2022 música caririense, improv On Frame. alder maple humbucker electric guitar, plastic pandeirola meia lua. live tracking. digital delay.",
+  "recipe_chars": 151,
+  "score": 11.812,
+  "config": {
+    "traditions": [
+      "musica_caririense"
+    ],
+    "instruments": [
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_feedback_drone",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 2.5630000000000006,
+          "amp_make": 0,
+          "body_wood": 2.9000000000000004,
+          "neck_wood": 1.3,
+          "fretboard": -0.05,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 0,
+          "string_gauge": 2.9899999999999998,
+          "finish": 0,
+          "string_tuning": 0.8085
+        }
+      },
+      {
+        "id": "pandeirola_meia_lua",
+        "slots": {
+          "pandeirola_meia_lua_form": "pandeirola_meia_lua_plastic_jingles",
+          "pandeirola_meia_lua_gesture": "pandeirola_meia_lua_foot_pulse"
+        },
+        "scores": {
+          "pandeirola_meia_lua_form": 1.3,
+          "pandeirola_meia_lua_gesture": 0
+        }
+      }
+    ],
+    "pinned": {
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "pandeirola_meia_lua": [
+        "pandeirola_meia_lua_form",
+        "pandeirola_meia_lua_gesture"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "digital_delay"
+    ]
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "electric_technique": "electric_feedback_drone",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "pandeirola_meia_lua_form": "pandeirola_meia_lua_plastic_jingles",
+      "pandeirola_meia_lua_gesture": "pandeirola_meia_lua_foot_pulse"
+    },
+    "pin_parts": true,
+    "chain_fx": [
+      "digital_delay"
+    ]
+  }
+}

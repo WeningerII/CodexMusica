@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "2c81811f17c2de9e582190567b5ddb151a43accf5995fa5477e846414b9bec75",
+  "unpinned": [
+    {
+      "tradition": "reiki",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "flat_value": "keyboard_classical_legato",
+      "policy": "Unprotected owning slot; imported fallback is not a protected or compiled setting guarantee.",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "compiled_protected": false,
+      "changed_from_import": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "talentkonkurranse",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "flat_value": "keyboard_block_chord_pop",
+      "policy": "Unprotected owning slot; imported fallback is not a protected or compiled setting guarantee.",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "compiled_protected": false,
+      "changed_from_import": false,
+      "valid_owning_variant": true
+    }
+  ],
+  "errors": [],
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "geo_only_rebind_proof": "geo-amendment-review119.json"
+}

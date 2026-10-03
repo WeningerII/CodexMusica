@@ -1,0 +1,50 @@
+{
+  "id": "japanese_beats",
+  "name": "Japanese beats",
+  "family": "electronic",
+  "lineage": "DJ Mitsu the Beats — complete label-issued DJ Mitsu the Beats Plays Jazzy Sport, JSPMIX1001, released for rental4December2013. Official label explicitly calls this a MIXCD by DJ Mitsu the Beats and publishes all24selections drawn from its catalogue. Entire24-selection DJ programme retained, including vocal/rap releases credited to GAGLE, mimismooth, Joe Styles, Fatima and others. This models the positively documented DJ playback/mixing performance, not guessed instruments inside the original recordings. One named DJ; total embedded singers and separately performed live voices are unknown, not zero. No source-positive separate live accompanist is omitted. Existing neutral DJ playback/mixing owner retains actual label-documented mix programme, without substituting a sampler for an undocumented production palette. No deck count, media format used in performance, mixer hardware or original track instruments inferred. Controlled live-room playback/capture is authored; source is released MIXCD, not proof it was recorded before a live audience. No global tuning or source microphone chain imposed.",
+  "recipe": "classic japanese beats, experimental Elec. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 89,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "japanese_beats"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

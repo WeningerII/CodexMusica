@@ -1,0 +1,317 @@
+{
+  "id": "pontianak_indie",
+  "name": "Pontianak indie",
+  "family": "rock",
+  "lineage": "Stromberry Blue — See You Darling, full six-song Dirtwave EP. Official independent label Dirtwave publishes the complete six-song See You Darling EP with vocals and guitars by Ori Natasha and Gian Pangestu, bass Adi Moh, trumpet Wikry Mok, synthesizer Ario Perdana, drums Andhanika Budang. Retain all six families and both explicitly credited singers across the full EP. Two guitar performers aggregate into one family card; no independent per-guitar gestures inferred. Bare synthesizer is represented by architecture-unspecified credited synthesis, not guessed analog hardware. The earlier2023 band press statement corroborates Pontianak origin and alternative pop practice, but does not override the later EP guest trumpet/synth or second vocal credit. Label publication date2026 differs from press accounts of earlier physical issue; the selected full label edition defines scope, not an invented session date. Pontianak indie is a local independent community, not a unique timbre inferred from geography. Fresh creator map names Manjakani, LAS!, Coffternoon and other local acts; selected Stromberry Blue is not claimed as map member. The band’s supplied2023 statement places its alternative pop practice in Pontianak. Record Store Day Pontianak media partner Radio Volare reports organizer-defined independent physical-release community since2014, expressly featuring this EP, band and Dirtwave alongside Manjakani and other local institutions. This positively substantiates regional network beyond one artist address. Actual Indonesian indie pop/rock national fields overlap; local boundary does not assert they exclude Pontianak. Alternative/dream-pop/shoegaze release classification supports selected alternative node. Coherent alder/maple humbucker power-chord guitar, alder/maple dual-single-coil fingerstyle bass and rock kit are authored modern realizations, not actual source hardware. Authored trumpet Bb/unmuted punchy playing is not measured source technique. Duet/live-ensemble stack combines two credited voices editorially, not simultaneous/no-overdub recording fact. Controlled live room and omitted global tuning/apparatus are authored.",
+  "recipe": "classic pontianak indie, distorted Rock, alternative branch. duet, live take. alder maple conventional tuning standard pitch power chord humbucker electric guitar, alder fingerstyle locked electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral student friendly ensemble trumpet, credited synthesizer unspecified. live tracking.",
+  "recipe_chars": 464,
+  "score": 136.81,
+  "config": {
+    "traditions": [
+      "pontianak_indie"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ensemble_config": 5.199999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.168,
+          "voice_multitrack_stack": 3.8999999999999995,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electric_guitar_humbucker",
+        "slots": {
+          "electric_technique": "electric_power_chord",
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "rosewood_fb_h",
+          "pickup_magnet": "alnico_2_h",
+          "pickup_winding": "mid_wind",
+          "string_material": "pure_nickel_h",
+          "bridge": "vibrato_arm",
+          "scale_length": "scale_gibson_h",
+          "string_gauge": "g_10_hum",
+          "finish": "nitro_hum",
+          "string_tuning": "standard_tuning"
+        },
+        "scores": {
+          "electric_technique": 5.2,
+          "amp_make": 0,
+          "body_wood": 6.6095,
+          "neck_wood": 2.7049999999999996,
+          "fretboard": -0.035,
+          "pickup_magnet": 0,
+          "pickup_winding": 0,
+          "string_material": 0,
+          "bridge": 0,
+          "scale_length": 1.1550000000000002,
+          "string_gauge": 4.872999999999999,
+          "finish": 0,
+          "string_tuning": 1.6
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_h",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 6.6095,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.1365,
+          "fretted_or_not": 0.0735,
+          "bass_technique": 1.15,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 12.75,
+          "drumhead": 1.7365000000000002,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 5.7415,
+          "shell_thickness": 0,
+          "bearing_edges": 1.405,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": 29.0315,
+          "cymbal_lathing": 34.0365,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.15,
+          "brass_size": 0.105,
+          "trumpet_mouthpiece": 3.305,
+          "brass_mute": 3.8729999999999998,
+          "trumpet_technique": 1.15,
+          "trumpet_bell_metal": 1.2285,
+          "trumpet_maker_school": 2.1525
+        }
+      },
+      {
+        "id": "credited_synthesizer_unspecified",
+        "slots": {
+          "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+        },
+        "scores": {
+          "credited_synthesizer_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electric_guitar_humbucker": [
+        "electric_technique",
+        "amp_make",
+        "body_wood",
+        "neck_wood",
+        "fretboard",
+        "pickup_magnet",
+        "pickup_winding",
+        "string_material",
+        "bridge",
+        "scale_length",
+        "string_gauge",
+        "finish",
+        "string_tuning"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "credited_synthesizer_unspecified": [
+        "credited_synthesizer_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "electric_technique": "electric_power_chord",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_h",
+      "neck_wood": "maple_neck_h",
+      "fretboard": "rosewood_fb_h",
+      "pickup_magnet": "alnico_2_h",
+      "pickup_winding": "mid_wind",
+      "string_material": "pure_nickel_h",
+      "bridge": "vibrato_arm",
+      "scale_length": "scale_gibson_h",
+      "string_gauge": "g_10_hum",
+      "finish": "nitro_hum",
+      "string_tuning": "standard_tuning",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "wind_articulation": "wind_punchy_ensemble",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "credited_synthesizer_identity": "credited_synthesizer_architecture_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "musica_colombiana_instrumental",
+  "name": "Música colombiana instrumental",
+  "family": "global",
+  "lineage": "Álvaro Romero Sánchez — complete Evocación (gavota), archival original piano score. Universidad del Valle’s primary catalog identifies the composer, the donated manuscript collection and explicitly instrumental gavotte written for piano. This is a newly authored realization of that complete scored work, not a reconstruction of an unavailable commercial recording. One piano role and zero scored voices; no borrowed plucked-string instrumentation from the separate2022conservatory arrangement. The2017catalog date is not asserted to be the composition date. Score-page gestures, key and tempo are not measured because the manuscript PDF was not directly retrieved. Authored solo acoustic upright-piano rendition of the complete manuscript scoring. Broad artMusic applies to this formally transmitted authored gavotte and documented conservatory concert repertoire, not merely because notation exists or all Colombian instrumental music is classical. The archive explicitly places it in a European-derived compositional form cultivated by Valle del Cauca composers. A standard-sized modern acoustic studio upright is an editorial present-day piano choice, not original source equipment; no orchestral reduction or conductor is asserted. Classical legato is an authored playing treatment; no measured exact source articulation is asserted. Controlled live room is authored; no global temperament or recording apparatus imposed.",
+  "recipe": "classic música colombiana instrumental, art Music. legato upright piano. live tracking.",
+  "recipe_chars": 87,
+  "score": 8.065,
+  "config": {
+    "traditions": [
+      "musica_colombiana_instrumental"
+    ],
+    "instruments": [
+      {
+        "id": "upright_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_classical_legato",
+          "upright_use": "upright_studio",
+          "upright_piano_size": "upright_piano_standard"
+        },
+        "scores": {
+          "keyboard_technique": 8.065499999999998,
+          "upright_use": 0,
+          "upright_piano_size": 0
+        }
+      }
+    ],
+    "pinned": {
+      "upright_piano": [
+        "keyboard_technique",
+        "upright_use",
+        "upright_piano_size"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "keyboard_technique": "keyboard_classical_legato",
+      "upright_use": "upright_studio",
+      "upright_piano_size": "upright_piano_standard"
+    },
+    "pin_parts": true
+  }
+}

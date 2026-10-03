@@ -1,0 +1,58 @@
+{
+  "id": "credited_environmental_ambience",
+  "name": "Credited incidental environmental ambience",
+  "short": "Incidental environmental ambience",
+  "family": "electronic",
+  "class": "environmental_recording",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_environmental_ambience_source",
+      "name": "Incidental source capture",
+      "variants": [
+        {
+          "id": "credited_environmental_ambience_incidental_capture",
+          "name": "Naturally present environmental ambience retained in recording",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Naturally present background sounds expressly retained in a musical recording. For the documented Mahsa Vahdat source these include birds, footsteps, distant bells and human voices, streams and fountains across multiple sites. This is environmental context, not an additional performed instrument, counted singer, sampler, synthesized sound or asserted edited collage. Microphone, recorder and playback implementation unspecified. Neutral axes are authored scaffolding.",
+  "sources": [
+    "https://www.kkv.no/musikk/the-sun-will-rise-3"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_environmental_ambience_source",
+      "name": "Incidental source capture",
+      "variants": [
+        {
+          "id": "credited_environmental_ambience_incidental_capture",
+          "name": "Naturally present environmental ambience retained in recording",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

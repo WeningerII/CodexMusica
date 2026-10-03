@@ -1,0 +1,114 @@
+{
+  "id": "muzica_bisericeasca",
+  "name": "Muzică bisericească",
+  "family": "classical",
+  "lineage": "Complete first edition of Cântați Domnului tot pământul, compiled by Vasile Stanciu, Renașterea, Cluj-Napoca2017, ISMN979-0-9009870-6-8, ISBN978-606-607-226-7. Romanian National Library2018 bibliography classifies the whole printed collection under NM3.3.4 Voci a cappella and lists390pages. The Patriarchate newspaper describes389pages and six functional sections combining standardized psaltic and Transylvanian church repertories; this one-page metadata discrepancy is retained, not silently resolved. All sections are included in this new unaccompanied vocal rendition. Full score pages were not inspected; individual voicings, human headcount, original performances and exact interval systems remain unspecified. No instruments inferred from adjacent books or recordings. Use existing human_voice_ensemble_unspecified to retain the positive a cappella source with unknown participant count and tracking arrangement. Neutral source-unspecified voice physiology, ornament, register and pitch remain protected; moderate effort and natural processing are candid authored controls. A controlled recital hall is an authored new capture, not the original site. Global tuning and recording equipment omitted. No forced Greek ison, four-person SATB count, Western temperament or source solo/choir assumption.",
+  "recipe": "classic muzică bisericească, ritual Devotional, christian gospel branch. unprocessed natural acoustic human voice ensemble unspecified. shoebox concert hall.",
+  "recipe_chars": 157,
+  "score": 1.3,
+  "config": {
+    "traditions": [
+      "muzica_bisericeasca"
+    ],
+    "instruments": [
+      {
+        "id": "human_voice_ensemble_unspecified",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_speech_song_local_unspecified",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+          "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 1.3,
+          "human_voice_ensemble_source_status": 0,
+          "human_voice_tracking_source_status": 0,
+          "voice_tessitura": 0
+        }
+      }
+    ],
+    "pinned": {
+      "human_voice_ensemble_unspecified": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "human_voice_ensemble_source_status",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "human_voice_tracking_source_status",
+        "voice_tessitura"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_speech_song_local_unspecified",
+      "human_voice_ensemble_source_status": "human_voice_ensemble_source_status_unspecified",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "human_voice_tracking_source_status": "human_voice_tracking_source_status_unspecified",
+      "voice_tessitura": "voice_tessitura_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

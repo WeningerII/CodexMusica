@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "Independent complete frozen-source and integrated raw/merged/browser/default/environment/pipeline preservation. Compiled API and regression/exact-head CI are separate outstanding gates.",
+  "integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "baseline": "572c288153ab7092b5571f5e572667c311e9828e",
+  "new_traditions": 100,
+  "new_instruments": 19,
+  "old_traditions_unchanged": 6338,
+  "old_raw_and_merged_instruments_unchanged": 1609,
+  "old_imported_browser_cards_unchanged": 26984,
+  "new_browser_cards": 269,
+  "new_owning_parts": 2157,
+  "new_source_pins_materialized": 2155,
+  "disclosed_unprotected_parts": [
+    {
+      "id": "reiki",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported": "electronic_keyboard_melodic_chordal",
+      "protected_by_source": false
+    },
+    {
+      "id": "talentkonkurranse",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported": "electronic_keyboard_melodic_chordal",
+      "protected_by_source": false
+    }
+  ],
+  "reports": {
+    "checkpoint100-independent-review119.json": "6b417246473398e0845aee855846985f3788f85cbf88d0e2e88909d0eba9bce8",
+    "signature-metadata-overlay-independent-review119.json": "8ecd08e3d11886c789a96269c940ed69bf4cb888e9658ee498be86b162385692",
+    "integration-amendment-review119.json": "f7307575bd90d1da52888aad161a5964bbe8299c3e174d9e4926272b439090ed",
+    "independent-append-review119.json": "90328eae1ae6ae1fbc27444b3cc2533edfb7c4028d8b4a3ba6ddef4765ed26ae",
+    "app-preservation119.json": "83520a5b257ba47589b7644dcd81d60adc16952fc73ec67ab42207a882e62f90",
+    "new-browser-preservation119.json": "08929ce2c813767440827986a51d3c0d8ec2acf2c4c2717b380e3227edf98275",
+    "pipeline-preservation119.json": "d0e24b8c75788ac009aa96f4360712e343b734f9cd5f0223e1f405651ad78f3c",
+    "geo-amendment-review119.json": "ae45bd74bcd994a54368af35a4063e52e188281c72e75121a51be1e13d91fc2a"
+  },
+  "errors": [],
+  "no_repository_mutations": true,
+  "final_integration_sha256": "ff3e0245cd0d058385f017ffdad08395bac431aac6c1de45731843cf119d5b1b",
+  "geo_only_rebind_proof": "geo-amendment-review119.json"
+}

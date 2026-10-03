@@ -1,0 +1,57 @@
+{
+  "id": "flauta_carrizo_tabasquena",
+  "name": "Flauta de carrizo tabasqueña",
+  "short": "Tabascan cane flute",
+  "family": "wind",
+  "class": "regional_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "flauta_carrizo_tabasquena_assembly",
+      "name": "Regional cane-and-wax assembly",
+      "variants": [
+        {
+          "id": "flauta_carrizo_tabasquena_seven_openings",
+          "name": "Cane flute, seven openings and wax mouthpiece plug",
+          "default": true,
+          "descriptors": [
+            "cane"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Official heritage describes cane aerophone with seven openings and flattened wax mouthpiece plug. No invented pitch set, finger-hole distribution, keywork or dimensions. Neutral axes are editorial scaffolding.",
+  "sources": [
+    "https://cultura.tabasco.gob.mx/wp/wp-content/uploads/INFANTIL-DE-TAMBORILEROS-2025-1.pdf",
+    "https://publicacionperiodico.tabasco.gob.mx/documento/6981/firmado_qr.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "flauta_carrizo_tabasquena_assembly",
+      "name": "Regional cane-and-wax assembly",
+      "variants": [
+        {
+          "id": "flauta_carrizo_tabasquena_seven_openings",
+          "name": "Cane flute, seven openings and wax mouthpiece plug",
+          "default": true,
+          "descriptors": [
+            "cane"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "popping",
+  "name": "Popping",
+  "family": "electronic",
+  "lineage": "Rita Spirit — Popping Delight (Special for Styles Upon Styles), complete 36:43 DJ mix published May 7, 2023. The performer says it was made for the August 7–12 Las Vegas event; publication precedes the event, so this is not asserted to be a live August event recording. Artist profile independently lists this exact work under DJ Mixes. Preserve its whole mixed recorded program, including all embedded instrumental and vocal material. Source tags identify funk and G-funk alongside popping. Hardware, source media, track list, embedded voice count and additional live vocal activity are unspecified; no extra live singer card asserts no invented role, not zero singers in the audio. Existing dj_playback_mixing_unspecified retains the positively documented whole DJ practice, not a shortcut for reconstructing an undocumented studio song. Sole medium-unspecified identity is pinned. The selected funk/G-funk program fits groovePercussion.funkPercussive as a funk-descendant dance branch; this does not impose one-chord harmony or a uniform beat on every constituent recording or all popping repertoire. Authored treated-room listening realization, not measured source studio or Las Vegas venue. Global tuning and apparatus omitted because the mixed recordings and physical equipment are unknown. Neutral axes are editorial controls, not measured audio facts.",
+  "recipe": "classic early-2020s popping, groove Percussion, funk percussive branch. dj playback mixing unspecified. treated studio.",
+  "recipe_chars": 119,
+  "score": 0.105,
+  "config": {
+    "traditions": [
+      "popping"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "comorian_firimbi",
+  "name": "Firimbi — Comorian open-ended flute",
+  "short": "Comorian firimbi flute",
+  "family": "wind",
+  "class": "flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "comorian_firimbi_form",
+      "name": "Source-supported bore identity",
+      "variants": [
+        {
+          "id": "comorian_firimbi_open_ended",
+          "name": "Flute open at both ends; hole count and dimensions unspecified",
+          "default": true,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "comorian_firimbi_material",
+      "name": "Authored body material",
+      "variants": [
+        {
+          "id": "comorian_firimbi_plastic",
+          "name": "Plastic tube (collector-described contemporary build; source-session material unknown)",
+          "default": true,
+          "descriptors": [
+            "plastic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comorian_firimbi_breath",
+      "name": "Documented playing practice",
+      "variants": [
+        {
+          "id": "comorian_firimbi_circular_breath",
+          "name": "Circular breathing sustaining the melody",
+          "default": true,
+          "descriptors": [
+            "circular-breathing",
+            "continuous",
+            "sustaining"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "comorian_firimbi_form",
+      "name": "Source-supported bore identity",
+      "variants": [
+        {
+          "id": "comorian_firimbi_open_ended",
+          "name": "Flute open at both ends; hole count and dimensions unspecified",
+          "default": true,
+          "descriptors": []
+        }
+      ]
+    },
+    {
+      "id": "comorian_firimbi_material",
+      "name": "Authored body material",
+      "variants": [
+        {
+          "id": "comorian_firimbi_plastic",
+          "name": "Plastic tube (collector-described contemporary build; source-session material unknown)",
+          "default": true,
+          "descriptors": [
+            "plastic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "comorian_firimbi_breath",
+      "name": "Documented playing practice",
+      "variants": [
+        {
+          "id": "comorian_firimbi_circular_breath",
+          "name": "Circular breathing sustaining the melody",
+          "default": true,
+          "descriptors": [
+            "circular-breathing",
+            "continuous",
+            "sustaining"
+          ]
+        }
+      ]
+    }
+  ]
+}

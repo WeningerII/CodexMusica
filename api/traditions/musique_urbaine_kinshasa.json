@@ -1,0 +1,50 @@
+{
+  "id": "musique_urbaine_kinshasa",
+  "name": "Musique urbaine Kinshasa",
+  "family": "electronic",
+  "lineage": "Complete broadcaster-issued SYSTEM MIX 051 by DJ P2N,26:56, published6July2021. Official Boiler Room page and linked broadcaster SoundCloud credit one DJ and identify a full mix. This models actual published playback/mixing practice, not source generators inside a produced master. No other Moonshine programme performers or the separate PAM mix are combined into this set. Embedded and actual live vocal totals are unknown; no separately credited live singer is supplied. Neutral existing DJ playback/mixing owner retains the complete issued programme and embedded musical/vocal content without inventing deck, mixer, medium, software or source-generator hardware. Unknown live/embedded voice counts remain null. Controlled live-room capture and neutral axes are explicitly authored contemporary recording scaffolding, not the actual broadcaster session site. No global tuning or signal chain asserted. Broad electronicDance follows the documented club-mix branch, without applying one amapiano log-drum preset to every record.",
+  "recipe": "classic musique urbaine kinshasa, electronic Dance. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 98,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "musique_urbaine_kinshasa"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}

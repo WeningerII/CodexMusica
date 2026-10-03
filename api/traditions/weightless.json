@@ -1,0 +1,50 @@
+{
+  "id": "weightless",
+  "name": "Weightless",
+  "family": "electronic",
+  "lineage": "Complete Logos RA.456 commissioned programme23February2015,1:11:11. Artist describes an assemblage with two CDJ beat-mixed sections and whole-programme assembly in Logic, retaining the entire25-selection noise/drone/grime/club trajectory. Existing neutral playback/mixing owner represents this documented montage practice, not a reconstruction of constituent productions. General interview remarks on later Akai/outboard postprocessing concern his studio work, not additional credited live roles in this selected assemblage. Embedded voice counts unknown; no separately performed live vocal part credited. No claim every selected track is exclusively Weightless. Coarse existing playback/mixing owner retains both CDJ sections and Logic montage under the documented recorded-programme practice. It does not assert unknown hardware or pretend this is a single untouched master used to conceal original instrumentation. No invented source synthesis, extra live singers or global tuning. Controlled room is an authored playback presentation, not measured source studio acoustics.",
+  "recipe": "classic weightless, bass System, uk soundsystem branch. dj playback mixing unspecified. live tracking.",
+  "recipe_chars": 102,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "weightless"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true
+  }
+}
