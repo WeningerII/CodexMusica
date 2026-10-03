@@ -1,0 +1,52 @@
+{
+  "id": "contraguitar",
+  "name": "Contraguitar (Viennese extended-bass guitar)",
+  "short": "Viennese contraguitar",
+  "family": "acoustic_strings",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "contraguitar_identity",
+      "name": "Contraguitar construction",
+      "variants": [
+        {
+          "id": "contraguitar_six_plus_seven",
+          "name": "Six guitar strings plus seven additional bass strings; authored historical Viennese model",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "contraguitar_identity",
+      "name": "Contraguitar construction",
+      "variants": [
+        {
+          "id": "contraguitar_six_plus_seven",
+          "name": "Six guitar strings plus seven additional bass strings; authored historical Viennese model",
+          "default": true,
+          "descriptors": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

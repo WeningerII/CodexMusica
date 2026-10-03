@@ -1,0 +1,248 @@
+{
+  "id": "pagode_baiano",
+  "name": "Pagode Baiano",
+  "family": "global",
+  "lineage": "Orquestra Carioca de Pagode Baiano — O 5º Pagode de Beethoven, complete published2021 arrangement. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic pagode baiano, groove Percussion, Brazilian branch. saxophone section soprano alto tenor, trumpet, trombone, tuba, congas, torpedo percussion bahian bacurinha credited, surdo, credited cymbals. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 300,
+  "score": 6.809,
+  "config": {
+    "traditions": [
+      "pagode_baiano"
+    ],
+    "instruments": [
+      {
+        "id": "saxophone_section_soprano_alto_tenor",
+        "slots": {
+          "soprano_alto_tenor_section_articulation": "soprano_alto_tenor_section_articulation_short"
+        },
+        "scores": {
+          "soprano_alto_tenor_section_articulation": 0
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_punchy_ensemble",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "brass_size": 0.105,
+          "trumpet_mouthpiece": -0.1,
+          "brass_mute": 0.063,
+          "trumpet_technique": 0.19500000000000003,
+          "trumpet_bell_metal": 0.588,
+          "trumpet_maker_school": 0.6615
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "big_band_punch",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "trombone_type": -0.035,
+          "trombone_mouthpiece": -0.1,
+          "trombone_mute": 0.063,
+          "trombone_technique": 0.7244999999999999,
+          "trombone_bell_metal": 0.588,
+          "trombone_maker_school": 0.6615
+        }
+      },
+      {
+        "id": "tuba",
+        "slots": {
+          "wind_articulation": "wind_punchy_ensemble",
+          "tuba_pitch": "tuba_bbb",
+          "tuba_context": "tuba_brass_band",
+          "tuba_bell_metal": "tuba_yellow_brass",
+          "tuba_valve_system": "tuba_rotary_german",
+          "tuba_maker_school": "tuba_miraphone_german"
+        },
+        "scores": {
+          "wind_articulation": 0.19500000000000003,
+          "tuba_pitch": 0,
+          "tuba_context": 0.39,
+          "tuba_bell_metal": 0.588,
+          "tuba_valve_system": 0.42,
+          "tuba_maker_school": 0.42
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "conga_set": 0,
+          "conga_skin": 0.49349999999999994,
+          "conga_shell_wood": 0.49349999999999994
+        }
+      },
+      {
+        "id": "torpedo_percussion_credited",
+        "slots": {
+          "torpedo_percussion_credited_identity": "torpedo_percussion_credited_source_unspecified"
+        },
+        "scores": {
+          "torpedo_percussion_credited_identity": 0
+        }
+      },
+      {
+        "id": "bahian_bacurinha_credited",
+        "slots": {
+          "bahian_bacurinha_credited_identity": "bahian_bacurinha_credited_source_unspecified"
+        },
+        "scores": {
+          "bahian_bacurinha_credited_identity": 0
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_primeira",
+          "surdo_skin": "surdo_composite",
+          "surdo_shell": "surdo_steel"
+        },
+        "scores": {
+          "surdo_size": 0,
+          "surdo_skin": 0,
+          "surdo_shell": 0
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0.105
+        }
+      }
+    ],
+    "pinned": {
+      "saxophone_section_soprano_alto_tenor": [
+        "soprano_alto_tenor_section_articulation"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "tuba": [
+        "wind_articulation",
+        "tuba_pitch",
+        "tuba_context",
+        "tuba_bell_metal",
+        "tuba_valve_system",
+        "tuba_maker_school"
+      ],
+      "congas": [
+        "percussion_technique",
+        "conga_set",
+        "conga_skin",
+        "conga_shell_wood"
+      ],
+      "torpedo_percussion_credited": [
+        "torpedo_percussion_credited_identity"
+      ],
+      "bahian_bacurinha_credited": [
+        "bahian_bacurinha_credited_identity"
+      ],
+      "surdo": [
+        "surdo_size",
+        "surdo_skin",
+        "surdo_shell"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "soprano_alto_tenor_section_articulation": "soprano_alto_tenor_section_articulation_short",
+      "wind_articulation": "wind_punchy_ensemble",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_punchy_ensemble",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "big_band_punch",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "tuba_pitch": "tuba_bbb",
+      "tuba_context": "tuba_brass_band",
+      "tuba_bell_metal": "tuba_yellow_brass",
+      "tuba_valve_system": "tuba_rotary_german",
+      "tuba_maker_school": "tuba_miraphone_german",
+      "percussion_technique": "percussion_hands_layered",
+      "conga_set": "conga_proper",
+      "conga_skin": "conga_mule_hide",
+      "conga_shell_wood": "conga_oak_staved",
+      "torpedo_percussion_credited_identity": "torpedo_percussion_credited_source_unspecified",
+      "bahian_bacurinha_credited_identity": "bahian_bacurinha_credited_source_unspecified",
+      "surdo_size": "surdo_primeira",
+      "surdo_skin": "surdo_composite",
+      "surdo_shell": "surdo_steel",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

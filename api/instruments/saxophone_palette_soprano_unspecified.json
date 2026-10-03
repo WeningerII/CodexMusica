@@ -1,0 +1,52 @@
+{
+  "id": "saxophone_palette_soprano_unspecified",
+  "name": "Saxophone palette (soprano and unspecified saxophone)",
+  "short": "Soprano and unspecified saxophone",
+  "family": "wind",
+  "class": "saxophone_palette_soprano_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "saxophone_palette_soprano_unspecified_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "saxophone_palette_soprano_unspecified_source_unspecified",
+          "name": "Soprano and unspecified saxophone; construction and technique unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Preserves the source wording Sax, Soprano for one player; no other register, separate instrument count or simultaneous doubling asserted. Neutral routing axes are authored uncertainty coordinates, not physical measurements.",
+  "sources": [
+    "https://www.youtube.com/watch?v=YqKgZ0cU-9c"
+  ],
+  "_ownParts": [
+    {
+      "id": "saxophone_palette_soprano_unspecified_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "saxophone_palette_soprano_unspecified_source_unspecified",
+          "name": "Soprano and unspecified saxophone; construction and technique unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

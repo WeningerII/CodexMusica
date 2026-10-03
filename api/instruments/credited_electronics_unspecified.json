@@ -1,0 +1,52 @@
+{
+  "id": "credited_electronics_unspecified",
+  "name": "Credited electronics (source-unspecified generator)",
+  "short": "Credited electronics",
+  "family": "electronic",
+  "class": "source_unspecified_electronics",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_electronics_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_electronics_generator_unspecified",
+          "name": "Electronics credited; generator, interface and mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Retains positively credited electronics without inventing an oscillator, keyboard, sampler, MIDI programming, pedal or feedback circuit. Electronic family and neutral axes are authored routing coordinates; source generator architecture and musical technique remain unspecified.",
+  "sources": [
+    "https://barrenwomb.bandcamp.com/album/chemical-tardigrade"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_electronics_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_electronics_generator_unspecified",
+          "name": "Electronics credited; generator, interface and mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "foot_operated_cymbal",
+  "name": "Foot-operated cymbal",
+  "short": "Foot-operated cymbal",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "foot_operated_cymbal_action",
+      "name": "Foot-pedal cymbal action",
+      "variants": [
+        {
+          "id": "foot_operated_cymbal_single_kick_pedal",
+          "name": "Single cymbal struck by a dedicated kick pedal; alloy, diameter and mallet unspecified",
+          "default": true,
+          "descriptors": [
+            "metallic-attack",
+            "ringing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Dedicated foot-triggered cymbal retains credited custom kick-pedal setup without inventing sticks, a complete kit, hi-hat pair, cymbal dimensions or alloy. Coarse acoustic idiophone axes are authored.",
+  "_ownParts": [
+    {
+      "id": "foot_operated_cymbal_action",
+      "name": "Foot-pedal cymbal action",
+      "variants": [
+        {
+          "id": "foot_operated_cymbal_single_kick_pedal",
+          "name": "Single cymbal struck by a dedicated kick pedal; alloy, diameter and mallet unspecified",
+          "default": true,
+          "descriptors": [
+            "metallic-attack",
+            "ringing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

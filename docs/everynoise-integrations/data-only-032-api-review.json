@@ -1,0 +1,333 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "e693f74bea56ae3e7d5792fcc561102082b98dac9ebdcb2c162dd228a71b9130",
+  "baseline_head": "5b2a5760b4d5605f7b1c6dab529515ab50aca9a8",
+  "merged_predecessor_equivalence": null,
+  "current_counts": {
+    "traditions": 5838,
+    "instruments": 1535
+  },
+  "old_api": {
+    "traditions": 5738,
+    "identical": 5710,
+    "derived_changed": 28,
+    "recipe_changed": 6,
+    "material_slot_changes": 15,
+    "material_changed_entries": 7,
+    "old_instruments_identical": 1519,
+    "source_identity_roster_environment_protected_pin_changes": 0
+  },
+  "new_api": {
+    "traditions": 100,
+    "instrument_dependencies": 16,
+    "effective_parts": 4016,
+    "protected_applicable_pins": 4014,
+    "all_protected_pins_preserved": true,
+    "unpinned_actual_choices": [
+      {
+        "tradition": "salsa_cristiana",
+        "instrument": "electronic_keyboard_unspecified",
+        "part": "keyboard_technique",
+        "flat_value": "keyboard_jazz_comping",
+        "imported_default": "electronic_keyboard_melodic_chordal",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_keyboard_melodic_chordal",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      },
+      {
+        "tradition": "sasscore",
+        "instrument": "sampler_classic",
+        "part": "electronic_technique",
+        "flat_value": "electronic_lead_line",
+        "imported_default": "electronic_sample_chopped",
+        "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately.",
+        "compiled_choice": "electronic_sample_chopped",
+        "changed_from_import": false,
+        "compiled_protected": false,
+        "valid_owning_variant": true
+      }
+    ]
+  },
+  "causal_method": "Unchanged original baseline/current solvers replay all changed API recipes, complete configs and rounded scores exactly. A third temporary process removes ONLY new100 traditions/extras from memory, retains all new instrument definitions, and restores all baseline recipes/configs/scores. No source/API/snapshot edits. At most2 simultaneous review processes.",
+  "causal_interpretation": "Expected original adjacency/staple-candidate scoring effects of new source rows.Existing unprotected selected variants materially move; this is acknowledged as changed derived output, not improved historical reconstruction or mutated authored defaults. Existing actual browser cards preserved independently.",
+  "causal_rows": [
+    {
+      "id": "azerbaijani_mugham",
+      "baseline_staples": ["azerbaijani_mugham", "arab_tarab", "telugu_kirtana"],
+      "current_staples": ["azerbaijani_mugham", "arab_tarab", "telugu_kirtana"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 472.19749999999993,
+      "current_score": 469.81249999999994
+    },
+    {
+      "id": "canadian_comedy",
+      "baseline_staples": ["canadian_comedy"],
+      "current_staples": ["canadian_comedy"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.5944999999999996,
+      "current_score": 1.6304999999999996
+    },
+    {
+      "id": "carnatic_instrumental",
+      "baseline_staples": ["carnatic_instrumental", "indian_classical", "carnatic_kacheri"],
+      "current_staples": ["carnatic_instrumental", "indian_classical", "carnatic_kacheri"],
+      "new_source_neighbor_ids": ["sarangi", "shehnai"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 339.25250000000005,
+      "current_score": 338.2625
+    },
+    {
+      "id": "carnatic_vocal",
+      "baseline_staples": ["carnatic_vocal", "carnatic_kacheri", "hindustani_vocal"],
+      "current_staples": ["carnatic_vocal", "carnatic_kacheri", "hindustani_vocal"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 412.52849999999995,
+      "current_score": 411.7935
+    },
+    {
+      "id": "chinese_traditional_ensemble",
+      "baseline_staples": ["chinese_traditional_ensemble", "sinhala_vannama", "telugu_kirtana"],
+      "current_staples": ["chinese_traditional_ensemble", "sinhala_vannama", "telugu_kirtana"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 313.35699999999997,
+      "current_score": 312.73749999999995
+    },
+    {
+      "id": "dansk_comedy",
+      "baseline_staples": ["dansk_comedy"],
+      "current_staples": ["dansk_comedy"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.7085,
+      "current_score": 1.9169999999999998
+    },
+    {
+      "id": "detskie_rasskazy",
+      "baseline_staples": ["detskie_rasskazy"],
+      "current_staples": ["detskie_rasskazy"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 2.0985,
+      "current_score": 2.3070000000000004
+    },
+    {
+      "id": "dhrupad",
+      "baseline_staples": ["dhrupad", "hindustani_vocal", "kutiyattam_recitation"],
+      "current_staples": ["dhrupad", "hindustani_vocal", "kutiyattam_recitation"],
+      "new_source_neighbor_ids": ["sarangi", "shehnai"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 337.85999999999996,
+      "current_score": 337.16999999999996
+    },
+    {
+      "id": "erotik",
+      "baseline_staples": ["erotik"],
+      "current_staples": ["erotik"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.3185,
+      "current_score": 1.5270000000000001
+    },
+    {
+      "id": "experimental_poetry",
+      "baseline_staples": ["experimental_poetry"],
+      "current_staples": ["experimental_poetry"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 0.8069999999999999,
+      "current_score": 0.8115
+    },
+    {
+      "id": "indian_classical",
+      "baseline_staples": ["indian_classical"],
+      "current_staples": ["indian_classical"],
+      "new_source_neighbor_ids": ["sarangi", "shehnai"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 12.061526785714287,
+      "current_score": 12.1035
+    },
+    {
+      "id": "indian_instrumental",
+      "baseline_staples": ["indian_instrumental", "indian_classical", "carnatic_kacheri"],
+      "current_staples": ["indian_instrumental", "indian_classical", "carnatic_kacheri"],
+      "new_source_neighbor_ids": ["sarangi", "shehnai"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 196.1625,
+      "current_score": 195.06
+    },
+    {
+      "id": "indo_jazz",
+      "baseline_staples": ["indo_jazz", "carnatic_kacheri", "telugu_kirtana"],
+      "current_staples": ["indo_jazz", "carnatic_kacheri", "indian_instrumental"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": ["sarangi"],
+      "baseline_score": 428.51000000000005,
+      "current_score": 408.77
+    },
+    {
+      "id": "kadongo_kamu",
+      "baseline_staples": ["kadongo_kamu", "malian_traditional", "musica_guineense"],
+      "current_staples": ["kadongo_kamu", "senegalese_traditional", "malian_traditional"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["senegalese_traditional"],
+      "baseline_score": 140.34999999999997,
+      "current_score": 164.84499999999994
+    },
+    {
+      "id": "komedi",
+      "baseline_staples": ["komedi"],
+      "current_staples": ["komedi"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 2.367,
+      "current_score": 2.3715
+    },
+    {
+      "id": "kutiyattam_recitation",
+      "baseline_staples": ["kutiyattam_recitation", "thai_classical", "tibetan_ache_lhamo"],
+      "current_staples": ["kutiyattam_recitation", "thai_classical", "tibetan_ache_lhamo"],
+      "new_source_neighbor_ids": ["sarangi", "shehnai"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 281.73400000000004,
+      "current_score": 282.35650000000004
+    },
+    {
+      "id": "mollywood",
+      "baseline_staples": ["mollywood", "rajasthani_manganiyar", "cambodian_chapei_dang_veng"],
+      "current_staples": ["mollywood", "rajasthani_manganiyar", "cambodian_chapei_dang_veng"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 533.125,
+      "current_score": 533.43
+    },
+    {
+      "id": "nadaswaram",
+      "baseline_staples": ["nadaswaram"],
+      "current_staples": ["nadaswaram"],
+      "new_source_neighbor_ids": ["sarangi", "shehnai"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 7.050999999999999,
+      "current_score": 7.091499999999999
+    },
+    {
+      "id": "neue_deutsche_todeskunst",
+      "baseline_staples": ["neue_deutsche_todeskunst"],
+      "current_staples": ["neue_deutsche_todeskunst"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 6.065999999999999,
+      "current_score": 6.183
+    },
+    {
+      "id": "oratory",
+      "baseline_staples": ["oratory"],
+      "current_staples": ["oratory"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 1.4144999999999999,
+      "current_score": 1.6095000000000002
+    },
+    {
+      "id": "poetry",
+      "baseline_staples": ["poetry"],
+      "current_staples": ["poetry"],
+      "new_source_neighbor_ids": ["piada"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 2.0985,
+      "current_score": 2.307
+    },
+    {
+      "id": "rajasthani_manganiyar",
+      "baseline_staples": ["rajasthani_manganiyar", "thumri", "carnatic_vocal"],
+      "current_staples": ["rajasthani_manganiyar", "thumri", "carnatic_vocal"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 444.0824999999999,
+      "current_score": 442.075
+    },
+    {
+      "id": "samba_jazz",
+      "baseline_staples": ["samba_jazz", "pagode", "samba"],
+      "current_staples": ["samba_jazz", "pagode", "roda_de_samba"],
+      "new_source_neighbor_ids": [],
+      "new_source_candidate_ids": ["pagode_novo"],
+      "baseline_score": 176.06249999999994,
+      "current_score": 167.8825
+    },
+    {
+      "id": "tamil_filmi",
+      "baseline_staples": ["tamil_filmi", "thumri", "carnatic_vocal"],
+      "current_staples": ["tamil_filmi", "thumri", "carnatic_vocal"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 671.3525000000001,
+      "current_score": 669.7700000000002
+    },
+    {
+      "id": "tamil_pop",
+      "baseline_staples": ["tamil_pop", "afghan_traditional", "carnatic_kacheri"],
+      "current_staples": ["tamil_pop", "afghan_traditional", "carnatic_kacheri"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 306.9749999999999,
+      "current_score": 306.54499999999996
+    },
+    {
+      "id": "tappa",
+      "baseline_staples": ["tappa", "carnatic_kacheri", "afghan_traditional"],
+      "current_staples": ["tappa", "carnatic_kacheri", "afghan_traditional"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 272.8909999999999,
+      "current_score": 272.25499999999994
+    },
+    {
+      "id": "tollywood",
+      "baseline_staples": ["tollywood", "sinhala_vannama", "telugu_kirtana"],
+      "current_staples": ["tollywood", "sinhala_vannama", "telugu_kirtana"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 362.6599999999999,
+      "current_score": 361.80499999999995
+    },
+    {
+      "id": "vedic_chant",
+      "baseline_staples": ["vedic_chant", "sinhala_vannama", "carnatic_kacheri"],
+      "current_staples": ["vedic_chant", "sinhala_vannama", "carnatic_kacheri"],
+      "new_source_neighbor_ids": ["sarangi"],
+      "new_source_candidate_ids": [],
+      "baseline_score": 232.52224999999999,
+      "current_score": 231.34249999999997
+    }
+  ],
+  "full_delta_report": "api-delta-independent-review119.json",
+  "projection_and_source_pin_proof": "api-projection-review119.json",
+  "errors": [],
+  "remaining_required": "Root serial regression and any targeted fixture causal review; exact-head CI.",
+  "no_repo_mutations": true,
+  "final_cache_amendment": {
+    "status": "PASS",
+    "before_sha256": "7d52fcc0dad2e2ad50837068f836f49584b020c0a31135c25ab5d0a3dcc6bfd8",
+    "final_sha256": "e693f74bea56ae3e7d5792fcc561102082b98dac9ebdcb2c162dd228a71b9130",
+    "removed_cache_ids": [
+      "contraguitar",
+      "credited_cymbals",
+      "saxophone_section_alto_tenor_baritone",
+      "slide_archtop_guitar",
+      "foot_operated_cymbal",
+      "credited_frame_drums",
+      "dunun_three_size_palette"
+    ],
+    "entries_unchanged": true,
+    "full_merged_instruments": 1535,
+    "merged_objects_identical": true,
+    "merged_json_sha256": "e3d9e5ddf337e018b066ff2505e2b8ca6064276bb7d4d68b701e50e90b78c0f2",
+    "errors": []
+  }
+}

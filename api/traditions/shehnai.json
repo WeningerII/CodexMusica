@@ -1,0 +1,153 @@
+{
+  "id": "shehnai",
+  "name": "Shehnai",
+  "family": "classical",
+  "lineage": "Rajendra Prasanna — Raag Madhuvanti at Darbar Festival2012, Southbank Centre. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic shehnai, art Music, south Asian branch. mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai, indian rosewood rosewood brass tabla, harmonium indian, gourd body canonical traditional drone like modal tanpura. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 436,
+  "score": 32.404,
+  "config": {
+    "traditions": [
+      "shehnai"
+    ],
+    "instruments": [
+      {
+        "id": "shehnai",
+        "slots": {
+          "shehnai_register": "shehnai_standard_c",
+          "shehnai_use": "shehnai_classical_solo",
+          "shehnai_body_wood": "shehnai_sheesham_canonical",
+          "shehnai_reed": "shehnai_arundo_quadruple",
+          "shehnai_lineage": "shehnai_bismillah_khan_banaras"
+        },
+        "scores": {
+          "shehnai_register": 4.4185,
+          "shehnai_use": 4.03,
+          "shehnai_body_wood": 1.4949999999999999,
+          "shehnai_reed": 1.17,
+          "shehnai_lineage": 1.56
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 2.7950000000000004,
+          "tabla_bayan": 1.69,
+          "tabla_syahi": 0
+        }
+      },
+      {
+        "id": "harmonium_indian",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "harmonium_action": "harmonium_hand_pump",
+          "harmonium_voicing": "harmonium_male",
+          "harmonium_use": "harmonium_classical"
+        },
+        "scores": {
+          "free_reed_technique": -0.10500000000000001,
+          "harmonium_action": 0.8609999999999999,
+          "harmonium_voicing": 0.7244999999999999,
+          "harmonium_use": 2.47
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "four_string_classical",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.835,
+          "tanpura_size": 0.7874999999999999,
+          "tanpura_jawari": 4.75,
+          "tanpura_strings": 0.363,
+          "tanpura_string_material": 0.39,
+          "tanpura_body_wood": 1.17
+        }
+      }
+    ],
+    "pinned": {
+      "shehnai": [
+        "shehnai_register",
+        "shehnai_use",
+        "shehnai_body_wood",
+        "shehnai_reed",
+        "shehnai_lineage"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ],
+      "harmonium_indian": [
+        "free_reed_technique",
+        "harmonium_action",
+        "harmonium_voicing",
+        "harmonium_use"
+      ],
+      "tanpura": [
+        "plucked_traditional_technique",
+        "tanpura_size",
+        "tanpura_jawari",
+        "tanpura_strings",
+        "tanpura_string_material",
+        "tanpura_body_wood"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "treated_studio",
+    "parts": {
+      "shehnai_register": "shehnai_standard_c",
+      "shehnai_use": "shehnai_classical_solo",
+      "shehnai_body_wood": "shehnai_sheesham_canonical",
+      "shehnai_reed": "shehnai_arundo_quadruple",
+      "shehnai_lineage": "shehnai_bismillah_khan_banaras",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi",
+      "free_reed_technique": "free_reed_folk_first_position",
+      "harmonium_action": "harmonium_hand_pump",
+      "harmonium_voicing": "harmonium_male",
+      "harmonium_use": "harmonium_classical",
+      "plucked_traditional_technique": "plucked_drone_modal",
+      "tanpura_size": "female_size",
+      "tanpura_jawari": "curved_jawari",
+      "tanpura_strings": "four_string_classical",
+      "tanpura_string_material": "tanpura_bronze_steel",
+      "tanpura_body_wood": "tanpura_gourd_body"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

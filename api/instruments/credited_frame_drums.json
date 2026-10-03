@@ -1,0 +1,50 @@
+{
+  "id": "credited_frame_drums",
+  "name": "Frame drums (credited unspecified types)",
+  "short": "credited frame drums",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_frame_drums_identity",
+      "name": "Source-credited palette",
+      "variants": [
+        {
+          "id": "credited_frame_drums_source_unspecified",
+          "name": "Source-credited frame drums; size, membrane, frame and playing method unspecified",
+          "default": true,
+          "descriptors": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_frame_drums_identity",
+      "name": "Source-credited palette",
+      "variants": [
+        {
+          "id": "credited_frame_drums_source_unspecified",
+          "name": "Source-credited frame drums; size, membrane, frame and playing method unspecified",
+          "default": true,
+          "descriptors": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "slide_archtop_guitar",
+  "name": "Slide archtop guitar",
+  "short": "Slide archtop guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 1,
+    "dynamics": 1
+  },
+  "exclude_family_parts": [
+    "electric_technique"
+  ],
+  "parts": [
+    {
+      "id": "slide_archtop_construction",
+      "name": "Authored amplified archtop construction",
+      "variants": [
+        {
+          "id": "slide_archtop_hollow_spruce_nickel",
+          "name": "Hollow archtop; authored carved spruce, floating DeArmond pickup and nickel roundwounds",
+          "default": true,
+          "descriptors": [
+            "body-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slide_archtop_technique",
+      "name": "Authored slide technique",
+      "variants": [
+        {
+          "id": "slide_archtop_bottleneck_blues",
+          "name": "Slide / bottleneck blues",
+          "descriptors": [
+            "slide",
+            "bluesy"
+          ],
+          "match_tokens": [
+            "electric",
+            "blues-derived",
+            "blues-inflected",
+            "picked"
+          ],
+          "canonical_tags": [
+            "blues-canonical"
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "slide_archtop_tuning_scope",
+      "name": "Source tuning scope",
+      "variants": [
+        {
+          "id": "slide_archtop_low_open_unspecified",
+          "name": "Downtuned open slide realization; exact string pitches unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Isolated hollow archtop with bottleneck slide. Authored floating DeArmond pickup, spruce top and nickel roundwounds; source establishes archtop slide, not these detailed specifications. Existing jazz archtop unchanged.",
+  "_ownParts": [
+    {
+      "id": "slide_archtop_construction",
+      "name": "Authored amplified archtop construction",
+      "variants": [
+        {
+          "id": "slide_archtop_hollow_spruce_nickel",
+          "name": "Hollow archtop; authored carved spruce, floating DeArmond pickup and nickel roundwounds",
+          "default": true,
+          "descriptors": [
+            "body-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slide_archtop_technique",
+      "name": "Authored slide technique",
+      "variants": [
+        {
+          "id": "slide_archtop_bottleneck_blues",
+          "name": "Slide / bottleneck blues",
+          "descriptors": [
+            "slide",
+            "bluesy"
+          ],
+          "match_tokens": [
+            "electric",
+            "blues-derived",
+            "blues-inflected",
+            "picked"
+          ],
+          "canonical_tags": [
+            "blues-canonical"
+          ],
+          "default": true
+        }
+      ]
+    },
+    {
+      "id": "slide_archtop_tuning_scope",
+      "name": "Source tuning scope",
+      "variants": [
+        {
+          "id": "slide_archtop_low_open_unspecified",
+          "name": "Downtuned open slide realization; exact string pitches unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

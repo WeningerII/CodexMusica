@@ -1,0 +1,495 @@
+{
+  "id": "pagode_novo",
+  "name": "Pagode Novo",
+  "family": "global",
+  "lineage": "Suel — De Volta Para2002, complete2026 audiovisual and sixteen-track album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
+  "recipe": "classic pagode novo, groove Percussion, Brazilian branch. low mid rich spectrum cedar classical nylon-string guitar, drum kit, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian cuica, surdo, saxophone palette soprano credited banjo electronic keyboard unspecified, flute, harmonica, credited auxiliary percussion, electric bass, tan tan drum, samba foundation cavaquinho. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 653,
+  "score": 25.794,
+  "config": {
+    "traditions": [
+      "pagode_novo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.44099999999999995,
+          "voice_ensemble_config": 0.231,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.273,
+          "voice_multitrack_stack": 0.19949999999999998,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "classical_nylon_string_guitar",
+        "slots": {
+          "acoustic_technique": "acoustic_fingerpicked",
+          "string_tuning": "standard_tuning",
+          "top_wood_classical": "cedar_cl",
+          "bracing_classical": "fan_torres_cl",
+          "string_classical": "carbon_cl",
+          "attack_technique_cl": "apoyando_cl"
+        },
+        "scores": {
+          "acoustic_technique": -0.25,
+          "string_tuning": 0,
+          "top_wood_classical": 1.2705,
+          "bracing_classical": 0.0945,
+          "string_classical": 0.1365,
+          "attack_technique_cl": 0.325
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "medium_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.05,
+          "drumhead": 0.105,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 0.663,
+          "shell_thickness": 0,
+          "bearing_edges": 0.2415,
+          "snare_wires": 0,
+          "cymbal_alloy": -0.2,
+          "cymbal_hammering": -0.10500000000000001,
+          "cymbal_lathing": 0.15000000000000002,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "pandeiro",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "pandeiro_size": "pandeiro_medio",
+          "pandeiro_context": "pandeiro_samba",
+          "pandeiro_head": "pandeiro_goatskin_canonical",
+          "pandeiro_shell_wood": "pandeiro_eucalyptus",
+          "pandeiro_jingles": "pandeiro_brass_platinelas"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "pandeiro_size": 1.6275,
+          "pandeiro_context": 1.6904999999999997,
+          "pandeiro_head": 1.95,
+          "pandeiro_shell_wood": 1.95,
+          "pandeiro_jingles": 1.95
+        }
+      },
+      {
+        "id": "cuica",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "cuica_size": "cuica_medium",
+          "cuica_context": "cuica_mpb",
+          "cuica_shell_material": "cuica_metal_canonical",
+          "cuica_head": "cuica_calfskin_canonical"
+        },
+        "scores": {
+          "percussion_technique": -0.1,
+          "cuica_size": 1.8375,
+          "cuica_context": 0.39,
+          "cuica_shell_material": 1.95,
+          "cuica_head": 1.95
+        }
+      },
+      {
+        "id": "surdo",
+        "slots": {
+          "surdo_size": "surdo_primeira",
+          "surdo_skin": "surdo_composite",
+          "surdo_shell": "surdo_steel"
+        },
+        "scores": {
+          "surdo_size": 0,
+          "surdo_skin": 0,
+          "surdo_shell": 0
+        }
+      },
+      {
+        "id": "saxophone_palette_soprano_unspecified",
+        "slots": {
+          "saxophone_palette_soprano_unspecified_identity": "saxophone_palette_soprano_unspecified_source_unspecified"
+        },
+        "scores": {
+          "saxophone_palette_soprano_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "concert_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": -0.1,
+          "flute_size": 0.105,
+          "flute_material": 0.2415,
+          "flute_technique": 0.147,
+          "flute_maker_school": 0.6615
+        }
+      },
+      {
+        "id": "harmonica",
+        "slots": {
+          "harmonica_type": "chromatic_harm",
+          "harmonica_comb": "abs_comb",
+          "harmonica_reed": "brass_harm",
+          "harmonica_technique": "harm_chromatic_jazz",
+          "harmonica_maker_school": "harmonica_maker_unspecified",
+          "harmonica_tuning": "harmonica_solo_chromatic"
+        },
+        "scores": {
+          "harmonica_type": 0.273,
+          "harmonica_comb": -0.035,
+          "harmonica_reed": -0.07,
+          "harmonica_technique": -0.035,
+          "harmonica_maker_school": 0,
+          "harmonica_tuning": -0.035
+        }
+      },
+      {
+        "id": "credited_banjo_unspecified",
+        "slots": {
+          "credited_banjo_unspecified_identity": "credited_banjo_unspecified_source_unspecified"
+        },
+        "scores": {
+          "credited_banjo_unspecified_identity": 0
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder_b",
+          "pickup_config": "split_coil",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.45149999999999996,
+          "pickup_config": 0,
+          "string_type": 0,
+          "scale_length_b": 0.105,
+          "fretted_or_not": 0.105,
+          "bass_technique": -0.10500000000000001,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "electronic_keyboard_unspecified",
+        "slots": {
+          "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+          "keyboard_technique": "electronic_keyboard_melodic_chordal"
+        },
+        "scores": {
+          "electronic_keyboard_identity": 0.105,
+          "keyboard_technique": 0.105
+        }
+      },
+      {
+        "id": "tan_tan_drum",
+        "slots": {
+          "tan_tan_shell": "tan_tan_wood",
+          "tan_tan_technique": "tan_tan_pagode"
+        },
+        "scores": {
+          "tan_tan_shell": 0.23099999999999998,
+          "tan_tan_technique": 0.2625
+        }
+      },
+      {
+        "id": "cavaquinho",
+        "slots": {
+          "plucked_traditional_technique": "plucked_dance_pattern",
+          "cavaquinho_origin": "cavaquinho_brazilian",
+          "cavaquinho_context": "cavaquinho_samba",
+          "cavaquinho_body_wood": "cavaquinho_jacaranda",
+          "cavaquinho_strings": "cavaquinho_steel"
+        },
+        "scores": {
+          "plucked_traditional_technique": -0.035,
+          "cavaquinho_origin": 2.583,
+          "cavaquinho_context": 1.6904999999999997,
+          "cavaquinho_body_wood": -0.035,
+          "cavaquinho_strings": 0.5565
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "classical_nylon_string_guitar": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood_classical",
+        "bracing_classical",
+        "string_classical",
+        "attack_technique_cl"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "pandeiro": [
+        "percussion_technique",
+        "pandeiro_size",
+        "pandeiro_context",
+        "pandeiro_head",
+        "pandeiro_shell_wood",
+        "pandeiro_jingles"
+      ],
+      "cuica": [
+        "percussion_technique",
+        "cuica_size",
+        "cuica_context",
+        "cuica_shell_material",
+        "cuica_head"
+      ],
+      "surdo": [
+        "surdo_size",
+        "surdo_skin",
+        "surdo_shell"
+      ],
+      "saxophone_palette_soprano_unspecified": [
+        "saxophone_palette_soprano_unspecified_identity"
+      ],
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique",
+        "flute_maker_school"
+      ],
+      "harmonica": [
+        "harmonica_type",
+        "harmonica_comb",
+        "harmonica_reed",
+        "harmonica_technique",
+        "harmonica_maker_school",
+        "harmonica_tuning"
+      ],
+      "credited_banjo_unspecified": [
+        "credited_banjo_unspecified_identity"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "electronic_keyboard_unspecified": [
+        "electronic_keyboard_identity",
+        "keyboard_technique"
+      ],
+      "tan_tan_drum": [
+        "tan_tan_shell",
+        "tan_tan_technique"
+      ],
+      "cavaquinho": [
+        "plucked_traditional_technique",
+        "cavaquinho_origin",
+        "cavaquinho_context",
+        "cavaquinho_body_wood",
+        "cavaquinho_strings"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "acoustic_technique": "acoustic_fingerpicked",
+      "string_tuning": "standard_tuning",
+      "top_wood_classical": "cedar_cl",
+      "bracing_classical": "fan_torres_cl",
+      "string_classical": "carbon_cl",
+      "attack_technique_cl": "apoyando_cl",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "medium_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "percussion_technique": "percussion_hands_layered",
+      "pandeiro_size": "pandeiro_medio",
+      "pandeiro_context": "pandeiro_samba",
+      "pandeiro_head": "pandeiro_goatskin_canonical",
+      "pandeiro_shell_wood": "pandeiro_eucalyptus",
+      "pandeiro_jingles": "pandeiro_brass_platinelas",
+      "cuica_size": "cuica_medium",
+      "cuica_context": "cuica_mpb",
+      "cuica_shell_material": "cuica_metal_canonical",
+      "cuica_head": "cuica_calfskin_canonical",
+      "surdo_size": "surdo_primeira",
+      "surdo_skin": "surdo_composite",
+      "surdo_shell": "surdo_steel",
+      "saxophone_palette_soprano_unspecified_identity": "saxophone_palette_soprano_unspecified_source_unspecified",
+      "wind_articulation": "wind_continuous_legato",
+      "flute_size": "concert_flute",
+      "flute_material": "silver_flute",
+      "flute_technique": "classical_flute",
+      "flute_maker_school": "flute_powell_boston",
+      "harmonica_type": "chromatic_harm",
+      "harmonica_comb": "abs_comb",
+      "harmonica_reed": "brass_harm",
+      "harmonica_technique": "harm_chromatic_jazz",
+      "harmonica_maker_school": "harmonica_maker_unspecified",
+      "harmonica_tuning": "harmonica_solo_chromatic",
+      "credited_banjo_unspecified_identity": "credited_banjo_unspecified_source_unspecified",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder_b",
+      "pickup_config": "split_coil",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "electronic_keyboard_identity": "electronic_keyboard_architecture_unspecified",
+      "keyboard_technique": "electronic_keyboard_melodic_chordal",
+      "tan_tan_shell": "tan_tan_wood",
+      "tan_tan_technique": "tan_tan_pagode",
+      "plucked_traditional_technique": "plucked_dance_pattern",
+      "cavaquinho_origin": "cavaquinho_brazilian",
+      "cavaquinho_context": "cavaquinho_samba",
+      "cavaquinho_body_wood": "cavaquinho_jacaranda",
+      "cavaquinho_strings": "cavaquinho_steel"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
