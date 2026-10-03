@@ -5,7 +5,7 @@
   "lineage": "Mayday — Canva (Acapella), complete artist-published vocal-only edition. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic birmingham grime, mc Rhythm. rhythmic spoken flow no pitch, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 204,
-  "score": 5.879,
+  "score": 5.982,
   "config": {
     "traditions": [
       "birmingham_grime"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 3.965,
-          "voice_ensemble_config": 0.045,
+          "voice_ensemble_config": 0.09449999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.363,
-          "voice_multitrack_stack": 1.5059999999999998,
+          "voice_multitrack_stack": 1.56,
           "voice_tessitura": 0
         }
       }

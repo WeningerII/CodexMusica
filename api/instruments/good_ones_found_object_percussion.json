@@ -1,0 +1,52 @@
+{
+  "id": "good_ones_found_object_percussion",
+  "name": "Found-object percussion (cup, wrap, bucket, cushion and boots)",
+  "short": "Cup-wrap-bucket-cushion-boots percussion",
+  "family": "percussion",
+  "class": "found_object_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "good_ones_found_object_inventory",
+      "name": "Complete found-object inventory",
+      "variants": [
+        {
+          "id": "good_ones_cup_wrap_bucket_cushion_boots",
+          "name": "Paper cup, plastic wrap, bucket, couch cushion and old boots",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Whole documented percussion inventory used by Janvier Havugimana for The Good Ones Rwanda Sings With Strings. Objects coexist as a set, not mutually exclusive material alternatives. No unreported sizes, bucket material, playing gesture or exact object timbre inferred. Neutral authored axes.",
+  "sources": [
+    "https://thegoodonesband.bandcamp.com/album/rwanda-sings-with-strings?label=2256245618&tab=music"
+  ],
+  "_ownParts": [
+    {
+      "id": "good_ones_found_object_inventory",
+      "name": "Complete found-object inventory",
+      "variants": [
+        {
+          "id": "good_ones_cup_wrap_bucket_cushion_boots",
+          "name": "Paper cup, plastic wrap, bucket, couch cushion and old boots",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

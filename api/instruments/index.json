@@ -1,5 +1,5 @@
 {
-  "count": 1566,
+  "count": 1586,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9396,6 +9396,126 @@
       "name": "Software white-noise generator",
       "family": "electronic",
       "href": "instruments/software_white_noise_generator.json"
+    },
+    {
+      "id": "good_ones_found_object_percussion",
+      "name": "Found-object percussion (cup, wrap, bucket, cushion and boots)",
+      "family": "percussion",
+      "href": "instruments/good_ones_found_object_percussion.json"
+    },
+    {
+      "id": "feedback_pedal_mixer_network",
+      "name": "Feedback pedal and mixer network",
+      "family": "electronic",
+      "href": "instruments/feedback_pedal_mixer_network.json"
+    },
+    {
+      "id": "found_household_percussion",
+      "name": "Household found percussion (bottle and bowl pair)",
+      "family": "percussion",
+      "href": "instruments/found_household_percussion.json"
+    },
+    {
+      "id": "credited_music_box_unspecified",
+      "name": "Music box (mechanism unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_music_box_unspecified.json"
+    },
+    {
+      "id": "hardware_tb303_bassline_complete",
+      "name": "303-type hardware bass-line synthesizer",
+      "family": "electronic",
+      "href": "instruments/hardware_tb303_bassline_complete.json"
+    },
+    {
+      "id": "hardware_cr78_rhythm_complete",
+      "name": "CR-78 hardware rhythm machine",
+      "family": "electronic",
+      "href": "instruments/hardware_cr78_rhythm_complete.json"
+    },
+    {
+      "id": "hardware_tr606_rhythm_complete",
+      "name": "TR-606 hardware rhythm machine",
+      "family": "electronic",
+      "href": "instruments/hardware_tr606_rhythm_complete.json"
+    },
+    {
+      "id": "hardware_tr808_rhythm_complete",
+      "name": "TR-808 hardware rhythm machine",
+      "family": "electronic",
+      "href": "instruments/hardware_tr808_rhythm_complete.json"
+    },
+    {
+      "id": "hardware_tr909_rhythm_complete",
+      "name": "TR-909 hardware rhythm machine",
+      "family": "electronic",
+      "href": "instruments/hardware_tr909_rhythm_complete.json"
+    },
+    {
+      "id": "software_singing_synthesis",
+      "name": "Software singing synthesis",
+      "family": "electronic",
+      "href": "instruments/software_singing_synthesis.json"
+    },
+    {
+      "id": "daw_melodic_source_unspecified",
+      "name": "DAW melodic source (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/daw_melodic_source_unspecified.json"
+    },
+    {
+      "id": "daw_phrase_source_unspecified",
+      "name": "DAW phrase source (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/daw_phrase_source_unspecified.json"
+    },
+    {
+      "id": "daw_bass_source_unspecified",
+      "name": "DAW bass source (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/daw_bass_source_unspecified.json"
+    },
+    {
+      "id": "daw_percussion_source_unspecified",
+      "name": "DAW drum and percussion sources (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/daw_percussion_source_unspecified.json"
+    },
+    {
+      "id": "credited_samples_unspecified",
+      "name": "Credited sample performance (source unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_samples_unspecified.json"
+    },
+    {
+      "id": "saxophone_section_alto_tenor",
+      "name": "Saxophone section (alto and tenor)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_alto_tenor.json"
+    },
+    {
+      "id": "korg_volca_sample",
+      "name": "KORG volca sample",
+      "family": "electronic",
+      "href": "instruments/korg_volca_sample.json"
+    },
+    {
+      "id": "korg_volca_sample2",
+      "name": "KORG volca sample2",
+      "family": "electronic",
+      "href": "instruments/korg_volca_sample2.json"
+    },
+    {
+      "id": "korg_volca_keys",
+      "name": "KORG volca keys",
+      "family": "electronic",
+      "href": "instruments/korg_volca_keys.json"
+    },
+    {
+      "id": "korg_nts1_digital",
+      "name": "KORG Nu:Tekt NTS-1 digital kit",
+      "family": "electronic",
+      "href": "instruments/korg_nts1_digital.json"
     }
   ]
 }

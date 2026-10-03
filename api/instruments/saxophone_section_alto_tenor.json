@@ -1,0 +1,96 @@
+{
+  "id": "saxophone_section_alto_tenor",
+  "name": "Saxophone section (alto and tenor)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "alto-tenor saxophone section",
+  "parts": [
+    {
+      "id": "alto_tenor_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "alto_tenor_section_articulation_short",
+          "name": "Coordinated short notes (authored default)",
+          "default": true,
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        },
+        {
+          "id": "alto_tenor_section_articulation_legato",
+          "name": "Coordinated legato (authored alternative)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Two positively credited saxophone roles, one alto and one tenor. Aggregate source palette without inferring a baritone, soprano, extra player or source hardware.",
+  "sources": [
+    "https://www.youtube.com/watch?v=4Q6Yn1LpIBI"
+  ],
+  "_ownParts": [
+    {
+      "id": "alto_tenor_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "alto_tenor_section_articulation_short",
+          "name": "Coordinated short notes (authored default)",
+          "default": true,
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        },
+        {
+          "id": "alto_tenor_section_articulation_legato",
+          "name": "Coordinated legato (authored alternative)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

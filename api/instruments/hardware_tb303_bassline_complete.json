@@ -1,0 +1,53 @@
+{
+  "id": "hardware_tb303_bassline_complete",
+  "name": "303-type hardware bass-line synthesizer",
+  "short": "303-type hardware bass-line",
+  "family": "electronic",
+  "class": "source_unspecified_electronics",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "hardware_tb303_bassline_complete_identity",
+      "name": "Documented whole hardware source",
+      "variants": [
+        {
+          "id": "hardware_tb303_bassline_complete_documented_model",
+          "name": "303-type hardware bass-line; exact controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Three simultaneous/source-listed303 lines; exact unit count, clone/original manufacture and filter settings unspecified. Complete credited machine/source role, not playback of an opaque master. Source establishes reference-model family; specific original or clone manufacture and patch parameters remain unspecified. Neutral axes are editorial routing.",
+  "sources": [
+    "https://soundcloud.com/slacksradio/musica-dispersa-002-surreal-pneuma-live-may-2026-1",
+    "https://www.roland.com/us/products/tb-3/articles/"
+  ],
+  "_ownParts": [
+    {
+      "id": "hardware_tb303_bassline_complete_identity",
+      "name": "Documented whole hardware source",
+      "variants": [
+        {
+          "id": "hardware_tb303_bassline_complete_documented_model",
+          "name": "303-type hardware bass-line; exact controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

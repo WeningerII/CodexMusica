@@ -1,0 +1,57 @@
+{
+  "id": "credited_music_box_unspecified",
+  "name": "Music box (mechanism unspecified)",
+  "short": "Processed music box",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_music_box_identity",
+      "name": "Music-box source",
+      "variants": [
+        {
+          "id": "music_box_processed_unspecified",
+          "name": "Processed music-box sound; mechanism and processing unspecified",
+          "default": true,
+          "descriptors": [
+            "ringing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Positively credited music box subjected to unspecified processing. Exact spring/hand-crank/punch-tape mechanism, comb alloy, pitch set and processing algorithm are not asserted. Ringing is an authored timbral descriptor, not a claim of the complete resulting spectral behavior.",
+  "sources": [
+    "https://wiswos.com/assets/pdf/WISWOS_London_Event_March_2018.pdf",
+    "https://soundawakener.bandcamp.com/album/tiny-portraits-sound-awakener"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_music_box_identity",
+      "name": "Music-box source",
+      "variants": [
+        {
+          "id": "music_box_processed_unspecified",
+          "name": "Processed music-box sound; mechanism and processing unspecified",
+          "default": true,
+          "descriptors": [
+            "ringing"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

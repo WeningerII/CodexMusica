@@ -1,0 +1,90 @@
+{
+  "packet_sha256": "6e0aa3e6c5ffbb516b787ffcef41f45ee2eef53f8788a175c6ce8947284ae031",
+  "baseline_instruments": 1566,
+  "after_instruments": 1586,
+  "preserved_existing": true,
+  "changed_existing": [],
+  "unknown_descriptor_tokens": [],
+  "new_merged_parts": [
+    {
+      "id": "good_ones_found_object_percussion",
+      "parts": ["good_ones_found_object_inventory"]
+    },
+    {
+      "id": "feedback_pedal_mixer_network",
+      "parts": ["feedback_pedal_mixer_network_identity"]
+    },
+    {
+      "id": "found_household_percussion",
+      "parts": ["found_household_percussion_objects"]
+    },
+    {
+      "id": "credited_music_box_unspecified",
+      "parts": ["credited_music_box_identity"]
+    },
+    {
+      "id": "hardware_tb303_bassline_complete",
+      "parts": ["hardware_tb303_bassline_complete_identity"]
+    },
+    {
+      "id": "hardware_cr78_rhythm_complete",
+      "parts": ["hardware_cr78_rhythm_complete_identity"]
+    },
+    {
+      "id": "hardware_tr606_rhythm_complete",
+      "parts": ["hardware_tr606_rhythm_complete_identity"]
+    },
+    {
+      "id": "hardware_tr808_rhythm_complete",
+      "parts": ["hardware_tr808_rhythm_complete_identity"]
+    },
+    {
+      "id": "hardware_tr909_rhythm_complete",
+      "parts": ["hardware_tr909_rhythm_complete_identity"]
+    },
+    {
+      "id": "software_singing_synthesis",
+      "parts": ["software_singing_identity", "software_singing_arrangement"]
+    },
+    {
+      "id": "daw_melodic_source_unspecified",
+      "parts": ["daw_melodic_source_unspecified_identity"]
+    },
+    {
+      "id": "daw_phrase_source_unspecified",
+      "parts": ["daw_phrase_source_unspecified_identity"]
+    },
+    {
+      "id": "daw_bass_source_unspecified",
+      "parts": ["daw_bass_source_unspecified_identity"]
+    },
+    {
+      "id": "daw_percussion_source_unspecified",
+      "parts": ["daw_percussion_source_unspecified_identity"]
+    },
+    {
+      "id": "credited_samples_unspecified",
+      "parts": ["credited_samples_identity"]
+    },
+    {
+      "id": "saxophone_section_alto_tenor",
+      "parts": ["alto_tenor_section_articulation"]
+    },
+    {
+      "id": "korg_volca_sample",
+      "parts": ["korg_volca_sample_identity"]
+    },
+    {
+      "id": "korg_volca_sample2",
+      "parts": ["korg_volca_sample2_identity"]
+    },
+    {
+      "id": "korg_volca_keys",
+      "parts": ["korg_volca_keys_identity"]
+    },
+    {
+      "id": "korg_nts1_digital",
+      "parts": ["korg_nts1_digital_identity"]
+    }
+  ]
+}

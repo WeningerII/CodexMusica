@@ -1,0 +1,56 @@
+{
+  "id": "old_school_uk_hip_hop",
+  "name": "Old School UK Hip Hop",
+  "family": "hip_hop",
+  "lineage": "Jimmy Green — complete Mics In The Presence Of Three Lions: Classic UK Hip Hop87–93 DJ mix. Musical source scope and category are documented; detailed parts, axes, room and signal chain are authored present-day choices rather than measured source-session settings. Global tuning omitted. Unknown physiology, recording layers, playback medium and source gear are not inferred.",
+  "recipe": "classic old school uk hip hop, mc Rhythm, intl hip hop branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 193,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "old_school_uk_hip_hop"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

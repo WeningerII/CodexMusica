@@ -1,0 +1,86 @@
+{
+  "id": "mexican_techno",
+  "name": "Mexican Techno",
+  "family": "electronic",
+  "lineage": "Murcof — The Etna Sessions complete 2024 audio release. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
+  "recipe": "classic mid-2020s mexican techno, electronic Dance, techno branch. software sample playback, modular synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay.",
+  "recipe_chars": 234,
+  "score": 0.973,
+  "config": {
+    "traditions": [
+      "mexican_techno"
+    ],
+    "instruments": [
+      {
+        "id": "software_sample_playback",
+        "slots": {
+          "software_sample_playback_identity": "software_sample_playback_digital"
+        },
+        "scores": {
+          "software_sample_playback_identity": 0
+        }
+      },
+      {
+        "id": "modular_synth",
+        "slots": {
+          "electronic_technique": "electronic_glitch_textural",
+          "mod_voltage_source": "mod_random",
+          "mod_patch_density": "mod_dense_patch",
+          "mod_lineage": "mod_doepfer_eurorack"
+        },
+        "scores": {
+          "electronic_technique": -0.1,
+          "mod_voltage_source": 0,
+          "mod_patch_density": 0.39,
+          "mod_lineage": 0.6825
+        }
+      }
+    ],
+    "pinned": {
+      "software_sample_playback": [
+        "software_sample_playback_identity"
+      ],
+      "modular_synth": [
+        "electronic_technique",
+        "mod_voltage_source",
+        "mod_patch_density",
+        "mod_lineage"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "analog_delay"
+    ]
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "software_sample_playback_identity": "software_sample_playback_digital",
+      "electronic_technique": "electronic_glitch_textural",
+      "mod_voltage_source": "mod_random",
+      "mod_patch_density": "mod_dense_patch",
+      "mod_lineage": "mod_doepfer_eurorack"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box",
+    "chain_fx": [
+      "analog_delay"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "korg_volca_sample",
+  "name": "KORG volca sample",
+  "short": "Volca sample",
+  "family": "electronic",
+  "class": "korg_volca_sample",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "korg_volca_sample_identity",
+      "name": "Documented sound source",
+      "variants": [
+        {
+          "id": "korg_volca_sample_documented",
+          "name": "KORG volca sample documented source identity",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Original digital sample sequencer named in the artist rig; preserves all imported audio roles without assigning live players. Neutral routing coordinates are authored, not source measurements. No source oscillator settings or unverified preset claims.",
+  "sources": [
+    "https://www.korg.live/tr/features/artists/2021/0806/",
+    "https://www.korg.com/us/products/dj/volca_sample/"
+  ],
+  "_ownParts": [
+    {
+      "id": "korg_volca_sample_identity",
+      "name": "Documented sound source",
+      "variants": [
+        {
+          "id": "korg_volca_sample_documented",
+          "name": "KORG volca sample documented source identity",
+          "default": true,
+          "descriptors": [
+            "digital"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

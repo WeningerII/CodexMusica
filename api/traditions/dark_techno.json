@@ -5,7 +5,7 @@
   "lineage": "Florian Meindl — complete summer2015 hybrid live setup. Representative authored realization of the complete documented source palette. Source establishes musical roles; catalog realization, routing axes, room and production chain are authored, not claimed original-session facts.",
   "recipe": "classic dark techno, electronic Dance, techno branch. modular synth, drum machine analog, sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital analog bucket-brigade delay high-gain distortion.",
   "recipe_chars": 246,
-  "score": 3.696,
+  "score": 3.38,
   "config": {
     "traditions": [
       "dark_techno"
@@ -22,8 +22,8 @@
         "scores": {
           "electronic_technique": -0.1,
           "mod_voltage_source": 0.39,
-          "mod_patch_density": 0.105,
-          "mod_lineage": 0.6825
+          "mod_patch_density": 0,
+          "mod_lineage": 0.5775
         }
       },
       {
@@ -37,7 +37,7 @@
         "scores": {
           "kick_voice": 0.054,
           "snare_voice": 0,
-          "hat_voice": 0.105,
+          "hat_voice": 0,
           "shuffle_quantize": -0.035
         }
       },

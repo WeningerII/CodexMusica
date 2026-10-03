@@ -1,0 +1,53 @@
+{
+  "id": "hardware_cr78_rhythm_complete",
+  "name": "CR-78 hardware rhythm machine",
+  "short": "CR-78 hardware rhythm machine",
+  "family": "electronic",
+  "class": "source_unspecified_electronics",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "hardware_cr78_rhythm_complete_identity",
+      "name": "Documented whole hardware source",
+      "variants": [
+        {
+          "id": "hardware_cr78_rhythm_complete_documented_model",
+          "name": "CR-78 hardware rhythm machine; exact controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Whole credited CR-78 rhythm-machine role; no restriction to a selected kick/snare and no assertion all available preset sounds were used. Complete credited machine/source role, not playback of an opaque master. Source establishes reference-model family; specific original or clone manufacture and patch parameters remain unspecified. Neutral axes are editorial routing.",
+  "sources": [
+    "https://soundcloud.com/slacksradio/musica-dispersa-002-surreal-pneuma-live-may-2026-1",
+    "https://support.roland.com/hc/en-us/articles/201934399-CR-78-Technical-Specifications"
+  ],
+  "_ownParts": [
+    {
+      "id": "hardware_cr78_rhythm_complete_identity",
+      "name": "Documented whole hardware source",
+      "variants": [
+        {
+          "id": "hardware_cr78_rhythm_complete_documented_model",
+          "name": "CR-78 hardware rhythm machine; exact controls unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

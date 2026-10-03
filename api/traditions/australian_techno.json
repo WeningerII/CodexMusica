@@ -1,0 +1,56 @@
+{
+  "id": "australian_techno",
+  "name": "Australian Techno",
+  "family": "electronic",
+  "lineage": "Enclave — complete documented 2021 live PA configuration. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic early-2020s australian techno, electronic Dance. credited electronics unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 189,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "australian_techno"
+    ],
+    "instruments": [
+      {
+        "id": "credited_electronics_unspecified",
+        "slots": {
+          "credited_electronics_identity": "credited_electronics_generator_unspecified"
+        },
+        "scores": {
+          "credited_electronics_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "credited_electronics_unspecified": [
+        "credited_electronics_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "credited_electronics_identity": "credited_electronics_generator_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

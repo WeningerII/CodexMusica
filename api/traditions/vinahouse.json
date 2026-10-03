@@ -1,0 +1,56 @@
+{
+  "id": "vinahouse",
+  "name": "Vinahouse",
+  "family": "electronic",
+  "lineage": "DJ Hoàng Anh — New Việt Mix 2021: Nhạc Buồn Tâm Trạng / Khóc Huynh Đệ / Tình Yêu Màu Hồng, complete DJ mix selected by Eastern Margins (2022 feature). One neutral DJ playback/mixing card is an authored functional realization of the positively documented performance. It does not reconstruct original track producers or assert vinyl, CDJ, controller, sampler or software brand. Shared modern studio signal chain and neutral routing axes are authored scaffolding, not original-session facts. Global tuning is omitted for the multi-record program.",
+  "recipe": "classic early-2020s vinahouse, electronic Dance. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 179,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "vinahouse"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

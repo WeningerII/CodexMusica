@@ -1,0 +1,108 @@
+{
+  "id": "acid_idm",
+  "name": "Acid IDM",
+  "family": "electronic",
+  "lineage": "Surreal Pneuma — complete Musica Dispersa002 live Acid North Tracks session, radio premiere4May2026. Full positively documented hardware sound-source palette; instrument identities retained without inventing patch settings.",
+  "recipe": "classic acid idm, experimental Elec, idm glitch branch. hardware tb303 bassline hardware cr78 rhythm hardware tr606 rhythm hardware tr808 rhythm hardware tr909 rhythm complete. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 275,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "acid_idm"
+    ],
+    "instruments": [
+      {
+        "id": "hardware_tb303_bassline_complete",
+        "slots": {
+          "hardware_tb303_bassline_complete_identity": "hardware_tb303_bassline_complete_documented_model"
+        },
+        "scores": {
+          "hardware_tb303_bassline_complete_identity": 0
+        }
+      },
+      {
+        "id": "hardware_cr78_rhythm_complete",
+        "slots": {
+          "hardware_cr78_rhythm_complete_identity": "hardware_cr78_rhythm_complete_documented_model"
+        },
+        "scores": {
+          "hardware_cr78_rhythm_complete_identity": 0
+        }
+      },
+      {
+        "id": "hardware_tr606_rhythm_complete",
+        "slots": {
+          "hardware_tr606_rhythm_complete_identity": "hardware_tr606_rhythm_complete_documented_model"
+        },
+        "scores": {
+          "hardware_tr606_rhythm_complete_identity": 0
+        }
+      },
+      {
+        "id": "hardware_tr808_rhythm_complete",
+        "slots": {
+          "hardware_tr808_rhythm_complete_identity": "hardware_tr808_rhythm_complete_documented_model"
+        },
+        "scores": {
+          "hardware_tr808_rhythm_complete_identity": 0
+        }
+      },
+      {
+        "id": "hardware_tr909_rhythm_complete",
+        "slots": {
+          "hardware_tr909_rhythm_complete_identity": "hardware_tr909_rhythm_complete_documented_model"
+        },
+        "scores": {
+          "hardware_tr909_rhythm_complete_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "hardware_tb303_bassline_complete": [
+        "hardware_tb303_bassline_complete_identity"
+      ],
+      "hardware_cr78_rhythm_complete": [
+        "hardware_cr78_rhythm_complete_identity"
+      ],
+      "hardware_tr606_rhythm_complete": [
+        "hardware_tr606_rhythm_complete_identity"
+      ],
+      "hardware_tr808_rhythm_complete": [
+        "hardware_tr808_rhythm_complete_identity"
+      ],
+      "hardware_tr909_rhythm_complete": [
+        "hardware_tr909_rhythm_complete_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "hardware_tb303_bassline_complete_identity": "hardware_tb303_bassline_complete_documented_model",
+      "hardware_cr78_rhythm_complete_identity": "hardware_cr78_rhythm_complete_documented_model",
+      "hardware_tr606_rhythm_complete_identity": "hardware_tr606_rhythm_complete_documented_model",
+      "hardware_tr808_rhythm_complete_identity": "hardware_tr808_rhythm_complete_documented_model",
+      "hardware_tr909_rhythm_complete_identity": "hardware_tr909_rhythm_complete_documented_model"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}
