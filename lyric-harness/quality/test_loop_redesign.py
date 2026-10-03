@@ -1131,7 +1131,7 @@ def test_menus_resume_place_by_place():
     # the last unit-start checkpoint and the next call rebuilt both.
     rd = RV.ReviseDeclaration(max_rounds=1, attempts_per_line=1,
                               backtrack_width=1)
-    base = _inproc(lines, mand, rd, calls=4)
+    base = _inproc(lines, mand, rd, calls=12)
     at = next(((c["call"], i + 1) for c in base
                for i in range(1, len(c["steps"]))
                if c["steps"][i] == "place" and c["steps"][i - 1] == "place"),
@@ -1139,7 +1139,7 @@ def test_menus_resume_place_by_place():
     check("PREMISE: the run builds this line's menu as two places in a row",
           at is not None, str([c["steps"] for c in base]))
     if at is not None:
-        run = _inproc(lines, mand, rd, plan={at[0]: (at[1], True)}, calls=4)
+        run = _inproc(lines, mand, rd, plan={at[0]: (at[1], True)}, calls=12)
         killed, nxt = run[at[0]], run[at[0] + 1]
         kept = [k for k, _ in ((killed["after"] or {}).get("cursor", {})
                                .get("loop", {}).get("menus") or ())]
