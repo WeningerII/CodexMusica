@@ -1,0 +1,146 @@
+{
+  "id": "ney_persian_interdental",
+  "name": "Persian ney (seven-segment cane, interdental)",
+  "short": "Persian ney",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "ney_persian_construction",
+      "name": "Regional construction",
+      "variants": [
+        {
+          "id": "ney_persian_seven_segment_six_hole",
+          "name": "Seven-segment Arundo donax cane; five front holes and one rear hole",
+          "default": true,
+          "descriptors": [
+            "cane"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "ney_persian_embouchure",
+      "name": "Sound production",
+      "variants": [
+        {
+          "id": "ney_persian_interdental_edge",
+          "name": "Interdental end-edge blowing; authored legato phrasing",
+          "default": true,
+          "descriptors": [
+            "breathy",
+            "legato"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "ney_persian_register",
+      "name": "Source instrument pitch",
+      "variants": [
+        {
+          "id": "ney_persian_register_unspecified",
+          "name": "Source instrument length and nominal base pitch unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "ney_persian_practice",
+      "name": "Selected practice",
+      "variants": [
+        {
+          "id": "ney_persian_dastgah_improvisation",
+          "name": "Iranian dastgah improvisation",
+          "default": true,
+          "descriptors": [
+            "dastgah"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Isolated accurate Persian construction for a documented Iranian interdental ney source. Existing generic ney owner and shared family definitions remain unchanged. Cane construction is a source-supported regional realization, not a measured inventory of the historical instrument.",
+  "sources": [
+    "https://folkways.si.edu/hasan-kasai/shushtari/central-asia-islamica-world/music/track/smithsonian",
+    "https://persianney.com/construction.html",
+    "https://omoumi.com/innovations/ney/"
+  ],
+  "_ownParts": [
+    {
+      "id": "ney_persian_construction",
+      "name": "Regional construction",
+      "variants": [
+        {
+          "id": "ney_persian_seven_segment_six_hole",
+          "name": "Seven-segment Arundo donax cane; five front holes and one rear hole",
+          "default": true,
+          "descriptors": [
+            "cane"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "ney_persian_embouchure",
+      "name": "Sound production",
+      "variants": [
+        {
+          "id": "ney_persian_interdental_edge",
+          "name": "Interdental end-edge blowing; authored legato phrasing",
+          "default": true,
+          "descriptors": [
+            "breathy",
+            "legato"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "ney_persian_register",
+      "name": "Source instrument pitch",
+      "variants": [
+        {
+          "id": "ney_persian_register_unspecified",
+          "name": "Source instrument length and nominal base pitch unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "ney_persian_practice",
+      "name": "Selected practice",
+      "variants": [
+        {
+          "id": "ney_persian_dastgah_improvisation",
+          "name": "Iranian dastgah improvisation",
+          "default": true,
+          "descriptors": [
+            "dastgah"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

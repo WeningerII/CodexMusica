@@ -1,0 +1,78 @@
+{
+  "id": "polish_early_music",
+  "name": "Polish early music",
+  "family": "classical",
+  "lineage": "Michał Gondko and Marcin Zalewski — By lutnia mówić umiała… (DUX0408). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic polish early music, art Music, western early branch. lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 177,
+  "score": 11.076,
+  "config": {
+    "traditions": [
+      "polish_early_music"
+    ],
+    "instruments": [
+      {
+        "id": "lute_renaissance",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "lute_courses": "lute_8_courses",
+          "lute_renaissance_context": "lute_renaissance_solo",
+          "lute_renaissance_ribs": "lute_maple_ribs",
+          "lute_renaissance_soundboard": "lute_alpine_spruce",
+          "lute_renaissance_strings": "lute_pistoy_bass_gut"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.2815,
+          "lute_courses": 0.378,
+          "lute_renaissance_context": 5.9799999999999995,
+          "lute_renaissance_ribs": 0.3315,
+          "lute_renaissance_soundboard": 0.78,
+          "lute_renaissance_strings": 0.325
+        }
+      }
+    ],
+    "pinned": {
+      "lute_renaissance": [
+        "plucked_traditional_technique",
+        "lute_courses",
+        "lute_renaissance_context",
+        "lute_renaissance_ribs",
+        "lute_renaissance_soundboard",
+        "lute_renaissance_strings"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "lute_courses": "lute_8_courses",
+      "lute_renaissance_context": "lute_renaissance_solo",
+      "lute_renaissance_ribs": "lute_maple_ribs",
+      "lute_renaissance_soundboard": "lute_alpine_spruce",
+      "lute_renaissance_strings": "lute_pistoy_bass_gut"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

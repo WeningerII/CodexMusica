@@ -1,0 +1,58 @@
+{
+  "id": "rain_environmental_recording",
+  "name": "Rain environmental recording",
+  "short": "Rain field recording",
+  "family": "electronic",
+  "class": "environmental_recording",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "rain_environmental_source",
+      "name": "Environmental source",
+      "variants": [
+        {
+          "id": "rain_field_recording_source",
+          "name": "Rain field recording",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Environmental rain captured as a field recording. Source remains the environmental sound itself, not an invented pitched synth, noise generator, instrument or sampler performance. Recorder, microphone and playback implementation unspecified; all routing axes are neutral authored coordinates.",
+  "sources": [
+    "https://judefrankum.bandcamp.com/album/rain-recording"
+  ],
+  "_ownParts": [
+    {
+      "id": "rain_environmental_source",
+      "name": "Environmental source",
+      "variants": [
+        {
+          "id": "rain_field_recording_source",
+          "name": "Rain field recording",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

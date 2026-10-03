@@ -1,0 +1,82 @@
+{
+  "id": "palestinian_traditional",
+  "name": "Palestinian Traditional",
+  "family": "global",
+  "lineage": "Nizar Rohana — Safa (2024), complete solo-oud album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2020s palestinian traditional, art Music, middle eastern classical branch. nylon plastic pyramid arab school oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 224,
+  "score": 10.065,
+  "config": {
+    "traditions": [
+      "palestinian_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "oud",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "oud_school": "oud_arab_classic",
+          "oud_strings": "oud_eleven",
+          "oud_pick": "risha_plastic",
+          "oud_body_wood": "oud_walnut_body",
+          "oud_soundboard_wood": "oud_spruce_face",
+          "oud_string_material": "oud_pyramid_nylon"
+        },
+        "scores": {
+          "plucked_traditional_technique": 3.75,
+          "oud_school": 0.567,
+          "oud_strings": 1.95,
+          "oud_pick": 1.0679999999999998,
+          "oud_body_wood": 0.78,
+          "oud_soundboard_wood": 0.78,
+          "oud_string_material": 1.17
+        }
+      }
+    ],
+    "pinned": {
+      "oud": [
+        "plucked_traditional_technique",
+        "oud_school",
+        "oud_strings",
+        "oud_pick",
+        "oud_body_wood",
+        "oud_soundboard_wood",
+        "oud_string_material"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "maqam_24edo",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "maqam_24edo",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "oud_school": "oud_arab_classic",
+      "oud_strings": "oud_eleven",
+      "oud_pick": "risha_plastic",
+      "oud_body_wood": "oud_walnut_body",
+      "oud_soundboard_wood": "oud_spruce_face",
+      "oud_string_material": "oud_pyramid_nylon"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

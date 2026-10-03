@@ -1,0 +1,83 @@
+{
+  "frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "serial_regression": "REGRESSION: 1149/1149 fixture(s) match snapshot.\n\n",
+  "supporting_checks": [
+    {
+      "check": "regression_prefaces",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "check_slot_picks",
+      "exit_code": 0,
+      "seconds": 2.0
+    },
+    {
+      "check": "app_recipe_regression",
+      "exit_code": 0,
+      "seconds": 9.1
+    },
+    {
+      "check": "equivalence",
+      "exit_code": 0,
+      "seconds": 10.3
+    },
+    {
+      "check": "check_lazy_app",
+      "exit_code": 0,
+      "seconds": 15.4
+    },
+    {
+      "check": "check_minified_equivalence",
+      "exit_code": 0,
+      "seconds": 27.4
+    },
+    {
+      "check": "check_connector_parity",
+      "exit_code": 0,
+      "seconds": 0.7
+    },
+    {
+      "check": "check_workspace_ops",
+      "exit_code": 0,
+      "seconds": 2.0
+    },
+    {
+      "check": "check_app_parity",
+      "exit_code": 0,
+      "seconds": 99.4
+    },
+    {
+      "check": "check_edit_parity",
+      "exit_code": 0,
+      "seconds": 5.9
+    },
+    {
+      "check": "check_edit_differential",
+      "exit_code": 0,
+      "seconds": 41.4
+    },
+    {
+      "check": "check_connector_contract",
+      "exit_code": 1,
+      "seconds": 0.0
+    },
+    {
+      "check": "check_name_isolation",
+      "exit_code": 0,
+      "seconds": 12.4
+    },
+    {
+      "check": "check_publish_guard",
+      "exit_code": 0,
+      "seconds": 0.2
+    },
+    {
+      "check": "eval_capabilities",
+      "exit_code": 0,
+      "seconds": 57.0
+    }
+  ],
+  "connector_contract_note": "Exact lockfile MCP dependencies installed with writable npm cache; original connector contract retry PASS. Initial missing dependency resolved without source or lockfile change.",
+  "connector_contract_final_exit_code": 0
+}

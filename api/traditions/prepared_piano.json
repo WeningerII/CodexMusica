@@ -1,0 +1,62 @@
+{
+  "id": "prepared_piano",
+  "name": "Prepared Piano",
+  "family": "classical",
+  "lineage": "Giancarlo Simonacci — Cage Sonatas and Interludes (Brilliant8189, disc2 tracks1–19). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic prepared piano, art Music, western modern branch. prepared piano cage sonatas. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 185,
+  "score": 0.3,
+  "config": {
+    "traditions": [
+      "prepared_piano"
+    ],
+    "instruments": [
+      {
+        "id": "prepared_piano_cage_sonatas",
+        "slots": {
+          "keyboard_technique": "prepared_piano_cage_keyboard",
+          "cage_sonatas_preparation": "cage_sonatas_mixed_45_notes"
+        },
+        "scores": {
+          "keyboard_technique": 0,
+          "cage_sonatas_preparation": 0.3
+        }
+      }
+    ],
+    "pinned": {
+      "prepared_piano_cage_sonatas": [
+        "keyboard_technique",
+        "cage_sonatas_preparation"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "prepared_piano_cage_keyboard",
+      "cage_sonatas_preparation": "cage_sonatas_mixed_45_notes"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

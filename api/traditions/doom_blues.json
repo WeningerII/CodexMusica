@@ -5,7 +5,7 @@
   "lineage": "Slow, minor-key blues rendered through doom metal weight, formed in Birmingham 1969-1972 when Black Sabbath recast Delta twelve-bars in tritone-heavy riffs, and revived from the 1990s by Down and Orange Goblin — 55-85 BPM, downtuned humbucker guitar through cranked valve heads, blues pentatonic bends stretched over sustained power chords, and a keening or bellowed vocal riding a lurching half-time drum feel.",
   "recipe": "classic Midwestern American 1969-1972 doom blues, distorted Rock, doom branch, sludge metal, blues electric functional song, classic distorted rock atmospheric sludge. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood low output no compression power chord humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 722,
-  "score": 447.16,
+  "score": 446.47,
   "config": {
     "traditions": [
       "doom_blues",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 32.475,
+          "voice_register": 32.325,
           "voice_quality": 22.239999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,14 +42,14 @@
           "voice_articulation": 15.729999999999997,
           "voice_microtone": 21.674999999999997,
           "voice_tradition": 9.522499999999999,
-          "voice_mechanism_compound": 28.9,
+          "voice_mechanism_compound": 28.974999999999998,
           "voice_estill_quality": 4.450000000000001,
           "voice_speech_song": 17.094999999999995,
           "voice_ensemble_config": 16.509999999999998,
-          "voice_ornament_system": 1.6150000000000002,
+          "voice_ornament_system": 1.57,
           "voice_pitch_organization": 2.295,
           "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 5.715
+          "voice_multitrack_stack": 5.565
         }
       },
       {
@@ -70,14 +70,14 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 25.799999999999997,
-          "amp_make": 27.224999999999998,
+          "electric_technique": 25.874999999999996,
+          "amp_make": 27.044999999999998,
           "body_wood": 6.434999999999999,
           "neck_wood": 0.195,
           "fretboard": 0.195,
-          "pickup_magnet": 0.09,
+          "pickup_magnet": 0.045,
           "pickup_winding": 1.04,
-          "string_material": 0.09,
+          "string_material": 0.045,
           "bridge": 0.845,
           "scale_length": 6.629999999999998,
           "string_gauge": 2.275,
@@ -98,13 +98,13 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 27.224999999999998,
+          "amp_make": 27.044999999999998,
           "body_wood": 0.195,
           "pickup_config": 0,
-          "string_type": 23.925,
-          "scale_length_b": 1.375,
+          "string_type": 24.195,
+          "scale_length_b": 1.3299999999999998,
           "fretted_or_not": 0.135,
-          "bass_technique": 22.84,
+          "bass_technique": 22.795,
           "electric_bass_string_configuration": 0
         }
       },
@@ -132,11 +132,11 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "harmonica_type": 0.585,
-          "harmonica_comb": 13.219999999999997,
-          "harmonica_reed": 12.274999999999997,
+          "harmonica_type": 0.5399999999999999,
+          "harmonica_comb": 13.264999999999997,
+          "harmonica_reed": 12.229999999999997,
           "harmonica_technique": 14.389999999999999,
-          "harmonica_maker_school": 12.674999999999997,
+          "harmonica_maker_school": 12.494999999999997,
           "harmonica_tuning": 5.9799999999999995
         }
       }

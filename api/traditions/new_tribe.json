@@ -1,0 +1,62 @@
+{
+  "id": "new_tribe",
+  "name": "New Tribe",
+  "family": "vernacular",
+  "lineage": "Davide Swarup — Music for Hang, complete solo album (2007). Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic late-2000s new tribe, improv On Frame. handpan. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 154,
+  "score": 5.031,
+  "config": {
+    "traditions": [
+      "new_tribe"
+    ],
+    "instruments": [
+      {
+        "id": "handpan",
+        "slots": {
+          "handpan_scale": "handpan_d_kurd",
+          "handpan_maker": "handpan_hang"
+        },
+        "scores": {
+          "handpan_scale": 3.6999999999999993,
+          "handpan_maker": 1.3315000000000001
+        }
+      }
+    ],
+    "pinned": {
+      "handpan": [
+        "handpan_scale",
+        "handpan_maker"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "handpan_scale": "handpan_d_kurd",
+      "handpan_maker": "handpan_hang"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

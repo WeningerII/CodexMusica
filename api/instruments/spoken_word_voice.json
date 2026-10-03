@@ -1,0 +1,50 @@
+{
+  "id": "spoken_word_voice",
+  "name": "Spoken-word voice (separately credited speaker)",
+  "short": "spoken-word voice",
+  "family": "voice",
+  "class": "vocal_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "spoken_word_voice_identity",
+      "name": "Authored source-scoped realization",
+      "variants": [
+        {
+          "id": "spoken_word_voice_source_unspecified",
+          "name": "One separately credited speaker; physiology and pitch unspecified",
+          "default": true,
+          "descriptors": [
+            "speech-derived"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "spoken_word_voice_identity",
+      "name": "Authored source-scoped realization",
+      "variants": [
+        {
+          "id": "spoken_word_voice_source_unspecified",
+          "name": "One separately credited speaker; physiology and pitch unspecified",
+          "default": true,
+          "descriptors": [
+            "speech-derived"
+          ]
+        }
+      ]
+    }
+  ]
+}

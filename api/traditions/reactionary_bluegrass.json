@@ -3,9 +3,9 @@
   "name": "Reactionary Bluegrass",
   "family": "country",
   "lineage": "Late-1960s and 1970s US topical bluegrass strain in which the standard Monroe-derived instrumentation — banjo, fiddle, mandolin, guitar, upright bass at 130-160 BPM with driving offbeat mandolin chop and high-lonesome tenor stacked above the lead — carried explicitly conservative, pro-military, anti-counterculture lyrics, circulated on Rebel, County and Starday singles and at the emerging festival circuit.",
-  "recipe": "classic Southern American 1967-1969 reactionary bluegrass, improv On Frame, bluegrass branch, neo trad country, anglo American protest song classic texas country neotraditional country. thick, register break ornamental, wide pitch sway, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, steel double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, spruce steel silk travis picked dreadnought acoustic cutting steel steel resonator guitar, sustaining steel upright bass. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 767,
-  "score": 426.809,
+  "recipe": "classic Southern American 1967-1969 reactionary bluegrass, improv On Frame, bluegrass branch, neo trad country, anglo American protest song classic texas country neotraditional country. thick, register break ornamental, straight note core, interlocked note trading. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, spruce steel silk travis picked dreadnought acoustic cutting steel steel resonator guitar, sustaining steel upright bass. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 777,
+  "score": 425.482,
   "config": {
     "traditions": [
       "reactionary_bluegrass",
@@ -21,7 +21,7 @@
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "three_finger",
-          "banjo_rim_wood": "banjo_block_rim_maple",
+          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
           "banjo_neck_wood": "banjo_maple_neck",
           "banjo_strings": "banjo_medium_bluegrass",
           "banjo_bridge": "banjo_maple_ebony_bridge",
@@ -32,11 +32,11 @@
           "tone_ring": 10.25,
           "banjo_head": 16.835,
           "banjo_pot": 0.39,
-          "banjo_play": 5.329999999999999,
-          "banjo_rim_wood": 11.675374999999999,
-          "banjo_neck_wood": 11.706875,
-          "banjo_strings": 13.954017857142857,
-          "banjo_bridge": 12.006874999999999,
+          "banjo_play": 5.199875,
+          "banjo_rim_wood": 11.610375,
+          "banjo_neck_wood": 11.381375,
+          "banjo_strings": 13.628517857142857,
+          "banjo_bridge": 11.681375,
           "banjo_setup_period": 29.899999999999995
         }
       },
@@ -54,7 +54,7 @@
           "bowed_technique": 37.06,
           "fiddle_strings": 2.73,
           "fiddle_bow": 0.195,
-          "fiddle_mute": 0.313125,
+          "fiddle_mute": 0.553125,
           "fiddle_articulation": 0.65,
           "fiddle_string_configuration": 0
         }
@@ -72,12 +72,12 @@
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
-          "acoustic_technique": 10.367999999999999,
+          "acoustic_technique": 10.2,
           "mandolin_shape": 10.743999999999998,
-          "mandolin_top": 12.300374999999999,
+          "mandolin_top": 12.268874999999998,
           "mandolin_back": 10.355,
           "mandolin_bracing": 11.089,
-          "mandolin_strings": 2.925,
+          "mandolin_strings": 2.826,
           "mandolin_fingerboard": 0.585,
           "mandolin_pickup": 18.265
         }
@@ -117,7 +117,7 @@
           "voice_quality": "register_break_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
@@ -131,20 +131,20 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 19.592999999999996,
+          "voice_register": 19.4565,
           "voice_quality": 10.669999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 19.07325,
+          "voice_vibrato": 19.235875,
           "voice_articulation": 16.639999999999997,
           "voice_microtone": 17.029999999999994,
           "voice_tradition": 4.68,
           "voice_mechanism_compound": 4.03,
-          "voice_estill_quality": 22.13217857142857,
+          "voice_estill_quality": 22.040678571428572,
           "voice_speech_song": 24.439999999999998,
           "voice_ensemble_config": 16.119999999999997,
           "voice_ornament_system": 0.78,
-          "voice_pitch_organization": 1.6057499999999998,
+          "voice_pitch_organization": 1.57425,
           "voice_processing_chain": 5.616553571428572,
           "voice_multitrack_stack": 6.825000000000001
         }

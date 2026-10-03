@@ -1,8 +1,8 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
-  "generated": "2026-10-02",
-  "count": 5638,
+  "generated": "2026-10-03",
+  "count": 5738,
   "items": [
     {
       "id": "honky_tonk",
@@ -1366,8 +1366,8 @@
       "id": "stoner_metal",
       "name": "Stoner metal",
       "family": "rock",
-      "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal atmospheric sludge. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-      "recipe_chars": 569
+      "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal atmospheric sludge. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+      "recipe_chars": 599
     },
     {
       "id": "post_metal",
@@ -10347,8 +10347,8 @@
       "id": "reactionary_bluegrass",
       "name": "Reactionary Bluegrass",
       "family": "country",
-      "recipe": "classic Southern American 1967-1969 reactionary bluegrass, improv On Frame, bluegrass branch, neo trad country, anglo American protest song classic texas country neotraditional country. thick, register break ornamental, wide pitch sway, interlocked note trading. bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, steel double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, spruce steel silk travis picked dreadnought acoustic cutting steel steel resonator guitar, sustaining steel upright bass. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-      "recipe_chars": 767
+      "recipe": "classic Southern American 1967-1969 reactionary bluegrass, improv On Frame, bluegrass branch, neo trad country, anglo American protest song classic texas country neotraditional country. thick, register break ornamental, straight note core, interlocked note trading. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel double stops fiddle, Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, spruce steel silk travis picked dreadnought acoustic cutting steel steel resonator guitar, sustaining steel upright bass. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+      "recipe_chars": 777
     },
     {
       "id": "cajun_fiddle_tunes",
@@ -14519,8 +14519,8 @@
       "id": "neo_traditional_bluegrass",
       "name": "Neo-traditional bluegrass",
       "family": "country",
-      "recipe": "classic 1974-1976 neo-traditional bluegrass, improv On Frame, bluegrass branch, neo trad country, christian gospel southern gospel classic texas country country gospel. thick, declaimed, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze block rim maple boutique bluegrass bluegrass canon banjo 5 string, cedar phosphor bronze modern martin travis picked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 776
+      "recipe": "classic 1974-1976 neo-traditional bluegrass, improv On Frame, bluegrass branch, neo trad country, christian gospel southern gospel classic texas country country gospel. thick, declaimed, straight note core, interlocked note trading. Gibson f 5 loar scrolled carved adirondack red spruce European maple mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, cedar phosphor bronze modern martin travis picked dreadnought acoustic wood body spider bridge aluminum resonator heavy gauge dobro canon resonator guitar, sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 783
     },
     {
       "id": "instrumental_bluegrass",
@@ -16549,8 +16549,8 @@
       "id": "dark_folk",
       "name": "Dark Folk",
       "family": "vernacular",
-      "recipe": "classic North American 1984-1986 dark folk, ballad Poetry, britfolk branch, industrial noise experimental electric futurepop electro-industrial. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy, pistoy cinnabar loaded red dyed deep dark red hard rock maple cello, tubular bells, melodic straight piano accordion, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 735
+      "recipe": "classic North American 1984-1986 dark folk, ballad Poetry, britfolk branch, industrial noise experimental electric old school ebm futurepop. thick, breath veiled tone, slow rate, interlocked note trading. dadgad tuning cedar phosphor bronze modern martin fingerpicked dreadnought acoustic guitar, steel modern bal folk French bal folk pignol tritonik hurdy gurdy, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, tubular bells, melodic straight piano accordion, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 733
     },
     {
       "id": "drone_folk",
@@ -17340,8 +17340,8 @@
       "id": "emoviolence",
       "name": "Emoviolence",
       "family": "rock_punk",
-      "recipe": "classic North American 1994-1996 emoviolence, distorted Rock, emo branch, punk distorted rock, sludge metal atmospheric sludge. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, brushes-and-sticks drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 509
+      "recipe": "classic North American 1994-1996 emoviolence, distorted Rock, emo branch, punk distorted rock, sludge metal mincecore. thick, larynx lowered, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 534
     },
     {
       "id": "street_punk",
@@ -39469,6 +39469,706 @@
       "family": "rock",
       "recipe": "classic early-2020s phoenix indie, distorted Rock, punk branch. group vocals, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
       "recipe_chars": 342
+    },
+    {
+      "id": "neo_honky_tonk",
+      "name": "Neo Honky Tonk",
+      "family": "country",
+      "recipe": "classic neo honky tonk, functional Song, neo trad branch. unprocessed natural acoustic. dreadnought acoustic conventional tuning standard pitch single coil electric guitar, upright bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 285
+    },
+    {
+      "id": "neo_mellow",
+      "name": "Neo Mellow",
+      "family": "pop_rock",
+      "recipe": "classic early-2020s neo mellow, functional Song, pop rock branch. unprocessed natural acoustic, single lead single track no stacking. nickel conventional tuning standard pitch humbucker electric guitar, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, acoustic guitar 12 string, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, electric bass, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 552
+    },
+    {
+      "id": "neo_manele",
+      "name": "Neo-Manele",
+      "family": "electronic",
+      "recipe": "classic mid-2010s neo-manele, experimental Elec. electric violin, analog poly synth, electric bass, low fundamental tuning all purpose maple drum kit, credited auxiliary percussion, drum machine analog, wurlitzer ep. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 315
+    },
+    {
+      "id": "neo_psicodelia_brasileira",
+      "name": "Neo-Psicodelia Brasileira",
+      "family": "rock",
+      "recipe": "classic early-2020s neo-psicodelia brasileira, distorted Rock, experimental branch. conventional tuning standard pitch humbucker electric guitar, electric bass, analog poly synth, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 356
+    },
+    {
+      "id": "nepali_indie",
+      "name": "Nepali Indie",
+      "family": "vernacular",
+      "recipe": "classic late-2010s nepali indie, functional Song. one note per syllable. dreadnought acoustic conventional tuning standard pitch arpeggiated clean humbucker electric guitar, ebony unlined fusion fretless canon fretless bass, low fundamental tuning all purpose maple drum kit, arranged damphu, four string nepali sarangi, European maple bosnian source flamed figure violin orchestral, European maple bosnian source flamed figure viola classical, concert triangle. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 561
+    },
+    {
+      "id": "neru",
+      "name": "Neru",
+      "family": "electronic",
+      "recipe": "classic early-2020s neru, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 184
+    },
+    {
+      "id": "neue_deutsche_todeskunst",
+      "name": "Neue Deutsche Todeskunst",
+      "family": "global",
+      "recipe": "classic early-1990s neue deutsche todeskunst, spoken Word. one note per syllable. spoken word voice, electronic keyboard unspecified, saxophone doubling alto soprano, snare drum, dreadnought acoustic guitar, credited auxiliary percussion, European maple bosnian source flamed figure violin orchestral, European maple bosnian source flamed figure cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 451
+    },
+    {
+      "id": "neue_neue_deutsche_welle",
+      "name": "Neue Neue Deutsche Welle",
+      "family": "pop",
+      "recipe": "classic mid-2020s neue neue deutsche welle, functional Song, europop branch. analog poly synth, conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit, electric bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 382
+    },
+    {
+      "id": "neurostep",
+      "name": "Neurostep",
+      "family": "electronic",
+      "recipe": "classic neurostep, bass System. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 139
+    },
+    {
+      "id": "new_comedy",
+      "name": "New Comedy",
+      "family": "vernacular",
+      "recipe": "classic late-2010s new comedy, spoken Word, stage performance branch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 168
+    },
+    {
+      "id": "new_delhi_indie",
+      "name": "New Delhi Indie",
+      "family": "rock_punk",
+      "recipe": "classic late-2010s new delhi indie, distorted Rock, punk branch. conventional tuning standard pitch humbucker electric guitar, electric bass, analog poly synth, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 337
+    },
+    {
+      "id": "new_england_experimental",
+      "name": "New England Experimental",
+      "family": "jazz",
+      "recipe": "classic new england experimental, improv On Frame, jam free branch. selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, controlled legato trumpet. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 276
+    },
+    {
+      "id": "new_french_touch",
+      "name": "New French Touch",
+      "family": "electronic",
+      "recipe": "classic mid-2010s new french touch, experimental Elec. sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 162
+    },
+    {
+      "id": "new_tribe",
+      "name": "New Tribe",
+      "family": "vernacular",
+      "recipe": "classic late-2000s new tribe, improv On Frame. handpan. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 154
+    },
+    {
+      "id": "new_wave_of_osdm",
+      "name": "New Wave of OSDM",
+      "family": "rock_punk",
+      "recipe": "classic mid-2020s new wave of osdm, distorted Rock, death branch. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 430
+    },
+    {
+      "id": "newcastle_indie",
+      "name": "Newcastle Indie",
+      "family": "pop",
+      "recipe": "classic late-2010s newcastle indie, functional Song, pop rock branch. one note per syllable, solo with instrumental accompaniment. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 418
+    },
+    {
+      "id": "newcastle_nsw_indie",
+      "name": "Newcastle NSW Indie",
+      "family": "rock_punk",
+      "recipe": "classic mid-2010s newcastle nsw indie, distorted Rock, alternative branch. solo with instrumental accompaniment, lead plus third fifth harmony stack 3 part. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 410
+    },
+    {
+      "id": "newfoundland_indie",
+      "name": "Newfoundland Indie",
+      "family": "rock_punk",
+      "recipe": "classic newfoundland indie, distorted Rock, alternative branch. one note per syllable, solo with instrumental accompaniment. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 378
+    },
+    {
+      "id": "ney",
+      "name": "Ney",
+      "family": "classical",
+      "recipe": "classic ney, improv On Frame. ney persian interdental. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 153
+    },
+    {
+      "id": "ngoni",
+      "name": "Ngoni",
+      "family": "vernacular",
+      "recipe": "classic ngoni, ballad Poetry. single performer unison double recorded take. donso ngoni eight string, keregne mande. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 215
+    },
+    {
+      "id": "nice_indie",
+      "name": "Nice Indie",
+      "family": "rock_punk",
+      "recipe": "classic mid-2020s nice indie, distorted Rock, gothic rock branch. duet, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, tenor standard standard backbore trombone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 446
+    },
+    {
+      "id": "noel_quebecois",
+      "name": "Noël Québécois",
+      "family": "vernacular",
+      "recipe": "classic noël québécois, ballad Poetry. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. 17 ply hard rock maple 7 ply quartersawn maple grand piano, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 359
+    },
+    {
+      "id": "noise",
+      "name": "Noise",
+      "family": "electronic",
+      "recipe": "classic mid-1990s noise, experimental Elec. credited harsh noise. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital silicon fuzz.",
+      "recipe_chars": 177
+    },
+    {
+      "id": "nordic_soundtrack",
+      "name": "Nordic Soundtrack",
+      "family": "classical",
+      "recipe": "classic mid-2020s nordic soundtrack, art Music. upright soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 228
+    },
+    {
+      "id": "nordnorsk_musikk",
+      "name": "Nordnorsk Musikk",
+      "family": "vernacular",
+      "recipe": "classic 2023-2024 nordnorsk musikk, ballad Poetry. solo with instrumental accompaniment. fiddle, fingerpicked acoustic guitar, pump organ harmonium. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 247
+    },
+    {
+      "id": "norske_viser",
+      "name": "Norske Viser",
+      "family": "vernacular",
+      "recipe": "classic norske viser, ballad Poetry. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. fingerpicked acoustic guitar, 7 ply quartersawn maple a 440 modern pitch us standard grand piano, double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 345
+    },
+    {
+      "id": "northamptonshire_indie",
+      "name": "Northamptonshire indie",
+      "family": "rock",
+      "recipe": "classic early-2020s northamptonshire indie, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, hohner gola canonical premium German concert accordion, electronic organ unspecified, credited harsh noise. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 472
+    },
+    {
+      "id": "norwegian_psychedelic",
+      "name": "Norwegian psychedelic",
+      "family": "rock",
+      "recipe": "classic early-2020s norwegian psychedelic, distorted Rock. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 312
+    },
+    {
+      "id": "nyhc",
+      "name": "NYHC",
+      "family": "rock_punk",
+      "recipe": "classic early-2020s nyhc, distorted Rock, punk branch. solo with instrumental accompaniment. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 346
+    },
+    {
+      "id": "oaxaca_indie",
+      "name": "Oaxaca indie",
+      "family": "pop_rock",
+      "recipe": "classic early-2020s oaxaca indie, functional Song. solo with instrumental accompaniment. conventional tuning standard pitch arpeggiated clean humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog poly synth. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 379
+    },
+    {
+      "id": "oc_indie",
+      "name": "OC indie",
+      "family": "rock",
+      "recipe": "classic late-2010s oc indie, distorted Rock, alternative branch. duet, live take. conventional tuning standard pitch arpeggiated clean humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 386
+    },
+    {
+      "id": "ocean",
+      "name": "Ocean",
+      "family": "electronic",
+      "recipe": "classic mid-2010s ocean, experimental Elec, ambient branch. field sustained sampler. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 183
+    },
+    {
+      "id": "ok_indie",
+      "name": "OK indie",
+      "family": "rock",
+      "recipe": "classic early-2020s ok indie, distorted Rock, alternative branch. single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 357
+    },
+    {
+      "id": "old_school_ebm",
+      "name": "Old school EBM",
+      "family": "electronic",
+      "recipe": "classic mid-2020s old school ebm, experimental Elec, industrial noise branch. solo with instrumental accompaniment. analog poly synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 254
+    },
+    {
+      "id": "old_school_thrash",
+      "name": "Old school thrash",
+      "family": "rock",
+      "recipe": "classic mid-2020s old school thrash, distorted Rock, thrash branch. group vocals. conventional tuning standard pitch palm muted humbucker electric guitar, electric bass, maple double bass rapid double strokes machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 352
+    },
+    {
+      "id": "olympia_wa_indie",
+      "name": "Olympia WA indie",
+      "family": "rock_punk",
+      "recipe": "classic early-2010s olympia wa indie, distorted Rock, punk branch. duet, live take. nickel conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 344
+    },
+    {
+      "id": "omaha_indie",
+      "name": "Omaha Indie",
+      "family": "rock",
+      "recipe": "classic early-2020s omaha indie, distorted Rock, alternative branch. arpeggiated clean humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, soft felt lacquer voiced 17 ply hard rock maple grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 378
+    },
+    {
+      "id": "ontario_indie",
+      "name": "Ontario Indie",
+      "family": "pop_rock",
+      "recipe": "classic mid-2020s ontario indie, functional Song, pop rock branch. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple block chord grand piano, arpeggiated clean humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 426
+    },
+    {
+      "id": "operetta",
+      "name": "Operetta",
+      "family": "classical",
+      "recipe": "classic operetta, art Music, western common practice branch. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 233
+    },
+    {
+      "id": "oratory",
+      "name": "Oratory",
+      "family": "vernacular",
+      "recipe": "classic oratory, spoken Word. no pitch organization speech, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 196
+    },
+    {
+      "id": "orebro_indie",
+      "name": "Orebro Indie",
+      "family": "rock",
+      "recipe": "classic mid-2010s orebro indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "orgcore",
+      "name": "Orgcore",
+      "family": "rock_punk",
+      "recipe": "classic orgcore, distorted Rock, punk branch. one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 363
+    },
+    {
+      "id": "orlando_indie",
+      "name": "Orlando Indie",
+      "family": "rock",
+      "recipe": "classic orlando indie, distorted Rock, alternative branch. arpeggiated clean humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 307
+    },
+    {
+      "id": "orquesta_tipica",
+      "name": "Orquesta Tipica",
+      "family": "global",
+      "recipe": "classic orquesta tipica, art Music. European maple bosnian source flamed figure violin orchestral, European maple bosnian source flamed figure viola classical, European maple bosnian source flamed figure cello, bandoneon, grand piano, classical nylon-string guitar, European maple bosnian source flamed figure double bass. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 421
+    },
+    {
+      "id": "oslo_indie",
+      "name": "Oslo Indie",
+      "family": "electronic",
+      "recipe": "classic late-2010s oslo indie, experimental Elec. one note per syllable. electric bass, analog synth, drum machine analog, drum kit, humbucker electric guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 258
+    },
+    {
+      "id": "oth_indie",
+      "name": "Oth Indie",
+      "family": "pop_rock",
+      "recipe": "classic mid-2010s oth indie, functional Song, pop rock branch. clean strummed humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 339
+    },
+    {
+      "id": "otroske_pesmice",
+      "name": "Otroske Pesmice",
+      "family": "classical",
+      "recipe": "classic otroske pesmice, art Music. solo with instrumental accompaniment. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 246
+    },
+    {
+      "id": "ottawa_indie",
+      "name": "Ottawa Indie",
+      "family": "rock_punk",
+      "recipe": "classic early-2010s ottawa indie, distorted Rock, punk branch. one note per syllable. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 316
+    },
+    {
+      "id": "oud",
+      "name": "Oud",
+      "family": "jazz",
+      "recipe": "classic late-2010s oud, improv On Frame, fusion branch. oud, grand piano, European maple bosnian source flamed figure double bass, bronze bell bronze brushes-and-sticks drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 277
+    },
+    {
+      "id": "oulu_indie",
+      "name": "Oulu Indie",
+      "family": "rock",
+      "recipe": "classic early-2020s oulu indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 331
+    },
+    {
+      "id": "outsider",
+      "name": "Outsider",
+      "family": "vernacular",
+      "recipe": "classic outsider, functional Song. one note per syllable, solo with instrumental accompaniment. electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 227
+    },
+    {
+      "id": "oxford_indie",
+      "name": "Oxford Indie",
+      "family": "rock",
+      "recipe": "classic late-2010s oxford indie, distorted Rock, alternative branch. humbucker electric guitar, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 284
+    },
+    {
+      "id": "paidika_tragoudia",
+      "name": "Paidika Tragoudia",
+      "family": "global",
+      "recipe": "classic paidika tragoudia, ballad Poetry. solo with instrumental accompaniment, single lead single track no stacking. sitka spruce diaphragmatic 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 286
+    },
+    {
+      "id": "pakistani_indie",
+      "name": "Pakistani Indie",
+      "family": "rock",
+      "recipe": "classic mid-2010s pakistani indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, analog poly synth, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 452
+    },
+    {
+      "id": "palestinian_traditional",
+      "name": "Palestinian Traditional",
+      "family": "global",
+      "recipe": "classic mid-2020s palestinian traditional, art Music, middle eastern classical branch. nylon plastic pyramid arab school oud. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 224
+    },
+    {
+      "id": "papuan_traditional",
+      "name": "Papuan Traditional",
+      "family": "global",
+      "recipe": "classic papuan traditional, improv On Frame. cane burari papuan flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 169
+    },
+    {
+      "id": "papuri",
+      "name": "Papuri",
+      "family": "global",
+      "recipe": "classic papuri, ritual Devotional. live take. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 210
+    },
+    {
+      "id": "parody",
+      "name": "Parody",
+      "family": "pop_rock",
+      "recipe": "classic early-2010s parody, ballad Poetry, anglo singer song branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. fingerpicked acoustic guitar, European maple bosnian source flamed figure pirastro cellisto cello specific cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 387
+    },
+    {
+      "id": "pei_indie",
+      "name": "PEI Indie",
+      "family": "pop_rock",
+      "recipe": "classic early-2020s pei indie, functional Song, pop rock branch. conventional tuning standard pitch clean strummed humbucker electric guitar, steel c6 song accompaniment lap steel, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion, electronic keyboard unspecified, analog poly synth, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, European maple bosnian source flamed figure modern setup longer neck violin orchestral, European maple bosnian source flamed figure modern setup longer neck viola classical, saxophone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 707
+    },
+    {
+      "id": "persian_alternative",
+      "name": "Persian Alternative",
+      "family": "rock",
+      "recipe": "classic mid-2010s persian alternative, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 435
+    },
+    {
+      "id": "peruvian_experimental",
+      "name": "Peruvian Experimental",
+      "family": "electronic",
+      "recipe": "classic early-2020s peruvian experimental, experimental Elec. analog synth, hybrid groovebox electribe2. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 203
+    },
+    {
+      "id": "peruvian_indie",
+      "name": "Peruvian Indie",
+      "family": "pop_rock",
+      "recipe": "classic early-2010s peruvian indie, functional Song. unprocessed natural acoustic. acoustic conventional tuning standard pitch humbucker electric guitar, electric bass, soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, credited auxiliary percussion, European maple bosnian source flamed figure pirastro cellisto cello specific cello, European maple bosnian source flamed figure violin orchestral. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 512
+    },
+    {
+      "id": "pet_calming",
+      "name": "Pet Calming",
+      "family": "classical",
+      "recipe": "classic pet calming, art Music. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 204
+    },
+    {
+      "id": "piano_cover",
+      "name": "Piano Cover",
+      "family": "pop_rock",
+      "recipe": "classic mid-2020s piano cover, functional Song, pop rock branch. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 230
+    },
+    {
+      "id": "piano_mpb",
+      "name": "Piano MPB",
+      "family": "jazz",
+      "recipe": "classic late-2010s piano mpb, improv On Frame. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 211
+    },
+    {
+      "id": "piano_worship",
+      "name": "Piano Worship",
+      "family": "global",
+      "recipe": "classic early-2020s piano worship, ritual Devotional, christian gospel branch. 7 ply quartersawn maple a 440 modern pitch us standard grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 245
+    },
+    {
+      "id": "pink_noise",
+      "name": "Pink noise",
+      "family": "electronic",
+      "recipe": "classic early-2020s pink noise, experimental Elec. software pink noise generator. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 180
+    },
+    {
+      "id": "pinoy_indie",
+      "name": "Pinoy indie",
+      "family": "pop",
+      "recipe": "classic pinoy indie, functional Song. unprocessed natural acoustic, single lead single track no stacking. acoustic conventional tuning standard pitch clean strummed humbucker electric guitar, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 416
+    },
+    {
+      "id": "pirate",
+      "name": "Pirate",
+      "family": "vernacular",
+      "recipe": "classic early-2020s pirate, functional Song. unprocessed natural acoustic, single lead single track no stacking. acoustic guitar. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 228
+    },
+    {
+      "id": "poetry",
+      "name": "Poetry",
+      "family": "vernacular",
+      "recipe": "classic poetry, spoken Word. no pitch organization speech, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 195
+    },
+    {
+      "id": "pohadky",
+      "name": "Pohádky",
+      "family": "vernacular",
+      "recipe": "classic mid-2020s pohádky, spoken Word, narration branch. no pitch organization speech, solo unaccompanied, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 244
+    },
+    {
+      "id": "police_band",
+      "name": "Police band",
+      "family": "classical",
+      "recipe": "classic police band, art Music, western modern branch. saxophone quartet soprano alto tenor baritone. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 200
+    },
+    {
+      "id": "polish_early_music",
+      "name": "Polish early music",
+      "family": "classical",
+      "recipe": "classic polish early music, art Music, western early branch. lute renaissance. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 177
+    },
+    {
+      "id": "polish_experimental",
+      "name": "Polish experimental",
+      "family": "electronic",
+      "recipe": "classic early-2020s polish experimental, experimental Elec. duet, live take. conventional tuning standard pitch humbucker electric guitar, analog poly synth, electric bass, drum machine analog, European maple bosnian source flamed figure modern setup longer neck violin orchestral, European maple bosnian source flamed figure modern setup longer neck viola classical, European maple bosnian source flamed figure modern setup cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 530
+    },
+    {
+      "id": "polish_prog",
+      "name": "Polish prog",
+      "family": "rock",
+      "recipe": "classic late-2000s polish prog, distorted Rock, progressive rock branch. solo with instrumental accompaniment, unprocessed natural acoustic, single lead single track no stacking. electric bass, acoustic conventional tuning standard pitch humbucker electric guitar, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 474
+    },
+    {
+      "id": "polish_psychedelia",
+      "name": "Polish psychedelia",
+      "family": "rock",
+      "recipe": "classic early-2020s polish psychedelia, distorted Rock. soft felt lacquer voiced 17 ply hard rock maple 7 ply grand piano, conventional tuning standard pitch riff driven humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 388
+    },
+    {
+      "id": "popgaze",
+      "name": "Popgaze",
+      "family": "rock",
+      "recipe": "classic early-2020s popgaze, distorted Rock, alternative branch. duet, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 335
+    },
+    {
+      "id": "portland_indie",
+      "name": "Portland Indie",
+      "family": "rock",
+      "recipe": "classic portland indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 374
+    },
+    {
+      "id": "portsmouth_indie",
+      "name": "Portsmouth Indie",
+      "family": "pop_rock",
+      "recipe": "classic early-2020s portsmouth indie, functional Song, pop rock branch. conventional tuning standard pitch clean strummed humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified, richter canonical 10 hole diatonic blues harmonica. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 425
+    },
+    {
+      "id": "power_thrash",
+      "name": "Power Thrash",
+      "family": "rock",
+      "recipe": "classic early-2010s power thrash, distorted Rock, thrash branch. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 330
+    },
+    {
+      "id": "poznan_indie",
+      "name": "Poznań Indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s poznań indie, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, analog poly synth, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 432
+    },
+    {
+      "id": "prague_indie",
+      "name": "Prague Indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s prague indie, distorted Rock, alternative branch. group vocals, live take. conventional tuning standard pitch humbucker electric guitar, electric bass, electronic keyboard unspecified, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 379
+    },
+    {
+      "id": "prepared_piano",
+      "name": "Prepared Piano",
+      "family": "classical",
+      "recipe": "classic prepared piano, art Music, western modern branch. prepared piano cage sonatas. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 185
+    },
+    {
+      "id": "progressive_alternative",
+      "name": "Progressive Alternative",
+      "family": "rock",
+      "recipe": "classic late-2010s progressive alternative, distorted Rock, alternative branch. single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 371
+    },
+    {
+      "id": "progressive_doom",
+      "name": "Progressive Doom",
+      "family": "rock",
+      "recipe": "classic early-2020s progressive doom, distorted Rock, doom branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 408
+    },
+    {
+      "id": "progressive_sludge",
+      "name": "Progressive Sludge",
+      "family": "rock",
+      "recipe": "classic mid-2020s progressive sludge, distorted Rock, sludge branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 322
+    },
+    {
+      "id": "progressive_thrash",
+      "name": "Progressive Thrash",
+      "family": "rock",
+      "recipe": "classic early-2020s progressive thrash, distorted Rock, thrash branch. solo with instrumental accompaniment. conventional tuning standard pitch palm muted humbucker electric guitar, pocket fingerstyle locked electric bass, maple double bass rapid double strokes machine hammered symmetric pattern drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 405
+    },
+    {
+      "id": "psych_gaze",
+      "name": "Psych gaze",
+      "family": "rock",
+      "recipe": "classic mid-2020s psych gaze, distorted Rock, alternative branch. solo with instrumental accompaniment, single lead single track no stacking. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 395
+    },
+    {
+      "id": "psychedelic_doom",
+      "name": "Psychedelic doom",
+      "family": "rock",
+      "recipe": "classic mid-2020s psychedelic doom, distorted Rock, doom branch. solo with instrumental accompaniment. conventional tuning standard pitch riff driven humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 368
+    },
+    {
+      "id": "pune_indie",
+      "name": "Pune indie",
+      "family": "rock",
+      "recipe": "classic mid-2010s pune indie, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 319
+    },
+    {
+      "id": "rabm",
+      "name": "RABM",
+      "family": "rock",
+      "recipe": "classic mid-2020s rabm, distorted Rock, metal branch. conventional tuning standard pitch power chord humbucker electric guitar, electric bass, analog poly synth, drum machine analog. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 281
+    },
+    {
+      "id": "rain",
+      "name": "Rain",
+      "family": "electronic",
+      "recipe": "classic late-2010s rain, experimental Elec. environmental field recording rain environmental recording. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 202
+    },
+    {
+      "id": "ramonescore",
+      "name": "Ramonescore",
+      "family": "rock",
+      "recipe": "classic early-2020s ramonescore, distorted Rock, punk branch. mahogany maple conventional tuning standard pitch humbucker electric guitar, low-mid-thick articulate mahogany maple electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 370
+    },
+    {
+      "id": "reading_indie",
+      "name": "Reading Indie",
+      "family": "rock",
+      "recipe": "classic late-2010s reading indie, distorted Rock, alternative branch. humbucker electric guitar, electronic keyboard unspecified, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 333
+    },
+    {
+      "id": "rennes_indie",
+      "name": "Rennes Indie",
+      "family": "rock",
+      "recipe": "classic mid-2010s rennes indie, distorted Rock, alternative branch. humbucker electric guitar, electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 298
+    },
+    {
+      "id": "rva_indie",
+      "name": "RVA indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s rva indie, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, electronic keyboard unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 351
+    },
+    {
+      "id": "sacramento_indie",
+      "name": "Sacramento indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s sacramento indie, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, credited auxiliary percussion. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 356
+    },
+    {
+      "id": "san_antonio_indie",
+      "name": "San Antonio indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s san antonio indie, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 326
+    },
+    {
+      "id": "san_marcos_tx_indie",
+      "name": "San Marcos TX Indie",
+      "family": "rock",
+      "recipe": "classic mid-2020s san marcos tx indie, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, tambourine orch. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 267
+    },
+    {
+      "id": "santa_fe_indie",
+      "name": "Santa Fe Indie",
+      "family": "rock",
+      "recipe": "classic late-2010s santa fe indie, distorted Rock, alternative branch. conventional tuning standard pitch humbucker electric guitar, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit, analog synth, song supporting rock context neoprene rubber tips canonical Rhodes stage suitcase mid 1970s rhodes electric, electronic organ unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+      "recipe_chars": 477
     }
   ]
 }

@@ -1,0 +1,92 @@
+{
+  "id": "burari_papuan_flute",
+  "name": "Burári (southern Papuan one-hole cane flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "short": "one-hole cane flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "burari_construction",
+      "name": "Documented source construction",
+      "variants": [
+        {
+          "id": "burari_pater_one_hole",
+          "name": "Thin patër cane, longitudinal open end and one fingerhole; Geawag recording",
+          "default": true,
+          "descriptors": [
+            "cane"
+          ],
+          "match_tokens": [
+            "cane",
+            "end-blown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "burari_performance",
+      "name": "Melodic practice",
+      "variants": [
+        {
+          "id": "burari_song_variation",
+          "name": "Instrumental ornamentation and variation of a song melody",
+          "default": true,
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "burari_construction",
+      "name": "Documented source construction",
+      "variants": [
+        {
+          "id": "burari_pater_one_hole",
+          "name": "Thin patër cane, longitudinal open end and one fingerhole; Geawag recording",
+          "default": true,
+          "descriptors": [
+            "cane"
+          ],
+          "match_tokens": [
+            "cane",
+            "end-blown"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "burari_performance",
+      "name": "Melodic practice",
+      "variants": [
+        {
+          "id": "burari_song_variation",
+          "name": "Instrumental ornamentation and variation of a song melody",
+          "default": true,
+          "descriptors": [
+            "ornamented"
+          ],
+          "match_tokens": [
+            "ornamented"
+          ]
+        }
+      ]
+    }
+  ]
+}

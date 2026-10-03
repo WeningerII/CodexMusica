@@ -1,0 +1,70 @@
+{
+  "id": "ney",
+  "name": "Ney",
+  "family": "classical",
+  "lineage": "Hasan Kasa'i — Shushtari, Smithsonian Folkways SFW40438_109. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic ney, improv On Frame. ney persian interdental. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 153,
+  "score": 1.8,
+  "config": {
+    "traditions": [
+      "ney"
+    ],
+    "instruments": [
+      {
+        "id": "ney_persian_interdental",
+        "slots": {
+          "ney_persian_construction": "ney_persian_seven_segment_six_hole",
+          "ney_persian_embouchure": "ney_persian_interdental_edge",
+          "ney_persian_register": "ney_persian_register_unspecified",
+          "ney_persian_practice": "ney_persian_dastgah_improvisation"
+        },
+        "scores": {
+          "ney_persian_construction": 0.8999999999999999,
+          "ney_persian_embouchure": 0.3,
+          "ney_persian_register": 0,
+          "ney_persian_practice": 0.6
+        }
+      }
+    ],
+    "pinned": {
+      "ney_persian_interdental": [
+        "ney_persian_construction",
+        "ney_persian_embouchure",
+        "ney_persian_register",
+        "ney_persian_practice"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "dastgah_persian",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "dastgah_persian",
+    "room": "treated_studio",
+    "parts": {
+      "ney_persian_construction": "ney_persian_seven_segment_six_hole",
+      "ney_persian_embouchure": "ney_persian_interdental_edge",
+      "ney_persian_register": "ney_persian_register_unspecified",
+      "ney_persian_practice": "ney_persian_dastgah_improvisation"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

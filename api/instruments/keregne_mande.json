@@ -1,0 +1,89 @@
+{
+  "id": "keregne_mande",
+  "name": "Keregne (Mande metal scraper)",
+  "short": "keregne metal scraper",
+  "family": "percussion",
+  "class": "percussion_idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "keregne_construction",
+      "name": "Source instrument family",
+      "variants": [
+        {
+          "id": "keregne_metal_scraper_unspecified",
+          "name": "Metal scraper; alloy, shape and dimensions unspecified",
+          "default": true,
+          "descriptors": [
+            "scraped"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "keregne_playing",
+      "name": "Authored accompaniment",
+      "variants": [
+        {
+          "id": "keregne_repeated_scraping",
+          "name": "Repeated scraping accompaniment; precise source pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "repeated",
+            "rhythmic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Retains the credited named keregne. Smithsonian field report identifies it as a metal scraper. No invented cylinder geometry, alloy, striker construction or exact rhythm; neutral unpublished physical details remain unspecified.",
+  "sources": [
+    "https://nfalydiakite.bandcamp.com/album/hunter-folk-vol-1-tribute-to-toumani-kon",
+    "https://repository.si.edu/bitstreams/cd618a8a-d48a-402f-8a02-bb3dd3c5119b/download"
+  ],
+  "_ownParts": [
+    {
+      "id": "keregne_construction",
+      "name": "Source instrument family",
+      "variants": [
+        {
+          "id": "keregne_metal_scraper_unspecified",
+          "name": "Metal scraper; alloy, shape and dimensions unspecified",
+          "default": true,
+          "descriptors": [
+            "scraped"
+          ],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "keregne_playing",
+      "name": "Authored accompaniment",
+      "variants": [
+        {
+          "id": "keregne_repeated_scraping",
+          "name": "Repeated scraping accompaniment; precise source pattern unspecified",
+          "default": true,
+          "descriptors": [
+            "repeated",
+            "rhythmic"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

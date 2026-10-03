@@ -5,7 +5,7 @@
   "lineage": "Portland metal is a city-scene discovery field represented by Red Fang’s riff-centered heavy-rock/metal branch and the locally recorded Arrows repertoire.",
   "recipe": "classic modern portland metal, distorted Rock, sludge branch. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 457,
-  "score": 71.488,
+  "score": 71.876,
   "config": {
     "traditions": [
       "portland_metal"
@@ -29,12 +29,12 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 14.35375,
+          "electric_technique": 14.469999999999999,
           "amp_make": 6.695,
           "body_wood": 6.24,
           "neck_wood": 0.078,
           "fretboard": 0.1095,
-          "pickup_magnet": 0.316875,
+          "pickup_magnet": 0.31124999999999997,
           "pickup_winding": 0.39,
           "string_material": 0.0315,
           "bridge": 0.9099999999999999,
@@ -57,10 +57,10 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 5.22125,
+          "amp_make": 5.215625,
           "body_wood": 0.18749999999999997,
-          "pickup_config": 0.305625,
-          "string_type": 8.8555,
+          "pickup_config": 0.3,
+          "string_type": 9.099999999999998,
           "scale_length_b": 0.39,
           "fretted_or_not": 0.3225,
           "bass_technique": 6.949999999999999,
@@ -76,7 +76,7 @@
         },
         "scores": {
           "drum_technique": 6.999999999999999,
-          "drumhead": 1.1792499999999997,
+          "drumhead": 1.2107499999999998,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -112,7 +112,7 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.175,
+          "voice_ensemble_config": 0.18775,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.0315,

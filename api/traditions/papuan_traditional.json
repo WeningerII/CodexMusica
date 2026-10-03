@@ -1,0 +1,62 @@
+{
+  "id": "papuan_traditional",
+  "name": "Papuan Traditional",
+  "family": "global",
+  "lineage": "Geawag — Burári flute solo, Buzi (Wolfgang Laade field recording1964, published1971). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic papuan traditional, improv On Frame. cane burari papuan flute. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 169,
+  "score": 1.263,
+  "config": {
+    "traditions": [
+      "papuan_traditional"
+    ],
+    "instruments": [
+      {
+        "id": "burari_papuan_flute",
+        "slots": {
+          "burari_construction": "burari_pater_one_hole",
+          "burari_performance": "burari_song_variation"
+        },
+        "scores": {
+          "burari_construction": 1.2,
+          "burari_performance": 0.063
+        }
+      }
+    ],
+    "pinned": {
+      "burari_papuan_flute": [
+        "burari_construction",
+        "burari_performance"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "burari_construction": "burari_pater_one_hole",
+      "burari_performance": "burari_song_variation"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

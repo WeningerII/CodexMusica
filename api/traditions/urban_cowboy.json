@@ -5,7 +5,7 @@
   "lineage": "Nashville and Los Angeles country-pop peak of 1978-1984, named for the 1980 John Travolta film and its Gilley's Club setting, delivered by Mickey Gilley, Johnny Lee, Kenny Rogers, Ronnie Milsap and Barbara Mandrell — mid-tempo 4/4 with soft rock drums, electric piano and synth pads, string sweetening, muted pedal steel far back in the mix, and smooth crossover-radio vocals.",
   "recipe": "classic North American mid-1980s urban cowboy, functional Song, nashville branch, neo trad country, pop rock yacht rock, contemp main country christian country neotraditional country. thick, breath veiled tone, straight note core, interlocked note trading. block chord electric piano tine, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 931,
-  "score": 674.17,
+  "score": 671.86,
   "config": {
     "traditions": [
       "urban_cowboy",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 51.07000000000002,
+          "voice_register": 51.02500000000002,
           "voice_quality": 8.19,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 32.96000000000001,
+          "voice_vibrato": 33.24500000000001,
           "voice_articulation": 16.184999999999995,
           "voice_microtone": 15.79499999999999,
           "voice_tradition": 12.805,
@@ -78,14 +78,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 38.88,
-          "amp_make": 33.17500000000001,
-          "pickup_steel": 2.885,
+          "electric_technique": 38.685,
+          "amp_make": 33.070000000000014,
+          "pickup_steel": 2.735,
           "string_setup": 16.705000000000002,
           "bar_material": 3.38,
-          "pedal_steel_brand": 40.84000000000001,
-          "pedal_steel_neck_config": 39.925,
-          "pedal_steel_strings": 38.61
+          "pedal_steel_brand": 40.39000000000001,
+          "pedal_steel_neck_config": 39.4,
+          "pedal_steel_strings": 38.31
         }
       },
       {
@@ -101,11 +101,11 @@
           "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
         },
         "scores": {
-          "amp_make": 32.38,
+          "amp_make": 32.425000000000004,
           "body_wood": 2.9899999999999998,
           "pickup_config": 0.845,
           "string_type": 9.524999999999999,
-          "scale_length_b": 2.885,
+          "scale_length_b": 2.735,
           "fretted_or_not": 0.195,
           "bass_technique": 32.17,
           "electric_bass_string_configuration": 0
@@ -133,9 +133,9 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 8.86,
+          "electronic_technique": 8.905,
           "poly_archetypes": 3.8999999999999995,
-          "poly_voices": 1.2349999999999999,
+          "poly_voices": 1.1749999999999998,
           "poly_maker_lineage": 1.3849999999999998
         }
       },
@@ -158,13 +158,13 @@
         },
         "scores": {
           "electric_technique": 34.095,
-          "amp_make": 33.17500000000001,
-          "body_wood": 2.885,
-          "neck_wood": 2.885,
-          "fretboard": 2.835,
+          "amp_make": 33.070000000000014,
+          "body_wood": 2.735,
+          "neck_wood": 2.735,
+          "fretboard": 2.685,
           "pickup_magnet": 0.09,
           "string_material": 3.38,
-          "string_gauge": 2.885,
+          "string_gauge": 2.735,
           "bridge": 0.195,
           "scale_length": 2.9899999999999998,
           "finish": 0,

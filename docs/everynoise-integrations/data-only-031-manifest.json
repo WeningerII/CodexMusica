@@ -1,0 +1,2428 @@
+{
+  "instrument_dependencies": [
+    {
+      "record": {
+        "id": "burari_papuan_flute",
+        "name": "Burári (southern Papuan one-hole cane flute)",
+        "family": "wind",
+        "class": "wind_blown",
+        "short": "one-hole cane flute",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 2,
+          "polyphony": -2,
+          "harmonicity": 1,
+          "register": 0,
+          "range": 1,
+          "articulation": 2,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "burari_construction",
+            "name": "Documented source construction",
+            "variants": [
+              {
+                "id": "burari_pater_one_hole",
+                "name": "Thin patër cane, longitudinal open end and one fingerhole; Geawag recording",
+                "default": true,
+                "descriptors": ["cane"],
+                "match_tokens": ["cane", "end-blown"]
+              }
+            ]
+          },
+          {
+            "id": "burari_performance",
+            "name": "Melodic practice",
+            "variants": [
+              {
+                "id": "burari_song_variation",
+                "name": "Instrumental ornamentation and variation of a song melody",
+                "default": true,
+                "descriptors": ["ornamented"],
+                "match_tokens": ["ornamented"]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "burari_papuan_flute",
+        "name": "Burári (southern Papuan one-hole cane flute)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context only; not a burari flute, performer, source recording equipment or location.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "burari_papuan_flute",
+          "name": "Burári (southern Papuan one-hole cane flute)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only; not a burari flute, performer, source recording equipment or location.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "File-specific Commons rights and attribution re-read in this session. Byte/hash/dimension and personal visual receipts below are inherited from frozen data-only-023 evidence, not new downloads."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained. No new download or visual inspection claimed."
+        }
+      },
+      "dependency_rationale": "Source-specific one-hole cane flute avoids importing panpipe or transverse multi-hole construction. Only new data owner; no original owner or shared part changed.",
+      "sources": [
+        {
+          "url": "https://folkways-media.si.edu/docs/folkways/artwork/FW04216.pdf",
+          "title": "Geawag — Burári flute solo, Buzi (Wolfgang Laade field recording1964, published1971)",
+          "support_notes": "Recordist Wolfgang Laade documents coastal Papuan traditional music and identifies example18 as the complete flute solo by Geawag of Buzi. Instrument section describes a longitudinal cane flute without mouthpiece, with one fingerhole, and says players elaborate song melodies through instrumental ornamentation and extensive variations. Notes distinguish Geawag thin patër cane from preceding Girao thick-cane recording. The selected actual solo retains its complete single instrument and no singers; neighboring group songs, drums and panpipes are separate recordings.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://folkways.si.edu/music-from-south-new-guinea/world/album/smithsonian",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Publisher catalog independently identifies Geawag Burari Flute Solo3 as FW04216_116,1:07, and regional Papua New Guinea context.",
+          "checked_date": "2026-10-03"
+        }
+      ]
+    },
+    {
+      "record": {
+        "id": "rain_environmental_recording",
+        "name": "Rain environmental recording",
+        "short": "Rain field recording",
+        "family": "electronic",
+        "class": "environmental_recording",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "rain_environmental_source",
+            "name": "Environmental source",
+            "variants": [
+              {
+                "id": "rain_field_recording_source",
+                "name": "Rain field recording",
+                "default": true,
+                "descriptors": ["environmental", "field-recording"],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Environmental rain captured as a field recording. Source remains the environmental sound itself, not an invented pitched synth, noise generator, instrument or sampler performance. Recorder, microphone and playback implementation unspecified; all routing axes are neutral authored coordinates.",
+        "sources": ["https://judefrankum.bandcamp.com/album/rain-recording"]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "rain_environmental_recording",
+        "name": "Rain environmental recording",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording-microphone context only, not rainfall, a field recorder, the actual capture microphone or source location.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "rain_environmental_recording",
+          "name": "Rain environmental recording",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording-microphone context only, not rainfall, a field recorder, the actual capture microphone or source location.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Fresh file-specific Commons CC BY2.5 attribution reread2026-10-03, refs turn3636view1/turn3639view3. Exact original023 byte/hash/dimension and original visual receipts inherited, not newly captured."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        }
+      },
+      "dependency_rationale": "Artist explicitly describes the complete selected release as rain and its aftermath recorded from a bedroom window. Separate environmental source owner preserves this source identity without synthesizer or completed-master sampler invention."
+    },
+    {
+      "record": {
+        "id": "spoken_word_voice",
+        "name": "Spoken-word voice (separately credited speaker)",
+        "short": "spoken-word voice",
+        "family": "voice",
+        "class": "vocal_lead",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": -2,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "spoken_word_voice_identity",
+            "name": "Authored source-scoped realization",
+            "variants": [
+              {
+                "id": "spoken_word_voice_source_unspecified",
+                "name": "One separately credited speaker; physiology and pitch unspecified",
+                "default": true,
+                "descriptors": ["speech-derived"]
+              }
+            ]
+          }
+        ],
+        "_ownParts": [
+          {
+            "id": "spoken_word_voice_identity",
+            "name": "Authored source-scoped realization",
+            "variants": [
+              {
+                "id": "spoken_word_voice_source_unspecified",
+                "name": "One separately credited speaker; physiology and pitch unspecified",
+                "default": true,
+                "descriptors": ["speech-derived"]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "spoken_word_voice",
+        "name": "Spoken-word voice (separately credited speaker)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "matched_label": "Generic recording microphone context only; not artist, source hardware, saxophone or snare depiction.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "spoken_word_voice",
+          "name": "Spoken-word voice (separately credited speaker)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "matched_label": "Generic recording microphone context only; not artist, source hardware, saxophone or snare depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Existing crop retained; credit Iain Fergusson and Binksternet, link CC BY2.5 and indicate changes.",
+          "evidence": "File-specific Commons rights and attribution freshly checked. Exact URL/hash/bytes/dimensions and visual receipts are inherited from frozen batch023; no fresh download or personal visual observation claimed."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+          "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "bajki",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": ["turn3670view1"]
+      },
+      "dependency_rationale": "Generic singing voice cannot encode separately credited speech and sung voice with honest independent counts; isolated speech owner invents no physiology.",
+      "sources": [
+        {
+          "url": "https://erblast.bandcamp.com/album/leben-im-niemandsland-remastered",
+          "title": "Goethes Erben — Leben im Niemandsland, complete 6 June 1993 Bochum concert album",
+          "support_notes": "Authorized Henke release provides complete dated seven-person roster, words distinct from singing, both saxophone types, source venue and exact category tag.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "authored_axes_policy": "Coarse authored synthesis settings, not measured performer physiology or historical source hardware."
+    },
+    {
+      "record": {
+        "id": "saxophone_doubling_alto_soprano",
+        "name": "Alto and soprano saxophone doubling (one player)",
+        "short": "alto-soprano saxophone doubling",
+        "family": "wind",
+        "class": "wind_blown",
+        "axes": {
+          "pitchFix": 1,
+          "sustain": 2,
+          "polyphony": -2,
+          "harmonicity": 1,
+          "register": 1,
+          "range": 2,
+          "articulation": 2,
+          "transduction": -2,
+          "dynamics": 2
+        },
+        "parts": [
+          {
+            "id": "alto_soprano_doubling_articulation",
+            "name": "Authored source-scoped realization",
+            "variants": [
+              {
+                "id": "alto_soprano_doubling_legato",
+                "name": "One player alternating alto and soprano saxophones; authored legato",
+                "default": true,
+                "descriptors": ["legato", "controlled"]
+              }
+            ]
+          }
+        ],
+        "_ownParts": [
+          {
+            "id": "alto_soprano_doubling_articulation",
+            "name": "Authored source-scoped realization",
+            "variants": [
+              {
+                "id": "alto_soprano_doubling_legato",
+                "name": "One player alternating alto and soprano saxophones; authored legato",
+                "default": true,
+                "descriptors": ["legato", "controlled"]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "saxophone_doubling_alto_soprano",
+        "name": "Alto and soprano saxophone doubling (one player)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "matched_label": "Generic recording microphone context only; not artist, source hardware, saxophone or snare depiction.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "saxophone_doubling_alto_soprano",
+          "name": "Alto and soprano saxophone doubling (one player)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "matched_label": "Generic recording microphone context only; not artist, source hardware, saxophone or snare depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Existing crop retained; credit Iain Fergusson and Binksternet, link CC BY2.5 and indicate changes.",
+          "evidence": "File-specific Commons rights and attribution freshly checked. Exact URL/hash/bytes/dimensions and visual receipts are inherited from frozen batch023; no fresh download or personal visual observation claimed."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+          "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "bajki",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": ["turn3670view1"]
+      },
+      "dependency_rationale": "Existing saxophone card forces a single size; existing sections imply several players or wrong sizes. Exact one-player alto/soprano doubling retained.",
+      "sources": [
+        {
+          "url": "https://erblast.bandcamp.com/album/leben-im-niemandsland-remastered",
+          "title": "Goethes Erben — Leben im Niemandsland, complete 6 June 1993 Bochum concert album",
+          "support_notes": "Authorized Henke release provides complete dated seven-person roster, words distinct from singing, both saxophone types, source venue and exact category tag.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "authored_axes_policy": "Coarse authored synthesis settings, not measured performer physiology or historical source hardware."
+    },
+    {
+      "record": {
+        "id": "snare_drum",
+        "name": "Standalone snare drum (general purpose)",
+        "short": "standalone snare drum",
+        "family": "percussion",
+        "class": "membranophone",
+        "axes": {
+          "pitchFix": -1,
+          "sustain": -2,
+          "polyphony": -2,
+          "harmonicity": -2,
+          "register": 1,
+          "range": -2,
+          "articulation": 2,
+          "transduction": -2,
+          "dynamics": 2
+        },
+        "parts": [
+          {
+            "id": "standalone_snare_construction",
+            "name": "Authored source-scoped realization",
+            "variants": [
+              {
+                "id": "standalone_snare_yamaha_sss1455",
+                "name": "Authored Yamaha SSS1455 steel snare, 14 by 5.5 inches; not historical source hardware",
+                "default": true,
+                "descriptors": ["percussive-attack"]
+              }
+            ]
+          }
+        ],
+        "_ownParts": [
+          {
+            "id": "standalone_snare_construction",
+            "name": "Authored source-scoped realization",
+            "variants": [
+              {
+                "id": "standalone_snare_yamaha_sss1455",
+                "name": "Authored Yamaha SSS1455 steel snare, 14 by 5.5 inches; not historical source hardware",
+                "default": true,
+                "descriptors": ["percussive-attack"]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "snare_drum",
+        "name": "Standalone snare drum (general purpose)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "matched_label": "Generic recording microphone context only; not artist, source hardware, saxophone or snare depiction.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "snare_drum",
+          "name": "Standalone snare drum (general purpose)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "matched_label": "Generic recording microphone context only; not artist, source hardware, saxophone or snare depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Existing crop retained; credit Iain Fergusson and Binksternet, link CC BY2.5 and indicate changes.",
+          "evidence": "File-specific Commons rights and attribution freshly checked. Exact URL/hash/bytes/dimensions and visual receipts are inherited from frozen batch023; no fresh download or personal visual observation claimed."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+          "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "bajki",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": ["turn3670view1"]
+      },
+      "dependency_rationale": "Only existing dedicated snare is pipe-band-specific; full drum kit would invent additional drums. Standalone source-credited general snare required.",
+      "sources": [
+        {
+          "url": "https://erblast.bandcamp.com/album/leben-im-niemandsland-remastered",
+          "title": "Goethes Erben — Leben im Niemandsland, complete 6 June 1993 Bochum concert album",
+          "support_notes": "Authorized Henke release provides complete dated seven-person roster, words distinct from singing, both saxophone types, source venue and exact category tag.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://www.medienkonverter.de/artikel/goethes-erben-interview-von-2001",
+          "title": "Corroborating primary source",
+          "support_notes": "First-person Henke interview describes German-language music theatre and foregrounded text. Earlier full retrieval turn3629view1; later refresh timed out. Date heading conflicts with introduction, so no exact interview date asserted.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://europe.yamaha.com/en/musical-instruments/drums/products/snare-drums/stage-custom-steel-snare-drums/",
+          "title": "Corroborating primary source",
+          "support_notes": "Manufacturer gives SSS1455 steel 14 by 5.5 inches, an authored general-purpose snare realization only.",
+          "checked_date": "2026-10-03"
+        }
+      ],
+      "authored_axes_policy": "Coarse authored synthesis settings, not measured performer physiology or historical source hardware."
+    },
+    {
+      "record": {
+        "id": "credited_harsh_noise",
+        "name": "Credited harsh-noise source (mechanism unspecified)",
+        "short": "Credited harsh noise",
+        "family": "electronic",
+        "class": "source_unspecified_noise",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "credited_harsh_noise_identity",
+            "name": "Source identification",
+            "variants": [
+              {
+                "id": "credited_harsh_noise_mechanism_unspecified",
+                "name": "Harsh noise credited; generator and mechanism unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Retains an explicitly credited harsh-noise role without claiming a synthesizer, pedal, feedback circuit, acoustic object or production technique. Electronic family and neutral axes are authored routing coordinates only; sound-generation mechanism remains source-unspecified.",
+        "sources": ["https://thistlethistlethistle.bandcamp.com/album/lomochrome"]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "credited_harsh_noise",
+        "name": "Credited harsh-noise source (mechanism unspecified)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording-microphone context only; not a depiction of the harsh-noise source, performers or actual source equipment.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "credited_harsh_noise",
+          "name": "Credited harsh-noise source (mechanism unspecified)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording-microphone context only; not a depiction of the harsh-noise source, performers or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Commons file-specific rights and context reread2026-10-02. Exact byte/dimension/hash and visual receipts inherited from frozen023; no new download or personal re-view asserted."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        }
+      },
+      "dependency_rationale": "Primary artist credits expressly name harsh noise separately from guitars, drums, percussion, accordion and organ. Isolated source-unspecified identity retains this positive role without fabricated synthesis architecture or alteration of any existing owner."
+    },
+    {
+      "record": {
+        "id": "ney_persian_interdental",
+        "name": "Persian ney (seven-segment cane, interdental)",
+        "short": "Persian ney",
+        "family": "wind",
+        "class": "wind_blown",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 2,
+          "polyphony": -2,
+          "harmonicity": 2,
+          "register": 0,
+          "range": 1,
+          "articulation": 2,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "ney_persian_construction",
+            "name": "Regional construction",
+            "variants": [
+              {
+                "id": "ney_persian_seven_segment_six_hole",
+                "name": "Seven-segment Arundo donax cane; five front holes and one rear hole",
+                "default": true,
+                "descriptors": ["cane"],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "ney_persian_embouchure",
+            "name": "Sound production",
+            "variants": [
+              {
+                "id": "ney_persian_interdental_edge",
+                "name": "Interdental end-edge blowing; authored legato phrasing",
+                "default": true,
+                "descriptors": ["breathy", "legato"],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "ney_persian_register",
+            "name": "Source instrument pitch",
+            "variants": [
+              {
+                "id": "ney_persian_register_unspecified",
+                "name": "Source instrument length and nominal base pitch unspecified",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "ney_persian_practice",
+            "name": "Selected practice",
+            "variants": [
+              {
+                "id": "ney_persian_dastgah_improvisation",
+                "name": "Iranian dastgah improvisation",
+                "default": true,
+                "descriptors": ["dastgah"],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Isolated accurate Persian construction for a documented Iranian interdental ney source. Existing generic ney owner and shared family definitions remain unchanged. Cane construction is a source-supported regional realization, not a measured inventory of the historical instrument.",
+        "sources": [
+          "https://folkways.si.edu/hasan-kasai/shushtari/central-asia-islamica-world/music/track/smithsonian",
+          "https://persianney.com/construction.html",
+          "https://omoumi.com/innovations/ney/"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "ney_persian_interdental",
+        "name": "Persian ney (seven-segment cane, interdental)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "ney_persian_interdental",
+          "name": "Persian ney (seven-segment cane, interdental)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Commons rights/context freshly checked2026-10-03; exact inherited023 bytes/visual receipt, no new download or personal visual inspection."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        }
+      },
+      "dependency_rationale": "Positive Iranian interdental ney source requires correct seven-segment six-hole regional construction; old generic ney owner unchanged.",
+      "sources": [
+        {
+          "url": "https://folkways.si.edu/hasan-kasai/shushtari/central-asia-islamica-world/music/track/smithsonian",
+          "title": "Hasan Kasa'i — Shushtari, Smithsonian Folkways SFW40438_109",
+          "support_notes": "Smithsonian track record credits Hasan Kasa'i on ney alone and identifies a four-minute-eight-second free improvisation in shushtari, within dastgah homayun. Institutional explanation explicitly describes the Iranian interdental blowing technique. The precisely indexed complete track has one ney performer and zero credited singers; no accompaniment is added. Performer Omoumi independently identifies Kassaie as the Isfahan ney master and documents traditional Persian five-front/one-back hole geometry; practicing maker Kees van den Doel specifies seven cane segments.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://persianney.com/construction.html",
+          "title": "Corroborating primary evidence",
+          "support_notes": "Primary practicing maker describes traditional seven-segment Arundo donax body, six total holes, and five front/one back layout. Construction evidence, not claim to have examined historical session instrument.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://omoumi.com/innovations/ney/",
+          "title": "Corroborating primary evidence",
+          "support_notes": "Primary ney performer/inventor distinguishes traditional five-front/one-back Persian ney from his later keyed/full-range innovation; selected owner retains traditional construction, not modern innovation.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://omoumi.com/innovations/",
+          "title": "Corroborating primary evidence",
+          "support_notes": "Primary performer identifies master Hassan Kassaie with Isfahan, Iran.",
+          "checked_date": "2026-10-03"
+        }
+      ]
+    },
+    {
+      "record": {
+        "id": "donso_ngoni_eight_string",
+        "name": "Donso ngoni (eight-string hunters harp)",
+        "short": "eight-string donso ngoni",
+        "family": "plucked_traditional",
+        "class": "plucked_string_lead",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": -1,
+          "polyphony": 1,
+          "harmonicity": 0,
+          "register": -1,
+          "range": 0,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": -1
+        },
+        "parts": [
+          {
+            "id": "donso_eight_configuration",
+            "name": "Source string configuration",
+            "variants": [
+              {
+                "id": "donso_eight_string_source",
+                "name": "Eight strings; individual pitch assignments unspecified",
+                "default": true,
+                "descriptors": ["donso", "hunters"],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "donso_eight_soundboard",
+            "name": "Source soundboard",
+            "variants": [
+              {
+                "id": "donso_eight_antelope_skin",
+                "name": "Antelope-skin soundboard",
+                "default": true,
+                "descriptors": [],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "donso_eight_resonator",
+            "name": "Authored resonator",
+            "variants": [
+              {
+                "id": "donso_eight_calabash",
+                "name": "Authored calabash resonator",
+                "default": true,
+                "descriptors": ["calabash"],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "donso_eight_string_setup",
+            "name": "Authored string setup",
+            "variants": [
+              {
+                "id": "donso_eight_nylon",
+                "name": "Authored modern nylon strings",
+                "default": true,
+                "descriptors": ["nylon-modern"],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "donso_eight_technique",
+            "name": "Authored playing approach",
+            "variants": [
+              {
+                "id": "donso_eight_fingerpicked",
+                "name": "Fingerpicked accompaniment",
+                "default": true,
+                "descriptors": ["fingerpicked"],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Isolated eight-string hunter-harp realization for positively documented Nfaly Diakite source; does not mutate existing six-string donso owner. Antelope skin and eight-string regional instrument identity from artist/label. Calabash resonator, nylon strings and fingerpicking are compatible authored construction/performance choices, not measured historical specifications.",
+        "sources": [
+          "https://nfalydiakite.bandcamp.com/album/hunter-folk-vol-1-tribute-to-toumani-kon"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "donso_ngoni_eight_string",
+        "name": "Donso ngoni (eight-string hunters harp)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "donso_ngoni_eight_string",
+          "name": "Donso ngoni (eight-string hunters harp)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Commons rights/context checked2026-10-03; inherited023 exact bytes/visual receipt, no new download or personal pixel inspection."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        }
+      },
+      "dependency_rationale": "Eight-string positive source must not emit forced six-string preset; named metal scraper has no existing regional owner. Isolated data only, no shared or existing owner changes.",
+      "sources": [
+        {
+          "url": "https://nfalydiakite.bandcamp.com/album/hunter-folk-vol-1-tribute-to-toumani-kon",
+          "title": "Nfaly Diakité — Hunter Folk Vol1: Tribute to Toumani Koné, complete nine-track album",
+          "support_notes": "Artist/label release explicitly identifies Nfaly Diakite as the only singer, performing all backing vocals, donso ngoni and keregne across the complete nine-track album, recorded June2020 in Studio Zack, Bamako and released2024. The instrument is described as an eight-string antelope-skin harp. The source presents hunter-praiser songs transmitting Bambara history and philosophical narratives, in a tribute to storyteller/poet Toumani Kone. Three role families, one distinct singer; former BKO collaborators are biographical context, not album performers.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://repository.si.edu/bitstreams/cd618a8a-d48a-402f-8a02-bb3dd3c5119b/download",
+          "title": "Corroborating primary evidence",
+          "support_notes": "Primary Smithsonian fieldwork/program text identifies keregne as a metal scraper. Independently indexed exact passage reproduced (turn3691search14 and15); direct browser PDF fetch exceeds10MB limit, no full-document or screenshot reading claimed.",
+          "checked_date": "2026-10-03"
+        }
+      ]
+    },
+    {
+      "record": {
+        "id": "keregne_mande",
+        "name": "Keregne (Mande metal scraper)",
+        "short": "keregne metal scraper",
+        "family": "percussion",
+        "class": "percussion_idiophone",
+        "axes": {
+          "pitchFix": -2,
+          "sustain": -2,
+          "polyphony": -2,
+          "harmonicity": -2,
+          "register": 0,
+          "range": 0,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "keregne_construction",
+            "name": "Source instrument family",
+            "variants": [
+              {
+                "id": "keregne_metal_scraper_unspecified",
+                "name": "Metal scraper; alloy, shape and dimensions unspecified",
+                "default": true,
+                "descriptors": ["scraped"],
+                "match_tokens": []
+              }
+            ]
+          },
+          {
+            "id": "keregne_playing",
+            "name": "Authored accompaniment",
+            "variants": [
+              {
+                "id": "keregne_repeated_scraping",
+                "name": "Repeated scraping accompaniment; precise source pattern unspecified",
+                "default": true,
+                "descriptors": ["repeated", "rhythmic"],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Retains the credited named keregne. Smithsonian field report identifies it as a metal scraper. No invented cylinder geometry, alloy, striker construction or exact rhythm; neutral unpublished physical details remain unspecified.",
+        "sources": [
+          "https://nfalydiakite.bandcamp.com/album/hunter-folk-vol-1-tribute-to-toumani-kon",
+          "https://repository.si.edu/bitstreams/cd618a8a-d48a-402f-8a02-bb3dd3c5119b/download"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "keregne_mande",
+        "name": "Keregne (Mande metal scraper)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "keregne_mande",
+          "name": "Keregne (Mande metal scraper)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-03",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Commons rights/context checked2026-10-03; inherited023 exact bytes/visual receipt, no new download or personal pixel inspection."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-03",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        }
+      },
+      "dependency_rationale": "Eight-string positive source must not emit forced six-string preset; named metal scraper has no existing regional owner. Isolated data only, no shared or existing owner changes.",
+      "sources": [
+        {
+          "url": "https://nfalydiakite.bandcamp.com/album/hunter-folk-vol-1-tribute-to-toumani-kon",
+          "title": "Nfaly Diakité — Hunter Folk Vol1: Tribute to Toumani Koné, complete nine-track album",
+          "support_notes": "Artist/label release explicitly identifies Nfaly Diakite as the only singer, performing all backing vocals, donso ngoni and keregne across the complete nine-track album, recorded June2020 in Studio Zack, Bamako and released2024. The instrument is described as an eight-string antelope-skin harp. The source presents hunter-praiser songs transmitting Bambara history and philosophical narratives, in a tribute to storyteller/poet Toumani Kone. Three role families, one distinct singer; former BKO collaborators are biographical context, not album performers.",
+          "checked_date": "2026-10-03"
+        },
+        {
+          "url": "https://repository.si.edu/bitstreams/cd618a8a-d48a-402f-8a02-bb3dd3c5119b/download",
+          "title": "Corroborating primary evidence",
+          "support_notes": "Primary Smithsonian fieldwork/program text identifies keregne as a metal scraper. Independently indexed exact passage reproduced (turn3691search14 and15); direct browser PDF fetch exceeds10MB limit, no full-document or screenshot reading claimed.",
+          "checked_date": "2026-10-03"
+        }
+      ]
+    },
+    {
+      "record": {
+        "id": "prepared_piano_cage_sonatas",
+        "name": "Prepared piano (Cage Sonatas mixed preparation)",
+        "short": "Cage Sonatas mixed-preparation piano",
+        "family": "keyboard",
+        "class": "keyboard_acoustic",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 2,
+          "harmonicity": -2,
+          "register": 0,
+          "range": 2,
+          "articulation": 0,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "keyboard_technique",
+            "name": "Keyboard execution",
+            "variants": [
+              {
+                "id": "prepared_piano_cage_keyboard",
+                "name": "Score-led keyboard execution; no inferred pop chord technique",
+                "default": true,
+                "descriptors": ["percussive"],
+                "match_tokens": ["percussive"]
+              }
+            ]
+          },
+          {
+            "id": "cage_sonatas_preparation",
+            "name": "Documented complete preparation",
+            "variants": [
+              {
+                "id": "cage_sonatas_mixed_45_notes",
+                "name": "45 prepared notes: screws, bolts, rubber, plastic, nuts and eraser",
+                "default": true,
+                "descriptors": ["inharmonic", "mixed-timbre"],
+                "match_tokens": ["inharmonic", "mixed-timbre"]
+              }
+            ]
+          }
+        ],
+        "description": "Score-practice owner for Cage Sonatas and Interludes. Publisher documents45 prepared notes including screws and bolts,15 rubber pieces,4 plastic pieces,6 nuts and1 eraser. This combined configuration is one preparation, not mutually exclusive metal versus rubber timbres or an unsupported full-compass preparation. The source does not specify the actual host make/model for Simonacci; no wood, octave span, measured tuning or concert-grand size is invented. Neutral axes and short descriptive sound words are authored. Own keyboard part avoids inherited block-chord-pop playing. Existing generic prepared_piano owner is unchanged.",
+        "sources": [
+          "https://www.wisemusicclassical.com/work/67740/Sonatas-and-Interludes--John-Cage/"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "prepared_piano_cage_sonatas",
+        "name": "Prepared piano (Cage Sonatas mixed preparation)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context only; not a prepared piano, named performer, actual recording equipment or preparation diagram.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "prepared_piano_cage_sonatas",
+          "name": "Prepared piano (Cage Sonatas mixed preparation)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only; not a prepared piano, named performer, actual recording equipment or preparation diagram.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "File-specific Commons rights and attribution re-read in this session. Byte/hash/dimension and personal visual receipts below are inherited from frozen data-only-023 evidence, not new downloads."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained; network prevents new byte download."
+        }
+      },
+      "dependency_rationale": "Existing generic prepared_piano only offers block-chord-pop keyboard playing and mutually exclusive material/register preparations. This documented45-note mixed configuration needs a separate owner; no shared parts/variants or old objects modified.",
+      "sources": [
+        {
+          "url": "https://www.wisemusicclassical.com/work/67740/Sonatas-and-Interludes--John-Cage/",
+          "support_notes": "Publisher sole prepared-piano instrumentation and complete mixed preparation architecture."
+        }
+      ]
+    },
+    {
+      "record": {
+        "id": "concert_triangle",
+        "name": "Concert triangle (general purpose)",
+        "short": "concert triangle",
+        "family": "percussion",
+        "class": "idiophone",
+        "axes": {
+          "pitchFix": -2,
+          "sustain": 1,
+          "polyphony": -2,
+          "harmonicity": -2,
+          "register": 2,
+          "range": -2,
+          "articulation": 1,
+          "transduction": -2,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "concert_triangle_construction",
+            "name": "Authored triangle construction",
+            "variants": [
+              {
+                "id": "concert_triangle_grover_six_kanigen",
+                "name": "Six-inch Grover Super-Overtone triangle, Kanigen plating; authored ringing realization",
+                "default": true,
+                "descriptors": ["ringing", "metallic-attack"],
+                "match_tokens": ["metallic", "percussive-attack"]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "concert_triangle",
+        "name": "Concert triangle (general purpose)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "matched_label": "Generic recording microphone context only; not a triangle depiction.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "concert_triangle",
+          "name": "Concert triangle (general purpose)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "matched_label": "Generic recording microphone context only; not a triangle depiction.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Existing Commons crop retained; attribute Iain Fergusson and Binksternet, link CC BY2.5 and indicate changes. No share-alike obligation.",
+          "evidence": "File-specific Commons rights and attribution freshly checked. Exact URL/hash/bytes/dimensions and visual receipts are inherited from frozen batch023; no fresh download or personal visual observation claimed."
+        },
+        "full": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+          "status": "downloaded_via_browser_link",
+          "content_type": "image/jpeg",
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "dimensions": [250, 720],
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "checked_date": "2026-10-02",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image; independent SHA-256 and Pillow decode of central downloaded bytes.",
+          "observation": "Single dark Shure SM58 handheld microphone with wire-mesh grille against white background; this is served250px preview of existing Commons crop.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified250×720servedthumbnail used for both; no full-resolution original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "bajki",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        },
+        "fresh_rights_retrieval_refs": ["turn3524view0"]
+      },
+      "dependency_rationale": "Positive triangle credit cannot be represented without unrelated forro or Coptic contextual parts in existing owners. Isolated generic concert triangle, no shared parts or variants mutated.",
+      "sources": [
+        [
+          "https://groverpro.com/product/super-overtone-triangles",
+          "Manufacturer supports authored six-inch Kanigen-plated general-purpose concert triangle and ringing long decay; not source-session hardware."
+        ]
+      ],
+      "source_refs": ["turn3564view0"],
+      "authored_axes_policy": "Coarse ringing unpitched metallic idiophone characterization, not measured source equipment."
+    },
+    {
+      "record": {
+        "id": "hybrid_groovebox_electribe2",
+        "name": "Hybrid digital groovebox (Electribe 2 synthesis and PCM)",
+        "family": "electronic",
+        "class": "electronic",
+        "short": "hybrid digital groovebox",
+        "axes": {
+          "pitchFix": 1,
+          "sustain": 2,
+          "polyphony": 2,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 2,
+          "articulation": 1,
+          "transduction": 2,
+          "dynamics": 1
+        },
+        "parts": [
+          {
+            "id": "hybrid_groovebox_engine",
+            "name": "Sound generation architecture",
+            "variants": [
+              {
+                "id": "hybrid_groovebox_electribe2_modeling_pcm",
+                "name": "Korg Electribe 2: analog modeling and PCM sound engine",
+                "default": true,
+                "descriptors": ["digital", "synthesized", "sampled", "polyphonic"],
+                "match_tokens": ["synth", "sequenced"]
+              }
+            ]
+          },
+          {
+            "id": "hybrid_groovebox_workflow",
+            "name": "Authored performance workflow",
+            "variants": [
+              {
+                "id": "hybrid_groovebox_sequenced_layers",
+                "name": "Sequenced synthesized and PCM layers; specific program selection unspecified",
+                "default": true,
+                "descriptors": ["sequenced"],
+                "match_tokens": ["sequenced", "synth"]
+              }
+            ]
+          }
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "hybrid_groovebox_electribe2",
+        "name": "Hybrid digital groovebox (Electribe 2 synthesis and PCM)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context only; not the groovebox, performer, or source recording hardware.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "hybrid_groovebox_electribe2",
+          "name": "Hybrid digital groovebox (Electribe 2 synthesis and PCM)",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording microphone context only; not the groovebox, performer, or source recording hardware.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "File-specific Commons rights and attribution re-read in this session. Byte/hash/dimension and personal visual receipts below are inherited from frozen data-only-023 evidence, not new downloads."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "inherited historical download; not downloaded in current environment"
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "inherited original reviewer observation; not personally re-viewed this session"
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "baps",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false,
+          "reason": "Original frozen exact URL, SHA256, byte count, dimensions and visual receipt retained. No new download or visual inspection claimed."
+        }
+      },
+      "dependency_rationale": "Isolated device owner needed because source hardware combines analog-modeling and PCM generation. Pure VA or pure sampler omits positive architecture; keyboard-only card misstates its groovebox interface. No old owner/part changed.",
+      "sources": [
+        {
+          "url": "https://www.korg.com/us/products/dj/electribe/specifications.php",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Manufacturer identifies model electribe2 and its analog modeling plus PCM sound system,16-part sequencer, and melodic/drum oscillator families. This is the standard synth model, not the separately sold Electribe Sampler.",
+          "checked_date": "2026-10-02"
+        },
+        {
+          "url": "https://www.korg.com/uk/products/dj/electribe/workflow_1.php",
+          "title": "Corroborating primary or distributed metadata",
+          "support_notes": "Manufacturer details55 analog-modeling oscillator types alongside PCM engine; no unsupported purely analog or sample-only substitution.",
+          "checked_date": "2026-10-02"
+        }
+      ]
+    },
+    {
+      "record": {
+        "id": "software_pink_noise_generator",
+        "name": "Software pink-noise generator",
+        "short": "Software-generated pink noise",
+        "family": "electronic",
+        "class": "software_noise_generator",
+        "axes": {
+          "pitchFix": 0,
+          "sustain": 0,
+          "polyphony": 0,
+          "harmonicity": 0,
+          "register": 0,
+          "range": 0,
+          "articulation": 0,
+          "transduction": 0,
+          "dynamics": 0
+        },
+        "parts": [
+          {
+            "id": "software_pink_noise_identity",
+            "name": "Noise source",
+            "variants": [
+              {
+                "id": "software_generated_pink_noise",
+                "name": "Software-generated pink noise",
+                "default": true,
+                "descriptors": ["digital", "continuous"],
+                "match_tokens": []
+              }
+            ]
+          }
+        ],
+        "description": "Computer-generated pink-noise source. Does not imply any pitched synthesizer oscillator, physical instrument, modular hardware or sampled song. Routing axes are neutral authored coordinates; amplitude, duration and subsequent source processing remain unspecified.",
+        "sources": [
+          "https://manual.audacityteam.org/man/noise.html",
+          "https://owlripperrecordings.bandcamp.com/track/wallace-robert-holt-pink-wall-42a"
+        ]
+      },
+      "image_manifest": {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "software_pink_noise_generator",
+        "name": "Software pink-noise generator",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording-microphone context only, not a depiction of software, noise generation, source artist or actual source equipment.",
+        "match_confidence": "low"
+      },
+      "photo": {
+        "manifest": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "kind": "instrument",
+          "source": "generic_recording_context",
+          "id": "software_pink_noise_generator",
+          "name": "Software pink-noise generator",
+          "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "matched_label": "Generic recording-microphone context only, not a depiction of software, noise generation, source artist or actual source equipment.",
+          "match_confidence": "low"
+        },
+        "rights": {
+          "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+          "source_title": "Shure SM58.jpg",
+          "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+          "license": "CC BY",
+          "license_raw": "CC BY 2.5 Generic",
+          "license_url": "https://creativecommons.org/licenses/by/2.5/",
+          "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+          "checked_date": "2026-10-02",
+          "changes_notice": "Commons file already cropped by Binksternet from Iain Fergusson original; served250px preview reused unchanged. No additional local edit; preserve credit and indicate future changes.",
+          "evidence": "Commons file-specific rights and context reread2026-10-02. Exact byte/dimension/hash and visual receipts inherited from frozen023; no new download or personal re-view asserted."
+        },
+        "full": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "thumbnail": {
+          "dimensions": [250, 720],
+          "bytes": 33015,
+          "sha256": "7a97c2642c5423e2330eaf8626bc7003805da81a314158017acc23648c52d3f8",
+          "content_type": "image/jpeg",
+          "checked_date": "2026-10-02",
+          "status": "served_preview_downloaded_via_browser_link",
+          "http_status_note": "Browser observed-link download completed; no numeric HTTP status inferred.",
+          "local_path": "/workspace/scratch/798b01cac944/photos/mic-preview.jpg",
+          "requested_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+          "receipt_scope": "Inherited historical download, not downloaded in this environment."
+        },
+        "visual": {
+          "checked": true,
+          "checked_date": "2026-10-02",
+          "method": "Personal view_image of local received bytes, independent SHA-256/Pillow decode.",
+          "observation": "Single dark handheld Shure SM58 microphone with silver mesh grille on a white background.",
+          "reviewed_paths": ["/workspace/scratch/798b01cac944/photos/mic-preview.jpg"],
+          "receipt_scope": "Inherited original reviewer observation, not personally re-viewed this session."
+        },
+        "delivery_note": "Same verified served250px preview used for display and thumbnail; original-file receipt unavailable, no original download asserted.",
+        "reuse_provenance": {
+          "source_artifact": "docs/everynoise-integrations/data-only-023-evidence.json",
+          "source_entry": "anime_cv",
+          "same_image_url": true,
+          "same_thumb_url": true,
+          "fresh_rights_review_date": "2026-10-02",
+          "fresh_download": false,
+          "fresh_visual_review": false
+        }
+      },
+      "dependency_rationale": "Label explicitly identifies Audacity-generated pink noise as the entire source of the selected noise-wall track. Isolated accurately named software source prevents inventing a pitched oscillator, analog synth or whole-recording sampler performance."
+    }
+  ],
+  "source_packet_sha256": {
+    "/tmp/batch031/group171.json": "a398f4544b297aa8fb8a1f88932d2bf3962333680fa8bfe153f483556493cc66",
+    "/tmp/batch030/group164-supplement7.json": "d3a3abdf1a72fa62ab7d1934c0adb8190e32769a065f5f70a95db208f5ca20b4",
+    "/tmp/batch030/group166-supplement3.json": "6365f49abfc299ebe1af3d8a5dec5ad5da410ed3c80be5da505aa4cf9c28aece",
+    "/tmp/batch030/group166-supplement.json": "37a854882e2d0701fa8a2e276f6df9c2f7ddfd3dd527dcc69d79e4081d78ef0a",
+    "/tmp/batch030/group165-supplement3.json": "d890fdf142a7dc43d448564e576c325804c71222e5e9e1a40084ea084303b13b",
+    "/tmp/batch030/group164-supplement4.json": "569c08a835f2ab4e73c609ea1916262adee13ccb0d55f78b6cff136252232355",
+    "/tmp/batch031/group169.json": "4af6e40a837e03ed045859756b859ad306df4f91095ea540a92b1dc22ee3bbc4",
+    "/tmp/batch030/group166-supplement4.json": "2bfdb80fc9d73885638c74630b76e15f5464efb53343a75d6720c0dd3ed0dca7",
+    "/tmp/batch031/group167.json": "83403d7d226af7a6ade3257bb82566efbb56aba1ee3f2d555e051adf7d96aea3",
+    "/tmp/batch030/group164-supplement5.json": "d424cf04215bc25f5fe846f7fa45128a82da2a4fa280763c068a8618aa0c5e4e",
+    "/tmp/batch031/group167-supplement2.json": "e627945672dd6efd06ea208aaa779e41b9cbc1e64dab6dd7cd2d9b740499e656",
+    "/tmp/batch030/group161-supplement4.json": "22cb2e823f9dcfcbd21944bf17abc978b4802f99f4c463f540e71d8e72e44333",
+    "/tmp/batch030/group165-supplement11.json": "c998c7a08bf8c7e9a45cf16e30ffede6e129b300b053bb99bef287967a599597",
+    "/tmp/batch030/group164-supplement2.json": "3e5b9606914ccde55ea755a1074260926995ddcc5b90fd392ceaba5e9a7cbee0",
+    "/tmp/batch030/group161-supplement10.json": "e3f2633acffb4207b28f8920aee4cc0361981ad99b4e998081d2ab4f4cf66016",
+    "/tmp/batch030/group161-supplement8.json": "b221a08a47b10230c4b22a58f003af18d0d2de63a9f0599d07d373cd304b7c1f",
+    "/tmp/batch030/group160-supplement5.json": "fdc435982ee6b9ee7920a83b9d6b99903723b87d3402eb3c244d6b4ed21b1d1d",
+    "/tmp/batch030/group164-supplement8.json": "014b6fb65587692fbc002ac8ca9e5a19084132c5e5829508ba361b2784d1ed5e",
+    "/tmp/batch030/group163-supplement9.json": "19bc1e9251c63df7f3e456ee3021ace0f9ede1563fb510fc7790315e1ca64676",
+    "/tmp/batch031/group168-supplement3.json": "0d9906d4ab45976fc57851b591d84bed9d2170f258d20367d70bb9566cbffe8e",
+    "/tmp/batch030/group160-supplement12.json": "686102f6578b845e92f49330598d34504bd15e7e023320e5416909c130785a89",
+    "/tmp/batch031/group167-supplement5.json": "7a105f212fd9dd3737732bb815f9d1d8d1eaa09a934ebd2570fd5c51378c1935",
+    "/tmp/batch030/group161-supplement7.json": "0f29b4ca9fac836d21d7cdd6b93249e3130a9fffe7b49cdc37e4da58c2d2bbfe",
+    "/tmp/batch030/group160-supplement13.json": "9dce0478223a080cfa91ac57f1498f41816273f3363883857614f8856cbc9d7a",
+    "/tmp/batch030/group165-supplement9.json": "5f32066c7b667d852f85236920b344ad3559306041549e82014cb69d88ea3271",
+    "/tmp/batch031/group167-supplement.json": "dd578419ae0b7a350d1c05c6bb9e385e313a387fd45ec683140de7ad57d195b6",
+    "/tmp/batch030/group165-supplement6.json": "c1f8014a06ea5ca54fef32a68f021de4ff6e9bc355d3121c91741f7a7f56495f",
+    "/tmp/batch030/group162-supplement5.json": "fda422b7f5c74f741694de92fc4262ef6908a4a22d4b343f67110285fb0c1878",
+    "/tmp/batch030/group166-supplement7.json": "6fb6d734d21c9f71452c59ff3b38aa16a840dac4f07737caa5cdfa4c36075fc3",
+    "/tmp/batch030/group165-supplement12.json": "b530f9c794b4aec3400487ecad46754d84acd1d0fb7ddd34bd6bfd4e02641d3b",
+    "/tmp/batch030/group160-supplement4-replacement.json": "465254bff56812c06ae51741ae8c44ada0e9e4965f9b51e42f7430c07a2d2711",
+    "/tmp/batch030/group166-supplement2.json": "8f0fbbeaf576c143ad0eb7fd1c94b29057f88bfbb37dbb94cd75011e6487204c",
+    "/tmp/batch030/group164-supplement.json": "54681202d0a3ea881ff477e73477bfb5fad1c2ca2b8eed41b73ddb3efc795405",
+    "/tmp/batch031/group167-supplement7.json": "f11b60a286bd728a1b56854a075ebe2957589a551e527ed73d4e13d168bc8fce",
+    "/tmp/batch030/group165-supplement13.json": "8884e90f1f62a94f04e0d4102d34973cbea2273c8e47a830b50477bd70fac92f",
+    "/tmp/batch030/group160-supplement9.json": "9d889a7fbf485e01f5f0b918a07ad4de7f0c07ad08ec320ce676e3a2350dd919",
+    "/tmp/batch031/group167-supplement3.json": "afcf3c214283123d0b3c474dcfcfdb22655f19e6994d7e0d70027b42f9e8f2eb",
+    "/tmp/batch031/group168-supplement2.json": "510b430ab8a4b66dd2011e2f1a1e45ebef16525cb3f83ba003fc7d2bb71c973f",
+    "/tmp/batch031/group168-supplement.json": "e93d974fcd1c3c03839be9c53e7a8b1603f2c9e059e263e601763fa833c83576",
+    "/tmp/batch030/group161-supplement6.json": "815dccbe8afbafb6452c6fa77f62483070ad2dc1c3a38b84dae1c169303b0b8a",
+    "/tmp/batch030/group166-supplement5.json": "f180dde68e928c9a30e5f594c1a43e8e02ddc2620c9103771e244ad4bf9e87c3",
+    "/tmp/batch031/group167-supplement6.json": "0911ee3b56846faeb96ffd3b78f059ec5c8afda6896fbdd0cece0ed89c9b2f58",
+    "/tmp/batch030/group160-supplement16.json": "62595a83bb51d1521c4fbbb6b39bf2972aaa8b98f3424c66a132edcb2ef0ccbb",
+    "/tmp/batch030/group160-supplement7.json": "684e2dd97bcdbcf99f897b42f355a333fa043bca1a416369446206e27e95728d",
+    "/tmp/batch030/group163-supplement7.json": "33e0eb3398b0672c01ed2395451b0df5d2303d75a720b54798819810a3b832ad",
+    "/tmp/batch030/group164.json": "36e6195f48d7d92637ee66cf82228cd11b3e6b0c8fadfae358e60d5fb06c55d9",
+    "/tmp/batch031/group170.json": "c87f174b66a65325073dd0ebb1f42f86b24ceafc7297c81031c56cadb2e248df",
+    "/tmp/batch030/group161-supplement12.json": "40cb3cb5e1a18791c494829dd1686f8baccc710d20f12ca8ff02f169523bda1c",
+    "/tmp/batch030/group163-supplement6.json": "5331340601b615dfd3ab3bbfaeba30cd0eac68dd407429d7735fa74cbe511107",
+    "/tmp/batch030/group160-supplement14.json": "1b874d389820fba77d1d5c3243b68c39d8786d3c165b455af7b8349fb00935c0",
+    "/tmp/batch030/group165-supplement5.json": "dd64e5e18bbed86ff23ac275d683110e5001e2d17ce445c68dc3ef6c007fa945",
+    "/tmp/batch030/group164-supplement9.json": "46ead7f7d69599a7fef9ab028982f55cff123a0b1d8f2c526c318cf458063ced",
+    "/tmp/batch030/group166-supplement6.json": "3b3dff1c8f4abcab09d15cf5270fd7884a8084db38fba4e175dcfbc3bd62f41a",
+    "/tmp/batch030/group164-supplement3.json": "29a43cde8589562fa07b4ff56043dc0e3b3bd68933da920f93bbc5e777ff08ad",
+    "/tmp/batch030/group161-supplement5.json": "22cd33aa6c629466b65e6ac9582864bb6d3ff5e2284fbe8cd459b59532e7d3bd",
+    "/tmp/batch030/group160-supplement6.json": "05f9d3c19fae91b2296bdeb5cd1a41d41d6308ec14d9e5f9e798c56b28b06534",
+    "/tmp/batch030/group163-supplement5.json": "3ddd4207bfd81a04833f4b8a7d06122e5bc5de5b976192bd8486bcbe1502ab6b",
+    "/tmp/batch030/group165-supplement7.json": "2d2794914dc2f60e141d53bf2362802b6d2ca80dfb7d3843aecde4ce92a40e06",
+    "/tmp/batch030/group165-supplement8.json": "76fbba0e4b3667594545d14e3547ae5907cf049bfb097cb0becdcb73a09a53f7",
+    "/tmp/batch030/group160-supplement10.json": "23161734d851c0c9f8f3555e2077dc1a04d6aa62a30a4be3fcd5fd3d9f7a29b7",
+    "/tmp/batch030/group166.json": "5d6b4e8f7be41afef9f9b83a2593e615601bf7b7ec53888c9a9512a23a616b6c",
+    "/tmp/batch030/group162-supplement4.json": "e4348dcd1ee8d84c050eb9ed440f08301b73de333e33f8a49176f07635182ed2",
+    "/tmp/batch030/group163-supplement8.json": "512c1451329c5c24987e794ce1448786bd708e708aa2d9e045082394bf15a69f",
+    "/tmp/batch030/group165-supplement10.json": "8a6de71f5cae1c704ed9cbf73f278d2173ce41a0dd39a7ba77495e118180eeb6",
+    "/tmp/batch030/group161-supplement11.json": "a0301db57562e4009b090414dd32fb86251469168e83ce7286567b95eefae230",
+    "/tmp/batch031/group167-supplement4.json": "6e8e6ad549a81d38e61ef8ffba1c3eb23642bad1f90657927f89f3f6b27d06fc",
+    "/tmp/batch030/group160-supplement15.json": "461bc07c507430f2b0fe44d866ddeaba98c19ce161454503b5e54cc525cb3b88",
+    "/tmp/batch030/group160-supplement8.json": "649f841bcb4cc04b15700f7b75eb38752c71c49b6ce3b09f473a4b24c9d9eb4a",
+    "/tmp/batch030/group160-supplement11.json": "b6be49ec9ae916139aac731ef123480614cbdc0438a6ec307f8356c12040b9f1",
+    "/tmp/batch030/group165-supplement4.json": "76091dcb8991e16f90897a84e7dba1f206ea35a4c7ab7a8a243d293457cd94e4",
+    "/tmp/batch031/group168.json": "f38e7abe931b5dc757083c00f7e268362936d33e6b7372d1ce3f66883bc4f2a3",
+    "/tmp/batch030/group164-supplement6.json": "6b45f5b9252c36e52e31c8039e33eaffd596ecb3bf69dfa9060211040c4a8e39",
+    "/tmp/batch030/group161-supplement3.json": "934b9803784407b401b003bda8c13d9f8c0f0555d78843be07cc14185dffc162",
+    "/tmp/batch030/group166-supplement8.json": "7229a05cdf7e28129263b197ff3a1b082749b10bdc7ac150a3dd0fd6ff7b48f7",
+    "/tmp/batch030/group161-supplement9.json": "ab3085cd39c2c945f8b7151b40450ff51be5299897db75b25fd0a18a0fb6960b"
+  },
+  "source_file_by_id": {
+    "poznan_indie": "/tmp/batch031/group167-supplement5.json",
+    "progressive_alternative": "/tmp/batch031/group167-supplement6.json",
+    "prague_indie": "/tmp/batch031/group167-supplement7.json",
+    "peruvian_indie": "/tmp/batch030/group165-supplement13.json",
+    "persian_alternative": "/tmp/batch030/group165-supplement13.json",
+    "papuan_traditional": "/tmp/batch030/group165-supplement8.json",
+    "san_marcos_tx_indie": "/tmp/batch031/group171.json",
+    "santa_fe_indie": "/tmp/batch031/group171.json",
+    "san_antonio_indie": "/tmp/batch031/group170.json",
+    "sacramento_indie": "/tmp/batch031/group170.json",
+    "rva_indie": "/tmp/batch031/group170.json",
+    "portsmouth_indie": "/tmp/batch031/group167-supplement4.json",
+    "piano_cover": "/tmp/batch030/group165-supplement7.json",
+    "paidika_tragoudia": "/tmp/batch030/group165-supplement9.json",
+    "parody": "/tmp/batch030/group165-supplement10.json",
+    "papuri": "/tmp/batch030/group165-supplement11.json",
+    "reading_indie": "/tmp/batch031/group169.json",
+    "rennes_indie": "/tmp/batch031/group169.json",
+    "progressive_sludge": "/tmp/batch031/group167-supplement3.json",
+    "power_thrash": "/tmp/batch031/group167-supplement3.json",
+    "pet_calming": "/tmp/batch030/group165-supplement12.json",
+    "rabm": "/tmp/batch031/group168-supplement2.json",
+    "rain": "/tmp/batch031/group168-supplement3.json",
+    "neue_neue_deutsche_welle": "/tmp/batch030/group160-supplement13.json",
+    "neurostep": "/tmp/batch030/group160-supplement14.json",
+    "new_french_touch": "/tmp/batch030/group160-supplement15.json",
+    "neue_deutsche_todeskunst": "/tmp/batch030/group160-supplement16.json",
+    "psych_gaze": "/tmp/batch031/group168.json",
+    "psychedelic_doom": "/tmp/batch031/group168.json",
+    "ramonescore": "/tmp/batch031/group168.json",
+    "pune_indie": "/tmp/batch031/group168-supplement.json",
+    "otroske_pesmice": "/tmp/batch030/group164-supplement6.json",
+    "oslo_indie": "/tmp/batch030/group164-supplement7.json",
+    "oth_indie": "/tmp/batch030/group164-supplement8.json",
+    "orquesta_tipica": "/tmp/batch030/group164-supplement9.json",
+    "nordic_soundtrack": "/tmp/batch030/group161-supplement7.json",
+    "nice_indie": "/tmp/batch030/group161-supplement8.json",
+    "noise": "/tmp/batch030/group161-supplement9.json",
+    "ney": "/tmp/batch030/group161-supplement10.json",
+    "nordnorsk_musikk": "/tmp/batch030/group161-supplement11.json",
+    "ngoni": "/tmp/batch030/group161-supplement12.json",
+    "poetry": "/tmp/batch030/group166-supplement8.json",
+    "progressive_thrash": "/tmp/batch031/group167.json",
+    "prepared_piano": "/tmp/batch031/group167-supplement.json",
+    "portland_indie": "/tmp/batch031/group167-supplement2.json",
+    "progressive_doom": "/tmp/batch031/group167-supplement2.json",
+    "nepali_indie": "/tmp/batch030/group160-supplement12.json",
+    "pei_indie": "/tmp/batch030/group165-supplement4.json",
+    "palestinian_traditional": "/tmp/batch030/group165-supplement4.json",
+    "peruvian_experimental": "/tmp/batch030/group165-supplement5.json",
+    "piano_mpb": "/tmp/batch030/group165-supplement6.json",
+    "pink_noise": "/tmp/batch030/group166-supplement7.json",
+    "outsider": "/tmp/batch030/group164-supplement5.json",
+    "polish_early_music": "/tmp/batch030/group166-supplement4.json",
+    "pirate": "/tmp/batch030/group166-supplement5.json",
+    "police_band": "/tmp/batch030/group166-supplement6.json",
+    "noel_quebecois": "/tmp/batch030/group161-supplement6.json",
+    "orgcore": "/tmp/batch030/group164-supplement3.json",
+    "orlando_indie": "/tmp/batch030/group164-supplement3.json",
+    "operetta": "/tmp/batch030/group164-supplement4.json",
+    "oratory": "/tmp/batch030/group164-supplement4.json",
+    "new_delhi_indie": "/tmp/batch030/group160-supplement10.json",
+    "neo_mellow": "/tmp/batch030/group160-supplement11.json",
+    "pohadky": "/tmp/batch030/group166-supplement2.json",
+    "pinoy_indie": "/tmp/batch030/group166-supplement3.json",
+    "newcastle_nsw_indie": "/tmp/batch030/group161-supplement5.json",
+    "newcastle_indie": "/tmp/batch030/group161-supplement5.json",
+    "new_wave_of_osdm": "/tmp/batch030/group161-supplement5.json",
+    "ocean": "/tmp/batch030/group163-supplement9.json",
+    "ontario_indie": "/tmp/batch030/group164-supplement2.json",
+    "oud": "/tmp/batch030/group164-supplement2.json",
+    "polish_prog": "/tmp/batch030/group166-supplement.json",
+    "polish_experimental": "/tmp/batch030/group166-supplement.json",
+    "popgaze": "/tmp/batch030/group166-supplement.json",
+    "newfoundland_indie": "/tmp/batch030/group161-supplement4.json",
+    "norske_viser": "/tmp/batch030/group161-supplement4.json",
+    "ok_indie": "/tmp/batch030/group163-supplement8.json",
+    "new_tribe": "/tmp/batch030/group161-supplement3.json",
+    "neo_manele": "/tmp/batch030/group160-supplement5.json",
+    "neo_psicodelia_brasileira": "/tmp/batch030/group160-supplement6.json",
+    "new_england_experimental": "/tmp/batch030/group160-supplement7.json",
+    "neo_honky_tonk": "/tmp/batch030/group160-supplement8.json",
+    "neru": "/tmp/batch030/group160-supplement9.json",
+    "old_school_ebm": "/tmp/batch030/group163-supplement5.json",
+    "olympia_wa_indie": "/tmp/batch030/group163-supplement5.json",
+    "nyhc": "/tmp/batch030/group163-supplement6.json",
+    "old_school_thrash": "/tmp/batch030/group163-supplement6.json",
+    "oaxaca_indie": "/tmp/batch030/group163-supplement6.json",
+    "oc_indie": "/tmp/batch030/group163-supplement7.json",
+    "polish_psychedelia": "/tmp/batch030/group166.json",
+    "norwegian_psychedelic": "/tmp/batch030/group162-supplement4.json",
+    "northamptonshire_indie": "/tmp/batch030/group162-supplement5.json",
+    "pakistani_indie": "/tmp/batch030/group165-supplement3.json",
+    "piano_worship": "/tmp/batch030/group165-supplement3.json",
+    "omaha_indie": "/tmp/batch030/group164.json",
+    "orebro_indie": "/tmp/batch030/group164.json",
+    "ottawa_indie": "/tmp/batch030/group164.json",
+    "oxford_indie": "/tmp/batch030/group164-supplement.json",
+    "oulu_indie": "/tmp/batch030/group164-supplement.json",
+    "new_comedy": "/tmp/batch030/group160-supplement4-replacement.json"
+  },
+  "expected_additions": 100,
+  "expected_traditions": 5738,
+  "expected_instruments": 1519,
+  "required_predecessor": "a9d45f455309e75eec6e3f22cc8d01703261cd2a",
+  "ids": [
+    "neo_honky_tonk",
+    "neo_mellow",
+    "neo_manele",
+    "neo_psicodelia_brasileira",
+    "nepali_indie",
+    "neru",
+    "neue_deutsche_todeskunst",
+    "neue_neue_deutsche_welle",
+    "neurostep",
+    "new_comedy",
+    "new_delhi_indie",
+    "new_england_experimental",
+    "new_french_touch",
+    "new_tribe",
+    "new_wave_of_osdm",
+    "newcastle_indie",
+    "newcastle_nsw_indie",
+    "newfoundland_indie",
+    "ney",
+    "ngoni",
+    "nice_indie",
+    "noel_quebecois",
+    "noise",
+    "nordic_soundtrack",
+    "nordnorsk_musikk",
+    "norske_viser",
+    "northamptonshire_indie",
+    "norwegian_psychedelic",
+    "nyhc",
+    "oaxaca_indie",
+    "oc_indie",
+    "ocean",
+    "ok_indie",
+    "old_school_ebm",
+    "old_school_thrash",
+    "olympia_wa_indie",
+    "omaha_indie",
+    "ontario_indie",
+    "operetta",
+    "oratory",
+    "orebro_indie",
+    "orgcore",
+    "orlando_indie",
+    "orquesta_tipica",
+    "oslo_indie",
+    "oth_indie",
+    "otroske_pesmice",
+    "ottawa_indie",
+    "oud",
+    "oulu_indie",
+    "outsider",
+    "oxford_indie",
+    "paidika_tragoudia",
+    "pakistani_indie",
+    "palestinian_traditional",
+    "papuan_traditional",
+    "papuri",
+    "parody",
+    "pei_indie",
+    "persian_alternative",
+    "peruvian_experimental",
+    "peruvian_indie",
+    "pet_calming",
+    "piano_cover",
+    "piano_mpb",
+    "piano_worship",
+    "pink_noise",
+    "pinoy_indie",
+    "pirate",
+    "poetry",
+    "pohadky",
+    "police_band",
+    "polish_early_music",
+    "polish_experimental",
+    "polish_prog",
+    "polish_psychedelia",
+    "popgaze",
+    "portland_indie",
+    "portsmouth_indie",
+    "power_thrash",
+    "poznan_indie",
+    "prague_indie",
+    "prepared_piano",
+    "progressive_alternative",
+    "progressive_doom",
+    "progressive_sludge",
+    "progressive_thrash",
+    "psych_gaze",
+    "psychedelic_doom",
+    "pune_indie",
+    "rabm",
+    "rain",
+    "ramonescore",
+    "reading_indie",
+    "rennes_indie",
+    "rva_indie",
+    "sacramento_indie",
+    "san_antonio_indie",
+    "san_marcos_tx_indie",
+    "santa_fe_indie"
+  ],
+  "frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "equivalent_labels": [],
+  "scope": "Exactly100 new traditions and13 isolated existing-schema instrument dependencies. Original engine, shared family parts, taxonomy, workflows and frozen DF unchanged.",
+  "validation_status": "Local full serial regression1149/1149, original static API5738/1519, validation/audit/duplicate/signature/DF/atlas/geography/format/lint and400runtime renders pass. Independent primary/photo/default/API/regression/scope audits pass. Remote exact-head CI required before merge.",
+  "final_entry_sha256_canonical": {
+    "neo_honky_tonk": "d10985ddf2babf984ef3936ec5dfad41bd34c4bf674461a42dbb3248e316a534",
+    "neo_mellow": "b234a45e4a7bb92dbfb19bf11d788c1d5e9cabcbd892ddf6a7b7a2133c8b3a21",
+    "neo_manele": "ff7bdf8846ad1eb586705657166a181e31c73621310053bc9fb6bb18f0928e24",
+    "neo_psicodelia_brasileira": "977ffdafb282073844e1a1c8b413505c8bc6a03f1fdbff0ea273370f6721bf24",
+    "nepali_indie": "9495334971b3a5d5c698a92b1c161f9cba6063317f520ce3113fe98537ff7aa2",
+    "neru": "09bf8ce2c8a491b1ef4b926119ce39a35cd176e7bb12696257206f093d95bc64",
+    "neue_deutsche_todeskunst": "1b01395e3bdb9e7988e53412bdeb819453d41a5519d5bf0f6d6df9f17f877dc9",
+    "neue_neue_deutsche_welle": "a5323b8c92c5961c2d21d2b6202f221a98a38536a780ec8117a1505c4194e59f",
+    "neurostep": "74a70c7447497891c8841dcf73074fea96c9c00dbee68d72cf751b795c77dacb",
+    "new_comedy": "d358d7cc719b499a3eb3358b3dfde53bebb5b0ee500faf7c35b9e7a317630366",
+    "new_delhi_indie": "0cef230669f40560881c7cd7077e4001ff736f0743b01e5329256cee0378cd9d",
+    "new_england_experimental": "98144202248450e1be6323a5b90d12948c4c3f9a2800ca7feb09df118c7164a8",
+    "new_french_touch": "dc62b2102b2a2ea05432cf221dbcd8af1d8ef420347c26ff184edc70284a44d4",
+    "new_tribe": "f6f97536b6a9c3f0046a0de05bea6a4355c95cd9329198d28472afafcc320a95",
+    "new_wave_of_osdm": "8c33e3e19b85d09054eeeae4925bffe85ffa0f124650c6a3b4d9f56c38bd020c",
+    "newcastle_indie": "3e977921cedcd6c9475019a5ecd44916a3ef03d6fc7f88dafc4775742784c2dc",
+    "newcastle_nsw_indie": "1ad643299132994439e1a46c7e9f408fc1168063e744056cfddcca8f04fcccfe",
+    "newfoundland_indie": "0219b1c75504e3aa79f656d7ee8fda1fd1c4ef8d57169116693837ecbf114799",
+    "ney": "8967173a4a1959ef34fdea8e7cd5e40d83e104bce39bafa2d78d4c9fd298ba5a",
+    "ngoni": "673a8300e274f4270a5c2db789c83f381a57ebe54db1ad4c3c681ba7646dee29",
+    "nice_indie": "0b56eaa128c6b49d840f86e85d3d477987762240e921dc324c4d26353dc865c8",
+    "noel_quebecois": "e667547d6a798251c84a1e92565fd976e143727038acafabea53abf8cad03192",
+    "noise": "8af27e37f1b1f3cbf8b6596385ffb40470859d1de1c4c4fda508f5aa17538a86",
+    "nordic_soundtrack": "188e9d5f0d1d14f8d176a274739d7579743dcc91c4379a9928bc9682dbba2c00",
+    "nordnorsk_musikk": "d6b49ba5923a316830dba375ac06f86d892add05b6f42d51da1b17ec45374f38",
+    "norske_viser": "51d3e438afe4c5ba7fd00252989a88723d1f875d978a98892be0546c1e0ea0f9",
+    "northamptonshire_indie": "fdb6c062843950c59592bf88a8619ed0dcad232b19cbcbaa381725a8b1ff63db",
+    "norwegian_psychedelic": "58cf0a32f007cc07113db8b69751af6b251c3ecef2c7ae095ec7dae7858b94ed",
+    "nyhc": "81bea80d05949d32f9c0e8cf922530d6bb7ba02c222bf81d28e25a60a072c3ba",
+    "oaxaca_indie": "3391ab139da1768bb0b878ac4d63de2d69c1d06d0324c3d0a509e380c5115834",
+    "oc_indie": "7858d1a2c5d3afd142c8a6916c4e2151b5bd334655fb31fb48c34fe8b1dc12a9",
+    "ocean": "4271f83fa80a2a705569351ee32cf68bd632af9464fa8452252191b1f17a087e",
+    "ok_indie": "34244e70cda2b3e5610656b7ff559d937096670dad2c923eb91816e30a7ffb53",
+    "old_school_ebm": "be85ed41f98c517ee27bf5b1be6c38ef2c99638ed2b496fb0608af9b4b5ce660",
+    "old_school_thrash": "a35203813cca00c38e9552878f7fd11007d789085c801d2f61b0a74c14df6bbd",
+    "olympia_wa_indie": "f87adae3eadd49e71242b0489117543e9f2754fc5693b7054c05e15ec53e88bc",
+    "omaha_indie": "71bb1f1ec4b349b2945c11a8fc3fa7268e50239a6afae5ee905d91fa2f856f32",
+    "ontario_indie": "fc41273006521b52cd97c69c15ec2b9725baa46ea12b33637b69a8b9a2ead522",
+    "operetta": "543f295185d7e31dc67854e0baff13acdd01777c5b301e2fe7520b8038864225",
+    "oratory": "f14e0971bd5ced70c62a6661f72582cc9d5f2dd4d2c63e4b7bbf2649f1e5afd4",
+    "orebro_indie": "024e5264007321156ec95bd8e8a2f71413b6a4181987d43386dc2ff563859036",
+    "orgcore": "6ace0c2f8582b0f62e79cf229a2187da367526db6f967f07069afa05bafd19bb",
+    "orlando_indie": "70555bf47393aff5954cc3c580a21f1bbffd3fe1e31b29de93447a90638dea3e",
+    "orquesta_tipica": "909b610cc0e466bedae9a38b124489b334586e3fac6a18dd15e186687d9ed56c",
+    "oslo_indie": "4c9e27ca598765173235e365755eb54e0575304c57aaf26cc24a9046e34d4a1f",
+    "oth_indie": "3a67aa2b5a7f0b19a186dde56c49398c687e9fd9a05cc17b5f29300cc5002455",
+    "otroske_pesmice": "0db4ec3aa53ea3226c8362d9f822365bed9e66df2070aad9e5c16c894b015aa5",
+    "ottawa_indie": "ff4306bf4d95ed1a05294bbaec731c4a22f82581f7ab766821a7fcec7c06e012",
+    "oud": "796986b2beaef2fc51431944978ba696ef14a085fa420ca32a9bfddb11cd0d64",
+    "oulu_indie": "52b3a941b21da7b53edcc496a88bad6555111f73ce2270bfdbe726f2c170a27d",
+    "outsider": "1525a93caf29bacec81bf525f8ff49972d7161aafef756cddc8cc4a64034b1ee",
+    "oxford_indie": "c10063bbf25272d109e7a3b2e5d8bf1328ffb23bd417c55ba17e2c9de8183d4e",
+    "paidika_tragoudia": "55d986bd7def1e18e08abcd213da4cab8ecc4ffa3f2fa0b3d42529c385709dbe",
+    "pakistani_indie": "b4fffb337279bc5357d0944581895334d0ab5334e252f9db44d75c225900153e",
+    "palestinian_traditional": "c9b85a98d2f4960b120462ca1caa66a699cb07ee205933826e1b24edb538cd9f",
+    "papuan_traditional": "50f5c263e47093b2c6923d87bc41ddaf45d2abcfe17cb8da472771e37332f8c9",
+    "papuri": "3265c59ba2468fa31f0a4d9e556e9c56a043b702e59bea734e319c4b22960525",
+    "parody": "b02be5ec9391c34511272b6654b04ae3de82af5e96e3b212be03d82b23f9dd04",
+    "pei_indie": "075f9bd60d196b9b9f527dc5ab95ff08687d584d3d468d8f9700b58821bce4d5",
+    "persian_alternative": "0457bb2322b64ff8ded182986d8e7c9e1be90f7cba9faa22b7c51a14aa4dda36",
+    "peruvian_experimental": "408d24aeae1f7c9e4656671e08d3e853cec693580df799d959e3862ae3b3a82e",
+    "peruvian_indie": "9e2ed282d2d450031fb9bc54ebf06a50c0e1f9f4685d9e64d8bbe1705b152b33",
+    "pet_calming": "24e8dab7005e2e94f701b194c38ce6ec4dbe2bbdd1a431a044bd111e1aa60e66",
+    "piano_cover": "316798d426300dab85f02cbf7f5de3d47619fd9483effa47a39d1a53b98f7172",
+    "piano_mpb": "2f759d4e9a540c4b3f4ead2f5cb3c7faab9f40dd4c16114b4f0e3c2c99b598b2",
+    "piano_worship": "683735fab8ab081ff4480357c1dcc7bd2b2eaa2fb73a19041100ed8fd00154c8",
+    "pink_noise": "b920590ef65a258354bd56d7e620b9b79668583300eca52bd25b79108f755761",
+    "pinoy_indie": "f4335edd4d5818cdc9cf88591960d33b2bbf55aba065e0fbca635ebeae0826bf",
+    "pirate": "1a421480861146926b6cf5edaacffe4519d7202929b84528ad5dd735980bddf1",
+    "poetry": "51fac61d3b365b74f0a1f14e96dc7bf2b07712588b96c43bf4135ad6c9385707",
+    "pohadky": "430d274d9d11853e01fbdd29b06e52985c8360ae14f47989860591fa4e3cc107",
+    "police_band": "36273c3fdad9f9bd05e7711aa11f9cfb03ac3fcb6f32d84dfc7f407fc204da8f",
+    "polish_early_music": "1e80b62594f679c7d8929b710cf98c804853af6ee23f5c690f725d58dfcaebc4",
+    "polish_experimental": "8fc6b5ebbb407518e1e66c5f4f2e88bc9491ca4a1a8905b476bd08d616860ab5",
+    "polish_prog": "67c4c8126d643f31ca51a01d57753b8c1923f0b5966bd82f98cf4ef4310cf54b",
+    "polish_psychedelia": "37c72128498fd40108011769a3930fd3703725cacc2e0717c7fd32b221523ca4",
+    "popgaze": "ee9164c1e3279c3ef284cc7ab6abfcdc17b6664653f6888c415ca26dcde8e2da",
+    "portland_indie": "71b050c795824dee4e69e79c0e4eb8abd89a35f7eae4ccc76f998fd8299eb886",
+    "portsmouth_indie": "24e007ee8be9bf76e38a04fd6d8a08b9a08f50c783124baf313de180238171f1",
+    "power_thrash": "ca5fc061fd69f55a3599069cdbd055458b78f504fe5882a6f61f6b870ddf9cad",
+    "poznan_indie": "4f08b79d5f7a8a280bbae4c64fec001b9288600f5ca596d3143fa1dcad7d6405",
+    "prague_indie": "181762ae61e80003c6d5cca44a933bc5c69f10f19d4b0757c10de98048629953",
+    "prepared_piano": "beb9956cd67884476896574bfa1ea4d88a8ff2663c2389eded88e948a41154ac",
+    "progressive_alternative": "ddab634c3bd06afccd2f4377f9da40afc0450d58a4ed9b774567451a54a05d14",
+    "progressive_doom": "88ecc5b1383537791ae2dc6066e4981da4f99200798eabc0b61faec790432d67",
+    "progressive_sludge": "3b106530adacc11f862cabb00fe27c9fb017c747278163ebff8255943a5fe84f",
+    "progressive_thrash": "c01f2e9b59c932d8005563619caf04ef4c7f7c753794624d6d1e050ce388cfef",
+    "psych_gaze": "0fd43656cbacbb45b4ec0f64a8e6427da6b6103f0de07fde81a6f331eafe5595",
+    "psychedelic_doom": "ffbd990a4747ac18893b93e585b67d1a2d4c9960f2d1490f3172879590f87669",
+    "pune_indie": "c0f65e1b51a6c7341edcd5aaf7d22400b74aa5bda8098cbd1a69cf88fd15cd79",
+    "rabm": "d4dfa6e9be417e46e478e1b30b3976dd7960558914901c38af9399aa13ec9abe",
+    "rain": "f87124d0eba251b5395e213c857b843409a4645a425aa8e382ea9a078aaf632e",
+    "ramonescore": "0497198f50737c1d85e39b9b19d697af3d7a973bfe15045d4acd3f75ed85879e",
+    "reading_indie": "6f2a4c13a1435d1bf72f5f698d3408cbb7b925b6979ee52661f53e3ecdb2beb1",
+    "rennes_indie": "439b2de7259abdad3115e86d37e458db385ce3cffa166bc0aecf198a344967b8",
+    "rva_indie": "8121814cefde6fafdf564eff71d1f55e8df6a88b7259497cfae668592221e8f2",
+    "sacramento_indie": "1c588725f68cec8897885a774f8f9e536026880d62ba7f150cfbfe344be33108",
+    "san_antonio_indie": "26d5e1978e7c69311de0c5dedfc20f1b6fb21876a342d11c219e2f1984807d7d",
+    "san_marcos_tx_indie": "fb2992134bc187ada1e7bbf496baa1992d08ea91d794d95674ae655f4093d4e9",
+    "santa_fe_indie": "af2f5dc39b76424635aeb5b685a11b4c30f1a9d597770255675433de3d3909ae"
+  },
+  "signature_amendment_report": "data-only-031-signature-amendment.json",
+  "geo_amendment_report": "data-only-031-geo-amendment.json",
+  "old_catalog_preservation": {
+    "traditions": 5638,
+    "instruments": 1506,
+    "browser_imported_cards": 24528,
+    "protected_defaults": "unchanged"
+  },
+  "new_parts": {
+    "effective": 3817,
+    "protected": 3812,
+    "unprotected_owner_pairs": 5,
+    "compiled_difference": "Nepali indie guitar electric_clean_strummed import becomes electric_arpeggiated_clean under unchanged optimizer; remaining four unprotected pairs retain import."
+  },
+  "derived_api_review": {
+    "changed_old_records": 38,
+    "changed_old_recipes": 5,
+    "changed_unprotected_material_slots": 24,
+    "affected_material_rows": 13,
+    "other_derived_rows": 25,
+    "causal_test": "Removing only100newtraditions/extras restores all38baseline records;13new instruments remain."
+  },
+  "regression_review": {
+    "targeted_snapshot_updates": ["stoner_metal", "blend_doom_drone_metal"],
+    "cause": "New progressive_sludge affects original neighbor search seed/scoring. Removing only that new entry restores full original fixture outputs and slots; protected defaults unchanged.",
+    "final_result": "1149/1149 snapshots match after only two independently reviewed original targeted updates."
+  },
+  "ui_review": "Six local browser checks pass. Foundation photo O and file:// reachability fail identically on exact predecessor a9d45 with local Chromium151; remote unchanged checks required green.",
+  "reports": [
+    "data-only-031-integration-review.json",
+    "data-only-031-api-review.json",
+    "data-only-031-photo-review.json",
+    "data-only-031-runtime-review.json",
+    "data-only-031-pin-review.json",
+    "data-only-031-compiled-pin-review.json",
+    "data-only-031-regression-review.json",
+    "data-only-031-scope-review.json",
+    "data-only-031-ui-baseline-review.json",
+    "data-only-031-geo-review.json",
+    "data-only-031-signature-amendment.json",
+    "data-only-031-geo-amendment.json",
+    "data-only-031-predecessor-review.json"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "count": 1506,
+  "count": 1519,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9036,6 +9036,84 @@
       "name": "Timple (Canary Islands plucked lute)",
       "family": "plucked_traditional",
       "href": "instruments/timple_canario.json"
+    },
+    {
+      "id": "burari_papuan_flute",
+      "name": "Burári (southern Papuan one-hole cane flute)",
+      "family": "wind",
+      "href": "instruments/burari_papuan_flute.json"
+    },
+    {
+      "id": "rain_environmental_recording",
+      "name": "Rain environmental recording",
+      "family": "electronic",
+      "href": "instruments/rain_environmental_recording.json"
+    },
+    {
+      "id": "spoken_word_voice",
+      "name": "Spoken-word voice (separately credited speaker)",
+      "family": "voice",
+      "href": "instruments/spoken_word_voice.json"
+    },
+    {
+      "id": "saxophone_doubling_alto_soprano",
+      "name": "Alto and soprano saxophone doubling (one player)",
+      "family": "wind",
+      "href": "instruments/saxophone_doubling_alto_soprano.json"
+    },
+    {
+      "id": "snare_drum",
+      "name": "Standalone snare drum (general purpose)",
+      "family": "percussion",
+      "href": "instruments/snare_drum.json"
+    },
+    {
+      "id": "credited_harsh_noise",
+      "name": "Credited harsh-noise source (mechanism unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_harsh_noise.json"
+    },
+    {
+      "id": "ney_persian_interdental",
+      "name": "Persian ney (seven-segment cane, interdental)",
+      "family": "wind",
+      "href": "instruments/ney_persian_interdental.json"
+    },
+    {
+      "id": "donso_ngoni_eight_string",
+      "name": "Donso ngoni (eight-string hunters harp)",
+      "family": "plucked_traditional",
+      "href": "instruments/donso_ngoni_eight_string.json"
+    },
+    {
+      "id": "keregne_mande",
+      "name": "Keregne (Mande metal scraper)",
+      "family": "percussion",
+      "href": "instruments/keregne_mande.json"
+    },
+    {
+      "id": "prepared_piano_cage_sonatas",
+      "name": "Prepared piano (Cage Sonatas mixed preparation)",
+      "family": "keyboard",
+      "href": "instruments/prepared_piano_cage_sonatas.json"
+    },
+    {
+      "id": "concert_triangle",
+      "name": "Concert triangle (general purpose)",
+      "family": "percussion",
+      "href": "instruments/concert_triangle.json"
+    },
+    {
+      "id": "hybrid_groovebox_electribe2",
+      "name": "Hybrid digital groovebox (Electribe 2 synthesis and PCM)",
+      "family": "electronic",
+      "href": "instruments/hybrid_groovebox_electribe2.json"
+    },
+    {
+      "id": "software_pink_noise_generator",
+      "name": "Software pink-noise generator",
+      "family": "electronic",
+      "href": "instruments/software_pink_noise_generator.json"
     }
   ]
 }
