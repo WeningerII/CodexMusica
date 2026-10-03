@@ -1167,6 +1167,12 @@ class Reviser:
             profile=profile, promote=self._promote(),
             quantifier="all") is not False
 
+    #: Set by `quality.loop`'s deferred-path proxy for the length of one
+    #: `brief(target_lines=...)` call, and None otherwise: a callable
+    #: `(lines, line, place, build) -> SlotField` that returns `build()` or a
+    #: saved copy of it. Nothing else reads it (LOOP_REDESIGN.md §2.3b).
+    place_hook = None
+
     def for_revision(self, lines):
         """Scope retirement to this input without changing its readings or caller."""
         if not getattr(self.lex, 'pronunciations', ()):
@@ -6318,10 +6324,22 @@ class Reviser:
                 # always was, over the same calls in the same order —
                 # byte-identical (test_revise.py pins the field).
                 for sk, ks in _by_slot.items():
-                    b.fields_by_slot[sk] = self._place_field(
-                        lines, m, ln, sk, ks, groups, endwords, _viol_slots,
-                        _slot_of[ks[0]], profile=profile, blueprint=blueprint,
-                        _verify_fields_only=_verify_fields_only)
+                    def _build(sk=sk, ks=ks):
+                        return self._place_field(
+                            lines, m, ln, sk, ks, groups, endwords,
+                            _viol_slots, _slot_of[ks[0]], profile=profile,
+                            blueprint=blueprint,
+                            _verify_fields_only=_verify_fields_only)
+                    # ONE PLACE AT A TIME, WHEN A CALLER IS SAVING THEM
+                    # (LOOP_REDESIGN.md §2.3b; owner ruling 2026-10-03,
+                    # option B). `place_hook` is set only by the deferred
+                    # loop's reviser proxy, which saves each place's field
+                    # by draft, line and place and may stop the call between
+                    # two places. What the hook returns is this same field.
+                    _hook = (None if _verify_fields_only
+                             else getattr(self, "place_hook", None))
+                    b.fields_by_slot[sk] = (_build() if _hook is None
+                                            else _hook(lines, ln, sk, _build))
                 _pf = b.fields_by_slot.get(_primary)
                 calls = list(_pf.calls) if _pf else []
                 # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE — the

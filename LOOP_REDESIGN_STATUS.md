@@ -33,7 +33,13 @@ written and waiting for its tests to run.
 - ~~A test that expects the first call to return a question (exit 4) within 600 s would still not get one. It would get exit 5, and the question about four calls later.~~ It gets neither: the call is still killed.
 - The speedups now on the base (`880b3c05`…`50c3a6d4`) act on that menu work directly. The re-timing will say by how much.
 
-## QUESTION FOR THE OWNER (2026-10-02, 22:02 UTC): how fine may a safe point be?
+## ANSWERED (owner, 2026-10-03): "go with B"
+
+The owner chose **B: save a menu place by place, and allow a stop between two
+places**. It is built; see "Option B" below. The question and the numbers it
+was decided on are kept below as they were.
+
+## ~~QUESTION FOR THE OWNER~~ (answered above) (2026-10-02, 22:02 UTC): how fine may a safe point be?
 
 ### What was measured (by the coordinator, at `5d741da2`, base `c0aff66e` merged)
 

@@ -1877,9 +1877,39 @@ class _VerdictCache:
         return self._deadline.step(name, fn, *a, **kw)
 
     def menus_on(self, lines):
-        """-> the saved menus built on this exact draft, for the cursor."""
+        """-> the saved menus built on this exact draft, for the cursor. A
+        line's saved places are left out once its whole menu is saved."""
+        import ast
         h = _draft_key(lines)
-        return [[k, e] for k, (dk, e, _o) in self._menus.items() if dk == h]
+        whole = set()
+        for k, (dk, _e, _o) in self._menus.items():
+            t = ast.literal_eval(k)
+            if dk == h and t[0] == "brief":
+                whole.update(int(x) for x in t[2])
+        rows = []
+        for k, (dk, e, _o) in self._menus.items():
+            if dk != h:
+                continue
+            t = ast.literal_eval(k)
+            if t[0] == "place" and int(t[2]) in whole:
+                continue
+            rows.append([k, e])
+        return rows
+
+    def _real(self):
+        """-> the `Reviser` under any delegating proxy (the replay memo)."""
+        o = self._inner
+        for _ in range(8):
+            if isinstance(o, Reviser):
+                return o
+            o = getattr(o, "_rv", None) or getattr(o, "_inner", None)
+            if o is None:
+                return None
+        return None
+
+    def _place(self, lines, line, place, build):
+        key = repr(("place", _draft_key(lines), int(line), repr(place)))
+        return self._menu(key, lines, "place", build)
 
     def load_menus(self, rows):
         for k, e in rows or ():
@@ -1908,8 +1938,18 @@ class _VerdictCache:
                               *a, **kw)
         key = repr(("brief", _draft_key(lines),
                     sorted(int(t) for t in target_lines)))
-        return self._menu(key, lines, "menu", self._inner.brief, lines,
-                          mandate, *a, target_lines=target_lines, **kw)
+        # OPTION B (owner, 2026-10-03): the menu is also saved place by
+        # place, so a call may stop between two places and the next builds
+        # only the places still missing.
+        real = self._real()
+        if real is not None:
+            real.place_hook = self._place
+        try:
+            return self._menu(key, lines, "menu", self._inner.brief, lines,
+                              mandate, *a, target_lines=target_lines, **kw)
+        finally:
+            if real is not None:
+                real.place_hook = None
 
     def inspect(self, *a, **kw):
         return self._gate("grade", self._inner.inspect, *a, **kw)
@@ -1971,13 +2011,19 @@ class Deadline:
                 and self.at - self.clock() < self.longest + self.stop_cost)
 
     def step(self, name, fn, *a, **kw):
+        # A step's own time excludes the steps inside it: a menu is timed
+        # apart from the places it builds, so stopping between two places is
+        # judged by the longest PLACE, not by the whole menu around it.
         if self.should_stop():
             raise SafePointStop(name)
         t = self.clock()
+        outer, self._nested = getattr(self, "_nested", 0.0), 0.0
         try:
             return fn(*a, **kw)
         finally:
-            self.longest = max(self.longest, self.clock() - t)
+            took = self.clock() - t
+            self.longest = max(self.longest, took - self._nested)
+            self._nested = outer + took
 
 
 def _draft_key(lines):

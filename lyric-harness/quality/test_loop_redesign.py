@@ -74,6 +74,10 @@ Sections:
   8. A group question's menus are built across calls (§2.8 E, S11): a stop
      before the second member's one-move menu keeps the first, and the next
      call builds only the missing one, to the same fields.
+  9. A line's menu is saved place by place (owner ruling 2026-10-03,
+     option B): a stop between two places keeps the first, the next call
+     builds only the second, and the menu and its rendered question are
+     exactly the uninterrupted ones.
 """
 
 import copy
@@ -957,11 +961,16 @@ def _prompts(run):
 
 def _first_between(run, name):
     """-> (call, k) of the first step `name` whose previous step in the same
-    call was also `name` — a stop between two members' menus — or None."""
+    call, leaving out a menu's own `place` steps, was also `name` — a stop
+    between two members' menus — or None."""
     for c in run:
-        for i in range(1, len(c["steps"])):
-            if c["steps"][i] == name and c["steps"][i - 1] == name:
+        prev = None
+        for i, step in enumerate(c["steps"]):
+            if step == "place":          # a menu's own places (option B)
+                continue
+            if step == name and prev == name:
                 return c["call"], i + 1
+            prev = step
     return None
 
 
@@ -1071,6 +1080,53 @@ def test_group_menus_resume_member_by_member():
           got1 == want[0] and got == want, "menus differ")
 
 
+#: A line that binds at TWO places (its second word and its end), so its
+#: menu is built place by place. MEASURED 2026-10-03: `brief(target_lines=
+#: {1})` gives L1 the places `1.T2` (0 words offered) and its end (24).
+TWO_PLACES = ["the silver river ran beneath the stove",
+              "and every lantern burned the month",
+              "the winter came and took the yard"]
+TWO_PLACES_GROUPS = [["1.T2", 2], [1, 3]]
+
+
+def test_menus_resume_place_by_place():
+    """Option B (owner ruling 2026-10-03): a stop may fall between two places
+    of ONE line's menu. The first place is saved; the next call builds only
+    the second; the finished menu, and the question rendered from it, are
+    exactly the uninterrupted ones. Before option B a menu was one step, so
+    no stop could fall inside it and nothing of it was saved."""
+    from quality.propose import render_line
+    print("\n9. a menu is saved place by place, and a stop between two "
+          "places loses nothing (§2.3b; owner ruling 2026-10-03, option B)")
+    lines, mand = TWO_PLACES, _m(TWO_PLACES_GROUPS, 3, "class:RHYME")
+    want = Reviser().brief(list(lines), mand, target_lines={1})
+    first = LP._VerdictCache(Reviser(), {}, {}, deadline=_StopAt(3))
+    try:
+        first.brief(list(lines), mand, target_lines={1})
+        stopped = None
+    except LP.SafePointStop as stop:
+        stopped = stop.step
+    saved = json.loads(json.dumps(first.menus_on(lines)))
+    check("the stop falls between the line's two places, and the first "
+          "place is saved", stopped == "place" and len(saved) == 1
+          and "'place'" in saved[0][0], f"stopped {stopped}, saved "
+          f"{[k for k, _ in saved]}")
+    second = LP._VerdictCache(Reviser(), {}, {}, deadline=_StopAt(None))
+    second.load_menus(saved)
+    got = second.brief(list(lines), mand, target_lines={1})
+    check("...the next call builds only the missing place (steps: the menu, "
+          "then one place)", second._deadline.steps == ["menu", "place"],
+          str(second._deadline.steps))
+    check("...and the finished menu equals the uninterrupted one, field for "
+          "field", got == want)
+    check("...and so does the question rendered from it, byte for byte",
+          render_line(got[0], list(lines)) == render_line(want[0], list(lines)))
+    rows = second.menus_on(lines)
+    check("...and once the whole menu is saved, its places are not saved a "
+          "second time", len(rows) == 1 and "'brief'" in rows[0][0],
+          str([k for k, _ in rows]))
+
+
 def test_kills_keep_the_run():
     print("\n7. a killed call keeps the run; repeated kills at one position "
           "are reported, never refused (§2.3c-d, §2.8 E; T5)")
@@ -1143,6 +1199,7 @@ if __name__ == "__main__":
                  test_resume_through_the_verb,
                  test_safe_point_stops,
                  test_kills_keep_the_run,
-                 test_group_menus_resume_member_by_member)
+                 test_group_menus_resume_member_by_member,
+                 test_menus_resume_place_by_place)
     sys.exit(run_sections(_SECTIONS, "TEST_LOOP_REDESIGN_SHARD", FAILS,
                           "ALL PASS"))

@@ -992,3 +992,27 @@ whole lexicon (the widening pool). Bounding that search would add a limit the
 owner has not asked for, so it is recorded and not changed. Saved menus mean
 the search is paid once per draft rather than once per call, but one such menu
 still does not fit a 600 s call. This sits beside §2.7's floor.
+
+### Owner ruling, 2026-10-03: safe points between the places of one menu (option B)
+
+The owner's answer to the question of how fine a safe point may be:
+*"go with B"*.
+
+**The problem.** On the 24-line fixture, one line's whole menu took 851.3 s,
+longer than a 600 s call, so the call never reached a safe point.
+
+**The measurements behind the ruling.** Read-only, at `9e3ea028` and
+`79e03e79`; full tables in `LOOP_REDESIGN_STATUS.md`. No single binding place
+in the three menus measured came near a call: the largest took 320.7 s.
+
+**What was built.**
+
+- A menu (`brief(target_lines=…)`) is now also saved **place by place**. Each place is keyed by the draft, the line and the place, the way whole menus are keyed.
+- A safe point may fall between two places. The next call builds only the places still missing.
+- The deadline times a step without the steps inside it. A menu is therefore judged by its longest place, not by its whole length.
+- Once a line's whole menu is saved, its places are left out of the cursor.
+- What a question contains does not change: every place is built by the same `_place_field` on the same draft.
+- `test_loop_redesign.py` §9 pins all of this, including the rendered question byte for byte.
+
+Option C, stopping inside one place's search, was not needed by any menu
+measured and was not built.
