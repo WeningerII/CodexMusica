@@ -8194,7 +8194,6 @@ def _defer_proposer(path, lines=None):
                 chosen.pop()
 
     propose.prefetch = prefetch
-    propose.saved = menu_saved
     propose.skipped = skipped
     propose.record = record
 
@@ -8476,6 +8475,7 @@ def _defer_proposer(path, lines=None):
             ensure_ascii=False, separators=(",", ":")), flush=True)
 
     propose.checkpoint = checkpoint
+    propose.saved = menu_saved
     propose.checkpoint_state = st
     disclosure.record = lambda: {
         "stale_answers": len(tally["stale"]),
