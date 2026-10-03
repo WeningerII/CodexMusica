@@ -1,0 +1,393 @@
+{
+  "id": "classic_afrobeat",
+  "name": "Classic afrobeat",
+  "family": "global",
+  "lineage": "Ebo Taylor — Feeling, complete2025 JID022 track7. Authored Afrobeat-family horn/groove realization: fingerstyle electric bass, neutral credited organ, Rhodes MarkI, modern drumkit and hand-played congas, alto plus two baritone section, concert flute, open tenor trombone and open B-flat trumpet. Saxophone attacks short/coordinated with legato brass/flute support; jazz flute and Rhodes chord support editorial compatible settings. Exact makers/materials are authored. Seven singers use an explicitly authored combined live-group rendition, not measured simultaneous take or absence of overdubs. Global tuning omitted. Recording source says analog tape, while library neutral digital studio chain is an explicitly modern editorial realization. Authored render amendment (supersedes earlier authored defaults, not source facts): body_wood=swamp_ash_b, pickup_config=dual_single, string_type=flatwound, trombone_technique=trombone_jazz_single_line. The complete source roster and repertoire are unchanged. This new arrangement uses a controlled live room; unspecified capture apparatus is omitted. Construction/material, pickup, articulation and room choices are editorial realizations, not recovered artist hardware or session techniques. Flat material choices apply to every compatible instrument owner, including both guitar and bass where present. No shared instrument, default, lexicon or engine change. The new authored vocal rendition uses small note groups per lyric syllable (neumatic singing), with source-unspecified articulation and neutral physiology. This is an editorial phrasing choice for all credited singers, not a claim about the recorded vocal technique; no clapping, extra singer or speech-only role is added.",
+  "recipe": "classic classic afrobeat, groove Percussion, Afro-diasporic electric branch. small note groups per syllable, group vocals, live take. flatwound fingerstyle locked electric bass, credited organ unspecified, torrington spring steel tine canonical Rhodes 1965 1984 neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing rhodes electric, maple bronze bell bronze machine hammered symmetric pattern drum kit, hands layered congas, saxophone section alto two baritones, treble-extended projecting silver flute, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor tenor standard standard backbore single line trombone, yellow brass canonical 70 30 bach stradivarius student friendly legato trumpet. live tracking.",
+  "recipe_chars": 811,
+  "score": 120.883,
+  "config": {
+    "traditions": [
+      "classic_afrobeat"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_neumatic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_group",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 9.205,
+          "voice_ensemble_config": 4.3725,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.063,
+          "voice_multitrack_stack": 3.9629999999999996,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "swamp_ash_b",
+          "pickup_config": "dual_single",
+          "string_type": "flatwound",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0,
+          "pickup_config": 0,
+          "string_type": 5.300000000000001,
+          "scale_length_b": 0,
+          "fretted_or_not": 0.16799999999999998,
+          "bass_technique": 9.249999999999998,
+          "electric_bass_string_configuration": 0
+        }
+      },
+      {
+        "id": "credited_organ_unspecified",
+        "slots": {
+          "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified"
+        },
+        "scores": {
+          "credited_organ_unspecified_identity": 0.063
+        }
+      },
+      {
+        "id": "rhodes_electric",
+        "slots": {
+          "keyboard_technique": "keyboard_jazz_comping",
+          "rhodes_model": "rhodes_mark1_stage",
+          "rhodes_use": "rhodes_jazz",
+          "rhodes_tine_material": "rhodes_torrington_tine",
+          "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+          "rhodes_pickup_position": "rhodes_pickup_centered"
+        },
+        "scores": {
+          "keyboard_technique": 0.5814999999999999,
+          "rhodes_model": 3.481,
+          "rhodes_use": 0.231,
+          "rhodes_tine_material": 3.0049999999999994,
+          "rhodes_hammer_tip": 3.3094999999999994,
+          "rhodes_pickup_position": 4.305
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": 1.5,
+          "drumhead": 1.6,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 2.9315,
+          "shell_thickness": 0,
+          "bearing_edges": 3.1729999999999996,
+          "snare_wires": 0,
+          "cymbal_alloy": 3.1000000000000005,
+          "cymbal_hammering": 8.3805,
+          "cymbal_lathing": 9.25,
+          "cymbal_finish": 0.3
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_hands_layered",
+          "conga_set": "conga_proper",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 3.8365,
+          "conga_set": 0,
+          "conga_skin": 0.16799999999999998,
+          "conga_shell_wood": 0.16799999999999998
+        }
+      },
+      {
+        "id": "saxophone_section_alto_two_baritones",
+        "slots": {
+          "alto_two_baritones_section_articulation": "alto_two_baritones_section_short"
+        },
+        "scores": {
+          "alto_two_baritones_section_articulation": 0
+        }
+      },
+      {
+        "id": "flute",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "flute_size": "concert_flute",
+          "flute_material": "silver_flute",
+          "flute_technique": "jazz_flute",
+          "flute_maker_school": "flute_powell_boston"
+        },
+        "scores": {
+          "wind_articulation": 1.2315,
+          "flute_size": 0,
+          "flute_material": 3.1729999999999996,
+          "flute_technique": 0,
+          "flute_maker_school": 0.2415
+        }
+      },
+      {
+        "id": "trombone",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "trombone_type": "tenor_trombone",
+          "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+          "trombone_mute": "no_mute_trb",
+          "trombone_technique": "trombone_jazz_single_line",
+          "trombone_bell_metal": "trombone_yellow_brass",
+          "trombone_maker_school": "trombone_bach_42"
+        },
+        "scores": {
+          "wind_articulation": 1.2315,
+          "trombone_type": 4.550000000000001,
+          "trombone_mouthpiece": 7.781499999999999,
+          "trombone_mute": 0.063,
+          "trombone_technique": 4.613,
+          "trombone_bell_metal": 1.51,
+          "trombone_maker_school": 1.573
+        }
+      },
+      {
+        "id": "trumpet",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "brass_size": "trumpet_b_flat",
+          "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+          "brass_mute": "no_mute_brass",
+          "trumpet_technique": "trumpet_classical_legato",
+          "trumpet_bell_metal": "trumpet_yellow_brass",
+          "trumpet_maker_school": "trumpet_bach_stradivarius"
+        },
+        "scores": {
+          "wind_articulation": 1.2315,
+          "brass_size": 0.39,
+          "trumpet_mouthpiece": 6.449999999999999,
+          "brass_mute": 0.063,
+          "trumpet_technique": 3.3235,
+          "trumpet_bell_metal": 1.51,
+          "trumpet_maker_school": 0.2415
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ],
+      "credited_organ_unspecified": [
+        "credited_organ_unspecified_identity"
+      ],
+      "rhodes_electric": [
+        "keyboard_technique",
+        "rhodes_model",
+        "rhodes_use",
+        "rhodes_tine_material",
+        "rhodes_hammer_tip",
+        "rhodes_pickup_position"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "congas": [
+        "percussion_technique",
+        "conga_set",
+        "conga_skin",
+        "conga_shell_wood"
+      ],
+      "saxophone_section_alto_two_baritones": [
+        "alto_two_baritones_section_articulation"
+      ],
+      "flute": [
+        "wind_articulation",
+        "flute_size",
+        "flute_material",
+        "flute_technique",
+        "flute_maker_school"
+      ],
+      "trombone": [
+        "wind_articulation",
+        "trombone_type",
+        "trombone_mouthpiece",
+        "trombone_mute",
+        "trombone_technique",
+        "trombone_bell_metal",
+        "trombone_maker_school"
+      ],
+      "trumpet": [
+        "wind_articulation",
+        "brass_size",
+        "trumpet_mouthpiece",
+        "brass_mute",
+        "trumpet_technique",
+        "trumpet_bell_metal",
+        "trumpet_maker_school"
+      ]
+    },
+    "room": "live_room",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "live_room",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_neumatic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_group",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "amp_make": "amp_unspecified",
+      "body_wood": "swamp_ash_b",
+      "pickup_config": "dual_single",
+      "string_type": "flatwound",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "credited_organ_unspecified_identity": "credited_organ_unspecified_identity_unspecified",
+      "keyboard_technique": "keyboard_jazz_comping",
+      "rhodes_model": "rhodes_mark1_stage",
+      "rhodes_use": "rhodes_jazz",
+      "rhodes_tine_material": "rhodes_torrington_tine",
+      "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
+      "rhodes_pickup_position": "rhodes_pickup_centered",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "percussion_technique": "percussion_hands_layered",
+      "conga_set": "conga_proper",
+      "conga_skin": "conga_mule_hide",
+      "conga_shell_wood": "conga_oak_staved",
+      "alto_two_baritones_section_articulation": "alto_two_baritones_section_short",
+      "wind_articulation": "wind_continuous_legato",
+      "flute_size": "concert_flute",
+      "flute_material": "silver_flute",
+      "flute_technique": "jazz_flute",
+      "flute_maker_school": "flute_powell_boston",
+      "trombone_type": "tenor_trombone",
+      "trombone_mouthpiece": "bach_trombone_mp_6half_al",
+      "trombone_mute": "no_mute_trb",
+      "trombone_technique": "trombone_jazz_single_line",
+      "trombone_bell_metal": "trombone_yellow_brass",
+      "trombone_maker_school": "trombone_bach_42",
+      "brass_size": "trumpet_b_flat",
+      "trumpet_mouthpiece": "bach_trumpet_mp_7c",
+      "brass_mute": "no_mute_brass",
+      "trumpet_technique": "trumpet_classical_legato",
+      "trumpet_bell_metal": "trumpet_yellow_brass",
+      "trumpet_maker_school": "trumpet_bach_stradivarius"
+    },
+    "pin_parts": true
+  }
+}

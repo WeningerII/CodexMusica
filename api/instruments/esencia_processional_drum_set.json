@@ -1,0 +1,78 @@
+{
+  "id": "esencia_processional_drum_set",
+  "name": "Esencia processional drums and timbales",
+  "short": "Esencia processional drums and timbales",
+  "family": "percussion",
+  "class": "membranophone_ensemble",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "esencia_processional_drum",
+      "name": "Samba drum",
+      "variants": [
+        {
+          "id": "esencia_samba_35_13",
+          "name": "Samba Esencia drum 35×13, source-described loosened head",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "esencia_processional_timbal",
+      "name": "NP Palio timbal",
+      "variants": [
+        {
+          "id": "esencia_np_palio_45_34",
+          "name": "NP Palio Esencia Old timbal 45×34, 18-inch",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Whole coexisting drum set documented since Lent2025: Samba35×13 drums and NP Palio Esencia Old45×34 timbales. The source explicitly describes markedly loosened drumheads. These are Spanish processional drums, not Cuban timbales or Bahian hand timbal. Shell material, membrane material and tension measurements remain unspecified. Neutral authored axes.",
+  "sources": [
+    "https://amigosdeesencia.com/instrumentacion"
+  ],
+  "_ownParts": [
+    {
+      "id": "esencia_processional_drum",
+      "name": "Samba drum",
+      "variants": [
+        {
+          "id": "esencia_samba_35_13",
+          "name": "Samba Esencia drum 35×13, source-described loosened head",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "esencia_processional_timbal",
+      "name": "NP Palio timbal",
+      "variants": [
+        {
+          "id": "esencia_np_palio_45_34",
+          "name": "NP Palio Esencia Old timbal 45×34, 18-inch",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

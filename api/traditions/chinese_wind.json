@@ -1,0 +1,99 @@
+{
+  "id": "chinese_wind",
+  "name": "Chinese Wind",
+  "family": "classical",
+  "lineage": "HKAPA 11 September 2024 — At the Dressing Table, Zhang Weiliang arrangement, complete dizi and zheng recital work. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics. Authored present-day acoustic concert-hall rendition with panoramic reverberant space. All source-positive roles and vocal configuration remain unchanged. Hall acoustics are an editorial rendition choice, not a claim about the original recording location. Exact microphone, preamplifier, console, compressor, equalizer and medium are unknown and omitted.",
+  "recipe": "classic mid-2020s chinese wind, art Music. dizi, guzheng. shoebox concert hall.",
+  "recipe_chars": 79,
+  "score": 8.178,
+  "config": {
+    "traditions": [
+      "chinese_wind"
+    ],
+    "instruments": [
+      {
+        "id": "dizi",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "dizi_membrane": "dizi_with_membrane",
+          "dizi_pitch": "dizi_f",
+          "dizi_body_material": "dizi_bitter_bamboo",
+          "dizi_regional_style": "dizi_qudi_southern"
+        },
+        "scores": {
+          "wind_articulation": 2.45,
+          "dizi_membrane": 0,
+          "dizi_pitch": 0,
+          "dizi_body_material": 0.3,
+          "dizi_regional_style": 0.6
+        }
+      },
+      {
+        "id": "guzheng",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "guzheng_strings": "guzheng_21",
+          "guzheng_picks": "guzheng_tortoise",
+          "guzheng_top_wood": "guzheng_wutong_paulownia",
+          "guzheng_frame": "guzheng_rosewood_frame",
+          "guzheng_string_material": "guzheng_nylon_steel_wound"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.5,
+          "guzheng_strings": 1.69,
+          "guzheng_picks": 0.325,
+          "guzheng_top_wood": 0,
+          "guzheng_frame": -0.05,
+          "guzheng_string_material": 0.363
+        }
+      }
+    ],
+    "pinned": {
+      "dizi": [
+        "wind_articulation",
+        "dizi_membrane",
+        "dizi_pitch",
+        "dizi_body_material",
+        "dizi_regional_style"
+      ],
+      "guzheng": [
+        "plucked_traditional_technique",
+        "guzheng_strings",
+        "guzheng_picks",
+        "guzheng_top_wood",
+        "guzheng_frame",
+        "guzheng_string_material"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "wind_articulation": "wind_continuous_legato",
+      "dizi_membrane": "dizi_with_membrane",
+      "dizi_pitch": "dizi_f",
+      "dizi_body_material": "dizi_bitter_bamboo",
+      "dizi_regional_style": "dizi_qudi_southern",
+      "plucked_traditional_technique": "plucked_classical_idiom",
+      "guzheng_strings": "guzheng_21",
+      "guzheng_picks": "guzheng_tortoise",
+      "guzheng_top_wood": "guzheng_wutong_paulownia",
+      "guzheng_frame": "guzheng_rosewood_frame",
+      "guzheng_string_material": "guzheng_nylon_steel_wound"
+    },
+    "pin_parts": true
+  }
+}

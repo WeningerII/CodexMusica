@@ -1,0 +1,56 @@
+{
+  "id": "528hz",
+  "name": "528 Hz",
+  "family": "electronic",
+  "lineage": "Gary James Joynes / Clinker — complete528Hz track5,15:04, from The Solfeggio Series. Artist explicitly states the nine individual tone recordings use pure sine output from a hand-tuned analog Z3000 oscillator captured directly, uncompressed. Only selected528Hz tone is modeled; bonus multitone track10 and other frequencies excluded. No voice, accompaniment, sample playback or keyboard inferred. Broad experimentalElec.ambient represents this sustained electronic listening tone, no verse/chorus or dance beat. Isolated Z3000 sine-output owner retains documented analog oscillator architecture while omitting unused module controls, keyboard, filter and speculative patch. Manufacturer confirms analog VCO; source does not identify MkI/MkII revision. Global temperament omitted because a single nominal frequency does not imply equal temperament. Neutral axes and recording chain are authored present-day rendering settings; no microphone was claimed in the original direct capture.",
+  "recipe": "classic 528 hz, experimental Elec, ambient branch. analog sine oscillator z3000. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 179,
+  "score": 9.108,
+  "config": {
+    "traditions": [
+      "528hz"
+    ],
+    "instruments": [
+      {
+        "id": "analog_sine_oscillator_z3000",
+        "slots": {
+          "z3000_signal_identity": "z3000_direct_sine_signal"
+        },
+        "scores": {
+          "z3000_signal_identity": 9.108
+        }
+      }
+    ],
+    "pinned": {
+      "analog_sine_oscillator_z3000": [
+        "z3000_signal_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "z3000_signal_identity": "z3000_direct_sine_signal"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

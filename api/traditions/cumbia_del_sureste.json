@@ -1,0 +1,56 @@
+{
+  "id": "cumbia_del_sureste",
+  "name": "Cumbia del sureste",
+  "family": "vernacular",
+  "lineage": "La Sabrosura Sound System — documented vinyl-selection practice, December2022 firsthand press-conference interview. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic cumbia del sureste, groove Percussion, Latin am branch. vinyl dj playback. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 181,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "cumbia_del_sureste"
+    ],
+    "instruments": [
+      {
+        "id": "vinyl_dj_playback",
+        "slots": {
+          "vinyl_dj_performance": "vinyl_record_playback_mix"
+        },
+        "scores": {
+          "vinyl_dj_performance": 0
+        }
+      }
+    ],
+    "pinned": {
+      "vinyl_dj_playback": [
+        "vinyl_dj_performance"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "vinyl_dj_performance": "vinyl_record_playback_mix"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

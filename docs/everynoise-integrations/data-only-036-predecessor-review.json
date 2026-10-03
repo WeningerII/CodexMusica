@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "baseline_head": "b39030999b11d58d9ba93e37f954343793a157af",
+  "merged_head": "9430927f893a7816a4845a0b0521148a9c00e06b",
+  "baseline_tree": "d5e6bf7819c7c95fc0f13f0bacecf8fff38aa33b",
+  "merged_tree": "d5e6bf7819c7c95fc0f13f0bacecf8fff38aa33b",
+  "changed_paths": [],
+  "baseline": "/workspace/genre-continuation/research/batch036-baseline",
+  "conclusion": "Exact committed trees identical; existing immutable raw/source/API/browser snapshot remains valid without recopy."
+}

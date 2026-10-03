@@ -1,0 +1,85 @@
+{
+  "id": "software_isochronic_tone_generator",
+  "name": "Software isochronic tone generator",
+  "short": "Isochronic tone generator",
+  "family": "electronic",
+  "class": "isolated_software_isochronic_tone_generator",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "software_isochronic_tone_identity",
+      "name": "Generation practice",
+      "variants": [
+        {
+          "id": "software_isochronic_tone_amplitude_pulsed",
+          "name": "Single tone with regular amplitude pulses; carrier unspecified",
+          "default": true,
+          "descriptors": [
+            "pulsing",
+            "repetitive",
+            "minimal",
+            "drone-like",
+            "ambient",
+            "meditative",
+            "static"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Software-generated single audible tone with regular amplitude on/off modulation. Carrier frequency,waveform and software session settings unspecified. No anatomical or health-effect claims.",
+  "sources": [
+    {
+      "url": "https://www.mindamend.com/shop/7hz-theta-waves-isochronic-tones/",
+      "title": "Issuer complete tones-only edition",
+      "support_notes": "Fresh7054view0 constant7pulses/sec,30minutes,no soundtrack selectededition; medical assertions excluded.",
+      "checked_date": "2026-10-03"
+    },
+    {
+      "url": "https://www.mindamend.com/about-mind-amend/",
+      "title": "Producer first-person software practice",
+      "support_notes": "Fresh7053view1 producer JasonLewis firstperson MindWorkStation use for isochronic creation.",
+      "checked_date": "2026-10-03"
+    },
+    {
+      "url": "https://www.mindamend.com/brainwave-entrainment/mind-music/",
+      "title": "Producer amplitude-modulation explanation",
+      "support_notes": "Fresh7031search1 one tone turned on/off atregularintervals; distinct from modulation of entire musicalsoundtrack.",
+      "checked_date": "2026-10-03"
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "software_isochronic_tone_identity",
+      "name": "Generation practice",
+      "variants": [
+        {
+          "id": "software_isochronic_tone_amplitude_pulsed",
+          "name": "Single tone with regular amplitude pulses; carrier unspecified",
+          "default": true,
+          "descriptors": [
+            "pulsing",
+            "repetitive",
+            "minimal",
+            "drone-like",
+            "ambient",
+            "meditative",
+            "static"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

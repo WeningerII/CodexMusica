@@ -1,0 +1,56 @@
+{
+  "id": "circuit",
+  "name": "Circuit",
+  "family": "electronic",
+  "lineage": "Alain Jackinsky — full announced TreeHouse Party DJ slot,Toronto3July2016. Existing architecture-neutral DJ playback/mixing card models the positively billed practice without reverse-engineering source records into guessed synthesizers or vocal physiology. All embedded layers remain in recorded program; no source part is removed. ElectronicDance.house is the artist-identified house foundation. Studio/digital chain and neutral axes are editorial recording realization, not source stage equipment; no global musical tuning asserted.",
+  "recipe": "classic circuit, electronic Dance, house branch. dj playback mixing unspecified. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 179,
+  "score": 0,
+  "config": {
+    "traditions": [
+      "circuit"
+    ],
+    "instruments": [
+      {
+        "id": "dj_playback_mixing_unspecified",
+        "slots": {
+          "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+        },
+        "scores": {
+          "dj_playback_mixing_identity": 0
+        }
+      }
+    ],
+    "pinned": {
+      "dj_playback_mixing_unspecified": [
+        "dj_playback_mixing_identity"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "dj_playback_mixing_identity": "dj_playback_mixing_source_unspecified"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

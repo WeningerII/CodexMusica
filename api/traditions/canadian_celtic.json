@@ -1,0 +1,156 @@
+{
+  "id": "canadian_celtic",
+  "name": "Canadian Celtic",
+  "family": "vernacular",
+  "lineage": "Complete instrumental2018 Live From The Artfarm album by The Fretless, recorded live before a small audience at producer Sean Boyd’s Artfarm in Accord,NewYork. Full four-person roster: Trent Freeman,Karrnnel Sawitsky and Ben Plotnick each fiddle/viola; Eric Wright cello. Three instrument-family cards preserve all doubling and four humans, not six simultaneous violin/viola players. PR source explicitly describes whole album instrumental; figurative four voices means four instrumentalists, not singers. Audience response retained as recording context, not invented vocal performance. Later OpenHouse guest singers are outside this dated album. Selected musical parent improvOnFrame.celticTraditional follows Freeman’s first-person explanation of this Celtic tune repertoire and deliberate improvisational room within arranged ensemble frames. It does not infer artMusic from quartet or concert setting.  Authored revision: Celtic-session fiddle technique follows the positively documented Celtic tune practice; steel-core fiddle and viola strings plus dark fiddle rosin provide a projecting chamber-folk realization. Cello retains its prior synthetic strings. A hardwood living-room acoustic replaces the earlier studio capture chain; this is an editorial chamber rendition, not a measured reconstruction of the Artfarm. The shared bow-technique pin applies to fiddle only; viola and cello honestly import their original classical-legato defaults without a protective pin. No claim guarantees those two defaults survive later optimization. All four instrumentalists and violin/viola doubling remain unchanged.",
+  "recipe": "classic canadian celtic, improv On Frame, Celtic traditional branch. projecting steel fiddle, steel core projecting norway spruce European alpine European maple viola classical, synthetic norway spruce European alpine European maple bosnian source cello. hardwood living.",
+  "recipe_chars": 271,
+  "score": 97.55,
+  "config": {
+    "traditions": [
+      "canadian_celtic"
+    ],
+    "instruments": [
+      {
+        "id": "fiddle",
+        "slots": {
+          "bowed_technique": "bowed_celtic_session",
+          "fiddle_strings": "steel_core",
+          "fiddle_bow": "dark_rosin",
+          "fiddle_mute": "no_mute",
+          "fiddle_articulation": "arco",
+          "fiddle_string_configuration": "fiddle_string_configuration_unspecified"
+        },
+        "scores": {
+          "bowed_technique": 19.731499999999997,
+          "fiddle_strings": 2.6,
+          "fiddle_bow": 1.405,
+          "fiddle_mute": 1.405,
+          "fiddle_articulation": 1.51,
+          "fiddle_string_configuration": 0
+        }
+      },
+      {
+        "id": "viola_classical",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "viola_size": "viola_16_inch",
+          "viola_strings": "viola_steel_core",
+          "viola_top_wood": "viola_norway_spruce",
+          "viola_back_wood": "viola_bosnian_flamed_maple",
+          "viola_varnish": "viola_oil_amber",
+          "viola_setup_period": "viola_modern_setup",
+          "viola_bow_stick": "viola_pernambuco",
+          "viola_rosin": "viola_larsen_rosin"
+        },
+        "scores": {
+          "bowed_technique": 4.760000000000001,
+          "viola_size": 0,
+          "viola_strings": 4.005000000000001,
+          "viola_top_wood": 3.305,
+          "viola_back_wood": 4.636500000000001,
+          "viola_varnish": 3.2,
+          "viola_setup_period": 3.809,
+          "viola_bow_stick": 3.1500000000000004,
+          "viola_rosin": 9.731499999999999
+        }
+      },
+      {
+        "id": "cello",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "cello_strings": "cello_synthetic",
+          "cello_top_wood": "norway_spruce_alpine_cello",
+          "cello_back_wood": "bosnian_flamed_maple_cello",
+          "cello_varnish": "oil_amber_varnish_cello",
+          "cello_setup_period": "modern_setup_cello",
+          "cello_bow_grip": "french_bow_grip",
+          "cello_rosin": "pirastro_cellisto_rosin",
+          "cello_bow_stick": "pernambuco_stick_cello"
+        },
+        "scores": {
+          "bowed_technique": 4.760000000000001,
+          "cello_strings": 2.7365,
+          "cello_top_wood": 3.3680000000000003,
+          "cello_back_wood": 4.636500000000001,
+          "cello_varnish": 3.2,
+          "cello_setup_period": 3.809,
+          "cello_bow_grip": 1.5415,
+          "cello_rosin": 7.1,
+          "cello_bow_stick": 3.1500000000000004
+        }
+      }
+    ],
+    "pinned": {
+      "fiddle": [
+        "bowed_technique",
+        "fiddle_strings",
+        "fiddle_bow",
+        "fiddle_mute",
+        "fiddle_articulation",
+        "fiddle_string_configuration"
+      ],
+      "viola_classical": [
+        "viola_size",
+        "viola_strings",
+        "viola_top_wood",
+        "viola_back_wood",
+        "viola_varnish",
+        "viola_setup_period",
+        "viola_bow_stick",
+        "viola_rosin"
+      ],
+      "cello": [
+        "cello_strings",
+        "cello_top_wood",
+        "cello_back_wood",
+        "cello_varnish",
+        "cello_setup_period",
+        "cello_bow_grip",
+        "cello_rosin",
+        "cello_bow_stick"
+      ]
+    },
+    "room": "hardwood_living",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "hardwood_living",
+    "parts": {
+      "bowed_technique": "bowed_celtic_session",
+      "fiddle_strings": "steel_core",
+      "fiddle_bow": "dark_rosin",
+      "fiddle_mute": "no_mute",
+      "fiddle_articulation": "arco",
+      "fiddle_string_configuration": "fiddle_string_configuration_unspecified",
+      "viola_size": "viola_16_inch",
+      "viola_strings": "viola_steel_core",
+      "viola_top_wood": "viola_norway_spruce",
+      "viola_back_wood": "viola_bosnian_flamed_maple",
+      "viola_varnish": "viola_oil_amber",
+      "viola_setup_period": "viola_modern_setup",
+      "viola_bow_stick": "viola_pernambuco",
+      "viola_rosin": "viola_larsen_rosin",
+      "cello_strings": "cello_synthetic",
+      "cello_top_wood": "norway_spruce_alpine_cello",
+      "cello_back_wood": "bosnian_flamed_maple_cello",
+      "cello_varnish": "oil_amber_varnish_cello",
+      "cello_setup_period": "modern_setup_cello",
+      "cello_bow_grip": "french_bow_grip",
+      "cello_rosin": "pirastro_cellisto_rosin",
+      "cello_bow_stick": "pernambuco_stick_cello"
+    },
+    "pin_parts": true
+  }
+}

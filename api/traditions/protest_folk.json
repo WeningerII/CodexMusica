@@ -3,9 +3,9 @@
   "name": "Protest folk",
   "family": "vernacular",
   "lineage": "Protest folk links vernacular singing to collective dissent and social argument across many movements. Pete Seeger’s Folkways Songs of Struggle and Protest supplies one documented American revival branch.",
-  "recipe": "classic modern protest folk, nursery Rhyme. thick, incomplete closure resting, neutral third half flat, opera quality low larynx anchored. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 394,
-  "score": 24.733,
+  "recipe": "classic modern protest folk, nursery Rhyme. thick, incomplete closure resting, neutral third half flat, m1 with m0 pulse borrowing. scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, dreadnought acoustic guitar. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 387,
+  "score": 25.752,
   "config": {
     "traditions": [
       "protest_folk"
@@ -33,20 +33,20 @@
         },
         "scores": {
           "voice_register": 4.5225,
-          "voice_quality": 1.2999999999999998,
+          "voice_quality": 1.3315,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.39,
           "voice_articulation": -0.2,
           "voice_microtone": 2.990000000000001,
           "voice_tradition": 0,
-          "voice_mechanism_compound": 0.35774999999999996,
-          "voice_estill_quality": 0.8874999999999998,
+          "voice_mechanism_compound": 0.55725,
+          "voice_estill_quality": 0.9189999999999998,
           "voice_speech_song": 3.185,
           "voice_ensemble_config": 0.19500000000000003,
-          "voice_ornament_system": 0,
-          "voice_pitch_organization": 0,
-          "voice_processing_chain": 1.2639999999999998,
+          "voice_ornament_system": 0.30450000000000005,
+          "voice_pitch_organization": 0.0315,
+          "voice_processing_chain": 1.432,
           "voice_multitrack_stack": 0.39
         }
       },
@@ -87,11 +87,11 @@
           "string_acoustic": "phosphor_bronze"
         },
         "scores": {
-          "acoustic_technique": 1.5805,
+          "acoustic_technique": 1.6119999999999999,
           "string_tuning": 0,
           "top_wood": 0.3,
-          "back_sides": 0.0375,
-          "string_acoustic": 0.135
+          "back_sides": 0.11099999999999999,
+          "string_acoustic": 0.282
         }
       }
     ],

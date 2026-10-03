@@ -1,0 +1,1582 @@
+{
+  "status": "PASS",
+  "integration_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "baseline": "b39030999b11d58d9ba93e37f954343793a157af; exact tree equals merged9430927f893a7816a4845a0b0521148a9c00e06b",
+  "summary": {
+    "old_traditions": 6138,
+    "unchanged_old_payloads": 6104,
+    "derived_changed_payloads": 34,
+    "changed_recipes": 22,
+    "changed_unprotected_slots": 104,
+    "old_instruments_unchanged": 1586,
+    "new_traditions": 100,
+    "new_instruments": 9,
+    "new_owning_parts": 3089,
+    "new_protected_parts": 3085
+  },
+  "new_compiled_fallbacks": [
+    {
+      "tradition": "tunisian_pop",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "flat_value": "keyboard_block_chord_pop",
+      "policy": "Unprotected owning slot; imported fallback is not a protected or compiled setting guarantee.",
+      "compiled_choice": "electronic_keyboard_melodic_chordal",
+      "compiled_protected": false,
+      "changed_from_import": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "canadian_celtic",
+      "instrument": "viola_classical",
+      "part": "bowed_technique",
+      "imported_default": "bowed_legato_classical",
+      "flat_value": "bowed_celtic_session",
+      "policy": "Unprotected owning slot; imported fallback is not a protected or compiled setting guarantee.",
+      "compiled_choice": "bowed_legato_classical",
+      "compiled_protected": false,
+      "changed_from_import": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "canadian_celtic",
+      "instrument": "cello",
+      "part": "bowed_technique",
+      "imported_default": "bowed_legato_classical",
+      "flat_value": "bowed_celtic_session",
+      "policy": "Unprotected owning slot; imported fallback is not a protected or compiled setting guarantee.",
+      "compiled_choice": "bowed_legato_classical",
+      "compiled_protected": false,
+      "changed_from_import": false,
+      "valid_owning_variant": true
+    },
+    {
+      "tradition": "ghent_indie",
+      "instrument": "turntable",
+      "part": "electronic_technique",
+      "imported_default": "electronic_sample_chopped",
+      "flat_value": "electronic_pad_drone",
+      "policy": "Unprotected owning slot; imported fallback is not a protected or compiled setting guarantee.",
+      "compiled_choice": "electronic_sample_chopped",
+      "compiled_protected": false,
+      "changed_from_import": false,
+      "valid_owning_variant": true
+    }
+  ],
+  "rows": [
+    {
+      "id": "brazilian_mpb_protest",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "brazilian_mpb_protest",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "diaphragm_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_lo_fi_narrow_AM",
+          "after": "voice_processing_stutter_edit",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_opera",
+          "after": "voice_estill_nasal_twang",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["brega"],
+      "baseline_selected_staples": [
+        "brazilian_mpb_protest",
+        "cantautora_mexicana",
+        "folklore_surero"
+      ],
+      "current_selected_staples": ["brazilian_mpb_protest", "brega", "cantautora_mexicana"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "brazilian_samba_school_enredo",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "brazilian_samba_school_enredo",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "andean_quechua_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_flamenco_cante_jondo",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_oral_twang",
+          "after": "voice_estill_nasal_twang",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["brega"],
+      "baseline_selected_staples": [
+        "brazilian_samba_school_enredo",
+        "trinidad_road_march",
+        "andean_matrimonio_huayno"
+      ],
+      "current_selected_staples": ["brazilian_samba_school_enredo", "brega", "trinidad_road_march"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "children_s_folk",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "children_s_folk",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_none",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [
+        {
+          "id": "decije_pesme",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["children_s_folk"],
+      "current_selected_staples": ["children_s_folk"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "chill_groove",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "chill_groove",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["chill_groove"],
+      "current_selected_staples": ["chill_groove"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "chinese_pingshu",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "chinese_pingshu",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_tape_saturation",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detskie_pesni"],
+      "baseline_selected_staples": ["chinese_pingshu", "beijing_opera", "tibetan_ache_lhamo"],
+      "current_selected_staples": ["chinese_pingshu", "detskie_pesni", "beijing_opera"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "cool_jazz_west_coast",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "cool_jazz_west_coast",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": [
+        "cool_jazz_west_coast",
+        "smooth_jazz_80s",
+        "japanese_vocal_jazz"
+      ],
+      "current_selected_staples": [
+        "cool_jazz_west_coast",
+        "smooth_jazz_80s",
+        "japanese_vocal_jazz"
+      ],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "ethio_pop_modern",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "ethio_pop_modern",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_retune_10_50ms_natural",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_none",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_belt",
+          "after": "voice_estill_speech",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "body_wood",
+          "before": "pine",
+          "after": "alder",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "dadgad",
+          "after": "drop_d",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "amp_make",
+          "before": "amp_american_fender_blackface",
+          "after": "amp_roland_jc120",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "vintage_ambassador_drumhead",
+          "after": "fiberskyn_drumhead",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_voices",
+          "before": "poly_16_voice",
+          "after": "poly_5_voice",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["ghent_indie"],
+      "baseline_selected_staples": ["ethio_pop_modern", "musique_comorienne", "acid_jazz_uk_90s"],
+      "current_selected_staples": ["ethio_pop_modern", "ghent_indie", "musique_comorienne"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "exotica",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "exotica",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "modern_pop_vocal_training",
+          "after": "jazz_scat_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_plate_reverb_medium",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_quranic_tajwid",
+          "after": "voice_ornament_none",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_2010s_melodyne_microtuned",
+          "after": "voice_multitrack_pitched_sample_melodic_bed",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["coverchill"],
+      "baseline_selected_staples": ["exotica", "smooth_jazz_80s", "rumba_yambu"],
+      "current_selected_staples": ["exotica", "smooth_jazz_80s", "coverchill"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "filin_cubano",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "filin_cubano",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "asian_laminated_rim_birch_maple",
+          "after": "mason_hamlin_oversize_rim",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "part": "acoustic_technique",
+          "before": "acoustic_fingerpicked",
+          "after": "acoustic_strummed_ringing",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["filin_cubano", "japanese_vocal_jazz", "smooth_jazz_80s"],
+      "current_selected_staples": ["filin_cubano", "japanese_vocal_jazz", "smooth_jazz_80s"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "french_berceuse",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "french_berceuse",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "chinese_classical_vocal_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "slow_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_dhrupad_meend_andolan",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "fado_voice",
+          "after": "aspirated_voice",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_opera",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detskie_pesni"],
+      "baseline_selected_staples": ["french_berceuse", "chanson", "nouvelle_chanson_francaise"],
+      "current_selected_staples": ["french_berceuse", "detskie_pesni", "chanson"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "german_wiegenlied",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "german_wiegenlied",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "chinese_classical_vocal_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_dhrupad_meend_andolan",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detskie_pesni"],
+      "baseline_selected_staples": ["german_wiegenlied", "chanson", "nouvelle_chanson_francaise"],
+      "current_selected_staples": ["german_wiegenlied", "detskie_pesni", "chanson"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "great_american_songbook",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "great_american_songbook",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [
+        {
+          "instrument": "trombone",
+          "part": "trombone_technique",
+          "before": "classical_trb",
+          "after": "big_band_punch",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": [
+        "great_american_songbook",
+        "cool_jazz_vocal",
+        "modern_vocal_jazz"
+      ],
+      "current_selected_staples": [
+        "great_american_songbook",
+        "cool_jazz_vocal",
+        "modern_vocal_jazz"
+      ],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "greek_tragedy_chorus",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "greek_tragedy_chorus",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detskie_pesni"],
+      "baseline_selected_staples": ["greek_tragedy_chorus", "tibetan_ache_lhamo", "beijing_opera"],
+      "current_selected_staples": ["greek_tragedy_chorus", "detskie_pesni", "tibetan_ache_lhamo"],
+      "classification": "Generated descriptor ordering/content or staple lineage text; no instrument-slot change."
+    },
+    {
+      "id": "interior_confessional_60s",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "interior_confessional_60s",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": [
+        "interior_confessional_60s",
+        "cool_jazz_vocal",
+        "modern_vocal_jazz"
+      ],
+      "current_selected_staples": [
+        "interior_confessional_60s",
+        "cool_jazz_vocal",
+        "modern_vocal_jazz"
+      ],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "irish_rock",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "irish_rock",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_plate_reverb_medium",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_opera",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "bridge",
+          "before": "locking_trem",
+          "after": "vintage_trem",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_gauge",
+          "before": "g_8",
+          "after": "g_10",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "neck_wood",
+          "before": "mahogany_neck",
+          "after": "wenge_neck",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "scale_length",
+          "before": "scale_gibson",
+          "after": "scale_short",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_winding",
+          "before": "mid_wind",
+          "after": "low_wind",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "alder_b",
+          "after": "mahogany_b",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "irish_bouzouki",
+          "part": "irish_bouzouki_top_wood",
+          "before": "irish_bouzouki_carved_top",
+          "after": "irish_bouzouki_spruce_top",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["canadian_celtic"],
+      "baseline_selected_staples": ["irish_rock", "thai_folk_rock", "czech_folk_rock"],
+      "current_selected_staples": ["irish_rock", "canadian_celtic", "thai_folk_rock"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "jam_band",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "jam_band",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "modern_pop_vocal_training",
+          "after": "scottish_gaelic_taladh_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_belt",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "fretboard",
+          "before": "pau_ferro_fb_h",
+          "after": "maple_fb_h",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "fretboard",
+          "before": "pau_ferro_fb",
+          "after": "maple_fb",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "alder_b",
+          "after": "mahogany_b",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "short_scale_b",
+          "after": "extra_long_b",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "congas",
+          "part": "conga_shell_wood",
+          "before": "conga_oak_staved",
+          "after": "conga_mahogany",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "congas",
+          "part": "conga_skin",
+          "before": "conga_mule_hide",
+          "after": "conga_synthetic_head",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["dusseldorf_indie"],
+      "baseline_selected_staples": ["jam_band", "hard_rock_brasileiro", "nwocr"],
+      "current_selected_staples": ["jam_band", "dusseldorf_indie", "hard_rock_brasileiro"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "japanese_kamishibai",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "japanese_kamishibai",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "chinese_classical_vocal_tradition",
+          "after": "japanese_min_yo_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_bel_canto",
+          "after": "voice_ornament_jingju_role",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_pitched_sample_melodic_bed",
+          "after": "voice_multitrack_single_lead",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detske_pesnicky"],
+      "baseline_selected_staples": ["japanese_kamishibai", "tibetan_ache_lhamo", "beijing_opera"],
+      "current_selected_staples": ["japanese_kamishibai", "tibetan_ache_lhamo", "detske_pesnicky"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "japanese_kodan",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "japanese_kodan",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "chinese_classical_vocal_tradition",
+          "after": "japanese_min_yo_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "terminal_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_melodyne_microtuned",
+          "after": "voice_processing_tube_saturation",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_bel_canto",
+          "after": "voice_ornament_jingju_role",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_chopped_sample_rhythmic_bed",
+          "after": "voice_multitrack_single_lead",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detske_pesnicky"],
+      "baseline_selected_staples": ["japanese_kodan", "tibetan_ache_lhamo", "beijing_opera"],
+      "current_selected_staples": ["japanese_kodan", "tibetan_ache_lhamo", "detske_pesnicky"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "japanese_vocal_jazz",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "japanese_vocal_jazz",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [
+        {
+          "instrument": "cello",
+          "part": "cello_varnish",
+          "before": "cremonese_post_1740_varnish_cello",
+          "after": "modern_synthetic_varnish_cello",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["japanese_vocal_jazz"],
+      "current_selected_staples": ["japanese_vocal_jazz"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "liquid_dnb",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "liquid_dnb",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_retune_10_50ms_natural",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["liquid_dnb", "smooth_jazz_80s", "modern_vocal_jazz"],
+      "current_selected_staples": ["liquid_dnb", "smooth_jazz_80s", "modern_vocal_jazz"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "lounge_exotica",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "lounge_exotica",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [
+        {
+          "instrument": "bongos",
+          "part": "percussion_technique",
+          "before": "percussion_hands_layered",
+          "after": "percussion_open_slap",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "celesta",
+          "part": "celesta_model",
+          "before": "celesta_schiedmayer",
+          "after": "celesta_yamaha",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["lounge_exotica", "smooth_jazz_80s", "torch_song"],
+      "current_selected_staples": ["lounge_exotica", "smooth_jazz_80s", "torch_song"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "lounge_music",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "lounge_music",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pinblock",
+          "before": "asian_multi_laminate_pinblock",
+          "after": "hexagrip_7_ply_quartersawn_maple",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "asian_laminated_rim_birch_maple",
+          "after": "mason_hamlin_oversize_rim",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "congas",
+          "part": "percussion_technique",
+          "before": "percussion_hands_layered",
+          "after": "percussion_open_slap",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_ensemble_repertoire",
+          "before": "choir_ensemble_contemporary",
+          "after": "choir_ensemble_global_traditional",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_regional_canonical_configuration",
+          "before": "choir_regional_rioplatense_murga",
+          "after": "choir_regional_kakhetian_three_voice",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["coverchill"],
+      "baseline_selected_staples": ["lounge_music", "dinner_jazz", "skiffle"],
+      "current_selected_staples": ["lounge_music", "coverchill", "dinner_jazz"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "manx_folk",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "manx_folk",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_articulation",
+          "before": "sul_pont",
+          "after": "arco",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "straight_tone",
+          "after": "slow_vibrato",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "part": "string_acoustic",
+          "before": "phosphor_om",
+          "after": "silk_steel_om",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "acoustic_guitar_om",
+          "part": "top_wood",
+          "before": "cedar_om",
+          "after": "mahogany_top_om",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["canadian_celtic"],
+      "baseline_selected_staples": ["manx_folk", "scottish_folk", "irish_accordion"],
+      "current_selected_staples": ["manx_folk", "scottish_folk", "canadian_celtic"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "minimalist",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "minimalist",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "renner_blue_hammer",
+          "after": "renner_standard_hammer",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "european_laminated_rim_beech_maple",
+          "after": "steinway_17_ply_hard_rock_maple_rim",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "analog_synth",
+          "part": "oscillator",
+          "before": "saw_single",
+          "after": "saw_super",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["528hz", "brain_waves"],
+      "baseline_selected_staples": ["minimalist", "deep_downtempo_fusion", "musica_andorra"],
+      "current_selected_staples": ["minimalist", "528hz", "brain_waves"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "musica_de_fondo",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "musica_de_fondo",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "violin_orchestral",
+          "part": "orch_bow",
+          "before": "modern_bow",
+          "after": "baroque_bow",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_pinblock",
+          "before": "asian_multi_laminate_pinblock",
+          "after": "hexagrip_7_ply_quartersawn_maple",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "mason_hamlin_oversize_rim",
+          "after": "asian_laminated_rim_birch_maple",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_ensemble_repertoire",
+          "before": "choir_ensemble_global_traditional",
+          "after": "choir_ensemble_renaissance",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "choir_ensemble",
+          "part": "choir_regional_canonical_configuration",
+          "before": "choir_regional_sardinian_cantu_a_tenore",
+          "after": "choir_regional_gallura_five_voice",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "celesta",
+          "part": "celesta_model",
+          "before": "celesta_schiedmayer",
+          "after": "celesta_yamaha",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["coverchill"],
+      "baseline_selected_staples": ["musica_de_fondo", "dinner_jazz", "torch_song"],
+      "current_selected_staples": ["musica_de_fondo", "dinner_jazz", "coverchill"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "neurostep",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "neurostep",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "deathstep",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["neurostep"],
+      "current_selected_staples": ["neurostep"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "organum",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "organum",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_persian_tahrir",
+          "after": "voice_ornament_andean_huayno",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "choir_cathedral_satb",
+          "part": "voicing",
+          "before": "satb_with_boys",
+          "after": "satb_standard",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "portative_organ",
+          "part": "portative_organ_pipework",
+          "before": "portative_organ_pipework_wood",
+          "after": "portative_organ_pipework_metal",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "portative_organ",
+          "part": "portative_organ_form",
+          "before": "portative_organ_form_landini_organetto",
+          "after": "portative_organ_form_single_rank",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "medieval_psaltery",
+          "part": "medieval_psaltery_form",
+          "before": "medieval_psaltery_form_pigs_head",
+          "after": "medieval_psaltery_form_canale",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detskie_pesni"],
+      "baseline_selected_staples": [
+        "organum",
+        "croatian_istrian_diaphonic",
+        "armenian_duduk_chant"
+      ],
+      "current_selected_staples": ["organum", "detskie_pesni", "croatian_istrian_diaphonic"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "pirate_metal",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "pirate_metal",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_material",
+          "before": "pure_nickel_h",
+          "after": "nickel_plated_h",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "finish",
+          "before": "poly_hum",
+          "after": "nitro_hum",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "pickup_winding",
+          "before": "high_wind",
+          "after": "low_wind",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "string_gauge",
+          "before": "g_11_hum",
+          "after": "g_10_hum",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "fretted_or_not",
+          "before": "fretted",
+          "after": "fretless",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "accordion",
+          "part": "accordion_reed_material",
+          "before": "tipo_a_mano",
+          "after": "steel_reeds",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "fiddle_strings",
+          "before": "synthetic_core",
+          "after": "steel_core",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "fiddle",
+          "part": "bowed_technique",
+          "before": "bowed_rough_drone",
+          "after": "bowed_bluegrass_double_stops",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "tin_whistle",
+          "part": "whistle_key",
+          "before": "d_whistle",
+          "after": "c_whistle",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["canadian_celtic"],
+      "baseline_selected_staples": ["pirate_metal", "power_metal_european", "sea_shanty"],
+      "current_selected_staples": ["pirate_metal", "canadian_celtic", "power_metal_european"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "protest_folk",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "protest_folk",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "decije_pesme",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["protest_folk"],
+      "current_selected_staples": ["protest_folk"],
+      "classification": "Generated descriptor ordering/content or staple lineage text; no instrument-slot change."
+    },
+    {
+      "id": "quiet_storm",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "quiet_storm",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["quiet_storm", "yacht_rock", "torch_song"],
+      "current_selected_staples": ["quiet_storm", "yacht_rock", "torch_song"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "russian_kolybelnaya",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "russian_kolybelnaya",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "chinese_classical_vocal_tradition",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_thai_7_equal_step",
+          "after": "voice_pitch_carnatic_22_shruti",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_dhrupad_meend_andolan",
+          "after": "voice_ornament_andean_huayno",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detskie_pesni"],
+      "baseline_selected_staples": ["russian_kolybelnaya", "lemko_folk", "american_romanticism"],
+      "current_selected_staples": ["russian_kolybelnaya", "detskie_pesni", "lemko_folk"],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "victorian_melodrama_narration",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "victorian_melodrama_narration",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": true,
+      "changed_slots": [
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_bel_canto",
+          "after": "voice_ornament_carnatic_gamaka",
+          "runtime_protected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_multitrack_stack",
+          "before": "voice_multitrack_pitched_sample_melodic_bed",
+          "after": "voice_multitrack_single_lead",
+          "runtime_protected": false
+        }
+      ],
+      "new_primary_neighbors": [],
+      "new_selected_staples": ["detskie_pesni"],
+      "baseline_selected_staples": [
+        "victorian_melodrama_narration",
+        "thai_classical",
+        "tibetan_ache_lhamo"
+      ],
+      "current_selected_staples": [
+        "victorian_melodrama_narration",
+        "thai_classical",
+        "detskie_pesni"
+      ],
+      "classification": "Material generated unprotected owner-slot choices; unchanged source defaults and browser cards."
+    },
+    {
+      "id": "vocal_jazz",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "vocal_jazz",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 0.7,
+          "srcs": ["sibling"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["vocal_jazz"],
+      "current_selected_staples": ["vocal_jazz"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    },
+    {
+      "id": "west_coast_blues",
+      "source_and_extras_unchanged": true,
+      "actual_payload_reproduced_by_original_solver": true,
+      "baseline_restored_by_removing_only_new100": {
+        "id": "west_coast_blues",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true
+      },
+      "recipe_changed": false,
+      "changed_slots": [],
+      "new_primary_neighbors": [
+        {
+          "id": "coverchill",
+          "weight": 1,
+          "srcs": ["crossref"]
+        }
+      ],
+      "new_selected_staples": [],
+      "baseline_selected_staples": ["west_coast_blues", "dinner_jazz", "adult_standards"],
+      "current_selected_staples": ["west_coast_blues", "dinner_jazz", "adult_standards"],
+      "classification": "Generated per-slot/aggregate scores only; recipe and selected variants identical."
+    }
+  ],
+  "causal_method": "Unchanged original search seedFromTradition/search(maxIters100)/translate exactly reproduce both baseline and current API configs and recipes for every changed old row, and scores after original toFixed(3). Counterfactual removes only new100 traditions/extras in process memory, retaining new instrument owners; all changed baseline full configs, recipes and unrounded scores restored.",
+  "causal_code": {
+    "neighbor_bias": "scripts/score.js getNeighbors: tree crossrefs, parent siblings and axis distance expand global candidate pool; neighbor descriptor bonus affects variant score/ranking.",
+    "staple_selection": "scripts/search.js traditionStapleMoves deduplicates eligible crossref candidates by parent path and picks closest axes, then unchanged search evaluates configurations.",
+    "material_limit": "Changed choices are generated unprotected alternatives, not newly verified historical gear or changed authored source cards. Existing protected pins, roster, room, tuning, production environment and all old imported browser cards remain identical."
+  },
+  "supporting_reports": [
+    "api-delta-independent-review119.json",
+    "api-validation-details119.json",
+    "api-projection-review119.json",
+    "compiled-unpinned-review119.json",
+    "api-causal-trace-baseline119.json",
+    "api-causal-trace-current119.json",
+    "api-counterfactual119.json",
+    "integration-review119.json",
+    "api-new-semantic-review119.json"
+  ],
+  "remaining_gate": "Original regression fixture review is separate; this report does not authorize blanket snapshot refresh.",
+  "errors": [],
+  "new_recipe_semantic_review": "All100 complete static strings reviewed; PASS with explicit original compiler compression and authored-setting limitations in api-new-semantic-review119.json."
+}

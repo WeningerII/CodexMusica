@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "838aa5e2f0d3db08eaa492f1ed46095452a80bfd9b7f5743b67e77a981de94fa",
+  "entries": 100,
+  "source_packet_hashes_and_immutable_allocations": "frozen-audit119.json: zero errors,100 exact source packets",
+  "excluded_possible_overlap_count": 189,
+  "excluded_intersection": [],
+  "new_dependencies": 9,
+  "old_merged_preserved": 1586,
+  "effective_parts": 3089,
+  "protected_parts": 3085,
+  "unprotected_slots": [
+    {
+      "id": "tunisian_pop",
+      "slots": [
+        {
+          "instrument": "electronic_keyboard_unspecified",
+          "part": "keyboard_technique",
+          "imported_default": "electronic_keyboard_melodic_chordal"
+        }
+      ]
+    },
+    {
+      "id": "canadian_celtic",
+      "slots": [
+        {
+          "instrument": "viola_classical",
+          "part": "bowed_technique",
+          "imported_default": "bowed_legato_classical"
+        },
+        {
+          "instrument": "cello",
+          "part": "bowed_technique",
+          "imported_default": "bowed_legato_classical"
+        }
+      ]
+    },
+    {
+      "id": "ghent_indie",
+      "slots": [
+        {
+          "instrument": "turntable",
+          "part": "electronic_technique",
+          "imported_default": "electronic_sample_chopped"
+        }
+      ]
+    }
+  ],
+  "required_amendments": [
+    {
+      "id": "french_soundtrack",
+      "path": "extras.parent",
+      "before": "artMusic.westernModern",
+      "after": "artMusic",
+      "reason": "Source documents composed film-waltz piano score, not modernist extension/refusal of common-practice tonality. Broader artMusic supported; synchronize evidence rationale."
+    }
+  ],
+  "semantic_review": {
+    "source_and_category_scope": "Read all100 lineage/parent/family/roster summaries and retained detailed peer evidence. Regional scenes acknowledge umbrella overlap; whole published arrangements, actual DJ performance practices, source-defined generator signals, exact ensembles and closed release unions kept separate from reconstruction of unknown masters. No further blocking issue identified in consolidated scan.",
+    "new_dependencies": "All9 own-part inventories reviewed: corneta and coexisting drum architectures retained; known four-string thom retained; neutral unspecified generator/protocol identities preserve source uncertainty; direct sine and isochronic pulsation distinct; no _ownParts cache or descriptor vocabulary changes.",
+    "default_coherence": "All applicable pins mechanically valid; pianoD9, cymbal manufacture/finish, singer ensemble/stack and integeraxes checked. Four unprotected shared-key slots candidly require actual compiled audit.",
+    "limitations": "Consolidation relies on retained independent primary peer reviews; not a claim every remote URL freshly refetched. Combined400 render test owned by root, individual peer renders retained. API/regression pending."
+  },
+  "preservation": {
+    "raw_traditions": 6138,
+    "raw_and_merged_instruments": 1586,
+    "existing_browser_cards": 26379,
+    "baseline_instrument_default_cards": 1586,
+    "reports": ["independent-append-review119.json", "app-preservation119.json"]
+  },
+  "errors": [],
+  "integration_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "amendment_verified": {
+    "only_changed_entry": ["french_soundtrack"],
+    "parent": "artMusic",
+    "roles_parts_photos_sources_geo_dependencies_unchanged": true,
+    "source_packet_original_hashes_preserved": true
+  }
+}

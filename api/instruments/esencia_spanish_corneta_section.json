@@ -1,0 +1,79 @@
+{
+  "id": "esencia_spanish_corneta_section",
+  "name": "Spanish transposing corneta section (Esencia)",
+  "short": "Spanish transposing corneta section (Esencia)",
+  "family": "wind",
+  "class": "aerophone_ensemble",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "esencia_corneta_upper",
+      "name": "Upper corneta voices",
+      "variants": [
+        {
+          "id": "esencia_corneta_honsuy_do_reb",
+          "name": "Honsuy Do/Re-flat cornetas, first through third parts",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "esencia_corneta_lower",
+      "name": "Lower corneta voices",
+      "variants": [
+        {
+          "id": "esencia_corneta_leon_tenor",
+          "name": "Enrique León tenor transposing cornetas, extended tubing, Fa/Do/Si-flat lower register",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "The two documented corneta constructions coexist in Esencia. Upper Honsuy Do/Re-flat cornetas plus custom tenor transposing cornetas designed by Enrique León. The latter extends tubing to trumpet-like total length but remains the source-described keyed/transposing corneta; neither a valved English cornet nor nineteenth-century Royal Kent keyed bugle. Harmonic voice labels are instrumental parts, not singers. Source does not supply alloy/mouthpiece dimensions; none invented. Neutral authored axes.",
+  "sources": [
+    "https://amigosdeesencia.com/instrumentacion",
+    "https://amigosdeesencia.com/blog/los-bajos-de-esencia-del-diseno-a-la-ejecucion"
+  ],
+  "_ownParts": [
+    {
+      "id": "esencia_corneta_upper",
+      "name": "Upper corneta voices",
+      "variants": [
+        {
+          "id": "esencia_corneta_honsuy_do_reb",
+          "name": "Honsuy Do/Re-flat cornetas, first through third parts",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "esencia_corneta_lower",
+      "name": "Lower corneta voices",
+      "variants": [
+        {
+          "id": "esencia_corneta_leon_tenor",
+          "name": "Enrique León tenor transposing cornetas, extended tubing, Fa/Do/Si-flat lower register",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

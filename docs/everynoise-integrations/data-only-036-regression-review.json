@@ -1,0 +1,655 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "authorized_exact_fixture_ids": [
+    "jam_band",
+    "ethio_pop_modern",
+    "carnival_brazilian_samba",
+    "minimalist",
+    "german_wiegenlied",
+    "filin_cubano",
+    "russian_kolybelnaya",
+    "french_berceuse",
+    "brazilian_mpb_protest",
+    "brazilian_samba_school_enredo"
+  ],
+  "source_extras_roster_environment_protected_settings_unchanged": true,
+  "material_unprotected_slot_changes": 48,
+  "rows": [
+    {
+      "id": "jam_band",
+      "old_output": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock hard rock brasileiro nwocr. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple pau ferro humbucker electric marshall plexi amp British rock amp maple pau ferro ceramic single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "new_output": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock düsseldorf indie hard rock brasileiro. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany maple alnico humbucker electric marshall plexi amp British rock amp mahogany maple ceramic single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard fast tremolo tonewheel organ, synthetic remo fiberskyn modern stable mahogany warmer premium congas. san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "baseline_staples": ["jam_band", "hard_rock_brasileiro", "nwocr"],
+      "current_staples": ["jam_band", "dusseldorf_indie", "hard_rock_brasileiro"],
+      "baseline_score": 330.7224999999999,
+      "current_score": 353.11749999999995,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["dusseldorf_indie"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "modern_pop_vocal_training",
+          "after": "scottish_gaelic_taladh_tradition",
+          "source_pin_parts": false,
+          "source_variant": "modern_pop_vocal_training",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_belt",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_speech",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_humbucker",
+          "part": "fretboard",
+          "before": "pau_ferro_fb_h",
+          "after": "maple_fb_h",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "fretboard",
+          "before": "pau_ferro_fb",
+          "after": "maple_fb",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "body_wood",
+          "before": "alder_b",
+          "after": "mahogany_b",
+          "source_pin_parts": false,
+          "source_variant": "alder",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_bass",
+          "part": "scale_length_b",
+          "before": "short_scale_b",
+          "after": "extra_long_b",
+          "source_pin_parts": false,
+          "source_variant": "long_scale_b",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "congas",
+          "part": "conga_skin",
+          "before": "conga_mule_hide",
+          "after": "conga_synthetic_head",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "congas",
+          "part": "conga_shell_wood",
+          "before": "conga_oak_staved",
+          "after": "conga_mahogany",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "ethio_pop_modern",
+      "old_output": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion musique comorienne acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "new_output": "classic mid-1960s ethio-pop modern, functional Song, African pop branch, American jazz fusion ghent indie musique comorienne. thick, breath veiled tone, straight onset, interlocked note trading. roland jc120 amp solid state stereo chorus clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, singing lead analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "baseline_staples": ["ethio_pop_modern", "musique_comorienne", "acid_jazz_uk_90s"],
+      "current_staples": ["ethio_pop_modern", "ghent_indie", "musique_comorienne"],
+      "baseline_score": 370.0249999999999,
+      "current_score": 318.97249999999997,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["ghent_indie"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_belt",
+          "after": "voice_estill_speech",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_speech",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_none",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_retune_10_50ms_natural",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_retune_50_100ms_subtle",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "amp_make",
+          "before": "amp_american_fender_blackface",
+          "after": "amp_roland_jc120",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "body_wood",
+          "before": "pine",
+          "after": "alder",
+          "source_pin_parts": false,
+          "source_variant": "alder",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "electric_guitar_single_coil",
+          "part": "string_tuning",
+          "before": "dadgad",
+          "after": "drop_d",
+          "source_pin_parts": false,
+          "source_variant": "standard_tuning",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "drum_kit",
+          "part": "drumhead",
+          "before": "vintage_ambassador_drumhead",
+          "after": "fiberskyn_drumhead",
+          "source_pin_parts": false,
+          "source_variant": "single_coated",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "analog_poly_synth",
+          "part": "poly_voices",
+          "before": "poly_16_voice",
+          "after": "poly_5_voice",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "carnival_brazilian_samba",
+      "old_output": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march andean matrimonio huayno. vocal fry, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song brega trinidad calypso-soca road march. vocal fry, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": [
+        "brazilian_samba_school_enredo",
+        "trinidad_road_march",
+        "andean_matrimonio_huayno"
+      ],
+      "current_staples": ["brazilian_samba_school_enredo", "brega", "trinidad_road_march"],
+      "baseline_score": 309.43999999999994,
+      "current_score": 327.61500000000007,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["brega"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "andean_quechua_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "source_pin_parts": false,
+          "source_variant": "modern_pop_vocal_training",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_oral_twang",
+          "after": "voice_estill_nasal_twang",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_speech",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_flamenco_cante_jondo",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "minimalist",
+      "old_output": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric deep downtempo fusion música andorra. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, pad like pad analog synth, controlled legato bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "new_output": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric brain waves. 17 ply hard rock maple sitka spruce diaphragmatic 7 ply grand piano, pad like pad analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+      "baseline_staples": ["minimalist", "deep_downtempo_fusion", "musica_andorra"],
+      "current_staples": ["minimalist", "528hz", "brain_waves"],
+      "baseline_score": 81.34249999999999,
+      "current_score": 85.30499999999999,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["528hz", "brain_waves"],
+      "slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "piano_hammer",
+          "before": "renner_blue_hammer",
+          "after": "renner_standard_hammer",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "european_laminated_rim_beech_maple",
+          "after": "steinway_17_ply_hard_rock_maple_rim",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "analog_synth",
+          "part": "oscillator",
+          "before": "saw_single",
+          "after": "saw_super",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "german_wiegenlied",
+      "old_output": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song nouvelle chanson française. thick, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song detskie pesni. thick, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["german_wiegenlied", "chanson", "nouvelle_chanson_francaise"],
+      "current_staples": ["german_wiegenlied", "detskie_pesni", "chanson"],
+      "baseline_score": 109.8175,
+      "current_score": 151.63000000000002,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["detskie_pesni"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "chinese_classical_vocal_tradition",
+          "source_pin_parts": false,
+          "source_variant": "bel_canto_tradition",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_dhrupad_meend_andolan",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_bel_canto",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "filin_cubano",
+      "old_output": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal japanese vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "new_output": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal japanese vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, strummed open chord ringing overtones parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "baseline_staples": ["filin_cubano", "japanese_vocal_jazz", "smooth_jazz_80s"],
+      "current_staples": ["filin_cubano", "japanese_vocal_jazz", "smooth_jazz_80s"],
+      "baseline_score": 189.51799999999994,
+      "current_score": 190.88499999999996,
+      "new_neighbor_ids": ["coverchill"],
+      "new_candidate_ids": [],
+      "slot_changes": [
+        {
+          "instrument": "grand_piano",
+          "part": "piano_rim",
+          "before": "asian_laminated_rim_birch_maple",
+          "after": "mason_hamlin_oversize_rim",
+          "source_pin_parts": false,
+          "source_variant": null,
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "acoustic_guitar_parlor",
+          "part": "acoustic_technique",
+          "before": "acoustic_fingerpicked",
+          "after": "acoustic_strummed_ringing",
+          "source_pin_parts": false,
+          "source_variant": "acoustic_strummed_ringing",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "russian_kolybelnaya",
+      "old_output": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song lemko folk american romanticism. thick, breath veiled tone, slow rate, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song detskie pesni lemko folk. thick, breath veiled tone, slow rate, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["russian_kolybelnaya", "lemko_folk", "american_romanticism"],
+      "current_staples": ["russian_kolybelnaya", "detskie_pesni", "lemko_folk"],
+      "baseline_score": 70.88499999999999,
+      "current_score": 136.7025,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["detskie_pesni"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "chinese_classical_vocal_tradition",
+          "source_pin_parts": false,
+          "source_variant": "modern_pop_vocal_training",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_dhrupad_meend_andolan",
+          "after": "voice_ornament_andean_huayno",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_pitch_organization",
+          "before": "voice_pitch_thai_7_equal_step",
+          "after": "voice_pitch_carnatic_22_shruti",
+          "source_pin_parts": false,
+          "source_variant": "voice_pitch_equal_tempered_12",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_harmonizer_ai_trained_stack",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_unprocessed",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "french_berceuse",
+      "old_output": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song nouvelle chanson française. thick, lament wail, straight note core, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song detskie pesni. thick, breath veiled tone, slow rate, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": ["french_berceuse", "chanson", "nouvelle_chanson_francaise"],
+      "current_staples": ["french_berceuse", "detskie_pesni", "chanson"],
+      "baseline_score": 115.5025,
+      "current_score": 159.07,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["detskie_pesni"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_quality",
+          "before": "fado_voice",
+          "after": "aspirated_voice",
+          "source_pin_parts": false,
+          "source_variant": "aspirated_voice",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "terminal_vibrato",
+          "after": "slow_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "fast_vibrato",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "scottish_gaelic_taladh_tradition",
+          "after": "chinese_classical_vocal_tradition",
+          "source_pin_parts": false,
+          "source_variant": "bel_canto_tradition",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_tahrir_tekye_chain",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_nasal_twang",
+          "after": "voice_estill_opera",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_opera",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_connemara_unaccompanied",
+          "after": "voice_ornament_dhrupad_meend_andolan",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_bel_canto",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_vocoder_8_band",
+          "after": "voice_processing_multiband_aggressive_broadcast",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_unprocessed",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "brazilian_mpb_protest",
+      "old_output": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry cantautora mexicana folklore surero. thick, breath veiled tone, slow rate, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "new_output": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry brega cantautora mexicana. thick, breath veiled tone, breath pulsed, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "baseline_staples": ["brazilian_mpb_protest", "cantautora_mexicana", "folklore_surero"],
+      "current_staples": ["brazilian_mpb_protest", "brega", "cantautora_mexicana"],
+      "baseline_score": 159.048125,
+      "current_score": 193.67749999999998,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["brega"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_vibrato",
+          "before": "slow_vibrato",
+          "after": "diaphragm_vibrato",
+          "source_pin_parts": false,
+          "source_variant": "slow_vibrato",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_opera",
+          "after": "voice_estill_nasal_twang",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_speech",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_processing_chain",
+          "before": "voice_processing_lo_fi_narrow_AM",
+          "after": "voice_processing_stutter_edit",
+          "source_pin_parts": false,
+          "source_variant": "voice_processing_unprocessed",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    },
+    {
+      "id": "brazilian_samba_school_enredo",
+      "old_output": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march andean matrimonio huayno. vocal fry, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "new_output": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song brega trinidad calypso-soca road march. vocal fry, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "baseline_staples": [
+        "brazilian_samba_school_enredo",
+        "trinidad_road_march",
+        "andean_matrimonio_huayno"
+      ],
+      "current_staples": ["brazilian_samba_school_enredo", "brega", "trinidad_road_march"],
+      "baseline_score": 309.43999999999994,
+      "current_score": 327.61500000000007,
+      "new_neighbor_ids": [],
+      "new_candidate_ids": ["brega"],
+      "slot_changes": [
+        {
+          "instrument": "voice",
+          "part": "voice_tradition",
+          "before": "andean_quechua_tradition",
+          "after": "scottish_gaelic_taladh_tradition",
+          "source_pin_parts": false,
+          "source_variant": "modern_pop_vocal_training",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_mechanism_compound",
+          "before": "voice_mechanism_M0_pulse_borrowed",
+          "after": "voice_mechanism_single_source",
+          "source_pin_parts": false,
+          "source_variant": "voice_mechanism_single_source",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_estill_quality",
+          "before": "voice_estill_oral_twang",
+          "after": "voice_estill_nasal_twang",
+          "source_pin_parts": false,
+          "source_variant": "voice_estill_speech",
+          "protectedSource": false,
+          "runtimeProtected": false
+        },
+        {
+          "instrument": "voice",
+          "part": "voice_ornament_system",
+          "before": "voice_ornament_andean_huayno",
+          "after": "voice_ornament_flamenco_cante_jondo",
+          "source_pin_parts": false,
+          "source_variant": "voice_ornament_none",
+          "protectedSource": false,
+          "runtimeProtected": false
+        }
+      ],
+      "environment_changes": {}
+    }
+  ],
+  "causal_method": "Original regression fixture definitions and 100-iteration original solver replay, independently on exact baseline and current catalog. Baseline matches committed snapshot and current matches failed regression log. Removing only new100 traditions/extras from process memory restores both exact recipes, complete configs and scores while retaining all9 new instruments.",
+  "cause": "Unchanged original staple search admits Düsseldorf Indie for Jam Band; Ghent Indie for Ethio Pop; Brega for both Samba fixtures and MPB Protest; 528Hz/Brain Waves for Minimalist; Detskie Pesni for the three European lullaby fixtures. Filin keeps its staple set but gains Coverchill cross-reference neighbor contribution. Removing only the new100 restores each exact baseline full config, output and unrounded score. This collective counterfactual does not claim any single named row alone explains every slot choice.",
+  "interpretation": "All48 per-fixture changed slots are valid, existing, unprotected owner variants (the two Samba fixture IDs share the same four changed slots). Material changes include voice traditions, mechanisms, ornamentation and processing, guitar/bass construction, drumheads, piano rim/hammer and synth settings. These are generated choices of the original global solver, not newly supported historical performance facts or improvements to source data. None changes original authored source defaults, protected slots, instrument rosters, tuning, rooms, production chain or actual browser cards. Some hidden slot changes do not appear in the compressed snapshot text.",
+  "errors": [],
+  "scope": "Only listed fixtures eligible for parent original targeted snapshot update; full serial regression and exact-head CI remain required. Reviewer changed no repository/source/API/snapshot.",
+  "original_pipeline": "261 original code/workflow/support files independently byte-identical; see pipeline-preservation119.json.",
+  "fixture_alias_note": "carnival_brazilian_samba and brazilian_samba_school_enredo both seed brazilian_samba_school_enredo according to unchanged original fixture definitions; both separately reproduce their saved snapshots and failed-log outputs."
+}

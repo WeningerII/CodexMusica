@@ -1,0 +1,287 @@
+{
+  "id": "south_sudanese_pop",
+  "name": "South Sudanese pop",
+  "family": "pop",
+  "lineage": "Gordon Koang — ABC The Music Show,22June2019,complete two-song live segment. Authored representative arrangement: source-named four-string wooden thom retained as its own neutral identity, without inventing string material, body geometry, tuning or technique; piano realized as a coherent nine-foot Steinway D, bass as fingerstyle electric, djembe with authored lenke/goatskin and standard hand strokes, stick drumkit, and one solo singer. Original piano/bass models and drum materials are unspecified. Vocal physiology/training/pitch organization remain source-unspecified; global tuning omitted. Room and chain are authored, not measured broadcast equipment. Authored revision: a modern dual-single-coil electric bass preserves the credited bass role and fingerstyle groove. A shoebox concert-hall rendition replaces the earlier close studio reconstruction and specific capture chain; this is a new arrangement/recording setting, not an assertion about the ABC broadcast venue. All source roles, the one singer, four-string thom and djembe remain unchanged.",
+  "recipe": "classic south sudanese pop, functional Song. one note per syllable, solo with instrumental accompaniment, single lead single track no stacking. thom nuer four string, djembe, maple bronze bell bronze machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, pocket fingerstyle locked electric bass. shoebox concert hall.",
+  "recipe_chars": 381,
+  "score": 94.819,
+  "config": {
+    "traditions": [
+      "south_sudanese_pop"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_single_lead",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 3.7564999999999995,
+          "voice_ensemble_config": 3.7715000000000005,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.46799999999999997,
+          "voice_multitrack_stack": 2.08,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "thom_nuer_four_string",
+        "slots": {
+          "thom_nuer_identity": "thom_nuer_four_string_wooden"
+        },
+        "scores": {
+          "thom_nuer_identity": 0
+        }
+      },
+      {
+        "id": "djembe",
+        "slots": {
+          "djembe_wood": "djembe_lenke",
+          "djembe_skin": "djembe_goat_skin",
+          "djembe_play": "djembe_traditional_3"
+        },
+        "scores": {
+          "djembe_wood": 2.5999999999999996,
+          "djembe_skin": 2.6,
+          "djembe_play": 0.39
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "sticks_rock",
+          "drumhead": "single_coated",
+          "drum_kit_kick_pedal": "dk_kick_single_felt",
+          "shell_wood": "maple_shell",
+          "shell_thickness": "thin_shell",
+          "bearing_edges": "edge_45",
+          "snare_wires": "wires_20",
+          "cymbal_alloy": "b20",
+          "cymbal_hammering": "machine_symmetric_hammering",
+          "cymbal_lathing": "full_lathe_both_sides",
+          "cymbal_finish": "traditional_finish"
+        },
+        "scores": {
+          "drum_technique": -0.035,
+          "drumhead": 2.5999999999999996,
+          "drum_kit_kick_pedal": 0,
+          "shell_wood": 5.2540000000000004,
+          "shell_thickness": 0,
+          "bearing_edges": 1.354,
+          "snare_wires": 0.7,
+          "cymbal_alloy": 1.0399999999999998,
+          "cymbal_hammering": 9.754,
+          "cymbal_lathing": 11,
+          "cymbal_finish": 0
+        }
+      },
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 6.449999999999999,
+          "grand_piano_size": 0.7,
+          "grand_piano_brand": 0.1905,
+          "piano_hammer": 3.3080000000000003,
+          "piano_rim": 6.4239999999999995,
+          "piano_soundboard": 3.2,
+          "piano_pinblock": 5.8,
+          "piano_plate": 3.2,
+          "piano_pitch_standard": 11.764000000000001
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_unspecified",
+          "body_wood": "alder",
+          "pickup_config": "dual_single",
+          "string_type": "roundwound_n",
+          "scale_length_b": "long_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked",
+          "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified"
+        },
+        "scores": {
+          "amp_make": 0,
+          "body_wood": 0.7,
+          "pickup_config": 0,
+          "string_type": 0.7,
+          "scale_length_b": 1.3,
+          "fretted_or_not": 1.3,
+          "bass_technique": 2.45,
+          "electric_bass_string_configuration": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "thom_nuer_four_string": [
+        "thom_nuer_identity"
+      ],
+      "djembe": [
+        "djembe_wood",
+        "djembe_skin",
+        "djembe_play"
+      ],
+      "drum_kit": [
+        "drum_technique",
+        "shell_wood",
+        "shell_thickness",
+        "bearing_edges",
+        "drumhead",
+        "snare_wires",
+        "drum_kit_kick_pedal",
+        "cymbal_alloy",
+        "cymbal_hammering",
+        "cymbal_lathing",
+        "cymbal_finish"
+      ],
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ],
+      "electric_bass": [
+        "amp_make",
+        "body_wood",
+        "pickup_config",
+        "string_type",
+        "scale_length_b",
+        "fretted_or_not",
+        "bass_technique",
+        "electric_bass_string_configuration"
+      ]
+    },
+    "room": "concert_hall_shoebox",
+    "inline_chain": {
+      "mic": null,
+      "pre": null,
+      "console": null,
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": null
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "amp_make": "amp_unspecified",
+      "body_wood": "alder",
+      "pickup_config": "dual_single",
+      "string_type": "roundwound_n",
+      "scale_length_b": "long_scale_b",
+      "fretted_or_not": "fretted",
+      "bass_technique": "fingerstyle_locked",
+      "electric_bass_string_configuration": "electric_bass_string_configuration_unspecified",
+      "drum_technique": "sticks_rock",
+      "shell_wood": "maple_shell",
+      "shell_thickness": "thin_shell",
+      "bearing_edges": "edge_45",
+      "drumhead": "single_coated",
+      "snare_wires": "wires_20",
+      "drum_kit_kick_pedal": "dk_kick_single_felt",
+      "cymbal_alloy": "b20",
+      "cymbal_hammering": "machine_symmetric_hammering",
+      "cymbal_lathing": "full_lathe_both_sides",
+      "cymbal_finish": "traditional_finish",
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern",
+      "thom_nuer_identity": "thom_nuer_four_string_wooden",
+      "djembe_wood": "djembe_lenke",
+      "djembe_skin": "djembe_goat_skin",
+      "djembe_play": "djembe_traditional_3"
+    },
+    "pin_parts": true
+  }
+}

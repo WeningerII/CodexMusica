@@ -3,14 +3,14 @@
   "name": "Chinese pingshu storytelling",
   "family": "global",
   "lineage": "Northern Chinese solo oral storytelling (pingshu, 'commentary-book'), in which a standing teller serialises long historical and martial-heroic novels — Romance of the Three Kingdoms, Water Margin, Generals of the Yang Family — over many nightly episodes, traditionally in teahouses using a folding fan, a handkerchief and a wooden waking-block (xingmu) rapped for emphasis. A Beijing-Tianjin Mandarin-language art distinct from the southern sung tanci, it reached mass audiences through radio and television, with Yuan Kuocheng and Shan Tianfang among its best-known twentieth-century masters. Delivery is vivid narrative speech with sudden gesture, mimicry and the crack of the block to mark suspense.",
-  "recipe": "classic East Asian early-1930s chinese pingshu storytelling, art Music, east Asian branch beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
-  "recipe_chars": 358,
-  "score": 217.861,
+  "recipe": "classic East Asian early-1930s chinese pingshu storytelling, art Music, east Asian branch detskie pesni beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 347,
+  "score": 222.148,
   "config": {
     "traditions": [
       "chinese_pingshu",
-      "beijing_opera",
-      "tibetan_ache_lhamo"
+      "detskie_pesni",
+      "beijing_opera"
     ],
     "instruments": [
       {
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_tape_saturation",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.681,
-          "voice_quality": 21.384999999999994,
+          "voice_register": 3.180999999999999,
+          "voice_quality": 15.664999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.45,
-          "voice_articulation": 22.749999999999996,
-          "voice_microtone": 22.74999999999999,
-          "voice_tradition": 40.9175,
-          "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 19.192999999999998,
-          "voice_speech_song": 25.089999999999996,
-          "voice_ensemble_config": 25.154999999999994,
-          "voice_ornament_system": 15.8395,
-          "voice_pitch_organization": 8.1055,
-          "voice_processing_chain": 3.12,
-          "voice_multitrack_stack": 3.25
+          "voice_vibrato": 8.937499999999998,
+          "voice_articulation": 23.009999999999998,
+          "voice_microtone": 23.009999999999998,
+          "voice_tradition": 39.097500000000004,
+          "voice_mechanism_compound": 7.424999999999999,
+          "voice_estill_quality": 18.742999999999995,
+          "voice_speech_song": 33.085,
+          "voice_ensemble_config": 27.95,
+          "voice_ornament_system": 13.564499999999999,
+          "voice_pitch_organization": 9.130499999999998,
+          "voice_processing_chain": 3.6333749999999996,
+          "voice_multitrack_stack": 3.6159999999999997
         }
       }
     ],

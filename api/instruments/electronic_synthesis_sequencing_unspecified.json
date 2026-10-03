@@ -1,0 +1,60 @@
+{
+  "id": "electronic_synthesis_sequencing_unspecified",
+  "name": "Electronic synthesis and sequencing (source-unspecified architecture)",
+  "short": "Synthesis and sequencing",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "electronic_synthesis_sequencing_identity",
+      "name": "Synthesis/sequencing identity",
+      "variants": [
+        {
+          "id": "electronic_synthesis_sequencing_architecture_unspecified",
+          "name": "Electronic synthesis and sequencing; generator unspecified",
+          "default": true,
+          "descriptors": [
+            "sequenced"
+          ],
+          "match_tokens": [
+            "sequenced"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Positively documented electronic synthesis and sequenced sound construction, including bass-line layers. Hardware versus software generator architecture, synthesis method, protocol and preset content remain unspecified; no analog/subtractive/MIDI/sampler claim. Neutral axes are authored routing values.",
+  "sources": [
+    "https://www.elsiglodetorreon.com.mx/noticia/2020/cumbia-xillers-y-su-sonido-experimento.html"
+  ],
+  "_ownParts": [
+    {
+      "id": "electronic_synthesis_sequencing_identity",
+      "name": "Synthesis/sequencing identity",
+      "variants": [
+        {
+          "id": "electronic_synthesis_sequencing_architecture_unspecified",
+          "name": "Electronic synthesis and sequencing; generator unspecified",
+          "default": true,
+          "descriptors": [
+            "sequenced"
+          ],
+          "match_tokens": [
+            "sequenced"
+          ]
+        }
+      ]
+    }
+  ]
+}

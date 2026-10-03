@@ -1,0 +1,88 @@
+{
+  "id": "dessin_anime",
+  "name": "Dessin Animé",
+  "family": "pop",
+  "lineage": "Les Mystérieuses Cités d’or — complete intermediate piano-solo arrangement in Aède Music Génériques Dessins Animés AM54. Publisher explicitly supplies30 titles for piano solo, each at easy and intermediate levels, in AM54 barcode3770005700539; selected complete intermediate Les Mystérieuses Cités d’or arrangement is one positively named title. One pianist and no singer in this published adaptation. This is not a reconstruction of the original television soundtrack or removal of singers/instruments from it. Other pieces and level alternatives in the anthology are outside selected complete-work scope. Authored melodic piano with functional chordal support realizes the song theme; broad functionalSong node represents this arranged song branch, not every animation cue. Nine-foot SteinwayD construction and block-chord pop technique are coherent editorial timbres, not original instrument/session measurements. No global tuning asserted.",
+  "recipe": "classic dessin animé, functional Song. 17 ply hard rock maple 7 ply quartersawn maple a 440 grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 203,
+  "score": 14.962,
+  "config": {
+    "traditions": [
+      "dessin_anime"
+    ],
+    "instruments": [
+      {
+        "id": "grand_piano",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "grand_piano_size": "grand_9_foot",
+          "grand_piano_brand": "steinway_d",
+          "piano_hammer": "steinway_original_hammer",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+          "piano_soundboard": "sitka_spruce_diaphragmatic",
+          "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_440_modern"
+        },
+        "scores": {
+          "keyboard_technique": 8.299999999999999,
+          "grand_piano_size": 0,
+          "grand_piano_brand": 0.40950000000000003,
+          "piano_hammer": -0.1,
+          "piano_rim": 2.5,
+          "piano_soundboard": -0.07,
+          "piano_pinblock": 1.2,
+          "piano_plate": -0.1,
+          "piano_pitch_standard": 2.823
+        }
+      }
+    ],
+    "pinned": {
+      "grand_piano": [
+        "keyboard_technique",
+        "grand_piano_size",
+        "grand_piano_brand",
+        "piano_hammer",
+        "piano_rim",
+        "piano_soundboard",
+        "piano_pinblock",
+        "piano_plate",
+        "piano_pitch_standard"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "room": "treated_studio",
+    "parts": {
+      "keyboard_technique": "keyboard_block_chord_pop",
+      "grand_piano_size": "grand_9_foot",
+      "grand_piano_brand": "steinway_d",
+      "piano_hammer": "steinway_original_hammer",
+      "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
+      "piano_soundboard": "sitka_spruce_diaphragmatic",
+      "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
+      "piano_plate": "gray_iron_full_perimeter_plate",
+      "piano_pitch_standard": "a_440_modern"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "count": 1586,
+  "count": 1595,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9516,6 +9516,60 @@
       "name": "KORG Nu:Tekt NTS-1 digital kit",
       "family": "electronic",
       "href": "instruments/korg_nts1_digital.json"
+    },
+    {
+      "id": "esencia_spanish_corneta_section",
+      "name": "Spanish transposing corneta section (Esencia)",
+      "family": "wind",
+      "href": "instruments/esencia_spanish_corneta_section.json"
+    },
+    {
+      "id": "esencia_processional_drum_set",
+      "name": "Esencia processional drums and timbales",
+      "family": "percussion",
+      "href": "instruments/esencia_processional_drum_set.json"
+    },
+    {
+      "id": "analog_sine_oscillator_z3000",
+      "name": "Z3000 analog sine oscillator",
+      "family": "electronic",
+      "href": "instruments/analog_sine_oscillator_z3000.json"
+    },
+    {
+      "id": "electronic_synthesis_sequencing_unspecified",
+      "name": "Electronic synthesis and sequencing (source-unspecified architecture)",
+      "family": "electronic",
+      "href": "instruments/electronic_synthesis_sequencing_unspecified.json"
+    },
+    {
+      "id": "software_isochronic_tone_generator",
+      "name": "Software isochronic tone generator",
+      "family": "electronic",
+      "href": "instruments/software_isochronic_tone_generator.json"
+    },
+    {
+      "id": "credited_guira_unspecified",
+      "name": "Credited güira (construction unspecified)",
+      "family": "percussion",
+      "href": "instruments/credited_guira_unspecified.json"
+    },
+    {
+      "id": "thom_nuer_four_string",
+      "name": "Thom (Nuer four-string instrument)",
+      "family": "plucked_traditional",
+      "href": "instruments/thom_nuer_four_string.json"
+    },
+    {
+      "id": "saxophone_section_alto_two_baritones",
+      "name": "Saxophone section (alto and two baritones)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_alto_two_baritones.json"
+    },
+    {
+      "id": "credited_programmed_drums_unspecified",
+      "name": "Credited programmed drums (generator unspecified)",
+      "family": "electronic",
+      "href": "instruments/credited_programmed_drums_unspecified.json"
     }
   ]
 }

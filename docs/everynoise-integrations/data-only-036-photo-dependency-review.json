@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "packet": "/tmp/batch036/integration-final.json",
+  "sha256": "1b256ec2f78ef420d807b357f6ce1982972d4c67a09d593b9e1d9c59c07aedda",
+  "reviewer": "recover_024",
+  "entries": 100,
+  "dependencies": 9,
+  "photos": 109,
+  "errors": [],
+  "notes": [],
+  "scope": "Frozen consolidation consistency review: source-approved complete palettes, sources, vocal audits, resolved defaults and photos compared exactly to immutable source packets; Original-loader checks independently confirm all1586 old owners unchanged, all9 raw dependencies equal integrated owners after canonical merge, unique names/shorts and all100 resolved owning defaults exact. No fresh image byte transfer asserted. Rights dates preserved from actual prior reviews, not artificially refreshed.",
+  "original_loader_dependency_check": {
+    "old_owners_checked": 1586,
+    "dependencies_checked": 9,
+    "entries_checked": 100,
+    "errors": []
+  },
+  "possible_overlap_exclusion": "No candidate or equivalence was added by reviewer; exact100 frozen approved IDs preserved. Original189 exclusion policy remains unchanged.",
+  "integrated_image_manifest_check": {
+    "checked": 109,
+    "errors": []
+  }
+}

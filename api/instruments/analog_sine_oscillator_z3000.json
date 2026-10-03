@@ -1,0 +1,65 @@
+{
+  "id": "analog_sine_oscillator_z3000",
+  "name": "Z3000 analog sine oscillator",
+  "short": "Analog sine oscillator",
+  "family": "electronic",
+  "class": "isolated_analog_sine_oscillator",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "z3000_signal_identity",
+      "name": "Selected output",
+      "variants": [
+        {
+          "id": "z3000_direct_sine_signal",
+          "name": "Direct analog Z3000 sine output; hand-tuned frequency",
+          "default": true,
+          "descriptors": [
+            "pure-tone",
+            "sustained-tone",
+            "drone-like",
+            "beat-free",
+            "minimal"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Known analogZ3000 direct sine-output practice; source-selected waveform only, not all available machineoutputs. No filter, keyboard, pulse modulation or patch density assumed. Frequency target belongs to source tradition evidence; no health outcomes.",
+  "sources": [
+    "https://gary-james-joynes-clinker.bandcamp.com/album/the-solfeggio-series",
+    "https://www.tiptopaudio.com/manuals/Tiptop_Audio_z3000mk1.pdf"
+  ],
+  "_ownParts": [
+    {
+      "id": "z3000_signal_identity",
+      "name": "Selected output",
+      "variants": [
+        {
+          "id": "z3000_direct_sine_signal",
+          "name": "Direct analog Z3000 sine output; hand-tuned frequency",
+          "default": true,
+          "descriptors": [
+            "pure-tone",
+            "sustained-tone",
+            "drone-like",
+            "beat-free",
+            "minimal"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}
