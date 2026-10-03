@@ -5,7 +5,7 @@
   "lineage": "Sandro Brugnolini — Underground, original RT104 program reissue (2025). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic mid-2020s italian library music, improv On Frame, fusion branch. humbucker electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard tonewheel organ, grand piano, electric bass, dark bronze bell bronze drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 334,
-  "score": 25.7,
+  "score": 25.801,
   "config": {
     "traditions": [
       "italian_library_music"
@@ -39,7 +39,7 @@
           "string_material": 0,
           "bridge": 0,
           "scale_length": 0.273,
-          "string_gauge": 1.588,
+          "string_gauge": 1.69,
           "finish": 0,
           "string_tuning": 0
         }

@@ -1,0 +1,52 @@
+{
+  "id": "credited_harsh_noise",
+  "name": "Credited harsh-noise source (mechanism unspecified)",
+  "short": "Credited harsh noise",
+  "family": "electronic",
+  "class": "source_unspecified_noise",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_harsh_noise_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_harsh_noise_mechanism_unspecified",
+          "name": "Harsh noise credited; generator and mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Retains an explicitly credited harsh-noise role without claiming a synthesizer, pedal, feedback circuit, acoustic object or production technique. Electronic family and neutral axes are authored routing coordinates only; sound-generation mechanism remains source-unspecified.",
+  "sources": [
+    "https://thistlethistlethistle.bandcamp.com/album/lomochrome"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_harsh_noise_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_harsh_noise_mechanism_unspecified",
+          "name": "Harsh noise credited; generator and mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

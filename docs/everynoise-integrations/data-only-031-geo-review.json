@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "old_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+  "new_frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "exact_delta": [
+    ["/entries/56/geo/0", 12.8797, 15.5],
+    ["/entries/56/geo/1", 121.774, 121.0],
+    [
+      "/entries/56/geo_rationale",
+      "Representative point for documented scene or repertoire; not a claimed recording address.",
+      "Approximate country-level land point on Luzon for the documented Filipino Papuri repertoire. Editorial map anchor only; not an asserted performer hometown, ministry office or recording location."
+    ]
+  ],
+  "api_inputs_unchanged": true,
+  "policy": "Country land anchor remains editorial; no performer hometown or session-location assertion. No API recomputation required: source inputs identical."
+}

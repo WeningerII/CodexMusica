@@ -1,0 +1,28 @@
+{
+  "status": "PASS data-only correction",
+  "previous_frozen_sha256": "efc809d40ee8e2bac48c4ed499a7f3b30b619831918f5338c82b1324849d9d35",
+  "final_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+  "reason": "Original signature gate rejects unclassified signature words. Remove only four unsupported new-entry signature tokens; preserve vocabulary, rulings and original pipeline. Musical roles, source records and default settings unchanged.",
+  "changes": [
+    {
+      "id": "neru",
+      "before": ["textural"],
+      "after": []
+    },
+    {
+      "id": "neurostep",
+      "before": ["textural"],
+      "after": []
+    },
+    {
+      "id": "new_french_touch",
+      "before": ["textural"],
+      "after": []
+    },
+    {
+      "id": "new_tribe",
+      "before": ["improvised", "melodic"],
+      "after": ["melodic"]
+    }
+  ]
+}

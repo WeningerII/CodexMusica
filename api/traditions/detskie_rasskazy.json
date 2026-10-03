@@ -5,7 +5,7 @@
   "lineage": "Mikhail Zoshchenko — Rasskazy dlya detey, ARDIS audiobook read by Vladimir Levashyov. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic detskie rasskazy, spoken Word. no pitch organization speech, single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 205,
-  "score": 2.09,
+  "score": 2.099,
   "config": {
     "traditions": [
       "detskie_rasskazy"
@@ -44,10 +44,10 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0.78,
-          "voice_ensemble_config": 0.13949999999999999,
+          "voice_ensemble_config": 0.11699999999999999,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 0,
+          "voice_processing_chain": 0.0315,
           "voice_multitrack_stack": 1.17,
           "voice_tessitura": 0
         }

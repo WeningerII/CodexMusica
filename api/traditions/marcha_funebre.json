@@ -5,7 +5,7 @@
   "lineage": "Ramón Hernández Sánchez — Nuestro Señor del Consuelo, Manuel Matarrita solo-piano arrangement (2021). Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-2020s marcha funebre, ritual Devotional. soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 227,
-  "score": 17.749,
+  "score": 17.917,
   "config": {
     "traditions": [
       "marcha_funebre"
@@ -29,9 +29,9 @@
           "grand_piano_size": 0.0315,
           "grand_piano_brand": 0.08549999999999999,
           "piano_hammer": 2.45,
-          "piano_rim": 2.45,
+          "piano_rim": 2.4815,
           "piano_soundboard": 2.45,
-          "piano_pinblock": 4.1595,
+          "piano_pinblock": 4.296,
           "piano_plate": 2.4815,
           "piano_pitch_standard": 0.7149999999999999
         }

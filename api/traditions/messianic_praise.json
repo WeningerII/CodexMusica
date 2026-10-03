@@ -5,7 +5,7 @@
   "lineage": "Eli Haitov / Ashira — To You (2017), complete single. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic late-2010s messianic praise, ritual Devotional. dreadnought acoustic conventional tuning standard pitch humbucker electric guitar, credited auxiliary percussion, electronic keyboard unspecified, electric bass, maple machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 394,
-  "score": 14.854,
+  "score": 15.02,
   "config": {
     "traditions": [
       "messianic_praise"
@@ -44,11 +44,11 @@
           "voice_mechanism_compound": 0,
           "voice_estill_quality": 0,
           "voice_speech_song": 0,
-          "voice_ensemble_config": 0.09449999999999999,
+          "voice_ensemble_config": 0.126,
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.39,
-          "voice_multitrack_stack": 0.09449999999999999,
+          "voice_multitrack_stack": 0.1575,
           "voice_tessitura": 0
         }
       },
@@ -86,7 +86,7 @@
         },
         "scores": {
           "electronic_keyboard_identity": 0,
-          "keyboard_technique": 0
+          "keyboard_technique": 0.0315
         }
       },
       {
@@ -164,9 +164,9 @@
           "drum_technique": -0.05,
           "drumhead": 1.69,
           "drum_kit_kick_pedal": 0,
-          "shell_wood": 2.0725000000000002,
+          "shell_wood": 2.08,
           "shell_thickness": 0,
-          "bearing_edges": 0,
+          "bearing_edges": 0.0315,
           "snare_wires": 0,
           "cymbal_alloy": 0.13000000000000003,
           "cymbal_hammering": 2.4225000000000003,

@@ -1,0 +1,65 @@
+{
+  "frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+  "parts": 3817,
+  "protectedParts": 3812,
+  "unpinned": [
+    {
+      "tradition": "neo_mellow",
+      "instrument": "electronic_keyboard_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_keyboard_melodic_chordal",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "nepali_indie",
+      "instrument": "electric_guitar_humbucker",
+      "part": "electric_technique",
+      "flat_value": "electric_bass_pocket",
+      "imported_default": "electric_clean_strummed",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "pei_indie",
+      "instrument": "grand_piano",
+      "part": "keyboard_technique",
+      "flat_value": "electronic_keyboard_melodic_chordal",
+      "imported_default": "keyboard_block_chord_pop",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "persian_alternative",
+      "instrument": "grand_piano",
+      "part": "keyboard_technique",
+      "flat_value": "electronic_keyboard_melodic_chordal",
+      "imported_default": "keyboard_block_chord_pop",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    },
+    {
+      "tradition": "santa_fe_indie",
+      "instrument": "electronic_organ_unspecified",
+      "part": "keyboard_technique",
+      "flat_value": "keyboard_block_chord_pop",
+      "imported_default": "electronic_organ_melodic_sustained",
+      "policy": "Unprotected owner slot: compiled optimizer may choose another valid variant; verify final API separately."
+    }
+  ],
+  "errors": [],
+  "previous_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+  "geo_only_rebinding": {
+    "status": "PASS",
+    "old_frozen_sha256": "c3c541d8dc25205c74d7b9c05def7897e283d098ad9acc2d1821652d9ee607a5",
+    "new_frozen_sha256": "9f052c6c29ca19919511151695494b039cd4ce26f3d784f3979f19e2e869f885",
+    "exact_delta": [
+      ["/entries/56/geo/0", 12.8797, 15.5],
+      ["/entries/56/geo/1", 121.774, 121.0],
+      [
+        "/entries/56/geo_rationale",
+        "Representative point for documented scene or repertoire; not a claimed recording address.",
+        "Approximate country-level land point on Luzon for the documented Filipino Papuri repertoire. Editorial map anchor only; not an asserted performer hometown, ministry office or recording location."
+      ]
+    ],
+    "api_inputs_unchanged": true,
+    "policy": "Country land anchor remains editorial; no performer hometown or session-location assertion. No API recomputation required: source inputs identical."
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Dave Ross — The Clean Tapes (2024). Representative authored present-day recording arrangement for the selected documented branch. Sources establish roles and category; construction, hardware, techniques, room, chain, equal temperament and axes are authored choices, not source-session facts or universal traits.",
   "recipe": "classic mid-2020s clean comedy, spoken Word, stage performance branch. single lead single track no stacking. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 207,
-  "score": 1.392,
+  "score": 1.423,
   "config": {
     "traditions": [
       "clean_comedy"
@@ -48,7 +48,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.2415,
-          "voice_multitrack_stack": 0.5609999999999999,
+          "voice_multitrack_stack": 0.5925,
           "voice_tessitura": 0
         }
       }

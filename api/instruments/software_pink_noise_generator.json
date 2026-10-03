@@ -1,0 +1,59 @@
+{
+  "id": "software_pink_noise_generator",
+  "name": "Software pink-noise generator",
+  "short": "Software-generated pink noise",
+  "family": "electronic",
+  "class": "software_noise_generator",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "software_pink_noise_identity",
+      "name": "Noise source",
+      "variants": [
+        {
+          "id": "software_generated_pink_noise",
+          "name": "Software-generated pink noise",
+          "default": true,
+          "descriptors": [
+            "digital",
+            "continuous"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Computer-generated pink-noise source. Does not imply any pitched synthesizer oscillator, physical instrument, modular hardware or sampled song. Routing axes are neutral authored coordinates; amplitude, duration and subsequent source processing remain unspecified.",
+  "sources": [
+    "https://manual.audacityteam.org/man/noise.html",
+    "https://owlripperrecordings.bandcamp.com/track/wallace-robert-holt-pink-wall-42a"
+  ],
+  "_ownParts": [
+    {
+      "id": "software_pink_noise_identity",
+      "name": "Noise source",
+      "variants": [
+        {
+          "id": "software_generated_pink_noise",
+          "name": "Software-generated pink noise",
+          "default": true,
+          "descriptors": [
+            "digital",
+            "continuous"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

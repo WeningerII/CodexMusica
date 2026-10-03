@@ -1,0 +1,60 @@
+{
+  "id": "concert_triangle",
+  "name": "Concert triangle (general purpose)",
+  "short": "concert triangle",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "concert_triangle_construction",
+      "name": "Authored triangle construction",
+      "variants": [
+        {
+          "id": "concert_triangle_grover_six_kanigen",
+          "name": "Six-inch Grover Super-Overtone triangle, Kanigen plating; authored ringing realization",
+          "default": true,
+          "descriptors": [
+            "ringing",
+            "metallic-attack"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "concert_triangle_construction",
+      "name": "Authored triangle construction",
+      "variants": [
+        {
+          "id": "concert_triangle_grover_six_kanigen",
+          "name": "Six-inch Grover Super-Overtone triangle, Kanigen plating; authored ringing realization",
+          "default": true,
+          "descriptors": [
+            "ringing",
+            "metallic-attack"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

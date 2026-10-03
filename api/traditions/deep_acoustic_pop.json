@@ -5,7 +5,7 @@
   "lineage": "Deep acoustic pop is represented here by Luluc — acoustic duo core. This is one documented branch, with an authored present-day studio realization.",
   "recipe": "classic deep acoustic pop, functional Song, pop rock branch. unprocessed natural acoustic. deep indian rosewood rosewood dreadnought acoustic guitar. treated studio. dynamic moving-coil, transformerless solid-state pre, parametric EQ. 24-bit digital.",
   "recipe_chars": 250,
-  "score": 6.758,
+  "score": 6.518,
   "config": {
     "traditions": [
       "deep_acoustic_pop"
@@ -25,7 +25,7 @@
           "string_tuning": 0,
           "top_wood": 0.3465,
           "back_sides": 2.055,
-          "string_acoustic": 0.44099999999999995
+          "string_acoustic": 0.5774999999999999
         }
       },
       {
@@ -63,7 +63,7 @@
           "voice_ensemble_config": 0.063,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 0,
-          "voice_processing_chain": 4.0085,
+          "voice_processing_chain": 3.6314999999999995,
           "voice_multitrack_stack": 0.063
         }
       }
