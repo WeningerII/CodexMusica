@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "e693f74bea56ae3e7d5792fcc561102082b98dac9ebdcb2c162dd228a71b9130",
+  "authorized_exact_fixture_ids": ["samba_jazz"],
+  "source_extras_unchanged": true,
+  "all_slots_roster_environment_protected_settings_unchanged": true,
+  "baseline_staples": ["samba_jazz", "pagode", "samba"],
+  "current_staples": ["samba_jazz", "pagode", "roda_de_samba"],
+  "descriptor_change": "Only rendered prefix changes from 'pagode samba' to 'pagode roda de samba'; all instrument and production descriptors identical.",
+  "cause": "The three new Brazilian sibling rows pagode_baiano, pagode_novo and samba_paulista change original neighbor/staple scoring. Existing roda_de_samba replaces existing samba as second supplemental tradition. pagode_novo also enters staple candidate list. Removing only these three NEW rows/extras from temporary process memory restores exact baseline config, recipe and score, retaining every new instrument and other97 new genres. Each individual and pair removal was insufficient; attribution is to this collective neighborhood addition, not falsely one row.",
+  "baseline_score": 176.06249999999994,
+  "current_score": 167.8825,
+  "counterfactual": {
+    "removed_from_process_memory_only": ["pagode_baiano", "pagode_novo", "samba_paulista"],
+    "rows": [
+      {
+        "id": "samba_jazz",
+        "baseline_recipe_restored": true,
+        "baseline_config_restored": true,
+        "baseline_score_restored": true,
+        "baseline_slots_restored": true,
+        "output": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz."
+      }
+    ]
+  },
+  "old_output": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "new_output": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode roda de samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "errors": [],
+  "scope": "Only samba_jazz eligible for root original targeted snapshot update. Full serial rerun and exact-head CI still required. No repository changes by reviewer."
+}

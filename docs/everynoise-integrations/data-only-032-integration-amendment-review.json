@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "before_sha256": "38a224a0f86a133265bf9c46a89424733fbebfdc74706c692e96279f65334773",
+  "after_sha256": "7d52fcc0dad2e2ad50837068f836f49584b020c0a31135c25ab5d0a3dcc6bfd8",
+  "exact_changes": [
+    ["/instrument_dependencies/3/record/family", "plucked", "acoustic_strings"],
+    [
+      "/instrument_dependencies/4/image_manifest",
+      null,
+      {
+        "source_page": "https://commons.wikimedia.org/wiki/File:Shure_SM58.jpg",
+        "source_title": "Shure SM58.jpg",
+        "photographer_credit": "Iain Fergusson; existing crop by Binksternet",
+        "license": "CC BY",
+        "license_raw": "CC BY 2.5 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.5/",
+        "credit": "Iain Fergusson; existing crop by Binksternet, Shure SM58.jpg, Wikimedia Commons, CC BY 2.5 Generic",
+        "kind": "instrument",
+        "source": "generic_recording_context",
+        "id": "credited_electronics_unspecified",
+        "name": "Credited electronics (source-unspecified generator)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shure_SM58.jpg/250px-Shure_SM58.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+        "matched_label": "Generic recording microphone context only; not the credited musical instrument, artist, actual recording microphone or venue.",
+        "match_confidence": "low"
+      }
+    ]
+  ],
+  "musical_entry_changes": false,
+  "complete_source_and_runtime_audits_repeated": true
+}

@@ -3,9 +3,9 @@
   "name": "Mollywood (Malayalam film song)",
   "family": "global",
   "lineage": "Malayalam-language film song of Kerala's cinema industry, recorded in Madras and Trivandrum from the 1950s and codified by composers G. Devarajan, M. S. Baburaj, Salil Chowdhury, Raveendran and later Johnson and Ouseppachan with lyricist Vayalar Ramavarma and singers K. J. Yesudas and P. Susheela — Carnatic raga-derived melodies with sparing gamaka, light 6/8 and kaiyaal-derived 4/4 rhythms carried by tabla and mridangam alongside a Western string section, harmonium and flute, and a clear un-nasal legato vocal delivery closer to concert Carnatic tone than to Bombay filmi.",
-  "recipe": "classic South Asian mid-1950s mollywood, functional Song, south Asian pop branch, south Asian art music, indian bard ballad poetry rajasthani manganiyar tradition cambodian chapei dang veng. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound carpathian spruce European maple bosnian source flamed figure violin orchestral, yamaha modern Japanese mid to premium legato flute, indian rosewood rosewood copper tabla, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, low overtone rich vocal male harmonium indian, gourd jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian drone like veena, oversize maple tension resonator European spruce norway spruce European tradition grand piano, silver wound lamb gut core carpathian spruce European maple bosnian source cello. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio.",
-  "recipe_chars": 976,
-  "score": 533.125,
+  "recipe": "classic South Asian mid-1950s mollywood, functional Song, south Asian pop branch, south Asian art music, indian bard ballad poetry rajasthani manganiyar tradition cambodian chapei dang veng. thick, breath veiled tone, slow rate, interlocked note trading. aluminum wound carpathian spruce European maple bosnian source flamed figure violin orchestral, yamaha modern Japanese mid to premium legato flute, indian rosewood rosewood copper tabla, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, low overtone rich vocal male harmonium indian, gourd jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian drone like veena, oversize maple tension resonator Asian spruce hokkaido source 7 ply grand piano, silver wound lamb gut core carpathian spruce European maple bosnian source cello. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. large-diaphragm condenser.",
+  "recipe_chars": 989,
+  "score": 533.43,
   "config": {
     "traditions": [
       "mollywood",
@@ -47,8 +47,8 @@
           "voice_speech_song": 40.625,
           "voice_ensemble_config": 32.370000000000005,
           "voice_ornament_system": 17.605,
-          "voice_pitch_organization": 16.695,
-          "voice_processing_chain": 8.25,
+          "voice_pitch_organization": 16.65,
+          "voice_processing_chain": 8.01,
           "voice_multitrack_stack": 6.565000000000001
         }
       },
@@ -67,10 +67,10 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.675000000000001,
-          "orch_strings": 2.995,
-          "orch_top_wood": 6.205,
-          "orch_back_wood": 6.305,
+          "bowed_technique": 7.720000000000001,
+          "orch_strings": 3.04,
+          "orch_top_wood": 6.4,
+          "orch_back_wood": 6.3500000000000005,
           "orch_varnish": 6.325,
           "orch_setup_period": 6.5200000000000005,
           "orch_bow": 0.39,
@@ -91,8 +91,8 @@
         "scores": {
           "wind_articulation": 7.175000000000001,
           "flute_size": 0.65,
-          "flute_material": 0.5,
-          "flute_technique": 0.63,
+          "flute_material": 0.545,
+          "flute_technique": 0.825,
           "flute_maker_school": 5.08
         }
       },
@@ -170,9 +170,9 @@
           "grand_piano_brand": "fazioli",
           "piano_hammer": "renner_standard_hammer",
           "piano_rim": "mason_hamlin_oversize_rim",
-          "piano_soundboard": "european_spruce_soundboard",
+          "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
@@ -180,11 +180,11 @@
           "grand_piano_size": 0.09,
           "grand_piano_brand": 1.15,
           "piano_hammer": 9.5225,
-          "piano_rim": 9.19,
-          "piano_soundboard": 9.145,
-          "piano_pinblock": 6.76,
+          "piano_rim": 8.95,
+          "piano_soundboard": 8.97,
+          "piano_pinblock": 6.955,
           "piano_plate": 5.87,
-          "piano_pitch_standard": 11.184999999999999
+          "piano_pitch_standard": 11.094999999999999
         }
       },
       {
@@ -201,10 +201,10 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 7.675000000000001,
-          "cello_strings": 2.19,
-          "cello_top_wood": 6.205,
-          "cello_back_wood": 6.305,
+          "bowed_technique": 7.720000000000001,
+          "cello_strings": 2.235,
+          "cello_top_wood": 6.4,
+          "cello_back_wood": 6.3500000000000005,
           "cello_varnish": 6.325,
           "cello_setup_period": 6.5200000000000005,
           "cello_bow_grip": 3.705,

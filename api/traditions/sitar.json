@@ -1,0 +1,147 @@
+{
+  "id": "sitar",
+  "name": "Sitar",
+  "family": "classical",
+  "lineage": "Jasdeep Singh Degun — Jogkauns (2025), complete three-track album. Authored present-day recording arrangement based on the documented selected performance branch. Sources support category, credited roles and locality. Materials, makes, technique presets, tuning, studio, signal chain and axes are authored realizations, not measured historical session settings or universal genre rules.",
+  "recipe": "classic mid-2020s sitar, improv On Frame, indian classical improv branch. bronze steel modern canon high tensile sitar, silvery suited to female vocal tanpura, indian rosewood rosewood brass tabla. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 296,
+  "score": 33.379,
+  "config": {
+    "traditions": [
+      "sitar"
+    ],
+    "instruments": [
+      {
+        "id": "sitar",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "sitar_neck": "teak",
+          "sitar_resonator": "single_kaddu",
+          "sitar_jawari": "synthetic_jawari",
+          "sitar_taraf": "taraf_11",
+          "sitar_frets": "tied_gut_parda",
+          "sitar_pluck": "wire_mizrab",
+          "sitar_main_strings": "sitar_bronze_steel_modern",
+          "sitar_jawari_style": "sitar_jawari_open",
+          "sitar_gharana": "sitar_imdadkhani_gharana"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.7775,
+          "sitar_neck": 0.39,
+          "sitar_resonator": 0.3,
+          "sitar_jawari": 0.7364999999999999,
+          "sitar_taraf": 0,
+          "sitar_frets": 0.3315,
+          "sitar_pluck": 4.029999999999999,
+          "sitar_main_strings": 1.1415,
+          "sitar_jawari_style": 0.7364999999999999,
+          "sitar_gharana": 0.39
+        }
+      },
+      {
+        "id": "tanpura",
+        "slots": {
+          "plucked_traditional_technique": "plucked_drone_modal",
+          "tanpura_size": "female_size",
+          "tanpura_jawari": "curved_jawari",
+          "tanpura_strings": "four_string_classical",
+          "tanpura_string_material": "tanpura_bronze_steel",
+          "tanpura_body_wood": "tanpura_gourd_body"
+        },
+        "scores": {
+          "plucked_traditional_technique": 2.7775,
+          "tanpura_size": 3.1079999999999997,
+          "tanpura_jawari": 7.749999999999999,
+          "tanpura_strings": 0,
+          "tanpura_string_material": 0.6,
+          "tanpura_body_wood": 0.3
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": 6.305,
+          "tabla_bayan": 1.705,
+          "tabla_syahi": 0
+        }
+      }
+    ],
+    "pinned": {
+      "sitar": [
+        "plucked_traditional_technique",
+        "sitar_neck",
+        "sitar_resonator",
+        "sitar_jawari",
+        "sitar_taraf",
+        "sitar_frets",
+        "sitar_pluck",
+        "sitar_main_strings",
+        "sitar_jawari_style",
+        "sitar_gharana"
+      ],
+      "tanpura": [
+        "plucked_traditional_technique",
+        "tanpura_size",
+        "tanpura_jawari",
+        "tanpura_strings",
+        "tanpura_string_material",
+        "tanpura_body_wood"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "hindustani_thaat_alap_jod_jhala",
+    "room": "treated_studio",
+    "parts": {
+      "plucked_traditional_technique": "plucked_drone_modal",
+      "sitar_neck": "teak",
+      "sitar_resonator": "single_kaddu",
+      "sitar_jawari": "synthetic_jawari",
+      "sitar_taraf": "taraf_11",
+      "sitar_frets": "tied_gut_parda",
+      "sitar_pluck": "wire_mizrab",
+      "sitar_main_strings": "sitar_bronze_steel_modern",
+      "sitar_jawari_style": "sitar_jawari_open",
+      "sitar_gharana": "sitar_imdadkhani_gharana",
+      "tanpura_size": "female_size",
+      "tanpura_jawari": "curved_jawari",
+      "tanpura_strings": "four_string_classical",
+      "tanpura_string_material": "tanpura_bronze_steel",
+      "tanpura_body_wood": "tanpura_gourd_body",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

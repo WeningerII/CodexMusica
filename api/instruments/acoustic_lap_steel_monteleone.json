@@ -1,0 +1,120 @@
+{
+  "id": "acoustic_lap_steel_monteleone",
+  "name": "Monteleone acoustic lap steel",
+  "family": "acoustic_strings",
+  "class": "plucked_string_lead",
+  "short": "acoustic lap slide",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 1
+  },
+  "parts": [
+    {
+      "id": "monteleone_lap_body",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "monteleone_square_neck_archtop",
+          "name": "Square-neck 16-inch archtop; red maple body/neck, Adirondack spruce top, floating magnetic pickup",
+          "default": true,
+          "descriptors": [
+            "body-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monteleone_lap_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "monteleone_open_d",
+          "name": "Six strings D A D F-sharp A D; open D",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "monteleone_lap_touch",
+      "name": "Complete selected album technique",
+      "variants": [
+        {
+          "id": "monteleone_slide_fingers_pick",
+          "name": "Steel-bar slide; bare fingers, with flatpick on London",
+          "default": true,
+          "descriptors": [
+            "slide",
+            "fingerpicked"
+          ],
+          "match_tokens": [
+            "slide",
+            "fingerpicked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "monteleone_lap_body",
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "monteleone_square_neck_archtop",
+          "name": "Square-neck 16-inch archtop; red maple body/neck, Adirondack spruce top, floating magnetic pickup",
+          "default": true,
+          "descriptors": [
+            "body-resonance-low-mid"
+          ],
+          "match_tokens": [
+            "body-resonance-low-mid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monteleone_lap_tuning",
+      "name": "String tuning",
+      "variants": [
+        {
+          "id": "monteleone_open_d",
+          "name": "Six strings D A D F-sharp A D; open D",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    },
+    {
+      "id": "monteleone_lap_touch",
+      "name": "Complete selected album technique",
+      "variants": [
+        {
+          "id": "monteleone_slide_fingers_pick",
+          "name": "Steel-bar slide; bare fingers, with flatpick on London",
+          "default": true,
+          "descriptors": [
+            "slide",
+            "fingerpicked"
+          ],
+          "match_tokens": [
+            "slide",
+            "fingerpicked"
+          ]
+        }
+      ]
+    }
+  ]
+}

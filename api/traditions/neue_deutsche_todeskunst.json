@@ -5,7 +5,7 @@
   "lineage": "Goethes Erben — Leben im Niemandsland, complete 6 June 1993 Bochum concert album. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
   "recipe": "classic early-1990s neue deutsche todeskunst, spoken Word. one note per syllable. spoken word voice, electronic keyboard unspecified, saxophone doubling alto soprano, snare drum, dreadnought acoustic guitar, credited auxiliary percussion, European maple bosnian source flamed figure violin orchestral, European maple bosnian source flamed figure cello. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
   "recipe_chars": 451,
-  "score": 6.066,
+  "score": 6.183,
   "config": {
     "traditions": [
       "neue_deutsche_todeskunst"
@@ -57,7 +57,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 0,
           "voice_processing_chain": 0.3,
-          "voice_multitrack_stack": 0.4635,
+          "voice_multitrack_stack": 0.47250000000000003,
           "voice_tessitura": 0
         }
       },
@@ -136,11 +136,11 @@
           "orch_top_wood": -0.1,
           "orch_back_wood": 1.95,
           "orch_varnish": -0.1,
-          "orch_setup_period": -0.07750000000000001,
+          "orch_setup_period": -0.07,
           "orch_bow": 0,
           "orch_bow_stick": -0.15000000000000002,
           "orch_articulation": 0,
-          "orch_rosin": -0.1
+          "orch_rosin": -0.07
         }
       },
       {
@@ -158,12 +158,12 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "cello_strings": 0,
+          "cello_strings": 0.0315,
           "cello_top_wood": -0.1,
           "cello_back_wood": 1.95,
           "cello_varnish": -0.1,
-          "cello_setup_period": -0.07750000000000001,
-          "cello_bow_grip": 0.3,
+          "cello_setup_period": -0.07,
+          "cello_bow_grip": 0.3315,
           "cello_rosin": 0.2,
           "cello_bow_stick": -0.15000000000000002
         }

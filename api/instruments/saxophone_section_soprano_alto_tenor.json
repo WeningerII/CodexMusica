@@ -1,0 +1,96 @@
+{
+  "id": "saxophone_section_soprano_alto_tenor",
+  "name": "Saxophone palette (soprano, alto and tenor)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "Soprano-alto-tenor saxophone palette",
+  "parts": [
+    {
+      "id": "soprano_alto_tenor_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "soprano_alto_tenor_section_articulation_short",
+          "name": "Coordinated short notes (authored default)",
+          "default": true,
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        },
+        {
+          "id": "soprano_alto_tenor_section_articulation_legato",
+          "name": "Coordinated legato (authored alternative)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Three specified saxophone roles, allowing recorded doubling. Player count and simultaneity follow entry source, not this aggregate palette. Articulation and coarse ensemble axes are authored; makes/reeds unspecified.",
+  "sources": [
+    "https://www.youtube.com/watch?v=JMcyuUhcIZw"
+  ],
+  "_ownParts": [
+    {
+      "id": "soprano_alto_tenor_section_articulation",
+      "name": "Section articulation",
+      "variants": [
+        {
+          "id": "soprano_alto_tenor_section_articulation_short",
+          "name": "Coordinated short notes (authored default)",
+          "default": true,
+          "descriptors": [
+            "short",
+            "articulate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "articulated"
+          ]
+        },
+        {
+          "id": "soprano_alto_tenor_section_articulation_legato",
+          "name": "Coordinated legato (authored alternative)",
+          "descriptors": [
+            "legato",
+            "controlled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

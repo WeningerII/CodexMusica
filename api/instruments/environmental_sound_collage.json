@@ -1,0 +1,58 @@
+{
+  "id": "environmental_sound_collage",
+  "name": "Environmental sound collage",
+  "short": "Environmental collage",
+  "family": "electronic",
+  "class": "environmental_recording",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "environmental_collage_source",
+      "name": "Sound source and assembly",
+      "variants": [
+        {
+          "id": "environmental_field_recording_collage",
+          "name": "Edited environmental field recordings",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Original environmental field recordings combined through editing into a sound collage. No assumed instrumental, synthesis or sampler hardware; capture and editing implementation remain unspecified. Neutral authored axes.",
+  "sources": [
+    "https://rjstefanski.bandcamp.com/album/reservoir"
+  ],
+  "_ownParts": [
+    {
+      "id": "environmental_collage_source",
+      "name": "Sound source and assembly",
+      "variants": [
+        {
+          "id": "environmental_field_recording_collage",
+          "name": "Edited environmental field recordings",
+          "default": true,
+          "descriptors": [
+            "environmental",
+            "field-recording"
+          ],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

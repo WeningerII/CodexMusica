@@ -1,0 +1,35 @@
+{
+  "original_frozen_sha256": "38a224a0f86a133265bf9c46a89424733fbebfdc74706c692e96279f65334773",
+  "integration_frozen_sha256": "7d52fcc0dad2e2ad50837068f836f49584b020c0a31135c25ab5d0a3dcc6bfd8",
+  "amendments": [
+    {
+      "instrument": "contraguitar",
+      "field": "record.family",
+      "before": "plucked",
+      "after": "acoustic_strings",
+      "reason": "Original validator requires existing instrument family; documented acoustic extended-bass guitar; independently verified no added family slots or missing pins.",
+      "review": "/tmp/batch032/dependency-contract-recommendation119.json"
+    },
+    {
+      "instrument": "credited_electronics_unspecified",
+      "field": "image_manifest",
+      "reason": "Copy existing identical photo.manifest into integration contract field; no rights/source/URL change."
+    },
+    {
+      "instruments": [
+        "contraguitar",
+        "credited_cymbals",
+        "saxophone_section_alto_tenor_baritone",
+        "slide_archtop_guitar",
+        "foot_operated_cymbal",
+        "credited_frame_drums",
+        "dunun_three_size_palette"
+      ],
+      "field": "record._ownParts",
+      "operation": "Remove duplicate loader-internal cache equal to record.parts",
+      "reason": "Original HTML build rejected classifier metadata copied inside internal cache. Original loader reconstructs this identical cache; no shared pipeline or actual parts changed."
+    }
+  ],
+  "status": "Original source freeze preserved; two data-only integration contract corrections.",
+  "final_integration_sha256": "e693f74bea56ae3e7d5792fcc561102082b98dac9ebdcb2c162dd228a71b9130"
+}

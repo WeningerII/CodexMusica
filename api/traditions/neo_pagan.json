@@ -1,0 +1,290 @@
+{
+  "id": "neo_pagan",
+  "name": "Neo Pagan",
+  "family": "vernacular",
+  "lineage": "PerKelt — Dancer in the Wind, complete 2016 London/Paris sessions released2021. Representative authored present-day recording arrangement for the selected documented branch. Sources establish category, roles and locality. Exact materials, makes, playing settings, tuning, room, signal chain and axes are authored choices, not measured source-session facts or universal genre characteristics.",
+  "recipe": "classic mid-2010s neo pagan, groove Percussion. one note per syllable, duet, live take. recorder, celtic harp, dreadnought acoustic guitar, dunun three size palette, credited cymbals, credited auxiliary percussion, credited frame drums, low fundamental tuning projecting brass tabla, traditional low fundamental tuning goat skin canonical Irish bodhran. treated studio. small-diaphragm pencil condenser, transformerless solid-state pre. 24-bit digital.",
+  "recipe_chars": 452,
+  "score": 8.996,
+  "config": {
+    "traditions": [
+      "neo_pagan"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "voice_register_source_unspecified",
+          "voice_quality": "voice_quality_source_unspecified",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "voice_vibrato_local_unspecified",
+          "voice_articulation": "voice_articulation_source_unspecified",
+          "voice_microtone": "voice_microtone_local_unspecified",
+          "voice_tradition": "voice_tradition_source_unspecified",
+          "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+          "voice_estill_quality": "voice_estill_quality_source_unspecified",
+          "voice_speech_song": "voice_syllabic_singing",
+          "voice_ensemble_config": "voice_ensemble_live_duet",
+          "voice_ornament_system": "voice_ornament_system_source_unspecified",
+          "voice_pitch_organization": "voice_pitch_source_unspecified",
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+          "voice_tessitura": "voice_tessitura_source_unspecified"
+        },
+        "scores": {
+          "voice_register": 0,
+          "voice_quality": 0,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0,
+          "voice_articulation": 0,
+          "voice_microtone": 0,
+          "voice_tradition": 0,
+          "voice_mechanism_compound": 0,
+          "voice_estill_quality": 0,
+          "voice_speech_song": 0.6615,
+          "voice_ensemble_config": 0.5354999999999999,
+          "voice_ornament_system": 0,
+          "voice_pitch_organization": 0,
+          "voice_processing_chain": 0.3315,
+          "voice_multitrack_stack": 0.5354999999999999,
+          "voice_tessitura": 0
+        }
+      },
+      {
+        "id": "recorder",
+        "slots": {
+          "wind_articulation": "wind_folk_melodic",
+          "recorder_size": "soprano_recorder",
+          "recorder_context": "recorder_renaissance",
+          "recorder_body_wood": "recorder_boxwood_canonical"
+        },
+        "scores": {
+          "wind_articulation": 2.25,
+          "recorder_size": 0,
+          "recorder_context": 0.6719999999999999,
+          "recorder_body_wood": 0
+        }
+      },
+      {
+        "id": "celtic_harp",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "celtic_harp_levers": "lever_camac",
+          "celtic_harp_strings": "celtic_gut"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "celtic_harp_levers": 0.663,
+          "celtic_harp_strings": 0.44099999999999995
+        }
+      },
+      {
+        "id": "acoustic_guitar_dread",
+        "slots": {
+          "acoustic_technique": "acoustic_strummed_ringing",
+          "string_tuning": "standard_tuning",
+          "top_wood": "engelmann",
+          "back_sides": "rosewood_bs",
+          "string_acoustic": "eighty_twenty"
+        },
+        "scores": {
+          "acoustic_technique": -0.07,
+          "string_tuning": 0,
+          "top_wood": 0,
+          "back_sides": -0.05,
+          "string_acoustic": 0
+        }
+      },
+      {
+        "id": "dunun_three_size_palette",
+        "slots": {
+          "dunun_three_size_palette_identity": "dunun_three_size_palette_source_unspecified"
+        },
+        "scores": {
+          "dunun_three_size_palette_identity": 0
+        }
+      },
+      {
+        "id": "credited_cymbals",
+        "slots": {
+          "credited_cymbals_identity": "credited_cymbals_source_unspecified"
+        },
+        "scores": {
+          "credited_cymbals_identity": 0
+        }
+      },
+      {
+        "id": "credited_auxiliary_percussion",
+        "slots": {
+          "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified"
+        },
+        "scores": {
+          "credited_auxiliary_percussion_identity": 0
+        }
+      },
+      {
+        "id": "credited_frame_drums",
+        "slots": {
+          "credited_frame_drums_identity": "credited_frame_drums_source_unspecified"
+        },
+        "scores": {
+          "credited_frame_drums_identity": 0
+        }
+      },
+      {
+        "id": "tabla",
+        "slots": {
+          "tabla_dayan": "shisham_dayan",
+          "tabla_bayan": "brass_bayan",
+          "tabla_syahi": "fresh_syahi"
+        },
+        "scores": {
+          "tabla_dayan": -0.05,
+          "tabla_bayan": 1.573,
+          "tabla_syahi": 0
+        }
+      },
+      {
+        "id": "bodhran",
+        "slots": {
+          "bodhran_play": "bodhran_kerry",
+          "bodhran_skin": "bodhran_goatskin",
+          "bodhran_shell_wood": "bodhran_birch_ply"
+        },
+        "scores": {
+          "bodhran_play": 0,
+          "bodhran_skin": 1.573,
+          "bodhran_shell_wood": 0
+        }
+      }
+    ],
+    "pinned": {
+      "voice": [
+        "voice_register",
+        "voice_quality",
+        "voice_vocal_tract",
+        "voice_effort",
+        "voice_vibrato",
+        "voice_articulation",
+        "voice_microtone",
+        "voice_tradition",
+        "voice_mechanism_compound",
+        "voice_estill_quality",
+        "voice_speech_song",
+        "voice_ensemble_config",
+        "voice_ornament_system",
+        "voice_pitch_organization",
+        "voice_processing_chain",
+        "voice_multitrack_stack",
+        "voice_tessitura"
+      ],
+      "recorder": [
+        "wind_articulation",
+        "recorder_size",
+        "recorder_context",
+        "recorder_body_wood"
+      ],
+      "celtic_harp": [
+        "acoustic_technique",
+        "celtic_harp_levers",
+        "celtic_harp_strings"
+      ],
+      "acoustic_guitar_dread": [
+        "acoustic_technique",
+        "string_tuning",
+        "top_wood",
+        "back_sides",
+        "string_acoustic"
+      ],
+      "dunun_three_size_palette": [
+        "dunun_three_size_palette_identity"
+      ],
+      "credited_cymbals": [
+        "credited_cymbals_identity"
+      ],
+      "credited_auxiliary_percussion": [
+        "credited_auxiliary_percussion_identity"
+      ],
+      "credited_frame_drums": [
+        "credited_frame_drums_identity"
+      ],
+      "tabla": [
+        "tabla_dayan",
+        "tabla_bayan",
+        "tabla_syahi"
+      ],
+      "bodhran": [
+        "bodhran_play",
+        "bodhran_skin",
+        "bodhran_shell_wood"
+      ]
+    },
+    "room": "treated_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": "comp_none",
+      "eq": "eq_none",
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "voice_register_source_unspecified",
+      "voice_quality": "voice_quality_source_unspecified",
+      "voice_vocal_tract": "tract_neutral",
+      "voice_effort": "effort_moderate",
+      "voice_vibrato": "voice_vibrato_local_unspecified",
+      "voice_articulation": "voice_articulation_source_unspecified",
+      "voice_microtone": "voice_microtone_local_unspecified",
+      "voice_tradition": "voice_tradition_source_unspecified",
+      "voice_mechanism_compound": "voice_mechanism_compound_source_unspecified",
+      "voice_estill_quality": "voice_estill_quality_source_unspecified",
+      "voice_speech_song": "voice_syllabic_singing",
+      "voice_ensemble_config": "voice_ensemble_live_duet",
+      "voice_ornament_system": "voice_ornament_system_source_unspecified",
+      "voice_pitch_organization": "voice_pitch_source_unspecified",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_multitrack_stack": "voice_multitrack_live_ensemble",
+      "voice_tessitura": "voice_tessitura_source_unspecified",
+      "wind_articulation": "wind_folk_melodic",
+      "recorder_size": "soprano_recorder",
+      "recorder_context": "recorder_renaissance",
+      "recorder_body_wood": "recorder_boxwood_canonical",
+      "acoustic_technique": "acoustic_strummed_ringing",
+      "celtic_harp_levers": "lever_camac",
+      "celtic_harp_strings": "celtic_gut",
+      "string_tuning": "standard_tuning",
+      "top_wood": "engelmann",
+      "back_sides": "rosewood_bs",
+      "string_acoustic": "eighty_twenty",
+      "dunun_three_size_palette_identity": "dunun_three_size_palette_source_unspecified",
+      "credited_cymbals_identity": "credited_cymbals_source_unspecified",
+      "credited_auxiliary_percussion_identity": "credited_auxiliary_percussion_source_unspecified",
+      "credited_frame_drums_identity": "credited_frame_drums_source_unspecified",
+      "tabla_dayan": "shisham_dayan",
+      "tabla_bayan": "brass_bayan",
+      "tabla_syahi": "fresh_syahi",
+      "bodhran_play": "bodhran_kerry",
+      "bodhran_skin": "bodhran_goatskin",
+      "bodhran_shell_wood": "bodhran_birch_ply"
+    },
+    "pin_parts": true,
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_comp": "comp_none",
+    "chain_eq": "eq_none",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

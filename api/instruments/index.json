@@ -1,5 +1,5 @@
 {
-  "count": 1519,
+  "count": 1535,
   "items": [
     {
       "id": "choir_ensemble",
@@ -9114,6 +9114,102 @@
       "name": "Software pink-noise generator",
       "family": "electronic",
       "href": "instruments/software_pink_noise_generator.json"
+    },
+    {
+      "id": "environmental_sound_collage",
+      "name": "Environmental sound collage",
+      "family": "electronic",
+      "href": "instruments/environmental_sound_collage.json"
+    },
+    {
+      "id": "credited_banjo_unspecified",
+      "name": "Credited banjo (configuration unspecified)",
+      "family": "plucked_traditional",
+      "href": "instruments/credited_banjo_unspecified.json"
+    },
+    {
+      "id": "saxophone_palette_soprano_unspecified",
+      "name": "Saxophone palette (soprano and unspecified saxophone)",
+      "family": "wind",
+      "href": "instruments/saxophone_palette_soprano_unspecified.json"
+    },
+    {
+      "id": "contraguitar",
+      "name": "Contraguitar (Viennese extended-bass guitar)",
+      "family": "acoustic_strings",
+      "href": "instruments/contraguitar.json"
+    },
+    {
+      "id": "credited_electronics_unspecified",
+      "name": "Credited electronics (source-unspecified generator)",
+      "family": "electronic",
+      "href": "instruments/credited_electronics_unspecified.json"
+    },
+    {
+      "id": "korg_kronos_workstation",
+      "name": "Korg KRONOS multi-engine workstation",
+      "family": "electronic",
+      "href": "instruments/korg_kronos_workstation.json"
+    },
+    {
+      "id": "acoustic_lap_steel_monteleone",
+      "name": "Monteleone acoustic lap steel",
+      "family": "acoustic_strings",
+      "href": "instruments/acoustic_lap_steel_monteleone.json"
+    },
+    {
+      "id": "saxophone_section_soprano_alto_tenor",
+      "name": "Saxophone palette (soprano, alto and tenor)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_soprano_alto_tenor.json"
+    },
+    {
+      "id": "bahian_bacurinha_credited",
+      "name": "Bacurinha (credited Bahian pagode role)",
+      "family": "percussion",
+      "href": "instruments/bahian_bacurinha_credited.json"
+    },
+    {
+      "id": "torpedo_percussion_credited",
+      "name": "Torpedo (credited percussion role)",
+      "family": "percussion",
+      "href": "instruments/torpedo_percussion_credited.json"
+    },
+    {
+      "id": "credited_cymbals",
+      "name": "Cymbals (credited unspecified types)",
+      "family": "percussion",
+      "href": "instruments/credited_cymbals.json"
+    },
+    {
+      "id": "saxophone_section_alto_tenor_baritone",
+      "name": "Saxophone section (alto, tenor and baritone)",
+      "family": "wind",
+      "href": "instruments/saxophone_section_alto_tenor_baritone.json"
+    },
+    {
+      "id": "slide_archtop_guitar",
+      "name": "Slide archtop guitar",
+      "family": "electric_strings",
+      "href": "instruments/slide_archtop_guitar.json"
+    },
+    {
+      "id": "foot_operated_cymbal",
+      "name": "Foot-operated cymbal",
+      "family": "percussion",
+      "href": "instruments/foot_operated_cymbal.json"
+    },
+    {
+      "id": "credited_frame_drums",
+      "name": "Frame drums (credited unspecified types)",
+      "family": "percussion",
+      "href": "instruments/credited_frame_drums.json"
+    },
+    {
+      "id": "dunun_three_size_palette",
+      "name": "Dundun, sangban and kenkeni palette (one player)",
+      "family": "percussion",
+      "href": "instruments/dunun_three_size_palette.json"
     }
   ]
 }

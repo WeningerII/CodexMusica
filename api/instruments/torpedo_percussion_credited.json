@@ -1,0 +1,56 @@
+{
+  "id": "torpedo_percussion_credited",
+  "name": "Torpedo (credited percussion role)",
+  "short": "Torpedo percussion",
+  "family": "percussion",
+  "class": "percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "torpedo_percussion_credited_identity",
+      "name": "Credited source identity",
+      "variants": [
+        {
+          "id": "torpedo_percussion_credited_source_unspecified",
+          "name": "Torpedo percussion; construction and mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ],
+  "description": "Positive named torpedo role; source does not specify construction or gesture. No assumed shaker/scraper mechanism, material, regional technique or maker. Neutral axes are authored uncertainty coordinates, not measured acoustics.",
+  "sources": [
+    "https://www.youtube.com/watch?v=JMcyuUhcIZw"
+  ],
+  "_ownParts": [
+    {
+      "id": "torpedo_percussion_credited_identity",
+      "name": "Credited source identity",
+      "variants": [
+        {
+          "id": "torpedo_percussion_credited_source_unspecified",
+          "name": "Torpedo percussion; construction and mechanism unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": [
+            "percussion"
+          ]
+        }
+      ]
+    }
+  ]
+}

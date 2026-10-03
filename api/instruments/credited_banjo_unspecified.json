@@ -1,0 +1,52 @@
+{
+  "id": "credited_banjo_unspecified",
+  "name": "Credited banjo (configuration unspecified)",
+  "short": "Credited banjo",
+  "family": "plucked_traditional",
+  "class": "credited_banjo_unspecified",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "parts": [
+    {
+      "id": "credited_banjo_unspecified_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_banjo_unspecified_source_unspecified",
+          "name": "Credited banjo; construction and technique unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ],
+  "description": "Source credits banjo without string count, tuning or regional construction; no five-string drone or Irish tuning inferred. Neutral routing axes are authored uncertainty coordinates, not physical measurements.",
+  "sources": [
+    "https://www.youtube.com/watch?v=YqKgZ0cU-9c"
+  ],
+  "_ownParts": [
+    {
+      "id": "credited_banjo_unspecified_identity",
+      "name": "Source identification",
+      "variants": [
+        {
+          "id": "credited_banjo_unspecified_source_unspecified",
+          "name": "Credited banjo; construction and technique unspecified",
+          "default": true,
+          "descriptors": [],
+          "match_tokens": []
+        }
+      ]
+    }
+  ]
+}

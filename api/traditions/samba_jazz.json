@@ -3,14 +3,14 @@
   "name": "Samba-jazz",
   "family": "global",
   "lineage": "Rio de Janeiro 1962-1970 small-group jazz-samba tradition centered on the Forma and Som Maior label catalog — codified through Sergio Mendes’s Bossa Rio (1964) and Brasil 66, Tamba Trio (Luiz Eça-Bebeto-Helcio Milito), Sambalanço Trio, Edu Lobo, and Milton Banana Trio; characterized by piano-trio-plus-singer instrumentation, advanced-harmonic vocabulary, and energetic-up-tempo samba-derived rhythmic foundation",
-  "recipe": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 613,
-  "score": 176.062,
+  "recipe": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode roda de samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 621,
+  "score": 167.882,
   "config": {
     "traditions": [
       "samba_jazz",
       "pagode",
-      "samba"
+      "roda_de_samba"
     ],
     "instruments": [
       {
@@ -31,11 +31,11 @@
           "grand_piano_size": 0.39,
           "grand_piano_brand": 0.75,
           "piano_hammer": 1.9825,
-          "piano_rim": 4.094999999999999,
-          "piano_soundboard": 3.6724999999999994,
-          "piano_pinblock": 0.4225,
+          "piano_rim": 2.405,
+          "piano_soundboard": 1.9825,
+          "piano_pinblock": 1.0725,
           "piano_plate": 0.44499999999999995,
-          "piano_pitch_standard": 2.1774999999999998
+          "piano_pitch_standard": 3.9050000000000002
         }
       },
       {
@@ -45,8 +45,8 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "upright_strings": 15.874999999999996,
-          "upright_play": 15.874999999999996
+          "upright_strings": 15.124999999999998,
+          "upright_play": 15.124999999999998
         }
       },
       {
@@ -57,8 +57,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 30.387499999999996,
-          "drumhead": 16.56,
+          "drum_technique": 29.477499999999992,
+          "drumhead": 15.809999999999999,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -69,7 +69,7 @@
           "context": "sb_quadra"
         },
         "scores": {
-          "sections": 0.78,
+          "sections": 0.585,
           "context": 0.195
         }
       },
@@ -85,13 +85,13 @@
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 2.015,
+          "wind_articulation": 1.8199999999999998,
           "sax_size": 1.65,
           "sax_reed": 0.75,
-          "sax_body_alloy": 17.064999999999998,
+          "sax_body_alloy": 16.014999999999997,
           "sax_mouthpiece": 0.75,
-          "sax_technique": 15.874999999999996,
-          "sax_maker_school": 16.859999999999996
+          "sax_technique": 15.124999999999998,
+          "sax_maker_school": 16.11
         }
       },
       {
@@ -106,11 +106,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 2.015,
+          "wind_articulation": 1.8199999999999998,
           "brass_size": 0.75,
-          "trumpet_mouthpiece": 17.539999999999996,
+          "trumpet_mouthpiece": 16.639999999999997,
           "brass_mute": 0.375,
-          "trumpet_technique": 2.015,
+          "trumpet_technique": 1.8199999999999998,
           "trumpet_bell_metal": 0.84,
           "trumpet_maker_school": 0.9450000000000001
         }

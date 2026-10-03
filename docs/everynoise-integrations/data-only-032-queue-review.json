@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "frozen_sha256": "7d52fcc0dad2e2ad50837068f836f49584b020c0a31135c25ab5d0a3dcc6bfd8",
+  "immutable_rows_checked": 100,
+  "excluded_rows": 189,
+  "distinct_ids": 100,
+  "errors": [],
+  "notes": [],
+  "scope": "Immutable/exclusion/category-node/family and known physical-default consistency checks. Source category/roles are supported by per-packet primary peer reviews; no blanket claim of new direct primary fetch for all100."
+}
